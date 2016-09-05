@@ -1,0 +1,433 @@
+﻿1
+00:00:00,520 --> 00:00:05,760
+Hello. Welcome to the fourth sequence
+on inheritance and lookup.
+
+2
+00:00:06,360 --> 00:00:11,360
+We will now learn what happens when
+the algorithm does not find a method.
+
+3
+00:00:11,800 --> 00:00:13,120
+As you will see,
+
+4
+00:00:14,360 --> 00:00:18,440
+the class codes
+can add processing in this case,
+
+5
+00:00:18,920 --> 00:00:23,000
+to handle the fact
+that a lookup message
+
+6
+00:00:23,160 --> 00:00:24,920
+was not understood.
+
+7
+00:00:25,600 --> 00:00:28,680
+I'll review message-sending briefly:
+
+8
+00:00:29,520 --> 00:00:33,400
+The "area" message is sent
+to ColoredRectangle.
+
+9
+00:00:33,760 --> 00:00:38,800
+First, the algorithm looks up
+the method matching the message.
+
+10
+00:00:39,160 --> 00:00:43,360
+It starts by searching for the method
+in the receiver's class:
+
+11
+00:00:43,800 --> 00:00:47,400
+If it finds "area" in ColoredRectangle,
+it executes it.
+
+12
+00:00:47,720 --> 00:00:51,760
+But "area" is not there,
+so the algorithm searches the superclass
+
+13
+00:00:52,120 --> 00:00:54,520
+In "Rectangle," it finds "area."
+
+14
+00:00:55,640 --> 00:00:58,680
+The method is executed on the receiver.
+
+15
+00:01:00,680 --> 00:01:04,120
+What happens in the total absence
+of an "area" method?
+
+16
+00:01:04,440 --> 00:01:07,120
+What if the lookup fails?
+
+17
+00:01:08,040 --> 00:01:13,160
+Here is an example: a "coucou" message
+is sent to Object Node 1.
+
+18
+00:01:13,800 --> 00:01:16,640
+"Coucou" cannot be found
+in the hierarchy.
+
+19
+00:01:16,960 --> 00:01:20,280
+The "coucou" message is sent to Node 1.
+
+20
+00:01:20,600 --> 00:01:24,360
+The algorithm fails to find "coucou"
+in "Node."
+
+21
+00:01:24,720 --> 00:01:27,960
+Next, the algorithm searches
+"Object." No "coucou"
+
+22
+00:01:28,120 --> 00:01:29,440
+At that point,
+
+23
+00:01:29,840 --> 00:01:34,880
+the Pharo virtual machine
+sends a "does not understand" message
+
+24
+00:01:35,320 --> 00:01:38,520
+to the receiver - Node 1.
+
+25
+00:01:40,360 --> 00:01:43,320
+DNU = Does Not Understand.
+
+26
+00:01:43,880 --> 00:01:47,600
+It transfers the initial message
+as a parameter.
+
+27
+00:01:48,480 --> 00:01:50,520
+This is the parameter: "coucou stef."
+
+28
+00:01:50,840 --> 00:01:53,800
+If I go through it again step by step,
+
+29
+00:01:54,240 --> 00:01:57,880
+"Coucou" is sent to Node 1.
+A match is sought in the class,
+
+30
+00:01:59,080 --> 00:02:01,040
+then in the superclass.
+
+31
+00:02:01,200 --> 00:02:05,920
+"Coucou" is not there, so the message
+"does not understand" is resent
+
+32
+00:02:06,160 --> 00:02:08,200
+to Object Node 1.
+
+33
+00:02:09,000 --> 00:02:12,640
+The algorithm looks up the method
+"does not understand."
+
+34
+00:02:12,880 --> 00:02:14,200
+in Node 1 class.
+
+35
+00:02:14,800 --> 00:02:19,960
+Not finding a match there, the algorithm
+searches the superclass.
+
+36
+00:02:20,600 --> 00:02:22,680
+It is located there.
+
+37
+00:02:22,840 --> 00:02:27,080
+A "does not understand" method
+is found in Object and executed.
+
+38
+00:02:27,440 --> 00:02:29,480
+That means
+
+39
+00:02:29,960 --> 00:02:32,000
+in all the subclasses of Object,
+
+40
+00:02:32,360 --> 00:02:34,800
+"does not understand"
+can be implemented
+
+41
+00:02:34,960 --> 00:02:38,360
+to trigger a specific behavior
+
+42
+00:02:39,200 --> 00:02:43,640
+when an object, instance, or class
+does not understand a message.
+
+43
+00:02:44,480 --> 00:02:46,880
+This slide shows the details,
+
+44
+00:02:47,200 --> 00:02:50,680
+step by step.
+
+45
+00:02:51,400 --> 00:02:54,280
+"Does not understand" is a message
+like any other.
+
+46
+00:02:54,560 --> 00:02:58,960
+Therefore, you can implement
+a "DNU" method to be executed
+
+47
+00:02:59,400 --> 00:03:03,200
+whenever an instance
+does not understand a message.
+
+48
+00:03:03,760 --> 00:03:05,160
+This mechanism is used
+
+49
+00:03:05,800 --> 00:03:09,760
+in certain somewhat complicated cases
+
+50
+00:03:10,120 --> 00:03:12,880
+like proxies and automatic delegation:
+
+51
+00:03:13,560 --> 00:03:17,800
+when you want a certain object
+to transmit all the messages it gets
+
+52
+00:03:17,960 --> 00:03:19,680
+to another object.
+
+53
+00:03:19,840 --> 00:03:23,200
+The "does not understand" mechanism
+can be used for that.
+
+54
+00:03:24,040 --> 00:03:27,400
+Default implementation
+of "does not understand" is found
+
+55
+00:03:27,560 --> 00:03:28,640
+in the Object class.
+
+56
+00:03:29,000 --> 00:03:32,200
+It raises one exception.
+
+57
+00:03:33,000 --> 00:03:34,240
+The exception
+
+58
+00:03:35,080 --> 00:03:38,280
+is called "Message Not Understood."
+
+59
+00:03:38,640 --> 00:03:41,760
+So if the "DNU" method
+of the Object class
+
+60
+00:03:41,920 --> 00:03:44,680
+is executed, an exception is raised.
+
+61
+00:03:45,240 --> 00:03:49,600
+That means the code you are writing
+can catch the exception,
+
+62
+00:03:49,920 --> 00:03:52,640
+the way it would catch any exception.
+
+63
+00:03:52,880 --> 00:03:57,520
+The exception opens a debugger
+for messages that are not understood.
+
+64
+00:03:58,040 --> 00:03:59,440
+In this example,
+
+65
+00:04:00,080 --> 00:04:02,640
+we return to the class "Node."
+
+66
+00:04:02,960 --> 00:04:07,120
+We have a "say hello" method in Node,
+which sends a "coucou" message
+
+67
+00:04:07,600 --> 00:04:09,480
+to the receiver or self.
+
+68
+00:04:10,760 --> 00:04:12,760
+There's also a "welcome" method
+
+69
+00:04:13,120 --> 00:04:16,280
+that sends a "say hello" message
+to self.
+
+70
+00:04:16,680 --> 00:04:20,600
+It provides special handling
+in the context
+
+71
+00:04:21,360 --> 00:04:23,280
+of a misunderstood message.
+
+72
+00:04:23,600 --> 00:04:28,600
+If a message is not understood,
+it will be handled.
+
+73
+00:04:28,760 --> 00:04:32,000
+Here, "say hello"
+sends a "coucou" message to self.
+
+74
+00:04:32,160 --> 00:04:34,280
+"Coucou" is still unimplemented.
+
+75
+00:04:34,880 --> 00:04:37,640
+Ultimately,
+the "does not understand" method
+
+76
+00:04:38,000 --> 00:04:40,920
+will be executed.
+
+77
+00:04:41,560 --> 00:04:45,240
+The "message not understood"
+exception will be raised.
+
+78
+00:04:46,120 --> 00:04:48,280
+The code here, following on/do,
+
+79
+00:04:48,680 --> 00:04:52,560
+is used to catch exceptions,
+like "try/catch" in Java.
+
+80
+00:04:52,960 --> 00:04:56,800
+A later sequence of the course
+will go into these exceptions.
+
+81
+00:04:57,880 --> 00:05:00,800
+The point here is to notice
+that this code
+
+82
+00:05:00,960 --> 00:05:05,720
+is the same as Java's "catch," and
+it will be executed for every exception.
+
+83
+00:05:06,640 --> 00:05:09,280
+Say we send the message "welcome"
+
+84
+00:05:10,440 --> 00:05:11,840
+to Node 1.
+
+85
+00:05:12,000 --> 00:05:14,080
+Knowing that "coucou"
+is not implemented,
+
+86
+00:05:14,520 --> 00:05:18,520
+the console will display "something
+went wrong with the message."
+
+87
+00:05:19,440 --> 00:05:20,640
+What you should know:
+
+88
+00:05:22,680 --> 00:05:27,240
+When the lookup algorithm does not find
+a method to match a message,
+
+89
+00:05:27,560 --> 00:05:31,440
+a "does not understand" message is sent
+to the initial receiver,
+
+90
+00:05:31,600 --> 00:05:33,760
+with the first message as a parameter.
+
+91
+00:05:34,360 --> 00:05:37,520
+Each class can implement this method.
+
+92
+00:05:37,800 --> 00:05:41,840
+The default implementation in the Object
+class will be executed.
+
+93
+00:05:42,080 --> 00:05:45,200
+This default implementation
+raises an exception,
+
+94
+00:05:45,440 --> 00:05:47,400
+called "message not understood."
+
+95
+00:05:47,560 --> 00:05:50,560
+The code you are writing can catch
+the exception
+
+96
+00:05:50,720 --> 00:05:53,200
+and subject it to debugging.

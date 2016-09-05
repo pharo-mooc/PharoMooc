@@ -1,0 +1,678 @@
+% $Author: ducasse $
+% $Date: 2005/05/16 13:37:26 $
+% $Revision: 1.1.1.1 $
+
+\ifx\wholebook\relax\else
+\input{../Common.tex}
+\begin{document}
+\fi
+
+\newcommand{\extattr}{\textsc{Extensible Attributes}\xspace}
+\newcommand{\artacc}{\textsc{Artificial Accessors}\xspace}
+%\newcommand{\genacc}{\textsc{Generated Accessors}\xspace}
+\newcommand{\artdel}{\textsc{Artificial Delegation}\xspace}
+\newcommand{\cacext}{\textsc{Cached Extensibility}\xspace}
+\newcommand{\selsyn}{\textsc{Selector Synthesis}\xspace}
+
+\chapter{Implementing Scaffolding Patterns}
+
+The following is an excerpt from Expedient Smalltalk Programming
+"Smalltalk Scaffolding Patterns" Jim Doble, Allen Telecom Systems, Ken Auer, President, RoleModel Software, Inc. published in Patterns for Rapid-Prototyping in Smalltalk written with Jim Doble for the PLoP'97 conference and eventually published in Pattern Languages of Program Design 4 and available at: http://www.role\-model\-software.com/more\-AboutUs/pu\-blications/articles/scaffold.php
+
+The goal of the current exercise is to write the code to implement the presented scaffolding patterns. Therefore read them and follow the instructions. 
+
+
+
+\section{Introduction}
+
+
+\begin{quote}"Get it right the first time that's the main thing…" 
+Billy Joel [Joel77]\end{quote}
+
+
+Billy Joel's credo is compelling. Then again, it's quite possible that Billy Joel has never written a lick of software in his life! And he's probably happier for it because software is notoriously difficult to get right the first time. Any software development plan that assumes software can be completed right the first time fails to recognize the experimental nature of software development. For a software design team, the course of a project is a learning experience. If an important bit of learning, such as discovery of requirements misunderstandings or design inadequacies, occurs too late in the project, the result can be project failure.
+
+
+Prototyping tackles this issue head-on. The goal of prototyping is to carry out development experiments designed to allow important learning to occur earlier in the project cycle. By moving this learning forward in time, the development team has time to react to what is learned, and the risk of project failure is significantly reduced. Unfortunately, when projects are under significant schedule pressure, expenditure of time and resources on prototyping, rather than the final product, is counter-intuitive. As a result, prototyping usually needs to be done in a hurry, or it will not be done at all.
+
+
+Since the goal of prototyping is learning, the key to rapid prototyping is a ruthless focus on what you are trying to learn, at the expense of everything else. This requires designers to maintain a clear mental separation between the essence of their experiment and the scaffolding necessary to complete it. If the goal of a prototyping effort is to validate some design concepts, those design concepts need to be represented faithfully, but anything else is scaffolding and should be implemented in the most expedient means available. If the only goal is clarification of requirements, the entire implementation is scaffolding, because the focus of the experiment is functionality, not how that functionality should be implemented.
+
+
+Smalltalk is an ideal language for rapid prototyping due to its economy of expression and interpreted execution, which allows a rapid code/test cycle, along with its extensive available class libraries which assist with rapid creation of both design essence and scaffolding. This paper presents a small set of patterns that have proven to be useful in the rapid development of prototypes using Smalltalk. The primary goal of these patterns is simple expedience. Expedience can be achieved in multiple ways:
+
+\begin{itemize}
+\item Reducing the amount of code that needs to  be typed.
+
+\item Automatic generation of code.
+
+\item Reducing the probability of coding errors,  and the associated test/debug time.
+
+\item Reducing the time and delays associated  with communication and coordination between team members  in a multi-person prototyping effort.
+\end{itemize}
+
+We call these patterns "scaffolding patterns" because they are particularly well suited to the development of the scaffolding required for rapid prototyping. Some of the artifacts of these patterns may well be suited to production code. In highly dynamic systems such as reflective architectures [Foote88] or certain black-box frameworks [Yoder97] some of the patterns themselves are viable through production. Yet, in most software development, the negative impacts these patterns have on clarity and maintainability (described in the Consequences section for each pattern) begin to overshadow the benefits of expediency as the focus shifts from exploration to production.
+
+
+Although the patterns presented in this paper can be applied to single-person or team prototyping projects, some of the patterns are most ideally suited to teams (indicated in the Context section for each pattern).
+
+
+\subsection{Patterns Summary}
+The patterns described in this paper include the following:
+
+\begin{itemize}
+\item \extattr adds attributes to an object without modifying  the object's class.
+
+\item \artacc emulates accessor methods for an object's   \extattr, without adding these methods to the object's class.
+
+%\item \genacc automatically generates accessor methods for  attributes defined in a class.
+
+\item \artdel allows an object to delegate an operation to  one of its attributes, without modifying the delegating  object's class.
+
+\item \cacext automatically generates attributes, accessors,  and/or delegation methods as they are used.
+
+\item \selsyn provides an expedient means for a  state-dependent object to dispatch to a specific handler  method based on state and event.
+\end{itemize}
+
+The context and consequences sections of each describe when a particular pattern is appropriate and the conditions under which one pattern might lead to another.
+
+
+Some of which led to systems that are in production today. The authors have also come across many other Smalltalk developers who have used one or more of these patterns in their prototyping efforts. However pointing to particular systems to direct one to these patterns is analogous to pointing to the Golden Gate Bridge to discover how one might use a ladder. When the system is done, the scaffolding has been removed, as are any real traces that it ever was present.
+
+
+%\section{Smalltalk Introduction}
+
+%
+%This paper has been written for experienced Smalltalk developers. However, a brief introduction to some Smalltalk concepts and facilities may help those with little or no Smalltalk experience to understand the patterns.
+
+%
+%Smalltalk programming environments provide  a common set of "collection classes", including  a String class, a Symbol class and a Dictionary class.  Strings are familiar to most programmers. A symbol is  essentially a string constant. Strings can be converted  to symbols and symbols to strings using simple conversion  methods:\\[2cm]
+
+%
+%\begin{scode}
+%aString asSymbol
+%aSymbol asString
+%\end{scode}
+
+%The \ct{Dictionary} class implements an  associative memory, associating keys of any class with values  of any class. For example, \ct{aDictionary at: \#car put:  'Toyota'} associates a symbol key (\#car) with a string value  ('Toyota').
+
+%If a message is sent to an object whose  class (including its superclasses) does not have a  corresponding method, a special method, named doesNotUnderstand: is invoked. Normally, this method is provided  in the Object class (which is the ultimate superclass for all classes) but a class can override this  method to provide special handling.
+
+%Smalltalk provides facilities for  accessing and modifying information about a class at  runtime. For example, \ct{aClass instVarNames} returns a list of instance variables  defined for a class, \ct{aClass includesSelector:  aSymbol}
+%determines whether or not a class contains  a method corresponding to aSymbol, and \ct{aClass compile: aString  classified: aSymbol} adds a method whose code is defined by the  contents of aString to a class, adding the method to the protocol  specified by aSymbol.
+
+%Smalltalk allows a message to be sent to  an object directly,
+%\ct{anObject aMessage} or indirectly, using the \ct{perform:} method: \ct{anObject perform: \#aMessage}
+
+%
+
+%
+
+%In either case, this causes the method  corresponding with aMessage to be executed.
+
+%
+
+\section{Pattern: \extattr}
+
+
+\subsection*{Context:}
+
+
+You are participating in a multi-person prototyping effort where each designer has been assigned an area of focus. You are introducing a class within a prototype, and you anticipate that other designers will want to add additional attributes to your class as the prototype grows.
+
+
+\subsection*{Problem:}
+
+
+How can you minimize the effort required to add additional attributes to the class?
+
+
+\subsection*{Forces:}
+
+\begin{itemize}
+\item It is easy to add an attribute to a  Smalltalk class, provided that you are allowed to change  the class.
+
+\item Communication and coordination effort is  required to change a class if you are not the class  owner.
+
+\item Requesting a coworker to change a class is  no problem as long as the coworker is available at the  moment you need him/her, and you can access the changed  class immediately once the change has been completed.
+
+\item Coworkers may be unavailable when you need  a change, resulting in delays or time-wasting work-arounds.
+\end{itemize}
+
+
+
+\subsection*{Solution:}
+
+
+Add a dictionary attribute to your class that can be used to store additional attributes against symbol keys. Provide an accessor for the dictionary so that other classes can access additional attributes as follows:
+
+\ct{anExtensibleObject  attributesDictionary at: \#attributeName put: value.}
+or \ct{value := anExtensibleObject  attributesDictionary at: \#attributeName}
+
+
+
+\subsection*{Rationale:}
+
+
+This approach allows other prototypers to add and access additional attributes without needing to change your class definition. Note that this approach is only useful in cases where the class is required to carry the additional attributes about, but does not require additional methods, or if you are using a tool that allows you to partition additional methods cleanly (e.g. ENVY®/Developer). Examples where this approach is especially applicable include information records (such as database records) and protocol messages. This is also very useful when using a persistence strategy such as GemStone® where adding attributes in standard fashions while maintaining existing data can be relatively time-consuming.
+
+
+\subsection*{Consequences:}
+
+
+It is easy to add additional attributes to an extensible class, but users of this class must access these attributes in a unique way (i.e. through the attributes dictionary). As a result, users need to know which attributes in a class are normal (i.e. accessed using normal accessors) and which attributes are extended. If an extended attribute is converted to a normal attribute, user's code must be changed. Additionally, the performance hit taken from accessing these attributes via a dictionary versus explicit instance variables can be perceptible in contexts where the attribute is accessed repeatedly. Since the context is one where expediency reigns over performance, this is mostly irrelevant until the context changes. Then traditional techniques for these attributes (e.g. explicit instance variables) may be used.
+
+
+As a result of these consequences, it is recommended that this pattern be used in combination with either \artacc or \cacext.
+
+\subsection*{Related Patterns:}
+
+
+This implementation of \extattr is identical to that of VARIABLE STATE [Beck96]. Kent Beck suggests VARIABLE STATE as a means to deal with classes that have instance variables "whose presence varies from instance to instance." \extattr is not focused on allowing instances of the same class to have different attributes (although clearly this can be supported), but rather the addition of attributes to all instances of a class without modifying the class itself.
+
+
+
+
+
+\section{Pattern: \artacc}
+
+\subsection*{Context:}
+You are participating in a multi-person prototyping effort where each designer has been assigned an area of focus, and are designing a class within a prototype and have applied \extattr so that other designers can dynamically add other attributes to your class as the prototype grows.
+
+
+\subsection*{Problem:}
+
+
+How do you make it easier for other classes to access your extended attributes?
+
+
+\subsection*{Forces:}
+
+\begin{itemize}
+\item \extattr provide an expedient  means to add attributes to another class.
+
+\item Code that accesses extended attributes can  be messy due to the need to access them through the  dictionary.
+
+\item If extended attributes are changed to  normal attributes during the course of prototyping, code  which accesses these attributes through the attribute  dictionary will need to be changed.
+\end{itemize}
+
+
+\subsection*{Solution:}
+
+
+Simulate the presence of accessors for the extended attributes by overriding the doesNotUnderstand: method, and using the selector which was not understood (with the ":" removed in the case of a setter method) as the key into the attributes dictionary. Thus within the doesNotUnderstand: method,
+
+
+
+\ct{anExtensibleObject widgets: 4}
+will be converted to
+\ct{self attributesDictionary at:  \#widgets put: 4}
+and
+\ct{anExtensibleObject widgets}
+will be converted to \ct{\^{}self attributesDictionary at:  \#widgets}
+
+
+
+\subsection*{Rationale:}
+This approach provides all of the advantages of \extattr, but uses the syntax of normal attributes, simplifying access to these attributes and hiding the fact that \extattr have been used. Over the course of the prototyping effort, the class owner can changes extended attributes to normal attributes and provide normal accessors, without needing to modify the class's collaborators. %\genacc or% \cacext can be used to facilitate this process.
+
+
+\subsection*{Consequences:}
+
+
+This approach effectively hides the distinction between normal and extended attributes. However, it is important to remember that the pseudo accessor methods do not actually exist, which can lead to confusion when you are trying to trace method calls or browse implementors. If it is desired to make these accessors visible and the environment is such that the addition of methods without explicit communication is permissible, consider using \cacext. Alternatively, consider also overriding the respondsTo: or canUnderstand: method of classes which apply this pattern to further hide the fact that methods don't exist for messages that the object can handle. Note however, that this is only useful when other classes (scaffolding or otherwise) exploit these rarely used features with respect to the class(es) that employ this pattern.
+
+
+Note that the use of \ct{doesNotUnderstand:}adds an additional performance hit to the already suspect \extattr that may sometimes be perceptible. Since the context is one where expediency reigns over performance, this is mostly irrelevant until the context changes. Then traditional techniques for these attributes (e.g., explicit instance variables) may be used. Alternatively, if the new context allows migration to \cacext this additional overhead goes away.
+
+
+
+
+%\section{Pattern: \genacc}
+%
+%
+%\subsection*{Context:}
+%
+%
+%You are developing a prototype and are introducing a class that has a number of normal (i.e. not %extended) attributes, or are adding normal attributes to an existing class.
+%
+
+%\subsection*{Problem:}
+
+%
+%How can you minimize the effort required to make the attributes functional?
+
+%
+%\subsection*{Forces:}
+
+%\begin{itemize}
+%\item Common practice is to have accessors  (getters and setters) to attributes which may or may not  be public [Auer95].
+
+%\item Certain types of attributes also typically  have other simple methods that are straightforward.
+
+%\item Smalltalk is untyped so there is no  prescribed way to declare the types of these attributes.
+
+%\item We are learning nothing from writing these  simple methods, so they are basically scaffolding.
+
+%\item Writing these methods are simple but take  time to create and are prone to human error (typos,  forgetting to return a value, etc.).
+
+%\item The compiler is accessible, as are the  names of attributes of a class.
+%\end{itemize}
+
+%
+%\subsection*{Solution:}
+
+%
+%Write a quick code generator that generates standard "missing" accessors for the attributes of a class. Use standard suffixes for attributes to indicate special types. Use this suffix to direct which types of accessors should be generated. For example, the instance variables named: thing, nameHolder, choicesSIL, phoneNumberCollection, might indicate types of Object, ValueModel, SelectionInList, Collection. The methods thing, thing:, nameHolder, nameHolder:, name, name:, choicesSIL, choicesSIL:, choicesSelection, choicesSelection:, choicesList, choicesList:, phoneNumberCollection, phoneNumberCollection:, addPhoneNumber:, removePhoneNumber, could all be generated automatically.
+
+%
+%\subsection*{Rationale:}
+
+%
+%Why spend unnecessary time typing? We don't typically spend a lot of time documenting code (especially trivial code) during prototyping so generating the defaults gets the trivial work done without losing much. If the generated code is insufficient, it can always be corrected/enhanced at least as fast as it would take to write them by hand in the first place. The bottom line is that the time it takes to write the accessor generator will probably pay for itself after being used only a handful of times.
+
+%
+%\subsection*{Consequences:}
+
+%
+%By automatically generating accessor methods for all of our attributes, we may generate methods that are never used. However, such methods are not really a distraction during prototyping, and can be removed easily if doing so adds value. In addition, when using this approach, you should take care not to overwrite existing hand-generated methods. If care is taken in creating the accessor generator, much of the code it produces may actually be of production quality. Yet, in this context we should remember that this potentially beneficial side-effect is not the main goal of creating and using the generator.
+
+%
+%\subsection*{Coding Example:}
+
+%
+%In the interest of brevity, we only include the most basic methods for a code generation suite. [However it is still lengthy… you may want to skip to the next pattern or download the code]. This could easily be extended to detect the presumed type of the instance variable and generate additional auxiliary accessor methods as alluded to above. The example below is functional for standard VisualWorks®. All methods should be interpreted as methods for the class ClassDescription (or Behavior). Alternatively, they could have less far reaching effects as methods of any individual class. It could easily be tweaked for other dialects and/or tools.
+
+
+
+\section{Pattern: \artdel}
+
+
+\subsection*{Context:}
+
+
+You are participating in a multi-person prototyping effort where each designer has been assigned an area of focus, and are implementing a class that delegates specific operations to specific attributes. You anticipate that other designers will want to add additional attributes and delegated operations to your class as the prototype grows.
+
+
+\subsection*{Problem:}
+
+
+How do you prepare for additional delegated operations with minimal effort?
+
+
+\subsection*{Forces:}
+
+
+Addition of a delegated operation will  typically require addition of a method to the delegator  as follows:
+
+\begin{scode}
+anOperation
+        \^{}self delegate anOperation.
+\end{scode}
+
+\begin{itemize}
+\item Smalltalk (out of the box) does not  support multiple inheritance or other mechanisms that  would easily get the effect of delegation.
+
+\item We are learning little from writing these  simple methods, so they are basically scaffolding.
+
+\item Writing these methods are simple but take  time to create and are prone to human error (typos,  forgetting to return a value, etc.).
+
+\item The compiler is accessible, as are the  attributes of a class and whether or not the attributes  understand a particular message.
+
+\item Communication and coordination effort are  required to change a class if the person needing the  change is not the class owner.
+\end{itemize}
+
+
+\subsection*{Solution:}
+
+
+Override the doesNotUnderstand: method of the delegator class to iterate through its attributes looking for an attribute which supports the method selector which was not understood. The first attribute found which supports the method selector is assumed to be the delegate.
+
+
+\subsection*{Rationale:}
+
+
+This approach allows delegated operations to be added to a class without needing to modify the class itself. In addition to its expediency with respect to normal attributes, this approach is particularly easy to use when \extattr has been applied as the delegator can simply iterate through the values in its attribute dictionary.
+
+
+\subsection*{Consequences:}
+
+
+\artdel is hidden in the doesNotUnderstand: method, which can lead to confusion when you are trying to trace method calls or browse implementors. If it is desired to make this delegation visible and the environment is such that the addition of methods without explicit communication is permissible, consider using \cacext. Alternatively, as with \artacc, consider also overriding the respondsTo: or canUnderstand: method of classes that apply this pattern to further hide the fact that methods don't exist for messages that the object can handle. Note however, that this is only useful when other classes (scaffolding or otherwise) exploit these rarely used features with respect to the class(es) that employ this pattern.
+
+
+Extensive use of \artdel versus explicit delegation can add potentially noticeable performance hits due to the overhead of the doesNotUnderstand: mechanism. Again, we only use this pattern when expediency overrides these issues. If the context later allows migration to \cacext this additional overhead goes away.
+
+
+Although it is usually not the case, \artdel and \artacc can be used in the same class at the same time as long as some means is provided for the doesNotUnderstand: method to distinguish between delegated operations and \artacc. One way to do this would be to prefix all accessor methods with "get" or "set". The doesNotUnderstand: method could then assume that method selectors beginning with "get" or "set" are associated with \artacc, while all others are for \artdel. Alternatively, one can look for delegators first, and treat not understood messages as an ARTIFICIAL ACCESSOR only as a last resort.
+
+
+%\subsection*{Coding Example:}
+
+%
+%The following example demonstrates automatic delegation to attributes defined explicitly in a class. This could easily be extended to also support delegation to extended attributes.
+
+
+
+
+\section{Pattern: \cacext}
+
+
+\subsection*{Context:}
+
+
+You are developing a prototype and have implemented \artacc, \artdel, or other automatic functionality via overriding doesNotUnderstand:. As class owner, you would now like to identify how these facilities are being used to determine what the class is actually doing (as opposed to what methods you can see).
+
+
+\subsection*{Problem:}
+
+
+How do you explicitly identify the implicit behavior defined by the actual use of a class or its instances and make it part of the explicit behavior of the class?
+
+
+\subsection*{Forces:}
+
+
+Asking everyone (including yourself) what  they've done to your class via "automatic  facilities" is time-consuming and error-prone.
+
+If you ignore the fact that people are  using the facilities you've provided, you may miss out on  some essential point about the class, defeating the  purpose of prototyping.
+
+Automatic facilities can introduce  unnecessary performance problems, and it may be important  to know whether perceived performance problems are due to  these facilities or some fundamental flaw in the class.
+
+Traditional debugging techniques (like  Transcript show: ) might offer some benefit, but will be  difficult to trace and are only temporary, leaving no  permanent record of the virtual methods.
+
+
+
+\subsection*{Solution:}
+
+
+Again, override the doesNotUnderstand: method, substituting code to generate explicit methods for the virtual methods that are invoked the first time the implicit message is sent. As these facilities are used, the class will reveal how via the methods generated. One can then examine these methods and their senders to determine both what is happening and what could be done better.
+
+
+\subsection*{Rationale:}
+
+
+Again, the time spent writing generic code to write common code patterns will quickly pay for itself. The quickly thrown up scaffolding which gives developers "automatic" functionality can be torn down just as quickly and replaced with new scaffolding which provides a different service.
+
+
+\subsection*{Consequences:}
+
+
+At first glance, this pattern seems to overcome the negative consequences of patterns such as \artacc or \artdel, by generating the necessary code as it is needed. However, it is important to note that this approach only generates code for methods that are executed, not for all methods that could potentially be executed. As such, the actual methods that are generated will be dependent on the extent to which the prototype is exercised during (usually informal) testing. Also in a configuration controlled environment, such as ENVY, determining the home of methods desired by non-owners may not always be trivial, and \artacc postpones the necessity of addressing this issue.
+
+
+\cacext cannot be used simultaneously with \artacc or \artdel because they handle the same doesNotUnderstand: conditions differently. However, they can be used sequentially, starting out with \artacc and \artdel, then switching to \cacext (by modifying or replacing the doesNotUnderstand: method) when the owner is ready to transition to explicit code.
+
+
+%\subsection*{Coding Example:}
+
+%
+%The following example illustrates how to turn \artdel into explicit delegation. It is functional for VisualWorks with ENVY/Developer, but could be easily adapted for other dialects/tools. [since it is a bit lengthy… you may want to skip to the next pattern]. Note that the doesNotUnderstand: and delegateGetters methods could appear in any class. The createMethodFor:delegatingTo:from: method need only be implemented once, in ClassDescription. Similar code could be written to make explicit attributes and accessors for \extattr and \artacc. Of course, the two are not mutually exclusive and many variants of the doesNotUnderstand: method could be created to provide appropriate solutions for specific needs.
+
+
+
+
+\section{Pattern: \selsyn}
+
+
+\subsection*{Context:}
+
+
+You are developing a prototype and are designing a class that needs to change its behavior (i.e. how it handles particular events) based on its state. You expect that additional states and events will be added to your class as the prototype grows.
+
+
+\subsection*{Problem:}
+
+
+How can you implement a state-dependent object with minimal effort?
+
+
+\subsection*{Forces:}
+
+\begin{itemize}
+\item The STATE pattern [GOF94] provides an  elegant solution for implementing state-dependent  objects, but it involves defining a new class for each  state, resulting in a lot of typing.
+
+\item In a prototyping effort, while the  state-dependent objects overall behavior is typically  important to the essence of the experiment, how this  state dependence is implemented is unimportant (i.e.  scaffolding).
+\end{itemize}
+
+
+
+\subsection*{Solution:}
+
+
+Define states and events as symbols. For a given event/state pair synthesize a method selector by concatenating the state and event symbols, then dispatch based on the resulting selector as follows:
+
+\begin{scode}selector := 'handle', anEvent asString, 'In', aState asString.
+self perform: selector asSymbol.
+\end{scode}
+
+
+For each supported state/event combination provide an appropriately-named handler method. State/Event combinations that are not supported can be detected in the doesNotUnderstand: method and routed to a default handler.
+
+
+\subsection*{Rationale:}
+
+
+Once \selsyn has been implemented all it takes to implement new states, events or state/event combinations is to add appropriately-named handler methods. There is no additional dispatch code to write or classes to create.
+
+
+\subsection*{Consequences:}
+
+
+State/Event handler methods are never explicitly called (i.e. browsing senders will come up empty). On the other hand figuring out where the calls are coming from shouldn't be a big problem as long as the prototyping team is familiar with the pattern.
+
+
+The combination of the use of doesNotUnderstand: and the runtime creation of Symbols can sometimes cause a perceptible performance hit. As long as the identification of the state transitions are the focus versus the performance of those transitions, this is irrelevant.
+
+
+\selsyn can be used at the same time as \artacc and \artdel as long as some means is provided for the doesNotUnderstand: method to distinguish unimplemented state/event handlers. One way to do this would be to assume that all state/event handler method names begin with "handle".
+
+
+\subsection*{Related Patterns}
+
+
+A number of patterns, including STATE [GOF94] and STATE ACTION MAPPER [Palfinger97] also address the issue of state-dependent object behavior. \selsyn has the advantage of expedience, but these other patterns may be better suited to production software.
+
+
+\section{Conclusions}
+
+
+The patterns in this paper all take advantage of capabilities inherent in the Smalltalk environment to facilitate rapid prototyping. There are a number of relationships between these patterns:
+
+
+\extattr and \artacc  should be used together.
+
+%\genacc is an alternative to  \extattr/\artacc, which can be used on  a single person prototyping effort, or when the person  adding attributes is (or is authorized by) the class  owner.
+
+\artdel and \selsyn are  special-purpose patterns, applicable primarily to  specific design situations (i.e. responsibility  delegation, and state-dependent behaviour).
+
+\cacext is essentially a "clean-up" pattern  improving on \artacc, \extattr, and \artdel by generating the  necessary method code as it is used.
+
+Scaffolding patterns, like scaffolding in a building, may be used for a while, then be torn down and thrown away. Notwithstanding, these patterns can play an important role in expediting prototype development, and it is in this way that they can make a meaningful contribution to the successful completion of software development projects.
+
+
+\section{Instructions}
+The goal of the exercise is to implement a trivial example for each of the scaffolding patterns. The example itself
+is not important, it can be as simple as you like. In the following, we provide some tips and examples (in
+the form of tests), but you are not forced to use them. If you think you have found a nicer example for a pattern, you can change the tests.
+
+In the following, we use SUnit tests for describing the goal of the exercises. SUnit is a small framework
+that makes  writing and running tests quite easy. The first Exercise will have a short introduction.
+
+\subsection{Interesting Classes and Methods}
+Have a look at the following methods. A solution for the exercises will at least need to use
+some of those.
+
+\begin{itemize}
+\item \ct{Object\sep{}instVarNamed:}
+\item \ct{Object\sep{}perform:}
+\item \ct{Object\sep{}perform:withArguments:}
+\item \ct{Object\sep{}respondsTo:}
+\item \ct{Object\sep{}doesNotUnderstand:}
+\item \ct{Behaviour\sep{}canUnderstand:}
+\item \ct{Behavior\sep{}allInstVarNames}
+\item \ct{ClassDescription\sep{}compile:classified: }
+\end{itemize}
+
+\subsection{Exercise 0: SUnit}
+Goal: write and run a simple SUnit testcase.
+First, make a new test class, something like this:
+
+\begin{scode}
+TestCase subclass: #ScaffoldingsTest
+         instanceVariableNames: ''
+         classVariableNames: ''
+         poolDictionaries: ''
+         category: 'Scaffolding'
+\end{scode}
+
+Then, add this method:
+
+\begin{scode}
+testMyFirstTest
+  self assert: (1 $<$ 2).
+  self deny: (2 $<$ 1).
+  self shouldnt: [ 1 + 2 ] raise: MessageNotUnderstood.
+\end{scode}
+
+Now open the TestRunner. Deselect all tests, select your testclass and press
+"run".  The TestRunner should be green.
+
+\subsection{Exercise1: Implementation \extattr }
+As a warm-up, the first exercise is to implement an example for \extattr.
+
+The following test should be green:
+
+\begin{scode}
+testExtensibleAttributes
+	
+    \stBar anExtensibleObject res \stBar
+    anExtensibleObject := ExtensibleAttributes new.
+	
+    anExtensibleObject attributesDictionary
+        at: #attributeName 
+        put: 4.
+    res := anExtensibleObject attributesDictionary at: #attributeName.
+    self assert: res = 4.
+\end{scode}
+
+\subsection{Exercise2: Implementation \artacc }
+Extend the class you implemented in the preceding exercise to use \artacc.
+
+A test for that would look like this:
+
+\begin{scode}
+testAtificialAcessors
+	
+    \stBar anExtensibleObject \stBar
+    anExtensibleObject := ArtificialAccessors  new.
+	
+    self shouldnt: [anExtensibleObject hallo: 4] 
+         raise: MessageNotUnderstood.
+    self assert: anExtensibleObject hallo = 4.
+
+    self should: [anExtensibleObject test] 
+         raise: MessageNotUnderstood.
+    self should: [anExtensibleObject test: 1 hallo: 2] 
+         raise: MessageNotUnderstood.
+\end{scode}
+
+\subsection{Exercise3: Implementation \artdel }
+The class \ct{ArtificialDelegation} has two instance variables: one is a color,
+the other one a collection. After implementing \artdel, a test like this
+one would pass:
+
+
+\begin{scode}
+testArtificialDelegation	
+	\stBar o \stBar
+	o := ArtificialDelegation new.
+	self deny: o isBlack.
+	o add: 1.
+	self assert: o last = 1.
+	self deny: (o respondsTo: #isBlack).
+	self deny: (o respondsTo: #last).
+	self deny: (o respondsTo: #add:).		
+\end{scode}
+
+
+\subsection{Exercise4: Implementation \selsyn }
+
+This pattern is useful for modelling state. The number one example for
+a statefull object is, of course, the traffic light. So as an example for the pattern, you can
+build one class that models the state of a trafic light. The state is kept as a Symbol in
+an instance variable. Switching state is done by calling the \ct{\#handle:} method with
+the parameter
+\begin{itemize}
+\item    \ct{\#Switch}: go to next state
+\item    \ct{\#Stay}:  don't change state
+\end{itemize}
+
+A test for this could look like:
+\begin{scode}
+testSelectorSynthesis
+      \stBar o \stBar
+      o := SelectorSynthesis new.
+      o state: #Red.
+      o handle: #Switch.
+      self assert: o state = #Green.
+      o handle: #Switch.
+      self assert: o state = #Red.
+      o handle: #Stay.
+      self assert: o state = #Red.
+\end{scode}
+
+\subsection{Exercise5: Implementation \cacext }
+This exercise builds upon Exercise 3. Instead of just only delegating to
+the instance variables, this time we want to generate the delegation methods on the fly.
+
+For that, you need to build the code of the delegation method as a String (or a Stream).
+Then compile and add it as a method to the class.
+
+\begin{scode}
+testCachedExtensibility
+
+	\stBar o \stBar
+	o := CachedExtensibility new.
+	
+	self deny: (CachedExtensibility canUnderstand: #isBlack).
+	self deny: (CachedExtensibility canUnderstand: #add:).		
+	self deny: (CachedExtensibility canUnderstand: #last).	
+
+	self deny: o isBlack.
+	o add: 1.
+	self assert: o last = 1.
+
+	self assert: (CachedExtensibility canUnderstand: #isBlack).
+	self assert: (CachedExtensibility canUnderstand: #add:).		
+	self assert: (CachedExtensibility canUnderstand: #last).
+
+	CachedExtensibility removeSelector: #isBlack.
+	CachedExtensibility removeSelector: #add:.
+	CachedExtensibility removeSelector: #last.	
+\end{scode}
+
+
+\section{References}
+
+\begin{itemize}
+\item [Joel77] Billy Joel, "The Stranger", (from the song, "Get It Right The First Time"), Columbia Records, 1977.
+
+
+\item[Foote88] Brian Foote, "Designing to Facilitate Change with Object-Oriented Frameworks", Masters Thesis, Department of Computer Science, University of Illinois at Urbana-Champaign, 1988 \\(http://www.laputan.org/dfc/discussion.html).
+
+
+\item[Yoder97] Joseph Yoder, "A Framework to build Financial Models" 
+
+\item[Beck96] Kent Beck, "Smalltalk Best Practice Patterns", Prentice-Hall, 1996 
+
+\item[Auer95] Ken Auer, "Reusability through Self Encapsulation", Chapter 27 in "Pattern Languages of Program Design", edited by Coplien \& Schmidt, Addison-Wesley, 1995.
+
+
+\item[GOF94] E. Gamma, R. Helm, R. Johnson, J. Vlissides, "Design Patterns: Elements of Reusable Object-Oriented Software", Addison-Wesley, 1994 (http://hillside.net/patterns/books/\#Gamma).
+
+
+\item[Palfinger97] Guenther Palfinger, "State Action Mapper", PLoP97 Proceedings, Washington University Technical Report \#wucs-97-34.
+\end{itemize}
+
+\ifx\wholebook\relax\else\end{document}\fi

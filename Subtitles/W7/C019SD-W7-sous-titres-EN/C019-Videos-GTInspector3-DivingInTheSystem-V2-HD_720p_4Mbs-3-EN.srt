@@ -1,0 +1,779 @@
+1
+00:00:01,540 --> 00:00:03,650
+In this video, 
+I’d like to show you
+
+2
+00:00:03,817 --> 00:00:08,710
+how we can use the inspector
+to navigate and
+
+3
+00:00:08,877 --> 00:00:09,620
+understand the inside of 
+the system.
+
+4
+00:00:10,880 --> 00:00:15,020
+The inspector is like 
+a microscope
+
+5
+00:00:15,187 --> 00:00:17,910
+that will enable us to go
+and explore the inside of
+
+6
+00:00:18,077 --> 00:00:21,190
+of the system but also, as if
+we could send probes 
+
+7
+00:00:21,357 --> 00:00:22,860
+to modify the system.
+It is as if we were
+
+8
+00:00:23,027 --> 00:00:26,940
+a biologist which is in fact manipulating 
+bacterias and making them react.
+
+9
+00:00:27,800 --> 00:00:32,240
+So we are gonna have fun exploring
+what are "Smalltalk globals".
+
+10
+00:00:34,910 --> 00:00:37,470
+In fact, this is the name space,
+it is to say, the place where
+
+11
+00:00:37,637 --> 00:00:40,050
+all Pharo classes are stored.
+
+12
+00:00:41,770 --> 00:00:44,000
+So it is a dictionary,
+the system dictionary is
+
+13
+00:00:44,167 --> 00:00:48,180
+a dictionary. What is interesting is
+that, with the inspector,
+
+14
+00:00:48,630 --> 00:00:53,540
+of I look the inspector, it is
+
+15
+00:00:53,707 --> 00:00:56,240
+a big table with
+
+16
+00:01:00,080 --> 00:01:00,860
+values inside.
+
+17
+00:01:01,027 --> 00:01:02,410
+So for example, if I choose…
+I don’t know… 
+
+18
+00:01:02,577 --> 00:01:06,770
+Breakpoint, I see that in my 
+table I have
+
+19
+00:01:07,680 --> 00:01:11,840
+a key containing at least an object
+that contains
+
+20
+00:01:12,710 --> 00:01:14,350
+this object, that contains a
+value key.
+
+21
+00:01:14,517 --> 00:01:16,190
+What is interesting with the
+inspector is that
+
+22
+00:01:16,357 --> 00:01:20,390
+here, for instance, I see
+that at element 2
+
+23
+00:01:20,557 --> 00:01:22,370
+in the table, what do I have?
+
+24
+00:01:22,537 --> 00:01:24,150
+I have what we call
+a global variable.
+
+25
+00:01:24,317 --> 00:01:26,150
+So a global variable, what
+is it?
+
+26
+00:01:26,317 --> 00:01:28,350
+It is an object composed of 
+a key and a value.
+
+27
+00:01:29,220 --> 00:01:33,040
+The key, if I click on it, I
+see 
+
+28
+00:01:33,207 --> 00:01:37,870
+that it is a ByteSymbol
+representing the name, and if
+
+29
+00:01:38,037 --> 00:01:42,720
+I go backward and I look at the
+
+30
+00:01:42,887 --> 00:01:44,820
+value, here I will have a class.
+
+31
+00:01:45,000 --> 00:01:47,520
+So we are going to go inside
+the classes.
+
+32
+00:01:48,000 --> 00:01:49,230
+Here I go back to the beginning.
+
+33
+00:01:50,460 --> 00:01:54,790
+The new Pharo inspector, 
+
+34
+00:01:55,670 --> 00:01:59,440
+named GT Inspector,
+after the developers
+
+35
+00:01:59,607 --> 00:02:03,380
+team who developed it for Pharo, 
+will propose
+
+36
+00:02:03,547 --> 00:02:05,220
+dedicated tabs.
+
+37
+00:02:06,610 --> 00:02:08,570
+On the system dictionary,
+what specific tabs 
+
+38
+00:02:08,737 --> 00:02:12,210
+do I have? I have the tab
+showing the pairs
+
+39
+00:02:12,377 --> 00:02:17,240
+key/value for my classes,
+
+40
+00:02:17,407 --> 00:02:18,220
+or I will only get the keys.
+
+41
+00:02:18,387 --> 00:02:20,340
+The keys are a little less
+interesting since I
+
+42
+00:02:20,507 --> 00:02:25,270
+will only have the classes names
+
+43
+00:02:25,437 --> 00:02:26,070
+in question.
+
+44
+00:02:26,237 --> 00:02:28,720
+Something nice also is that
+this  
+
+45
+00:02:28,887 --> 00:02:33,170
+inspector, you see that I can
+either browse, that means…
+
+46
+00:02:33,337 --> 00:02:34,730
+let’s take an example…
+
+47
+00:02:35,270 --> 00:02:39,410
+I have browsed, I go from an object
+to another by
+
+48
+00:02:39,620 --> 00:02:42,390
+selecting a path in the 
+structure in question.
+
+49
+00:02:42,940 --> 00:02:44,900
+If I consider the key for example,
+if I consider
+
+50
+00:02:45,067 --> 00:02:47,600
+the value, here I get the
+class and if on this
+
+51
+00:02:47,767 --> 00:02:49,420
+class, I go into its
+methods dictionary…
+
+52
+00:02:49,790 --> 00:02:53,730
+From the methods dictionary,
+I could go on a
+
+53
+00:02:53,897 --> 00:02:54,840
+compiled method etc.
+
+54
+00:02:55,007 --> 00:02:58,960
+I really browse and with
+this tool, I can
+
+55
+00:02:59,127 --> 00:03:03,810
+limit the view of what I want 
+to see or for example view all the flow.
+
+56
+00:03:04,510 --> 00:03:08,540
+But what is nice, it is that
+I can also add
+
+57
+00:03:08,940 --> 00:03:11,530
+a new branch in my flow.
+
+58
+00:03:12,130 --> 00:03:14,570
+That’s what we are going to do 
+here. So let’s imagine that
+
+59
+00:03:14,737 --> 00:03:16,300
+I minimize, I go back to the start.
+
+60
+00:03:18,070 --> 00:03:22,560
+Here finally, let’s imagine
+I say to myself: “I am
+
+61
+00:03:22,727 --> 00:03:24,530
+interested by the point class.”
+
+62
+00:03:24,920 --> 00:03:26,600
+I know that normally I can
+access
+
+63
+00:03:26,767 --> 00:03:29,050
+the point class by doing ”Smalltalk global"
+at #Point.
+
+64
+00:03:29,217 --> 00:03:31,890
+So here, I do it and I tell it
+
+65
+00:03:32,057 --> 00:03:36,670
+execute it and open an
+
+66
+00:03:36,837 --> 00:03:39,280
+inspector in the actual inspector.
+
+67
+00:03:41,340 --> 00:03:45,270
+And here, all of a sudden,
+if we look at
+
+68
+00:03:45,437 --> 00:03:50,230
+the navigation, I made
+a branching
+
+69
+00:03:50,580 --> 00:03:52,230
+between the navigation I had and
+the one I want to go to.
+
+70
+00:03:54,440 --> 00:03:56,380
+So this is nice, it means that
+you can type
+
+71
+00:03:56,547 --> 00:03:59,330
+lots of expressions
+and begin to the navigation.
+
+72
+00:04:00,760 --> 00:04:01,750
+So here, what do we see?
+
+73
+00:04:02,120 --> 00:04:04,520
+We see the point class as an object.
+
+74
+00:04:04,760 --> 00:04:09,000
+In fact, the inspector shows us
+
+75
+00:04:09,167 --> 00:04:12,400
+that there are tabs specific 
+to classes.
+
+76
+00:04:12,860 --> 00:04:17,490
+So here, the “Raw” tab shows
+
+77
+00:04:17,657 --> 00:04:20,030
+us that the Point class is defined
+in the
+
+78
+00:04:20,197 --> 00:04:23,760
+Kernel category, it has an 
+environment, it points on
+
+79
+00:04:24,010 --> 00:04:28,960
+the same space, this is the 
+encoding format of its
+
+80
+00:04:29,127 --> 00:04:30,470
+instances, it has a layout.
+
+81
+00:04:30,637 --> 00:04:35,520
+In short, this is the Pharo
+implementation of what a class is.
+
+82
+00:04:36,220 --> 00:04:38,920
+Now, what is really nice with 
+this inspector, it is 
+
+83
+00:04:39,087 --> 00:04:41,810
+that I can see, for example here
+the definition,
+
+84
+00:04:42,000 --> 00:04:46,790
+the comments and there are other
+tabs such as all the references.
+
+85
+00:04:46,957 --> 00:04:49,550
+So if I click on the reference,
+here I will see
+
+86
+00:04:49,717 --> 00:04:54,610
+that Point is really used
+
+87
+00:04:54,777 --> 00:04:56,000
+in the @ method.
+
+88
+00:04:57,200 --> 00:04:59,540
+I take a look once more,
+this is the raw
+
+89
+00:04:59,920 --> 00:05:02,500
+version of the information
+which is an object representing
+
+90
+00:05:02,667 --> 00:05:05,630
+a method and here its Source,
+so each time I can
+
+91
+00:05:05,797 --> 00:05:07,790
+choose which is the best
+
+92
+00:05:07,957 --> 00:05:09,770
+representation for the task
+I am doing.
+
+93
+00:05:10,440 --> 00:05:11,700
+So let's go backward.
+
+94
+00:05:13,440 --> 00:05:16,810
+If I look at
+
+95
+00:05:18,740 --> 00:05:21,950
+my class, here I would like 
+to go into the methods dictionary.
+
+96
+00:05:22,117 --> 00:05:25,660
+What is the methods dictionary?
+
+97
+00:05:25,827 --> 00:05:27,930
+It is a dictionary with a key
+which is the name of the
+
+98
+00:05:28,097 --> 00:05:31,870
+method and a value which is 
+a compiled method, 
+
+99
+00:05:32,037 --> 00:05:35,490
+an instance of CompileMethod.
+So if I looked at the raw
+
+100
+00:05:35,657 --> 00:05:37,730
+aspect, you see that it is
+a little more annoying
+
+101
+00:05:38,680 --> 00:05:43,540
+because I would have to
+understand how are
+
+102
+00:05:43,707 --> 00:05:45,820
+implemented the methods dictionaries
+in order to
+
+103
+00:05:46,000 --> 00:05:47,940
+interact with them, whereas here
+it is not what I'm interested in,
+
+104
+00:05:48,107 --> 00:05:49,420
+I want to look at a compiled method.
+
+105
+00:05:49,930 --> 00:05:51,460
+So to see a compiled method,
+
+106
+00:05:51,627 --> 00:05:54,670
+I choose degrees for instance, 
+and I
+
+107
+00:05:54,837 --> 00:05:57,570
+browse and all of a sudden
+I get a CompileMethod.
+
+108
+00:05:58,270 --> 00:06:01,280
+A CompileMethod is an object
+which, once again, 
+
+109
+00:06:01,447 --> 00:06:05,610
+proposes different ways to be
+displayed by the inspector.
+
+110
+00:06:06,810 --> 00:06:10,300
+Here you see a compiled method,
+
+111
+00:06:10,467 --> 00:06:13,700
+in fact this is a data framework,
+a table
+
+112
+00:06:13,867 --> 00:06:17,570
+a little bit specific, it contains
+Bytecode, 
+
+113
+00:06:17,737 --> 00:06:19,810
+and literals. What are the 
+literals?
+
+114
+00:06:20,100 --> 00:06:21,790
+In the code, each time 
+you have
+
+115
+00:06:21,957 --> 00:06:25,620
+asFloat, arcTan,
+degrees or RadianToDegrees,
+
+116
+00:06:27,900 --> 00:06:30,100
+it needs to be stored somewhere.
+
+117
+00:06:31,000 --> 00:06:33,820
+It is stored here, you see,
+at the beginning
+
+118
+00:06:37,780 --> 00:06:38,413
+of the compiled method.
+
+119
+00:06:38,580 --> 00:06:39,213
+What does the Bytecode do?
+
+120
+00:06:39,380 --> 00:06:41,880
+It refers to those objects
+
+121
+00:06:42,047 --> 00:06:43,830
+in order to put them in the stack
+and invoke the methods.
+
+122
+00:06:44,000 --> 00:06:45,860
+So here, this is what we can 
+see for example, if we look at
+
+123
+00:06:46,027 --> 00:06:49,810
+the view, I minimize this,
+if we look at the Bytecode
+
+124
+00:06:50,000 --> 00:06:51,400
+view, what does it do?
+
+125
+00:06:51,567 --> 00:06:55,470
+It does PushRcvr, so it puts 0
+on the stack and do equal.
+
+126
+00:06:55,637 --> 00:06:56,900
+What does it correspond to?
+
+127
+00:06:57,240 --> 00:06:58,870
+If we look a little bit closely,
+
+128
+00:07:03,330 --> 00:07:06,700
+I display it twice, 
+this display mode is
+
+129
+00:07:06,867 --> 00:07:08,690
+really very useful,
+look at what we can do:
+
+130
+00:07:08,857 --> 00:07:11,910
+if now I want to see
+
+131
+00:07:12,077 --> 00:07:16,880
+the source, I choose
+Bytecode there and
+
+132
+00:07:17,047 --> 00:07:20,350
+and source here, those expressions 
+correspond with each other,
+
+133
+00:07:20,517 --> 00:07:21,900
+look it is displayed.
+
+134
+00:07:22,690 --> 00:07:23,480
+So this is great.
+
+135
+00:07:23,890 --> 00:07:27,260
+It means I can make a push of
+the receiver instance 
+
+136
+00:07:27,427 --> 00:07:30,920
+variable 0, I put 0 on the stack
+
+137
+00:07:31,087 --> 00:07:33,700
+and I send the equal message.
+
+138
+00:07:34,560 --> 00:07:36,390
+And here, it is great because it 
+means
+
+139
+00:07:36,557 --> 00:07:38,670
+that the person who is making
+the 
+
+140
+00:07:38,837 --> 00:07:42,230
+compiler can see that the Bytecode
+he produced
+
+141
+00:07:42,397 --> 00:07:45,740
+corresponds to the code structure.
+
+142
+00:07:45,940 --> 00:07:50,220
+In the same way, he can easily
+
+143
+00:07:50,387 --> 00:07:54,780
+see that...
+I go backward...
+
+144
+00:07:58,320 --> 00:08:00,590
+If I am at the top and I click
+on Self,
+
+145
+00:08:04,900 --> 00:08:07,700
+here I get my 2 compiled 
+methods.
+
+146
+00:08:10,930 --> 00:08:13,000
+I get my 2 compiled methods
+and in fact
+
+147
+00:08:13,167 --> 00:08:16,920
+I'd like to see 
+if I have
+
+148
+00:08:18,680 --> 00:08:20,510
+an abstract syntax tree,
+an increase of abstract
+
+149
+00:08:20,677 --> 00:08:23,490
+syntax and the source.
+I can also browse inside.
+
+150
+00:08:23,657 --> 00:08:26,630
+Here for example, in my tree
+which can be 
+
+151
+00:08:26,797 --> 00:08:31,420
+complicated for this method,
+if I open all, I can see
+
+152
+00:08:31,587 --> 00:08:35,270
+that if I select the temporary
+
+153
+00:08:36,780 --> 00:08:41,610
+variable Time, I select
+
+154
+00:08:42,410 --> 00:08:44,030
+the bite of code to which
+it refers.
+
+155
+00:08:44,197 --> 00:08:46,510
+This is great too.
+Once more if
+
+156
+00:08:46,677 --> 00:08:50,760
+I look at this... The message
+that sends equal to X
+
+157
+00:08:50,927 --> 00:08:54,000
+with 0 as an argument, this is 
+this little part of the tree
+
+158
+00:08:54,440 --> 00:08:55,820
+corresponding to this part here.
+
+159
+00:08:57,530 --> 00:09:01,860
+The inspector enables me to 
+manage, in the 
+
+160
+00:09:02,027 --> 00:09:04,670
+tree textual representation
+for example,
+
+161
+00:09:04,837 --> 00:09:06,880
+the selections I have of the tree
+nodes.
+
+162
+00:09:08,000 --> 00:09:12,120
+This constitute a great tool
+for example to help 
+
+163
+00:09:12,287 --> 00:09:13,400
+people who develop Pharo compiler.
+
+164
+00:09:14,080 --> 00:09:16,220
+You can find this approach
+for
+
+165
+00:09:16,387 --> 00:09:20,460
+each domain, so even for your
+domain objects 
+
+166
+00:09:20,627 --> 00:09:24,060
+you can extend the inspector,
+
+167
+00:09:24,420 --> 00:09:27,680
+in order to propose facets and
+views which make sense.

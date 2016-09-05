@@ -1,0 +1,62 @@
+{
+  "title":"Inheritance and Lookup",
+  "subtitle":"5: Lookup in metaclasses",  
+  "slidesid" : "W4S05"
+}
+
+${slide:title=Goal}$
+
+# in Pharo, everything is an object
+# objects can receive messages
+# classes are objects too
+
+Classes can receive messages. The mechanism is ""exactly"" the same
+
+${slide:title=Only One Lookup Rule}$
+
+${columns}$
+
+${column:width=40}$
+
+The lookup starts in the ""class"" of the ""receiver"" then:
+- if the method is defined in the class, it is returned
+- otherwise the search continues in the superclass
+
+${column:width=50}$
+
++>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=100+
+
+${endColumns}$
+
+
+${slide:title=A Class is an Instance of Another Class}$
+
+Class ==X== is always the unique instance of the class ==X class==:
+- ==Node== is a class and an object
+- each object is an instance of a class
+- the class of ==Node== is ==Node class==
+- the class ==Node class== is automatically created
+
++>file://figures/ClassMetaclass.png|width=100+
+
+${slide:title=Superclass Chain}$
+
++>file://figures/WorkstationMetaclassesWithInheritance.png|width=120+
+
+
+${slide:title=Lookup of Class Methods is No Different}$
+
++>file://figures/WorkstationMetaclassesWithInheritanceWithLookup.png|width=140+
+
+${slide:What You Should Know}$
+
+- A class is an object
+- A class can receive messages
+- Method lookup is exactly the same as for all objects:
+-- go to the class of the receiver 
+-- follow inheritance chain
+- More during the lecture ''Understanding Metaclasses''
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/Week4/C019-W4S05-InheritanceAndLookup-5-LookupMetaclasses.pillar"
+% End:

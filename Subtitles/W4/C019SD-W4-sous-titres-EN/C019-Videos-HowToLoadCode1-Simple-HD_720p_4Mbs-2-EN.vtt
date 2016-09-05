@@ -1,0 +1,84 @@
+WEBVTT
+
+00:00:02.140 --> 00:00:05.110 align:middle
+I'd like to show you how
+we load code in Pharo.
+
+00:00:06.610 --> 00:00:08.250 align:middle
+I go on Safari to see.
+
+00:00:09.740 --> 00:00:14.430 align:middle
+I want to load the Counter
+which has been saved in the
+
+00:00:14.597 --> 00:00:16.070 align:middle
+Pharo MOOC project, on Smalltalk Hub.
+
+00:00:16.237 --> 00:00:19.160 align:middle
+Here it shows the repository,
+I copy it.
+
+00:00:19.740 --> 00:00:22.460 align:middle
+I go there. I do
+Monticello Browser +Repository Http.
+
+00:00:27.340 --> 00:00:29.520 align:middle
+And I paste the definition.
+
+00:00:29.687 --> 00:00:33.650 align:middle
+Here, I click on OK. And now
+what will the system show?
+
+00:00:33.817 --> 00:00:36.850 align:middle
+It will show "Yes, there's a
+version - here unfortunately
+
+00:00:37.017 --> 00:00:39.040 align:middle
+there is only one -
+one version of Pharo Counter."
+
+00:00:39.207 --> 00:00:42.280 align:middle
+I can do a merge which will
+make a Diff between
+
+00:00:42.447 --> 00:00:44.350 align:middle
+what will be loaded and
+what is in the image.
+
+00:00:44.517 --> 00:00:47.880 align:middle
+Here, there are only additions,
+but if there were
+
+00:00:48.047 --> 00:00:50.040 align:middle
+modifications of existing
+methods it will 
+
+00:00:50.207 --> 00:00:52.640 align:middle
+show them and it will make
+an interactive Diff.
+
+00:00:53.050 --> 00:00:55.260 align:middle
+I can also do a Load, 
+
+00:00:55.427 --> 00:00:57.630 align:middle
+with this it will overwrite
+the things that are in the image.
+
+00:00:57.797 --> 00:01:01.410 align:middle
+MyCounter, there was only this,
+so I can do Load and here it is.
+
+00:01:03.020 --> 00:01:07.830 align:middle
+Now I have loaded my code, 
+I do
+
+00:01:08.360 --> 00:01:09.270 align:middle
+Counter.
+
+00:01:13.700 --> 00:01:17.690 align:middle
+If I go in Counter, my tests
+are green, I can
+
+00:01:17.857 --> 00:01:18.520 align:middle
+begin to work.
+

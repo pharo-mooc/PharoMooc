@@ -1,0 +1,645 @@
+1
+00:00:07,000 --> 00:00:11,880
+Salut à tous. Dans ce
+cours, on va commencer à voir si
+
+2
+00:00:12,080 --> 00:00:14,710
+finalement vous avez bien compris
+ce qu'on a dit dans les autres cours.
+
+3
+00:00:14,910 --> 00:00:18,250
+En particulier sur super, là
+l'objectif est de vous faire
+
+4
+00:00:18,450 --> 00:00:22,430
+vraiment réfléchir et j'ai un petit
+test pour voir si vous avez compris.
+
+5
+00:00:23,810 --> 00:00:24,830
+Qu'est-ce que vous allez apprendre ?
+
+6
+00:00:25,030 --> 00:00:26,750
+Normalement, vous allez
+repenser à ce que c'est que
+
+7
+00:00:26,950 --> 00:00:31,000
+super, revoir la recherche
+des méthodes et réfléchir sur
+
+8
+00:00:31,200 --> 00:00:32,450
+ce que c'est qu'une
+méthode de classe.
+
+9
+00:00:32,650 --> 00:00:34,020
+Ça fait beaucoup pour un
+petit cours comme ça mais vous
+
+10
+00:00:34,220 --> 00:00:35,000
+allez voir, c'est assez sympa.
+
+11
+00:00:36,950 --> 00:00:41,680
+Imaginons que j'ai défini la
+méthode dans la classe Dice,
+
+12
+00:00:42,280 --> 00:00:44,720
+que j'ai redéfini la méthode
+new de la manière suivante.
+
+13
+00:00:44,920 --> 00:00:48,510
+J'ai écrit new et voilà le
+corps de la méthode, je fais
+
+14
+00:00:48,710 --> 00:00:50,720
+inst : = super new.
+
+15
+00:00:50,920 --> 00:00:52,690
+inst initialize return inst.
+
+16
+00:00:53,080 --> 00:00:56,380
+Et moi je vais exécuter
+l'expression Dice new.
+
+17
+00:00:58,240 --> 00:01:00,930
+Maintenant la question que
+je me pose et que je vous
+
+18
+00:01:01,130 --> 00:01:04,600
+pose, c'est que dans cette
+expression à quoi correspond
+
+19
+00:01:04,800 --> 00:01:08,610
+inst, à quoi correspond super
+et à quoi correspond super new?
+
+20
+00:01:08,810 --> 00:01:13,590
+Je vous laisse 5
+secondes pour y réfléchir
+
+21
+00:01:16,730 --> 00:01:18,490
+et je vais vous donner
+quelques petites indications.
+
+22
+00:01:21,110 --> 00:01:22,920
+C'est basé sur mon
+expérience d'enseignement.
+
+23
+00:01:23,120 --> 00:01:27,250
+Non super, ce n'est
+pas la super classe.
+
+24
+00:01:28,430 --> 00:01:31,260
+Il faut vous
+l'enlever de la tête celui-là.
+
+25
+00:01:31,460 --> 00:01:33,630
+Non, inst n'est pas une
+instance de la super classe,
+
+26
+00:01:33,830 --> 00:01:35,130
+parce que si c'était le cas
+on ne pourrait jamais créer
+
+27
+00:01:35,330 --> 00:01:37,740
+des instances des classes qui sont
+dessous, ça serait quand même dommage.
+
+28
+00:01:38,830 --> 00:01:41,410
+Qu'est-ce que c'est ?
+
+29
+00:01:41,610 --> 00:01:45,020
+Finalement, ce qu'on avait dit
+dans le cours sur super, c'est
+
+30
+00:01:45,220 --> 00:01:46,500
+que super c'est le
+receveur du message.
+
+31
+00:01:47,540 --> 00:01:51,270
+Super pointe comme self sur
+le receveur du message et ça
+
+32
+00:01:51,470 --> 00:01:53,300
+n'est pas spécifique à
+Pharo, c'est dans tous les
+
+33
+00:01:53,500 --> 00:01:58,370
+langages objet comme
+Java, Sea sharp, Small talk.
+
+34
+00:02:00,270 --> 00:02:03,070
+Le message qu'on avait
+dit, c'était Dice new.
+
+35
+00:02:03,820 --> 00:02:05,040
+Quel est le receveur ?
+
+36
+00:02:05,240 --> 00:02:06,490
+Syntaxiquement
+c'est clair c'est Dice.
+
+37
+00:02:07,320 --> 00:02:09,510
+C'est la classe Dice.
+
+38
+00:02:10,140 --> 00:02:14,440
+Normalement avec cette indication-là
+vous devriez comprendre un peu mieux.
+
+39
+00:02:16,530 --> 00:02:20,620
+On va voir. Vous vous
+rappelez la recherche de la méthode
+
+40
+00:02:20,820 --> 00:02:21,580
+comment ça fonctionne ?
+
+41
+00:02:21,790 --> 00:02:25,240
+J'envoie un message à une
+instance, là coloredrectangle.
+
+42
+00:02:26,270 --> 00:02:28,850
+Je cherche
+premièrement dans la classe de
+
+43
+00:02:29,050 --> 00:02:31,830
+coloredRectangle si la
+méthode en question est définie,
+
+44
+00:02:32,030 --> 00:02:34,030
+là elle ne l'est pas,
+aire n'est pas définie.
+
+45
+00:02:34,230 --> 00:02:35,580
+Je la trouve ici, OK, très bien.
+
+46
+00:02:35,930 --> 00:02:40,800
+J'applique la définition
+que j'ai trouvée sur qui
+
+47
+00:02:41,000 --> 00:02:45,080
+? Sur le receveur. Là
+maintenant vous devez avoir compris
+
+48
+00:02:45,280 --> 00:02:49,620
+ce que fait cette méthode.
+Je vais chercher new dans la
+
+49
+00:02:49,820 --> 00:02:53,830
+ classe de la classe Dice, je
+le cherche et je l'applique
+
+50
+00:02:54,570 --> 00:02:56,250
+sur la classe Dice.
+
+51
+00:02:57,230 --> 00:02:59,000
+On va voir ça de
+manière plus précise.
+
+52
+00:03:00,280 --> 00:03:02,540
+Ce que je vous disais,
+c'était que de toute façon dans
+
+53
+00:03:02,740 --> 00:03:04,270
+Pharo il n'y a qu'un seul
+envoi de messages et il n'y a
+
+54
+00:03:04,470 --> 00:03:05,630
+qu'une seule recherche de méthodes.
+
+55
+00:03:05,830 --> 00:03:09,870
+Quand j'envoie un message à
+quelque objet que ce soit, je
+
+56
+00:03:10,070 --> 00:03:12,310
+cherche toujours dans la
+ classe, je suis toujours ce
+
+57
+00:03:12,830 --> 00:03:16,020
+lien-là, puis ce lien-là.
+C'est toujours 2 étapes aussi.
+
+58
+00:03:16,690 --> 00:03:19,140
+Qu'est-ce que ça
+donne dans notre système?
+
+59
+00:03:19,790 --> 00:03:21,080
+Super c'est le receveur.
+
+60
+00:03:23,500 --> 00:03:25,000
+Le receveur c'était la classe Dice.
+
+61
+00:03:26,320 --> 00:03:28,910
+Je cherche new dans la
+super classe de la classe Dice
+
+62
+00:03:31,310 --> 00:03:34,710
+ class, là le point clé c'est
+que c'est Dice class et pas Dice.
+
+63
+00:03:34,930 --> 00:03:36,350
+On va le voir de
+manière graphique juste après.
+
+64
+00:03:37,190 --> 00:03:40,730
+Et une fois que j'ai trouvé ce
+nouveau new, je vais l'appliquer
+
+65
+00:03:41,030 --> 00:03:42,440
+sur le receveur qui
+était la classe Dice.
+
+66
+00:03:42,640 --> 00:03:47,170
+Ça va dire que new que j'ai
+trouvé quelque part je vais l'appliquer
+
+67
+00:03:47,370 --> 00:03:49,110
+sur Dice, donc ça va créer
+une nouvelle instance de la
+
+68
+00:03:49,310 --> 00:03:50,580
+ classe Dice et ça va l'initialiser.
+
+69
+00:03:50,780 --> 00:03:55,440
+Donc inst va être ma
+nouvelle instance, donc 1D,
+
+70
+00:03:56,460 --> 00:03:58,630
+et je vais
+l'initialiser et je le rends.
+
+71
+00:03:59,120 --> 00:04:03,130
+Si on regarde de manière
+graphique, quand j'envoie new à
+
+72
+00:04:03,330 --> 00:04:05,270
+la classe Dice, je cherche où ?
+
+73
+00:04:05,470 --> 00:04:06,260
+Dans la classe de la classe Dice.
+
+74
+00:04:06,460 --> 00:04:11,300
+Donc je cherche dans Dice
+ class, c'est là que j'ai
+
+75
+00:04:11,510 --> 00:04:12,550
+ma fameuse méthode.
+
+76
+00:04:13,000 --> 00:04:14,460
+Qu'est-ce que je dois faire ?
+
+77
+00:04:14,660 --> 00:04:19,350
+Super, c'est la classe
+
+78
+00:04:19,550 --> 00:04:21,640
+Dice, c'était le receveur
+la preuve, c'était écrit ici:
+
+79
+00:04:21,840 --> 00:04:23,150
+j'ai envoyé le
+message à cet objet-là.
+
+80
+00:04:26,370 --> 00:04:30,810
+Super me dit "Cherche
+au-dessus de la classe qui contient
+
+81
+00:04:31,010 --> 00:04:34,960
+l'expression", je
+cherche au-dessus de la classe
+
+82
+00:04:35,880 --> 00:04:37,870
+Dice class, donc je cherche ici.
+
+83
+00:04:38,070 --> 00:04:41,800
+Et quelque part ici
+au-dessus, on verra ça plus tard, new
+
+84
+00:04:43,220 --> 00:04:44,000
+est défini.
+
+85
+00:04:44,180 --> 00:04:44,940
+Qu'est-ce qu'on a dit sur le lookup ?
+
+86
+00:04:45,140 --> 00:04:47,290
+C'est qu'on trouve la
+méthode, elle est définie ici et on
+
+87
+00:04:47,490 --> 00:04:51,780
+l'applique sur le
+receveur. Je l'applique sur Dice,
+
+88
+00:04:52,270 --> 00:04:54,030
+ça va me rendre une
+nouvelle instance.
+
+89
+00:04:54,230 --> 00:04:55,370
+Là, je vais le faire graphiquement.
+
+90
+00:04:55,570 --> 00:04:57,390
+Ça me rend une
+petite instance: E dice.
+
+91
+00:04:57,590 --> 00:05:01,680
+Cette petite instance
+c'est inst qui pointe dessus.
+
+92
+00:05:03,130 --> 00:05:05,150
+Inst est un nouveau D.
+
+93
+00:05:06,130 --> 00:05:10,070
+Ensuite, je vais envoyer le
+message initialize à inst et
+
+94
+00:05:10,270 --> 00:05:11,350
+je le rends.
+
+95
+00:05:11,550 --> 00:05:14,140
+Souvent, vous avez des
+problèmes avec cet exemple parce
+
+96
+00:05:14,340 --> 00:05:17,720
+que cet exemple en
+particulier est assez retors, je le
+
+97
+00:05:17,920 --> 00:05:19,730
+fais exprès pour vraiment
+voir si vous avez compris.
+
+98
+00:05:20,070 --> 00:05:24,470
+Il va mélanger 2 choses, il
+va mélanger super qui est "Je
+
+99
+00:05:24,670 --> 00:05:28,680
+vais chercher au-dessus de la
+ classe qui contient l'expression super.
+
+100
+00:05:29,310 --> 00:05:31,260
+Mais sachant que
+super c'est le receveur.
+
+101
+00:05:31,760 --> 00:05:35,190
+Et en plus new, c'est une
+méthode qui va créer des objets
+
+102
+00:05:35,390 --> 00:05:38,240
+" Là on voit qu'on est à la
+confluence de ces 2 choses et
+
+103
+00:05:38,440 --> 00:05:39,860
+qu'en général vous avez
+un problème à comprendre.
+
+104
+00:05:40,480 --> 00:05:44,160
+Je vous suggère de vraiment
+revoir cette séance parce que
+
+105
+00:05:44,360 --> 00:05:45,610
+c'est vraiment
+important de le comprendre.
+
+106
+00:05:46,110 --> 00:05:50,800
+Si je répète, super est le
+receveur du message qui en
+
+107
+00:05:51,000 --> 00:05:52,780
+fait est la classe
+Dice dans ce cas-là.
+
+108
+00:05:53,410 --> 00:05:57,210
+Je vais chercher au-dessus
+de la classe Dice class la
+
+109
+00:05:57,410 --> 00:05:59,720
+méthode new que je vais
+appliquer sur la classe Dice, qui
+
+110
+00:05:59,920 --> 00:06:01,950
+était le receveur,pour me
+donner une instance terminale.
+
+111
+00:06:07,040 --> 00:06:10,270
+En résumé, envoyer un
+message c'est chercher la méthode
+
+112
+00:06:10,470 --> 00:06:12,380
+dans la classe du receveur, c'est
+ce qu'on a fait comme d'habitude,
+
+113
+00:06:12,580 --> 00:06:14,510
+comme toujours. On ne peut
+faire que ça en Pharo, donc c'est
+
+114
+00:06:14,710 --> 00:06:17,460
+relativement simple.
+Maintenant, vous devez comprendre
+
+115
+00:06:17,660 --> 00:06:20,830
+que super, c'est chercher
+au-dessus de la classe qui
+
+116
+00:06:21,030 --> 00:06:24,110
+contient l'expression
+super, et que super c'est le
+
+117
+00:06:24,310 --> 00:06:26,000
+receveur et que ça peut
+être une classe aussi.
+
+118
+00:06:27,000 --> 00:06:29,230
+Mais là on ne va pas finir,
+j'ai un autre petit défi pour
+
+119
+00:06:29,430 --> 00:06:30,920
+vous parce que je pense
+que si vous suivez le cours
+
+120
+00:06:31,120 --> 00:06:33,100
+Pharo, c'est que vous
+voulez un peu avoir des défis.
+
+121
+00:06:34,470 --> 00:06:37,520
+Imaginons que j'ai la
+définition suivante, j'ai une
+
+122
+00:06:37,720 --> 00:06:41,730
+petite méthode qui me dit
+"Rends super espace class égal
+
+123
+00:06:41,930 --> 00:06:44,000
+égal self class. " Qu'est-ce
+que ça veut dire égal égal?
+
+124
+00:06:44,320 --> 00:06:45,940
+C'est l'identité de pointeur.
+
+125
+00:06:46,750 --> 00:06:50,140
+En fait je demande "Est-ce
+que l'objet qui est rendu par
+
+126
+00:06:50,340 --> 00:06:54,080
+l'expression super espace
+ class est le même que l'objet
+
+127
+00:06:54,280 --> 00:06:55,590
+qui est rendu par self égal class ?"
+
+128
+00:06:56,740 --> 00:06:59,210
+Je définis cette méthode-là qui
+va me rendre soit vrai ou faux.
+
+129
+00:07:00,010 --> 00:07:03,750
+La question que je vous
+pose, c'est "Quel est le résultat
+
+130
+00:07:03,950 --> 00:07:06,520
+de A new foo"? Ça veut
+dire que je crée une nouvelle
+
+131
+00:07:06,720 --> 00:07:09,260
+instance de la classe A et
+je lui envoie le message foo
+
+132
+00:07:09,460 --> 00:07:10,510
+qui va exécuter ce message.
+
+133
+00:07:11,650 --> 00:07:14,100
+Quel est le résultat et pourquoi ?
+
+134
+00:07:14,300 --> 00:07:15,450
+Je vais vous laisser
+chercher parce que celui-là je ne
+
+135
+00:07:15,650 --> 00:07:16,460
+vous donnerai pas la réponse.
+

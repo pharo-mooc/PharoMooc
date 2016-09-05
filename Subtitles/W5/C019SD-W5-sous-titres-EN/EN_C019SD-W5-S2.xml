@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W5-S2</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:00:09" end="00:00:01:20" region="bottom">Hello. In this course</p>
+            <p xml:id="p2" begin="00:00:01:24" end="00:00:06:11" region="bottom">we'll take the time to really<br/>understand the class methods.</p>
+            <p xml:id="p3" begin="00:00:06:15" end="00:00:08:24" region="bottom">You should have done the exercise<br/>with the counter,</p>
+            <p xml:id="p4" begin="00:00:09:03" end="00:00:12:13" region="bottom">you have done a class method,<br/>it worked very well.</p>
+            <p xml:id="p5" begin="00:00:12:17" end="00:00:16:11" region="bottom">Now we'll take a good look,<br/>so you understand for once and all.</p>
+            <p xml:id="p6" begin="00:00:17:10" end="00:00:20:20" region="bottom">You'll learn in this course<br/>that there's no difference in Pharo</p>
+            <p xml:id="p7" begin="00:00:20:24" end="00:00:24:06" region="bottom">between class and instance methods<br/>on a search algorithm level.</p>
+            <p xml:id="p8" begin="00:00:24:10" end="00:00:27:08" region="bottom">There's only one search algorithm</p>
+            <p xml:id="p9" begin="00:00:27:12" end="00:00:32:10" region="bottom">alluded to and used,<br/>that's defined in the virtual machine,</p>
+            <p xml:id="p10" begin="00:00:32:14" end="00:00:37:06" region="bottom">and you'll see that, while we could<br/>have said that the class methods,</p>
+            <p xml:id="p11" begin="00:00:37:10" end="00:00:40:08" region="bottom">at first glance, are like static<br/>Java methods, they're not.</p>
+            <p xml:id="p12" begin="00:00:40:12" end="00:00:43:05" region="bottom">In fact, they are dynamically linked.</p>
+            <p xml:id="p13" begin="00:00:43:09" end="00:00:45:15" region="bottom">There's a search at execution,</p>
+            <p xml:id="p14" begin="00:00:45:19" end="00:00:50:02" region="bottom">while in Java, typically,<br/>static methods aren't dynamically sought.</p>
+            <p xml:id="p15" begin="00:00:50:06" end="00:00:51:18" region="bottom">Let's see how it works.</p>
+            <p xml:id="p16" begin="00:00:51:22" end="00:00:54:17" region="bottom">In fact, what you've seen</p>
+            <p xml:id="p17" begin="00:00:54:21" end="00:00:59:15" region="bottom">is that there's only one lookup,<br/>which starts in the receiver's class.</p>
+            <p xml:id="p18" begin="00:00:59:19" end="00:01:02:15" region="bottom">If the method is defined in the class,</p>
+            <p xml:id="p19" begin="00:01:02:19" end="00:01:06:00" region="bottom">it's returned, otherwise<br/>it continues in the superclass.</p>
+            <p xml:id="p20" begin="00:01:06:04" end="00:01:08:14" region="bottom">What this means, graphically,</p>
+            <p xml:id="p21" begin="00:01:08:18" end="00:01:11:18" region="bottom">is that I've my example<br/>of the Counter class.</p>
+            <p xml:id="p22" begin="00:01:11:22" end="00:01:14:22" region="bottom">When I send the increment message,<br/>what will happen?</p>
+            <p xml:id="p23" begin="00:01:15:01" end="00:01:20:04" region="bottom">Step 1, I look in the Counter class,<br/>and I'll go back up...</p>
+            <p xml:id="p24" begin="00:01:20:08" end="00:01:22:01" region="bottom">If I've "increment" it's defined here,</p>
+            <p xml:id="p25" begin="00:01:22:05" end="00:01:26:03" region="bottom">if it's a method defined<br/>higher up in the hierarchy</p>
+            <p xml:id="p26" begin="00:01:26:07" end="00:01:28:03" region="bottom">it will be sought higher up.</p>
+            <p xml:id="p27" begin="00:01:28:07" end="00:01:31:19" region="bottom">In fact, this mechanism is used<br/>in Pharo, there's only one,</p>
+            <p xml:id="p28" begin="00:01:31:23" end="00:01:35:07" region="bottom">it's used for both instances and classes.</p>
+            <p xml:id="p29" begin="00:01:36:17" end="00:01:41:16" region="bottom">When you did the exercise with<br/>the class counter and sent the message</p>
+            <p xml:id="p30" begin="00:01:41:21" end="00:01:44:08" region="bottom">"with value" to the class counter</p>
+            <p xml:id="p31" begin="00:01:44:12" end="00:01:46:12" region="bottom">to create an instance, what happened?</p>
+            <p xml:id="p32" begin="00:01:46:16" end="00:01:50:24" region="bottom">The class counter is instance<br/>of a class called "Counter class"</p>
+            <p xml:id="p33" begin="00:01:51:03" end="00:01:55:10" region="bottom">and we looked, we used<br/>the same method as before.</p>
+            <p xml:id="p34" begin="00:01:55:14" end="00:01:58:15" region="bottom">We looked in the receiver class,<br/>the receiver was "Counter",</p>
+            <p xml:id="p35" begin="00:01:58:19" end="00:02:02:23" region="bottom">so we looked in the class<br/>"Counter class" and found the method</p>
+            <p xml:id="p36" begin="00:02:03:02" end="00:02:05:24" region="bottom">"with value" which we applied<br/>to the receiver</p>
+            <p xml:id="p37" begin="00:02:06:03" end="00:02:08:17" region="bottom">and it gave us a new instance.</p>
+            <p xml:id="p38" begin="00:02:08:21" end="00:02:14:19" region="bottom">So we used exactly the same process<br/>as for the messages we sent</p>
+            <p xml:id="p39" begin="00:02:14:23" end="00:02:16:24" region="bottom">to an instance of the Counter class.</p>
+            <p xml:id="p40" begin="00:02:18:02" end="00:02:22:14" region="bottom">So what is a "class" in Pharo?<br/>A class is an instance.</p>
+            <p xml:id="p41" begin="00:02:22:19" end="00:02:26:12" region="bottom">It's an object like any object.<br/>In Pharo there are only objects.</p>
+            <p xml:id="p42" begin="00:02:26:16" end="00:02:30:01" region="bottom">A class is an instance<br/>of another class, called a metaclass.</p>
+            <p xml:id="p43" begin="00:02:30:05" end="00:02:34:00" region="bottom">It's just to distinguish them.<br/>A metaclass is just a class</p>
+            <p xml:id="p44" begin="00:02:34:04" end="00:02:36:02" region="bottom">whose instances are classes,</p>
+            <p xml:id="p45" begin="00:02:36:22" end="00:02:40:17" region="bottom">to differentiate between<br/>terminal instances and classes.</p>
+            <p xml:id="p46" begin="00:02:40:21" end="00:02:44:17" region="bottom">The next thing is that<br/>the Counter class, in this line,</p>
+            <p xml:id="p47" begin="00:02:44:21" end="00:02:49:01" region="bottom">the Counter class is the only instance<br/>of the class Counter class.</p>
+            <p xml:id="p48" begin="00:02:50:04" end="00:02:54:16" region="bottom">This Counter class is created<br/>automatically, without you knowing it.</p>
+            <p xml:id="p49" begin="00:02:54:20" end="00:02:58:01" region="bottom">When you defined the Counter class,<br/>the system automatically created</p>
+            <p xml:id="p50" begin="00:02:58:05" end="00:03:01:24" region="bottom">the class Counter class,<br/>and it created the Counter class.</p>
+            <p xml:id="p51" begin="00:03:02:03" end="00:03:06:01" region="bottom">You thought you were creating 1 class,<br/>but in fact you were creating 2.</p>
+            <p xml:id="p52" begin="00:03:06:05" end="00:03:09:16" region="bottom">What you have to know in Pharo<br/>is that all the classes</p>
+            <p xml:id="p53" begin="00:03:09:20" end="00:03:13:17" region="bottom">in a class called XXX<br/>are called XXX class.</p>
+            <p xml:id="p54" begin="00:03:13:21" end="00:03:18:03" region="bottom">So if I have Counter,<br/>the Counter class will be</p>
+            <p xml:id="p55" begin="00:03:18:07" end="00:03:22:02" region="bottom">Counter class, systematically.</p>
+            <p xml:id="p56" begin="00:03:23:15" end="00:03:26:17" region="bottom">So, in fact, what you do in reality,</p>
+            <p xml:id="p57" begin="00:03:26:21" end="00:03:30:23" region="bottom">we're just showing you how it works.<br/>We needn't have explained it,</p>
+            <p xml:id="p58" begin="00:03:31:02" end="00:03:33:20" region="bottom">but it means that when<br/>the browser shows you</p>
+            <p xml:id="p59" begin="00:03:33:24" end="00:03:36:14" region="bottom">the Counter class, it shows you</p>
+            <p xml:id="p60" begin="00:03:36:18" end="00:03:40:06" region="bottom">the code that will be executed<br/>on the instances of this class.</p>
+            <p xml:id="p61" begin="00:03:40:10" end="00:03:42:00" region="bottom">That means, "increment"</p>
+            <p xml:id="p62" begin="00:03:42:04" end="00:03:45:21" region="bottom">is the code that will be executed<br/>on this instance here.</p>
+            <p xml:id="p63" begin="00:03:47:11" end="00:03:52:07" region="bottom">When you click on the "class" button<br/>to define a class method,</p>
+            <p xml:id="p64" begin="00:03:52:11" end="00:03:56:20" region="bottom">it shows you the code that will be<br/>executed on this object here.</p>
+            <p xml:id="p65" begin="00:03:58:18" end="00:04:03:00" region="bottom">And in fact, if we look,<br/>when I send the message "increment"</p>
+            <p xml:id="p66" begin="00:04:03:04" end="00:04:07:17" region="bottom">to the counter instance,<br/>I'll look in the Counter class.</p>
+            <p xml:id="p67" begin="00:04:07:21" end="00:04:10:06" region="bottom">Look, that's the method executed.</p>
+            <p xml:id="p68" begin="00:04:10:10" end="00:04:15:09" region="bottom">When I send the message<br/>"with value" to the Counter class,</p>
+            <p xml:id="p69" begin="00:04:15:13" end="00:04:18:20" region="bottom">where will I look? In its class.<br/>I follow this link,</p>
+            <p xml:id="p70" begin="00:04:18:24" end="00:04:21:01" region="bottom">and it's this method here.</p>
+            <p xml:id="p71" begin="00:04:22:08" end="00:04:24:00" region="bottom">So what should you know?</p>
+            <p xml:id="p72" begin="00:04:24:06" end="00:04:26:08" region="bottom">A class is an object in Pharo.</p>
+            <p xml:id="p73" begin="00:04:26:12" end="00:04:27:24" region="bottom">A class can receive messages.</p>
+            <p xml:id="p74" begin="00:04:28:03" end="00:04:30:17" region="bottom">I told you when we did the syntax,</p>
+            <p xml:id="p75" begin="00:04:30:21" end="00:04:32:18" region="bottom">I told you date, today...</p>
+            <p xml:id="p76" begin="00:04:32:22" end="00:04:37:17" region="bottom">What's that? It's a message<br/>that we sent to a class.</p>
+            <p xml:id="p77" begin="00:04:37:21" end="00:04:40:01" region="bottom">There are no elements<br/>syntaxed differently.</p>
+            <p xml:id="p78" begin="00:04:40:05" end="00:04:44:01" region="bottom">It's the same as sending a message<br/>syntactically to an instance.</p>
+            <p xml:id="p79" begin="00:04:44:05" end="00:04:48:16" region="bottom">What's more, this course shows you,<br/>there's only one method lookup.</p>
+            <p xml:id="p80" begin="00:04:48:20" end="00:04:51:19" region="bottom">The class methods<br/>are looked up dynamically</p>
+            <p xml:id="p81" begin="00:04:51:23" end="00:04:54:13" region="bottom">like the instance methods.<br/>Where are they looked up?</p>
+            <p xml:id="p82" begin="00:04:54:17" end="00:04:56:14" region="bottom">In the class of the receiver.</p>
+            <p xml:id="p83" begin="00:04:56:18" end="00:04:59:13" region="bottom">When it's an instance,<br/>it's looked up in the class,</p>
+            <p xml:id="p84" begin="00:04:59:17" end="00:05:01:20" region="bottom">when it's an instance class<br/>like the Counter class</p>
+            <p xml:id="p85" begin="00:05:01:24" end="00:05:05:22" region="bottom">it's looked up in the metaclass,<br/>in the class called Counter class.</p>
+            <p xml:id="p86" begin="00:05:06:01" end="00:05:10:13" region="bottom">So a class is an instance<br/>of another class, called a metaclass,</p>
+            <p xml:id="p87" begin="00:05:10:17" end="00:05:13:14" region="bottom">and only one look up works.</p>
+            <p xml:id="p88" begin="00:05:13:18" end="00:05:17:12" region="bottom">So we'll return to this notion<br/>in the final session,</p>
+            <p xml:id="p89" begin="00:05:17:16" end="00:05:20:16" region="bottom">in the lecture<br/>Understanding Metaclasses</p>
+            <p xml:id="p90" begin="00:05:20:20" end="00:05:24:01" region="bottom">and we're going to revisit,<br/>we're going to lift the lid on Pharo</p>
+            <p xml:id="p91" begin="00:05:24:05" end="00:05:27:02" region="bottom">and show you how it works,<br/>and it's completely uniform.</p>
+        </div>
+    </body>
+</tt>

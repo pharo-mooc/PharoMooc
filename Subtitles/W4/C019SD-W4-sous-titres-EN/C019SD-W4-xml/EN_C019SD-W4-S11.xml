@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W4-S11</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:00:14" end="00:00:05:01" region="bottom">Hello. I'll be introducing Voyage,<br/>a wrapper for NoSQL databases,</p>
+            <p xml:id="p2" begin="00:00:05:14" end="00:00:07:22" region="bottom">in this class.</p>
+            <p xml:id="p3" begin="00:00:08:03" end="00:00:11:13" region="bottom">The goal is to let you build<br/>a real application.</p>
+            <p xml:id="p4" begin="00:00:11:17" end="00:00:15:17" region="bottom">You'll be able to store objects<br/>like TinyBlog with Voyage,</p>
+            <p xml:id="p5" begin="00:00:16:02" end="00:00:19:05" region="bottom">in a Mongo database,<br/>and deploy on a real service.</p>
+            <p xml:id="p6" begin="00:00:19:10" end="00:00:20:22" region="bottom">I also wanted to show you</p>
+            <p xml:id="p7" begin="00:00:21:05" end="00:00:23:17" region="bottom">an easy way to store objects.</p>
+            <p xml:id="p8" begin="00:00:24:02" end="00:00:27:03" region="bottom">Voyage is a simple solution.</p>
+            <p xml:id="p9" begin="00:00:28:16" end="00:00:30:08" region="bottom">First, what is MongoDB?</p>
+            <p xml:id="p10" begin="00:00:30:19" end="00:00:35:17" region="bottom">Mongo is a new document-oriented<br/>NoSQL database.</p>
+            <p xml:id="p11" begin="00:00:36:21" end="00:00:40:07" region="bottom">It features a powerful query language.</p>
+            <p xml:id="p12" begin="00:00:40:11" end="00:00:44:11" region="bottom">Mongo is also one of the most popular<br/>DBs, with CouchDB and Riak.</p>
+            <p xml:id="p13" begin="00:00:44:15" end="00:00:48:06" region="bottom">We'll be using Mongo and Voyage.</p>
+            <p xml:id="p14" begin="00:00:48:12" end="00:00:52:12" region="bottom">Actually, Voyage is a mapper.<br/>It takes objects and maps them</p>
+            <p xml:id="p15" begin="00:00:53:09" end="00:00:56:17" region="bottom">on MongoDB, almost automatically,<br/>for the programmer.</p>
+            <p xml:id="p16" begin="00:00:56:21" end="00:00:58:22" region="bottom">If you've done Java on Hibernate</p>
+            <p xml:id="p17" begin="00:00:59:01" end="00:01:02:03" region="bottom">Voyage is the equivalent of Hibernate<br/>for MongoDB.</p>
+            <p xml:id="p18" begin="00:01:02:10" end="00:01:03:24" region="bottom">And it's made for Pharo.</p>
+            <p xml:id="p19" begin="00:01:05:03" end="00:01:08:17" region="bottom">Here are Voyage's features.<br/>It's very simple.</p>
+            <p xml:id="p20" begin="00:01:08:21" end="00:01:12:08" region="bottom">It ensures object identity<br/>when you reload them.</p>
+            <p xml:id="p21" begin="00:01:13:00" end="00:01:15:08" region="bottom">It provides error-handling.</p>
+            <p xml:id="p22" begin="00:01:15:12" end="00:01:18:21" region="bottom">And it also implements<br/>a connection pool</p>
+            <p xml:id="p23" begin="00:01:19:00" end="00:01:21:04" region="bottom">to speed things up.</p>
+            <p xml:id="p24" begin="00:01:22:18" end="00:01:25:09" region="bottom">To start simple,<br/>the first thing we'll do</p>
+            <p xml:id="p25" begin="00:01:25:13" end="00:01:28:16" region="bottom">is create a MongoRepository.</p>
+            <p xml:id="p26" begin="00:01:28:20" end="00:01:31:13" region="bottom">It uses these expressions:</p>
+            <p xml:id="p27" begin="00:01:32:06" end="00:01:35:17" region="bottom">You want to access<br/>your Mongo database,</p>
+            <p xml:id="p28" begin="00:01:35:21" end="00:01:37:23" region="bottom">which is managed from outside Pharo.</p>
+            <p xml:id="p29" begin="00:01:38:08" end="00:01:41:22" region="bottom">Often, when we are in prototype mode,</p>
+            <p xml:id="p30" begin="00:01:42:01" end="00:01:44:11" region="bottom">we use a Mongo database<br/>in the memory.</p>
+            <p xml:id="p31" begin="00:01:44:15" end="00:01:47:15" region="bottom">It's referred to here<br/>as Mongo Memory Repository.</p>
+            <p xml:id="p32" begin="00:01:48:01" end="00:01:52:11" region="bottom">You don't need a Mongo database.<br/>First, you prototype your application.</p>
+            <p xml:id="p33" begin="00:01:53:01" end="00:01:58:02" region="bottom">When it is running right,<br/>you switch the memory repository</p>
+            <p xml:id="p34" begin="00:01:58:09" end="00:02:01:14" region="bottom">into a real repository,<br/>and tackle your outside DB.</p>
+            <p xml:id="p35" begin="00:02:01:18" end="00:02:04:00" region="bottom">That's the way to proceed.</p>
+            <p xml:id="p36" begin="00:02:07:10" end="00:02:08:17" region="bottom">To illustrate Mongo,</p>
+            <p xml:id="p37" begin="00:02:09:01" end="00:02:13:06" region="bottom">we have a simple model<br/>of superheroes with superpowers,</p>
+            <p xml:id="p38" begin="00:02:13:17" end="00:02:16:11" region="bottom">their armor and weapons.</p>
+            <p xml:id="p39" begin="00:02:16:22" end="00:02:21:11" region="bottom">You'll be able to do the exercise<br/>based on what I show you in the course.</p>
+            <p xml:id="p40" begin="00:02:21:15" end="00:02:23:04" region="bottom">This is the support.</p>
+            <p xml:id="p41" begin="00:02:23:14" end="00:02:26:17" region="bottom">I think you'll enjoy scripting Superman.</p>
+            <p xml:id="p42" begin="00:02:27:07" end="00:02:32:06" region="bottom">First, let's look at how<br/>Hero and Power operate.</p>
+            <p xml:id="p43" begin="00:02:33:10" end="00:02:38:23" region="bottom">Basically, we have a Hero class,<br/>with a name, level, and powers.</p>
+            <p xml:id="p44" begin="00:02:39:22" end="00:02:43:18" region="bottom">I have an accessory for the name,<br/>a setter for the name.</p>
+            <p xml:id="p45" begin="00:02:43:22" end="00:02:45:16" region="bottom">Same for the level, here.</p>
+            <p xml:id="p46" begin="00:02:46:00" end="00:02:48:01" region="bottom">And I manage the powers<br/>as a set.</p>
+            <p xml:id="p47" begin="00:02:48:05" end="00:02:53:00" region="bottom">If powers is empty,<br/>I put in a set.</p>
+            <p xml:id="p48" begin="00:02:53:15" end="00:02:56:10" region="bottom">When I can add a power,<br/>I add one to the set.</p>
+            <p xml:id="p49" begin="00:02:56:14" end="00:02:59:01" region="bottom">So it's really very basic.</p>
+            <p xml:id="p50" begin="00:03:00:18" end="00:03:04:14" region="bottom">For the moment, the powers<br/>only have a name.</p>
+            <p xml:id="p51" begin="00:03:05:18" end="00:03:08:23" region="bottom">You can write the name or not.</p>
+            <p xml:id="p52" begin="00:03:10:00" end="00:03:13:09" region="bottom">Now, the point is<br/>to find a way to declare</p>
+            <p xml:id="p53" begin="00:03:13:20" end="00:03:17:00" region="bottom">that my domain classes<br/>are stored in a database.</p>
+            <p xml:id="p54" begin="00:03:17:06" end="00:03:22:15" region="bottom">The root class idea gives us<br/>an entry point for our database.</p>
+            <p xml:id="p55" begin="00:03:23:04" end="00:03:27:18" region="bottom">It can be any class in the system,<br/>and it is marked as the root</p>
+            <p xml:id="p56" begin="00:03:28:02" end="00:03:32:07" region="bottom">with a class method (I emphasize class)<br/>called isVoyageRoot.</p>
+            <p xml:id="p57" begin="00:03:33:20" end="00:03:38:16" region="bottom">This is how we do it for Hero class:<br/>isVoyageRoot returns true.</p>
+            <p xml:id="p58" begin="00:03:39:09" end="00:03:43:10" region="bottom">At this point, Voyage knows<br/>I will be able to store my heroes</p>
+            <p xml:id="p59" begin="00:03:43:20" end="00:03:45:09" region="bottom">in the Mongo database.</p>
+            <p xml:id="p60" begin="00:03:46:16" end="00:03:48:24" region="bottom">Let's do Spiderman.</p>
+            <p xml:id="p61" begin="00:03:49:06" end="00:03:51:22" region="bottom">His name is Spiderman,<br/>his level is epic.</p>
+            <p xml:id="p62" begin="00:03:52:06" end="00:03:56:18" region="bottom">His powers are his super strength,<br/>his ability to climb walls,</p>
+            <p xml:id="p63" begin="00:03:57:04" end="00:04:01:19" region="bottom">and the spider instincts<br/>he is purported to have.</p>
+            <p xml:id="p64" begin="00:04:02:11" end="00:04:04:12" region="bottom">I save that information.</p>
+            <p xml:id="p65" begin="00:04:04:22" end="00:04:09:10" region="bottom">"Save" tells Voyage<br/>to take this superhero,</p>
+            <p xml:id="p66" begin="00:04:09:14" end="00:04:11:04" region="bottom">and store it in the base.</p>
+            <p xml:id="p67" begin="00:04:11:10" end="00:04:15:00" region="bottom">We do the same thing<br/>with Wolverine and his powers,</p>
+            <p xml:id="p68" begin="00:04:15:04" end="00:04:16:15" region="bottom">and save that data.</p>
+            <p xml:id="p69" begin="00:04:16:22" end="00:04:18:22" region="bottom">Now, if I look at my Mongo base,</p>
+            <p xml:id="p70" begin="00:04:19:01" end="00:04:21:11" region="bottom">using db.Hero.find,</p>
+            <p xml:id="p71" begin="00:04:21:20" end="00:04:21:21" region="bottom">I see my hero Spiderman,</p>
+            <p xml:id="p72" begin="00:04:25:12" end="00:04:27:07" region="bottom">and I should see his powers.</p>
+            <p xml:id="p73" begin="00:04:27:16" end="00:04:29:24" region="bottom">This is where you have<br/>to be careful.</p>
+            <p xml:id="p74" begin="00:04:30:09" end="00:04:34:23" region="bottom">His superpowers are described<br/>in full here.</p>
+            <p xml:id="p75" begin="00:04:35:09" end="00:04:37:12" region="bottom">Same for Wolverine, etc.</p>
+            <p xml:id="p76" begin="00:04:39:22" end="00:04:43:16" region="bottom">Once you've done that,<br/>you can do lots with Pharo.</p>
+            <p xml:id="p77" begin="00:04:43:20" end="00:04:48:02" region="bottom">I won't go into the details.<br/>But I can select all the superheroes...</p>
+            <p xml:id="p78" begin="00:04:48:06" end="00:04:51:08" region="bottom">That gives me Spiderman<br/>and Wolverine.</p>
+            <p xml:id="p79" begin="00:04:51:16" end="00:04:54:24" region="bottom">I can say find Spiderman...</p>
+            <p xml:id="p80" begin="00:04:55:06" end="00:05:01:04" region="bottom">I can say I want to find all superheroes<br/>who have an epic level.</p>
+            <p xml:id="p81" begin="00:05:02:02" end="00:05:04:18" region="bottom">That gives me my two superheroes.</p>
+            <p xml:id="p82" begin="00:05:06:14" end="00:05:09:07" region="bottom">I can also express it differently.</p>
+            <p xml:id="p83" begin="00:05:09:11" end="00:05:12:18" region="bottom">Actually, the Mongo database</p>
+            <p xml:id="p84" begin="00:05:13:01" end="00:05:16:04" region="bottom">understands Json,<br/>so I can create Json on the fly,</p>
+            <p xml:id="p85" begin="00:05:16:11" end="00:05:18:20" region="bottom">inject it, and do Json-based queries.</p>
+            <p xml:id="p86" begin="00:05:19:02" end="00:05:21:15" region="bottom">Let's say I want to know</p>
+            <p xml:id="p87" begin="00:05:22:08" end="00:05:24:14" region="bottom">which superhero is named Spiderman.</p>
+            <p xml:id="p88" begin="00:05:24:19" end="00:05:29:19" region="bottom">But I've expressed it in Json form,<br/>as dictionary, so it returns an entry.</p>
+            <p xml:id="p89" begin="00:05:30:22" end="00:05:33:11" region="bottom">I can do the same thing<br/>with "select Many."</p>
+            <p xml:id="p90" begin="00:05:33:17" end="00:05:38:00" region="bottom">It depends on the easiest way<br/>for expressing your query.</p>
+            <p xml:id="p91" begin="00:05:38:04" end="00:05:40:16" region="bottom">But that's a detail for you, right now.</p>
+            <p xml:id="p92" begin="00:05:40:24" end="00:05:43:10" region="bottom">You can do much more advanced queries.</p>
+            <p xml:id="p93" begin="00:05:43:17" end="00:05:46:07" region="bottom">I can say "select all" the heroes</p>
+            <p xml:id="p94" begin="00:05:46:23" end="00:05:51:07" region="bottom">or "many" of the superheroes<br/>with an epic level.</p>
+            <p xml:id="p95" begin="00:05:51:11" end="00:05:54:12" region="bottom">I can sort their names<br/>in ascending order.</p>
+            <p xml:id="p96" begin="00:05:54:16" end="00:05:58:10" region="bottom">I set a limit of 10,<br/>and say I want to start at page 0.</p>
+            <p xml:id="p97" begin="00:05:58:14" end="00:06:01:22" region="bottom">That will bring me sections<br/>of the database.</p>
+            <p xml:id="p98" begin="00:06:03:03" end="00:06:05:19" region="bottom">When you need that,<br/>look in the documentation.</p>
+            <p xml:id="p99" begin="00:06:06:09" end="00:06:10:07" region="bottom">We can do other operations,<br/>like count our superheroes.</p>
+            <p xml:id="p100" begin="00:06:10:17" end="00:06:14:04" region="bottom">I can count those whose possess<br/>a certain property.</p>
+            <p xml:id="p101" begin="00:06:14:11" end="00:06:18:06" region="bottom">I can remove some.<br/>If I remove all, I empty the database.</p>
+            <p xml:id="p102" begin="00:06:18:14" end="00:06:20:09" region="bottom">Be careful of that command.</p>
+            <p xml:id="p103" begin="00:06:20:13" end="00:06:23:17" region="bottom">Here, I can select one,<br/>and remove it.</p>
+            <p xml:id="p104" begin="00:06:24:13" end="00:06:26:24" region="bottom">That hero will be removed from the base.</p>
+            <p xml:id="p105" begin="00:06:28:09" end="00:06:31:00" region="bottom">These are all operations<br/>that make sense.</p>
+            <p xml:id="p106" begin="00:06:31:22" end="00:06:35:15" region="bottom">Now, the question that will arise<br/>when using MongoDB</p>
+            <p xml:id="p107" begin="00:06:35:19" end="00:06:39:21" region="bottom">is, what is the base root,<br/>in Mongo lingo?</p>
+            <p xml:id="p108" begin="00:06:40:07" end="00:06:42:19" region="bottom">When is a class defined as a root?</p>
+            <p xml:id="p109" begin="00:06:43:02" end="00:06:46:16" region="bottom">The answer is,<br/>if you want to query that class.</p>
+            <p xml:id="p110" begin="00:06:46:20" end="00:06:48:05" region="bottom">That's the first rule.</p>
+            <p xml:id="p111" begin="00:06:48:08" end="00:06:51:11" region="bottom">I define that class as a root,</p>
+            <p xml:id="p112" begin="00:06:51:15" end="00:06:55:15" region="bottom">because I want to have access<br/>to all the objects in the class.</p>
+            <p xml:id="p113" begin="00:06:55:22" end="00:06:58:22" region="bottom">The other reason<br/>is wanting to be able to share</p>
+            <p xml:id="p114" begin="00:06:59:05" end="00:07:02:20" region="bottom">these objects between roots.</p>
+            <p xml:id="p115" begin="00:07:03:16" end="00:07:06:20" region="bottom">Say I want to share powers,<br/>to make it clearer.</p>
+            <p xml:id="p116" begin="00:07:07:06" end="00:07:10:11" region="bottom">I want to be able to share powers<br/>between heroes.</p>
+            <p xml:id="p117" begin="00:07:11:00" end="00:07:15:04" region="bottom">In that case, I have to define<br/>power as a root.</p>
+            <p xml:id="p118" begin="00:07:15:14" end="00:07:16:19" region="bottom">Watch this.</p>
+            <p xml:id="p119" begin="00:07:17:14" end="00:07:21:14" region="bottom">In our example, hero is a root.</p>
+            <p xml:id="p120" begin="00:07:21:18" end="00:07:24:06" region="bottom">But power can also be a root.</p>
+            <p xml:id="p121" begin="00:07:24:13" end="00:07:28:13" region="bottom">In Voyage, you can declare<br/>any class as a root.</p>
+            <p xml:id="p122" begin="00:07:29:03" end="00:07:31:04" region="bottom">Here is how to do it.</p>
+            <p xml:id="p123" begin="00:07:32:07" end="00:07:37:01" region="bottom">I say Power class isVoyageRoot.</p>
+            <p xml:id="p124" begin="00:07:37:22" end="00:07:42:01" region="bottom">Now, if I create the power "Fly,"</p>
+            <p xml:id="p125" begin="00:07:42:10" end="00:07:44:24" region="bottom">and save it, it is in the base.</p>
+            <p xml:id="p126" begin="00:07:45:23" end="00:07:47:21" region="bottom">Superstrength? The same.</p>
+            <p xml:id="p127" begin="00:07:48:00" end="00:07:52:07" region="bottom">Now I'll be able to make a query</p>
+            <p xml:id="p128" begin="00:07:52:17" end="00:07:55:13" region="bottom">that tells Voyage to get<br/>the power to fly.</p>
+            <p xml:id="p129" begin="00:07:55:19" end="00:08:00:04" region="bottom">I also want Voyage to get<br/>the power of superhuman strength.</p>
+            <p xml:id="p130" begin="00:08:00:23" end="00:08:03:06" region="bottom">And now I recreate Superman.</p>
+            <p xml:id="p131" begin="00:08:03:16" end="00:08:05:02" region="bottom">I say, "Hey!</p>
+            <p xml:id="p132" begin="00:08:06:21" end="00:08:11:03" region="bottom">I got these two powers, so there's<br/>only one in the system, and I save it.</p>
+            <p xml:id="p133" begin="00:08:11:10" end="00:08:15:07" region="bottom">But it's important for me<br/>to reset the base</p>
+            <p xml:id="p134" begin="00:08:15:12" end="00:08:18:18" region="bottom">so that it works right,</p>
+            <p xml:id="p135" begin="00:08:18:22" end="00:08:22:06" region="bottom">whenever you change the basic schema.</p>
+            <p xml:id="p136" begin="00:08:23:15" end="00:08:26:22" region="bottom">But now I want to show you<br/>what I have now.</p>
+            <p xml:id="p137" begin="00:08:27:08" end="00:08:30:13" region="bottom">Superman's powers<br/>are described differently.</p>
+            <p xml:id="p138" begin="00:08:31:09" end="00:08:35:16" region="bottom">The power isn't composed inside.<br/>I have a reference to a power.</p>
+            <p xml:id="p139" begin="00:08:36:16" end="00:08:41:11" region="bottom">That means if I have another superhero<br/>who knows how to fly,</p>
+            <p xml:id="p140" begin="00:08:42:04" end="00:08:46:16" region="bottom">I can share that superpower,<br/>instead of having two instances.</p>
+            <p xml:id="p141" begin="00:08:47:11" end="00:08:51:23" region="bottom">So, depending on your domain<br/>and how you want to modelize it,</p>
+            <p xml:id="p142" begin="00:08:52:07" end="00:08:54:08" region="bottom">you'll define roots differently.</p>
+            <p xml:id="p143" begin="00:08:54:12" end="00:08:57:11" region="bottom">This silly example<br/>is just to give you an idea.</p>
+            <p xml:id="p144" begin="00:08:57:18" end="00:09:01:06" region="bottom">Actually, if I repeat myself,<br/>you define a domain root</p>
+            <p xml:id="p145" begin="00:09:01:15" end="00:09:07:01" region="bottom">if you want to query it<br/>or share objects in the root.</p>
+            <p xml:id="p146" begin="00:09:09:14" end="00:09:13:22" region="bottom">In Voyage, relationships are expressed</p>
+            <p xml:id="p147" begin="00:09:14:08" end="00:09:17:09" region="bottom">the way "foreign keys" are<br/>in relational databases.</p>
+            <p xml:id="p148" begin="00:09:17:16" end="00:09:21:16" region="bottom">Voyage automatically handles<br/>cyclic references of root objects.</p>
+            <p xml:id="p149" begin="00:09:21:21" end="00:09:26:11" region="bottom">But be careful:<br/>Voyage does not support cyclic references</p>
+            <p xml:id="p150" begin="00:09:26:22" end="00:09:29:15" region="bottom">between embedded objects.</p>
+            <p xml:id="p151" begin="00:09:31:06" end="00:09:35:20" region="bottom">You'll experiment, and see.<br/>If you have roots, you're home safe.</p>
+            <p xml:id="p152" begin="00:09:36:08" end="00:09:40:15" region="bottom">In this course, I wanted to show you<br/>how easy it is to store objects</p>
+            <p xml:id="p153" begin="00:09:41:01" end="00:09:43:04" region="bottom">in a Mongo database.</p>
+            <p xml:id="p154" begin="00:09:43:17" end="00:09:48:03" region="bottom">If you want to know more, look at<br/>Enterprise Pharo: a Web Perspective.</p>
+            <p xml:id="p155" begin="00:09:48:07" end="00:09:50:05" region="bottom">It's in the MOOC resources.</p>
+            <p xml:id="p156" begin="00:09:50:15" end="00:09:55:17" region="bottom">You can also refer to a little tutorial<br/>on building the superhero base.</p>
+            <p xml:id="p157" begin="00:09:56:21" end="00:09:58:05" region="bottom">You can learn it all.</p>
+        </div>
+    </body>
+</tt>

@@ -1,0 +1,636 @@
+WEBVTT
+
+00:00:01.600 --> 00:00:03.720 align:middle
+Dans cette vidéo, je
+voudrais vous montrer l'inspecteur
+
+00:00:03.887 --> 00:00:04.750 align:middle
+et comme on l'utilise.
+
+00:00:05.230 --> 00:00:06.280 align:middle
+Qu'est-ce que l'inspecteur ?
+
+00:00:07.000 --> 00:00:09.840 align:middle
+C'est un outil qui va nous
+permettre d'interagir avec n'importe
+
+00:00:10.007 --> 00:00:10.920 align:middle
+quel objet du système.
+
+00:00:11.900 --> 00:00:15.210 align:middle
+Comme Pharo, tout est écrit
+à base d'objets, vous allez
+
+00:00:15.377 --> 00:00:18.160 align:middle
+pouvoir inspecter tous les
+objets qui composent Pharo.
+
+00:00:18.810 --> 00:00:21.780 align:middle
+La métaphore la plus proche
+de ce qu'est un inspecteur,
+
+00:00:21.947 --> 00:00:26.630 align:middle
+je dirais que c'est un
+microscope, mais un microscope qui
+
+00:00:26.797 --> 00:00:29.810 align:middle
+aurait des possibilités
+d'interagir avec les objets qu'il
+
+00:00:30.000 --> 00:00:32.300 align:middle
+est en train d'observer.
+C'est comme si vous étiez un
+
+00:00:32.467 --> 00:00:36.820 align:middle
+biologiste avec des cellules
+ou une culture de bactéries
+
+00:00:37.030 --> 00:00:39.080 align:middle
+et que tout d'un coup,
+vous allez pouvoir, avec une
+
+00:00:39.247 --> 00:00:42.780 align:middle
+petite pointe, interagir avec ces
+bactéries alors qu'elles sont vivantes.
+
+00:00:42.960 --> 00:00:45.290 align:middle
+Je vous ai préparé
+une petite expression.
+
+00:00:47.080 --> 00:00:49.040 align:middle
+Ça serait très rare dans la
+vraie vie qu'on mette dans un
+
+00:00:49.207 --> 00:00:52.040 align:middle
+dictionnaire une date, un
+temps et une "Morph" mélangés,
+
+00:00:52.350 --> 00:00:54.190 align:middle
+mais pour le but de
+l'exercice, c'est très bien.
+
+00:00:54.630 --> 00:00:56.620 align:middle
+On va voir ça. La première
+chose à faire une fois que
+
+00:00:56.787 --> 00:01:01.450 align:middle
+vous avez tapé cette
+expression, c'est d'invoquer l'
+
+00:01:01.617 --> 00:01:04.120 align:middle
+inspecteur. Donc, on
+obtient l'inspecteur.
+
+00:01:05.240 --> 00:01:08.650 align:middle
+Vous allez voir que c'est un
+objet qui a plusieurs formes.
+
+00:01:08.817 --> 00:01:10.810 align:middle
+Qu'est-ce que me
+montre l'inspecteur?
+
+00:01:11.080 --> 00:01:15.840 align:middle
+Là, il me montre que j'ai
+plusieurs éléments dans ma
+
+00:01:16.007 --> 00:01:18.260 align:middle
+collection. À chaque fois
+que je clique sur un des
+
+00:01:18.427 --> 00:01:22.390 align:middle
+éléments, je vais avoir un
+autre inspecteur qui s'ouvre
+
+00:01:22.557 --> 00:01:23.800 align:middle
+sur l'élément que j'ai sélectionné.
+
+00:01:24.230 --> 00:01:28.060 align:middle
+Alors ce qu'il faut voir,
+c'est que l'inspecteur, en tout
+
+00:01:28.227 --> 00:01:32.800 align:middle
+cas GT, la nouvelle version
+de l'inspecteur en Pharo qui
+
+00:01:33.000 --> 00:01:35.840 align:middle
+est développée par l'équipe
+GT de l'université de Berne,
+
+00:01:36.007 --> 00:01:36.640 align:middle
+qu'est-ce qu'il offre ?
+
+00:01:36.807 --> 00:01:40.510 align:middle
+Il offre la possibilité de
+définir différentes vues qui
+
+00:01:40.677 --> 00:01:43.890 align:middle
+vont s'adapter à chaque
+objet que l'on va manipuler.
+
+00:01:44.057 --> 00:01:46.840 align:middle
+On ne va peut-être pas
+vouloir inspecter un dictionnaire
+
+00:01:47.007 --> 00:01:50.440 align:middle
+comme on manipule
+un élément graphique.
+
+00:01:51.360 --> 00:01:54.440 align:middle
+Donc, l'intérêt, c'est que
+chacun de ces éléments va
+
+00:01:54.607 --> 00:01:56.640 align:middle
+pouvoir proposer à
+l'utilisateur des vues différentes.
+
+00:01:57.880 --> 00:01:59.760 align:middle
+La vue de base que vous
+avez, c'est la vue Raw.
+
+00:02:00.850 --> 00:02:03.800 align:middle
+C'est la vue qui
+montre l'implémentation.
+
+00:02:04.020 --> 00:02:07.350 align:middle
+Si on regarde, si j'ouvre
+la classe, par exemple, qui
+
+00:02:07.517 --> 00:02:12.400 align:middle
+correspond à
+OrderedDictionary, cette classe
+
+00:02:12.567 --> 00:02:16.060 align:middle
+a 2 variables d'instance,
+dictionary et orderedKeys.
+
+00:02:16.227 --> 00:02:19.780 align:middle
+Là, l'inspecteur va me
+montrer les valeurs brutes qui
+
+00:02:19.947 --> 00:02:21.770 align:middle
+sont contenues dans ces
+variables d'instances.
+
+00:02:22.000 --> 00:02:25.640 align:middle
+Si je clique sur dictionary, je
+vois que c'est un dictionnaire.
+
+00:02:25.807 --> 00:02:29.360 align:middle
+Donc, si j'avais cliqué dessus,
+je vois ici, c'est un dictionnaire.
+
+00:02:30.550 --> 00:02:34.000 align:middle
+Et là, je vois encore une fois
+la vue brute de cet objet-là.
+
+00:02:34.760 --> 00:02:37.500 align:middle
+Il a des clés ordonnées qui
+est un tableau apparemment.
+
+00:02:38.760 --> 00:02:41.080 align:middle
+J'ai un tableau avec
+Time, Date et Morph.
+
+00:02:44.270 --> 00:02:47.170 align:middle
+Maintenant, quand je suis en
+mode Items - le mode Items,
+
+00:02:48.860 --> 00:02:53.220 align:middle
+c'est que l'entité
+OrderedDictionary me propose de voir
+
+00:02:53.387 --> 00:02:56.590 align:middle
+ces clés et ces valeurs
+d'une manière plus sympa parce
+
+00:02:56.757 --> 00:02:59.100 align:middle
+que là, si on regarde, il
+faut aller à l'intérieur.
+
+00:02:59.267 --> 00:03:01.950 align:middle
+Ça devient un peu délicat.
+
+00:03:02.117 --> 00:03:03.870 align:middle
+Donc, là on ne sait pas
+"ah oui, c'est laquelle?
+
+00:03:04.037 --> 00:03:07.040 align:middle
+Ah, c'est celle-là, peut-être
+qu’à 6, ça veut dire que j'ai
+
+00:03:07.450 --> 00:03:11.430 align:middle
+une association dans laquelle j'ai
+Time, j'ai la clé et la valeur, etc.
+
+00:03:11.597 --> 00:03:16.080 align:middle
+". Donc, ce que vous voyez déjà,
+c'est que l'inspecteur navigue.
+
+00:03:16.410 --> 00:03:17.930 align:middle
+J'ai cette petite
+barre de navigation.
+
+00:03:18.220 --> 00:03:22.260 align:middle
+Quand je mets la souris sur
+les petits ronds, je vois un
+
+00:03:22.427 --> 00:03:24.270 align:middle
+preview de l'endroit où je
+vais aller si je clique dessus.
+
+00:03:25.130 --> 00:03:28.060 align:middle
+Et ce que je peux faire
+aussi, je peux réduire ou changer
+
+00:03:28.510 --> 00:03:31.510 align:middle
+la taille des fenêtres et
+le focus que je veux avoir.
+
+00:03:31.720 --> 00:03:35.220 align:middle
+Si je prends les trois par
+exemple, je vais mettre en
+
+00:03:35.387 --> 00:03:36.590 align:middle
+gros pour que vous le voyiez bien.
+
+00:03:37.680 --> 00:03:42.460 align:middle
+Maintenant, quand je suis
+en mode Items, c'est beaucoup
+
+00:03:42.627 --> 00:03:44.300 align:middle
+plus sympa parce que je
+vais pouvoir interagir.
+
+00:03:44.467 --> 00:03:47.570 align:middle
+Donc là, je vois date, j'ai
+la clé et la valeur, quand je
+
+00:03:47.737 --> 00:03:52.330 align:middle
+sélectionne, par exemple,
+je vois date, date au format
+
+00:03:52.620 --> 00:03:54.550 align:middle
+brut des variables d'instances.
+
+00:03:54.820 --> 00:03:58.260 align:middle
+Si je faisais self browse,
+vous imaginez ce qu'on va voir.
+
+00:03:58.427 --> 00:04:03.220 align:middle
+On va voir
+exactement une date, Timespan,
+
+00:04:03.690 --> 00:04:05.000 align:middle
+donc j'ai start et duration.
+
+00:04:06.810 --> 00:04:07.710 align:middle
+J'ai bien start et duration.
+
+00:04:09.000 --> 00:04:11.730 align:middle
+Si je regarde l'onglet Details,
+
+00:04:15.040 --> 00:04:19.390 align:middle
+ce que me propose la date,
+c'est de la voir avec, par
+
+00:04:19.557 --> 00:04:24.280 align:middle
+exemple, une année, un
+mois, ce genre de choses, sous
+
+00:04:24.447 --> 00:04:25.420 align:middle
+forme Iso par exemple.
+
+00:04:27.150 --> 00:04:28.000 align:middle
+Comment ça se passe ?
+
+00:04:28.147 --> 00:04:29.730 align:middle
+En fait, on le verra dans
+une autre vidéo, mais c'est que
+
+00:04:30.370 --> 00:04:33.050 align:middle
+chaque objet peut décider
+des facettes qu'il va exposer
+
+00:04:33.760 --> 00:04:35.430 align:middle
+et qu'il va proposer à l'inspecteur.
+
+00:04:36.230 --> 00:04:37.640 align:middle
+Donc là, il y a
+calendar, par exemple.
+
+00:04:37.807 --> 00:04:42.330 align:middle
+On voit qu'on a une représentation
+graphique de ce que c'est que la date.
+
+00:04:44.400 --> 00:04:45.400 align:middle
+Je reviens en arrière.
+
+00:04:48.570 --> 00:04:52.020 align:middle
+De la même manière, pour Times,
+vous voyez qu'on a les mêmes choses.
+
+00:04:52.560 --> 00:04:56.200 align:middle
+Alors je vous ai
+montré les onglets Raw.
+
+00:04:57.440 --> 00:04:58.540 align:middle
+Vous avez aussi l'onglet Meta.
+
+00:04:59.840 --> 00:05:03.480 align:middle
+C'est un mini browser de code qui
+vous montre toutes les méthodes.
+
+00:05:03.647 --> 00:05:06.770 align:middle
+Par exemple, là je peux
+voir toutes les méthodes parce
+
+00:05:06.937 --> 00:05:11.410 align:middle
+que j'aurais peut-être envie
+d'interagir avec ma date, time.
+
+00:05:11.840 --> 00:05:15.310 align:middle
+Imaginons que je ne sache
+pas ce que je peux lui envoyer,
+
+00:05:15.477 --> 00:05:17.000 align:middle
+peut-être que je
+peux lui envoyer hours.
+
+00:05:17.137 --> 00:05:21.500 align:middle
+Il me rend 18. Il est 18 heures.
+
+00:05:22.350 --> 00:05:25.780 align:middle
+Ça normalement, je devrais
+pouvoir le voir ici si je cherche hour.
+
+00:05:27.540 --> 00:05:30.900 align:middle
+J'ai la définition de la méthode.
+
+00:05:31.067 --> 00:05:32.550 align:middle
+C'est juste pour
+être plus dans le flow.
+
+00:05:34.140 --> 00:05:36.000 align:middle
+Maintenant, si je regarde Morph.
+
+00:05:37.940 --> 00:05:39.130 align:middle
+C'est un objet plus compliqué.
+
+00:05:39.297 --> 00:05:42.300 align:middle
+On voit plusieurs
+pans qui sont différents.
+
+00:05:43.000 --> 00:05:44.660 align:middle
+Ce qui est sympa là, par
+exemple, c'est que si je clique
+
+00:05:44.827 --> 00:05:46.620 align:middle
+sur Morph, je vois son rendu.
+
+00:05:48.190 --> 00:05:52.640 align:middle
+Je vois le rendu de l'objet Morph
+
+00:05:52.900 --> 00:05:57.330 align:middle
+qui est en fait un
+HSVAColorSelectorMorph.
+
+00:06:02.720 --> 00:06:04.720 align:middle
+Juste pour vous montrer, en
+fait avec l'inspecteur, ce
+
+00:06:04.887 --> 00:06:06.560 align:middle
+que je peux faire, je peux
+interagir avec mon objet.
+
+00:06:07.100 --> 00:06:11.470 align:middle
+Je peux lui dire de
+s'ouvrir dans un monde et je vais
+
+00:06:11.637 --> 00:06:13.270 align:middle
+pouvoir interagir avec mon objet.
+
+00:06:16.870 --> 00:06:21.390 align:middle
+Ça dépendra de ce
+qu'il me propose comme
+
+00:06:22.000 --> 00:06:26.560 align:middle
+fonctionnalité. Je peux lui demander
+
+00:06:26.727 --> 00:06:29.090 align:middle
+selectedColor. On va
+voir si ça fonctionne.
+
+00:06:29.890 --> 00:06:30.590 align:middle
+Si je fais self selectedColor.
+
+00:06:30.757 --> 00:06:35.590 align:middle
+Il me rend une couleur.
+
+00:06:36.000 --> 00:06:39.000 align:middle
+Là, c'est intéressant parce
+que ce que je peux faire avec
+
+00:06:39.700 --> 00:06:42.360 align:middle
+l'inspecteur, c'est que là
+j'ai fait un print, ça m'a
+
+00:06:42.527 --> 00:06:44.260 align:middle
+donné une
+représentation textuelle de l'objet.
+
+00:06:44.940 --> 00:06:49.080 align:middle
+Je pourrais invoquer, je
+pourrais faire inspect dessus
+
+00:06:49.740 --> 00:06:51.760 align:middle
+et ça m'ouvrirait
+un autre inspecteur.
+
+00:06:51.927 --> 00:06:52.690 align:middle
+C'est ce que je suis
+en train de faire là.
+
+00:06:52.857 --> 00:06:55.000 align:middle
+Maintenant, si je veux
+que le résultat de cette
+
+00:06:55.167 --> 00:07:00.080 align:middle
+expression soit injecté
+dans le flow de mon inspecteur,
+
+00:07:00.247 --> 00:07:01.000 align:middle
+qu'est-ce que je peux faire ?
+
+00:07:01.137 --> 00:07:03.190 align:middle
+Il suffit que je fasse Do it and go.
+
+00:07:03.610 --> 00:07:08.360 align:middle
+Si je fais Do it and go, j'ai
+ajouté dans le flow d'interaction
+
+00:07:08.790 --> 00:07:11.010 align:middle
+un nouvel objet et un
+inspecteur sur un nouvel objet.
+
+00:07:11.530 --> 00:07:15.620 align:middle
+Vous avez compris. Là, ce sont mes
+couleurs avec l'encodage des couleurs.
+
+00:07:16.580 --> 00:07:17.500 align:middle
+Rien de bien spécial.
+
+00:07:21.800 --> 00:07:24.250 align:middle
+On va revenir en arrière.
+
+00:07:26.570 --> 00:07:31.110 align:middle
+Ce qui est intéressant de
+voir, c'est que là, j'ai une
+
+00:07:31.277 --> 00:07:33.820 align:middle
+vision de mon objet par
+exemple en sous-morph.
+
+00:07:36.000 --> 00:07:38.500 align:middle
+Si je veux avoir la même
+vision et si je veux trouver les
+
+00:07:38.667 --> 00:07:42.180 align:middle
+sous-morph qui composent
+mon objet graphique, quand je
+
+00:07:42.347 --> 00:07:47.030 align:middle
+suis en mode Raw, je
+vais devoir aller naviguer
+
+00:07:47.200 --> 00:07:52.050 align:middle
+à l'intérieur de mon arbre
+de composants graphiques.
+
+00:07:53.130 --> 00:07:54.280 align:middle
+Ça peut être vraiment pénible.
+
+00:07:55.080 --> 00:07:57.760 align:middle
+Je vais vous montrer une
+astuce vraiment sympathique.
+
+00:07:59.190 --> 00:08:03.660 align:middle
+Imaginons que j'ai
+mon arbre de Morph.
+
+00:08:05.550 --> 00:08:08.640 align:middle
+J'ai 2 vues qui sont
+exactement les mêmes sur le même objet.
+
+00:08:11.160 --> 00:08:12.820 align:middle
+Ce que je peux faire,
+c'est faire Submorph.
+
+00:08:13.530 --> 00:08:16.540 align:middle
+Je vais faire Submorph dans
+celui-là et là j'ai Morph.
+
+00:08:16.830 --> 00:08:20.520 align:middle
+Maintenant, je vais pouvoir
+sélectionner dans mon arbre les éléments.
+
+00:08:22.230 --> 00:08:25.610 align:middle
+Ce que je lui dis, je ne
+veux que tu affiches ici que
+
+00:08:25.777 --> 00:08:30.590 align:middle
+celui-là, ou alors par
+exemple, là je suis vraiment
+
+00:08:30.757 --> 00:08:35.290 align:middle
+sur la sous-feuille de mon
+arbre qui correspond à ma sélection.
+
+00:08:36.360 --> 00:08:38.900 align:middle
+C'est super puissant parce
+que souvent, si je devais
+
+00:08:39.100 --> 00:08:43.350 align:middle
+trouver la
+sous-morph qui correspond à ce
+
+00:08:43.517 --> 00:08:48.480 align:middle
+petit indicateur, là c'est
+relativement facile, c'est celui-là.
+
+00:08:50.440 --> 00:08:54.850 align:middle
+Par contre, si je suis dans
+un mode traditionnel, c'est
+
+00:08:55.017 --> 00:08:58.130 align:middle
+une autre paire de manches
+parce qu'il va falloir, en
+
+00:08:58.297 --> 00:08:59.350 align:middle
+fait je ne sais pas comment faire.
+
+00:08:59.517 --> 00:09:02.270 align:middle
+Il va falloir que
+j'aille à l'intérieur
+
+00:09:05.440 --> 00:09:06.960 align:middle
+jusqu'à ce que je trouve.
+
+00:09:07.470 --> 00:09:12.060 align:middle
+C'est ici, il me semble,
+parce que là c'est un objet
+
+00:09:12.227 --> 00:09:12.860 align:middle
+simple.
+
+00:09:14.500 --> 00:09:16.530 align:middle
+Vous allez voir dans les
+autres vidéos qu'on va pouvoir
+
+00:09:16.697 --> 00:09:20.680 align:middle
+faire ce genre de manipulation
+sur tous les objets du système.
+
+00:09:21.370 --> 00:09:23.530 align:middle
+Je vais vous montrer en
+particulier qu'on peut faire ça
+
+00:09:23.697 --> 00:09:27.850 align:middle
+sur des systèmes de fichiers,
+sur les classes elles-mêmes.
+
+00:09:28.160 --> 00:09:30.040 align:middle
+En guise de conclusion, ce
+qu'on a vu finalement c'est
+
+00:09:30.207 --> 00:09:32.560 align:middle
+que l'inspecteur c'est un
+objet qui va vous permettre de
+
+00:09:32.727 --> 00:09:37.230 align:middle
+parler et d'interagir, de
+changer des objets vivants, vos
+
+00:09:37.397 --> 00:09:41.010 align:middle
+objets, et d'une autre
+part, c'est que chaque objet va
+
+00:09:41.177 --> 00:09:45.730 align:middle
+exposer différentes
+facettes ou différentes vues sur
+
+00:09:45.897 --> 00:09:48.260 align:middle
+lui-même de façon à
+vous permettre d'avoir une
+
+00:09:48.427 --> 00:09:51.640 align:middle
+interaction différente
+suivant vos scénarios.
+
+00:09:51.807 --> 00:09:53.760 align:middle
+Ça donne un objet qui
+est très, très puissant.
+
+00:09:54.190 --> 00:09:56.290 align:middle
+En fait, GT Inspector est
+vraiment un super outil.
+

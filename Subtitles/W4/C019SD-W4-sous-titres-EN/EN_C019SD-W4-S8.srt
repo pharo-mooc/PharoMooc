@@ -1,0 +1,745 @@
+﻿1
+00:00:00,560 --> 00:00:01,360
+Hello.
+
+2
+00:00:01,600 --> 00:00:04,880
+This sequence covers
+the Seaside web framework,
+
+3
+00:00:05,160 --> 00:00:08,240
+an innovative way
+of building web apps in Pharo.
+
+4
+00:00:08,480 --> 00:00:12,200
+Seaside is powerful and flexible.
+
+5
+00:00:12,480 --> 00:00:17,240
+It is based on the concept
+of reusable, stateful components,
+
+6
+00:00:17,600 --> 00:00:21,520
+on top of a stateless protocol,
+HTTP, in Web applications.
+
+7
+00:00:22,600 --> 00:00:26,040
+Seaside is secure by default,
+of course.
+
+8
+00:00:26,200 --> 00:00:29,200
+It integrates
+all the latest Web 2.0 techniques,
+
+9
+00:00:29,360 --> 00:00:31,760
+like Ajax, etc.,
+and REST architectures.
+
+10
+00:00:33,040 --> 00:00:36,200
+This is the Seaside URL.
+
+11
+00:00:36,920 --> 00:00:42,120
+You can refer to it for documentation
+like the free online Seaside book.
+
+12
+00:00:42,400 --> 00:00:45,560
+It also offers a set
+of Seaside tutorials.
+
+13
+00:00:45,880 --> 00:00:49,520
+Lastly, you can ask questions
+on the Seaside mailing list.
+
+14
+00:00:49,800 --> 00:00:54,800
+An active community will reply
+to any questions you may have.
+
+15
+00:00:56,320 --> 00:00:59,920
+A little history: Seaside
+has been in production since 2002.
+
+16
+00:01:00,080 --> 00:01:01,640
+It is actively maintained.
+
+17
+00:01:01,920 --> 00:01:04,520
+The Seaside framework is the basis
+
+18
+00:01:05,080 --> 00:01:07,800
+for many Pharo success stories.
+
+19
+00:01:07,960 --> 00:01:11,200
+Those stories are online
+on the Pharo site, pharo.org.
+
+20
+00:01:11,640 --> 00:01:15,640
+As you'll see,
+there are many web projects,
+
+21
+00:01:16,040 --> 00:01:18,520
+and most use the Seaside framework.
+
+22
+00:01:18,960 --> 00:01:23,960
+As I was saying,
+Seaside is a web framework
+
+23
+00:01:24,200 --> 00:01:26,680
+centered on the component concept.
+
+24
+00:01:26,840 --> 00:01:30,400
+These components
+are reusable and stateful.
+
+25
+00:01:30,640 --> 00:01:35,880
+It has a domain-specific language
+to render the components in HTML.
+
+26
+00:01:36,560 --> 00:01:39,160
+The rules for composing
+these components
+
+27
+00:01:39,440 --> 00:01:43,160
+will be covered in a later sequence.
+
+28
+00:01:43,800 --> 00:01:46,760
+A web application
+is just a root component.
+
+29
+00:01:46,920 --> 00:01:51,160
+Seaside makes it possible
+to debug applications on the fly,
+
+30
+00:01:51,640 --> 00:01:53,360
+in the Pharo debugger.
+
+31
+00:01:53,720 --> 00:01:56,840
+In a later sequence of this course,
+you will learn
+
+32
+00:01:57,120 --> 00:02:01,080
+how to use metadata
+to generate forms automatically.
+
+33
+00:02:02,680 --> 00:02:05,280
+These are some of the examples
+
+34
+00:02:05,440 --> 00:02:10,080
+of web applications built with Seaside,
+in production since 2002.
+
+35
+00:02:10,640 --> 00:02:12,560
+I'll zoom in on a few of them.
+
+36
+00:02:12,720 --> 00:02:16,200
+This application makes extensive use
+of graphs,
+
+37
+00:02:16,360 --> 00:02:20,320
+and other interlocking components
+that make a complex application.
+
+38
+00:02:20,920 --> 00:02:25,680
+Here's another example of an application
+you can find on Pharo's website.
+
+39
+00:02:26,040 --> 00:02:28,840
+It features reporting tables
+
+40
+00:02:29,000 --> 00:02:32,440
+that are quite complex,
+interlocking with each other.
+
+41
+00:02:32,880 --> 00:02:36,440
+That can be built very simply
+with the Seaside framework.
+
+42
+00:02:38,120 --> 00:02:41,360
+The main concept in Seaside
+is the component.
+
+43
+00:02:41,680 --> 00:02:44,800
+A component is a subclass
+of WAComponent
+
+44
+00:02:44,960 --> 00:02:47,120
+supplied by the Seaside framework.
+
+45
+00:02:47,720 --> 00:02:50,520
+A component is reusable
+and stateful.
+
+46
+00:02:50,680 --> 00:02:55,040
+It can be rendered in HTML
+in the form of <div>, etc.
+
+47
+00:02:55,960 --> 00:03:00,440
+In Seaside, a web application
+has a root component -
+
+48
+00:03:00,760 --> 00:03:02,720
+in this case, WACounter,
+
+49
+00:03:02,920 --> 00:03:06,080
+saved in the system
+as a web application.
+
+50
+00:03:06,240 --> 00:03:10,400
+It will be named "Counter," and
+accessible as such, from the URL.
+
+51
+00:03:11,040 --> 00:03:14,560
+Here's an example of
+my Counter application, in the URL.
+
+52
+00:03:14,760 --> 00:03:17,840
+It's a component
+rendered in HTML, here.
+
+53
+00:03:18,200 --> 00:03:21,840
+The value of the counter is zero.
+We have two links, here.
+
+54
+00:03:22,160 --> 00:03:25,240
+You click on ++
+to increase the counter value,
+
+55
+00:03:25,480 --> 00:03:28,200
+and on --
+to decrease the value.
+
+56
+00:03:29,160 --> 00:03:32,720
+The code for implementing
+this application is very simple.
+
+57
+00:03:33,000 --> 00:03:36,520
+I create a subclass
+of WAComponent: WACounter.
+
+58
+00:03:36,680 --> 00:03:39,160
+It has an instance variable
+named count.
+
+59
+00:03:39,760 --> 00:03:43,480
+The initialization method
+sets the counter to 0.
+
+60
+00:03:44,040 --> 00:03:47,800
+One method increases the value,
+the other decreases it.
+
+61
+00:03:48,640 --> 00:03:51,720
+Now we need the HTML part,
+
+62
+00:03:52,000 --> 00:03:54,520
+so the counter is rendered in HTML.
+
+63
+00:03:54,680 --> 00:03:57,520
+All we have to do
+is endow it with a method,
+
+64
+00:03:57,680 --> 00:03:59,800
+renderContentOn,
+a parameter.
+
+65
+00:04:00,360 --> 00:04:03,160
+The parameter will help us
+generate the HTML code.
+
+66
+00:04:04,520 --> 00:04:08,280
+Here's the example, with the addition
+of "renderContentOn"
+
+67
+00:04:08,520 --> 00:04:09,880
+to the counter class.
+
+68
+00:04:10,040 --> 00:04:14,280
+I use this parameter,
+a conventional Pharo object.
+
+69
+00:04:15,360 --> 00:04:19,080
+It's an instance of the class
+WAHtmlCanvas, supplied by Seaside.
+
+70
+00:04:19,400 --> 00:04:23,520
+I send messages to this object
+to generate the HTML code,
+
+71
+00:04:23,680 --> 00:04:25,920
+and a heading
+and an anchor, or link.
+
+72
+00:04:26,360 --> 00:04:29,160
+The "callback" message
+enables me to specify
+
+73
+00:04:29,320 --> 00:04:32,560
+a block of code to execute
+when I click on the link.
+
+74
+00:04:32,720 --> 00:04:35,520
+Here, when I click on the link
+called ++,
+
+75
+00:04:35,680 --> 00:04:38,320
+the "self increase" method
+is executed.
+
+76
+00:04:38,560 --> 00:04:43,920
+Clicking on -- prompts the execution
+of the "self decrease" method.
+
+77
+00:04:44,440 --> 00:04:45,400
+It's so simple.
+
+78
+00:04:46,880 --> 00:04:51,840
+If an error occurs when I click
+on a link; i.e., in a callback,
+
+79
+00:04:52,000 --> 00:04:56,600
+I knowingly have inserted
+a "halt" point. It could be an error.
+
+80
+00:04:57,040 --> 00:05:00,240
+I've inserted a halt point
+in the decrease method.
+
+81
+00:05:00,600 --> 00:05:05,120
+"Self" will halt if the counter
+is decreased below zero.
+
+82
+00:05:05,520 --> 00:05:08,240
+That will bring up the debugger.
+
+83
+00:05:09,040 --> 00:05:12,440
+As you see,
+if I do this in my web application,
+
+84
+00:05:12,600 --> 00:05:14,480
+the debugger is displayed here.
+
+85
+00:05:14,640 --> 00:05:19,440
+Here's the program's application stack,
+with the method "RenderContentOn"
+
+86
+00:05:20,120 --> 00:05:22,720
+and the decrease, here.
+
+87
+00:05:23,600 --> 00:05:25,480
+We did stop on haltIf.
+
+88
+00:05:25,800 --> 00:05:28,680
+I can modify the code right here,
+
+89
+00:05:29,000 --> 00:05:30,560
+press "Proceed,"
+
+90
+00:05:30,960 --> 00:05:34,040
+and my application
+will receive the HTML response
+
+91
+00:05:34,200 --> 00:05:36,080
+as if nothing had happened.
+
+92
+00:05:39,080 --> 00:05:42,800
+Another problem in Web applications
+is the "back" button.
+
+93
+00:05:43,240 --> 00:05:45,480
+When the user clicks on "back,"
+
+94
+00:05:45,640 --> 00:05:48,600
+it desynchronizes
+the server and client.
+
+95
+00:05:48,960 --> 00:05:53,640
+Imagine I increase the counter 5 times.
+Now it reads "5" on my screen.
+
+96
+00:05:53,880 --> 00:05:57,600
+Then I click on the back button
+in my browser.
+
+97
+00:05:57,920 --> 00:05:59,840
+The counter now reads 4.
+
+98
+00:06:00,000 --> 00:06:03,520
+But the server isn't updated
+about my back-button click.
+
+99
+00:06:03,680 --> 00:06:08,640
+So if I click again on ++,
+the screen will display a 6.
+
+100
+00:06:09,280 --> 00:06:13,320
+The problem is, the server side
+thought we were still on 5.
+
+101
+00:06:13,640 --> 00:06:14,800
+5+1 = 6.
+
+102
+00:06:15,320 --> 00:06:18,520
+Seaside makes it very easy
+to handle the back button.
+
+103
+00:06:18,680 --> 00:06:22,160
+We define a new method
+on the counter class: "states."
+
+104
+00:06:22,600 --> 00:06:26,560
+It will return the array
+for which the state is to be preserved
+
+105
+00:06:26,720 --> 00:06:28,520
+when the back button is hit.
+
+106
+00:06:28,680 --> 00:06:32,360
+In this case, it is only
+the object self: the counter.
+
+107
+00:06:33,200 --> 00:06:36,640
+Now, if I press "back,"
+and then click on ++,
+
+108
+00:06:36,880 --> 00:06:38,680
+I should see 5 again.
+
+109
+00:06:41,640 --> 00:06:46,280
+Callbacks are actually
+blocks of code
+
+110
+00:06:46,520 --> 00:06:49,040
+that contain all of Pharo's power.
+
+111
+00:06:49,360 --> 00:06:53,440
+I can write any Pharo code
+in this callback.
+
+112
+00:06:54,040 --> 00:06:56,960
+I took a more complex example
+here.
+
+113
+00:06:57,240 --> 00:07:01,160
+I can use an alternative "if"
+to say if I increase the counter + 1
+
+114
+00:07:01,320 --> 00:07:05,200
+or + 2, depending on whether
+the count is odd or even.
+
+115
+00:07:05,760 --> 00:07:11,720
+For even numbers, the counter
+will increase faster than for odd.
+
+116
+00:07:12,560 --> 00:07:17,000
+As you see, Pharo
+is really a powerful language
+
+117
+00:07:17,160 --> 00:07:18,920
+in these callback blocks.
+
+118
+00:07:21,560 --> 00:07:25,840
+To return to the preceding example,
+if I click on ++ here,
+
+119
+00:07:26,240 --> 00:07:30,720
+it brings me to a new window,
+
+120
+00:07:31,920 --> 00:07:35,600
+telling me it is an even number.
+
+121
+00:07:36,800 --> 00:07:40,560
+Next, I'll show you
+how to write a greeter application.
+
+122
+00:07:40,720 --> 00:07:43,160
+The user enters his first name.
+
+123
+00:07:43,400 --> 00:07:47,720
+He types it in here,
+and when he clicks on "Say Hello,"
+
+124
+00:07:48,640 --> 00:07:52,680
+we want to display a string
+of characters: "Hi" and the user name
+
+125
+00:07:53,040 --> 00:07:55,160
+he entered in the beginning, here.
+
+126
+00:07:56,760 --> 00:08:01,600
+It's very easy to code for that
+in Seaside.
+
+127
+00:08:01,960 --> 00:08:05,160
+I create a subclass Component
+of the class Greeter.
+
+128
+00:08:05,360 --> 00:08:07,240
+The instance variable
+is Username.
+
+129
+00:08:07,400 --> 00:08:10,240
+The method renderContentOn
+I'm showing you here
+
+130
+00:08:10,880 --> 00:08:14,080
+displays the field "Username."
+
+131
+00:08:14,240 --> 00:08:15,920
+The next line is textinput.
+
+132
+00:08:16,120 --> 00:08:20,680
+That's the text field you saw before,
+where the user writes "Bob."
+
+133
+00:08:20,840 --> 00:08:22,520
+I will have one callback.
+
+134
+00:08:22,760 --> 00:08:26,240
+This time, it is a block
+with a parameter, "value."
+
+135
+00:08:26,760 --> 00:08:30,840
+The value parameter of this block
+will be the string of characters
+
+136
+00:08:31,360 --> 00:08:33,480
+the user entered.
+
+137
+00:08:33,800 --> 00:08:36,280
+We can store it
+in the instance variable
+
+138
+00:08:36,440 --> 00:08:39,000
+of the Greeter component
+UserName.
+
+139
+00:08:39,520 --> 00:08:42,960
+Next, when the "submit" button
+is clicked,
+
+140
+00:08:43,320 --> 00:08:48,040
+I'm going to call a new component,
+using the command selfinform.
+
+141
+00:08:48,200 --> 00:08:51,520
+I tell it to display the string
+"Hi, Bob."
+
+142
+00:08:51,920 --> 00:08:56,480
+I concatenate the character string "Hi"
+with the text entered as UserName.
+
+143
+00:09:00,040 --> 00:09:03,760
+I hope those of you who are used
+to coding web applications
+
+144
+00:09:03,920 --> 00:09:06,320
+noticed that Seaside
+does not require
+
+145
+00:09:06,760 --> 00:09:11,800
+manual request parsing to find
+parameters in requests or URLs.
+
+146
+00:09:11,960 --> 00:09:16,520
+It does not require XML configuration
+files, or indeed, files or pages.
+
+147
+00:09:16,920 --> 00:09:20,240
+I did not say anything
+about links to the next page.
+
+148
+00:09:20,640 --> 00:09:23,480
+The only thing I talked about
+was components:
+
+149
+00:09:23,640 --> 00:09:25,320
+objects and messages.
+
+150
+00:09:25,640 --> 00:09:27,160
+I talked about callbacks
+
+151
+00:09:27,320 --> 00:09:32,160
+and the ability to debug live,
+using the Pharo debugger.
+
+152
+00:09:33,360 --> 00:09:36,960
+In sum, it's easy to build
+web applications in Seaside.
+
+153
+00:09:37,200 --> 00:09:41,960
+There is one root component.
+Components can be combined
+
+154
+00:09:42,240 --> 00:09:44,400
+to build more complex applications.
+
+155
+00:09:44,600 --> 00:09:48,000
+A component renders itself
+in HTML with renderContentOn.
+
+156
+00:09:48,680 --> 00:09:51,960
+We have an extensible
+domain-specific language
+
+157
+00:09:52,240 --> 00:09:55,240
+that generates HTML code
+for each component.
+
+158
+00:09:55,400 --> 00:09:58,680
+We'll cover that in greater detail
+in the next video.

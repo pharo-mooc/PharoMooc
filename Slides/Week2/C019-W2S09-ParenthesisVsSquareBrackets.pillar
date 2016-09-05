@@ -1,0 +1,67 @@
+{
+  "title":"Parentheses Vs. Square Brackets",
+  "slidesid" : "W2S09"
+}
+
+
+${slide:title= ( ) vs. [ ]}$
+
+- ==( )== just changes the priority of an execution but the program is executed
+- ==[ ]== blocks program execution: the program is NOT executed
+
+${slide:title= Use [ ] for 'Unknown' Execution Occurrence}$
+
+Use ==[ expressions ]== when:
+- ==expressions== may not be executed at all (if, and, ...)
+- ==expressions== may be executed multiple times (while, ...)
+
+${slide:title=Example}$
+
+[[[
+n timesRepeat: [ self doSomething ]
+]]]
+
+==timesRepeat:== executes a number of times its argument, therefore the argument is a block
+
+
+${slide:title= ( ) vs. [ ] Example}$
+
+[[[
+x isNil ifTrue: [ self doSomething ]
+]]]
+
+==ifTrue:== may execute or not its argument, therefore the argument is a block
+
+
+${slide:title= ( ) vs. [ ] Example}$
+
+[[[
+[ self start ] whileTrue: [ self doSomething ]
+]]]
+
+==whileTrue:== may execute both its receiver and argument multiple times, therefore they are both a block
+
+${slide:title=Quiz}$
+
+[[[
+1 to: n do: ... self doSomething ...
+]]]
+
+[[[
+x ifEmpty: ... self doSomething ...
+]]]
+
+${slide:title=Quiz|label=squareBracketQuiz}$
+
+[[[
+1 to: 100 do: [ :i | self doSomething ]
+]]]
+
+[[[
+x ifEmpty: [ self doSomething ]
+]]]
+
+${slide:title=Summary|label=squareBracketQuiz}$
+
+- ==( ) == is about changing the order of a computation
+- ==[ ]== is freezing the computation and controlling it

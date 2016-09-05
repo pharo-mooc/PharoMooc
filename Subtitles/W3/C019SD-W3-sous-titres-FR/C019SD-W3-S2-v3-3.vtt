@@ -1,0 +1,606 @@
+WEBVTT
+
+00:00:00.510 --> 00:00:03.790 align:middle
+Bonjour. Donc dans le cours
+d'avant, on a regardé comme
+
+00:00:04.000 --> 00:00:06.620 align:middle
+on avait implémenté
+les booléens, not et or.
+
+00:00:07.120 --> 00:00:09.250 align:middle
+Et il nous restait en
+suspens la question 3: c'est
+
+00:00:09.450 --> 00:00:11.750 align:middle
+pourquoi diable
+a-t-on posé ces questions?
+
+00:00:12.200 --> 00:00:13.710 align:middle
+Donc c'est ce qu'on va
+regarder dans ce cours.
+
+00:00:14.780 --> 00:00:16.460 align:middle
+Donc, je vous
+rappelle l'implémentation.
+
+00:00:16.660 --> 00:00:19.760 align:middle
+Donc là, pour not qu'on avait vu,
+on avait vu qu'on avait deux objets.
+
+00:00:20.260 --> 00:00:24.050 align:middle
+On avait true et false, qui
+étaient instance de la classe
+
+00:00:24.250 --> 00:00:25.100 align:middle
+True et de la classe False.
+
+00:00:25.300 --> 00:00:28.300 align:middle
+Et quand on envoyait un
+message not, on cherchait au bon
+
+00:00:28.500 --> 00:00:31.560 align:middle
+endroit chacun dans sa classe
+respective et qu'on exécutait les méthodes.
+
+00:00:32.600 --> 00:00:33.720 align:middle
+Donc ça, pas de problème.
+
+00:00:35.160 --> 00:00:37.580 align:middle
+Donc maintenant, ce que
+j'avais dit, j'avais dit "mais en
+
+00:00:37.780 --> 00:00:40.170 align:middle
+fait si on regarde ce qu'on
+est en train de faire, c'est
+
+00:00:40.370 --> 00:00:43.040 align:middle
+que d'une part en fait, on
+laissait le receveur décider".
+
+00:00:43.240 --> 00:00:45.430 align:middle
+Ça veut dire qu'on ne
+prenait pas de décision.
+
+00:00:46.360 --> 00:00:49.130 align:middle
+Et que, on envoyait le message et
+que le message allait se résoudre.
+
+00:00:49.520 --> 00:00:52.440 align:middle
+Et donc c'étaient ces
+deux heuristiques qui étaient
+
+00:00:52.640 --> 00:00:56.030 align:middle
+"laisser le receveur
+décider" et "ne me demande pas, mais
+
+00:00:56.230 --> 00:00:59.120 align:middle
+dit de faire les choses".
+On le retrouvera encore.
+
+00:00:59.320 --> 00:01:02.510 align:middle
+Maintenant, regardons
+plus précisément l'exercice.
+
+00:01:03.180 --> 00:01:04.940 align:middle
+Donc qu'est-ce que ça illustre ?
+
+00:01:05.140 --> 00:01:07.530 align:middle
+Parce que vous n'allez
+sûrement jamais implémenter des
+
+00:01:07.730 --> 00:01:09.410 align:middle
+booléens dans votre vie. En
+tout cas, je vous le souhaite.
+
+00:01:10.320 --> 00:01:13.020 align:middle
+Et est-ce que c'est
+vraiment totalement inutile?
+
+00:01:13.220 --> 00:01:14.160 align:middle
+Quelle est la leçon ?
+
+00:01:14.360 --> 00:01:15.780 align:middle
+Quelles sont les leçons
+qui sont sous-jacentes?
+
+00:01:16.170 --> 00:01:19.010 align:middle
+Et je pense que c'est très
+important de vous poser cette
+
+00:01:19.210 --> 00:01:21.470 align:middle
+question, de se dire "oui,
+l'implémentation est comme ça.
+
+00:01:21.670 --> 00:01:24.740 align:middle
+Mais pourquoi?
+Qu'est-ce que ça illustre?"
+
+00:01:24.940 --> 00:01:28.040 align:middle
+Cela illustre en fait qu'à
+chaque fois que j'envoie un
+
+00:01:28.240 --> 00:01:32.920 align:middle
+message, en fait, j'ai
+une sorte de case statement
+
+00:01:35.040 --> 00:01:38.820 align:middle
+que vous retrouverez dans la
+ programmation C ou ce genre de choses.
+
+00:01:39.960 --> 00:01:42.590 align:middle
+Envoyer un message, c'est
+faire un choix multiple.
+
+00:01:44.500 --> 00:01:46.160 align:middle
+Alors ce qui est
+intéressant, c'est qu'envoyer un
+
+00:01:46.360 --> 00:01:49.800 align:middle
+message, finalement, c'est
+un peu plus qu'un case parce
+
+00:01:50.000 --> 00:01:52.430 align:middle
+que c'est un case dynamique.
+En fait, il va dépendre des
+
+00:01:52.630 --> 00:01:54.890 align:middle
+ classes qui sont chargées et
+des instances qui ont été créées.
+
+00:01:55.820 --> 00:01:57.430 align:middle
+Mais si on regarde ça
+veut dire que quand vous avez
+
+00:01:57.630 --> 00:02:01.000 align:middle
+ programmé en Java, vous avez
+souvent écrit, je ne sais pas, moi, x.
+
+00:02:01.390 --> 00:02:03.860 align:middle
+f pour invoquer la méthode F.
+
+00:02:04.280 --> 00:02:06.000 align:middle
+Et moi ce que je suis en
+train de vous expliquer, c'est
+
+00:02:06.200 --> 00:02:09.450 align:middle
+que le point, là, c'est
+un opérateur de choix.
+
+00:02:10.890 --> 00:02:12.360 align:middle
+Et ça, c'est vraiment fondamental.
+
+00:02:13.470 --> 00:02:15.000 align:middle
+Et que ce choix est dynamique.
+
+00:02:15.650 --> 00:02:17.930 align:middle
+Et que souvent, on ne vous l'a
+pas présenté de cette manière.
+
+00:02:18.130 --> 00:02:20.630 align:middle
+Mais que c'est vraiment ce que
+l'exemple est en train d'illustrer
+
+00:02:20.830 --> 00:02:22.380 align:middle
+et d'une manière très forte en fait.
+
+00:02:23.120 --> 00:02:26.070 align:middle
+Si je résume, vous avez
+vraiment envoyé un message.
+
+00:02:26.270 --> 00:02:27.670 align:middle
+Ça fonctionne comme
+faire un case statement.
+
+00:02:28.020 --> 00:02:30.570 align:middle
+Mais c'est un case
+statement dynamique dans le sens où
+
+00:02:31.060 --> 00:02:33.410 align:middle
+cela va dépendre des
+ classes qui ont été chargées.
+
+00:02:33.610 --> 00:02:35.430 align:middle
+Là, j'ai un exemple sur
+les booléens où il y a deux
+
+00:02:35.630 --> 00:02:37.390 align:middle
+instances et deux classes.
+Mais, il pourrait y en avoir
+
+00:02:37.590 --> 00:02:39.160 align:middle
+cinquante et ça
+fonctionnerait de la même manière.
+
+00:02:40.370 --> 00:02:43.140 align:middle
+À chaque fois que vous envoyez
+un message en fait, l'exécution,
+
+00:02:43.340 --> 00:02:45.030 align:middle
+la machine virtuelle
+parce que Pharo a une machine
+
+00:02:45.230 --> 00:02:47.150 align:middle
+virtuelle tout comme la
+machine virtuelle Java ou C Sharp.
+
+00:02:47.840 --> 00:02:51.510 align:middle
+La machine virtuelle,
+l'engin d'exécution va sélectionner
+
+00:02:51.710 --> 00:02:53.760 align:middle
+la bonne méthode
+dépendante de la classe du receveur.
+
+00:02:54.620 --> 00:02:58.140 align:middle
+Donc, envoyer un message
+c'est un mécanisme de choix.
+
+00:02:58.370 --> 00:03:00.140 align:middle
+Et vous à chaque fois
+que vous allez utiliser une
+
+00:03:00.340 --> 00:03:03.530 align:middle
+condition, vous allez
+vous substituer en fait à ce
+
+00:03:03.730 --> 00:03:07.850 align:middle
+mécanisme qui est implémenté dans la
+machine virtuelle qui fait un choix.
+
+00:03:08.050 --> 00:03:12.100 align:middle
+Et donc ce que les
+solutions avec not montrent, c'est:
+
+00:03:12.330 --> 00:03:15.870 align:middle
+utilisons le choix qui est
+donné par la machine virtuelle
+
+00:03:16.220 --> 00:03:17.380 align:middle
+pour implémenter nos programmes.
+
+00:03:17.580 --> 00:03:19.410 align:middle
+On n'a pas besoin
+d'utiliser un if en plus.
+
+00:03:19.940 --> 00:03:23.800 align:middle
+Puisqu'en fait, envoyer un message,
+c'est déjà faire un if ou une condition.
+
+00:03:24.800 --> 00:03:27.310 align:middle
+Donc la question maintenant
+qu'on peut se poser c'est:
+
+00:03:27.560 --> 00:03:30.560 align:middle
+si j'avais exprimé
+l'exercice de départ d'une manière
+
+00:03:30.760 --> 00:03:32.640 align:middle
+totalement différente, si
+j'avais dit: est-ce que vous
+
+00:03:32.840 --> 00:03:34.640 align:middle
+pouvez implémenter not
+dans la classe Booléen?
+
+00:03:34.840 --> 00:03:36.760 align:middle
+Ou or dans la classe Booléen ?
+
+00:03:37.210 --> 00:03:39.000 align:middle
+Vous n'auriez pas pu
+avoir cette solution.
+
+00:03:40.310 --> 00:03:41.070 align:middle
+Tiens, c'est étrange.
+
+00:03:41.270 --> 00:03:43.520 align:middle
+Donc ça veut dire qu’en
+fait, le fait qu'il y ait qu'une
+
+00:03:43.720 --> 00:03:45.430 align:middle
+ classe ou plusieurs, ça
+a une influence vraiment
+
+00:03:45.630 --> 00:03:48.250 align:middle
+importante sur la manière dont je
+vais pouvoir concevoir mon application.
+
+00:03:49.220 --> 00:03:54.110 align:middle
+Et en effet, les
+ classes vont jouer le rôle de
+
+00:03:54.670 --> 00:03:55.930 align:middle
+branches ou de choix.
+
+00:03:56.790 --> 00:03:59.410 align:middle
+Donc si vous avez le choix
+de choisir des yaourts, mais
+
+00:03:59.610 --> 00:04:01.780 align:middle
+que vous allez dans un
+magasin où il y en a qu'un, vous
+
+00:04:02.000 --> 00:04:04.350 align:middle
+choisirez ce yaourt-là.
+Là, c'est la même chose.
+
+00:04:04.580 --> 00:04:08.100 align:middle
+Cela veut dire que votre
+ classe va représenter un choix
+
+00:04:08.300 --> 00:04:09.610 align:middle
+dans l'arbre d'héritage.
+
+00:04:09.810 --> 00:04:11.130 align:middle
+Donc, qu'est-ce que ça implique ?
+
+00:04:11.330 --> 00:04:14.640 align:middle
+Cela implique que quand je
+regarde un design où j'ai une
+
+00:04:14.840 --> 00:04:18.080 align:middle
+grosse classe bien grasse
+avec plein de méthodes et à la
+
+00:04:18.280 --> 00:04:20.690 align:middle
+place, je peux l'exprimer
+sous une forme de hiérarchie,
+
+00:04:21.280 --> 00:04:23.010 align:middle
+ce design-là est de
+meilleure qualité.
+
+00:04:23.210 --> 00:04:25.460 align:middle
+Pourquoi? Parce qu'il
+est déjà plus modulaire.
+
+00:04:25.660 --> 00:04:29.660 align:middle
+Je peux facilement rajouter
+un autre choix si j'ai envie.
+
+00:04:29.940 --> 00:04:31.250 align:middle
+Je peux étendre un autre champ.
+
+00:04:31.450 --> 00:04:32.940 align:middle
+Je peux dire "ah oui,
+celui-là, il n'était pas mal, mais
+
+00:04:33.140 --> 00:04:35.660 align:middle
+finalement je voudrais le
+raffiner pour en avoir à nouveau".
+
+00:04:36.340 --> 00:04:38.600 align:middle
+Et en plus, ça me permet
+de réduire la complexité.
+
+00:04:38.800 --> 00:04:41.070 align:middle
+Ça veut dire que je peux
+focaliser sur une seule classe
+
+00:04:41.270 --> 00:04:45.110 align:middle
+et pas un truc avec plein
+de conditions de partout.
+
+00:04:45.310 --> 00:04:49.250 align:middle
+Donc, si on regarde, on a
+d'un côté un opérateur de choix.
+
+00:04:49.450 --> 00:04:52.000 align:middle
+Et d'un autre, on a quelque
+chose qui exprime du choix.
+
+00:04:52.910 --> 00:04:56.120 align:middle
+Et quand on les met les
+deux ensemble, on obtient de la
+
+00:04:56.320 --> 00:04:57.470 align:middle
+conception-objet de bonne qualité.
+
+00:04:58.080 --> 00:04:59.730 align:middle
+Donc maintenant, ce qui
+est encore un peu plus
+
+00:04:59.930 --> 00:05:02.960 align:middle
+sympathique, c'est que si
+on regarde, la solution avec
+
+00:05:03.160 --> 00:05:04.900 align:middle
+les hiérarchies, elle est
+encore plus chouette que ça.
+
+00:05:05.220 --> 00:05:07.110 align:middle
+Parce que je peux
+packager mes solutions.
+
+00:05:07.310 --> 00:05:09.580 align:middle
+Ça veut dire, je peux dire
+"tiens, là, j'ai le package core.
+
+00:05:10.000 --> 00:05:10.930 align:middle
+Et puis là, j'ai un plug-in.
+
+00:05:11.740 --> 00:05:13.650 align:middle
+Je vais dire à mes
+clients "oui si tu veux.
+
+00:05:13.850 --> 00:05:15.910 align:middle
+Cette fonctionnalité-là, il faut que
+tu download dans l'autre ce plug-in.
+
+00:05:16.110 --> 00:05:17.510 align:middle
+Et que tu me payes
+bien sûr au passage".
+
+00:05:18.120 --> 00:05:20.150 align:middle
+Je vais charger
+dynamiquement ce code.
+
+00:05:20.580 --> 00:05:23.390 align:middle
+Et quand je créerai une
+instance de cette classe-là,
+
+00:05:25.450 --> 00:05:29.100 align:middle
+quand j'enverrai mon
+message opération ici, ça sera le
+
+00:05:29.300 --> 00:05:31.040 align:middle
+code du plug-in qui sera
+exécuté dans le système.
+
+00:05:32.310 --> 00:05:36.370 align:middle
+Et donc ça, c'est vraiment, pour
+nous, l'essence de la programmation-objet.
+
+00:05:36.570 --> 00:05:40.000 align:middle
+J'envoie un message et je vais
+sélectionner la bonne méthode.
+
+00:05:41.060 --> 00:05:43.800 align:middle
+Et je vais utiliser le fait
+que je sais que le système
+
+00:05:44.000 --> 00:05:45.780 align:middle
+sélectionne la bonne
+méthode pour avoir des
+
+00:05:46.000 --> 00:05:49.470 align:middle
+implémentations encore plus
+élégantes. Donc, qu'est-ce qu'on a regardé?
+
+00:05:49.670 --> 00:05:50.430 align:middle
+Qu'est-ce qu'on a vu en fait ?
+
+00:05:50.630 --> 00:05:54.340 align:middle
+On a vu qu'envoyer un message,
+ça laisse le receveur décider.
+
+00:05:54.540 --> 00:05:55.300 align:middle
+Donc, il y a un choix.
+
+00:05:55.500 --> 00:05:58.190 align:middle
+Le client lui n'a pas
+à prendre de décision.
+
+00:05:58.650 --> 00:06:00.850 align:middle
+Le code du client est
+beaucoup plus déclaratif.
+
+00:06:01.050 --> 00:06:01.810 align:middle
+Il n'y a pas de conditions.
+
+00:06:02.010 --> 00:06:04.540 align:middle
+Je donne des ordres
+"fais-ci, fais ça, ouvre, ferme".
+
+00:06:05.020 --> 00:06:06.870 align:middle
+Et pas "est-ce que tu
+es de cette classe-là?
+
+00:06:07.070 --> 00:06:08.720 align:middle
+Est-ce que tu es dans cet
+état-là pour que je te ferme?"
+
+00:06:08.920 --> 00:06:09.680 align:middle
+Ce n'est pas du tout le point.
+
+00:06:10.040 --> 00:06:12.430 align:middle
+Et différents receveurs peuvent
+être substitués dynamiquement.
+
+00:06:12.630 --> 00:06:14.110 align:middle
+Donc ça, on le verra
+dans un autre cours.
+
+00:06:14.310 --> 00:06:15.070 align:middle
+Mais c'est aussi sous-jacent.
+
+00:06:16.650 --> 00:06:20.080 align:middle
+Donc de manière générale,
+essayez d'éviter d'écrire des if.
+
+00:06:21.340 --> 00:06:23.720 align:middle
+Utiliser des messages et
+des objets quand vous pouvez.
+
+00:06:23.920 --> 00:06:25.260 align:middle
+Ce n'est pas tous les
+jours le cas, mais au moins
+
+00:06:25.460 --> 00:06:27.740 align:middle
+utilisez des messages et des
+objets quand vous le pouvez.
+
+00:06:29.340 --> 00:06:32.760 align:middle
+L'engin d'exécution, la
+machine virtuelle, à chaque fois
+
+00:06:32.960 --> 00:06:37.050 align:middle
+que vous envoyez un message fait
+un conditionnal switch pour vous.
+
+00:06:37.720 --> 00:06:40.930 align:middle
+Donc, utilisez-le. Et vous pouvez
+vous amuser à taper le AntiIfCampaign.
+
+00:06:42.090 --> 00:06:45.220 align:middle
+C'est une campagne que les
+ programmeurs ont montée pour
+
+00:06:45.420 --> 00:06:46.670 align:middle
+éviter que les gens écrivent des if.
+
+00:06:48.850 --> 00:06:50.370 align:middle
+Donc, qu'est-ce qu'on a
+vu en fait dans ce cours?
+
+00:06:50.570 --> 00:06:51.330 align:middle
+On a vu deux choses.
+
+00:06:51.530 --> 00:06:52.470 align:middle
+On a vu que quand j'écris x.
+
+00:06:52.670 --> 00:06:56.920 align:middle
+f, je le fais en syntaxe
+Java et en syntaxe Pharo ça
+
+00:06:57.120 --> 00:07:00.300 align:middle
+serait F. Je fais un choix.
+
+00:07:00.500 --> 00:07:03.860 align:middle
+Je choisis la méthode F
+qui doit être exécutée en
+
+00:07:04.060 --> 00:07:06.080 align:middle
+dépendant du receveur.
+
+00:07:07.090 --> 00:07:08.720 align:middle
+Donc j'ai cet opérateur de choix.
+
+00:07:08.920 --> 00:07:12.190 align:middle
+Et j'ai une hiérarchie qui elle va
+représenter des choix potentiels.
+
+00:07:12.390 --> 00:07:16.400 align:middle
+Donc, c'est vraiment un squelette sur
+lequel le choix va pouvoir s'appuyer.
+
+00:07:16.780 --> 00:07:18.350 align:middle
+Et du coup, je n'ai
+pas de conditions.
+
+00:07:18.940 --> 00:07:20.670 align:middle
+Et j'ai des programmes
+qui sont plus extensibles.
+
+00:07:21.860 --> 00:07:25.400 align:middle
+Donc, voilà la fin du
+premier cours sur les concepts
+
+00:07:25.600 --> 00:07:27.250 align:middle
+objets tels qu'on
+peut les voir en Pharo.
+
+00:07:28.260 --> 00:07:30.320 align:middle
+Et, on en verra d'autres
+pendant les prochaines séances.
+

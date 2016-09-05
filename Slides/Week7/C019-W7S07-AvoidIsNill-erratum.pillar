@@ -1,0 +1,8 @@
+slide 2/12 (29eeae):
+
+        animal isDog
+           ifTrue: [ animal shakeTail ].
+        animal isDuck
+    -      ifTrue: [ duck quack ].
+    +      ifTrue: [ animal quack ].
+        animal isCat: [ ... ].

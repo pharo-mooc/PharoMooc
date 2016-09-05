@@ -1,0 +1,219 @@
+%\documentstyle[11pt,epsf,french]{article}
+%\topmargin -2.5cm
+%\addtolength{\oddsidemargin}{-1.5cm}
+%\addtolength{\evensidemargin}{-1.5cm}
+%\addtolength{\textheight}{7cm}
+%\addtolength{\textwidth}{4cm}
+
+
+
+% $Author: ducasse $
+% $Date: 2005/11/06 13:17:29 $
+% $Revision: 1.1 $
+
+\ifx\wholebook\relax\else
+\input{../Common.tex}
+\begin{document}
+\fi
+
+\chapter{Les objets de Smalltalk-80}
+
+%\newtheorem{exo}{Exercice}
+%\title{{\bf DEUG A MIAS/SM/TI, 2$^{\grave eme}$ ann\'{e}e}\\
+%TD-TP N$^0$ 1 : {\sc Les objets de Smalltalk-80}}
+%\author{}
+%\date{}
+%\begin{document}
+%\maketitle
+
+\mainauthor{to be fixed: \pottier }
+\metadata{VisualWorks}{?Squeak/VisualWorks?}{Universit\'e de Brest ---\pottier et al. }{?1.2?}{??}
+\sd{fixer la version... peut-etre avoir des tests.}
+
+
+
+\section{Observation des objets et r\`egles de priorit\'e }
+
+\paragraph{Vocabulaire.} Nous utilisons le terme evaluer et inspecter pour deux actions distinctes. Evaluer~: selectionner une zone et faire ``print it''. 
+Inspecter~: selectionner une zone et faire ``inspect''
+
+
+\subsection{Inspecter les expressions suivantes}
+
+\begin{scode}
+1
+2.0
+$a
+'une chaine'
+1@2
+1.0@2.0
+7/2
+\end{scode}
+
+
+Parmi les messages, on distingue 
+
+\begin{description}
+\item [ les messages unaires ] comme \ct{new}, \ct{sin}, \ct{sqrt}, \ct{size}, \ct{first}, \ct{last}, \ct{negated})
+\item [ les messages binaires ] 
+\verb?+ - * / ** // \\ < <= >  >= =  ~= == ~~  &  | @ ,?
+\item [ les message \`a mot cl\'e ] comme \ct{at: put:}, \ct{x: y:}, \ct{bitOr:}, \ct{bitAnd:}
+\end{description}
+Dans une expression, on \'evalue en priorit\'e en respectant le parenth\'esage, les messages unaires puis binaires puis \`a mots cl\'es. Si l'expression ne comporte que des messages de m\^eme priorit\'e, l'\'evaluation se fait classiquement de la gauche vers la droite.
+
+\subsection{Evaluer et inspecter les expressions suivantes.}
+
+\begin{scode}
+7.0/2.0
+1 + 1
+(1 + 1) printString
+(1/2) class
+\end{scode}
+Expliquer pourquoi le parenth\'esage est obligatoire dans les expressions pr\'ec\'edentes.
+
+Attention, il n'y a pas de priorit\'e entre op\'erateurs, la m\'ethode \ct{+} est juste trait\'ee comme n'importe quelle autre m\'ethode. l'\'evaluation suit l'ordre des messages. 
+
+Evaluer~:
+\begin{scode}
+2 + 3*4
+2 + (3*4)
+2  + 1/2
+2 + (1/2)
+\end{scode}
+
+\subsection{Uniformit\'e des messages.} Un m\^eme message peut \^etre adress\'e
+\`a des objets de types diff\'erents. Evaluer et inspecter~:
+
+\begin{scode}
+2 sqrt
+2.0 sqrt
+(3/2) sqrt
+(3/5) + (6/7)
+\end{scode}
+
+
+\subsection{Arithm\'etique exacte et conversion de type.}
+
+ Evaluer~:
+\begin{scode}
+(11111111111111111111/11111111111111111112) + (1/11111111111111111112)
+2r1000
+16rFF
+256 printStringRadix:2
+
+(8 bitOr: 1) printStringRadix:2
+(8 bitAnd: 9)
+2e10 asInteger
+\end{scode}
+Faire le ou bit \`a bit des nombres binaires \ct{1010} et \ct{0011} et donner le r\'esultat en binaire.
+
+
+\subsection{Les variables.}
+
+Evaluer~:
+\begin{scode}
+\stBar x \stBar
+x := 2.
+
+\stBar x \stBar
+x := 2 + 1/2.
+
+\stBar x \stBar
+x := 2 + 1/2.
+x := 2.
+\end{scode}
+Quelle est la valeur de \ct{x} apr\`es \'evaluation de la derni\`ere portion de code?
+
+\subsection{Les tableaux sont aussi des objets.}
+
+ Evaluer~:
+\begin{scode}
+\stBar table  \stBar 
+table := #(1 2.0 'trois' 444444444444444444444444444444444444).
+table := #(1 3 6 9).
+table first.
+table last.
+table reverse.
+
+\stBar string \stBar 
+string := '#(1 3 6 9)'.
+string first.
+string last.
+string reverse.
+  
+#(10 20 30 40) at: 2
+
+\stBar table \stBar 
+table := #(1 3 6 9).
+table at:1 put: (3/4)
+
+\stBar string \stBar 
+string := '#(1 3 6 9)'.
+string at: 4 put: $r
+\end{scode}
+
+
+
+\subsection{Liste des objets et des messages.}
+Donner la liste des objets et des messages d\'efinis dans les expressions ci-dessous. Expliquer le r\'esultat de l'\'evaluation.
+
+
+
+\begin{scode}
+\stBar aPoint \stBar
+aPoint:= Point x:2 y:1.
+aPoint x: aPoint x * 2
+
+\stBar x \stBar
+x:=1.5.
+x negated rounded.
+Fraction  numerator: x*2 denominator: 3 + x negated rounded.
+\end{scode}
+
+
+
+\section{Tableaux}
+
+\begin{enumerate}
+
+\item Multiplier  par 2 le 2 \`eme \'el\'ement d'un tableau,
+\item Remplacer la valeur du 2 \`eme \'el\'ement d'un tableau par son oppos\'e.
+\item  Remplacer la valeur du 3 \`eme  \'el\'ement par la valeur du 2 \`eme
+\'el\'ement.
+\item  Remplacer la valeur du 3 \`eme  \'el\'ement par la somme des 2 \`eme
+et 3\`eme (ancienne valeur) \'el\'ements.
+\item Le 2 \`eme du tableau \'etant une fraction, remplacer cette fraction par la fraction inverse dans le tableau.
+\end{enumerate}
+
+\section{Nombres}
+
+\subsection{Maximum}
+
+La m\'ethode \verb|max: unAutreNombre| appliqu\'e \`a un nombre
+renvoie le plus grand des deux nombres.\\
+Exemple~: \ct{2 max: 6} renvoie \ct{6}.
+
+\begin{enumerate}
+\item Calculer le maximum de 3 variables \ct{a b c} contenant des valeurs
+quelconques.
+\item Calculer le maximum de 3 variables \ct{a b c} contenant des valeurs
+quelconques {\bf sans utiliser de variables interm\'ediaires}
+\end{enumerate}
+
+\subsection{Conversion Celsius-Fahrenheit}
+
+La formule de conversion Celsius-Fahrenheit est :
+C = (5/9) (F - 32).\\
+Convertir une variable contenant un nombre (en degr\'es Fahrenheit),
+en degr\'es Celsius.
+
+
+\ifx\wholebook\relax\else\end{document}\fi
+
+
+
+
+
+
+
+

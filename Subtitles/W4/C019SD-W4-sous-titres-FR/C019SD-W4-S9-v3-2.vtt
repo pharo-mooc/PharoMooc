@@ -1,0 +1,565 @@
+WEBVTT
+
+00:00:00.770 --> 00:00:03.090 align:middle
+Bonjour. Dans cette
+séquence on va revenir sur Seaside,
+
+00:00:03.290 --> 00:00:06.810 align:middle
+et notamment sur la partie des
+générations du code HTML, d'un composant.
+
+00:00:07.590 --> 00:00:10.260 align:middle
+Donc je vous rappelle en
+Seaside il y a des composants.
+
+00:00:10.460 --> 00:00:12.720 align:middle
+Tous les composants
+répondent au message renderCounterOn,
+
+00:00:14.160 --> 00:00:17.890 align:middle
+qui permet de générer le code
+HTML qui correspond à un composant.
+
+00:00:19.060 --> 00:00:22.610 align:middle
+Donc cette méthode a un
+paramètre qui s'appelle HTML qui
+
+00:00:22.810 --> 00:00:26.320 align:middle
+est un objet instance de la
+ classe WAHtmlCanvas ou d'une
+
+00:00:26.520 --> 00:00:28.890 align:middle
+sous-classe, qui est
+spécialisée donc qui offre une API
+
+00:00:29.180 --> 00:00:31.090 align:middle
+aux programmeurs, pour
+générer des codes HTML valides.
+
+00:00:32.170 --> 00:00:35.570 align:middle
+Donc je vous rappelle ici
+le code du Counter donc cet
+
+00:00:35.770 --> 00:00:38.180 align:middle
+objet HTML ici il est
+utilisé pour générer des titres,
+
+00:00:38.380 --> 00:00:40.300 align:middle
+des ancres, des
+espaces et une autre ancre.
+
+00:00:40.500 --> 00:00:41.360 align:middle
+D'accord !
+
+00:00:41.920 --> 00:00:44.500 align:middle
+Donc on va revenir sur ce
+langage dédié dans cette séquence.
+
+00:00:46.240 --> 00:00:48.650 align:middle
+Donc ce langage dédié en
+fait il est constitué de
+
+00:00:48.850 --> 00:00:52.350 align:middle
+pinceau, donc brushes,
+d'accord, et chaque pinceau va
+
+00:00:52.550 --> 00:00:55.610 align:middle
+être spécialisé dans la
+génération d'une balise HTML particulière.
+
+00:00:56.150 --> 00:00:59.260 align:middle
+Donc mais avec une API qui est objet.
+
+00:00:59.680 --> 00:01:01.380 align:middle
+D'accord !
+
+00:01:01.580 --> 00:01:03.880 align:middle
+Et par construction
+forcément, vu que j'ai utilisé des
+
+00:01:04.080 --> 00:01:06.640 align:middle
+envois de messages à des
+objets, par construction le code
+
+00:01:06.840 --> 00:01:09.920 align:middle
+HTML généré sera toujours
+valide si on ne s'est pas
+
+00:01:10.120 --> 00:01:12.900 align:middle
+trompé dans les envois de messages.
+
+00:01:15.090 --> 00:01:16.370 align:middle
+Je vous donne un exemple ici.
+
+00:01:16.610 --> 00:01:20.390 align:middle
+Donc si j'utilise le langage
+dédié et cet objet HTML, je
+
+00:01:20.590 --> 00:01:23.650 align:middle
+lui envoie le message div
+donc ça ça va me rendre un
+
+00:01:23.850 --> 00:01:27.450 align:middle
+objet, et cet objet c'est
+un pinceau spécialisé dans la
+
+00:01:27.650 --> 00:01:30.200 align:middle
+génération de codes HTML div.
+
+00:01:30.400 --> 00:01:35.310 align:middle
+Donc qui comprend le
+message "Id" et il comprend
+
+00:01:35.510 --> 00:01:39.350 align:middle
+le message "With". Donc
+ici ça me génère bien une div
+
+00:01:39.550 --> 00:01:44.240 align:middle
+avec un attribut "Id =
+Title" et puis au message div
+
+00:01:44.440 --> 00:01:45.810 align:middle
+le paramètre, j'avais
+placé une chaîne de caractères
+
+00:01:46.010 --> 00:01:47.810 align:middle
+title qui se retrouvent dans la div.
+
+00:01:49.390 --> 00:01:51.960 align:middle
+Je peux générer des
+choses plus complexes, donc
+
+00:01:52.160 --> 00:01:55.330 align:middle
+typiquement le message c'est
+toujours le même début, donc
+
+00:01:55.530 --> 00:02:00.160 align:middle
+HTML div id:list, d'accord
+donc c'est ici div, sauf qu'à
+
+00:02:00.360 --> 00:02:02.470 align:middle
+l'intérieur de cette div je
+peux avoir plein d'autres balises.
+
+00:02:02.910 --> 00:02:05.650 align:middle
+Donc pour ça with au lieu
+de lui passer directement une
+
+00:02:05.850 --> 00:02:08.410 align:middle
+chaîne de caractères je vais lui
+passer un block, et à l'intérieur
+
+00:02:08.610 --> 00:02:11.460 align:middle
+de ce block je vais pouvoir
+réutiliser mon objet HTML et
+
+00:02:11.660 --> 00:02:13.560 align:middle
+d'autres pinceaux pour
+générer d'autres types de balises.
+
+00:02:14.020 --> 00:02:18.790 align:middle
+Donc HTML span class Item,
+donc je mets une spam qui est
+
+00:02:19.000 --> 00:02:21.110 align:middle
+un attribut classe avec un contenu.
+
+00:02:24.410 --> 00:02:27.370 align:middle
+Je peux maintenant utiliser
+des boucles puisque c'est un
+
+00:02:27.570 --> 00:02:29.670 align:middle
+langage dédié chez
+toute la puissance de Pharo.
+
+00:02:30.010 --> 00:02:34.290 align:middle
+Donc par exemple je vais générer
+une liste non ordonnée, donc ici.
+
+00:02:35.260 --> 00:02:40.060 align:middle
+UnordererList ici "ul",
+qui a un attribut Id list.
+
+00:02:40.570 --> 00:02:42.860 align:middle
+Et puis à l'intérieur de
+cette liste non ordonnée je vais
+
+00:02:43.060 --> 00:02:46.510 align:middle
+avoir des listItem donc
+listitem qui sont ici, sauf que
+
+00:02:46.710 --> 00:02:48.290 align:middle
+je les ai générées en
+utilisant une boucle For.
+
+00:02:48.550 --> 00:02:50.930 align:middle
+Donc ici j'ai une boucle 1 to do.
+
+00:02:51.130 --> 00:02:54.660 align:middle
+Donc 1 tout simple, do une
+boucle classique Pharo, donc
+
+00:02:55.000 --> 00:02:58.390 align:middle
+je vais générer 5 listes
+Item avec un attribut classe
+
+00:02:59.030 --> 00:03:02.620 align:middle
+Item, donc le même
+attribut classe et puis le nom de
+
+00:03:02.820 --> 00:03:06.540 align:middle
+chacun des listeItem j'ai
+concatèné le curseur de boucles
+
+00:03:08.300 --> 00:03:09.720 align:middle
+: donc Item 1, Item
+2, Item 3, Item 4.
+
+00:03:12.680 --> 00:03:14.650 align:middle
+On peut aller encore
+un petit cran plus loin.
+
+00:03:14.910 --> 00:03:17.060 align:middle
+On pourrait dire en fait
+je voudrais des classes CSS
+
+00:03:17.260 --> 00:03:21.770 align:middle
+différentes pour chacune
+des listeItems, en fonction de
+
+00:03:22.110 --> 00:03:23.650 align:middle
+si le curseur de
+boucles est pair ou impair.
+
+00:03:24.470 --> 00:03:27.080 align:middle
+Donc typiquement par
+exemple ici je vais utiliser le
+
+00:03:27.280 --> 00:03:31.860 align:middle
+message "class if", donc
+ajoute cette classe si cette
+
+00:03:32.060 --> 00:03:35.000 align:middle
+condition est vérifiée ou
+alors ajoute cette classe CSS
+
+00:03:35.550 --> 00:03:37.000 align:middle
+si cette condition est vérifiée.
+
+00:03:37.340 --> 00:03:40.080 align:middle
+Et on peut voir que dans
+le code généré on a bien le
+
+00:03:40.280 --> 00:03:45.180 align:middle
+premier listItem qui a
+cette classe CSS là, Itemodd, et
+
+00:03:45.380 --> 00:03:47.810 align:middle
+le deuxième list Item
+qui à cette classe CSS là.
+
+00:03:49.110 --> 00:03:51.690 align:middle
+Donc là c'est un élément pair,
+impair, et cetera et caetera.
+
+00:03:52.860 --> 00:03:55.800 align:middle
+Donc on voit qu'ici on a une
+syntaxe concise qui utilise
+
+00:03:56.000 --> 00:03:57.600 align:middle
+toute la puissance de Faro
+pour générer le code HTML
+
+00:03:58.150 --> 00:03:59.190 align:middle
+grâce à ce langage dédié.
+
+00:04:00.820 --> 00:04:03.160 align:middle
+Donc ce langage dédié il a
+une autre propriété c'est qu'il
+
+00:04:03.360 --> 00:04:05.390 align:middle
+est extensible, donc il est
+facile de lui faire supporter
+
+00:04:05.590 --> 00:04:07.920 align:middle
+les Frameworks CSS
+modernes tels que le Framework CSS
+
+00:04:08.120 --> 00:04:11.750 align:middle
+Tweeter Bootstrap par
+exemple. Donc ce Framework CSS
+
+00:04:11.950 --> 00:04:14.430 align:middle
+utilise des classes CSS
+pour générer des éléments HTML
+
+00:04:14.630 --> 00:04:19.440 align:middle
+qui sont jolis, donc par
+exemple des Champs vert, bleu et
+
+00:04:19.640 --> 00:04:20.400 align:middle
+caetera et caetera.
+
+00:04:20.600 --> 00:04:23.130 align:middle
+Et comment ça marche pour
+étendre ce langage dédié?
+
+00:04:23.400 --> 00:04:27.390 align:middle
+On va avoir des pinceaux
+particuliers donc ici ils sont
+
+00:04:27.590 --> 00:04:28.740 align:middle
+tous préfixés par tbs.
+
+00:04:28.940 --> 00:04:30.070 align:middle
+Tbs ça veut dire Tweeter BootStrap.
+
+00:04:30.270 --> 00:04:33.900 align:middle
+. Donc mon objet HTML je
+lui envoie le message tbsAlert
+
+00:04:34.950 --> 00:04:38.350 align:middle
+pour dire génère une div
+HTML, ou un élément HTML,
+
+00:04:38.640 --> 00:04:40.270 align:middle
+conforme aux
+Framework Tweeter BootStrap.
+
+00:04:43.620 --> 00:04:47.840 align:middle
+Donc il y va y en avoir
+plein des pinceaux relatifs à ce
+
+00:04:48.040 --> 00:04:50.460 align:middle
+Framework Tweeter Boot
+Strap, donc je peux générer des
+
+00:04:50.660 --> 00:04:52.120 align:middle
+éléments de type
+boutons ou tbsButton.
+
+00:04:53.190 --> 00:04:56.440 align:middle
+Des Tbsbutton group pour
+faire des groupes de boutons on
+
+00:04:56.640 --> 00:05:00.480 align:middle
+voit que les 3 boutons sont liés dans
+un même groupe, et caetera et caetera.
+
+00:05:02.560 --> 00:05:05.080 align:middle
+Donc par exemple si on
+reprend l'exemple du Counter qu'on
+
+00:05:05.280 --> 00:05:08.000 align:middle
+avait dans la séquence
+précédente, donc on avait défini
+
+00:05:08.200 --> 00:05:10.120 align:middle
+un Counter tout simple et
+maintenant je veux faire la
+
+00:05:10.320 --> 00:05:12.260 align:middle
+version tweeter
+Bootstrap de ce Counter là.
+
+00:05:12.670 --> 00:05:13.750 align:middle
+Donc c'est extrêmement facile.
+
+00:05:14.040 --> 00:05:15.940 align:middle
+Je vais faire une
+sous-classe de mon compteur précédent
+
+00:05:16.140 --> 00:05:21.070 align:middle
+que je vais appeler
+"WATwitterCounter" Je vais passer
+
+00:05:21.270 --> 00:05:25.790 align:middle
+du côté classe de cette classe
+
+00:05:26.220 --> 00:05:28.260 align:middle
+et je vais définir la
+méthode initialize dans lequel je
+
+00:05:28.460 --> 00:05:31.930 align:middle
+vais déclarer attention ce
+composant-là va utiliser la
+
+00:05:32.130 --> 00:05:33.350 align:middle
+bibliothèque
+TbsDevelopmentLibrary, JQDeploymentLibrary.
+
+00:05:37.720 --> 00:05:42.180 align:middle
+Donc c'est le Framework
+Javascript et le Framework CSS.
+
+00:05:46.000 --> 00:05:50.190 align:middle
+Ensuite je vais revenir côté
+instance de cette classe et
+
+00:05:50.390 --> 00:05:52.130 align:middle
+je vais définir la nouvelle
+méthode renderCounterOn, vous
+
+00:05:52.330 --> 00:05:54.750 align:middle
+pouvez redéfinir celle
+qu'on avait défini précédemment,
+
+00:05:55.270 --> 00:05:57.500 align:middle
+et je vais utiliser des
+pinceaux qui commencent tous par Tbs.
+
+00:05:58.470 --> 00:06:01.780 align:middle
+Donc TbsButtongroup,
+TbsButton, et caetera et caetera.
+
+00:06:02.490 --> 00:06:05.320 align:middle
+Mais ça ne va rien changer à
+mon code classique donc c'est
+
+00:06:05.520 --> 00:06:10.060 align:middle
+toujours des Callback vous voyez
+avec Self increase, et Self decrease.
+
+00:06:10.400 --> 00:06:11.160 align:middle
+Ça ne change absolument rien.
+
+00:06:11.370 --> 00:06:16.280 align:middle
+D'accord! Donc c'est juste
+les pinceaux de rendu du code
+
+00:06:16.480 --> 00:06:18.050 align:middle
+HTML qui utilisent Tbs.
+
+00:06:19.740 --> 00:06:22.420 align:middle
+Maintenant on peut voir la
+nouvelle apparence de mon Counter.
+
+00:06:22.660 --> 00:06:25.850 align:middle
+On voit que j'ai utilisé un
+ButtonGroup avec 2 boutons +
+
+00:06:26.050 --> 00:06:28.740 align:middle
+et -, il y a un joli badge
+pour afficher la valeur du
+
+00:06:28.940 --> 00:06:31.220 align:middle
+Counter qui est la version
+Boot strap de mon Counter.
+
+00:06:34.600 --> 00:06:36.600 align:middle
+Mais vous pouvez aller encore
+plus loin en fait, vous n'êtes
+
+00:06:36.800 --> 00:06:38.430 align:middle
+pas obligé d'utiliser Boot
+strap vous pouvez définir
+
+00:06:38.630 --> 00:06:40.860 align:middle
+votre propre règle de
+style sur votre compteur.
+
+00:06:41.140 --> 00:06:45.750 align:middle
+Par exemple ici j'ai décidé
+de dire que tous les éléments
+
+00:06:46.110 --> 00:06:50.180 align:middle
+qui sont impairs odd,
+vont avoir la classe odd.
+
+00:06:51.470 --> 00:06:53.500 align:middle
+En fait à chaque fois que
+je rends la valeur de mon
+
+00:06:53.700 --> 00:06:57.950 align:middle
+Counter ici sous la forme
+d'un tbsBadge, donc qu'est-ce
+
+00:06:58.150 --> 00:06:59.390 align:middle
+qui va être affiché ?
+
+00:06:59.590 --> 00:07:02.020 align:middle
+Ça va être la valeur de
+mon Counter, sauf que je vais
+
+00:07:02.220 --> 00:07:06.860 align:middle
+rajouter la classe CSS odd
+ici, seulement si la valeur
+
+00:07:07.060 --> 00:07:08.550 align:middle
+est impaire. D'accord !
+
+00:07:08.750 --> 00:07:09.570 align:middle
+Donc ici 7.
+
+00:07:10.810 --> 00:07:14.270 align:middle
+Donc cette classe CSS a été ajoutée
+seulement si cette condition est vraie.
+
+00:07:16.290 --> 00:07:18.440 align:middle
+Et comment j'ai
+défini la classe CSS odd.
+
+00:07:18.830 --> 00:07:21.940 align:middle
+En fait je peux définir la
+méthode style sur mon compteur
+
+00:07:22.140 --> 00:07:23.940 align:middle
+qui va rendre une chaîne de
+caractères avec les règles de
+
+00:07:24.140 --> 00:07:25.300 align:middle
+style CSS qui vont s'appliquer.
+
+00:07:25.500 --> 00:07:27.030 align:middle
+Donc point odd color red.
+
+00:07:27.230 --> 00:07:30.050 align:middle
+Donc la valeur du compteur va
+passer en rouge si elle est impaire.
+
+00:07:31.490 --> 00:07:34.940 align:middle
+Donc en conclusion: un
+composant, une application Web
+
+00:07:35.150 --> 00:07:37.230 align:middle
+Seaside c'est un composant racine.
+
+00:07:37.840 --> 00:07:40.610 align:middle
+Tous les composants savent
+se rendre en HTLM grâce à leur
+
+00:07:40.810 --> 00:07:43.950 align:middle
+méthode renderCounterOn.
+Et on a un langage dédié qui
+
+00:07:44.150 --> 00:07:48.220 align:middle
+extrêmement puissant et
+extensible qui permet d'écrire
+
+00:07:48.420 --> 00:07:51.370 align:middle
+cette génération de codes
+HTML très simplement, grâce à
+
+00:07:51.570 --> 00:07:55.940 align:middle
+des pinceaux et grâce à une
+extensibilité pour supporter
+
+00:07:56.140 --> 00:07:58.720 align:middle
+les Framework CSS existants,
+tels que Boot strap, jQuery
+
+00:07:58.920 --> 00:07:59.720 align:middle
+UI, et caetera et caetera.
+
+00:08:00.850 --> 00:08:03.680 align:middle
+Et vous profitez en fait de
+toute la puissance de ce qui
+
+00:08:03.880 --> 00:08:06.000 align:middle
+stripping Pharo, donc les
+boucles et caetera, pour
+
+00:08:06.200 --> 00:08:07.810 align:middle
+pouvoir facilement
+générer un ensemble d'éléments.
+

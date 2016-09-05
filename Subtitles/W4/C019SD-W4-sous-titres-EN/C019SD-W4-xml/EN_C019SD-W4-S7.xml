@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W4-S7</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:00:02" end="00:00:03:08" region="bottom">Hello. This sequence<br/>is about the Pharo Web Stack.</p>
+            <p xml:id="p2" begin="00:00:03:12" end="00:00:07:05" region="bottom">I'll give you an overview<br/>of existing frameworks</p>
+            <p xml:id="p3" begin="00:00:07:13" end="00:00:10:07" region="bottom">and the ones we'll be using<br/>in this course.</p>
+            <p xml:id="p4" begin="00:00:11:07" end="00:00:16:18" region="bottom">This is a diagram of what happens<br/>to an incoming HTTP request.</p>
+            <p xml:id="p5" begin="00:00:17:08" end="00:00:22:14" region="bottom">"Zinc" is the basic HTTP/HTTPS<br/>server built into Pharo.</p>
+            <p xml:id="p6" begin="00:00:23:04" end="00:00:26:18" region="bottom">Teapot is above Zinc,<br/>and there is a course available</p>
+            <p xml:id="p7" begin="00:00:27:01" end="00:00:28:21" region="bottom">on Teapot syntax.</p>
+            <p xml:id="p8" begin="00:00:29:07" end="00:00:33:22" region="bottom">Then, there's a series of format<br/>frameworks, like JSON and Stone.</p>
+            <p xml:id="p9" begin="00:00:34:19" end="00:00:36:11" region="bottom">There's also Seaside REST.</p>
+            <p xml:id="p10" begin="00:00:36:15" end="00:00:39:15" region="bottom">Briefly, it's how to program REST<br/>over Seaside.</p>
+            <p xml:id="p11" begin="00:00:39:19" end="00:00:43:19" region="bottom">Seaside is the web framework<br/>we will be using</p>
+            <p xml:id="p12" begin="00:00:44:05" end="00:00:45:14" region="bottom">in Tinyblog.</p>
+            <p xml:id="p13" begin="00:00:45:19" end="00:00:48:21" region="bottom">That's why we introduced<br/>Seaside to you, as well.</p>
+            <p xml:id="p14" begin="00:00:49:00" end="00:00:51:12" region="bottom">It is in widespread use in businesses.</p>
+            <p xml:id="p15" begin="00:00:51:24" end="00:00:54:24" region="bottom">We will also use Voyage,</p>
+            <p xml:id="p16" begin="00:00:56:01" end="00:00:59:20" region="bottom">which is a persistence framework<br/>for documents.</p>
+            <p xml:id="p17" begin="00:01:00:04" end="00:01:04:14" region="bottom">We take our objects and store them<br/>in document form, in Mongo bases.</p>
+            <p xml:id="p18" begin="00:01:04:21" end="00:01:06:16" region="bottom">There are others, of course.</p>
+            <p xml:id="p19" begin="00:01:07:02" end="00:01:12:04" region="bottom">Garage is a sort of driver<br/>for all relational databases.</p>
+            <p xml:id="p20" begin="00:01:12:17" end="00:01:14:12" region="bottom">I'll also show you Magritte.</p>
+            <p xml:id="p21" begin="00:01:14:19" end="00:01:17:09" region="bottom">Magritte is a way<br/>of describing data</p>
+            <p xml:id="p22" begin="00:01:17:13" end="00:01:20:23" region="bottom">and generating webforms<br/>automatically, as a result,</p>
+            <p xml:id="p23" begin="00:01:21:02" end="00:01:22:08" region="bottom">instead of manually.</p>
+            <p xml:id="p24" begin="00:01:22:19" end="00:01:25:09" region="bottom">Reef is an application<br/>that enables you</p>
+            <p xml:id="p25" begin="00:01:26:02" end="00:01:29:05" region="bottom">to do embarked JavaScript<br/>in web components.</p>
+            <p xml:id="p26" begin="00:01:29:17" end="00:01:33:01" region="bottom">But we won't go into it further<br/>in this course.</p>
+            <p xml:id="p27" begin="00:01:33:05" end="00:01:38:02" region="bottom">Mustache is a template system<br/>that generates HTML on the fly.</p>
+            <p xml:id="p28" begin="00:01:38:06" end="00:01:40:23" region="bottom">Bootstrap is<br/>the Twitter Bootstrap library,</p>
+            <p xml:id="p29" begin="00:01:41:02" end="00:01:42:20" region="bottom">fully integrated into Seaside.</p>
+            <p xml:id="p30" begin="00:01:43:02" end="00:01:45:16" region="bottom">These are the most<br/>commonly used applications,</p>
+            <p xml:id="p31" begin="00:01:45:23" end="00:01:50:15" region="bottom">but you have plenty of other packages<br/>on top of Pharo.</p>
+            <p xml:id="p32" begin="00:01:50:19" end="00:01:56:00" region="bottom">The ones used to connect to Amazon<br/>or to do elastic searches, for example.</p>
+            <p xml:id="p33" begin="00:01:57:00" end="00:01:59:02" region="bottom">We will be using Seaside.</p>
+            <p xml:id="p34" begin="00:01:59:06" end="00:02:03:10" region="bottom">It's a web framework<br/>for building dynamic applications</p>
+            <p xml:id="p35" begin="00:02:03:22" end="00:02:06:23" region="bottom">based on reusable components.</p>
+            <p xml:id="p36" begin="00:02:08:02" end="00:02:11:16" region="bottom">We don't really have to<br/>manage requests.</p>
+            <p xml:id="p37" begin="00:02:11:20" end="00:02:13:08" region="bottom">Seaside does it for us.</p>
+            <p xml:id="p38" begin="00:02:13:12" end="00:02:16:06" region="bottom">Documentation is available<br/>at Seaside.st.</p>
+            <p xml:id="p39" begin="00:02:16:10" end="00:02:18:07" region="bottom">The site is being rebuilt.</p>
+            <p xml:id="p40" begin="00:02:18:16" end="00:02:23:03" region="bottom">They have also compiled<br/>a 250-page reference book</p>
+            <p xml:id="p41" begin="00:02:23:14" end="00:02:25:12" region="bottom">at book.seaside.st.</p>
+            <p xml:id="p42" begin="00:02:25:16" end="00:02:29:08" region="bottom">You can take a look, but we'll cover<br/>the main points here</p>
+            <p xml:id="p43" begin="00:02:29:22" end="00:02:30:22" region="bottom">in this course.</p>
+            <p xml:id="p44" begin="00:02:32:09" end="00:02:33:20" region="bottom">Regarding persistence,</p>
+            <p xml:id="p45" begin="00:02:33:24" end="00:02:37:16" region="bottom">as I said earlier,<br/>there are two major frameworks</p>
+            <p xml:id="p46" begin="00:02:37:23" end="00:02:41:07" region="bottom">that enable you to store documents<br/>in NoSQL.</p>
+            <p xml:id="p47" begin="00:02:41:12" end="00:02:46:11" region="bottom">They are based on components<br/>like Mongo, CouchDB, and Riak.</p>
+            <p xml:id="p48" begin="00:02:46:24" end="00:02:51:06" region="bottom">We use Voyage as an abstraction<br/>on top of MongoDB.</p>
+            <p xml:id="p49" begin="00:02:52:07" end="00:02:54:17" region="bottom">And Garage is a framework</p>
+            <p xml:id="p50" begin="00:02:54:21" end="00:02:57:21" region="bottom">offering a unified API<br/>for relational databases.</p>
+            <p xml:id="p51" begin="00:02:58:00" end="00:03:01:03" region="bottom">We won't use it in this course,<br/>but it has drivers</p>
+            <p xml:id="p52" begin="00:03:01:08" end="00:03:03:22" region="bottom">for Postgres, MySQL, SQLite,<br/>and OpenDBX.</p>
+            <p xml:id="p53" begin="00:03:04:02" end="00:03:06:07" region="bottom">And it is always being improved.</p>
+            <p xml:id="p54" begin="00:03:07:04" end="00:03:10:08" region="bottom">We are going to show you<br/>another interesting feature.</p>
+            <p xml:id="p55" begin="00:03:10:20" end="00:03:15:21" region="bottom">We have a framework called Magritte,<br/>for the surrealist painter.</p>
+            <p xml:id="p56" begin="00:03:16:08" end="00:03:19:06" region="bottom">It writes descriptions for your data</p>
+            <p xml:id="p57" begin="00:03:19:10" end="00:03:22:19" region="bottom">and use them to generate<br/>Seaside components.</p>
+            <p xml:id="p58" begin="00:03:22:23" end="00:03:28:01" region="bottom">It really helps boost productivity<br/>in creating web applications.</p>
+            <p xml:id="p59" begin="00:03:28:18" end="00:03:30:06" region="bottom">To conclude, I would say</p>
+            <p xml:id="p60" begin="00:03:30:11" end="00:03:32:19" region="bottom">Pharo offers a rich ecosystem.</p>
+            <p xml:id="p61" begin="00:03:32:23" end="00:03:36:22" region="bottom">Most of the companies using Pharo<br/>are web developers.</p>
+            <p xml:id="p62" begin="00:03:37:05" end="00:03:38:18" region="bottom">It is business-ready.</p>
+            <p xml:id="p63" begin="00:03:39:18" end="00:03:41:15" region="bottom">Seaside is really innovative,</p>
+            <p xml:id="p64" begin="00:03:41:19" end="00:03:45:21" region="bottom">because it goes against certain<br/>entrenched ways of programming.</p>
+            <p xml:id="p65" begin="00:03:46:06" end="00:03:48:06" region="bottom">It helps you think differently.</p>
+        </div>
+    </body>
+</tt>

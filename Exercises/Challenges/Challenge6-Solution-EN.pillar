@@ -1,0 +1,25 @@
+! Challenge 6
+
+
+!!!Hints:
+
+
+!!! Solution
+[[[
+	| stream unixTime |
+	stream := nil.
+	[
+		"RFC 868 TCP protocol https://en.wikipedia.org/wiki/Time_Protocol " 
+		stream := ZdcSocketStream openConnectionToHostNamed: 'time.nist.gov' port: 37.
+		unixTime := (stream next: 4) asInteger ]
+		ensure: [ stream ifNotNil: [ [ stream close ] on: Error do: [] ] ].
+	DateAndTime fromUnixTime: unixTime.
+
+
+	The real stuff is SNTP though
+		http://en.wikipedia.org/wiki/Network_Time_Protocol
+		http://tools.ietf.org/html/rfc2030
+	which is implemented in ZTimestamp and which can do much more:
+
+	  ZTimestampSNTPClient new remoteClock.
+]]]

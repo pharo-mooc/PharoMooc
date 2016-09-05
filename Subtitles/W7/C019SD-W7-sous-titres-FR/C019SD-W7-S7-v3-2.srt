@@ -1,0 +1,755 @@
+1
+00:00:00,700 --> 00:00:03,520
+Bonjour à tous. Dans cette
+séquence, nous allons parler
+
+2
+00:00:04,340 --> 00:00:08,590
+de la campagne anti if, et
+en particulier pourquoi est-ce
+
+3
+00:00:08,790 --> 00:00:13,660
+que renvoyer nul et
+tester nul n'est pas terrible.
+
+4
+00:00:13,890 --> 00:00:16,800
+Voici un exemple de code qui
+n'est pas du tout objet, et
+
+5
+00:00:17,070 --> 00:00:20,840
+on va voir que là on a une
+méthode qui prend un animal en
+
+6
+00:00:21,040 --> 00:00:23,930
+paramètre, et en fonction du
+type de l'animal on va faire
+
+7
+00:00:24,130 --> 00:00:26,760
+des choses différentes. Si
+c'est un chien, on va lui
+
+8
+00:00:27,000 --> 00:00:29,370
+demander de remuer la
+queue. Si c'est un canard, on va
+
+9
+00:00:29,570 --> 00:00:30,450
+lui demander de faire coin coin.
+
+10
+00:00:31,050 --> 00:00:33,260
+Et si c'est un chat, on va lui
+demander de faire autre chose.
+
+11
+00:00:34,190 --> 00:00:37,060
+Pourquoi ce n'est pas bon et
+pourquoi en général et l'utilisation
+
+12
+00:00:37,260 --> 00:00:41,870
+de if, en particulier quand
+c'est appliqué pour vérifier
+
+13
+00:00:42,670 --> 00:00:47,080
+le type du receveur, pourquoi
+est-ce que ça ce n'est pas très bon?
+
+14
+00:00:47,280 --> 00:00:49,510
+Parce que si je veux
+ajouter un nouvel animal, il va
+
+15
+00:00:49,710 --> 00:00:52,480
+falloir que je cherche
+partout dans tout le code du
+
+16
+00:00:52,680 --> 00:00:56,680
+projet, tous les if qui
+pourraient être intéressants.
+
+17
+00:00:57,000 --> 00:00:58,910
+Donc, je vais devoir
+modifier plein de codes un peu
+
+18
+00:00:59,110 --> 00:01:00,690
+partout dans le projet, et ça
+ce n'est vraiment pas terrible.
+
+19
+00:01:01,700 --> 00:01:03,630
+Et puis en plus, parce
+que les méthodes, à force de
+
+20
+00:01:03,830 --> 00:01:07,140
+rajouter des cas, elles
+vont grossir de plus en plus et
+
+21
+00:01:07,340 --> 00:01:09,170
+elles vont être noyées dans
+les détails, c'est-à-dire que
+
+22
+00:01:09,370 --> 00:01:12,530
+si maintenant après avoir
+ajouté plein d'animaux, la
+
+23
+00:01:12,730 --> 00:01:15,140
+méthode va être très
+longue et pour chaque animal, je
+
+24
+00:01:15,340 --> 00:01:16,940
+peux avoir plein de
+détails. Par exemple ici c'est
+
+25
+00:01:17,350 --> 00:01:19,140
+quelque chose qui est
+particulièrement simple mais si
+
+26
+00:01:19,340 --> 00:01:20,920
+maintenant je me dis
+peut-être que les chiens n'ont pas
+
+27
+00:01:21,120 --> 00:01:23,340
+tous des queues, il va
+falloir que je fasse un cas "Si le
+
+28
+00:01:23,540 --> 00:01:24,370
+chien a une queue, je fais ça.
+
+29
+00:01:24,570 --> 00:01:26,870
+Si le chien n'a pas de
+queue, alors je fais ça " Le code
+
+30
+00:01:27,070 --> 00:01:31,510
+va être de plus en plus gros et
+de moins en moins compréhensible.
+
+31
+00:01:33,000 --> 00:01:35,860
+Pour remplacer tous ces
+trucs-là, on envoie des messages.
+
+32
+00:01:36,070 --> 00:01:38,250
+C'est tout ce qu'on vous
+répète depuis le début de ce
+
+33
+00:01:38,450 --> 00:01:40,160
+cours-là, et c'est
+vraiment la chose que vous devez
+
+34
+00:01:40,360 --> 00:01:43,920
+retenir: l'envoi de
+messages. On peut remplacer
+
+35
+00:01:44,120 --> 00:01:47,560
+facilement le code
+précédent par celui-ci où on
+
+36
+00:01:47,760 --> 00:01:50,300
+implémente une méthode
+showHappiness dans chaque classe
+
+37
+00:01:50,500 --> 00:01:52,760
+qui nous intéresse, et c'est
+chaque classe qui va décider
+
+38
+00:01:53,000 --> 00:01:56,420
+comment est-ce que tel ou tel
+animal va montrer qu'il est content.
+
+39
+00:01:56,740 --> 00:02:01,680
+Ensuite une fois que
+j'ai un animal, il me suffit
+
+40
+00:02:01,880 --> 00:02:06,730
+d'envoyer le
+message, showHappiness à l'
+
+41
+00:02:06,930 --> 00:02:10,570
+animal, et une de ces
+méthodes va être exécutée.
+
+42
+00:02:10,770 --> 00:02:14,780
+Là, on voit bien que
+c'est Pharo qui fait le if.
+
+43
+00:02:15,000 --> 00:02:18,100
+C'est Pharo qui se dit "Si
+mon animal est de ce type-là,
+
+44
+00:02:18,310 --> 00:02:20,060
+alors c'est cette
+méthode-là qui va s'exécuter.
+
+45
+00:02:20,260 --> 00:02:21,600
+" Tout ça se fait
+automatiquement, je n'ai pas besoin de
+
+46
+00:02:21,800 --> 00:02:22,750
+l'écrire en tant que développeur.
+
+47
+00:02:23,120 --> 00:02:25,310
+Donc, il n'y a aucune raison
+d'écrire des if par rapport
+
+48
+00:02:25,510 --> 00:02:28,170
+au type des objets,
+c'est Pharo qui gère ça.
+
+49
+00:02:28,370 --> 00:02:30,760
+Ça rend juste le code plus
+compliqué à lire et moins évolutif.
+
+50
+00:02:32,580 --> 00:02:36,680
+On va parler maintenant du
+cas particulier du nil parce
+
+51
+00:02:36,880 --> 00:02:41,480
+que si une méthode retourne
+un nil, vous allez forcer les
+
+52
+00:02:41,680 --> 00:02:43,060
+clients à utiliser if.
+
+53
+00:02:43,260 --> 00:02:46,010
+Et on vient de voir qu'utiliser
+if, c'était rarement une bonne idée.
+
+54
+00:02:47,020 --> 00:02:51,190
+Ici, si je prends un exemple
+de code qui dit l'idée c'est
+
+55
+00:02:51,390 --> 00:02:53,630
+de faire quelque chose en
+fonction d'un paramètre et en
+
+56
+00:02:53,830 --> 00:02:56,490
+fonction d'un objet inférenceur,
+peu importe ce que ce code-là fait.
+
+57
+00:02:58,400 --> 00:03:01,110
+Par contre ici, je vois que
+dans certains cas, il renvoie nil.
+
+58
+00:03:01,840 --> 00:03:05,000
+Ce qui fait quand je vais
+devoir utilise ce code, donc
+
+59
+00:03:05,200 --> 00:03:07,360
+quand j'envoie le message
+rulesForFact à un référenceur,
+
+60
+00:03:07,560 --> 00:03:09,040
+il va falloir que je teste.
+
+61
+00:03:09,240 --> 00:03:11,150
+Est-ce que
+rulesForFact m'a renvoyé Nil?
+
+62
+00:03:11,350 --> 00:03:12,750
+Si oui alors je fais ça.
+
+63
+00:03:13,000 --> 00:03:14,470
+Si ce n'est pas nil,
+alors je fais autre chose.
+
+64
+00:03:14,680 --> 00:03:16,740
+Dans ce cas-là en
+particulier, on peut se rendre compte
+
+65
+00:03:16,940 --> 00:03:20,270
+que ici comme on a un
+pluriel et ici on a un pluriel,
+
+66
+00:03:20,470 --> 00:03:23,620
+probablement que cette
+méthode-là va renvoyer une collection.
+
+67
+00:03:24,200 --> 00:03:27,710
+Pour éviter nil, une bonne
+solution souvent c'est que
+
+68
+00:03:27,910 --> 00:03:29,860
+quand on a une méthode qui
+retourne une collection, c'est
+
+69
+00:03:30,060 --> 00:03:32,800
+de retourner une collection vide,
+ça marche vraiment très souvent.
+
+70
+00:03:33,390 --> 00:03:35,780
+Et retourner une collection
+vide plutôt que de retourner
+
+71
+00:03:36,000 --> 00:03:38,250
+nil, ça facilite
+vraiment l'écriture du code.
+
+72
+00:03:38,910 --> 00:03:42,000
+Parce que maintenant les
+clients ont juste à itérer sur
+
+73
+00:03:42,200 --> 00:03:43,720
+la collection, si elle est
+vide il ne va rien se passer,
+
+74
+00:03:43,920 --> 00:03:44,740
+c'est exactement ça qui était prévu.
+
+75
+00:03:46,470 --> 00:03:51,150
+Pour les cas exceptionnels,
+par exemple vous avez un flux
+
+76
+00:03:51,350 --> 00:03:53,910
+d'écriture de fichiers et
+puis votre flux n'a pas été
+
+77
+00:03:54,110 --> 00:03:56,100
+ouvert en écriture, et
+donc il y a une erreur.
+
+78
+00:03:56,580 --> 00:03:59,200
+Plutôt que retourner nil,
+vous informez le système de la
+
+79
+00:03:59,400 --> 00:04:01,450
+situation exceptionnelle
+en levant une exception.
+
+80
+00:04:02,260 --> 00:04:05,310
+En Pharo, on appelle ça
+"signaler une exception".
+
+81
+00:04:06,110 --> 00:04:08,760
+On crée une instance d'une
+ classe exception ou d'une
+
+82
+00:04:08,960 --> 00:04:11,040
+sous-classe et on
+envoie un signal, ce
+
+83
+00:04:13,660 --> 00:04:17,750
+qui permet d'éviter que
+directement le client de la
+
+84
+00:04:17,950 --> 00:04:20,260
+méthode, ici de la méthode
+nextPutAll, ait besoin de
+
+85
+00:04:20,460 --> 00:04:22,250
+tester "Si c'est nil,
+probablement que quelque chose s'est
+
+86
+00:04:22,450 --> 00:04:23,730
+mal passé, alors il
+faut que je fasse ça.
+
+87
+00:04:24,220 --> 00:04:26,940
+" Là, soit le client décide
+de traiter l'exception, soit
+
+88
+00:04:27,140 --> 00:04:28,810
+c'est le client du client qui
+décide de traiter l'exception,
+
+89
+00:04:29,010 --> 00:04:31,570
+soit c'est le client du
+client du client, et caetera.
+
+90
+00:04:32,030 --> 00:04:33,660
+On n'est pas obligé de
+faire ça à tous les niveaux, on
+
+91
+00:04:33,860 --> 00:04:36,200
+peut décider d'un niveau qui
+nous intéresse pour capturer
+
+92
+00:04:36,400 --> 00:04:37,520
+l'exception et en
+faire quelque chose.
+
+93
+00:04:38,520 --> 00:04:40,960
+Ça évite tout un tas de if.
+
+94
+00:04:41,160 --> 00:04:44,610
+Un autre cas où on trouve
+des vérifications par rapport à
+
+95
+00:04:44,810 --> 00:04:48,040
+la valeur nil, c'est dans
+les variables d'instances qui
+
+96
+00:04:48,240 --> 00:04:51,460
+ne sont pas initialisées.
+Si vous avez du code qui dit
+
+97
+00:04:51,660 --> 00:04:55,400
+"Si ma variable est encore à
+nil, alors je fais ça", dans
+
+98
+00:04:55,600 --> 00:04:58,620
+ces cas-là il vaut mieux
+initialiser la variable tout de
+
+99
+00:04:58,820 --> 00:05:01,620
+suite avec une valeur qui
+va marcher dans tous les cas.
+
+100
+00:05:02,130 --> 00:05:05,920
+Là, ma variable members
+qui est censée contenir une
+
+101
+00:05:06,120 --> 00:05:08,850
+collection, plutôt que la
+laisser à nil je l'initialise à
+
+102
+00:05:09,050 --> 00:05:10,250
+une collection vide dès le départ.
+
+103
+00:05:10,900 --> 00:05:13,000
+Ça encore une fois ça
+marche très souvent.
+
+104
+00:05:14,220 --> 00:05:18,800
+Quand vous voulez donner une
+valeur à une variable et que
+
+105
+00:05:19,000 --> 00:05:22,150
+c'est coûteux de calculer la
+valeur de cette variable-là,
+
+106
+00:05:22,600 --> 00:05:26,530
+vous pouvez attendre le dernier
+moment avant de calculer cette valeur-là.
+
+107
+00:05:26,730 --> 00:05:28,950
+Peut-être qu'elle ne sera
+jamais calculée et donc que
+
+108
+00:05:29,150 --> 00:05:30,240
+vous aurez gagné du
+temps d'exécution.
+
+109
+00:05:31,420 --> 00:05:34,750
+Dans ces cas-là, on utilise
+l'initialisation paresseuse
+
+110
+00:05:35,160 --> 00:05:39,010
+et c'est au moment où on va
+avoir besoin d'une valeur qu'on
+
+111
+00:05:39,210 --> 00:05:41,440
+va regarder si la valeur est
+encore à nil, alors je mets
+
+112
+00:05:41,640 --> 00:05:45,950
+quelque chose dedans. Si
+elle n'est plus à nil, je
+
+113
+00:05:46,150 --> 00:05:47,220
+retourne directement sa valeur.
+
+114
+00:05:48,000 --> 00:05:52,360
+Ce qui fait qu'ici, j'ai un if par
+rapport à nil mais je n'en ai qu'un.
+
+115
+00:05:53,110 --> 00:05:56,830
+Tous les autres
+utilisateurs de la variable vont passer
+
+116
+00:05:57,030 --> 00:06:00,080
+par cette méthode et
+n'auront pas à tester si c'est nil.
+
+117
+00:06:01,580 --> 00:06:05,960
+Parfois, il y a des cas
+où il va falloir tester.
+
+118
+00:06:06,160 --> 00:06:09,000
+Il va falloir vérifier
+est-ce que j'ai quelque chose à
+
+119
+00:06:09,200 --> 00:06:12,040
+faire ou pas, c'est ce
+qu'on trouve dans cet exemple.
+
+120
+00:06:12,830 --> 00:06:15,580
+L'idée de ça c'est qu'on
+a une palette d'outils.
+
+121
+00:06:16,140 --> 00:06:19,580
+Si on a un outil qui est
+sélectionné, on peut faire quelque chose.
+
+122
+00:06:19,780 --> 00:06:22,620
+Si aucun outil n'est
+sélectionné, on ne peut rien faire.
+
+123
+00:06:26,700 --> 00:06:30,390
+Si selectedTool retourne
+nil, il n'y a pas d'outil
+
+124
+00:06:30,590 --> 00:06:31,510
+sectionné, donc on ne fait rien.
+
+125
+00:06:31,780 --> 00:06:34,690
+Si selectedTool retourne
+quelque chose, alors on va
+
+126
+00:06:34,890 --> 00:06:39,610
+demander à ce
+quelque chose de faire une
+
+127
+00:06:39,810 --> 00:06:44,190
+action. Une bonne façon de
+remplacer ça, c'est d'utiliser
+
+128
+00:06:44,390 --> 00:06:45,530
+le design pattern null Object.
+
+129
+00:06:46,060 --> 00:06:48,870
+Ce que je fais c'est que
+plutôt qu'avoir les 2 cas, j'ai
+
+130
+00:06:49,070 --> 00:06:51,320
+un outil, je n'ai pas
+d'outil, on ne va avoir qu'un seul
+
+131
+00:06:51,520 --> 00:06:54,390
+cas j'ai un outil et un
+des outils ne fera rien.
+
+132
+00:06:54,590 --> 00:06:56,720
+Et ce sera l'outil qui ne fera
+rien qui sera sélectionné par défaut.
+
+133
+00:06:57,330 --> 00:06:59,030
+Là, je crée un
+outil qui ne fait rien.
+
+134
+00:06:59,260 --> 00:07:01,710
+Quand je lui demande de faire
+des actions, il ne fait rien.
+
+135
+00:07:03,110 --> 00:07:05,700
+Et par défaut, dans ma palette
+d'outils je vais sectionner ce truc-là.
+
+136
+00:07:06,550 --> 00:07:08,280
+Plutôt que de ne rien
+sélectionner, je sélectionne un
+
+137
+00:07:08,480 --> 00:07:11,950
+outil qui ne fait rien.
+C'est le design pattern Null
+
+138
+00:07:12,150 --> 00:07:14,550
+Object, pour en savoir plus vous
+avez ses références qui sont ici.
+
+139
+00:07:15,700 --> 00:07:19,540
+En conclusion. Les messages
+marchent toujours mieux que les if.
+
+140
+00:07:19,790 --> 00:07:22,940
+Les if, vous allez vous en
+servir dans certains cas, mais
+
+141
+00:07:23,370 --> 00:07:25,670
+souvent vous allez pouvoir
+vous en passer et envoyer des
+
+142
+00:07:25,870 --> 00:07:27,330
+messages sera souvent mieux.
+
+143
+00:07:29,940 --> 00:07:32,660
+Évitez de retourner la
+valeur nil parce que ça force les
+
+144
+00:07:32,860 --> 00:07:36,520
+vérifications avec if: si
+la valeur est nulle, alors je
+
+145
+00:07:36,720 --> 00:07:40,000
+fais ça; si la valeur n'est
+pas nulle, alors je fais ça.
+
+146
+00:07:40,170 --> 00:07:40,930
+"
+
+147
+00:07:41,130 --> 00:07:43,000
+Initialisez vos variables
+soit dès la création de l'objet,
+
+148
+00:07:43,200 --> 00:07:44,270
+soit de façon paresseuse.
+
+149
+00:07:45,740 --> 00:07:48,210
+Si vous pouvez, créez des
+objets qui représentent un
+
+150
+00:07:48,410 --> 00:07:50,450
+comportement par défaut ou
+une absence de comportement.
+
+151
+00:07:51,120 --> 00:07:52,610
+Tout ce que je viens de vous
+raconter, c'est valable pour
+
+152
+00:07:52,810 --> 00:07:55,330
+Pharo, mais c'est valable
+aussi pour tous les langages objet.
+
+153
+00:07:56,480 --> 00:07:58,460
+C'est important de garder
+tout ce que je viens de vous
+
+154
+00:07:58,660 --> 00:08:00,340
+raconter en tête quel que soit
+le langage que vous utilisez.
+

@@ -1,0 +1,146 @@
+! Résultats d'Expressions
+
+Dans ces exercices vous devez devinez les résultats des expressions en simulant mentalement l'exécution des expressions. 
+
+!! Exercice : Résultats
+
+Examinez les expressions suivantes. Quel est la valeur retournée par l'exécution des expressions suivantes ?
+
+[[[
+| anArray |
+anArray := #('first' 'second' 'third' 'fourth').
+anArray at: 2
+]]]
+
+[[[
+#(2 3 -10 3) collect: [ :each | each * each]
+]]]
+
+[[[
+6 + 4 / 2
+]]]
+
+[[[
+1 + 3 negated
+]]]
+
+[[[
+1 + (3 negated)
+]]]
+
+[[[
+2 raisedTo: 3 + 2
+]]]
+
+[[[
+2 negated raisedTo: 3 + 2
+]]]
+
+[[[
+#(a b c d e f) includesAll: #(f d b)
+]]]
+
+!!! Exercice : Parenthèses superflues
+Mettre plus de parenthèses que nécessaire est une bonne manière pour commencer. Cependant une telle pratique rend le code moins lisible.
+Réécrivez les expressions avec le minimum de parenthèses. 
+[[[
+    ((3 + 4) + (2 * 2) + (2 * 3))
+]]]
+
+[[[
+    x between: (pt1 x) and: (pt2 y)
+]]]
+
+[[[
+    (x isZero)
+        ifTrue: [....]
+    (x includes: y)
+        ifTrue: [....]
+]]]
+
+[[[
+    (OrderedCollection new)
+       add: 56; 
+       add: 33; 
+       yourself
+]]]
+
+[[[
+    (Integer primesUpTo: 64) sum
+]]]
+
+[[[
+    ('http://www.pharo.org' asUrl) retrieveContents
+]]]
+
+[[[
+    (('2014-07-01' asDate) - '2013/2/1' asDate) days
+]]]
+
+[[[
+    (((ZnEasy getPng: 'http://pharo.org/web/files/pharo.png') 
+      asMorph) openInWindow)
+]]]
+
+[[[
+    ((#(a b c d e f) asSet) intersection: (#(f d b) asSet))
+]]]
+
+
+!!! Exercice : Séquence d'Execution
+Examinez chacune des expressions suivantes et décrivez la séquence des étapes de leur exécution (quel message est exécuté en premier).
+
+[[[
+    Date today daysInMonth
+]]]
+
+[[[
+    5@5 extent: 6.2 truncated @ 7
+]]]
+
+[[[
+    Transcript show: (45 + 9) printString
+]]]
+
+[[[
+    ('2014-07-01' asDate - '2013/2/1' asDate) days
+]]]
+
+[[[
+   42 factorial decimalDigitLength
+]]]
+
+[[[
+    (ZnServer startDefaultOn: 8080) 
+        onRequestRespond: [ :request | ZnResponse ok: (ZnEntity with: DateAndTime now printString) ]
+]]]
+
+[[[
+    (1914 to: 1945) count: [ :each | Year isLeapYear: each ].
+]]]
+
+[[[
+    $/ join: ($- split: '1969-07-20') reverse
+]]]
+
+[[[
+    DateAndTime fromUnixTime:
+        ((ByteArray readHexFrom: 'CAFEBABE4422334400FF') 
+           copyFrom: 5 to: 8) asInteger
+]]]
+
+[[[
+    (String new: 32) collect: [ :each | 'abcdef' atRandom ]
+]]]
+
+
+[[[
+    'http://www.pharo.org' asUrl saveContentsToFile: 'page.html'
+]]]
+
+[[[
+'^.*.jpg' asRegex in: [ :regex |
+  '/tmp/foo.txt' asFileReference contents lines 
+    select: [ :line | regex matches: line ] ]
+]]]
+

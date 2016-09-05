@@ -1,0 +1,592 @@
+WEBVTT
+
+00:00:07.110 --> 00:00:09.680 align:middle
+Bonjour, cette semaine, on
+va commencer à rentrer un peu
+
+00:00:09.880 --> 00:00:11.940 align:middle
+plus dans le vif du sujet,
+en particulier de la syntaxe.
+
+00:00:12.350 --> 00:00:14.930 align:middle
+Ce cours, c'est
+essentiellement comment vous allez
+
+00:00:15.270 --> 00:00:17.740 align:middle
+aborder la syntaxe des
+messages qui sont utilisés dans
+
+00:00:17.940 --> 00:00:19.190 align:middle
+Pharo, ça veut dire
+pratiquement tout Pharo, en fait.
+
+00:00:20.800 --> 00:00:22.320 align:middle
+Ce qu'il faut voir, c'est
+que dans Pharo, vous avez
+
+00:00:22.640 --> 00:00:26.740 align:middle
+principalement trois choses:
+des objets, des messages et
+
+00:00:26.940 --> 00:00:28.170 align:middle
+des clôtures qu'on
+appelle des blocks.
+
+00:00:28.520 --> 00:00:30.000 align:middle
+Vous aurez un cours
+spécial sur les blocks.
+
+00:00:30.400 --> 00:00:32.710 align:middle
+Et avec ça, vous faites toute
+la syntaxe Pharo, pratiquement.
+
+00:00:34.190 --> 00:00:36.600 align:middle
+Ce qu'il faut voir, c'est
+que la syntaxe de Pharo hérite
+
+00:00:36.800 --> 00:00:38.820 align:middle
+de celle de Smalltalk
+qui avait été inventé pour
+
+00:00:39.210 --> 00:00:42.460 align:middle
+apprendre aux enfants à
+ programmer. L'idée, c'est d'écrire
+
+00:00:42.660 --> 00:00:44.890 align:middle
+des programmes qui sont
+comme des petites phrases qu'un
+
+00:00:45.090 --> 00:00:47.700 align:middle
+enfant pourrait écrire.
+Aussi, une des idées derrière la
+
+00:00:47.900 --> 00:00:49.630 align:middle
+syntaxe, c'est de minimiser
+le nombre de parenthèses et
+
+00:00:49.830 --> 00:00:52.370 align:middle
+on va voir ça à l'œuvre.
+
+00:00:52.570 --> 00:00:53.330 align:middle
+On prend un exemple.
+
+00:00:54.120 --> 00:00:57.270 align:middle
+On prend une tuile sur
+openstreetmap et on veut l'ouvrir
+
+00:00:57.470 --> 00:00:59.370 align:middle
+dans une fenêtre graphique.
+
+00:00:59.800 --> 00:01:03.060 align:middle
+Ça vous donne l'idée de la
+syntaxe, j'ai des parenthèses,
+
+00:01:03.260 --> 00:01:05.610 align:middle
+parce que d'abord je veux
+récupérer un png, donc j'ai des
+
+00:01:05.810 --> 00:01:08.600 align:middle
+parenthèses et ce png, je
+vais le convertir dans un objet
+
+00:01:08.800 --> 00:01:10.900 align:middle
+graphique Pharo et puis je
+vais l'ouvrir dans une fenêtre.
+
+00:01:11.170 --> 00:01:14.820 align:middle
+Je vous suggère de le faire
+sur Pharo, vous allez obtenir
+
+00:01:15.020 --> 00:01:16.740 align:middle
+le résultat, probablement de
+l'eau parce que les tuiles,
+
+00:01:16.940 --> 00:01:17.700 align:middle
+il y en a beaucoup avec de l'eau.
+
+00:01:19.240 --> 00:01:23.170 align:middle
+Dans Pharo, la syntaxe, il
+y a trois sortes de messages
+
+00:01:23.370 --> 00:01:26.240 align:middle
+qui sont vraiment faits pour
+minimiser le nombre de parenthèses.
+
+00:01:26.480 --> 00:01:29.350 align:middle
+Vous avez des messages
+unaires, des messages binaires et
+
+00:01:29.550 --> 00:01:31.620 align:middle
+des messages à
+mots-clefs. Donc, on va voir ça.
+
+00:01:32.850 --> 00:01:37.130 align:middle
+Les messages unaires, en gros c'est
+un receveur, le nom de la méthode.
+
+00:01:37.360 --> 00:01:40.050 align:middle
+Les messages binaires,
+c'est un receveur, le nom du
+
+00:01:40.250 --> 00:01:44.260 align:middle
+sélecteur et un argument. Les
+messages à mots-clefs, c'est
+
+00:01:44.670 --> 00:01:47.940 align:middle
+un receveur, des arguments
+ou un et essentiellement le
+
+00:01:48.450 --> 00:01:51.330 align:middle
+signe distinctif, c'est les
+deux points qu'il y a ici et
+
+00:01:51.530 --> 00:01:52.420 align:middle
+on va voir ce genre de choses.
+
+00:01:54.150 --> 00:01:55.950 align:middle
+Ce qu'il faut voir, c'est
+qu'une fois qu'on a fait trois
+
+00:01:57.080 --> 00:01:58.250 align:middle
+types de messages, à quoi ça sert ?
+
+00:01:58.450 --> 00:02:02.180 align:middle
+Ça sert à pouvoir les
+différencier, donc ça va changer l'exécution
+
+00:02:02.380 --> 00:02:04.750 align:middle
+des programmes. On va
+toujours exécuter en premier les
+
+00:02:04.950 --> 00:02:07.390 align:middle
+parenthèses, les
+expressions parenthésées, et les
+
+00:02:07.590 --> 00:02:09.480 align:middle
+messages unaires, les messages
+binaires et les messages à mots-clefs.
+
+00:02:10.000 --> 00:02:13.570 align:middle
+Et puis, si on est au même
+niveau, on le fera dans le
+
+00:02:13.770 --> 00:02:15.290 align:middle
+même ordre de gauche à droite.
+
+00:02:17.930 --> 00:02:21.350 align:middle
+Si on prend des exemples
+de messages unaires, si je
+
+00:02:21.550 --> 00:02:23.570 align:middle
+demande au petit entier 1
+"Quelle est ta classe?",
+
+00:02:23.770 --> 00:02:24.530 align:middle
+il va me dire "C'est SmallInteger.
+
+00:02:24.730 --> 00:02:27.610 align:middle
+" Si j'envoie le message
+"not", d'ailleurs ça serait un
+
+00:02:27.810 --> 00:02:32.340 align:middle
+exercice pour la semaine
+prochaine, au booléen false, j'obtiens
+
+00:02:32.540 --> 00:02:35.530 align:middle
+le booléen true. Si je
+demande à la classe date
+
+00:02:35.730 --> 00:02:37.750 align:middle
+"Donne-moi la date
+d'aujourd'hui", il va me donner par
+
+00:02:37.950 --> 00:02:40.490 align:middle
+exemple le 24 mai 2009
+qui est un objet date.
+
+00:02:40.690 --> 00:02:43.660 align:middle
+Si j'envoie le message "pi"
+à la classe "float", il va me
+
+00:02:43.860 --> 00:02:46.120 align:middle
+donner une
+représentation de l'objet "pi".
+
+00:02:48.660 --> 00:02:50.890 align:middle
+Je ne sais pas si vous avez
+remarqué, mais en fait j'ai
+
+00:02:51.090 --> 00:02:55.090 align:middle
+envoyé des messages à des
+objets et j'ai aussi envoyé des
+
+00:02:55.290 --> 00:02:57.660 align:middle
+messages à des classes et
+j'ai fait ça de la même manière.
+
+00:02:57.860 --> 00:03:00.430 align:middle
+Je n'ai pas dit "Attention,
+c'est une classe, serrez les
+
+00:03:00.630 --> 00:03:02.340 align:middle
+dents, il faut faire
+quelque chose de spécial", non.
+
+00:03:02.680 --> 00:03:06.740 align:middle
+Là, j'envoie le message classe au
+petit entier, ça me rend la classe.
+
+00:03:06.940 --> 00:03:11.080 align:middle
+J'envoie le message today à la
+ classe date, ça me rend une date.
+
+00:03:11.280 --> 00:03:14.580 align:middle
+Rien de spécial, dans
+Pharo, les classes sont aussi des
+
+00:03:14.780 --> 00:03:16.670 align:middle
+objets et les messages
+envoyés à des classes sont traités
+
+00:03:16.870 --> 00:03:19.100 align:middle
+comme des messages envoyés
+aux instances, il n'y a pas de
+
+00:03:19.300 --> 00:03:20.560 align:middle
+différence et c'est
+tout à fait naturel.
+
+00:03:22.760 --> 00:03:25.440 align:middle
+Maintenant, je voulais vous
+proposer un petit exercice
+
+00:03:25.640 --> 00:03:28.000 align:middle
+qui n'a rien à voir avec la
+syntaxe pour s'amuser un peu.
+
+00:03:28.860 --> 00:03:30.670 align:middle
+Là aussi, je me suis dit
+"Tiens, ça serait rigolo, je
+
+00:03:30.870 --> 00:03:34.360 align:middle
+voudrais savoir quelles sont
+toutes les méthodes qui sont
+
+00:03:34.560 --> 00:03:35.850 align:middle
+implémentées dans la classe
+points", donc je peux faire
+
+00:03:36.050 --> 00:03:37.000 align:middle
+ça avec Pharo et
+c'est un message unaire.
+
+00:03:37.210 --> 00:03:41.500 align:middle
+Je peux dire "classe Point,
+donne-moi tous les noms de
+
+00:03:41.700 --> 00:03:43.420 align:middle
+messages que tu comprends"
+et il me répond une grande
+
+00:03:43.620 --> 00:03:47.410 align:middle
+liste avec tous les
+messages. Vous voyez la facilité avec
+
+00:03:47.610 --> 00:03:48.700 align:middle
+laquelle on peut
+construire des outils.
+
+00:03:49.000 --> 00:03:52.050 align:middle
+Avec ça, si je le mets dans
+une liste, je vais pouvoir
+
+00:03:52.250 --> 00:03:54.350 align:middle
+avoir, par exemple, une
+liste avec toutes les méthodes
+
+00:03:54.550 --> 00:03:56.010 align:middle
+que la classe répond et
+c'est comme ça que fonctionne le
+
+00:03:56.210 --> 00:03:57.240 align:middle
+browser que vous allez utiliser.
+
+00:03:58.170 --> 00:03:59.430 align:middle
+Maintenant, on peut
+raffiner un petit peu ça.
+
+00:03:59.630 --> 00:04:01.780 align:middle
+On pourrait dire
+"Finalement, j'aimerais demander au
+
+00:04:02.000 --> 00:04:05.480 align:middle
+système tous les sélecteurs de
+la classe Point qui sont unaires.
+
+00:04:05.680 --> 00:04:08.090 align:middle
+" Je l'écris comme ça, je
+dis "Classe Point, donne-moi
+
+00:04:08.290 --> 00:04:12.670 align:middle
+tous tes sélecteurs", ça va me
+rendre un tableau ou une collection.
+
+00:04:13.000 --> 00:04:17.510 align:middle
+Ça, c'est un message à
+mots-clefs, je dis "Je
+
+00:04:18.490 --> 00:04:21.870 align:middle
+veux sélectionner parmi ces
+sélecteurs ceux qui sont unaires.
+
+00:04:22.070 --> 00:04:25.130 align:middle
+" Là, il y a une query qui
+s'appelle isUnary qui est un
+
+00:04:25.330 --> 00:04:28.490 align:middle
+message sur les noms de méthodes qui
+va sélectionner ce genre de choses.
+
+00:04:29.550 --> 00:04:34.040 align:middle
+Là, je vous ai fait un petit
+aparté dans la syntaxe, vous
+
+00:04:34.240 --> 00:04:36.810 align:middle
+verrez ça lors du cours
+sur les itérateurs parce que
+
+00:04:37.010 --> 00:04:38.570 align:middle
+select est un itérateur.
+Mais vous voyez comme c'est
+
+00:04:38.770 --> 00:04:40.910 align:middle
+élégant, en fait en une ligne, je
+peux faire des query sur le système.
+
+00:04:41.800 --> 00:04:46.520 align:middle
+Il y a les messages
+binaires, je vous ai dit que c'est
+
+00:04:46.880 --> 00:04:50.230 align:middle
+un objet, un sélecteur
+binaire et un argument.
+
+00:04:50.530 --> 00:04:52.590 align:middle
+Les sélecteurs binaires,
+c'est une combinaison parmi tous
+
+00:04:52.790 --> 00:04:55.860 align:middle
+ces trucs incompréhensibles ou
+qu'on ne peut pas prononcer: %, |.
+
+00:04:58.310 --> 00:04:59.730 align:middle
+Tout ce qui n'est pas
+compréhensible, il y a des messages
+
+00:04:59.930 --> 00:05:02.030 align:middle
+binaires ou tout ce qui
+ressemble à des maths, ce sont
+
+00:05:02.230 --> 00:05:05.510 align:middle
+des messages binaires. Un
+exemple, j'envoie le message
+
+00:05:05.710 --> 00:05:10.290 align:middle
+plus à l'objet 1 avec un argument
+l'objet 2, ça me donne 3, on est content.
+
+00:05:10.800 --> 00:05:14.180 align:middle
+J'ai >, c'est pareil
+c'est un message binaire.
+
+00:05:14.380 --> 00:05:17.950 align:middle
+Le @ qui crée des points,
+c'est aussi un message binaire.
+
+00:05:18.300 --> 00:05:21.390 align:middle
+La concaténation de chaînes avec
+virgule, c'est un message binaire.
+
+00:05:21.590 --> 00:05:24.430 align:middle
+Là je vais faire'Black
+chocolate'virgule'is good', j'obtiens
+
+00:05:24.630 --> 00:05:25.670 align:middle
+la chaîne "Black chocolate is good".
+
+00:05:29.150 --> 00:05:33.570 align:middle
+Les messages à mots-clés, ça, c'est
+le truc qui frustre souvent les gens.
+
+00:05:35.320 --> 00:05:37.560 align:middle
+Quand vous avez l'habitude
+d'une syntaxe à la C ou à la
+
+00:05:37.760 --> 00:05:41.480 align:middle
+Java avec une syntaxe avec
+un point et des parenthèses et
+
+00:05:41.680 --> 00:05:44.230 align:middle
+une virgule au milieu, nous
+on le fait comme ça, on le
+
+00:05:45.610 --> 00:05:46.910 align:middle
+met au milieu.
+
+00:05:47.110 --> 00:05:48.760 align:middle
+Ce qu'il faut bien voir ici
+dans cet exemple, c'est que
+
+00:05:48.960 --> 00:05:50.750 align:middle
+le message s'appelle
+keyword1, keyword2.
+
+00:05:59.240 --> 00:06:02.680 align:middle
+Le message est bien entier là,
+il est composé de deux parts.
+
+00:06:06.070 --> 00:06:08.660 align:middle
+Pour vous tester, on va
+faire un jeu deux petites
+
+00:06:08.860 --> 00:06:12.470 align:middle
+secondes : à quoi correspondent ces
+
+00:06:14.260 --> 00:06:16.200 align:middle
+messages ? Quels sont leurs types ?
+
+00:06:16.400 --> 00:06:18.130 align:middle
+On voit que le premier, il n'y a pas
+d'argument, donc ça doit être unaire.
+
+00:06:18.430 --> 00:06:20.480 align:middle
+Le deuxième, il n'y a pas
+d'argument, ça doit être unaire.
+
+00:06:20.720 --> 00:06:22.680 align:middle
+Là il y a un deux points,
+ça doit être un mot-clef.
+
+00:06:23.200 --> 00:06:25.650 align:middle
+Il y a un truc que je ne comprends
+pas avec une virgule, c'est binaire.
+
+00:06:25.850 --> 00:06:29.000 align:middle
+C'est un truc bizarre, c'est binaire.
+
+00:06:29.190 --> 00:06:30.800 align:middle
+Il n'y a pas
+d'arguments, c'est unaire.
+
+00:06:31.760 --> 00:06:33.720 align:middle
+Il y a un deux
+points, c'est un mot-clef.
+
+00:06:33.920 --> 00:06:38.170 align:middle
+Ça a l'air difficile comme ça,
+mais… Donc, voilà la solution.
+
+00:06:39.280 --> 00:06:42.890 align:middle
+Un exemple, imaginons que je veux
+changer la valeur de x d'un point.
+
+00:06:43.090 --> 00:06:47.210 align:middle
+J'ai un point qui
+est un message binaire
+
+00:06:48.050 --> 00:06:51.410 align:middle
+et je vais faire cet x avec
+un argument, ça me rendra un
+
+00:06:51.610 --> 00:06:53.410 align:middle
+point dans lequel 2 a été changé.
+
+00:06:54.250 --> 00:06:55.650 align:middle
+Ça n'a pas l'air bien fou quand même.
+
+00:06:57.830 --> 00:07:00.250 align:middle
+Une autre chose, un
+message at:put:, donc là j'ai un
+
+00:07:00.450 --> 00:07:05.040 align:middle
+tableau qui contient
+
+00:07:05.240 --> 00:07:09.320 align:middle
+des chaînes'Calvin''hates''Suzie'et
+
+00:07:10.070 --> 00:07:14.730 align:middle
+je veux changer le deuxième
+élément, je vais faire at: 2
+
+00:07:15.220 --> 00:07:18.610 align:middle
+put:'loves'; 2, ça va être
+celui-là et loves va venir ici.
+
+00:07:19.300 --> 00:07:21.960 align:middle
+Là sur le tableau ce que
+vous voyez, c'est que la méthode
+
+00:07:22.160 --> 00:07:26.460 align:middle
+s'appelle at: put:, c'est
+la méthode pour changer la
+
+00:07:26.660 --> 00:07:28.180 align:middle
+valeur d'une
+collection à un indice donné.
+
+00:07:28.440 --> 00:07:30.900 align:middle
+Ce que vous voyez aussi et on
+aura un cours là-dessus, c'est
+
+00:07:31.100 --> 00:07:33.250 align:middle
+que les collections en
+Pharo commencent à 1 et pas à 0.
+
+00:07:33.450 --> 00:07:36.290 align:middle
+Donc je dis "Je veux le
+deuxième élément", je fais 1 2 et
+
+00:07:36.490 --> 00:07:38.150 align:middle
+pas "Ah oui, ça commence donc
+il faut que je soustraie un truc.
+
+00:07:40.000 --> 00:07:44.460 align:middle
+" Un autre exemple qui montre
+encore une fois, pour s'appesantir,
+
+00:07:44.880 --> 00:07:45.910 align:middle
+les messages à mots-clefs.
+
+00:07:46.530 --> 00:07:50.340 align:middle
+Quand je demande "Est-ce
+que 12 qui est un entier est
+
+00:07:50.540 --> 00:07:55.310 align:middle
+entre 10 et 20?",
+c'est le message beetween:
+
+00:07:55.510 --> 00:08:00.320 align:middle
+and: qui correspondrait
+
+00:08:00.520 --> 00:08:03.180 align:middle
+dans ma syntaxe "Est-ce
+que 12 point beetween: and:
+
+00:08:05.390 --> 00:08:09.790 align:middle
+10, 20 ?"
+
+00:08:10.680 --> 00:08:13.520 align:middle
+Je pense que je me suis assez alourdi
+dessus pour qu'on passe à autre chose.
+
+00:08:15.080 --> 00:08:16.840 align:middle
+En résumé, vous avez
+trois sortes de messages: les
+
+00:08:17.040 --> 00:08:19.300 align:middle
+messages unaires, les
+messages binaires et les messages à
+
+00:08:19.500 --> 00:08:20.260 align:middle
+mots-clefs, et c'est tout.
+

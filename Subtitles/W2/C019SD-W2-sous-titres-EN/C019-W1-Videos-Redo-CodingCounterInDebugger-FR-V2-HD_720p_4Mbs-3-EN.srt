@@ -1,0 +1,610 @@
+1
+00:00:01,220 --> 00:00:02,580
+In this session,
+I’d like to show you how
+
+2
+00:00:02,747 --> 00:00:05,220
+to use the debugger to program
+differently.
+
+3
+00:00:05,760 --> 00:00:09,330
+We will implement again
+the counter application
+
+4
+00:00:09,497 --> 00:00:14,190
+but in a different way, with a 
+development flow more interactive.
+
+5
+00:00:16,940 --> 00:00:18,290
+First I will create
+
+6
+00:00:18,457 --> 00:00:20,840
+a new package with Counter, 
+as previously.
+
+7
+00:00:26,050 --> 00:00:28,810
+I will also filter to have
+less elements.
+
+8
+00:00:29,270 --> 00:00:33,240
+In MyCounter, I first 
+define
+
+9
+00:00:34,960 --> 00:00:37,100
+a test, a test class.
+
+10
+00:00:37,267 --> 00:00:39,090
+Test classes inherit from TestCase.
+
+11
+00:00:40,260 --> 00:00:41,650
+I will call it Counter Test.
+
+12
+00:00:42,790 --> 00:00:44,870
+I will compile. I do it once
+more in the menu and then
+
+13
+00:00:45,037 --> 00:00:46,340
+I do it with the comments.
+
+14
+00:00:46,507 --> 00:00:47,830
+It has created a test class.
+
+15
+00:00:48,260 --> 00:00:51,610
+In my test class, I write
+a test method.
+
+16
+00:00:53,260 --> 00:00:56,150
+The test methods begin with test.
+
+17
+00:01:02,260 --> 00:01:04,160
+What do I do?
+
+18
+00:01:04,520 --> 00:01:07,820
+As previously, I define a local 
+variable. In 
+
+19
+00:01:08,000 --> 00:01:12,570
+this local variable
+I put an
+
+20
+00:01:12,737 --> 00:01:15,150
+object from the Counter class.
+
+21
+00:01:16,770 --> 00:01:21,130
+I initialise the Counter value
+and
+
+22
+00:01:21,297 --> 00:01:25,500
+check that the Counter
+has the right value.
+
+23
+00:01:31,450 --> 00:01:32,083
+I compile.
+
+24
+00:01:33,320 --> 00:01:36,070
+Now the system tells me:
+“Warning! I don’t know
+
+25
+00:01:36,237 --> 00:01:38,250
+what Counter is.” It was already
+indicated
+
+26
+00:01:38,417 --> 00:01:39,670
+with the italics here.
+
+27
+00:01:40,030 --> 00:01:42,460
+It proposes: “Do you want to define
+a new class?
+
+28
+00:01:42,627 --> 00:01:44,040
+A new global or a class variable?
+
+29
+00:01:44,207 --> 00:01:45,000
+Here it is a new class.
+
+30
+00:01:45,137 --> 00:01:48,260
+It offers the class definition.
+
+31
+00:01:48,427 --> 00:01:50,790
+I say: “ok, it’s correct, it’s
+in the right package, it inherits
+
+32
+00:01:50,957 --> 00:01:51,590
+from object, all right, do it.”
+
+33
+00:01:51,757 --> 00:01:55,160
+So it creates an empty class.
+
+34
+00:01:56,050 --> 00:01:58,520
+Now we are going to arrange this.
+
+35
+00:02:00,520 --> 00:02:04,260
+I can see that my Counter class
+is empty.
+
+36
+00:02:04,610 --> 00:02:07,130
+If I execute my test, it is red.
+
+37
+00:02:07,297 --> 00:02:08,820
+Why is it red?
+
+38
+00:02:09,000 --> 00:02:09,860
+Because I have an error.
+
+39
+00:02:10,290 --> 00:02:11,760
+So how should I read this message?
+
+40
+00:02:11,927 --> 00:02:13,470
+Let’s take 2 minutes to do it.
+
+41
+00:02:14,630 --> 00:02:19,590
+The system says: “a Count message
+has been sent to
+
+42
+00:02:19,757 --> 00:02:23,440
+an instance of the Counter class
+and the corresponding
+
+43
+00:02:23,607 --> 00:02:28,240
+method wasn’t found.”
+I’m going to look…
+
+44
+00:02:31,590 --> 00:02:32,360
+I open the debugger.
+
+45
+00:02:32,760 --> 00:02:36,050
+The debugger displays the execution
+stack, so I can
+
+46
+00:02:36,217 --> 00:02:39,760
+see that a message hasn’t been 
+understood.
+
+47
+00:02:39,927 --> 00:02:42,960
+And there it shows where the
+message has been invoked.
+
+48
+00:02:43,760 --> 00:02:46,020
+I see that if I go there,
+I can see the
+
+49
+00:02:46,187 --> 00:02:50,770
+system variables. If I look at C,
+I can access
+
+50
+00:02:50,937 --> 00:02:55,010
+to the temporary C variable, which
+is valued a Counter.
+
+51
+00:02:55,177 --> 00:02:56,920
+Anyway, if I write C class
+for instance,
+
+52
+00:02:57,830 --> 00:03:00,730
+self class, it says it is 
+the Counter class.
+
+53
+00:03:03,790 --> 00:03:08,230
+This is obvious. For the moment,
+in my class, I don’t have any 
+
+54
+00:03:08,397 --> 00:03:12,620
+method. I will ask the system
+to create one for me.
+
+55
+00:03:12,787 --> 00:03:13,590
+I do Create.
+
+56
+00:03:14,290 --> 00:03:15,630
+It proposes the classes.
+
+57
+00:03:15,797 --> 00:03:17,370
+I choose Counter class.
+
+58
+00:03:17,537 --> 00:03:18,670
+Can you create this?
+
+59
+00:03:18,837 --> 00:03:20,330
+Yes, in Accessing.
+
+60
+00:03:21,780 --> 00:03:23,620
+And finally what did he do?
+
+61
+00:03:25,930 --> 00:03:29,200
+It compiled automatically
+a method with the right signature.
+
+62
+00:03:30,310 --> 00:03:31,850
+For the method body, it doesn’t 
+know what to do,
+
+63
+00:03:32,017 --> 00:03:36,010
+so it uses
+ShouldBeImplemented. What does it do?
+
+64
+00:03:36,177 --> 00:03:40,360
+It raises an exception at 
+the execution and the system
+
+65
+00:03:40,527 --> 00:03:41,630
+execute again the method.
+
+66
+00:03:41,797 --> 00:03:44,140
+Now there is a new error and
+I have to
+
+67
+00:03:44,570 --> 00:03:46,680
+implement the method body.
+
+68
+00:03:48,090 --> 00:03:49,950
+I know Count.
+What am I going to do?
+
+69
+00:03:50,117 --> 00:03:53,020
+I want to assign this value to
+an
+
+70
+00:03:53,187 --> 00:03:55,450
+instance variable. So here
+
+71
+00:03:58,180 --> 00:04:02,600
+it’s red, because for the moment 
+my class doesn’t have this instance.
+
+72
+00:04:02,860 --> 00:04:04,170
+I compile.
+
+73
+00:04:05,130 --> 00:04:07,360
+The system proposes:
+“Do you want a temporary variable
+
+74
+00:04:07,527 --> 00:04:09,140
+or an instance variable?”
+
+75
+00:04:09,307 --> 00:04:11,350
+I want an instance variable.
+
+76
+00:04:14,330 --> 00:04:19,040
+So I do this. If I look in my
+class, I do have
+
+77
+00:04:19,207 --> 00:04:21,640
+a Count instance variable which
+was created and
+
+78
+00:04:21,807 --> 00:04:26,650
+the method, the Setter, which
+
+79
+00:04:26,817 --> 00:04:27,450
+will set the value.
+
+80
+00:04:29,790 --> 00:04:31,390
+Once I’ve done this, I can tell
+the debugger
+
+81
+00:04:31,557 --> 00:04:34,550
+to continue, Proceed means continue
+the execution
+
+82
+00:04:34,717 --> 00:04:37,610
+as if nothing happened.
+
+83
+00:04:38,470 --> 00:04:39,103
+What happens?
+
+84
+00:04:39,270 --> 00:04:40,020
+There is still an error.
+
+85
+00:04:41,310 --> 00:04:44,600
+The system still says that 
+there is an instance
+
+86
+00:04:44,767 --> 00:04:47,000
+of Counter class which received
+the count message and that
+
+87
+00:04:47,167 --> 00:04:50,360
+it hasn’t found the appropriate 
+method. This is normal because 
+
+88
+00:04:50,527 --> 00:04:54,250
+C does have 7
+
+89
+00:04:55,680 --> 00:05:00,420
+in its Counter, in its count variable, 
+however
+
+90
+00:05:00,587 --> 00:05:01,850
+the count method doesn’t exist.
+
+91
+00:05:02,250 --> 00:05:03,080
+I’m gonna create it.
+
+92
+00:05:03,247 --> 00:05:05,360
+I will do Create. In which class?
+
+93
+00:05:05,527 --> 00:05:09,000
+Still the Counter class, in 
+the accessing protocol,
+
+94
+00:05:09,460 --> 00:05:14,310
+because it’s an accessor.
+And there you
+
+95
+00:05:14,477 --> 00:05:18,260
+see that the system is smarter.
+
+96
+00:05:18,427 --> 00:05:21,680
+It noticed that there was an
+instance variable named
+
+97
+00:05:21,847 --> 00:05:26,000
+count, and it wants to define a 
+method named count,
+
+98
+00:05:27,120 --> 00:05:29,240
+so let’s propose it an accessor.
+
+99
+00:05:29,410 --> 00:05:30,140
+That’s what I wanted.
+
+100
+00:05:30,307 --> 00:05:31,050
+So now I can Proceed.
+
+101
+00:05:32,440 --> 00:05:33,350
+What do I see?
+
+102
+00:05:33,517 --> 00:05:37,750
+My test is green. I have a test 
+green and
+
+103
+00:05:37,917 --> 00:05:42,050
+2 methods have been created 
+in my class.
+
+104
+00:05:44,240 --> 00:05:45,470
+Now I will do the same
+for increment.
+
+105
+00:05:49,640 --> 00:05:51,100
+In fact, I am
+
+106
+00:05:51,267 --> 00:05:54,490
+specifying what the method 
+has to do
+
+107
+00:05:54,657 --> 00:05:56,240
+and checking that it does do it. 
+
+108
+00:05:58,360 --> 00:06:03,090
+So there I must have 9,
+I compile, I execute.
+
+109
+00:06:03,300 --> 00:06:07,730
+And the system tells me that
+it doesn’t know the increment method.
+
+110
+00:06:07,897 --> 00:06:12,490
+Yes, it’s normal. I do Create,
+here in operation.
+
+111
+00:06:15,960 --> 00:06:19,950
+If I look at increment,
+I can do count.
+
+112
+00:06:20,750 --> 00:06:25,230
+= count + 1. I compile.
+
+113
+00:06:27,080 --> 00:06:29,570
+Proceed. I do have my test.
+
+114
+00:06:30,370 --> 00:06:31,760
+While I’m at it, I create decrement.
+
+115
+00:06:31,927 --> 00:06:36,050
+The idea is for you to do it, 
+to practice it.
+
+116
+00:06:39,520 --> 00:06:43,120
+So here it will be 5.
+I define my test.
+
+117
+00:06:45,460 --> 00:06:46,750
+I create my method.
+
+118
+00:06:51,480 --> 00:06:55,000
+OK. So now you know, 
+count: = count,
+
+119
+00:07:00,330 --> 00:07:01,660
+I compile in the debugger.
+
+120
+00:07:01,827 --> 00:07:05,640
+I click on Proceed. And my 
+tests are green.
+
+121
+00:07:05,807 --> 00:07:10,060
+Now my class has 2 operations:
+increment and decrement.
+
+122
+00:07:10,420 --> 00:07:11,770
+It’s time to save,
+for example.
+
+123
+00:07:12,010 --> 00:07:14,500
+I’m going to save like I’ve
+shown you before.
+
+124
+00:07:15,280 --> 00:07:19,180
+I click on Save, I save and
+
+125
+00:07:20,040 --> 00:07:20,760
+here I write "with
+
+126
+00:07:25,740 --> 00:07:29,430
+accessors and decrement
+increment covered by green tests".
+
+127
+00:07:29,597 --> 00:07:34,000
+So here it is! I’ve saved that.
+
+128
+00:07:47,250 --> 00:07:47,883
+Allright.
+
+129
+00:07:49,100 --> 00:07:52,860
+The important thing to remember
+in this session is that 
+
+130
+00:07:53,390 --> 00:07:58,250
+the debugger gives access to
+the object’s
+
+131
+00:07:58,417 --> 00:08:02,340
+state, it places you in the 
+right call context and
+
+132
+00:08:02,507 --> 00:08:04,460
+enables you to use the call context 
+to have all the necessary
+
+133
+00:08:04,627 --> 00:08:07,390
+information to write
+your code. 
+
+134
+00:08:07,557 --> 00:08:08,690
+And this is really very,
+very powerful.
+

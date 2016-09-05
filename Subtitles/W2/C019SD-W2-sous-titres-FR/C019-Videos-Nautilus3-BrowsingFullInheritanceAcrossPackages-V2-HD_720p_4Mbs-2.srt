@@ -1,0 +1,230 @@
+1
+00:00:01,350 --> 00:00:04,550
+Dans cette vidéo, je voudrais vous
+montrer une astuce aussi avec Nautilus.
+
+2
+00:00:06,450 --> 00:00:09,370
+Petite remarque en
+passant, Nautilus c'est le nom du
+
+3
+00:00:09,370 --> 00:00:11,500
+sous-marin de Jules Verne
+dans "20 000 lieues sous les
+
+4
+00:00:11,500 --> 00:00:14,420
+mers", qui permet de
+naviguer les océans donc ça allait
+
+5
+00:00:14,420 --> 00:00:15,490
+très très bien avec Pharo.
+
+6
+00:00:16,920 --> 00:00:18,430
+Regardons la classe
+OrderedCollection.
+
+7
+00:00:25,260 --> 00:00:28,070
+Elle est définie dans le
+package Collection-Sequenceable.
+
+8
+00:00:30,040 --> 00:00:32,500
+Dans ce package, il y a
+plusieurs classes centrales du
+
+9
+00:00:32,500 --> 00:00:36,400
+système, il y a la classe Array, il
+y a la classe Interval, LinkedList.
+
+10
+00:00:36,960 --> 00:00:40,070
+Ce que je vois, c'est que
+dans le package il y a la
+
+11
+00:00:40,070 --> 00:00:42,840
+ classe OrderedCollection qui a une
+sous-classe qui est SortedCollection.
+
+12
+00:00:42,840 --> 00:00:47,280
+Maintenant, ce que je vois
+
+13
+00:00:47,280 --> 00:00:51,390
+aussi, mais ce n'est pas
+exprimé de manière graphique,
+
+14
+00:00:52,380 --> 00:00:55,800
+c'est que OrderedCollection est une
+sous-classe de SequenceableCollection.
+
+15
+00:00:57,920 --> 00:00:59,820
+Moi ce que j'aimerais
+faire, parfois, c'est pouvoir
+
+16
+00:00:59,820 --> 00:01:02,390
+naviguer dans la
+super-classe pour voir quelles sont les
+
+17
+00:01:02,390 --> 00:01:04,410
+méthodes qui sont
+redéfinies ou ce genre de choses.
+
+18
+00:01:06,160 --> 00:01:09,510
+Pour faire ça, je vais
+appuyer sur Inheritance.
+
+19
+00:01:13,110 --> 00:01:16,120
+Du coup, je vois la
+hiérarchie, je vois la super-classe
+
+20
+00:01:17,140 --> 00:01:20,430
+de OrderedCollection,
+SequenceableCollection et sa hiérarchie.
+
+21
+00:01:23,450 --> 00:01:26,550
+Je vois aussi qu'il y a d'autres
+sous-classes d'OrderedCollection
+
+22
+00:01:26,990 --> 00:01:29,950
+dans d'autres packages
+apparemment, et je vois aussi que
+
+23
+00:01:29,950 --> 00:01:32,210
+SortedCollection est bien une
+sous-classe d'OrderedCollection,
+
+24
+00:01:33,050 --> 00:01:37,660
+c'est en noir, je suis
+toujours dans le package qui
+
+25
+00:01:37,660 --> 00:01:40,210
+contient OrderedCollection.
+
+26
+00:01:41,190 --> 00:01:46,090
+Donc je peux
+naviguer, et voir les méthodes
+
+27
+00:01:46,090 --> 00:01:47,850
+qui sont dans d'autres
+packages de cette manière-là.
+
+28
+00:01:50,490 --> 00:01:55,230
+Maintenant, si je
+désélectionne ce mode en étant sur la
+
+29
+00:01:55,230 --> 00:01:56,890
+super-classe,
+qu'est-ce que je vais voir?
+
+30
+00:01:57,340 --> 00:02:00,330
+Je vais voir le
+package de cette classe.
+
+31
+00:02:00,650 --> 00:02:03,450
+Donc, la classe
+SequenceableCollection est dans le
+
+32
+00:02:03,450 --> 00:02:04,440
+package Collection-Abstract.
+
+33
+00:02:05,470 --> 00:02:08,180
+Donc maintenant si je
+redemande à voir l'héritage, je
+
+34
+00:02:08,180 --> 00:02:12,490
+vais avoir tout
+l'héritage des sous-classes et des
+
+35
+00:02:12,490 --> 00:02:13,480
+super-classes de
+SequenceableCollection.
+
+36
+00:02:14,570 --> 00:02:17,990
+Je vois que
+SequenceableCollection hérite de collection
+
+37
+00:02:17,990 --> 00:02:20,640
+dans le même package,
+qu'elle définit dans le même
+
+38
+00:02:20,640 --> 00:02:25,260
+package ArrayedCollection.
+Je vois que la hiérarchie est
+
+39
+00:02:25,260 --> 00:02:27,490
+assez grosse, donc
+normalement je devrais retrouver
+
+40
+00:02:27,490 --> 00:02:30,620
+quelque part
+OrderedCollection, et OrderedCollection est ici.
+
+41
+00:02:30,650 --> 00:02:34,190
+Maintenant, si je
+re-sélectionne OrderedCollection et que
+
+42
+00:02:34,190 --> 00:02:36,700
+je re-presse Inheritance,
+je vais retourner dans le
+
+43
+00:02:36,700 --> 00:02:39,390
+package qui était à
+l'origine, Sequenceable.
+
+44
+00:02:40,860 --> 00:02:42,440
+Et nous voilà retourné au départ.
+
+45
+00:02:43,810 --> 00:02:46,670
+Ce que vous avez vu là,
+c'est que Nautilus va vous
+
+46
+00:02:46,670 --> 00:02:50,260
+permettre de naviguer
+l'héritage en faisant abstraction
+
+47
+00:02:50,610 --> 00:02:54,130
+des packages, mais tout en vous
+montrant dans quel package vous naviguez.
+

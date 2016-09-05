@@ -1,0 +1,105 @@
+1
+00:00:02,140 --> 00:00:05,110
+J'aimerais vous montrer
+comment on charge du code dans Pharo.
+
+2
+00:00:06,610 --> 00:00:08,250
+Je vais aller sur Safari pour voir.
+
+3
+00:00:09,740 --> 00:00:14,430
+Je veux charger le Counter
+qui a été sauvé dans le projet
+
+4
+00:00:14,597 --> 00:00:16,070
+Pharo MOOC, sur Smalltalk Hub.
+
+5
+00:00:16,237 --> 00:00:19,160
+Là, il me montre le
+repository, je le copie.
+
+6
+00:00:19,740 --> 00:00:22,460
+Je viens ici. Je fais
+Monticello Browser +Repository Http.
+
+7
+00:00:27,340 --> 00:00:29,520
+Et je "paste" la définition.
+
+8
+00:00:29,687 --> 00:00:33,650
+Là, je fais OK. Et maintenant
+qu'est-ce que le système va me montrer?
+
+9
+00:00:33,817 --> 00:00:36,850
+Il va me montrer "Oui, il y a
+une version - bon, là il n'y
+
+10
+00:00:37,017 --> 00:00:39,040
+en avait qu'une malheureusement
+- une version de Pharo counter."
+
+11
+00:00:39,207 --> 00:00:42,280
+Là, je peux faire un
+merge qui va faire un Diff entre
+
+12
+00:00:42,447 --> 00:00:44,350
+ce qui va être chargé et
+ce qui est dans l'image.
+
+13
+00:00:44,517 --> 00:00:47,880
+Là, il n'y a que des
+additions, mais si on avait des
+
+14
+00:00:48,047 --> 00:00:50,040
+modifications de méthodes
+qui existent déjà, il me le
+
+15
+00:00:50,207 --> 00:00:52,640
+montrerait et me
+ferait un Diff interactif.
+
+16
+00:00:53,050 --> 00:00:55,260
+Sinon, ce que je peux faire,
+je peux faire un Load, à ce
+
+17
+00:00:55,427 --> 00:00:57,630
+moment-là, il va écraser les
+choses qui sont dans l'image.
+
+18
+00:00:57,797 --> 00:01:01,410
+MyCounter, il n'y avait que ça,
+donc je peux faire Load et voilà.
+
+19
+00:01:03,020 --> 00:01:07,830
+Maintenant j'ai
+ chargé mon code, je fais
+
+20
+00:01:08,360 --> 00:01:09,270
+Counter.
+
+21
+00:01:13,700 --> 00:01:17,690
+Si je vais dans Counter,
+mes tests sont verts, je peux
+
+22
+00:01:17,857 --> 00:01:18,520
+commencer à travailler.
+

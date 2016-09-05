@@ -1,0 +1,139 @@
+{
+  "title":"Inheritance and Lookup",
+  "subtitle":"3: super",
+  "slidesid" : "W4S03"
+}
+
+${slide:title=Goal}$
+
+- Sending a message
+- Method lookup
+- ==super== semantics and the differences with ==self==
+
+${slide:title=What is super?}$
+
+Take 5 min and write the definition of ==super==
+
+- your definition should have two points:
+-- what does ==super== represent?
+-- how is a method looked up when a message is sent to ==super==?
+
+${slide:title=Challenge Yourself With super!}$
+
+${columns}$
+
+${column:width=80}$
+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=100+
+
+${column:width=30}$
+
+[[[
+    A new bar
+    > ...
+    B new bar
+    > ...
+    C new bar
+    > ...
+]]]
+
+${endColumns}$
+
+${slide:title=Challenge Yourself With super!}$
+
+${columns}$
+
+${column:width=80}$
+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=100+
+
+${column:width=30}$
+
+[[[
+    A new bar
+    > 10
+    B new bar
+    > 20
+    C new bar
+    > 100
+]]]
+
+${endColumns}$
+
+${slide:title=super Changes Where the Lookup Starts}$
+
+${columns}$
+
+${column:width=54}$
+
++>file://figures/LookupWithSuperInSuperclassMethodThreeClasses.png|width=100+
+
+${column:width=46}$
+
+Evaluation of ==aC bar==
+#==aC=='s class is ==C==
+#no method ==bar== in C
+#look up in ==B== - ==bar== is found
+#method ==bar== is executed
+#==bar== is sent to ==super==
+#==super== is ==aC== but lookup starts in ==A==
+#==bar== is found in ==A== and executed
+#==foo== is sent to ==aC==
+#==foo== is found in ==C==
+
+${endColumns}$
+
+${slide:title=super Changes Where the Lookup Starts}$
+
+-==super== refers to the receiver of the message (just like ==self==)
+-The method lookup starts in the superclass of ""the class containing the ==super== expression""
+
+${slide:title=self is Dynamic}$
+
+${columns}$
+
+${column:width=45}$
+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=100+
+
+${column:width=55}$
+
+We don't know which ==foo== method ==bar== refers to
+
+${endColumns}$
+
+${slide:title=super is Static}$
+
+${columns}$
+
+${column:width=50}$
+
++>file://figures/superIsStatic.png|width=90+
+
+${column:width=50}$
+
+- at compilation-time, we know that ==B>>foo== refers to ==A>>foo==
+- we should look above the class containing the ""method"" using ==super==
+
+${endColumns}$
+
+${slide:title=Even Some Books Got it Wrong}$
+
+- ""Wrong"" definition: ''==super== looks for the method in the superclass of the ""receiver""'s class''
+- With this definition, this example would loop forever:
+
++>file://figures/LookupWithWrongDefinition.png|width=65+
+
+In reality it ""does not"" loop, the definition is wrong
+
+${slide:title=What You Should Know}$
+
+- ==self== always represents the receiver
+- ==super== always represents the receiver
+- ==super== changes the lookup:
+-- a super send starts the lookup in the class above it
+- self sends act as a hook: code of subclasses may be invoked
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/Week4/C019-W4S03-InheritanceAndLookup-3-Super.pillar"
+% End:

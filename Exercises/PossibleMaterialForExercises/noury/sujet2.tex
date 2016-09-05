@@ -1,0 +1,136 @@
+\documentclass[12pt]{article}
+\usepackage{a4wide}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[pdftex,colorlinks=true,pdfstartview=FitV,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{xspace}   
+
+\begin{document}
+\vspace*{-3.5cm}
+\hspace*{-2.5cm}
+\begin{tabular}{lc}
+\resizebox{2cm}{!}{\includegraphics{logoMinesDouai-small}} 
+& 
+\begin{minipage}[b]{15cm}
+\begin{center}
+{\it TP Programmation par Objets}\\~\\
+{\Large\bf Collections en Smalltalk : Chenillard}\\~\\
+{\sf Noury Bouraqadi}
+\end{center}
+\end{minipage}\\
+\end{tabular}
+
+
+\newcommand{\st}[1]{{\small \verb!#1!}} 
+\newcommand{\guirlande}{\st{Guirlande}\xspace}
+
+\section*{Préambule}
+Un chenillard désigne :
+\begin{quotation}
+    	\emph{un mouvement lumineux qui se produit en allumant et éteignant successivement une série de lampes ou LED. L'effet se traduit par un déplacement de cette lumière dans un sens choisi, par exemple de gauche à droite. Comme l'illustre K 2000 (série télévisée), par effet Phi.} {\small [\url{http://fr.wikipedia.org/wiki/Chenillard}]}
+ 
+[\dots]
+
+\emph{L'effet phi est la sensation visuelle de mouvement provoquée par l'apparition d'images perçues successives, susceptibles d'être raccordées par un déplacement ou une transformation. Le cerveau comble l'absence de transition avec celle qui lui semble la plus vraisemblable. C'est donc le résultat du traitement effectué par le système visuel. Cet effet est différent de la persistance rétinienne qui est un effet au niveau de la rétine. }{\small [\url{http://fr.wikipedia.org/wiki/Effet_Phi}]}
+\end{quotation}
+
+\section{Briques de base}
+En partant du code qui vous est fourni, vous complétez la classe \guirlande comme indiqué ci-dessous.
+Une guirlande est constituée d'une collection ordonnée de lampes.
+Chaque lampe est dotée d'une variable d'instance qui référence un afficheur graphique.
+
+Dotez la classe \guirlande d'une seule variable d'instances nommée \st{lampes}. Puis, définissez les méthodes suivantes :
+\begin{enumerate}
+	\item \st{lampes} retourne la collection de lampes.
+	\item \st{afficheurs} retourne une collection regroupant les afficheurs des lampes. 
+	\item \st{demarrerAffichage} rend visible tous les afficheurs
+	\item \st{arreterAffichage} cache tous les afficheurs
+	\item \st{initialize}
+	\begin{itemize}
+		\item initialise la variable d'instances \st{lampes} avec 10 lampes,
+		\item associe chaque lampe à un afficheur graphique
+		\item positionne les afficheurs sur une ligne espacée de 80 pixels
+		\item démarre l'affichage
+	\end{itemize}  
+\end{enumerate}
+
+Vérifiez que la guirlande se crée et s'affiche correctement.
+A ce stade, toutes les lampes sont éteintes. 
+
+\section{Animation}      
+Dotez la classe \guirlande des méthodes suivantes :
+
+\begin{enumerate}
+	\item \st{eteindreToutesLesLampes}
+	\item \st{allumerSeulementLampesNumeros: desIndices} éteint toutes les lampes et allume celles dont les indices sont donnés en paramètre.
+	\item \st{unPasChenillardVersGauche} décale les états des lampes d'un pas vers la gauche. Chaque lampe récupère l'état (\st{estAllumee}) précédent de sa voisine de droite. Ainsi, l'état (\st{estAllumee}) d'une lampe à l'instant $t_{n+1}$ est celui de sa voisine de droite à l'instant $t_n$. La lampe la plus droite récupère l'état précédent de la lampe à l'extrémité gauche de la guirlande.
+	\item \st{chenillardVersGauche} 
+		\begin{itemize}
+		\item allume les 3 lampes les plus à droite, 
+		\item force le démarrage de l'affichage et
+		\item déclenche la répétition de \st{unPasChenillardDroiteGauche} pendant 50 fois, en utilisant la méthode fournie \st{executer: unBlock repetition: nombreDefois}                            
+	\end{itemize}
+	
+\end{enumerate}
+
+\section{Afficheur à LED avec défilement}
+Dans cet exercice, vous aller développer un afficheur de texte avec défilement analogue à ceux qu'on peut en voir par exemple dans les bus.
+Dans un premier temps, définissez la classe \st{CaractereEnLED} qui affiche un caractère à l'aide d'une matrice de lampes organisées en 5 lignes par 3 colonnes.
+Vous pouvez exploiter pour cela la classe \st{Matrix} de Pharo.
+Vous devez afficher cette classe dans le \emph{browser} afin d'identifier les méthodes qui pourraient vous server. Mais voici quelques exemples pour vous aider.
+
+\begin{itemize}
+	\item créer une matrice de 5 lignes et 3 colonnes remplie de nouvelles lampes:
+	\begin{verbatim}
+		|matriceDeLampes nombreLignes nombreColonnes |
+		nombreLignes := 5.
+		nombreColonnes := 3.
+		matriceDeLampes := Matrix 
+							rows: nombreLignes 
+							columns: nombreColonnes 
+							tabulate: [ :indiceLigne :indiceColonne | Lampe new]
+	\end{verbatim}
+	
+	
+	\item parcourir la matrice en ayant accès aux indices des éléments :
+\begin{verbatim}
+	matriceDeLampes withIndicesDo: [:lampe :indiceLigne :indiceColonne | 
+	    Transcript 
+	        cr; 
+	        show: $(;
+	        show: indiceLigne; 
+	        show: $, ;
+	        show: indiceColonne;
+	        show: ') : '.
+	    lampe estAllumee 
+	        ifTrue: [Transcript show: 'lampe allumee'] 
+	        ifFalse: [Transcript show: 'lampe eteinte']
+	]
+\end{verbatim}
+	\item Pour obtenir un élément à une position donnée (avec numeroLigne, numeroColonne et uneLampe des variables)
+\begin{verbatim}
+	numeroLigne := 3.
+	numeroColonne := 2.
+	uneLampe := matriceDeLampes at: numeroLigne at: numeroColonne
+\end{verbatim}
+\end{itemize}
+ 
+
+L'affichage d'une caractère est effectuée en allumant certaines lampes et en éteignant les autres. 
+Afin d'améliorer la lisibilité veillez à minimiser l'espace entre les lampes et utilisez des afficheurs carrés.
+Pour cela, utilisez la méthode \st{afficherEnCarreDeCote: longueur} de la classe \st{AfficheurGraphiqueDeLampe} fournie.
+
+Dans un second temps, définissez la classe \st{PanneauTexteEnLED} qui dispose d'une collection ordonnée d'instances de la classe \st{CaractereEnLED}.
+Outre l'affichage simple d'un texte, le panneau doit permettre le défilement de celui-ci, un peu à la manière de ce que vous avez fait avec la guirlande.
+
+% Matrice de Lampes. Un dictionnaire donne pour chaque lettre le pattern (lampes allumée ou eteintes)
+% ajouter exo afficheur de text defilant (comme les bus)
+% Chaque lettre = un ensemble de lampes allumeees
+% Chenillard de colonnes de lampes. Une colone est polymorphe à lampe
+
+% \section{Exo sur les Stream}
+\end{document}

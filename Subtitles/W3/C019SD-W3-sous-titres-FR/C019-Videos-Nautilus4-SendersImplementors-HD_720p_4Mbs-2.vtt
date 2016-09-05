@@ -1,0 +1,366 @@
+WEBVTT
+
+00:00:01.140 --> 00:00:05.200 align:middle
+Dans cette vidéo, je
+voudrais vous montrer les analyses
+
+00:00:05.560 --> 00:00:09.520 align:middle
+un peu plus poussées qu'on peut
+faire sur du code avec Nautilus.
+
+00:00:10.260 --> 00:00:13.220 align:middle
+Donc ouvrons Nautilus, on
+va prendre par exemple une
+
+00:00:13.387 --> 00:00:14.670 align:middle
+ classe simple, NumberParser.
+
+00:00:15.880 --> 00:00:19.090 align:middle
+Donc maintenant ce qu'on
+va regarder, c'est ce qu'on
+
+00:00:19.257 --> 00:00:20.170 align:middle
+appelle les Senders
+et les Implementor.
+
+00:00:20.337 --> 00:00:24.640 align:middle
+Souvent, on sait quand
+quelqu'un est fluide dans Pharo s'il
+
+00:00:24.807 --> 00:00:27.350 align:middle
+a compris comment utiliser
+les Senders et Implementors
+
+00:00:27.517 --> 00:00:29.790 align:middle
+pour trouver de
+l'information. Donc regardons: quand je
+
+00:00:29.957 --> 00:00:31.770 align:middle
+prends une méthode,
+j'aimerais savoir qui est-ce qui
+
+00:00:31.937 --> 00:00:33.620 align:middle
+appelle cette méthode,
+qu'est-ce que je vais faire?
+
+00:00:34.080 --> 00:00:35.030 align:middle
+Je vais utiliser Senders Of.
+
+00:00:36.680 --> 00:00:41.260 align:middle
+Donc Senders Of,
+qu'est-ce que ça va me donner?
+
+00:00:41.427 --> 00:00:43.230 align:middle
+Ça va me donner ici, ah bah
+tiens, il n'y a qu'une seule
+
+00:00:43.397 --> 00:00:45.920 align:middle
+méthode qui appelle Senders
+Of, cette méthode s'appelle
+
+00:00:46.270 --> 00:00:50.560 align:middle
+ReadExponent et il
+appelle ExponentLetters.
+
+00:00:52.710 --> 00:00:54.310 align:middle
+Donc c'est une
+information intéressante.
+
+00:00:54.610 --> 00:00:56.810 align:middle
+Maintenant imaginons que
+je vais dans le protocole
+
+00:00:57.000 --> 00:01:01.830 align:middle
+public, je prends
+NextInteger. Si je demande les Senders,
+
+00:01:03.140 --> 00:01:07.710 align:middle
+je vais obtenir cette
+
+00:01:08.420 --> 00:01:09.740 align:middle
+liste de Senders potentiels.
+
+00:01:10.810 --> 00:01:14.910 align:middle
+En fait, ce sont tous les endroits
+qui envoient le message NextInteger.
+
+00:01:15.370 --> 00:01:17.310 align:middle
+Donc là ce que je vois
+c'est que je suis dans la classe
+
+00:01:17.477 --> 00:01:20.590 align:middle
+NumberParser, et que
+je fais un appel à Self.
+
+00:01:21.600 --> 00:01:24.180 align:middle
+Donc j'utilise Self pour
+faire un appel donc ça sera
+
+00:01:24.347 --> 00:01:25.730 align:middle
+forcément la méthode que j'ai ici.
+
+00:01:26.740 --> 00:01:30.720 align:middle
+Maintenant, sur les packages
+ou sur la classe XML, ce n'est
+
+00:01:30.887 --> 00:01:33.360 align:middle
+pas dit parce que je ne sais
+pas forcément, vu que Pharo
+
+00:01:33.527 --> 00:01:36.370 align:middle
+est un langage non typé, je
+ne sais pas exactement à coup
+
+00:01:36.537 --> 00:01:40.060 align:middle
+sûr si c'est la méthode en question.
+
+00:01:40.227 --> 00:01:44.020 align:middle
+En fait, ce que le
+système me montre, ce sont qu'un
+
+00:01:44.187 --> 00:01:46.010 align:middle
+message de même nom est envoyé.
+
+00:01:46.720 --> 00:01:49.000 align:middle
+Donc pour vérifier ça, ce
+que je peux faire par exemple,
+
+00:01:49.167 --> 00:01:51.520 align:middle
+je peux me dire, ah mais moi
+ce que j'aimerais savoir c'est
+
+00:01:51.950 --> 00:01:56.090 align:middle
+quels sont les
+implémenteurs, donc combien de fois cette
+
+00:01:56.257 --> 00:01:57.650 align:middle
+méthode est
+implémentée dans le système.
+
+00:01:57.817 --> 00:02:00.870 align:middle
+Donc pour ça, ce que je vais
+faire, je vais faire Implementors Of.
+
+00:02:02.520 --> 00:02:05.930 align:middle
+Donc Implementors Of, ah bah
+tiens, alors que tout à l'heure
+
+00:02:06.097 --> 00:02:08.350 align:middle
+dans l'autre cas, je n'avais
+qu'une seule méthode donc c'était
+
+00:02:08.517 --> 00:02:12.290 align:middle
+forcément celle-là qui était
+appelée, là, j'en ai plusieurs.
+
+00:02:12.457 --> 00:02:16.050 align:middle
+Donc cette méthode, la
+méthode NextInteger elle est
+
+00:02:16.217 --> 00:02:19.510 align:middle
+définie sur NumberParser, mais
+elle est aussi définie sur XMLInteger.
+
+00:02:20.900 --> 00:02:24.420 align:middle
+Donc là, XMLInteger est
+défini même sur deux classes
+
+00:02:24.587 --> 00:02:26.950 align:middle
+différentes, donc ce
+que je vois c'est que ces
+
+00:02:27.117 --> 00:02:30.000 align:middle
+méthodes-là, ces appels-là,
+ce sont des appels d'envoi de
+
+00:02:30.167 --> 00:02:34.030 align:middle
+messages et qu'ils vont sûrement
+se résoudre sur ces méthodes-là.
+
+00:02:34.420 --> 00:02:36.670 align:middle
+Donc ce que vous voyez, c'est
+que Sender et Implementor c'est
+
+00:02:36.837 --> 00:02:39.650 align:middle
+vraiment important.
+Implementor ça va vous permettre de
+
+00:02:39.817 --> 00:02:41.710 align:middle
+voir toutes les classes du
+système qui implémentent une
+
+00:02:41.877 --> 00:02:45.300 align:middle
+méthode, et Sender ça va vous
+montrer tous les appels à une méthode.
+
+00:02:45.467 --> 00:02:47.840 align:middle
+Alors les Senders, c'est
+vraiment très important parce
+
+00:02:48.007 --> 00:02:50.940 align:middle
+que ça va vous permettre
+de regarder des exemples, de
+
+00:02:51.107 --> 00:02:54.050 align:middle
+dire, ah oui, tiens, cette
+méthode, mais comment elle est invoquée?
+
+00:02:54.520 --> 00:02:56.920 align:middle
+Donc là, je vous ai pris une
+méthode qui n'avait pas d'argument
+
+00:02:57.087 --> 00:02:58.590 align:middle
+mais si j'avais pris une
+méthode qui avait un argument,
+
+00:02:58.757 --> 00:03:02.650 align:middle
+par exemple si je prends
+Number, NextNumberBase et que je
+
+00:03:02.817 --> 00:03:07.470 align:middle
+fais Sender, qu'est-ce que ça va me
+
+00:03:07.637 --> 00:03:12.480 align:middle
+montrer? J'ai un
+argument et je vois, ah oui
+
+00:03:12.647 --> 00:03:13.280 align:middle
+tiens c'est la base.
+
+00:03:13.447 --> 00:03:15.050 align:middle
+Donc là, bon, il se trouve
+que ce n'est pas un argument,
+
+00:03:15.217 --> 00:03:18.730 align:middle
+c'est juste un appel qui
+passe un argument mais voilà,
+
+00:03:18.897 --> 00:03:22.030 align:middle
+par exemple dans ce test-là,
+ce que je vois, je vois que
+
+00:03:22.420 --> 00:03:27.340 align:middle
+j'instancie
+NumberParser sur une Stream,
+
+00:03:28.340 --> 00:03:30.550 align:middle
+et qu'après je vais lui
+envoyer le message NextNumberBase
+
+00:03:30.717 --> 00:03:32.930 align:middle
+et que je dois passer 10.
+
+00:03:33.097 --> 00:03:35.030 align:middle
+Donc ça me permet de
+comprendre, ah oui c'est comme ça
+
+00:03:35.197 --> 00:03:36.200 align:middle
+que je dois utiliser l'API.
+
+00:03:37.000 --> 00:03:41.210 align:middle
+Alors c'est tellement utilisé qu'en
+fait vous avez des raccourcis clavier.
+
+00:03:42.390 --> 00:03:45.800 align:middle
+Alors Nautilus a été conçu
+à la base pour qu'on puisse
+
+00:03:46.000 --> 00:03:48.550 align:middle
+complètement faire toutes ces
+opérations sans toucher à la souris.
+
+00:03:49.000 --> 00:03:51.260 align:middle
+Donc là, ce qu'il faut voir
+c'est que B ça veut dire browse.
+
+00:03:51.427 --> 00:03:55.890 align:middle
+Donc on va faire, Browse Sender,
+le N c'est pour le N de Sender.
+
+00:03:56.057 --> 00:03:59.550 align:middle
+Browse Implementor, le M
+c'est pour Implementor.
+
+00:04:00.440 --> 00:04:05.260 align:middle
+Donc si je sélectionne
+juste "NextNumber" par exemple,
+
+00:04:05.570 --> 00:04:08.780 align:middle
+et que je fais
+Browse N, je vais obtenir
+
+00:04:11.110 --> 00:04:14.330 align:middle
+les Senders de NextNumber.
+
+00:04:14.860 --> 00:04:17.740 align:middle
+De la même manière si je
+sélectionne, voilà, je les obtiens.
+
+00:04:17.907 --> 00:04:19.610 align:middle
+Maintenant, si je veux
+obtenir les Implementors Browse M,
+
+00:04:20.890 --> 00:04:22.160 align:middle
+j'obtiens les Implementors.
+
+00:04:23.700 --> 00:04:25.650 align:middle
+Donc de la même manière
+sur les classes, j'aimerais
+
+00:04:25.817 --> 00:04:28.030 align:middle
+savoir quelles sont les
+autres classes du système qui
+
+00:04:28.197 --> 00:04:30.290 align:middle
+utilisent NumberParser.
+Pour ce faire, ce que je vais
+
+00:04:30.457 --> 00:04:34.730 align:middle
+faire, je vais donc
+Analyze et j'ai Class
+
+00:04:34.897 --> 00:04:39.820 align:middle
+references. Donc Class
+references, j'obtiens toutes les
+
+00:04:40.000 --> 00:04:43.380 align:middle
+ classes. Donc on va regarder,
+j'obtiens toutes les méthodes qui utilisent.
+
+00:04:47.300 --> 00:04:49.480 align:middle
+Donc là, je vois que c'est
+essentiellement des tests.
+
+00:04:49.740 --> 00:04:53.000 align:middle
+Ah tiens dans la
+ ClassInteger, je fais appel
+
+00:05:00.130 --> 00:05:00.763 align:middle
+au Parser.
+
+00:05:00.930 --> 00:05:05.440 align:middle
+Alors là, l'astuce pour
+comprendre, se rappeler
+
+00:05:06.200 --> 00:05:09.300 align:middle
+du raccourci clavier,
+c'est de se dire que là c'est
+
+00:05:10.050 --> 00:05:14.550 align:middle
+Browse shift N, c'est
+
+00:05:16.070 --> 00:05:19.250 align:middle
+une lettre capitale parce
+qu'on pense finalement que c'est
+
+00:05:19.417 --> 00:05:21.700 align:middle
+comme invoquer une
+méthode, à part que là on veut
+
+00:05:21.867 --> 00:05:24.090 align:middle
+invoquer une classe, et qu'une
+ classe c'est plus gros qu'une
+
+00:05:24.257 --> 00:05:25.310 align:middle
+méthode donc on a une capitale.
+

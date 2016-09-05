@@ -1,0 +1,115 @@
+{
+  "title" : "Did You Really Understand Super?",
+  "slidesid" : "W6S01"
+}
+
+${slide:title=What You Will Learn}$
+
+Revisit 
+- ==super==
+- Message lookup
+- Class methods
+
+${slide:title=A Little Puzzle}$
+
+[[[
+Dice class >> new
+
+  | inst |
+  inst := super new. 
+  inst initialize.
+  ^ inst
+]]]
+
+We execute the following expression: ==Dice new== 
+
+${slide:title=Questions}$
+
+[[[
+Dice class >> new
+
+  | inst |
+  inst := super new. 
+  inst initialize.
+  ^ inst
+]]]
+
+- What is ==inst==?
+- What is ==super==?
+- What is ==super new==?
+
+${slide:title=Hint: super is Not...}$
+
+[[[
+Dice class >> new
+
+  | inst |
+  inst := super new. 
+  inst initialize.
+  ^ inst
+]]]
+
+- No ==super== is not the superclass
+- No ==inst== is not an instance of the superclass
+
+${slide:title=Hint 2: super is the Message Receiver}$
+
+[[[
+Dice class >> new
+
+  | inst |
+  inst := super new. 
+  inst initialize.
+  ^ inst
+]]]
+
+- The message is ==Dice new==
+- So the receiver is the class ==Dice==
+
+${slide:title=Sending a Message: Lookup \+ Apply on Receiver}$
+
++>file://figures/InheritanceDiagram-sendingMessage.png|width=64+
+
+${slide:title=Remember: Method Lookup}$
+
++>file://figures/LookupEssenceWithGeneric.png|width=70+
+
+
+${slide:title=Solution}$
+
+[[[language=smalltalk
+Dice class >> new
+
+  | inst |
+  inst := super new. 
+  inst initialize.
+  ^ inst
+]]]
+
+- ==super== is the receiver: the class ==Dice==
+- Look for ==new== in the superclass of the class ==Dice class== (Pay attention not ==Dice==)
+- Once found we apply to the receiver: ==Dice==
+- We get an instance of the class ==Dice== and send it initialize and return it
+
+${slide:title=Solution}$
+
++>file://figures/Workstation-Dice-MetaclassesWithInheritanceWithLookup.png|width=130+
+
+${slide:title=Summary}$
+
+- Sending a message is looking up for the method and applying it on the receiver
+- Now you should really understand ==super== :)
+- ==super== is the receiver of the message and the method lookup starts in the superclass of the class  containing the expression
+
+${slide:title=Challenge?}$
+
+${slide:title=Challenge!}$
+
+Imagine we have 
+
+[[[
+A >> foo
+   ^ super class == self class 
+]]]
+
+What is the result of ==A new foo== and why?

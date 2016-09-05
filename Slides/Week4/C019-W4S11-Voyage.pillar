@@ -1,0 +1,308 @@
+{
+  "title":"Voyage",
+  "subtitle":"NoSQL Object Database",
+  "slidesid" : "W4S11"
+}
+
+${slide:title=Goal}$
+
+- To let you build a real little application
+- Show you a nice way to store objects
+
+${slide:title=MongoDB}$
+
+- Document oriented, open-source NoSQL database
+- Powerful query language
+- Most popular document database so far 
+
+${slide:title=What is Voyage?}$
+
+- Object-Document Mapper for MongoDB
+- Think on Hibernate for MongoDB
+- For Pharo, obviously ;)
+
+${slide:title=Voyage Feature}$
+
+- Simple
+- Ensure object identity
+- Provide error-handling
+- Implement a connection pool
+
+${slide:title=Setting a Connexion}$
+
+[[[
+| repository |
+repository := VOMongoRepository
+    host: 'localhost'
+    database: 'demo'.
+repository enableSingleton.
+]]]
+
+${slide:title=Setting a In Memory Connexion}$
+
+[[[
+| repository |
+repository := VOMemoryRepository new.
+repository enableSingleton.
+]]]
+
+- Really nice to prototype 
+- Then can easily switch to a MongoDB
+
+${slide:title=A Simple Model}$
+
++>file://figures/SuperHeroesModel.png|width=90+
+
+
+
+${slide:title=A Simpler Model}$
+
++>file://figures/SuperHeroesModelSimpler.png|width=90+
+
+
+${slide:title=A Simpler Model}$
+
+[[[
+Object subclass: #Hero
+	instanceVariableNames: 'name level powers'
+	classVariableNames: ''
+	package: 'SuperHeroes'
+
+Hero >> name
+    ^ name
+Hero >> name: aString    
+    name := aString
+Hero >> level
+    ^ level
+Hero >> level: anObject    
+    level := anObject
+Hero >> powers
+    ^ powers ifNil: [ powers := Set new ]
+Hero >> addPower: aPower
+    self powers add: aPower
+]]]
+
+${slide:title=A Simpler Model}$
+
+[[[
+Object subclass: #Power
+	instanceVariableNames: 'name'
+	classVariableNames: ''
+	package: 'SuperHeroes'.
+
+Power>>name
+    ^ name
+Power>>name: aString    
+    name := aString
+]]]
+
+
+${slide:title=Root Classes}$
+
+- Entry-point for our database
+- Can be any class in the system
+- Marked as root by ==isVoyageRoot== class method
+
+${slide:title=Root Classes}$
+
+[[[
+Hero class >> isVoyageRoot
+    ^ true
+]]]
+
+${slide:title=Some Heroes}$
+
+[[[
+Hero new 
+    name: 'Spiderman';
+    level: #epic;
+    addPower: (Power new name: 'Super-strength');
+    addPower: (Power new name: 'Wall-climbing');
+    addPower: (Power new name: 'Spider instinct');
+    save.
+
+Hero new 
+    name: 'Wolverine';
+    level: #epic;
+    addPower: (Power new name: 'Regeneration');
+    addPower: (Power new name: 'Adamantium claws');
+    save.
+]]]
+
+
+${slide:title=In DB}$
+
+[[[
+> db.Hero.find()[0]
+{
+	"_id" : ObjectId("d847065c56d0ad09b4000001"),
+	"#version" : 688076276,
+	"#instanceOf" : "Hero",
+	"level" : "epic",
+	"name" : "Spiderman",
+	"powers" : [
+		{
+			"#instanceOf" : "Power",
+			"name" : "Spider instinct"
+		},
+		{
+			"#instanceOf" : "Power",
+			"name" : "Super-strength"
+		},
+		{
+			"#instanceOf" : "Power",
+			"name" : "Wall-climbing"
+		}
+	]
+}
+]]]
+
+${slide:title=Querying}$
+
+[[[
+Hero selectAll.
+> an OrderedCollection(a Hero, a Hero)
+]]]
+
+[[[
+Hero selectOne: [ :each | each name = 'Spiderman' ].
+> a Hero
+]]]
+
+[[[
+Hero selectMany: [ :each | each level = #epic ]. 
+> an OrderedCollection(a Hero, a Hero)
+]]]
+
+${slide:title=Querying 2}$
+
+[[[
+Hero selectOne: { #name -> 'Spiderman' } asDictionary.
+> a Hero
+]]]
+
+[[[
+Hero selectMany: { #level -> #epic } asDictionary. 
+> an OrderedCollection(a Hero, a Hero)
+]]]
+
+
+${slide:title=Querying 3}$
+
+
+[[[
+Hero
+    selectMany: { #level -> #epic } asDictionary
+    sortBy: { #name -> VOOrder ascending }
+    limit: 10
+    offset: 0. 
+> an OrderedCollection(a Hero, a Hero)
+]]]
+
+
+${slide:title=Some Operations}$
+
+[[[
+Hero count.
+> 2
+]]]
+
+[[[
+Hero count: [ :each | each name = 'Spiderman' ]
+> 1.
+]]]
+
+[[[
+Hero removeAll. "Beware of this!"
+> Hero class
+]]]
+
+[[[
+hero := Hero selectAll anyOne.
+hero remove.
+> a Hero
+]]]
+
+${slide:title=Defining Document Roots}$
+
+- If you want to query them
+- If you want to share objects between roots
+
+${slide:title=Defining Document Roots}$
+
+- Yes, Hero is a root on the example
+- Power can be a root too (you can “share” powers between heroes)
+- Any class can be declared as root, Voyage will manage it automatically
+
+${slide:title=Defining Document Roots}$
+
+[[[
+Power class >> isVoyageRoot
+  ^ true
+]]]
+
+[[[
+Power new name: 'Fly'; save.
+Power new name: 'Super-strength'; save.
+]]]
+
+[[[
+fly := Power selectOne: [ :each | each name = 'Fly'].
+superStrength := Power selectOne: [ :each | each name = 'Super-strength']. 
+Hero new 
+    name: 'Superman';
+    level: #epic;
+    addPower: fly;
+    addPower: superStrength;
+    save.
+]]]
+
+${slide:title=Important}$
+
+Reset repository when changing the schema
+
+[[[
+VORepository current reset.
+]]]
+
+${slide:title=In DB}$
+
+[[[
+> db.Hero.find()[0]
+{
+	"_id" : ObjectId("d8474983421aa909b4000008"),
+	"#version" : NumberLong("3874503784"),
+	"#instanceOf" : "Hero",
+	"level" : "epic",
+	"name" : "Superman",
+	"powers" : [
+		{
+			"#collection" : "Power",
+			"#instanceOf" : "Power",
+			"__id" : ObjectId("d84745dd421aa909b4000005")
+		},
+		{
+			"#collection" : "Power",
+			"#instanceOf" : "Power",
+			"__id" : ObjectId("d84745dd421aa909b4000006")
+		}
+	]
+}
+]]]
+
+${slide:title=Relationships}$
+
+- Root references (kind of “foreign keys”)
+- Voyage handles cyclic references of root objects 
+- Beware, Voyage does not support cyclic references of embedded objects (yet)
+
+
+${slide:title=Conclusion}$
+
+- We can easily save objects in MongoDB
+- More information in ""Entreprise Pharo: a Web Perspective""
+
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/W3S8-ClassMethodsAtWork.pillar"
+% End:

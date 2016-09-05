@@ -1,0 +1,38 @@
+! Template
+
+ Damien Cassou and Stéphane Ducasse
+
+*http://www.pharo.org*
+
+*http://stephane.ducasse.free.fr*
+
+!! License
+
++>file://figures/CreativeCommons.png|width=50|label=figCreativeCommons+
+
+!! A simple method 
+
+[[[
+factorial
+	"Answer the factorial of the receiver."
+
+	self = 0 ifTrue: [^ 1].
+	self > 0 ifTrue: [^ self * (self - 1) factorial].
+	self error: 'Not valid for negative integers'
+]]]
+
+- ==factorial== is the method selector: the name of the message
+- =="Answer the factorial of the receiver"== is a comment
+- The rest is the method body
+
+!! What you should at least remember
+
+- 
+- 
+- 
+
+!! Conclusion
+
+- 
+- 
+- 

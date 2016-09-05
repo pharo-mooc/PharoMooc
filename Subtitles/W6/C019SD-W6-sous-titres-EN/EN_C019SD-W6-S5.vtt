@@ -1,0 +1,666 @@
+WEBVTT
+
+00:00:00.480 --> 00:00:03.920 align:middle
+Today we will carry on
+with the previous session
+
+00:00:04.080 --> 00:00:07.280 align:middle
+where I explained
+that small methods were good.
+
+00:00:07.440 --> 00:00:09.160 align:middle
+Today I'll show some examples.
+
+00:00:09.320 --> 00:00:12.840 align:middle
+But first, let's quickly review
+our previous session.
+
+00:00:13.000 --> 00:00:15.280 align:middle
+Sending a message leads to a choice.
+
+00:00:15.440 --> 00:00:19.640 align:middle
+A masked choice because several
+possible implementations
+
+00:00:19.800 --> 00:00:21.560 align:middle
+will be called up.
+
+00:00:22.040 --> 00:00:25.960 align:middle
+And Pharo makes a choice
+depending on the message receiver.
+
+00:00:26.480 --> 00:00:30.360 align:middle
+Class hierarchy defines choices:
+More classes = more choices.
+
+00:00:30.600 --> 00:00:34.360 align:middle
+And you can easily add
+new choices by creating subclasses.
+
+00:00:35.760 --> 00:00:40.480 align:middle
+Subclasses can redefine or refine
+the code of their superclass.
+
+00:00:42.000 --> 00:00:43.920 align:middle
+And sending a message
+
+00:00:44.080 --> 00:00:49.360 align:middle
+means giving subclasses
+the possibility to change behavior.
+
+00:00:50.520 --> 00:00:54.080 align:middle
+Today we'll look at
+the Design Pattern template method.
+
+00:00:54.240 --> 00:00:56.880 align:middle
+You'll find it
+in the Design Pattern manual.
+
+00:00:57.640 --> 00:00:59.960 align:middle
+What is a template method?
+
+00:01:00.120 --> 00:01:04.600 align:middle
+It's a skeleton
+that defines the overall behavior
+
+00:01:04.760 --> 00:01:08.800 align:middle
+of an algorithm, for example,
+with hooks inside.
+
+00:01:08.960 --> 00:01:12.680 align:middle
+And these hooks can be
+redefined by subclasses.
+
+00:01:13.840 --> 00:01:16.000 align:middle
+This is an algorithm.
+
+00:01:16.320 --> 00:01:19.320 align:middle
+It does something,
+we don't exactly know what.
+
+00:01:20.280 --> 00:01:25.320 align:middle
+Next, it does something
+in hookMethod 1,
+
+00:01:25.720 --> 00:01:27.080 align:middle
+then something else,
+
+00:01:27.240 --> 00:01:29.480 align:middle
+and then something
+in hookMethod2.
+
+00:01:29.640 --> 00:01:34.200 align:middle
+Since hookMethods 1 and 2
+are both complete methods,
+
+00:01:34.360 --> 00:01:37.040 align:middle
+they can be redefined in the subclasses.
+
+00:01:37.600 --> 00:01:41.320 align:middle
+There are 2 possibilities,
+one each for hookMethod 1 and 2.
+
+00:01:42.760 --> 00:01:46.520 align:middle
+These methods may or may not
+
+00:01:46.680 --> 00:01:49.800 align:middle
+have a default behavior.
+
+00:01:50.160 --> 00:01:53.840 align:middle
+Here, let's say that hookMethod 1
+has a default behavior.
+
+00:01:54.000 --> 00:01:57.160 align:middle
+This means that
+if the subclass proposes nothing,
+
+00:01:57.680 --> 00:02:03.000 align:middle
+hookMethod 1 has a default behavior
+that functions.
+
+00:02:04.240 --> 00:02:06.280 align:middle
+Likewise, we could say
+
+00:02:06.440 --> 00:02:09.960 align:middle
+that hookMethod 2
+does not have a default behavior.
+
+00:02:10.120 --> 00:02:12.840 align:middle
+The subclass
+must imperatively define one.
+
+00:02:13.000 --> 00:02:15.960 align:middle
+As designer of the class,
+you can choose
+
+00:02:16.120 --> 00:02:19.840 align:middle
+whether or not
+to determine a default behavior.
+
+00:02:20.640 --> 00:02:23.760 align:middle
+We'll use printString
+as a first example.
+
+00:02:23.920 --> 00:02:27.640 align:middle
+The idea is that if I send
+a printString message to an object,
+
+00:02:27.800 --> 00:02:31.120 align:middle
+I get a string of characters
+that represents this object.
+
+00:02:31.280 --> 00:02:33.160 align:middle
+Here I have a delay.
+
+00:02:34.400 --> 00:02:37.640 align:middle
+I've created a 10-second delay.
+
+00:02:38.480 --> 00:02:42.960 align:middle
+If I send a printString message
+to this delay,
+
+00:02:43.120 --> 00:02:47.720 align:middle
+I get a delay and in parentheses,
+a millisecond value for the delay.
+
+00:02:48.200 --> 00:02:52.840 align:middle
+The printString method is implemented
+in the object class like this.
+
+00:02:53.600 --> 00:02:56.640 align:middle
+It sends the message
+printStringLimitedTo
+
+00:02:57.160 --> 00:02:58.560 align:middle
+This implementation
+
+00:02:58.720 --> 00:03:02.920 align:middle
+recovers a string of characters
+that represents
+
+00:03:03.080 --> 00:03:04.880 align:middle
+the object.
+
+00:03:05.040 --> 00:03:09.360 align:middle
+And if this string of characters
+is too long,
+
+00:03:10.200 --> 00:03:13.800 align:middle
+we can cut it off at a certain limit.
+
+00:03:13.960 --> 00:03:17.400 align:middle
+Then at the end,
+we concatenate with '...etc...'
+
+00:03:17.560 --> 00:03:19.880 align:middle
+to say the string is not done.
+
+00:03:20.640 --> 00:03:23.600 align:middle
+The important thing here
+
+00:03:23.760 --> 00:03:28.120 align:middle
+is that printStringLimitedTo
+sends a printOn message to self.
+
+00:03:28.280 --> 00:03:29.880 align:middle
+This is the method
+
+00:03:30.040 --> 00:03:33.400 align:middle
+that will or will not
+be redefined in the subclasses.
+
+00:03:34.040 --> 00:03:37.560 align:middle
+If I look at what printString returns
+
+00:03:37.720 --> 00:03:40.120 align:middle
+for a Node and for an Apple,
+
+00:03:40.280 --> 00:03:43.800 align:middle
+Node new returns a Node.
+
+00:03:44.200 --> 00:03:48.440 align:middle
+This is the printString
+of the Node class.
+
+00:03:49.120 --> 00:03:53.240 align:middle
+And here in Apple, we have
+the printString of the Apple class.
+
+00:03:53.720 --> 00:03:57.000 align:middle
+We see that this behavior
+and the default behavior
+
+00:03:57.160 --> 00:03:59.920 align:middle
+are implemented in the class object.
+
+00:04:00.080 --> 00:04:04.320 align:middle
+So the default behavior
+of printString for any object whatsoever
+
+00:04:04.680 --> 00:04:06.000 align:middle
+is one:
+
+00:04:06.160 --> 00:04:10.000 align:middle
+Recover the class names.
+
+00:04:10.160 --> 00:04:12.840 align:middle
+In this case, Node and Apple.
+
+00:04:13.120 --> 00:04:16.720 align:middle
+And two, if the class name
+begins with a vowel,
+
+00:04:17.640 --> 00:04:19.760 align:middle
+we use the prefix "an".
+
+00:04:19.920 --> 00:04:23.000 align:middle
+If it starts with a consonant,
+we use the prefix "a".
+
+00:04:23.160 --> 00:04:26.320 align:middle
+This is how we get
+"a node" and "an apple".
+
+00:04:27.880 --> 00:04:30.520 align:middle
+This is the default behavior.
+
+00:04:31.120 --> 00:04:34.400 align:middle
+But it is possible to change
+this default behavior
+
+00:04:34.560 --> 00:04:36.280 align:middle
+by refining printOn.
+
+00:04:36.720 --> 00:04:38.480 align:middle
+For a delay,
+
+00:04:38.640 --> 00:04:41.560 align:middle
+we see that
+the printString of a delay
+
+00:04:41.720 --> 00:04:46.240 align:middle
+starts with
+the default printOn return.
+
+00:04:46.400 --> 00:04:47.640 align:middle
+That is "a Delay."
+
+00:04:47.800 --> 00:04:52.720 align:middle
+But afterwards, we can add the delay
+in milliseconds in parentheses.
+
+00:04:52.880 --> 00:04:56.040 align:middle
+This is exactly what
+the printOn method does.
+
+00:04:56.880 --> 00:05:01.080 align:middle
+It starts by asking the superclass
+for the default printString.
+
+00:05:02.160 --> 00:05:05.240 align:middle
+Afterwards,
+it opens a parentheses
+
+00:05:05.560 --> 00:05:08.080 align:middle
+with a preset number of milliseconds,
+
+00:05:08.880 --> 00:05:11.240 align:middle
+and then it closes the parentheses.
+
+00:05:11.760 --> 00:05:14.720 align:middle
+We just looked at refinement.
+
+00:05:15.040 --> 00:05:18.120 align:middle
+The delay class
+refines the implementation
+
+00:05:18.280 --> 00:05:21.520 align:middle
+of the printOn method
+in the object class.
+
+00:05:21.680 --> 00:05:25.200 align:middle
+But a class can also
+completely redefine behavior.
+
+00:05:25.680 --> 00:05:29.880 align:middle
+This is the case for booleans,
+for example.
+
+00:05:30.040 --> 00:05:31.760 align:middle
+If I display false,
+
+00:05:31.920 --> 00:05:34.800 align:middle
+it will return false.
+
+00:05:34.960 --> 00:05:37.240 align:middle
+We don't have "a false",
+
+00:05:37.400 --> 00:05:39.120 align:middle
+simply "false".
+
+00:05:39.280 --> 00:05:43.200 align:middle
+For this, we just send
+the "false" string of characters
+
+00:05:43.360 --> 00:05:45.680 align:middle
+in the printOn variables stream.
+
+00:05:46.200 --> 00:05:48.080 align:middle
+That's a complete redefinition.
+
+00:05:48.240 --> 00:05:51.640 align:middle
+Another example
+of complete redefinition is intervals.
+
+00:05:51.800 --> 00:05:54.120 align:middle
+An interval defines a set of values
+
+00:05:54.280 --> 00:05:56.920 align:middle
+situated between
+a minimum and maximum value.
+
+00:05:57.680 --> 00:06:02.680 align:middle
+The interval 1 to 100 is displayed by:
+(1 to: 100)
+
+00:06:04.320 --> 00:06:07.600 align:middle
+The interval 1 to: 100 by: 3
+
+00:06:07.840 --> 00:06:10.400 align:middle
+1, 4, and so on,
+
+00:06:10.560 --> 00:06:14.720 align:middle
+is displayed in the same manner
+with the additional "by".
+
+00:06:15.680 --> 00:06:18.080 align:middle
+How is this implemented?
+
+00:06:18.240 --> 00:06:22.640 align:middle
+The interval class
+redefines the printOn method
+
+00:06:23.120 --> 00:06:26.200 align:middle
+and sends different messages
+to stream variables.
+
+00:06:26.360 --> 00:06:28.600 align:middle
+We start by opening parentheses.
+
+00:06:28.760 --> 00:06:31.240 align:middle
+The parentheses here and here.
+
+00:06:31.600 --> 00:06:36.560 align:middle
+Then we display the initial value
+or the first number of the interval,
+
+00:06:36.720 --> 00:06:39.360 align:middle
+that is this "1" here,
+and this "1" here.
+
+00:06:39.680 --> 00:06:41.440 align:middle
+Then we write 'to:'.
+
+00:06:44.600 --> 00:06:47.640 align:middle
+And we write the final value: "100",
+
+00:06:48.520 --> 00:06:49.800 align:middle
+and "100".
+
+00:06:50.000 --> 00:06:53.720 align:middle
+If there is a "by"
+that is different from the default "1",
+
+00:06:53.880 --> 00:06:56.800 align:middle
+we write the "a".
+
+00:06:59.120 --> 00:07:02.320 align:middle
+And at the end,
+we close the parentheses.
+
+00:07:04.360 --> 00:07:07.000 align:middle
+We saw that printString
+
+00:07:07.160 --> 00:07:11.000 align:middle
+uses the Design Pattern
+template method so that classes
+
+00:07:11.160 --> 00:07:15.120 align:middle
+can implement
+their own textual representation.
+
+00:07:15.360 --> 00:07:19.600 align:middle
+Now we'll look at another example,
+which is object copy.
+
+00:07:19.760 --> 00:07:21.120 align:middle
+What does copy do?
+
+00:07:21.280 --> 00:07:25.960 align:middle
+It enables you to take an object
+and create a code from it.
+
+00:07:26.840 --> 00:07:29.680 align:middle
+Copying objects is complex.
+
+00:07:30.880 --> 00:07:33.120 align:middle
+There can be different strategies.
+
+00:07:33.280 --> 00:07:35.200 align:middle
+Each class can decide
+
+00:07:35.360 --> 00:07:39.200 align:middle
+what the copy of its instances
+should look like.
+
+00:07:39.720 --> 00:07:43.400 align:middle
+There is a simple
+template method solution
+
+00:07:43.560 --> 00:07:46.520 align:middle
+that uses copy and postCopy.
+
+00:07:46.880 --> 00:07:50.560 align:middle
+Copy is a template method
+and postCopy is a hook.
+
+00:07:51.360 --> 00:07:54.200 align:middle
+In the object class
+there is a copy method.
+
+00:07:54.800 --> 00:07:57.640 align:middle
+I'll let you read the commentary.
+
+00:07:58.640 --> 00:08:02.920 align:middle
+In this method,
+we send shallowCopy
+
+00:08:03.080 --> 00:08:05.240 align:middle
+as a message to self,
+
+00:08:05.400 --> 00:08:08.640 align:middle
+followed by postCopy
+on the result.
+
+00:08:08.920 --> 00:08:12.360 align:middle
+What does shallowCopy do?
+
+00:08:12.520 --> 00:08:16.200 align:middle
+It creates a new object
+that shares all instance variables
+
+00:08:16.360 --> 00:08:17.960 align:middle
+with the base object.
+
+00:08:18.200 --> 00:08:22.080 align:middle
+We have two objects and
+their instance variables are the same.
+
+00:08:22.240 --> 00:08:26.640 align:middle
+If I modify the instance variable
+of one object, I modify the other too.
+
+00:08:28.880 --> 00:08:32.320 align:middle
+That is the default behavior
+
+00:08:34.320 --> 00:08:35.720 align:middle
+of shallowCopy.
+
+00:08:35.880 --> 00:08:38.800 align:middle
+Depending on what postCopy does,
+
+00:08:38.960 --> 00:08:41.400 align:middle
+variables will or will not be shared.
+
+00:08:41.560 --> 00:08:44.240 align:middle
+If postCopy is empty,
+all variables are shared.
+
+00:08:44.400 --> 00:08:48.640 align:middle
+But the classes can decide
+to put different things into postCopy
+
+00:08:48.800 --> 00:08:52.440 align:middle
+in order to share certain variables
+or nothing at all.
+
+00:08:53.040 --> 00:08:55.680 align:middle
+The postCopy default setting
+shares everything.
+
+00:08:55.840 --> 00:08:59.240 align:middle
+It simply returns the current object.
+
+00:09:00.440 --> 00:09:04.080 align:middle
+But we could also imagine
+other applications for postCopy.
+
+00:09:04.240 --> 00:09:06.680 align:middle
+For example, in the Bag class.
+
+00:09:06.840 --> 00:09:09.600 align:middle
+Bag is a type of collection
+
+00:09:09.840 --> 00:09:13.440 align:middle
+and its postCopy method
+copies its contents.
+
+00:09:14.640 --> 00:09:17.520 align:middle
+Thus, a Bag is
+a contents instance variable,
+
+00:09:17.680 --> 00:09:21.080 align:middle
+and the designers
+of the Bag class decided that
+
+00:09:21.240 --> 00:09:22.920 align:middle
+when you copy a Bag,
+
+00:09:23.080 --> 00:09:26.000 align:middle
+you don't want to share
+the contents variable,
+
+00:09:26.160 --> 00:09:27.920 align:middle
+you want separate variables.
+
+00:09:28.080 --> 00:09:31.960 align:middle
+They have the same initial value
+but you can modify only one.
+
+00:09:33.440 --> 00:09:34.720 align:middle
+Here the idea is:
+
+00:09:34.880 --> 00:09:39.440 align:middle
+postCopy is a message sent to copy,
+or the new object,
+
+00:09:41.880 --> 00:09:45.080 align:middle
+which shares
+all of the instance variables.
+
+00:09:45.240 --> 00:09:47.200 align:middle
+If we don't want to share them,
+
+00:09:47.360 --> 00:09:50.280 align:middle
+we create new ones
+and decide upon their value.
+
+00:09:50.760 --> 00:09:52.600 align:middle
+Here in my contents variable,
+
+00:09:52.760 --> 00:09:55.120 align:middle
+I'll put a copy
+of the initial contents.
+
+00:09:55.280 --> 00:09:57.000 align:middle
+That way I don't share them.
+
+00:09:57.160 --> 00:10:00.080 align:middle
+Each copy of my Bag
+has its own contents.
+
+00:10:00.600 --> 00:10:03.400 align:middle
+With the dictionary, we go even further.
+
+00:10:03.560 --> 00:10:06.840 align:middle
+A dictionary is a collection
+of key-value pairs,
+
+00:10:07.000 --> 00:10:09.080 align:middle
+or a collection of associations.
+
+00:10:09.240 --> 00:10:12.360 align:middle
+Not only do we want to copy
+the collection...
+
+00:10:12.520 --> 00:10:16.000 align:middle
+If we copy a dictionary,
+we want to copy the collection,
+
+00:10:16.160 --> 00:10:19.440 align:middle
+and each dictionary
+has its own collection of pairs...
+
+00:10:19.600 --> 00:10:21.960 align:middle
+But we also want each pair
+to be different.
+
+00:10:22.120 --> 00:10:26.520 align:middle
+So that if I modify one,
+it won't modify the other side.
+
+00:10:26.920 --> 00:10:30.640 align:middle
+To do this, I copy the table,
+but I also copy
+
+00:10:30.800 --> 00:10:32.400 align:middle
+each pair inside.
+
+00:10:32.560 --> 00:10:34.720 align:middle
+This is what's going on here.
+
+00:10:34.880 --> 00:10:38.640 align:middle
+To conclude, the Design Pattern
+template method is very common.
+
+00:10:39.040 --> 00:10:41.520 align:middle
+It's a sign of good design.
+
+00:10:41.720 --> 00:10:45.880 align:middle
+If you do good object design,
+you'll have lots of template methods.
+
+00:10:46.040 --> 00:10:48.560 align:middle
+It's perfectly normal and a good thing.
+
+00:10:49.080 --> 00:10:50.920 align:middle
+So don't hesitate to use them.
+
+00:10:51.080 --> 00:10:56.040 align:middle
+This technique enables subclasses
+to define behavior
+
+00:10:56.200 --> 00:10:59.640 align:middle
+and partially modify
+the behavior of the superclass.
+

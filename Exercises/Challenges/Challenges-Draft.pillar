@@ -1,0 +1,51 @@
+
+[[[
+| baseURL query settings result entries |
+query := UIManager default request: 'Find location for' .
+baseURL := 'http://nominatim.openstreetmap.org/search/'.
+settings := '?format=jsonv2&limit=10'.
+
+result := STON fromString: (baseURL , query , settings) asZnUrl retrieveContents.
+
+(result collect: [ :dct |
+	(dct at: 'display_name') -> 
+		((dct at: 'lat') asNumber @ (dct at: 'lon') asNumber)
+		]) inspect
+]]]
+	
+	
+	
+
+| stream unixTime |
+stream := nil.
+[
+	"RFC 868 TCP protocol https://en.wikipedia.org/wiki/Time_Protocol " 
+	stream := ZdcSocketStream openConnectionToHostNamed: 'time.nist.gov' port: 37.
+	unixTime := (stream next: 4) asInteger ]
+	ensure: [ stream ifNotNil: [ [ stream close ] on: Error do: [] ] ].
+DateAndTime fromUnixTime: unixTime.
+
+
+The real stuff is SNTP though
+
+	http://en.wikipedia.org/wiki/Network_Time_Protocol
+	http://tools.ietf.org/html/rfc2030
+
+which is implemented in ZTimestamp and which can do much more:
+
+  ZTimestampSNTPClient new remoteClock.
+	
+	
+
+
+Another one to WorldCat but this needs an API key (I cannot test it now)
+
+(ZnClient new
+    url: 'http://worldcat.org/webservices/kb/rest/collections';
+    addPathSegment: 'search';
+    queryAt: 'q' put: 'Plato';
+    queryAt: 'wskey' put: '...';       
+    get;
+    contents)) inspect
+
+

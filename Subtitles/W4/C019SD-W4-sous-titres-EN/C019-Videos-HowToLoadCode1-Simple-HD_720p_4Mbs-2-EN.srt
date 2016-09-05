@@ -1,0 +1,104 @@
+1
+00:00:02,140 --> 00:00:05,110
+I'd like to show you how
+we load code in Pharo.
+
+2
+00:00:06,610 --> 00:00:08,250
+I go on Safari to see.
+
+3
+00:00:09,740 --> 00:00:14,430
+I want to load the Counter
+which has been saved in the
+
+4
+00:00:14,597 --> 00:00:16,070
+Pharo MOOC project, on Smalltalk Hub.
+
+5
+00:00:16,237 --> 00:00:19,160
+Here it shows the repository,
+I copy it.
+
+6
+00:00:19,740 --> 00:00:22,460
+I go there. I do
+Monticello Browser +Repository Http.
+
+7
+00:00:27,340 --> 00:00:29,520
+And I paste the definition.
+
+8
+00:00:29,687 --> 00:00:33,650
+Here, I click on OK. And now
+what will the system show?
+
+9
+00:00:33,817 --> 00:00:36,850
+It will show "Yes, there's a
+version - here unfortunately
+
+10
+00:00:37,017 --> 00:00:39,040
+there is only one -
+one version of Pharo Counter."
+
+11
+00:00:39,207 --> 00:00:42,280
+I can do a merge which will
+make a Diff between
+
+12
+00:00:42,447 --> 00:00:44,350
+what will be loaded and
+what is in the image.
+
+13
+00:00:44,517 --> 00:00:47,880
+Here, there are only additions,
+but if there were
+
+14
+00:00:48,047 --> 00:00:50,040
+modifications of existing
+methods it will 
+
+15
+00:00:50,207 --> 00:00:52,640
+show them and it will make
+an interactive Diff.
+
+16
+00:00:53,050 --> 00:00:55,260
+I can also do a Load, 
+
+17
+00:00:55,427 --> 00:00:57,630
+with this it will overwrite
+the things that are in the image.
+
+18
+00:00:57,797 --> 00:01:01,410
+MyCounter, there was only this,
+so I can do Load and here it is.
+
+19
+00:01:03,020 --> 00:01:07,830
+Now I have loaded my code, 
+I do
+
+20
+00:01:08,360 --> 00:01:09,270
+Counter.
+
+21
+00:01:13,700 --> 00:01:17,690
+If I go in Counter, my tests
+are green, I can
+
+22
+00:01:17,857 --> 00:01:18,520
+begin to work.
+

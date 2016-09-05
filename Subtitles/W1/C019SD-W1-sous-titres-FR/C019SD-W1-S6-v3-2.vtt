@@ -1,0 +1,350 @@
+WEBVTT
+
+00:00:00.690 --> 00:00:03.450 align:middle
+Bonjour à tous. Dans
+cette séquence, nous allons
+
+00:00:03.550 --> 00:00:06.820 align:middle
+présenter la définition de
+ classe et méthode dans Pharo.
+
+00:00:08.820 --> 00:00:12.130 align:middle
+Ce qui est vraiment
+spécifique à Pharo, il n'y a pas de
+
+00:00:12.230 --> 00:00:15.140 align:middle
+syntaxe particulière pour
+définir les méthodes et les classes.
+
+00:00:15.830 --> 00:00:17.870 align:middle
+Cela se fait au niveau des outils.
+
+00:00:18.050 --> 00:00:19.910 align:middle
+Donc, c'est les outils qui
+vont donner le contexte à la
+
+00:00:20.010 --> 00:00:21.690 align:middle
+création d'une
+ classe ou d'une méthode.
+
+00:00:23.890 --> 00:00:28.850 align:middle
+Donc, voici le navigateur de
+code principal dans Pharo, c'est
+
+00:00:29.460 --> 00:00:33.790 align:middle
+Nautilus. On voit dans la
+zone du bas, la définition de
+
+00:00:33.890 --> 00:00:38.700 align:middle
+la classe Point. On
+voit que la classe Point a
+
+00:00:38.800 --> 00:00:43.490 align:middle
+pour superclasse la classe Object
+et deux variables d'instances X et Y.
+
+00:00:44.690 --> 00:00:49.340 align:middle
+La superclasse et les deux
+variables d'instance X et Y.
+
+00:00:51.380 --> 00:00:54.960 align:middle
+On voit aussi en bas le nom
+du package dans lequel cette
+
+00:00:55.060 --> 00:00:58.590 align:middle
+ classe va être ajoutée. Dans
+les slides, on aura ce genre
+
+00:00:58.690 --> 00:01:00.880 align:middle
+de codes pour créer
+une nouvelle sous-classe.
+
+00:01:02.780 --> 00:01:06.150 align:middle
+On voit que pour créer une
+ classe en Pharo, on envoie un
+
+00:01:06.250 --> 00:01:09.070 align:middle
+message particulier à la
+superclasse avec le nom de la
+
+00:01:09.170 --> 00:01:13.680 align:middle
+sous-classe en paramètres. Donc le
+
+00:01:13.780 --> 00:01:15.550 align:middle
+message subclass
+instanceVariableNames classVariableNames
+
+00:01:15.650 --> 00:01:20.430 align:middle
+package est un message qui
+est envoyé à la classe object,
+
+00:01:20.690 --> 00:01:24.350 align:middle
+avec le nom de la
+sous-classe en paramètres, la liste des
+
+00:01:24.450 --> 00:01:27.120 align:middle
+noms des variables
+d'instance en paramètres, ainsi que le
+
+00:01:27.220 --> 00:01:31.300 align:middle
+nom du package en
+paramètres. Concernant la définition de
+
+00:01:31.400 --> 00:01:36.260 align:middle
+méthodes, on a dans la zone
+du bas encore le nom de la
+
+00:01:36.360 --> 00:01:41.190 align:middle
+méthode, un
+commentaire et le code de la
+
+00:01:41.290 --> 00:01:44.270 align:middle
+méthode. Et cette méthode,
+elle appartient à une classe.
+
+00:01:44.780 --> 00:01:46.600 align:middle
+Comme vous le voyez dans
+la syntaxe pour définir la
+
+00:01:46.700 --> 00:01:50.280 align:middle
+méthode, on n'a pas
+l'l'information sur la classe à
+
+00:01:50.380 --> 00:01:51.840 align:middle
+laquelle cette
+méthode doit appartenir.
+
+00:01:52.210 --> 00:01:55.380 align:middle
+En fait, c'est la
+sélection de la classe dans le
+
+00:01:55.480 --> 00:02:00.230 align:middle
+navigateur de codes qui va
+nous indiquer la classe à
+
+00:02:00.330 --> 00:02:01.160 align:middle
+laquelle appartient la méthode.
+
+00:02:04.550 --> 00:02:07.710 align:middle
+Dans les slides, il nous
+faut aussi cette information.
+
+00:02:08.050 --> 00:02:10.580 align:middle
+Ce qui fait qu'on ne peut
+pas recopier juste le contenu
+
+00:02:10.900 --> 00:02:12.160 align:middle
+de la définition d'une méthode.
+
+00:02:12.710 --> 00:02:15.770 align:middle
+Il nous faut ajouter un
+préfixe au nom de la méthode pour
+
+00:02:15.870 --> 00:02:19.090 align:middle
+indiquer à quelle classe
+cette méthode appartient.
+
+00:02:20.390 --> 00:02:24.530 align:middle
+Donc, on ajoute en tête
+
+00:02:25.390 --> 00:02:27.400 align:middle
+du nom de la méthode, on
+ajoute le nom de la classe à
+
+00:02:27.500 --> 00:02:30.750 align:middle
+laquelle on va ajouter la
+méthode qu'on est en train de définir.
+
+00:02:31.600 --> 00:02:35.370 align:middle
+Donc, dans le navigateur de
+code, cette classe n'apparaît
+
+00:02:35.470 --> 00:02:38.030 align:middle
+qu'en tant que
+sélection dans le navigateur.
+
+00:02:40.110 --> 00:02:41.660 align:middle
+Donc là, on est bien en
+train de définir la méthode
+
+00:02:41.760 --> 00:02:43.090 align:middle
+factorielle de la classe Integer.
+
+00:02:45.040 --> 00:02:47.460 align:middle
+Alors, petit rappel sur les messages.
+
+00:02:48.010 --> 00:02:49.890 align:middle
+Ici, on est en train de
+définir la méthode factorielle.
+
+00:02:53.190 --> 00:02:56.600 align:middle
+On a tout un ensemble de
+messages binaires, donc =, >,
+
+00:02:57.260 --> 00:03:02.100 align:middle
+* et - qui
+
+00:03:02.200 --> 00:03:03.450 align:middle
+sont des messages binaires.
+
+00:03:04.320 --> 00:03:08.510 align:middle
+On a un appel récursif
+à la méthode factorielle
+
+00:03:09.130 --> 00:03:12.730 align:middle
+donc factorielle ici,
+c'est un message unaire qui est
+
+00:03:12.830 --> 00:03:14.110 align:middle
+envoyé à un objet de type nombre.
+
+00:03:16.340 --> 00:03:20.430 align:middle
+Et on a deux
+messages à mots clés: ifTrue
+
+00:03:21.150 --> 00:03:22.540 align:middle
+deux fois et error.
+
+00:03:24.800 --> 00:03:28.640 align:middle
+Et enfin, on a le chapeau
+qui est utilisé pour retourner
+
+00:03:28.740 --> 00:03:30.720 align:middle
+une valeur et quitter la méthode.
+
+00:03:33.100 --> 00:03:37.010 align:middle
+Alors concernant le
+retour, par défaut, en Pharo,
+
+00:03:37.820 --> 00:03:41.170 align:middle
+toutes les méthodes
+retournent self donc l'objet en cours.
+
+00:03:42.190 --> 00:03:46.000 align:middle
+Donc, le code qui est
+au-dessus est exactement similaire
+
+00:03:46.100 --> 00:03:48.710 align:middle
+au code qui est en dessous.
+Donc, la partie return self à
+
+00:03:48.810 --> 00:03:50.340 align:middle
+la fin de la méthode est
+complètement optionnelle.
+
+00:03:50.440 --> 00:03:51.550 align:middle
+Et en général, on ne la mettra pas.
+
+00:03:53.050 --> 00:03:56.660 align:middle
+Les méthodes de classes permettent
+d'envoyer des messages à des classes.
+
+00:03:56.760 --> 00:03:58.650 align:middle
+Les classes sont des
+objets comme les autres.
+
+00:03:58.820 --> 00:04:01.290 align:middle
+On peut envoyer des
+messages à des classes.
+
+00:04:01.510 --> 00:04:04.680 align:middle
+Et pour définir une méthode
+de classe, on appuie sur le
+
+00:04:04.780 --> 00:04:06.430 align:middle
+bouton "class" dans Nautilus et on
+
+00:04:09.360 --> 00:04:11.620 align:middle
+définit la méthode de
+ classe à ce moment-là.
+
+00:04:12.180 --> 00:04:15.450 align:middle
+Dans les slides, on
+ajoutera systématiquement le mot
+
+00:04:15.550 --> 00:04:20.340 align:middle
+"class" pour distinguer
+une méthode qui va être
+
+00:04:20.440 --> 00:04:24.840 align:middle
+exécutée sur une classe plutôt que
+sur une instance de cette classe.
+
+00:04:25.950 --> 00:04:29.550 align:middle
+Donc là, la méthode X Y,
+elle va être exécutée sur la
+
+00:04:29.650 --> 00:04:32.530 align:middle
+ classe Point et non pas sur
+une instance de la classe Point.
+
+00:04:34.100 --> 00:04:38.910 align:middle
+Alors, ce que vous devez
+retenir de cette séquence: une
+
+00:04:39.010 --> 00:04:41.760 align:middle
+ classe est définie non pas
+par la syntaxe particulière,
+
+00:04:41.860 --> 00:04:44.430 align:middle
+mais par un message qu'on
+va envoyer à sa superclasse.
+
+00:04:47.090 --> 00:04:50.030 align:middle
+Les classes sont définies
+au sein de paquets dont les
+
+00:04:50.130 --> 00:04:53.280 align:middle
+noms sont passés en
+paramètre du message.
+
+00:04:54.950 --> 00:04:56.880 align:middle
+Toutes les méthodes sont
+publiques, il n'y a pas de
+
+00:04:57.000 --> 00:04:58.960 align:middle
+mot-clé particulier pour
+indiquer qu'une méthode est
+
+00:04:59.060 --> 00:05:01.360 align:middle
+publique parce que c'est le
+cas de toutes les méthodes.
+
+00:05:01.460 --> 00:05:03.850 align:middle
+Il n'y a pas de notion de
+protégé, de private, etc.
+
+00:05:07.370 --> 00:05:09.920 align:middle
+Par défaut, toutes les méthodes
+retournent le receveur, c'est-à-dire
+
+00:05:10.150 --> 00:05:13.820 align:middle
+self et on peut utiliser le chapeau
+pour retourner autre chose que self.
+
+00:05:17.400 --> 00:05:19.930 align:middle
+Et les méthodes de classe sont
+des méthodes comme les autres.
+
+00:05:20.030 --> 00:05:21.950 align:middle
+Et pour les ajouter, il
+faut appuyer sur le bouton
+
+00:05:22.050 --> 00:05:23.890 align:middle
+"class" avant de créer la méthode.
+
+00:05:24.950 --> 00:05:27.390 align:middle
+Ceci conclut cette
+première semaine de cours.
+
+00:05:28.070 --> 00:05:30.870 align:middle
+La semaine suivante, nous
+verrons plus en détails la
+
+00:05:30.970 --> 00:05:35.270 align:middle
+syntaxe de Pharo, les
+blocks et un outil qui est l'
+
+00:05:35.370 --> 00:05:36.490 align:middle
+inspecteur d'objets.
+

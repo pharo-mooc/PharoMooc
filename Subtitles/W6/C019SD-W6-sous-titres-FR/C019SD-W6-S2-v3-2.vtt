@@ -1,0 +1,310 @@
+WEBVTT
+
+00:00:00.370 --> 00:00:05.250 align:middle
+Bonjour. Dans ce cours, on va
+ revenir sur l'implémentation
+
+00:00:05.450 --> 00:00:06.210 align:middle
+d’ifTrue:ifFalse:.
+
+00:00:06.760 --> 00:00:09.000 align:middle
+Pour ceux d'entre vous qui
+sont attentifs et je sais qu'il
+
+00:00:09.200 --> 00:00:12.230 align:middle
+y en a plein, vous avez
+sûrement remarqué que, quand j'ai
+
+00:00:12.430 --> 00:00:14.600 align:middle
+proposé les exemples pour
+l'implémentation de Not, j'avais
+
+00:00:14.800 --> 00:00:17.500 align:middle
+dit qu'il y avait Not, qu'on pouvait
+implémenter Not, Or et ifTrue:ifFalse:.
+
+00:00:17.700 --> 00:00:19.740 align:middle
+Et dans la solution, je n'ai
+jamais parlé d’ifTrue:ifFalse:.
+
+00:00:21.640 --> 00:00:23.350 align:middle
+On va résoudre ce
+problème maintenant.
+
+00:00:24.460 --> 00:00:28.740 align:middle
+Effectivement, les conditions
+sont des messages dans Pharo.
+
+00:00:28.940 --> 00:00:30.200 align:middle
+Là, je vous ai montré un exemple.
+
+00:00:31.000 --> 00:00:34.250 align:middle
+J'ai une classe temps,
+il y a Weather isRaining.
+
+00:00:34.450 --> 00:00:39.000 align:middle
+Donc, si jamais il
+pleut, si c'est vrai, je vais
+
+00:00:39.200 --> 00:00:42.840 align:middle
+prendre mon parapluie et sinon je
+vais mettre mes lunettes de soleil.
+
+00:00:43.790 --> 00:00:47.090 align:middle
+Et ifTrue:ifFalse:,
+maintenant vous voyez bien qu'il y a
+
+00:00:47.290 --> 00:00:50.050 align:middle
+les deux petits points, ça veut dire
+que ce sont des messages à mots-clés.
+
+00:00:50.250 --> 00:00:51.730 align:middle
+C'est un message à
+mots-clés, donc le message
+
+00:00:52.040 --> 00:00:55.570 align:middle
+ifTrue:ifFalse: est un
+message à mots-clés, il est envoyé
+
+00:00:55.940 --> 00:01:00.100 align:middle
+à une instance de booléen.
+Bien sûr, il est vraiment très
+
+00:01:00.300 --> 00:01:01.250 align:middle
+optimisé par le compilateur.
+
+00:01:01.450 --> 00:01:04.400 align:middle
+En fait, il n'est pas envoyé,
+mais conceptuellement, il l'est.
+
+00:01:05.800 --> 00:01:10.260 align:middle
+Si vous voulez redéfinir la
+méthode SiAlors:Sinon: dans
+
+00:01:11.010 --> 00:01:15.670 align:middle
+Pharo, vous pouvez le
+faire de la même manière que la
+
+00:01:15.870 --> 00:01:17.220 align:middle
+technique je vais vous expliquer.
+
+00:01:17.420 --> 00:01:20.120 align:middle
+Il se trouve qu'on a
+tellement besoin de cette méthode
+
+00:01:20.320 --> 00:01:22.490 align:middle
+ifTrue:ifFalse:, on veut
+qu'elle aille absolument
+
+00:01:22.690 --> 00:01:26.080 align:middle
+hyper-vite, qu'elle n'ait
+pas invoqué le compilateur
+
+00:01:26.280 --> 00:01:29.210 align:middle
+Ligne Line et fait
+des jumps à la place.
+
+00:01:30.030 --> 00:01:32.900 align:middle
+Pour le cours, on va
+voir comment ça fonctionne.
+
+00:01:33.800 --> 00:01:35.370 align:middle
+Ce que je vais vous
+demander, c'est proposer une
+
+00:01:35.570 --> 00:01:37.170 align:middle
+implémentation,
+maintenant que vous connaissez les
+
+00:01:37.370 --> 00:01:40.180 align:middle
+blocks, vous connaissez
+ce qu'on a fait sur true et
+
+00:01:40.380 --> 00:01:42.560 align:middle
+false, avec Or et Not.
+
+00:01:42.760 --> 00:01:44.260 align:middle
+Vous pouvez le faire
+sur ifTrue:ifFalse:.
+
+00:01:46.000 --> 00:01:48.710 align:middle
+En gros, si j'ai un receveur
+ifFalse:, qu'est-ce que je vais rendre?
+
+00:01:48.910 --> 00:01:52.390 align:middle
+Je vais rendre 5. Si mon
+receveur est vrai, je vais rendre 3.
+
+00:01:53.700 --> 00:01:56.280 align:middle
+Et encore une fois, on a que
+des objets, des messages et
+
+00:01:56.480 --> 00:01:58.210 align:middle
+des block, ça devient un peu
+lassant, mais c'est comme ça.
+
+00:02:00.930 --> 00:02:05.740 align:middle
+Vous vous rappelez que des crochets
+
+00:02:06.050 --> 00:02:10.610 align:middle
+gèlent l'exécution de
+l'expression qu'ils contiennent
+
+00:02:11.000 --> 00:02:14.830 align:middle
+et que le message value va
+forcer l'exécution du code gelé.
+
+00:02:15.760 --> 00:02:20.140 align:middle
+Avec ça, plus Not et Or,
+vous devez savoir implémenter
+
+00:02:20.340 --> 00:02:23.440 align:middle
+les conditions et vous
+devriez être capables d'implémenter
+
+00:02:23.640 --> 00:02:25.030 align:middle
+siAlors:sinon: de la même manière.
+
+00:02:25.560 --> 00:02:27.000 align:middle
+Je vous laisse deux
+secondes pour réfléchir.
+
+00:02:29.070 --> 00:02:30.530 align:middle
+Comment c'est implémenté ?
+
+00:02:30.730 --> 00:02:34.310 align:middle
+C'est implémenté exactement de
+la même manière qu’Or ou Not.
+
+00:02:34.540 --> 00:02:37.270 align:middle
+Dans la classe true, j'ai
+une méthode qui s'appelle
+
+00:02:37.470 --> 00:02:41.500 align:middle
+ifTrue:ifFalse:; avec deux
+arguments, un Block pour le
+
+00:02:41.700 --> 00:02:45.040 align:middle
+true, un Block pour le
+faux et qu'est-ce que je fais.
+
+00:02:45.240 --> 00:02:47.580 align:middle
+Quand je suis dans la classe
+true, je vais exécuter le Block true.
+
+00:02:49.600 --> 00:02:51.610 align:middle
+De la même manière, quand
+je suis dans la classe false,
+
+00:02:52.330 --> 00:02:55.870 align:middle
+je vais avoir la même méthode
+avec les deux mêmes arguments.
+
+00:02:56.070 --> 00:02:58.070 align:middle
+Mais là, vu que je suis
+dans la classe false, je vais
+
+00:02:58.270 --> 00:03:03.130 align:middle
+exécuter le Block faux. Et du coup,
+j'ai l'implémentation des booléens.
+
+00:03:03.460 --> 00:03:05.530 align:middle
+Comment ça marche ?
+
+00:03:05.730 --> 00:03:09.160 align:middle
+Comme ça. Ça veut dire que là,
+quand je suis en train d'envoyer
+
+00:03:09.360 --> 00:03:13.290 align:middle
+le message à mon booléen
+qui est true, je lui envoie
+
+00:03:13.490 --> 00:03:16.230 align:middle
+ifTrue, do quelque chose
+et do quelque chose false.
+
+00:03:16.660 --> 00:03:20.410 align:middle
+Je vais chercher la méthode
+ifTrue:ifFalse: dans la classe true.
+
+00:03:20.700 --> 00:03:23.730 align:middle
+C'est celle-là. Il me dit
+d'exécuter le Block true.
+
+00:03:23.930 --> 00:03:24.740 align:middle
+Je vais exécuter le Block true.
+
+00:03:24.940 --> 00:03:28.750 align:middle
+Maintenant, j'envoie un
+message b est un booléen false.
+
+00:03:29.780 --> 00:03:31.940 align:middle
+J'envoie le message, je
+cherche ici, je trouve
+
+00:03:32.140 --> 00:03:35.780 align:middle
+ifTrue:ifFalse:, là, je
+dois exécuter le Bock qui est
+
+00:03:36.000 --> 00:03:38.310 align:middle
+passé qui est le Block false,
+donc je vais faire le Block false.
+
+00:03:39.240 --> 00:03:43.070 align:middle
+Vous ne pourrez pas tester
+en mettant un breakpoint dans
+
+00:03:43.270 --> 00:03:44.870 align:middle
+ifTrue:ifFalse: parce que
+c'est optimisé et puis le
+
+00:03:45.070 --> 00:03:46.900 align:middle
+système ne le supportera
+pas, mais par contre, ce que
+
+00:03:47.100 --> 00:03:49.460 align:middle
+vous pouvez très bien faire,
+je vous suggère d'implémenter
+
+00:03:49.660 --> 00:03:53.450 align:middle
+de la même manière sinon:
+ou Si:Alors:, donc Si:Alors:
+
+00:03:53.650 --> 00:04:00.010 align:middle
+unBlock, sinon: unBlock2 et
+
+00:04:00.210 --> 00:04:02.040 align:middle
+de l'implémenter. Vous pouvez mettre
+un breakpoint dedans et expérimenter.
+
+00:04:03.860 --> 00:04:06.060 align:middle
+Finalement, qu'est-ce qu'on
+a vu, qu'est-ce que c'était
+
+00:04:06.260 --> 00:04:07.120 align:middle
+encore que cet exemple ?
+
+00:04:08.130 --> 00:04:10.410 align:middle
+On a vu qu'envoyer un
+message sélectionne la bonne
+
+00:04:10.610 --> 00:04:12.630 align:middle
+méthode, comme d'habitude.
+Là, on a choisi de laisser le
+
+00:04:12.830 --> 00:04:15.230 align:middle
+receveur décider par
+lui-même quel était le comportement
+
+00:04:15.430 --> 00:04:19.050 align:middle
+qu'il devait avoir et on a
+vu à l'œuvre le fait que les
+
+00:04:19.250 --> 00:04:22.250 align:middle
+crochets pouvaient
+"freezer" l'exécution et que value
+
+00:04:22.450 --> 00:04:24.410 align:middle
+allait forcer
+l'exécution d'un morceau de code.
+

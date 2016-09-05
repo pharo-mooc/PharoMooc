@@ -1,0 +1,57 @@
+% $Author: ducasse $
+% $Date: 2005/05/16 13:37:24 $
+% $Revision: 1.1.1.1 $
+
+\ifx\wholebook\relax\else
+\input{../Common.tex}
+\begin{document}
+\fi
+
+\chapter{CodeScope}
+\mainauthor{\ducasse}
+\metadata{Squeak}{Squeak may rely on some method specific for VisualWorks}{http://kilana.unibe.ch:8888/codescope}{15}{bergel@iam.unibe.ch}
+
+
+
+
+
+The fact that Smalltalk classes and methods are objects too make easy to analyze applications written in Smalltalk. We ask you to build an application analyzing applications, classes and methods and producing reports using Seaside. 
+
+Here are some screenshots of a possible implementation of CodeScope.
+
+\noindent
+\includegraphics[width=10cm]{codescope2}
+\includegraphics[width=8cm]{codescope3}
+
+Here is the list of information that we would like to gather from one application and some hints how you can get this information. We consider a category as a package.
+
+\paragraph{Methods}
+\begin{itemize}
+\item Number of lines (without entry comments)
+\item Number of arguments
+\end{itemize}
+
+\paragraph{Classes}
+\begin{itemize}
+\item Hierarchy nesting level
+\item Number of methods / class methods
+\item Number of instance variables
+\item Number of uncommented classes 
+\item Number of extending methods (sending super)
+\item Number of overriding methods 
+\item Number of accesses to instance variables
+\item Number of instances existing in the system (allInstances)
+\item Number of uncommented methods (aClass firstCommentAt: sel)
+\end{itemize}
+
+
+\paragraph{Packages}
+\begin{itemize}
+\item Number of classes in a package (inspect SystemOrganization, Smalltalk at: \#Array).
+\item Method average  line of codes
+\item Class average line of codes
+\item Number of class reference inside/outside the application
+\item Total and average number of (lines of code, instance variables....)
+\end{itemize}
+
+\ifx\wholebook\relax\else\end{document}\fi

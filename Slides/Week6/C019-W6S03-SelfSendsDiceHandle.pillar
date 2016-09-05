@@ -1,0 +1,120 @@
+{
+    "title":"Dice new vs. self class new",
+	"slidesid" : "W6S03"
+	
+	
+}
+
+${slide:title=From the Exercise}$
+
+To support 
+[[[
+(DiceHandle new add: (Dice faces: 4); yourself) 
+	+ (DiceHandle new add: (Dice faces: 6); yourself)
+]]]
+
+We defined ==\+== as 
+
+[[[
+DiceHandle >> + aDiceHandle
+  | handle |
+  handle := DiceHandle new.
+  self dice do: [ :each | handle addDice: each ]. 
+  aDiceHandle dice do: [ :each | handle addDice: each ]. 
+  ^ handle
+]]]
+
+${slide:title=What Is The Difference...}$
+
+Between 
+[[[
+DiceHandle >> + aDiceHandle
+  | handle |
+  handle := DiceHandle new.
+]]]
+
+And 
+[[[
+DiceHandle >> + aDiceHandle
+  | handle |
+  handle := self class new.
+]]]
+
+Let us see....
+
+${slide:title=What If We Create A New Subclass}$
+[[[
+DiceHandle subclass: MemoDiceHandle
+  ....
+]]]
+
+[[[
+(MemoDiceHandle new add: (Dice faces: 4); yourself) 
+   + (MemoDiceHandle new add: (Dice faces: 6); yourself)
+> aDiceHandle
+]]]
+
+We get a ==DiceHandle== instance back and not a ==MemoDiceHandle== instance!!!
+
+${slide:title=Solution 1: Creating a Hook}$
+
+[[[
+DiceHandle >> + aDiceHandle
+  | handle |
+  handle := self handleClass new.
+  self dice do: [ :each | handle addDice: each ]. 
+  aDiceHandle dice do: [ :each | handle addDice: each ]. 
+  ^ handle
+]]]
+
+[[[
+DiceHandle >> handleClass
+  ^ DiceHandle
+]]] 
+
+A subclass may redefine ==handleClass== 
+
+[[[
+MemoDiceHandle >> handleClass
+  ^ MemoDiceHandle
+]]] 
+
+${slide:title=Solution 1: Creating a Hook}$
+
+[[[
+(MemoDiceHandle new add: (Dice faces: 4); yourself) 
+   + (MemoDiceHandle new add: (Dice faces: 6); yourself)
+> aMemoDiceHandle
+]]]
+
+We get an instance of the subclass!
+
+${slide:title=But We Can Do Better!}$
+
+Let us see
+- In each subclass we should redefine the hook method  ==handleClass==
+- This is tedious
+
+${slide:title=Solution 2}$
+
+[[[
+DiceHandle >> + aDiceHandle
+  | handle |
+  handle := self class new.
+  self dice do: [ :each | handle addDice: each ]. 
+  aDiceHandle dice do: [ :each | handle addDice: each ]. 
+  ^ handle
+]]]
+
+- ==self class== always returns the class of the receiver
+- We get instances of the same kind of the receiver 
+
+${slide:title=Conclusion}$
+
+If we define a subclass of ==DiceHandle==, 
+and send the message ==\+== to an instance
+
+- With ==DiceHandle new==, ==\+== does not return an instance of the subclass but of ==DiceHandle==
+
+- With ==self class new==, ==\+== returns an instance of the receiver: an instance of a potential subclass
+

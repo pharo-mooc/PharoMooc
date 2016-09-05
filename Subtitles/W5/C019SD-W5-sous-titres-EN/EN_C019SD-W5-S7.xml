@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W5-S7</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:00:12" end="00:00:01:11" region="bottom">Hello, everyone.</p>
+            <p xml:id="p2" begin="00:00:01:15" end="00:00:06:06" region="bottom">In this sequence we'll look at<br/>the API for manipulating files.</p>
+            <p xml:id="p3" begin="00:00:06:17" end="00:00:09:07" region="bottom">What we'll be looking at particularly</p>
+            <p xml:id="p4" begin="00:00:09:12" end="00:00:12:19" region="bottom">is how to navigate between files,</p>
+            <p xml:id="p5" begin="00:00:12:23" end="00:00:15:16" region="bottom">how to create and remove files,</p>
+            <p xml:id="p6" begin="00:00:16:13" end="00:00:19:10" region="bottom">how to list files in the directories,</p>
+            <p xml:id="p7" begin="00:00:20:07" end="00:00:24:03" region="bottom">and how to read from<br/>and write to files.</p>
+            <p xml:id="p8" begin="00:00:24:08" end="00:00:25:18" region="bottom">To begin with,</p>
+            <p xml:id="p9" begin="00:00:25:23" end="00:00:28:06" region="bottom">we need an entry point<br/>in the file system,</p>
+            <p xml:id="p10" begin="00:00:28:10" end="00:00:30:11" region="bottom">there are many.</p>
+            <p xml:id="p11" begin="00:00:30:15" end="00:00:34:21" region="bottom">With "FileLocator home"<br/>you have the user directory,</p>
+            <p xml:id="p12" begin="00:00:35:14" end="00:00:38:22" region="bottom">"FileLocator root" you have the root</p>
+            <p xml:id="p13" begin="00:00:39:01" end="00:00:42:21" region="bottom">of the directory system.</p>
+            <p xml:id="p14" begin="00:00:43:00" end="00:00:47:03" region="bottom">With "FileLocatorC" in Windows<br/>you have disc C:</p>
+            <p xml:id="p15" begin="00:00:47:12" end="00:00:50:04" region="bottom">Once you have a directory,</p>
+            <p xml:id="p16" begin="00:00:50:11" end="00:00:53:03" region="bottom">these 3 elements are directories,</p>
+            <p xml:id="p17" begin="00:00:53:07" end="00:00:56:17" region="bottom">I take one, "FileLocator home"</p>
+            <p xml:id="p18" begin="00:00:56:21" end="00:01:00:01" region="bottom">in which I have<br/>the user home directory.</p>
+            <p xml:id="p19" begin="00:01:01:06" end="00:01:03:04" region="bottom">From there I can say,</p>
+            <p xml:id="p20" begin="00:01:03:23" end="00:01:06:00" region="bottom">"Give me your access path".</p>
+            <p xml:id="p21" begin="00:01:06:04" end="00:01:10:12" region="bottom">So "home" isn't a string,<br/>it's an object that represents</p>
+            <p xml:id="p22" begin="00:01:10:16" end="00:01:12:24" region="bottom">a directory and I can say,</p>
+            <p xml:id="p23" begin="00:01:13:03" end="00:01:17:15" region="bottom">"Give me the string<br/>locating you in the system".</p>
+            <p xml:id="p24" begin="00:01:17:20" end="00:01:20:03" region="bottom">So that's "home/cassou".</p>
+            <p xml:id="p25" begin="00:01:21:00" end="00:01:23:20" region="bottom">I can ask a directory<br/>where its children are.</p>
+            <p xml:id="p26" begin="00:01:23:24" end="00:01:27:22" region="bottom">"What are all the files<br/>and directories you contain?"</p>
+            <p xml:id="p27" begin="00:01:28:01" end="00:01:30:24" region="bottom">Here it tells me, in "home".</p>
+            <p xml:id="p28" begin="00:01:31:03" end="00:01:33:16" region="bottom">I've a file named .bashrc,</p>
+            <p xml:id="p29" begin="00:01:33:20" end="00:01:36:01" region="bottom">and I've a Music directory.</p>
+            <p xml:id="p30" begin="00:01:36:24" end="00:01:39:02" region="bottom">So this, "children",</p>
+            <p xml:id="p31" begin="00:01:39:06" end="00:01:41:07" region="bottom">returns a bundle of objects,</p>
+            <p xml:id="p32" begin="00:01:41:11" end="00:01:45:02" region="bottom">which are files and directories.</p>
+            <p xml:id="p33" begin="00:01:45:17" end="00:01:49:02" region="bottom">If we play a bit more with this API,</p>
+            <p xml:id="p34" begin="00:01:49:20" end="00:01:53:04" region="bottom">we'll see the method "/",</p>
+            <p xml:id="p35" begin="00:01:53:08" end="00:01:55:00" region="bottom">When we send the message /</p>
+            <p xml:id="p36" begin="00:01:55:21" end="00:02:01:10" region="bottom">to a directory we can indicate<br/>a particular child that interests us.</p>
+            <p xml:id="p37" begin="00:02:02:08" end="00:02:06:20" region="bottom">So "home/'Music'"<br/>gives me the Music directory.</p>
+            <p xml:id="p38" begin="00:02:08:02" end="00:02:11:22" region="bottom">By sending the message<br/>"directories" to a file,</p>
+            <p xml:id="p39" begin="00:02:12:01" end="00:02:14:12" region="bottom">I get all the sub files.</p>
+            <p xml:id="p40" begin="00:02:14:16" end="00:02:18:02" region="bottom">Here I see that, in my Music library,</p>
+            <p xml:id="p41" begin="00:02:18:06" end="00:02:20:10" region="bottom">I have a file Anouar_Brahem.</p>
+            <p xml:id="p42" begin="00:02:22:02" end="00:02:25:09" region="bottom">The parent message allows me<br/>to go up a rung,</p>
+            <p xml:id="p43" begin="00:02:25:13" end="00:02:28:08" region="bottom">so if I'm in the Music file,</p>
+            <p xml:id="p44" begin="00:02:28:12" end="00:02:31:21" region="bottom">I send "parent" but I return<br/>to my "home" file.</p>
+            <p xml:id="p45" begin="00:02:32:04" end="00:02:34:03" region="bottom">Leaving my directory</p>
+            <p xml:id="p46" begin="00:02:34:10" end="00:02:38:11" region="bottom">"Music", as we saw before,<br/>I'll try to create a directory.</p>
+            <p xml:id="p47" begin="00:02:39:13" end="00:02:43:00" region="bottom">To do this, I check<br/>if the directory exists.</p>
+            <p xml:id="p48" begin="00:02:43:04" end="00:02:46:10" region="bottom">By sending a message "isDirectory"</p>
+            <p xml:id="p49" begin="00:02:46:14" end="00:02:48:12" region="bottom">I see whether it exists or not.</p>
+            <p xml:id="p50" begin="00:02:48:16" end="00:02:51:00" region="bottom">This says it doesn't exist.</p>
+            <p xml:id="p51" begin="00:02:51:04" end="00:02:54:14" region="bottom">All right, I create it with<br/>"ensureCreateDirectory".</p>
+            <p xml:id="p52" begin="00:02:55:08" end="00:02:59:21" region="bottom">Then I test it, "do you exist?"<br/>In this case it exists,</p>
+            <p xml:id="p53" begin="00:03:00:00" end="00:03:03:13" region="bottom">with "delete" I can erase it,<br/>and I check it's deleted</p>
+            <p xml:id="p54" begin="00:03:03:17" end="00:03:05:09" region="bottom">by sending ""isDirectory".</p>
+            <p xml:id="p55" begin="00:03:06:05" end="00:03:07:07" region="bottom">To find</p>
+            <p xml:id="p56" begin="00:03:07:12" end="00:03:10:03" region="bottom">all the children in a directory,</p>
+            <p xml:id="p57" begin="00:03:10:07" end="00:03:14:07" region="bottom">there are several methods.<br/>I'll show you two.</p>
+            <p xml:id="p58" begin="00:03:14:11" end="00:03:17:08" region="bottom">We send a message,<br/>"allChildrenMatching" to a directory,</p>
+            <p xml:id="p59" begin="00:03:17:12" end="00:03:21:03" region="bottom">and by passing it an expression</p>
+            <p xml:id="p60" begin="00:03:21:07" end="00:03:25:03" region="bottom">that's typical of the ladder<br/>and which represents</p>
+            <p xml:id="p61" begin="00:03:26:18" end="00:03:30:16" region="bottom">the name of the directory we expect,<br/>so with "*.org",</p>
+            <p xml:id="p62" begin="00:03:30:20" end="00:03:33:13" region="bottom">I want all the files to have<br/>the extension ".ogg".</p>
+            <p xml:id="p63" begin="00:03:34:21" end="00:03:39:07" region="bottom">That will return all my music files<br/>to .ogg in my Pink Floyd directory.</p>
+            <p xml:id="p64" begin="00:03:40:13" end="00:03:43:17" region="bottom">I can do the same thing<br/>in a more long-winded way.</p>
+            <p xml:id="p65" begin="00:03:43:21" end="00:03:46:16" region="bottom">By sending the message<br/>"allChildren" I get all the children</p>
+            <p xml:id="p66" begin="00:03:46:20" end="00:03:50:24" region="bottom">all the files and directories,<br/>in a particular directory,</p>
+            <p xml:id="p67" begin="00:03:51:20" end="00:03:54:17" region="bottom">and I filter with the message "select"</p>
+            <p xml:id="p68" begin="00:03:54:21" end="00:03:57:22" region="bottom">all those whose name ends in ".ogg".</p>
+            <p xml:id="p69" begin="00:03:58:01" end="00:04:02:02" region="bottom">"Basename" returns the string<br/>representing the file name</p>
+            <p xml:id="p70" begin="00:04:02:06" end="00:04:05:09" region="bottom">and I want the file name<br/>to end in .ogg.</p>
+            <p xml:id="p71" begin="00:04:05:14" end="00:04:08:02" region="bottom">These two bits of code<br/>are almost the same.</p>
+            <p xml:id="p72" begin="00:04:08:17" end="00:04:12:13" region="bottom">How do we get information about a file?</p>
+            <p xml:id="p73" begin="00:04:12:17" end="00:04:16:07" region="bottom">How do we create a file from a string?</p>
+            <p xml:id="p74" begin="00:04:16:11" end="00:04:20:01" region="bottom">I've a file name, "asFileReference",</p>
+            <p xml:id="p75" begin="00:04:20:05" end="00:04:24:00" region="bottom">which turns my file name<br/>into a reference towards a file.</p>
+            <p xml:id="p76" begin="00:04:24:04" end="00:04:29:00" region="bottom">It can be an existing<br/>or a non-existent file, I don't know.</p>
+            <p xml:id="p77" begin="00:04:29:04" end="00:04:32:19" region="bottom">Let's look at the message<br/>"isFile" at this reference.</p>
+            <p xml:id="p78" begin="00:04:32:23" end="00:04:36:15" region="bottom">I'll get "true" if it exists<br/>and "false" if it doesn't.</p>
+            <p xml:id="p79" begin="00:04:37:14" end="00:04:41:18" region="bottom">By sending the message "basename",<br/>I get the name of the file.</p>
+            <p xml:id="p80" begin="00:04:41:22" end="00:04:45:02" region="bottom">By sending "extension"<br/>I get the file extension,</p>
+            <p xml:id="p81" begin="00:04:45:23" end="00:04:48:18" region="bottom">with "size" I get the size,</p>
+            <p xml:id="p82" begin="00:04:49:16" end="00:04:52:00" region="bottom">and with "PathString",<br/>as we saw before,</p>
+            <p xml:id="p83" begin="00:04:52:04" end="00:04:55:04" region="bottom">I get the access path<br/>in the form of a string.</p>
+            <p xml:id="p84" begin="00:04:55:23" end="00:04:59:17" region="bottom">Now let's see how to write to<br/>and read from a file. To write,</p>
+            <p xml:id="p85" begin="00:05:00:04" end="00:05:04:06" region="bottom">first of all, I take<br/>a reference towards a file.</p>
+            <p xml:id="p86" begin="00:05:05:04" end="00:05:07:04" region="bottom">Here, I check that it doesn't exist.</p>
+            <p xml:id="p87" begin="00:05:07:08" end="00:05:11:18" region="bottom">We can write to a file that exists,<br/>I'm checking it doesn't exist.</p>
+            <p xml:id="p88" begin="00:05:11:22" end="00:05:16:10" region="bottom">I write to it.<br/>To write, I create a stream.</p>
+            <p xml:id="p89" begin="00:05:17:09" end="00:05:18:23" region="bottom">With "nextPutAll"</p>
+            <p xml:id="p90" begin="00:05:19:02" end="00:05:22:13" region="bottom">I ask to write each character<br/>of the stream to the file.</p>
+            <p xml:id="p91" begin="00:05:23:12" end="00:05:26:17" region="bottom">At the end I close my stream<br/>to ensure that the system</p>
+            <p xml:id="p92" begin="00:05:26:21" end="00:05:28:18" region="bottom">has written everything to the disc.</p>
+            <p xml:id="p93" begin="00:05:29:05" end="00:05:30:16" region="bottom">Conversely, I can read</p>
+            <p xml:id="p94" begin="00:05:30:21" end="00:05:34:17" region="bottom">from a file,<br/>so I take the same file and .txt.</p>
+            <p xml:id="p95" begin="00:05:34:21" end="00:05:38:10" region="bottom">I check it exists, and it does,<br/>because I can write to it.</p>
+            <p xml:id="p96" begin="00:05:39:14" end="00:05:42:23" region="bottom">I create a "ReadStream"</p>
+            <p xml:id="p97" begin="00:05:43:02" end="00:05:46:22" region="bottom">and I look, either character<br/>by character by sending "next".</p>
+            <p xml:id="p98" begin="00:05:47:01" end="00:05:51:12" region="bottom">With the message "next" I'll get,<br/>"h" then "e" then "l", etc...</p>
+            <p xml:id="p99" begin="00:05:51:16" end="00:05:54:06" region="bottom">I do "next" once, I get "h".</p>
+            <p xml:id="p100" begin="00:05:54:10" end="00:05:56:03" region="bottom">Afterwards I'll pick up everything,</p>
+            <p xml:id="p101" begin="00:05:56:07" end="00:05:59:05" region="bottom">from the first "h" I've just read<br/>to the end of the file.</p>
+            <p xml:id="p102" begin="00:05:59:09" end="00:06:01:21" region="bottom">Here I get "ello World"<br/>without the "h".</p>
+            <p xml:id="p103" begin="00:06:02:00" end="00:06:05:03" region="bottom">At the end, I send "stream close"<br/>to the stream object,</p>
+            <p xml:id="p104" begin="00:06:05:07" end="00:06:08:11" region="bottom">to ensure the file reference is closed.</p>
+            <p xml:id="p105" begin="00:06:09:04" end="00:06:12:11" region="bottom">We can write these codes more simply,</p>
+            <p xml:id="p106" begin="00:06:13:00" end="00:06:16:10" region="bottom">without having the need</p>
+            <p xml:id="p107" begin="00:06:16:14" end="00:06:18:18" region="bottom">to send the "close" message.</p>
+            <p xml:id="p108" begin="00:06:18:22" end="00:06:22:06" region="bottom">We might forget to send<br/>the "close" message.</p>
+            <p xml:id="p109" begin="00:06:22:10" end="00:06:26:05" region="bottom">There can be an exception<br/>that means "close" is never sent.</p>
+            <p xml:id="p110" begin="00:06:26:09" end="00:06:30:18" region="bottom">In general, we try to avoid<br/>having to write it ourselves.</p>
+            <p xml:id="p111" begin="00:06:30:22" end="00:06:33:09" region="bottom">To do this, to write,</p>
+            <p xml:id="p112" begin="00:06:33:13" end="00:06:36:16" region="bottom">I take my file reference,</p>
+            <p xml:id="p113" begin="00:06:36:20" end="00:06:39:13" region="bottom">I send the message "writeStreamDo",</p>
+            <p xml:id="p114" begin="00:06:39:17" end="00:06:41:10" region="bottom">which takes a block in parentheses,</p>
+            <p xml:id="p115" begin="00:06:41:14" end="00:06:45:10" region="bottom">the block takes one stream<br/>in parentheses.</p>
+            <p xml:id="p116" begin="00:06:45:14" end="00:06:49:07" region="bottom">This stream will be automatically<br/>provided by "writeStreamDo"</p>
+            <p xml:id="p117" begin="00:06:49:11" end="00:06:54:01" region="bottom">which will create a<br/>"writeStream" on the file.</p>
+            <p xml:id="p118" begin="00:06:54:05" end="00:06:56:21" region="bottom">The only thing I need to do is,<br/>by using this stream,</p>
+            <p xml:id="p119" begin="00:06:57:00" end="00:06:59:24" region="bottom">manipulate the stream<br/>to do what I want with the file.</p>
+            <p xml:id="p120" begin="00:07:00:03" end="00:07:04:14" region="bottom">I'll write "Hello World" to the file,<br/>"stream nextPutAll: Hello World".</p>
+            <p xml:id="p121" begin="00:07:04:18" end="00:07:06:02" region="bottom">When the block finishes,</p>
+            <p xml:id="p122" begin="00:07:06:06" end="00:07:09:20" region="bottom">the stream closes automatically,<br/>and the file writes to the disc.</p>
+            <p xml:id="p123" begin="00:07:11:06" end="00:07:15:01" region="bottom">Same principle for reading,<br/>I put "readStreamDo".</p>
+            <p xml:id="p124" begin="00:07:16:05" end="00:07:18:12" region="bottom">Here I have a stream,<br/>I can do what I want with it.</p>
+            <p xml:id="p125" begin="00:07:18:16" end="00:07:23:00" region="bottom">I decide to retrieve<br/>the contents of the stream.</p>
+            <p xml:id="p126" begin="00:07:24:02" end="00:07:25:23" region="bottom">What you should know,</p>
+            <p xml:id="p127" begin="00:07:26:12" end="00:07:30:03" region="bottom">is that files and directories<br/>are references,</p>
+            <p xml:id="p128" begin="00:07:30:08" end="00:07:34:05" region="bottom">they're references towards<br/>files and directories on the disc</p>
+            <p xml:id="p129" begin="00:07:34:09" end="00:07:38:22" region="bottom">that may or may not exist.<br/>Check with "isFile", "isDirectory"</p>
+            <p xml:id="p130" begin="00:07:39:01" end="00:07:41:14" region="bottom">if the files exist on the disc.</p>
+            <p xml:id="p131" begin="00:07:41:18" end="00:07:43:01" region="bottom">The API is simple,</p>
+            <p xml:id="p132" begin="00:07:43:05" end="00:07:48:03" region="bottom">and facilitates navigation<br/>and manipulation of the files.</p>
+            <p xml:id="p133" begin="00:07:49:01" end="00:07:54:03" region="bottom">We can read from and write to files<br/>through streams,</p>
+            <p xml:id="p134" begin="00:07:54:12" end="00:07:57:12" region="bottom">and with an API</p>
+            <p xml:id="p135" begin="00:07:57:16" end="00:08:02:08" region="bottom">which will close the stream<br/>automatically at the end.</p>
+        </div>
+    </body>
+</tt>

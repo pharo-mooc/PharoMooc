@@ -1,0 +1,99 @@
+!Expressions and Messages
+
+This exercise is about reading and understanding Pharo expressions, and differentiating between different
+types of messages and receivers.
+
+Note that in the expressions you will be asked to read and executed, you
+can assume that the implementation of methods generally corresponds to what their message names imply (i.e., ==2 + 2 = 4==).
+
+In addition, most of the expressions we use in the exercises are expressions that you can execute in Pharo, so do not hesitate. 
+
+!!! Exercise: Literal objects
+
+What kind of object does the following literal expressions refer to?
+
+[[[
+'Hello, Dave'
+]]]
+
+[[[
+1.3
+]]]
+
+[[[
+#node1
+]]]
+
+[[[
+#(2 33 4)
+]]]
+
+[[[
+[ :each | each scale: 1.5 ]
+]]]
+
+[[[
+$A 
+]]]
+
+[[[
+true
+]]]
+
+[[[
+1
+]]]
+
+!!Exercise: Messages
+For each of the expressions below, fill in the answers:
+
+- What is the receiver object?
+- What is the message selector?
+- What is/are the argument (s)?
+- What is the result returned by this expression execution?
+
+[[[
+3 + 4
+]]]
+
+[[[
+Date today
+]]]
+
+[[[
+anArray at: 1 put: 'hello'
+]]]
+
+[[[
+anArray at: i 
+]]]
+
+[[[
+#(2 33 -4 67) collect: [ :each | each abs ]
+]]]
+
+[[[
+25 @ 50
+]]]
+
+[[[
+SmallInteger maxVal
+]]]
+
+[[[
+#(a b c d e f) includesAll: #(f d b)
+]]]
+
+[[[
+true | false
+]]]
+
+[[[
+Point selectors
+]]]
+!!! Exercise: Scope
+
+- What can one assume about a variable named ==Transferator==?
+
+- What can one assume about a variable named ==rectangle==?
+

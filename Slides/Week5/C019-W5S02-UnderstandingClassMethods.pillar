@@ -1,0 +1,76 @@
+{
+	"title":"Really Understanding Class Methods",
+	"slidesid" : "W5S02"
+}
+
+
+${slide:title=What You Will Learn}$
+
+- There is only one lookup algorithm
+-- it works for both instance and class methods
+- Class methods are not Java-like static methods
+
+${slide:title=There is Only One Lookup}$
+
+The lookup starts in the ""class"" of the ""receiver"" then:
+- if the method is defined in the class, it is returned
+- otherwise the search continues in the superclass
+
+${slide:title=Sending a Message}$
+
+${columns}$
+
+${column:width=40}$
+
+Sending a message is a two-step process:
+# look up the method matching the message
+# execute this method on the receiver
+
+${column:width=50}$
+
++>file://figures/LookupEssenceCounter.png|width=120+
+
+${endColumns}$
+
+${slide:title=Sending a Message to a Class}$
+
+${columns}$
+
+${column:width=50}$
+
+Sending a message to ==Counter== (a class)
+- go to the class of the class (==Counter class==)
+- follow the inheritance chain
+- apply the found method to the receiver: the class ==Counter==
+
+${column:width=60}$
+
++>file://figures/LookupEssenceWithClassCounter.png|width=100+
+
+${endColumns}$
+
+${slide:title=A Class is an Instance}$
+
+A class is an instance of another class (called a metaclass)
+- ==Counter== is the unique instance of the class ==Counter class==
+- A metaclass is just one class whose instances are classes
+- ==Counter class== is automatically created after ==Counter==
+- The class of class ==XXX== is named ==XXX class==
+
+${slide:title=Browsing two Classes}$
+
+The browser can edit two classes: a class and its class
+
++>file://figures/CounterClassMetaclassBrowsing.png|width=100+
+
+${slide:title=What You Should Know}$
+
+- A class is an object
+- A class can receive messages
+- A class is an instance of a class, called a metaclass
+- Method lookup works the same
+- More during the lecture ''Understanding Metaclasses''
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week5/C019-W5S02-UnderstandingClassMethods.pillar"
+% End:

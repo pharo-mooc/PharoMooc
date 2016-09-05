@@ -1,0 +1,370 @@
+% $Author: ducasse $
+% $Date: 2005/11/06 13:11:22 $
+% $Revision: 1.2 $
+
+\ifx\wholebook\relax\else
+\input{../Common.tex}
+\begin{document}
+\fi
+
+\chapter{Les blocs et les enumerateurs}
+
+%\newtheorem{exo}{Exercice}
+%\title{{\bf DEUG A MIAS/SM/TI, 2$^{\grave eme}$ ann\'{e}e}\\
+%TD-TP N$^0$ 1 : {\sc Les objets de Smalltalk-80}}
+%\author{}
+%\date{}
+%\begin{document}
+%\maketitle
+
+\mainauthor{to be fixed: \pottier }
+\metadata{VisualWorks}{?Squeak/VisualWorks?}{Universit\'e de Brest ---\pottier et al. }{?1.2?}{??}
+
+%\documentclass[11pt]{article}
+%\usepackage{epsf}
+%\usepackage{french}
+%\topmargin -2.5cm
+%\addtolength{\oddsidemargin}{-1.5cm}
+%\addtolength{\evensidemargin}{-1.5cm}
+%\addtolength{\textheight}{7cm}
+%\addtolength{\textwidth}{4cm}
+%%\newtheorem{exo}{Exercice}
+%\title{{\bf DEUG A MIAS/SM/STPI, 2$^{\grave eme}$ ann\'{e}e}\\
+%TD-TP N$^0$ 2 : {\sc Les blocs et les \'enum\'erateurs}}
+%\author{}
+%\date{}
+
+%\begin{document}
+%\maketitle
+
+\section{TP}
+
+On affiche une cha\^{\i}ne dans le \ct{Transcript} en lui envoyant le
+message \ct{show: uneChaine}. On passe \`a la ligne dans le
+\ct{Transcript} en lui envoyant le message \ct{cr}\\
+Exemple~:
+\ct{Transcript show: 'Salut'. Transcript cr.}\\
+en utilisant la cascade (plusieurs messages envoy\'es au m\^eme objet)\\
+\ct{Transcript show: 'Salut'; cr.}
+ 
+\subsection{Les blocs}
+
+L'\'evaluation d'un bloc sans parametre s'obtient en envoyant le message \ct{value} au
+bloc. Les instructions du bloc sont ex\'ecut\'ees et le r\'esultat de la
+derni\`ere instruction est retourn\'e.\\
+~\\
+Un bloc avec une variable s'\'evalue en envoyant le message
+\ct{value: uneValeur}.\\
+Un bloc avec deux variables s'\'evalue en envoyant le message\\
+\ct{value: unePremiereValeur value: uneDeuxiemeValeur} 
+(ceci jusqu'\`a 4 variables).
+
+\begin{enumerate}
+\item
+Ecrire un bloc (sans variables) qui calcule la racine carr\'ee de 1, puis
+de 2, puis de 3. Evaluer ce bloc.
+\item
+Ecrire un bloc avec une variable, qui renvoie le carr\'e de cette variable.  Evaluer ce bloc.
+\item
+Ecrire un bloc avec deux variables, qui renvoie la plus grande de ces deux
+variables (utiliser la m\'ethode \ct{max:}). Evaluer ce bloc.
+\end{enumerate}
+
+
+
+
+\subsection{Les m\'ethodes d'intervalle}
+
+Les nombres comprennent les messages suivants~:~
+\ct{to: uneValeurArret do: unBloc}\\
+et~:~
+\ct{to: uneValeurArret by: unPas do: unBloc}\\
+~\\
+Exemple qui affiche les nombres de 1 \`a 10 dans le \ct{Transcript}\\
+\ct{1 to: 10 do: [ :i \stBar Transcript show: i printString]}\\
+~\\
+Exemple qui affiche, par pas de 2, les nombres de 1 \`a 10 dans le
+\ct{Transcript}\\
+\ct{1 to: 10 by: 2 do: [ :i \stBar Transcript show: i printString]}
+
+\begin{enumerate}
+\item Convertir le nombre 65 (repr\'esentant un code ASCII) en Character
+(\ct{asCharacter}), puis en Symbol (\ct{asSymbol}),
+puis en String (\ct{asString}).
+\item Afficher dans le \ct{Transcript} les caract\`eres compris entre les
+codes ASCII 65 et 122 (bornes incluses).
+\item
+Afficher les nombres impairs de 1 \`a 33 dans le \ct{Transcript}
+\end{enumerate}
+
+\subsection{Les \'enum\'erateurs}
+Toutes les sous-classes de \ct{Collection} comprennent ces
+messages, appel\'es {\it \'enum\'erateurs}~:
+\begin{itemize}
+\item
+\ct{do: unBloc} \'evalue \ct{unBloc} sur chaque \'el\'ement de la collection,
+\item
+\ct{collect: unBloc} comme \ct{do:} mais renvoie une collection des r\'esultats,
+\item
+\ct{select: unBloc} \'evalue \ct{unBloc} sur chaque \'el\'ement et renvoie ceux pour qui l'\'evaluation renvoie \ct{true},
+\item
+\ct{reject: unBloc} \'evalue \ct{unBloc} sur chaque \'el\'ement et renvoie ceux pour qui l'\'evaluation renvoie \ct{false},
+\item
+\ct{detect: unBloc} renvoie le premier \'el\'ement pour qui l'\'evaluation renvoie \ct{true},
+\item
+\ct{detect: unBloc ifNone: unAutreBloc} a le m\^eme comportement que
+\ct{detect:} mais permet d'ex\'ecuter le deuxi\`eme bloc (\ct{unAutreBloc})
+s'il n'y a pas d'\'el\'ement  pour qui l'\'evaluation de \ct{unBloc}
+renvoie \ct{true}.
+\item
+\ct{inject: uneValeur into: unBlocBinaire} injecte le r\'esultat de l'ex\'ecution pr\'ec\'edente de \ct{unBlocBinaire} (un bloc \`a deux param\`etres)
+dans la suivante.\\
+\ct{uneCollection inject: valeur into: [arg1 arg2 \stBar ...]}\\
+\ct{arg1} est initialis\'e avec \ct{valeur},\\
+\ct{arg2} prend successivement la valeur de chaque \'el\'ement et \'evalue
+le bloc avec cette valeur (comme un \ct{do:}),\\
+\`a l'issue de l'\'evaluation courante, le r\'esultat de l'\'evaluation est
+affect\'ee dans \ct{arg1}.
+\end{itemize}
+
+\subsubsection{L'\'enum\'erateur \ct{do:}}
+
+\begin{enumerate}
+\item
+Faire la somme des \'el\'ements d'un tableau.
+\item
+La m\'ethode \ct{constantNames} envoy\'ee \`a la classe \ct{ColorValue}
+renvoie un tableau {\bf constant} de symboles, chaque symbole ayant le nom
+d'une couleur.
+
+Afficher,  dans le \ct{Transcript}, les couleurs {\bf constantes} de la
+classe \ct{ColorValue}
+\end{enumerate}
+
+\subsubsection{L'\'enum\'erateur \ct{collect:}}
+ 
+\begin{enumerate}
+\item
+Construire un premier tableau, {\bf et avec la m\'ethode \ct{collect:}},
+construire un deuxi\`eme tableau identique au premier.
+\item
+A partir d'un premier tableau, construire un deuxi\`eme tableau dont la valeur
+de chaque \'el\'ement est le double de l'\'el\'ement correspondant dans le
+premier tableau.
+\end{enumerate}
+
+\subsubsection{Autres \'enumerateurs}
+\begin{enumerate}
+\item
+A partir du tableau {\bf constant} de symboles  ayant le nom
+d'une couleur, d\'etecter la premi\`ere couleur
+commen\c{c}ant par un \ct{d}\\
+(on obtient le premier caract\`ere d'un symbole avec \ct{first}).
+\item
+A partir du tableau {\bf constant} de symboles  ayant le nom
+d'une couleur, construire un tableau des noms de couleur
+commen\c{c}ant par un \ct{d}
+\item
+A partir du tableau {\bf constant} de symboles  ayant le nom
+d'une couleur, construire un tableau des noms de couleur
+ne commen\c{c}ant pas par un \ct{d}\\
+Afficher (avec un \ct{do:}) ce tableau dans le \ct{Transcript}
+\end{enumerate}
+
+\subsection{Les structures alternatives}
+
+Smalltalk d\'efinit sur la classe \ct{True} et sur la classe \ct{False}
+quatre m\'ethodes d'instance\\
+\ct{ifTrue:}, \ct{ifFalse:}, \ct{ifTrue:ifFalse:}, \ct{ifFalse:ifTrue:}
+\footnote{Un truc : Si on tape $<Control>t$ (ou $<Control>f$) dans une
+ fen\^etre de code,\\le syst\`eme ins\`ere \ct{ifTrue:} (\ct{ifFalse:})}.
+
+\begin{figure}[htp]
+\small
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+& Classe \ct{True} & Classe \ct{False}\\
+\hline
+M\'ethode: & \ct{ifTrue: unBloc} &  \ct{ifTrue: unBloc}\\
+Action: & renvoyer l'\'evaluation de \ct{unBloc} & renvoyer \ct{nil}\\
+\hline
+M\'ethode: & \ct{ifFalse: unBloc} & \ct{ifFalse: unBloc}\\
+Action: & renvoyer \ct{nil} & renvoyer l'\'evaluation de \ct{unBloc}\\
+\hline
+M\'ethode: & \ct{ifTrue: unBloc ifFalse: unAutreBloc} & \ct{ifTrue: unBloc ifFalse: unAutreBloc}\\
+Action: & renvoyer l'\'evaluation de \ct{unBloc} & renvoyer l'\'evaluation de 
+\ct{unAutreBloc}\\
+\hline
+M\'ethode: & \ct{ifFalse: unBloc ifTrue: unAutreBloc} & \ct{ifFalse: unBloc ifTrue: unAutreBloc}\\
+Action: & renvoyer l'\'evaluation de \ct{unAutreBloc} & renvoyer l'\'evaluation de \ct{unBloc}\\
+\hline
+\end{tabular}
+\end{center}
+\end{figure}
+Par ailleurs, les op\'erateurs logiques \ct{\&} (conjonction, le ET),
+\ct{Eqv} (\'equivalence), \ct{not} (n\'egation), \ct{xor} (ou exclusif),
+\ct{\stBar} (disjonction, le OU) sont d\'efinies sur les classes \ct{True}
+et \ct{False}.
+
+\begin{enumerate}
+\item
+Tester si un nombre est impair (en lui envoyant le message \ct{odd}) et
+sonner la cloche (\ct{Screen default ringBell}) si c'est vrai.
+\item
+Sans utiliser \ct{max:}, \'ecrire un bloc avec deux param\`etres qui renvoie
+le maximum des deux param\`etres
+\end{enumerate}
+
+\subsection{Enum\'erateurs et alternatives}
+\begin{enumerate}
+\item
+Faire la somme des \'el\'ements positifs d'un tableau
+\item
+Cr\'eer un tableau de \ct{0} ou \ct{1} \`a partir d'un tableau existant, un nombre  du tableau existant est remplac\'e par un 0 s'il est sup\'erieur
+ou \'egal \`a 10, par un \ct{1} s'il est inf\'erieur \`a 10.
+\end{enumerate}
+
+\subsection{It\'eration de blocs}
+
+Utilisation des messages \ct{ timesRepeat:}, \ct{repeat},
+\ct{ whileTrue:}
+
+\begin{enumerate}
+\item Ecrire 10 fois la cha\^{\i}ne \ct{'coucou'} dans le \ct{Transcript}
+(en passant \`a la ligne apr\`es chaque \ct{'coucou'}).
+
+\item Ecrire un bloc avec une variable \ct{n} qui \'ecrit \ct{n} fois la cha\^{\i}ne \ct{'coucou'} dans le \ct{Transcript}
+(en passant \`a la ligne apr\`es chaque \ct{'coucou'}). Evaluer ce bloc.
+
+\item It\'erer avec un \ct{repeat} un bloc qui incr\'emente un compteur de 1.
+On s'arr\^ete quand le compteur est sup\'erieur \`a 10.
+\item
+Cr\'eer un objet de la classe \ct{Time} \`a 3 secondes du temps courant.\\
+\ct{Time now addTime: (Time fromSeconds: 3)}\\
+Boucler jusqu'\`a ce que le temps courant d\'epasse cet objet,
+en passant \`a la ligne dans le \ct{Transcript}
+\end{enumerate}
+
+\section{Exercices (TD)}
+
+\subsection{Les blocs}
+\begin{enumerate}
+\item
+Ecrire un bloc avec une variable, qui renvoie la conversion en degr\'es
+Celsius de cette variable (suppos\'ee \^etre en Fahrenheit).
+Evaluer ce bloc (C = (5/9) (F - 32)).
+\item
+Ecrire un bloc avec deux variables, qui convertit ces variables en
+\ct{String}, les concat\`ene en les s\'eparant avec un blanc
+et renvoie le r\'esultat de la concat\'enation.
+\end{enumerate}
+
+
+\subsection{Les \'enum\'erateurs}
+
+\subsubsection{L'\'enum\'erateur \ct{do:}}
+
+\begin{enumerate}
+\item
+Compter le nombre d'\'el\'ements d'un tableau. V\'erifier avec \ct{size}
+\item
+Faire la moyenne des \'el\'ements d'un tableau.
+\end{enumerate}
+
+\subsubsection{L'\'enum\'erateur \ct{collect:}}
+
+\begin{enumerate}
+\item
+Une chaine instance de la classe c\ct{String} est un tableau, donc on peut avoir son premier \'el\'ement (\ct{first}), son i-\`eme \'el\'ement (\ct{at: i}), affecter
+\ct{uneValeur} dans son i-\`eme \'el\'ement \ct{at: i put: uneValeur}, etc
+
+A partir du tableau {\bf constant} de symboles  ayant le nom
+d'une couleur, construire un tableau de String o\`u le nom de la couleur
+commence par une majuscule (\ct{asUppercase}).
+
+\item
+Construire un tableau dont la valeur des \'el\'ements est la somme de
+l'\'el\'ement pr\'ec\'edent avec l'\'el\'ement courant.
+\end{enumerate}
+
+\subsection{Les structures alternatives}
+\begin{enumerate}
+\item
+Sans utiliser \ct{max:}, \'ecrire un bloc avec trois param\`etres qui renvoie le maximum des trois param\`etres
+\item
+Ecrire un bloc avec un param\`etre, qui teste si le param\`etre est
+une minuscule (\ct{isLowercase}), une majuscule (\ct{isUppercase}),
+un chiffre (\ct{isDigit}) ou autre.\\
+Le bloc renvoie 'minuscule' ou 'majuscule' ou 'chiffre' ou 'autre'.
+\end{enumerate}
+
+\subsection{Les intervalles}
+ 
+\subsubsection{M\'ethodes d'intervalles}
+\begin{enumerate}
+\item Afficher les \ct{10} premiers carr\'es.
+\item Afficher les multiples de \ct{10}.
+\end{enumerate}
+
+\subsubsection{Cr\'eer et utiliser des intervalles}
+
+Envoy\'e \`a un nombre,  la m\'ethode \ct{to: borneSuperieure} renvoie
+un \ct{Interval} allant du nombre \`a la \ct{borneSuperieure}
+par pas de 1.
+
+Envoy\'e \`a un nombre,  la m\'ethode \ct{to: borneSuperieure by: lePas}
+renvoie un \ct{Interval} allant du nombre \`a la \ct{borneSuperieure}
+par pas de \ct{lePas}.
+
+Les \ct{Interval} \'etant des collections, on peut utiliser les
+\'enum\'erateurs \ct{do:}, \ct{collect:}, etc.
+
+~\\
+Exemple~: \ct{tab := (1 to: 100)} cr\'ee un tableau des 100 premiers entiers.
+
+\begin{enumerate}
+\item
+Calculer la somme des 100 premier nombres entiers \`a l'aide d'un tableau.
+V\'erifier avec la formule \ct{n*(n+1)/2}
+
+\item
+Cr\'eer un tableau avec les nombres de $0$ \`a $360$ de $30$ en $30$.
+utiliser ce tableau pour afficher la table des sinus de $30$ degr\'es en $30$ degr\'es.
+\end{enumerate}
+
+\subsection{Enum\'erateurs et alternatives}
+\begin{enumerate}
+\item A partir d'un premier tableau, construire un tableau en
+inversant tous les \'el\'ements qui sont des fractions.
+\end{enumerate}
+
+\subsection{Autres \'enumerateurs}
+\begin{enumerate}
+\item A partir d'un premier tableau, construire un deuxi\`eme tableau en
+supprimant les \'el\'ements n\'egatifs.
+\item D\'efinir la somme des \'el\'ements d'un tableau
+avec \ct{inject:into:}.
+\item D\'efinir la somme des \'el\'ements positifs d'un tableau
+avec \ct{select:} puis \ct{inject:into:}.
+\item D\'efinir la somme des \'el\'ements n\'egatifs d'un tableau
+avec \ct{reject:} puis \ct{inject:into:}.
+\end{enumerate}
+
+\subsection{It\'eration de blocs}
+
+\begin{enumerate}
+\item
+Afficher 10 \ct{*}  dans le \ct{Transcript}, puis passe \`a la ligne.
+
+\item
+Afficher 10 lignes de 10 \ct{*}  dans le \ct{Transcript} (en passant \`a
+la ligne apr\`es chaque ligne de 10 \ct{*}.
+
+\item
+Ecrire un bloc \`a deux param\`etres ct{l} et \ct{c}, qui affiche
+\ct{l} lignes de \ct{c} colonnes de \ct{*}
+dans le \ct{Transcript} (en passant \`a la ligne apr\`es chaque
+ligne).
+\end{enumerate}
+\ifx\wholebook\relax\else\end{document}\fi

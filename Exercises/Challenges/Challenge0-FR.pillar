@@ -1,0 +1,10 @@
+! Défi 0
+
+En utilisant le server HTTP Zinc fournit avec Pharo récupérer le logo disponible à *http://pharo.org/files/pharo.png*. Convertissez le en une morph (un objet graphique Pharo) et affichez le dans Pharo. Vous devez obtenir une situation proche de l'image ci-dessous.
+
+!!! Indices :
+- La class ==ZnEasy== ouvre des messages simplifiant l'expression de requêtes HTTP.
+- Le message ==asMorph== convertit des éléments graphiques élémentaires (form) en Morph (objets graphiques).
+- Le message ==openInWorld== est pratique pour rendre des objets graphiques dans l'interface de Pharo.
+
++>file://figures/PharoLogo.png|width=80+

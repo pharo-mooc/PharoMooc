@@ -1,0 +1,84 @@
+
+(Number readFrom: ('8.524.757' copyReplaceAll: '.' with: '')) asInteger
+or even nicer (and simpler)
+
+('8.524.757' reject: [:char | char == $.]) asInteger
+
+(myStringNumber copyWithoutAll: '.') asNumber
+
+==========================================================================================
+
+
+
+
+
+
+Hi 
+
+when iterating over a sequenced collection (array / ordered collection) how
+can I determine the current objects index value (without explicitly storing
+a counter or looking to match each time)
+
+Typically I need it:
+1. to display a serial number when printing a report.
+2. to determine if I am on the last element.
+3. To highlight every n-th element.
+
+
+
+" it seems that in more cases than not, i find that developers use a stream  when concatenating some text strings. "
+Compare the creation cost of 
+
+'string1', 'string2', 'string3' ... , "stringN" will require the 
+creation of N intermediate String instances. 
+
+aStream 
+  nextPutAll: 'string1'; 
+  nextPutAll: 'string2'; 
+  nextPutAll: 'string3'; 
+  nextPutAll: 'stringN' 
+  
+[String streamContents: [:s | 
+     s nextPutAll: 'jlklkjkl'; 
+           nextPutAll: 'jlklkjkl' ]] bench. "'1,866,774 per second'" 
+
+
+  ['jlklkjkl' ,  'jlklkjkl'] bench "'5,433,931 per second’" 
+
+
+
+
+str:= Character alphabet. 
+[ str, str, str, str, str ] bench. 
+
+  "'1,020,043 per second'" 
+
+[ String new: str size * 5 streamContents: [ :out | 5 timesRepeat: [ out nextPutAll: str ] ] ] bench. 
+
+  "'949,738 per second'" 
+
+
+
+
+-- Comparing strings is slower then comparing symbols by a factor of 5 to 10. 
+-- However, converting a string to a symbol is more than 100 times more expensive.
+Can you validate or invalidate such statements
+
+  
+
+
+[| temp |
+temp := String new.
+(1 to: 100000)
+do: [:i | temp := temp, i asString, ' ']] timeToRun.
+
+
+The problem is with your code. String is immutable and during concatenation it creates each time new and new String objects. In the end the length of the "temp" string is 588895. What do you think, is it efficient to create thousands of Strings with half a million length just to add a few characters at the end?
+
+You have to use a stream to concatenate so many strings:
+
+| stream |
+stream := ReadWriteStream on: String new.
+(1 to: 100000)
+do: [:i | stream << (i asString, ' ')].
+stream contents "returns your temp string"

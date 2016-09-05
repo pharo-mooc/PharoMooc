@@ -1,0 +1,132 @@
+{
+  "title":"Inheritance Basics",
+  "slidesid" : "W4S01"
+}
+
+${slide:title=Goal}$
+
+- What is inheritance?
+- When to use it?
+
+Pharo treats inheritance the same way as Java
+
+${slide:title=The Basics}$
+
+${columns}$
+
+${column:width=60}$
+
+- often we want small adaptations
+- we want to extend existing behavior and state
+- solution: ""class inheritance""
+- a class extends the definition of its superclass
+
+${column:width=40}$
+
++>file://figures/InheritanceDiagram.png|width=100+
+
+${endColumns}$
+
+${slide:title=The Basics}$
+
+${columns}$
+
+${column:width=60}$
+
+a subclass
+- can add state and behavior:
+-- ==color==, ==borderColor==, ...
+- can use superclass behavior and state
+- can specialize and redefine superclass behavior
+
+${column:width=40}$
+
++>file://figures/InheritanceDiagram.png|width=100+
+
+${endColumns}$
+
+${slide:title=Root of Inheritance Hierarchy}$
+
+${columns}$
+
+${column:width=70}$
+
+- ==Object== is the root of most classes
+- ==ProtoObject== (==Object=='s superclass) is for special purposes...
+-- ...but we will ignore it as it is not important
+
+${column:width=30}$
+
++>file://figures/InheritanceDiagram-from-Object.png|width=100+
+
+${endColumns}$
+
+${slide:title=The Basics}$
+
+inheritance is
+- static for state (i.e., during class creation)
+- dynamic for behavior (i.e., during execution)
+
+${slide:title=Inheritance of Instance Variables}$
+
+${columns}$
+
+${column:width=65}$
+
+- happens during class definition
+- computed from
+-- the class own instance variables
+-- the ones of its superclasses
+
+${column:width=35}$
+
++>file://figures/InheritanceDiagram.png|width=100+
+
+${endColumns}$
+
+${slide:title=Inheritance of Behavior}$
+
+${columns}$
+
+${column:width=50}$
+
+- happens at runtime
+- the method is searched
+-- starting from the receiver's class
+-- then going to the superclass
+
+${column:width=50}$
+
++>file://figures/InheritanceDiagram-lookup-withBlank.png|width=100+
+
+${endColumns}$
+
+
+${slide:title=Inheritance of Behavior}$
+
+${columns}$
+
+${column:width=50}$
+
+- happens at runtime
+- the method is searched
+-- starting from the receiver's class
+-- then going to the superclass
+
+${column:width=50}$
+
++>file://figures/InheritanceDiagram-lookup-superclass.png|width=100+
+
+${endColumns}$
+
+${slide:title=What You Should Know}$
+
+- Inheritance allows a class to refine state and behavior
+- A class has 1 and only 1 superclass
+- A class eventually inherits from ==Object==
+- Inheritance of state is static
+- Inheritance of behavior is dynamic
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/Week4/C019-W4S01-InheritanceAndLookup-1-Inheritance.pillar"
+% End:

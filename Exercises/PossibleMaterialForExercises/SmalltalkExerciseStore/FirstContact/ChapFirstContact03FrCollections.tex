@@ -1,0 +1,338 @@
+% $Author: ducasse $
+% $Date: 2005/05/16 13:38:07 $
+% $Revision: 1.1.1.1 $
+
+\ifx\wholebook\relax\else
+\input{../Common.tex}
+\begin{document}
+\fi
+
+\chapter{Les collections}
+
+\mainauthor{to be fixed: \pottier, catherine dezan}
+\metadata{VisualWorks}{?Squeak/VisualWorks?}{Universit\'e de Brest ---\pottier et al. }{?1.2?}{??}
+
+%\documentstyle[11pt,epsf,french]{article}
+%\topmargin -2.5cm
+%\addtolength{\oddsidemargin}{-1.5cm}
+%\addtolength{\evensidemargin}{-1.5cm}
+%\addtolength{\textheight}{3cm}
+%\addtolength{\textwidth}{2cm}
+
+%%\newtheorem{exo}{Exercice}
+%\title{\ct{DEUG A MIAS/SM/STPI, 2$^{\grave eme}$ ann\'{e}e}\\
+%TD-TP N$^0$ 3: {\sc Les collections}}
+%\author{}
+%\date{Octobre 2003}
+%%\input{psfig}
+%\input{epsf}
+
+%\begin{document}
+%\maketitle
+
+\section{Introduction~:organisation  hi\'erarchique des collections}
+La figure suivante pr\'esente une partie de l'organisation hi\'erarchique des collections.
+%\begin{centering}
+%\begin{figure}[ht]
+%\{figure=/home/penarvir/users/dezan/COURS/cours98-99/DEUGST80/TD-TP3/collections.eps,width=9cm}
+%\end{figure}
+%\end{centering}
+%\begin{figure}[hbtp]
+%\begin{center}
+%\leavevmode
+%\epsfxsize=9cm
+%\epsfbox{/home/penarvir/users/dezan/COURS/cours98-99/DEUGST80/TD-TP3/collections.eps}
+%\caption{
+%L'organisation hi\'erarchique des collections.}
+%\end{center}
+%\end{figure}
+
+
+
+\begin{scode}
+Object ()
+    Collection ()
+          Bag ('contents')
+          SequenceableCollection ()
+                ArrayedCollection ()
+                    Array ()
+                    CharacterArray ()
+                          String ()
+                            Symbol ()
+                          Text ('string' 'runs')
+                    IntegerArray ()
+                         ByteArray ()
+                         WordArray ()
+               Interval ('start' 'stop' 'step')
+               OrderedCollection ('firstIndex' 'lastIndex')
+                   SortedCollection ('sortBlock')
+          Set ('tally')
+               Dictionary ()
+\end{scode}
+
+\section{TP}
+\subsection{La classe \ct{Collection}}
+On trouve dans cette classe, les messages (les \'enum\'erateurs) compr\'ehensibles par toutes les sous-classes.
+
+On retiendra les messages suivants~:
+\begin{itemize}
+\item les \'enum\'erateurs correspondant aux messages~: \ct{collect:}, \ct{do:}, \ct{detect:}, \ct{reject:}, \ct{select}, \ct{inject: into:}.
+\item les messages de conversion~: \ct{asArray}, \ct{asBag}, \ct{asSet}, \ct{asSortedCollection}.
+\item le message \ct{size} donne la taille de la collection
+
+\end{itemize}
+\subsection{La classe \ct{SequenceableCollection}}
+Un ordre est d\'efini entre les \'elements de la collection.  Les objets de cette classe comprennent les messages \ct{first}, \ct{last}.
+
+\begin{itemize}
+\item La classe \ct{Array} est une collection d'\'el\'ements de taille fixe. La cr\'eation d'un object de cette classe peut se faire gr\^ace au message \ct{new:}.
+
+Ex~: \ct{Array new: 12} cr\'ee un tableau de taille $12$ dont les \'el\'ements sont initialis\'es \`a \ct{nil}.
+
+Les acc\`es aux \'el\'ements du tableau sont possibles avec la m\'ethode \ct{at:}. La modification d'un \'el\'ement du tableau est faite par la m\'ethode \ct{at: put:}.
+
+\item La classe \ct{Interval} ne poss\`ede pas d'ordre explicite mais implicite. La cr\'eation d'un intervalle se fait avec les messages \ct{to:} ou \ct{to: by:} selon le pas de l'intervalle choisi.
+
+Ex: \ct{1 to: 10} cr\'ee un intervalle avec tous les \'el\'ements de \ct{1} \`a \ct{10}.\\
+\ct{1 to: 10 by: 2} cr\'ee un intervalle de \ct{1} \`a \ct{10} avec uniquement les \'el\'ements impairs.
+
+\item La classe \ct{OrderedCollection} d\'efinit des collections de taille dynamique.  La cr\'eation est faite par le message \ct{new}, puis l'extension par l'utilisation du message \ct{add:} ou \ct{addAll:}.
+
+Ex:~\ct{OrderedCollection new add:1; add:2} d\'efinit une collection avec les \'el\'ements \ct{1} et \ct{2}.
+
+Le message \ct{addAll:} permet de d\'efinir une collection \`a partir de celle pass\'ee en param\`etre.
+
+Ex: \ct{OrderedCollection new addAll: \#(\#(1 4) 5 6)} cr\'ee une instance de la classe \ct{OrderedCollection} contenant les \'el\'ements \ct{\#(1 4)}, 5 et 6.
+La suppression d'un \'el\'ement dans un tableau se fait par la m\'ethode \ct{remove:}.
+
+\item La classe \ct{SortedCollection} est une sous-classe de la classe \ct{OrderedCollection}. Les \'el\'ements de cette classe peuvent \^etre  tri\'es selon un certain crit\`ere d\'efinit dans un bloc en utilisant la m\'ethode \ct{sortBlock:}.\\
+Ex~: 
+\begin{scode}
+\stBar aCol \stBar
+aCol:= SortedCollection new.
+aCol add:2; add:8; add:1.     
+         ``la collection obtenue est triee dans l'ordre croissant''
+aCol sortBlock: [ :elem1 :elem2 \stBar elem1 > elem2]. 
+         ``on trie la collection dans l'ordre decroissant''
+\end{scode}
+\end{itemize}
+
+
+\subsection*{Exercices}
+
+\begin{itemize}
+\exoitem Cr\'eer un tableau de taille \ct{5}, trier ses \'elements dans l'ordre d\'ecroissant et donner le tableau r\'esultat.
+
+\exoitem soit \ct{matrice := \#(\#(1 0 0) \#(1 2 0) \#(1 2 3))}, faire la somme des \'el\'ements se trouvant sur la diagonale de cette matrice.
+
+\exoitem D\'efinir par un bloc avec un param\`etre (repr\'esentant la taille des tableaux)les tableaux de la forme suivantes~:
+
+\begin{scode}
+\#(\#(1))                    pour taille=1
+\#(\#(1) \#(1 2))                pour taille=2
+\#(\#(1) \#(1 2) \#(1 2 3))          pour taille=3
+\#(\#(1) \#(1 2) \#(1 2 3) \#(1 2 3 4))     pour taille=4
+....
+\end{scode}
+\end{itemize}
+
+
+\subsection{La classe \ct{Set}}
+
+Un ensemble est une collection dont les \'el\'ements n'ont pas d'ordre, pas de
+cl\'es d'acc\`es. Les doublons n'y sont donc pas autoris\'es.
+
+
+Les m\'ethodes suivantes sont disponibles sur un ensemble~:
+\begin{itemize}
+\item
+\ct{add: unElement} m\'ethode d'ajout de l'\'el\'ement \ct{unElement} (si il n'appartient pas d\'eja \`a l'ensemble)
+
+\item \ct{remove: unElement ifAbsent: unBloc} supprime l'\'el\'ement
+\ct{unElement} s'il est pr\'esent  et  \'evalue le bloc \ct{unBloc} si l'\'el\'ement est absent.
+
+\item
+\ct{includes: unElement} teste si l'\'el\'ement \ct{unElement} appartient \`a l'ensemble (renvoie \verb|true| si il s'y trouve, \verb|false| sinon).
+
+\item
+\ct{occurrencesOf: unElement} donne le nombre d'occurrences de l'\'element
+\ct{unElement} (\ct{0} ou \ct{1})
+\end{itemize}
+
+
+\paragraph{Exemples.}
+\sd{to do mettre des tests unitaires}
+
+\begin{scode}
+\stBar aSet \stBar
+"Construction d'un ensemble vide"
+aSet := Set new.                "Set ()."
+"Ajouts"  
+aSet add: 1; add: 1@3.
+aSet.                     "Set (1 1@3)"
+ 
+"Suppression"
+aSet remove:3 ifAbsent:[aSet add: 4/5].
+aSet.                     "Set (1@3 (4/5) 1)"
+
+"Appartenance"  
+aSet includes:1@3.              "true"
+  
+"Transformation d'un Array en Set"
+\#(2 7 t 7 9) asSet              "Set (2 \#t 7 9)"
+\#(3 6 6) asSet occurrencesOf: 6       "1"
+\end{scode}
+
+\subsection*{Exercices}
+
+\begin{itemize}
+\exoitem A partir d'un premier tableau, d\'efinir un nouveau tableau o\`u les doublons du tableau initial sont supprim\'es. On peut utiliser la m\'ethode \ct{asArray} pour transformer un receveur en tableau.
+
+\exoitem Construire un ensemble contenant tous les nombres de \ct{1} \`a \ct{100}. 
+
+\exoitem Transformer l'ensemble pr\'ec\'edent en rempla\c{c}ant chaque nombre par son reste de la division enti\`ere par \ct{5} (modulo \ct{5}). Quelle est la nature et la taille de cette nouvelle collection? Refaire la m\^eme op\'eration directement sur un intervalle de (\ct{1}..\ct{100}).
+
+\end{itemize}
+
+\subsection{La classe Dictionary}
+Les dictionnaires sont des ensembles dont les \'el\'ements sont des instances de la classe {\it Association}. Une association est un couple d'objets, le premier \'el\'ement \'etant une cl\'e, le deuxi\`eme repr\'esentant une valeur.
+
+Exemple~: \ct{2\assoc{}3} est une association dont la clef est \ct{2} et la valeur \ct{3}.\\
+
+Quelques m\'ethodes disponibles sur les dictionnaires~:
+
+\begin{itemize}
+\item \ct{at:}$k$ renvoie la valeur r\'ef\'erenc\'ee par la cl\'e $k$
+\item \ct{at:}$k$ \ct{put:}$o$ installe l'objet $o$ comme valeur \`a la cl\'e $k$
+\item \ct{add:}$uneAssociation$ ajoute au dictionnaire, l'argument
+$uneAssociation$ (qui est une association)
+\item \ct{associations} renvoie une collection ordonn\'ee  des associations du dictionnaire
+\item \ct{keys} renvoie un set contenant toutes les cl\'es
+\item \ct{values} renvoie une collection ordonn\'ee comportant toutes les valeurs
+\item \ct{includesKey:}$key$ teste si la cl\'e $key$ appartient au dictionnaire 
+\item \ct{associationAt:}$key$ renvoie l'association dont la clef est $key$
+\item \ct{keyAtValue:}$uneValeur$ renvoie une clef associ\'ee \`a la valeur $uneValeur$ pass\'ee en param\`etre
+\item \ct{keysAndValuesDo:}$unBloc$ ex\'ecute le bloc $unBloc$ pour chaque association cl\'e-valeur du dictionnaire.
+\end{itemize}
+
+
+\subsection*{Exercices}
+
+\begin{itemize}
+\exoitem Cr\'eer un ensemble avec les \'el\'ements appartenant \`a l'intervalle (\ct{1} .. \ct{100}) et dont le reste de la division enti\`ere par \ct{5} est \'egal \`a \ct{0}. Construire l'association avec \ct{0} comme cl\'e et cet ensemble comme valeur.
+
+\exoitem Cr\'eer un dictionnaire  o\`u les cl\'es sont  les restes de la division par $5$ des \'el\'ements appartenant \`a l'intervalle  (\ct{1} .. \ct{100}) et les valeurs sont les sous-ensembles constitu\'es d'\'elements de l'intervalle qui ont le m\^eme reste pour la division par \ct{5} (reste repr\'esent\'e par la cl\'e).
+
+\exoitem Transformer le dictionnaire pr\'ec\'edent en un nouveau dictionnaire \`ou les sous-ensembles associ\'es aux diff\'erentes cl\'es ont \'et\'e remplac\'es par la somme de leurs \'el\'ements.
+
+\end{itemize}
+
+\subsection{La classe \ct{Bag}}
+Une instance de la classe \ct{Bag} peut \^etre consid\'er\'e comme un \ct{Set} qui autorise les doublons. Un \ct{Bag} ne duplique pas physiquement les doublons, mais maintient le nombre d'occurrences de chaque \'el\'ement. Un Bag a un contenu qui est un dictionnaire associant  chaque \'el\'ement  \`a son nombre d'occurrences.
+
+\ct{Bag} h\'erite des m\'ethodes classiques de la classe \ct{Collection}.
+
+Quelques methodes sp\'ecifiques de \ct{Bag}~:
+\begin{itemize}
+\item
+\ct{occurrencesOf:}$unElement$ donne le nombre d'occurrences de
+l'\'element $unElement$ 
+\item
+\ct{add:}$unElement$ \ct{withOccurrences:}$nbOccurrences$ ajoute le nombre d'occurrences $nbOccurrences$ de l'objet $unElement$
+\item
+\ct{remove:}$unElement$ \ct{ifAbsent:}$unBloc$ supprime une occurrence
+l'\'el\'ement $unElement$ s'il est pr\'esent  et 
+\'evalue le bloc $unBloc$ si l'\'el\'ement est absent
+\item
+\ct{removeAllOccurrencesOf:}$unElement$ \ct{ifAbsent:}$unBloc$ supprime
+toutes les occurrences de l'\'el\'ement $unElement$ s'il est pr\'esent  et
+\'evalue le bloc $unBloc$ si l'\'el\'ement est absent
+\item
+\ct{valuesAndCountsDo:}$unBloc$ permet d'it\'erer le bloc $unBloc$ sur des
+couples (objet nb\_occ\_de\_objet) en supposant que le bloc $unBloc$ a deux arguments (analogie avec la m\'ethode \ct{keysAndValuesDo:} des dictionnaires).
+\end{itemize}
+
+\subsection*{Exercices}
+\begin{itemize}
+\exoitem
+R\'ecup\'erer dans un Bag les restes de la division par $2$ des nombres compris entre 1 et 100 000. Inspecter l'objet ainsi obtenu.
+
+\exoitem Faire la somme des \'el\'ements se trouvant dans le Bag. Faire la m\^eme op\'eration sur le tableau correspondant \`a ce bag. Quel est le code qui offre le temps d'ex\'ecution le plus int\'eressant? Pour connaitre le temps d'ex\'ecution d'un code, utilisez l'expression \ct{Time millisecondsToRun:} suivi d'un param\`etre \'etant un bloc sans variable comportant le code \`a \'evaluer. Par exemple \ct{Time millisecondsToRun: [(1 to: 1000) asBag]}.
+
+\exoitem G\'en\'eraliser  le test pr\'ec\'edent sur une collection de tableaux ayant des valeurs constantes et sur une collection de bag comportant les m\^emes \'el\'ements afin de mieux comparer les temps d'ex\'ecution pour l'op\'eration de la somme.
+\end{itemize}
+
+
+\section{Exercices (TD)}
+\subsection{La classe \ct{SequenceableCollection}}
+
+\begin{itemize}
+\exoitem Cr\'eer en utilisant un bloc avec un param\`etre (le param\`etre caract\'erisant la taille des matrices g\'en\'er\'ees) les matrices carr\'es suivantes~:
+
+\begin{scode}
+\#(\#(1))             pour valeur=1
+\#(\#(1 2) \#(1 2))          pour valeur=2
+\#(\#(1 2 3) \#(1 2 3) \#(1 2 3) ) pour valeur=3
+\end{scode}
+ 
+\exoitem  D\'efinir \`a partir d'une matrice (tableau de lignes), un nouveau tableau o\`u les \'el\'ements sont les sommes des lignes du tableau  initial.
+
+\exoitem Soit le tableau \ct{\#('toto' 'lulu' 'guillaume' 'luc' 'laurent')}, d\'efinir un nouveau tableau o\`u les noms sont tri\'es par ordre d\'ecroissant de taille.
+
+\end{itemize}
+\subsection{La classe \ct{Set}}
+\begin{itemize}
+\exoitem Convertir le tableau \#(1 2 3 4 2 4) en set. Quelle est la taille du r\'esultat?
+\exoitem Comment afficher tous les \'el\'ements d'un set dans le Transcript?
+\exoitem Cr\'eer un bloc \`a deux param\`etres --- deux sets --- qui renvoie un set correspondant \`a l'intersection des deux sets
+\exoitem Cr\'eer un bloc \`a deux param\`etres --- un set et un objet quelconque ---
+Si l'objet appartient \`a l'ensemble il est supprim\'e de celui-ci.
+Si il n'y appartient pas, le message "l'objet monObjet n'appartient pas a
+l'ensemble" est affich\'e sur le Transcript.
+\end{itemize}
+
+\subsection{La classe Bag}
+\begin{itemize}
+\exoitem Cr\'eer un bag et y ajouter tous les \'el\'ements du tableau \ct{\#(1 1 1 2 34)}
+
+\exoitem Convertir le tableau \#(1 1 1 2 34) en Bag
+
+\exoitem Ecrire un bloc avec une variable qui prend un bag et qui renvoie un bag.
+Les valeurs du second bag correspondent au double des valeurs du premier bag
+
+\exoitem Ecrire un bloc avec une variable qui prend un bag et qui renvoie un dictionnaire.
+Le dictionnaire contient les associations \'el\'ement du bag \assoc nombre d'occurrences de l'\'el\'ement. 
+
+\exoitem Modifier le bloc pr\'ec\'edent pour qu'il renvoie la somme de \underline{tous} les \'el\'ements du bag param\`etre
+\end{itemize}
+
+\subsection{La classe \ct{Dictionary}}
+
+\begin{itemize}
+\exoitem Cr\'eer un nouveau dictionnaire. Quelle est sa taille? Pourquoi?
+\exoitem Y ajouter l'objet 15 \`a la cl\'e 1
+\exoitem Y ajouter l'association 2 \assoc 5
+\exoitem Que se passe-t-il si on ajoute l'association 2 \assoc 6?
+\exoitem Inspecter les cl\'es du dictionnaire
+\exoitem On d\'ecrit un parcours sous la forme d'une liste de trajets. Cr\'eer un dictionnaire dont
+les cl\'es sont les points de d\'epart et les valeurs les points d'arriv\'ee \`a partir du tableau suivant:
+
+\begin{tabular}{|l|l|}
+\hline
+Brest	&Quimper \\
+\hline
+Quimper	&Lorient \\
+\hline
+Nantes  &Vannes \\
+\hline
+Rennes	&Nantes \\
+\hline
+\end{tabular}
+ 
+\exoitem Cr\'eer un block qui prend en param\`etre le dictionnaire et qui \'ecrit sur le Transcript l'ensemble des trajets. \underline{exemple:} 'De Brest je peux aller \`a Quimper'
+
+\end{itemize}
+
+
+
+\ifx\wholebook\relax\else\end{document}\fi

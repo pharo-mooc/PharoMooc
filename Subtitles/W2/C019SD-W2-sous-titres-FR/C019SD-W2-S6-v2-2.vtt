@@ -1,0 +1,481 @@
+WEBVTT
+
+00:00:00.200 --> 00:00:01.590 align:middle
+Dans cette séquence, je
+vous présente les blocks.
+
+00:00:02.770 --> 00:00:05.230 align:middle
+Les blocks sont des sortes
+de méthodes anonymes aussi
+
+00:00:05.430 --> 00:00:06.740 align:middle
+appelées des fermetures lexicales.
+
+00:00:07.310 --> 00:00:08.410 align:middle
+Elles sont partout dans Pharo.
+
+00:00:08.910 --> 00:00:11.320 align:middle
+Elles constituent la
+base pour les boucles, les
+
+00:00:11.520 --> 00:00:13.060 align:middle
+conditionnels, les
+itérateurs et même les traitements
+
+00:00:13.260 --> 00:00:14.520 align:middle
+graphiques, voire
+les langages dédiés.
+
+00:00:14.920 --> 00:00:17.400 align:middle
+En fait, elles sont au cœur du
+système, comme nous le verrons.
+
+00:00:17.600 --> 00:00:19.120 align:middle
+Pour la petite anecdote,
+elles ont seulement été
+
+00:00:19.320 --> 00:00:21.190 align:middle
+introduites dans la
+dernière version de Java.
+
+00:00:23.210 --> 00:00:27.310 align:middle
+Pour définir un block, on va utiliser
+en fait des crochets, syntaxiquement.
+
+00:00:27.580 --> 00:00:30.740 align:middle
+Ici, vous avez un exemple,
+on a un crochet ouvrant, un
+
+00:00:30.940 --> 00:00:32.760 align:middle
+ensemble d'expressions et
+puis un crochet fermant.
+
+00:00:35.180 --> 00:00:37.700 align:middle
+On va parler de
+définition d'un block.
+
+00:00:38.760 --> 00:00:40.240 align:middle
+Je vais vous
+prendre un autre exemple.
+
+00:00:40.440 --> 00:00:42.480 align:middle
+Ici, on a une expression : 1/0.
+
+00:00:43.210 --> 00:00:46.750 align:middle
+Si on exécute cette expression, on
+voit qu'elle retourne bien une erreur.
+
+00:00:48.940 --> 00:00:51.370 align:middle
+On encapsule cette
+expression dans un block, ici, je
+
+00:00:51.570 --> 00:00:53.850 align:middle
+définis un block qui
+contient l'expression 1/0.
+
+00:00:55.270 --> 00:00:58.340 align:middle
+Si j'évalue la définition de
+ce block, en fait, il ne se
+
+00:00:58.540 --> 00:00:59.870 align:middle
+passe rien, donc je
+n'ai pas d'erreur.
+
+00:01:00.290 --> 00:01:03.230 align:middle
+J'ai le block qui m'est
+retourné, parce qu'en fait la
+
+00:01:03.430 --> 00:01:06.000 align:middle
+définition d'un block n'exécute
+pas les expressions qu'il contient.
+
+00:01:07.860 --> 00:01:11.620 align:middle
+Donc ici, on peut définir
+autant de blocks qu'on veut,
+
+00:01:11.820 --> 00:01:14.210 align:middle
+les expressions à
+l'intérieur sont comme figées.
+
+00:01:15.670 --> 00:01:19.200 align:middle
+Pour évaluer les
+expressions qu'un block contient, il
+
+00:01:19.400 --> 00:01:21.620 align:middle
+faut le faire explicitement en
+lui envoyant le message value.
+
+00:01:22.120 --> 00:01:25.030 align:middle
+On a un exemple ici, on a
+un block 2+6, et puis on lui
+
+00:01:25.230 --> 00:01:28.660 align:middle
+envoie le message value.
+Cette fois-ci, les expressions à
+
+00:01:28.860 --> 00:01:33.290 align:middle
+l'intérieur vont être évaluées et
+on va nous rendre le résultat: 8.
+
+00:01:34.640 --> 00:01:36.650 align:middle
+Par contre, si l'une des
+expressions à l'intérieur du
+
+00:01:36.850 --> 00:01:39.450 align:middle
+block contient une erreur,
+évidemment l'erreur va être
+
+00:01:39.650 --> 00:01:40.940 align:middle
+retournée au moment de
+l'évaluation du block.
+
+00:01:41.320 --> 00:01:42.660 align:middle
+C'est l'exemple numéro 2 ici.
+
+00:01:42.860 --> 00:01:46.780 align:middle
+Si 1 est divisé par 0,
+j'envoie le message value au block
+
+00:01:47.000 --> 00:01:50.170 align:middle
+et on a bien une
+erreur qui est retournée.
+
+00:01:50.370 --> 00:01:52.490 align:middle
+Les blocks en fait peuvent
+aussi avoir des arguments,
+
+00:01:53.370 --> 00:01:56.120 align:middle
+donc là c'est le cas dans cet
+exemple comme pour les méthodes.
+
+00:01:56.730 --> 00:02:00.750 align:middle
+Le block est défini, il
+est toujours ouvert par un
+
+00:02:00.950 --> 00:02:03.570 align:middle
+crochet ouvrant et fermé
+par un crochet fermant.
+
+00:02:03.770 --> 00:02:07.680 align:middle
+On a l'ensemble des arguments qui
+sont ici préfixés par des deux points.
+
+00:02:08.730 --> 00:02:12.360 align:middle
+Et puis ensuite, on a une
+barre verticale, donc un |, qui
+
+00:02:12.560 --> 00:02:15.250 align:middle
+permet de séparer la partie
+déclaration des arguments de
+
+00:02:15.450 --> 00:02:18.010 align:middle
+la partie corps du block, donc
+l'ensemble des expressions qu'il contient.
+
+00:02:18.720 --> 00:02:22.780 align:middle
+L'argument s'appelle x dans
+cet exemple et puis x+2, c'est
+
+00:02:23.000 --> 00:02:24.300 align:middle
+la seule expression
+que contient le block.
+
+00:02:24.700 --> 00:02:27.080 align:middle
+Si j'envoie le
+message value au block.
+
+00:02:27.470 --> 00:02:29.770 align:middle
+Ici, il faut utiliser un
+message particulier donc c'est
+
+00:02:30.000 --> 00:02:32.250 align:middle
+value: avec un paramètre,
+puisqu'on va lui passer en même
+
+00:02:32.450 --> 00:02:36.120 align:middle
+temps la valeur 5 qui va se
+substituer à l'argument x au
+
+00:02:36.320 --> 00:02:38.070 align:middle
+moment de l'évaluation des
+expressions dans le block.
+
+00:02:39.070 --> 00:02:43.380 align:middle
+Si ce block, je lui envoie
+le message value: 5, on va
+
+00:02:43.580 --> 00:02:47.240 align:middle
+bien avoir le résultat 7 puisque
+x vaudra 5 pendant l'évaluation
+
+00:02:47.440 --> 00:02:49.060 align:middle
+de ce block.
+
+00:02:49.260 --> 00:02:51.420 align:middle
+Ça, c'est l'exemple que j'ai
+montré juste avant sauf que
+
+00:02:51.620 --> 00:02:55.270 align:middle
+dans ce nouvel exemple, on a
+plusieurs expressions dans le block.
+
+00:02:55.540 --> 00:02:58.630 align:middle
+Ici, j'en ai 2, donc x + 33 et x + 2.
+
+00:02:59.000 --> 00:03:02.120 align:middle
+Sauf que quand j'envoie le
+message value: 5 pour évaluer
+
+00:03:02.320 --> 00:03:06.370 align:middle
+les expressions de ce
+block, en fait ce qui va être
+
+00:03:06.570 --> 00:03:10.450 align:middle
+retourné par l'évaluation,
+c'est uniquement la valeur de
+
+00:03:10.650 --> 00:03:11.900 align:middle
+la dernière expression du block.
+
+00:03:12.250 --> 00:03:15.910 align:middle
+Ici, c'est seulement le
+résultat de x + 2 qui va être
+
+00:03:16.110 --> 00:03:20.000 align:middle
+retourné, donc 7.
+
+00:03:20.190 --> 00:03:21.790 align:middle
+Les blocks sont des objets
+comme les autres en Pharo.
+
+00:03:22.590 --> 00:03:24.400 align:middle
+Ils peuvent être
+sauvegardés dans des variables
+
+00:03:24.600 --> 00:03:26.700 align:middle
+temporaires et puis on
+peut leur envoyer des messages
+
+00:03:26.900 --> 00:03:29.550 align:middle
+comme pour des objets
+ classiques. Donc là, c'est l'exemple
+
+00:03:29.750 --> 00:03:30.620 align:middle
+que je vous montre ici.
+
+00:03:31.600 --> 00:03:35.930 align:middle
+On peut stocker la
+définition de ce block x + 2 dans une
+
+00:03:36.130 --> 00:03:38.290 align:middle
+variable qui s'appelle add2
+et puis ensuite, on va lui
+
+00:03:38.490 --> 00:03:40.640 align:middle
+envoyer des messages pour
+évaluer plusieurs fois ce block.
+
+00:03:40.900 --> 00:03:42.710 align:middle
+Je vais lui envoyer une
+première fois le message value:
+
+00:03:43.240 --> 00:03:46.630 align:middle
+en lui disant de s'évaluer avec la
+valeur 5, donc ça va nous rendre 7.
+
+00:03:46.830 --> 00:03:48.640 align:middle
+Et puis une deuxième fois,
+le message value: avec la
+
+00:03:48.840 --> 00:03:51.210 align:middle
+valeur 33 où ça va
+nous rendre la valeur 35.
+
+00:03:52.600 --> 00:03:55.810 align:middle
+On peut aussi définir des
+blocks avec plusieurs arguments.
+
+00:03:56.330 --> 00:03:59.120 align:middle
+Ici, je vous donne un
+exemple avec x et y, donc il y a
+
+00:03:59.320 --> 00:04:00.510 align:middle
+deux arguments pour ce block.
+
+00:04:01.060 --> 00:04:03.120 align:middle
+Par contre, comment est-ce
+qu'on pourrait faire pour
+
+00:04:03.500 --> 00:04:06.750 align:middle
+évaluer ce block, puisqu'il
+faudrait maintenant passer
+
+00:04:06.950 --> 00:04:11.430 align:middle
+deux valeurs pour déclencher
+l'évaluation, à la fois 5 et
+
+00:04:11.630 --> 00:04:14.180 align:middle
+7 qui viendraient se
+substituer à x et y?
+
+00:04:14.410 --> 00:04:17.400 align:middle
+La réponse, c'est qu'en
+fait on va utiliser le message
+
+00:04:17.690 --> 00:04:22.330 align:middle
+value: value: qui est
+une méthode de la classe
+
+00:04:22.530 --> 00:04:27.460 align:middle
+block. 5 va bien se
+substituer à x et 7 va se substituer
+
+00:04:27.660 --> 00:04:29.660 align:middle
+à y et on aura bien le résultat 12.
+
+00:04:33.110 --> 00:04:35.670 align:middle
+Comme pour les méthodes, un
+block peut aussi avoir des
+
+00:04:35.870 --> 00:04:38.530 align:middle
+variables temporaires.
+Ici, je vous donne un exemple,
+
+00:04:38.880 --> 00:04:40.840 align:middle
+mais cette fois, c'est un
+exemple en conditions réelles
+
+00:04:41.040 --> 00:04:42.680 align:middle
+puisqu'il est extrait
+de la classe Collection.
+
+00:04:43.810 --> 00:04:47.740 align:middle
+Le block commence
+ici et se termine ici.
+
+00:04:49.400 --> 00:04:52.840 align:middle
+Ce block a un
+argument qui s'appelle index.
+
+00:04:53.700 --> 00:04:56.570 align:middle
+Et puis, il a une variable
+temporaire définie entre deux
+
+00:04:56.770 --> 00:04:58.840 align:middle
+barres obliques ici,
+qui s'appelle args.
+
+00:04:59.950 --> 00:05:04.630 align:middle
+Cette variable
+temporaire args n'existe que
+
+00:05:04.830 --> 00:05:07.100 align:middle
+pendant l'évaluation
+des expressions du block.
+
+00:05:10.300 --> 00:05:12.020 align:middle
+Les blocks sont
+définis dans des méthodes.
+
+00:05:12.220 --> 00:05:15.380 align:middle
+Donc dans un block, on
+peut aussi utiliser le return.
+
+00:05:16.780 --> 00:05:21.200 align:middle
+Je vous donne un exemple ici
+issu de la classe Integer, c'est
+
+00:05:21.400 --> 00:05:23.000 align:middle
+la méthode qui s'appelle factorielle.
+
+00:05:24.330 --> 00:05:27.810 align:middle
+On a plusieurs blocks dans
+cette méthode: un ici, un ici.
+
+00:05:28.250 --> 00:05:32.280 align:middle
+Et puis ces blocks contiennent des
+return, c'est le symbole qui est ici.
+
+00:05:32.550 --> 00:05:35.910 align:middle
+Le return va permettre de sortir de la
+méthode factorielle dans cet exemple.
+
+00:05:36.140 --> 00:05:38.940 align:middle
+Par exemple, si j'envoie le
+message factoriel 0, j'obtiens
+
+00:05:40.190 --> 00:05:45.060 align:middle
+bien la réponse 1 et
+j'obtiens 1 en fait grâce au return
+
+00:05:45.260 --> 00:05:47.530 align:middle
+qui est ici le premier
+return dans le block qui permet de
+
+00:05:47.730 --> 00:05:49.580 align:middle
+faire sortir de la
+méthode factorielle.
+
+00:05:49.890 --> 00:05:52.780 align:middle
+Le return dans un block
+permet de sortir de la méthode
+
+00:05:53.250 --> 00:05:54.790 align:middle
+qui contient la définition du block.
+
+00:05:56.960 --> 00:05:59.720 align:middle
+Un petit conseil quand
+vous utilisez des blocks.
+
+00:05:59.920 --> 00:06:02.360 align:middle
+Les blocks sont des
+éléments extrêmement puissants.
+
+00:06:02.580 --> 00:06:04.660 align:middle
+Il faut les utiliser avec parcimonie.
+
+00:06:04.860 --> 00:06:08.640 align:middle
+Il ne faut pas aller au-delà de
+deux à trois arguments sur un block.
+
+00:06:08.840 --> 00:06:10.330 align:middle
+Si on va plus loin, ça
+devient vite incompréhensible.
+
+00:06:11.630 --> 00:06:14.700 align:middle
+Il vaut mieux définir une
+ classe avec des variables d'instances
+
+00:06:14.900 --> 00:06:16.880 align:middle
+et des méthodes où ça
+sera beaucoup plus lisible.
+
+00:06:18.320 --> 00:06:22.000 align:middle
+En résumé, dans cette séquence, on a
+vu les blocks, on a vu leur syntaxe.
+
+00:06:22.960 --> 00:06:26.280 align:middle
+On a vu que c'étaient des sortes
+de méthodes anonymes, c'est-à-dire
+
+00:06:26.490 --> 00:06:27.870 align:middle
+des fermetures lexicales.
+
+00:06:28.100 --> 00:06:30.250 align:middle
+On peut stocker les blocks
+dans des variables, c'est des
+
+00:06:30.450 --> 00:06:31.620 align:middle
+objets comme les autres en Pharo.
+
+00:06:31.820 --> 00:06:34.950 align:middle
+On verra dans les
+prochaines séquences que les blocks
+
+00:06:35.150 --> 00:06:37.860 align:middle
+sont à la base d'énormément
+de constructions en Pharo:
+
+00:06:38.060 --> 00:06:39.620 align:middle
+les boucles, les itérations, etc.
+

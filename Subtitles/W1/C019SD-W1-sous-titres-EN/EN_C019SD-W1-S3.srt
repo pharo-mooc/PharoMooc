@@ -1,0 +1,518 @@
+﻿1
+00:00:00,040 --> 00:00:00,880
+Hello.
+
+2
+00:00:01,040 --> 00:00:04,720
+In this lecture I want to show you
+the vision behind Pharo.
+
+3
+00:00:04,880 --> 00:00:07,760
+Why are people taking part in Pharo?
+
+4
+00:00:07,920 --> 00:00:11,480
+This will help you to understand
+
+5
+00:00:11,720 --> 00:00:14,720
+where Pharo is going
+and why people use it.
+
+6
+00:00:14,920 --> 00:00:17,240
+The basic idea is to create
+
+7
+00:00:17,400 --> 00:00:19,760
+a tool, an infrastructure,
+
+8
+00:00:19,920 --> 00:00:23,000
+which will enable people
+to reinvent their future,
+
+9
+00:00:23,160 --> 00:00:25,360
+to use the web in new ways,
+
+10
+00:00:25,520 --> 00:00:29,520
+to create new tools,
+new forms of computation and so on...
+
+11
+00:00:29,680 --> 00:00:33,880
+For this, the notion of an engine
+is very important.
+
+12
+00:00:34,040 --> 00:00:37,440
+It means the infrastructure,
+the compiler, the services
+
+13
+00:00:37,600 --> 00:00:38,960
+and that sort of thing.
+
+14
+00:00:39,360 --> 00:00:43,760
+On a twin track, there's the idea
+of creating an ecosystem
+
+15
+00:00:44,000 --> 00:00:46,400
+in which innovation
+creates new things
+
+16
+00:00:46,560 --> 00:00:49,560
+to give us a competitive edge,
+
+17
+00:00:49,720 --> 00:00:51,960
+and in which business can bloom.
+
+18
+00:00:52,120 --> 00:00:55,720
+So how do we understand
+this metaphor of ecosystem?
+
+19
+00:00:55,960 --> 00:01:00,320
+Via the teachers. There are
+30 universities around the world
+
+20
+00:01:00,480 --> 00:01:02,920
+which teach Pharo.
+
+21
+00:01:03,640 --> 00:01:05,600
+Via the research groups.
+
+22
+00:01:05,760 --> 00:01:07,960
+There are 15 or so research groups
+
+23
+00:01:08,120 --> 00:01:11,160
+doing software engineering,
+but not only that,
+
+24
+00:01:11,680 --> 00:01:12,960
+around the world.
+
+25
+00:01:13,120 --> 00:01:14,480
+And via the companies.
+
+26
+00:01:14,640 --> 00:01:16,400
+The basic idea of Pharo
+
+27
+00:01:16,560 --> 00:01:19,240
+is not to be an academic language,
+
+28
+00:01:19,400 --> 00:01:23,200
+but to be a language used by people
+in order to make money
+
+29
+00:01:23,360 --> 00:01:26,640
+and live off their programming.
+
+30
+00:01:27,760 --> 00:01:31,120
+You can see some success stories
+on the website.
+
+31
+00:01:31,280 --> 00:01:33,360
+Here's the address.
+
+32
+00:01:33,520 --> 00:01:36,360
+You can really see
+what people do with it.
+
+33
+00:01:36,520 --> 00:01:39,480
+I'm often surprised
+at what people do with Pharo.
+
+34
+00:01:39,640 --> 00:01:42,800
+It's not just cool
+because we say it is.
+
+35
+00:01:42,960 --> 00:01:45,120
+People do real stuff with it.
+
+36
+00:01:46,000 --> 00:01:49,840
+You have to realise
+that for the development team
+
+37
+00:01:50,000 --> 00:01:51,840
+Pharo is a vehicle.
+
+38
+00:01:52,000 --> 00:01:56,320
+We're the guys in black
+around the Formula 1 car.
+
+39
+00:01:56,480 --> 00:01:57,960
+We improve it every day.
+
+40
+00:01:58,120 --> 00:02:01,120
+Pharo isn't something finished,
+
+41
+00:02:01,280 --> 00:02:05,480
+it's something
+that's constantly being improved.
+
+42
+00:02:06,720 --> 00:02:09,440
+It's quite young
+for a programming language.
+
+43
+00:02:09,600 --> 00:02:11,600
+It began in 2008.
+
+44
+00:02:11,760 --> 00:02:15,880
+The more it advances,
+the more exciting its future looks.
+
+45
+00:02:16,040 --> 00:02:18,160
+I'll say a bit about that.
+
+46
+00:02:18,320 --> 00:02:21,800
+Most companies
+do web content now with Pharo
+
+47
+00:02:21,960 --> 00:02:24,760
+because the web stack is excellent.
+
+48
+00:02:24,920 --> 00:02:28,200
+We're going to use Seaside
+
+49
+00:02:28,360 --> 00:02:31,480
+in this course,
+but we can also use REST.
+
+50
+00:02:31,640 --> 00:02:36,200
+There are several HTTP servers
+that are used.
+
+51
+00:02:36,360 --> 00:02:40,720
+It's a company that developed
+Pharo the HTTP server.
+
+52
+00:02:40,880 --> 00:02:42,400
+There's the micro server Teapot.
+
+53
+00:02:42,560 --> 00:02:46,440
+You have the WebSockets
+and identifications.
+
+54
+00:02:46,760 --> 00:02:50,960
+Metadescription of data to avoid
+generating automatic forms.
+
+55
+00:02:51,120 --> 00:02:55,480
+Connections to databases,
+whether SQL or relational.
+
+56
+00:02:55,640 --> 00:02:58,600
+And loads of protocols.
+Some come out every day.
+
+57
+00:02:58,760 --> 00:03:03,720
+People make packages
+which cover these functions.
+
+58
+00:03:04,840 --> 00:03:06,200
+Pharo is open.
+
+59
+00:03:06,360 --> 00:03:11,600
+What this means is that you can help
+and have an impact,
+
+60
+00:03:11,760 --> 00:03:15,120
+but at least read
+and have access to Pharo.
+
+61
+00:03:15,360 --> 00:03:18,200
+One important thing
+
+62
+00:03:18,360 --> 00:03:22,280
+which people have trouble
+putting into concrete terms
+
+63
+00:03:22,440 --> 00:03:26,840
+is that Pharo is a system
+which enables you.
+
+64
+00:03:27,000 --> 00:03:30,800
+Here I'm showing you
+a quotation from an American
+
+65
+00:03:30,960 --> 00:03:34,240
+who changed
+a very fundamental aspect of Pharo:
+
+66
+00:03:34,400 --> 00:03:35,560
+the delay.
+
+67
+00:03:35,720 --> 00:03:39,480
+It's a function for adjusting
+the concurrency in the system.
+
+68
+00:03:39,640 --> 00:03:43,720
+He found that it couldn't
+be tested in isolation.
+
+69
+00:03:43,880 --> 00:03:47,680
+He suggested changes in Pharo
+
+70
+00:03:47,840 --> 00:03:50,960
+so these functions
+could be tested individually.
+
+71
+00:03:51,120 --> 00:03:55,280
+And his changes
+were incorporated into Pharo.
+
+72
+00:03:55,440 --> 00:03:59,360
+What's really interesting
+- I'll let you read the quotation -
+
+73
+00:03:59,520 --> 00:04:03,720
+is that he says he was really amazed
+
+74
+00:04:03,880 --> 00:04:06,800
+that he could simply think of doing it
+and do it.
+
+75
+00:04:06,960 --> 00:04:11,120
+And similarly, with this slide,
+Turtles all the way down,
+
+76
+00:04:11,280 --> 00:04:15,720
+meaning there are objects
+all the way down,
+
+77
+00:04:15,880 --> 00:04:20,800
+the creator of Seaside, who knew
+ruby, python, scheme, objective-C,
+
+78
+00:04:21,040 --> 00:04:23,120
+developed Seaside
+in Pharo's ancestor.
+
+79
+00:04:23,280 --> 00:04:26,920
+I asked him why he used Pharo.
+He said, "Because I could."
+
+80
+00:04:27,080 --> 00:04:30,400
+"I can manipulate the stack
+behind the programmers' backs
+
+81
+00:04:30,560 --> 00:04:33,920
+"and suggest an abstraction
+I couldn't in another language."
+
+82
+00:04:34,080 --> 00:04:37,920
+This empowering
+is really very interesting.
+
+83
+00:04:39,840 --> 00:04:42,960
+I want to talk
+about the mid-term vision of Pharo.
+
+84
+00:04:43,120 --> 00:04:46,000
+What will Pharo be in about 5 years?
+
+85
+00:04:46,160 --> 00:04:49,280
+The core will be bootstrapped.
+
+86
+00:04:49,440 --> 00:04:53,040
+Meaning we'll be able
+to reconstruct it from itself.
+
+87
+00:04:53,200 --> 00:04:55,440
+Which isn't possible
+at the moment.
+
+88
+00:04:55,600 --> 00:04:59,200
+We'll have a better integration
+with OSes and C.
+
+89
+00:04:59,360 --> 00:05:03,200
+We can imagine launching a Pharo app
+in any C application.
+
+90
+00:05:03,360 --> 00:05:07,680
+It'll be a more modular system
+with validated distributions.
+
+91
+00:05:07,840 --> 00:05:12,240
+If someone writes
+an XML parser, for example,
+
+92
+00:05:12,400 --> 00:05:15,360
+you'll want to know
+if it's passed all the tests,
+
+93
+00:05:15,520 --> 00:05:18,200
+if it functions
+in whatever version of Pharo,
+
+94
+00:05:18,360 --> 00:05:20,880
+if the non-regression rules
+are satisfied...
+
+95
+00:05:21,040 --> 00:05:24,440
+So really using software engineering
+to validate
+
+96
+00:05:24,600 --> 00:05:26,680
+what is made around the world,
+
+97
+00:05:26,840 --> 00:05:31,320
+so the people using Pharo can be
+assured of the level of quality.
+
+98
+00:05:32,640 --> 00:05:37,640
+There's an effort now to make tools
+more powerful than they presently are.
+
+99
+00:05:38,480 --> 00:05:40,360
+The idea is to have a system
+
+100
+00:05:40,520 --> 00:05:42,920
+that can adapt
+as well to a coffee machine
+
+101
+00:05:43,080 --> 00:05:44,840
+as to the cloud.
+
+102
+00:05:45,000 --> 00:05:48,960
+The Pharo development team
+is working on this sort of thing.
+
+103
+00:05:49,120 --> 00:05:51,280
+It'll soon be available
+for everyone.
+
+104
+00:05:52,240 --> 00:05:56,560
+So Pharo, with its aim
+to have an impact on real life
+
+105
+00:05:56,720 --> 00:05:58,520
+and involve companies,
+
+106
+00:05:58,680 --> 00:06:02,040
+has created an industrial consortium.
+
+107
+00:06:02,560 --> 00:06:05,200
+The idea is to promote Pharo,
+
+108
+00:06:05,360 --> 00:06:09,400
+to sustain its constant development,
+
+109
+00:06:09,840 --> 00:06:13,200
+to improve its visibility
+and provide support.
+
+110
+00:06:13,440 --> 00:06:17,080
+Here are some members
+of the Pharo consortium.
+
+111
+00:06:17,240 --> 00:06:21,720
+There are small companies
+but big ones too, like Lam Research and Thales.
+
+112
+00:06:22,160 --> 00:06:25,960
+And a lot of universities
+and research groups.

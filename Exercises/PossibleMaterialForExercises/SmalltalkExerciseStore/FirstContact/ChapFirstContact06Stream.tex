@@ -1,0 +1,230 @@
+% $Author: ducasse $
+% $Date: 2005/09/17 16:33:53 $
+% $Revision: 1.2 $
+\ifx\wholebook\relax\else
+\input{../Common.tex}
+\begin{document}
+\fi
+
+\chapter{Streams: Les acc\'es}
+
+\mainauthor{Bernard Pottier, Universit\'e de Brest}
+\sd{add Unit tests}
+
+\section{D\'efinition}
+
+\ct{Stream} et les sous-classes de \ct{Stream} fournissent un m\'ecanisme d'acc\`es
+s\'equentiel sur des objets, internes ou externes.
+
+Lorsqu'une instance de \ct{Stream}  est utilis\'ee,  elle a seule le contr\^ole de l'objet acc\'ed\'e, qui ne devrait pas \^etre utilis\'e directement.  La resynchronisation de l'objet lu ou \'ecrit peut impliquer une op\'eration de mise \`a jour (\ct{flush},  ou \ct{commit} pour assurer la mise \`a jour d'une entr\'ee-sortie\ldots). La raison est que le m\'ecanisme s\'equentiel tamponne les donn\'ees en lecture ou en \'ecriture afin d'\'economiser les transferts.
+
+\section{Cr\'eations et acc\`es}
+
+\subsection{Cr\'eations}
+On cr\'ee un stream\footnote{en fran\c{c}ais, un fl\^ot} en s'appuyant sur
+des classes telles que \ct{ReadStream}, \ct{WriteStream}, \ct{ReadWriteStream},
+lors que l'objet est interne. D'autres classes sont utilis\'ees pour les acc\`es s\'equentiels externes, pour les entr\'ee-sorties. Certain objets  savent rendre des \ct{Stream} en r\'eponse au message \ct{readStream} ou \ct{writeStream}; c'est le cas des fichiers
+\ct{Filename}.
+
+On obtient un stream en exp\'ediant le message \ct{on:} \`a la classe \`a instancier. On  passe un objet vide lorsque l'on veut \'ecrire, une collection s\'equen\c{c}able pleine lorsque l'on veut lire. Le stream s'occupe de faire grossir votre objet lorsque le besoin s'en fait sentir, en respectant sa classe.
+
+
+\begin{itemize}
+\item \ct{ReadStream on: 'A Plouescat, la joie eclate!'}
+\item \ct{(WriteStream on: (Array new: 3))}
+\end{itemize}
+
+\subsection{Extraction du contenu, tests}
+
+Le contenu du stream ne devrait pas \^etre acc\'ed\'e directement.
+Il faut r\'ecup\'erer ce contenu en exp\'ediant le message
+\ct{contents} au stream. L'exemple qui suit montre l'insertion
+et l'extraction de l'objet:
+
+\begin{scode}
+\stBar monStream \stBar
+monStream := ReadStream on: 'A Plouescat, la joie eclate!'.
+monStream contents.   " 'A Plouescat, la joie eclate!'"
+\end{scode}
+
+On peut noter qu'il est possible de savoir si on est au bout d'une lecture
+(fin de fichier, dernier \'el\'ement d'un objet), \`a l'aide du message \ct{atEnd}.
+On peut se positionner en fin de stream \`a l'aide de \ct{setToEnd}.
+La position dans le stream est contr\^olable \`a l'aide du message \ct{position}.
+
+\begin{scode}
+\stBar monStream \stBar
+monStream := ReadStream on: 'A Plouescat, la joie eclate!'.
+monStream atEnd. "(printIt) false"
+monStream setToEnd ; position. "(printIt) 28"
+monStream  position: 12; position "(printIt) 12"
+\end{scode}
+
+\subsection{Acc\`es en lecture}
+
+\subsubsection{Lecture s\'equentielle d'un \'el\'ement}
+La lecture est op\'er\'ee en exp\'ediant le message \ct{next}.
+Le stream fait progresser son index interne et effectue d'autres
+op\'erations si n\'ecessaire.
+
+\begin{scode}
+\stBar array stream \stBar
+array := #( 2  3 6 7 9 0 ).
+stream := ReadStream on: array.
+stream next. stream next. " 3"
+\end{scode}
+
+\subsubsection{lecture d'une s\'equence}
+On peut pr\'elever un nombre arbitraire d'\'el\'ements en utilisant le message \ct{nextAvailable: unEntier}. Bien entendu, on ne peut d\'epasser la capacit\'e de l'objet acc\'ed\'e, si celle-ci est born\'ee. 
+
+\begin{scode}
+\stBar array stream \stBar
+array := #( 2  3 6 7 9 0 ).
+stream := ReadStream on: array.
+stream nextAvailable: 3. " (printIt) #(2 3 6)"
+stream nextAvailable:12." (printIt) #(7 9 0)"
+\end{scode}
+
+\subsubsection{lecture d'une s\'equence sur condition}
+Il est souvent int\'eressant de pr\'elever des \'el\'ements jusqu'\`a ce qu'une
+condition soit obtenue.
+
+\begin{itemize}
+\item \ct{upToEnd}: \'epuise le contenu de l'objet.\\
+\begin{scode}
+\stBar array stream \stBar
+array := #( 2  3 6 7 9 0 ).
+stream := ReadStream on: array.
+stream nextAvailable: 3. " (printIt) #(2 3 6)"
+stream upToEnd." (printIt) #(7 9 0)" 
+\end{scode}
+
+\item \ct{through: limit}: lit jusque la prochaine occurence de l'objet \ct{limit}.\\
+\begin{scode}
+\stBar stream \stBar
+stream := ReadStream on: 'C''est a Morlaix que l''on se plait'.
+stream through:  $'.  
+stream through:  $'. " (printIt)'est a Morlaix que l'''" 
+\end{scode}
+\end{itemize}
+
+\subsection{Ecriture}
+
+En \'ecriture, on envoie \ct{nextPut: unElement}, qui ins\`ere 
+l'\'ele\'ement au bout de l'objet. On  peut provoquer l'insertion
+d'une collection d'\'el\'ements avec {nextPutAll: uneCollection}
+
+\begin{scode}
+\stBar  stream \stBar
+stream := WriteStream on: (Array new: 4).
+stream nextPut: 3/2.
+stream nextPutAll: #( 2  3 6 7 9 0 ).
+stream contents	" #((3/2) 2 3 6 7 9 0)" 
+\end{scode}
+
+\section{Application \`a l'affichage des messages}
+
+La fen\^etre \ct{Transcript} sert \`a l'affichage des messages.
+On peut obtenir le texte contenu dans cette fen\^etre via le
+message \ct{value}:\\
+\ct{Transcript value asString} \\
+
+On \'ecrit dans le Transcript comme dans un stream de caract\`eres:\\
+\ct{Transcript nextPut: Character cr. \\ 
+Transcript nextPutAll: 'A Plouarzel, on fait du zele'.\\
+Transcript flush.}
+
+Noter que le message \ct{flush} est indispensable pour provoquer
+l'affichage imm\'ediat des caract\`eres ins\'er\'es.
+Les Stream savent g\'erer l'insertion de caract\`eres non imprimables
+plus simplement:\\
+\ct{Transcript  cr; tab;  nextPutAll: 'A Plouarzel, on fait du zele'; \\
+space;cr; flush}
+
+\section{Cas des fichiers}
+
+Un fichier est rep\'er\'e par un {\sl nom}, instance de la classe
+\ct{Filename}. On peut choisir un nom de  fichier (\ct{String})
+via un dialogue sp\'ecialis\'e:\\
+\begin{scode}
+\stBar nom \stBar
+nom :=  Dialog requestFileName: 'nom du fichier?'
+\end{scode}
+
+Une fois ce nom choisi, on peut lui associer un fichier en 
+convertissant la chaine en une instance de \ct{Filename}:\\
+\begin{scode}
+\stBar nom  fileName \stBar
+nom :=  Dialog requestFileName: 'nom du fichier?'.
+fileName := nom asFilename.
+\end{scode}
+
+On obtient ensuite ais\'ement un stream en lecture ou \'ecriture
+en exp\'ediant les messages \ct{writeStream}:\\
+\begin{scode}
+\stBar stream \stBar
+stream := 'Transcript.file' asFilename writeStream.
+stream nextPutAll: Transcript value.
+stream commit ; close.
+\end{scode}
+
+ ou \ct{readStream}, en lecture:\\
+\begin{scode}
+\stBar stream nomDuFichier \stBar
+nomDuFichier := Dialog requestFileName: 'nom du fichier?'.
+stream  := nomDuFichier asFilename readStream.
+Transcript nextPutAll:    stream contents. 
+Transcript flush. stream close.
+\end{scode}
+
+
+\section{Exercices}
+\subsection{Analyse lexicale}
+\subsubsection{En phrases}
+{\sl On peut obtenir le texte de la  fen\^etre Transcript en exp\'ediant le message
+\ct{value}. Construire une collection des phrases contenues dans ce texte:\\}
+
+
+\begin{scode}
+\stBar rStream phrases \stBar
+rStream := ReadStream on:  Transcript value asString. "lecture sur la chaine"
+phrases := WriteStream on: (Array new: 100). "ecriture sur  des tableaux"
+[ rStream atEnd ] whileFalse: 
+      	[ phrases nextPut: ( rStream upTo: $. )].
+phrases contents
+\end{scode}
+
+\subsubsection{Renverser les mots}
+{\sl On utilise le texte de la  fen\^etre Transcript.
+Produire un texte o\`u les mots sont \'ecrits \`a l'envers\ldots} 
+~\\
+\begin{scode}
+ \stBar rStream texte ligneStream mot \stBar
+rStream := ReadStream on:  Transcript value asString. "lecture sur la chaine"
+texte := WriteStream on: (String new: 1000). "ecriture du nouveau texte."
+[ rStream atEnd ] whileFalse: 
+      	[ ligneStream := ReadStream on: ( rStream upTo: Character cr).
+                [ ligneStream atEnd ] whileFalse: 
+                   [mot := ligneStream upTo: Character space . 
+                    texte nextPutAll: mot reverse ; space  ].
+                    texte cr.
+            ].
+texte contents
+\end{scode}
+
+\subsection{Analyse de code}
+
+D'eutres classes ont des comportements de Stream. C'est par exemple le cas de l'analyseur lexical Smalltalk, qui peut \^etre r\'eutilis\'e \`a d'autres t\^aches:
+
+\begin{scode}
+\stBar texteScanner item items \stBar
+item := ''. 
+items := OrderedCollection new.
+texteScanner :=Scanner new on:  'begin Carthago delenda est.  7 +9 = 15 . end' readStream.
+[ item = 'end' ]  
+   whileFalse: [ item :=texteScanner scanToken. items add: item].
+items
+\end{scode}
+%\end{document}
+
+\ifx\wholebook\relax\else\end{document}\fi

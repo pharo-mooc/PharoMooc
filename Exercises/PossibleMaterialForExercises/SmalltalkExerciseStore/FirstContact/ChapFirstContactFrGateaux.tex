@@ -1,0 +1,216 @@
+% $Author: ducasse $
+% $Date: 2005/05/16 13:38:08 $
+% $Revision: 1.1.1.1 $
+\ifx\wholebook\relax\else
+\input{../Common.tex}
+\begin{document}
+\fi
+
+\chapter{TD1}
+
+\mainauthor{Brest}
+
+%% LyX 1.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+%\documentclass[english]{article}
+%\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc}
+%\usepackage{geometry}
+%\geometry{verbose,letterpaper,lmargin=20mm,rmargin=20mm}
+%\usepackage{babel}
+
+%\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% \newenvironment{lyxcode}
+%   {\begin{list}{}{
+%     \setlength{\rightmargin}{\leftmargin}
+%     \raggedright
+%     \setlength{\itemsep}{0pt}
+%     \setlength{\parsep}{0pt}
+%     \normalfont\ttfamily}%
+%    \item[]}
+%   {\end{list}}
+
+%\makeatother
+%\begin{document}
+%{\centering Licence 2 IL/IS/MI/EEA/TR 2004/2005\par}
+
+%{\centering {\huge Langages de programmation }\huge \par}
+
+%{\centering {\huge Langage \`a Objets - TD1 }\huge \par}
+
+
+\noindent
+{\bf But du TD:} Structuration d'expression Smalltalk: objet, message. Les litt\'eraux du langage. Messages unaires, binaires et \`a mots cl\`es. Les r\'egles de priorit\'es.\\
+\section{Rappels}
+\begin{enumerate}
+\item Repondez aux questions suivantes~:
+\begin{itemize}
+\item Lister les diff\'erents litt\'eraux
+\item Lister trois objets qui ne sont {\bf pas} des litt\'eraux
+\item Lister les cat\'egories de messages. Pour chacun d'entre elles donner le nombre de param\`etres, et les signes distinctifs.
+\item Lister les r\`egles de priorit\'e entre messages.
+
+\end{itemize}
+\item Si on vous donne le code suivant, trouvez les variables, les litt\'eraux, les messages, les receveurs et les param\`etres des messages, donner l'ordre d'\'evaluation des messages. 
+
+\begin{scode}
+\stBar toto titi z \stBar
+toto := 34 glop glop. titi := 23 +- toto.
+toto pas: #te glop:#ti pas:'tte''te' glop: $r r.
+z := toto = titi
+schmilblick.
+((titi z z: z z: #(z)) z: 12) z: 'titi'
+\end{scode}
+
+%$
+\end{enumerate} 
+ On rapp\`ele que l'ensemble des messages binaires est connu par le syst\`eme. Un message binaire est compos\'e de un ou deux caract\`eres parmi les suivants:
+\verb|!%&*+,-/<=>?@\~|
+
+
+
+
+\section{L'objet: c'est du gateau!}
+
+Dans cet exercice on souhaite d\'ecrire une op\'eration courante (une
+recette de cuisine) en utilisant le formalisme objet message receveur
+de SmallTalk. Soit la recette suivante (crumble simplifi\'e sans garniture)
+: {}``\emph{Dans un plat disposez un poids \'egal de farine, beurre
+et sucre (150 g), m\'elangez, puis faite cuire \`a thermostat 6 pendant
+40 minutes. Le g\^ateau est pr\^et}''.
+
+On donne les indications suivantes :
+
+\begin{itemize}
+\item Classe \ct{PlatAGateau} :
+
+\begin{itemize}
+\item message pour cr\'eer une instance de \ct{PlatAGateau} : \ct{new}
+\item message pour ajouter un ingr\'edient dans une instance de \ct{PlatAGateau}
+: \ct{ajouter:} avec en argument l'ingr\'edient \`a ajouter
+\item message pour m\'elanger le contenu d'une instance de \ct{PlatAGateau}
+: \ct{mixer}
+\item message pour cuire une instance de \ct{PlatAGateau} : \ct{cuireThermostat: duree:}
+avec en premier argument la valeur du thermostat et en deuxi\`eme argument
+la dur\'ee en minutes
+\item message pour d\'emouler le contenu d'une instance de \ct{PlatAGateau}
+: \ct{d\'emouler} qui renvoi en retour une instance de la classe
+\ct{Gateau}.
+\end{itemize}
+\item Classe \ct{Beurre} :
+
+\begin{itemize}
+\item message pour cr\'eer une instance de \ct{Beurre} : \ct{new:}
+avec en argument le poids en grammes
+\end{itemize}
+\item Classes \ct{Farine} et \ct{Sucre} : 
+
+\begin{itemize}
+\item Même message de cr\'eation que la pour la classe \ct{Beurre}
+\end{itemize}
+\end{itemize}
+\begin{enumerate}
+\item En utilisant les Classes et les m\'ethodes fournies, \'ecrivez en Smalltalk
+la recette. Vous ferez en sorte de ne pas mettre plus d'un message
+par ligne. Vous pouvez utiliser des variables locales avec des affectations.
+
+
+
+\item Ecrivez l'\'equivalent de ce code sur une seule ligne de mani\`ere \`a avoir
+directement un gateau. Prenez soin de correctement positionner des parenth\`eses si n\'ecessaire.
+
+
+
+\end{enumerate}
+\section{Priorit\'e de messages et variable temporaire}
+\subsection{Fonctions trigonom\'etriques}
+
+Un nombre (en radians) comprend les messages correspondant aux  fonctions trigonom\'etriques \ct{sin cos tan arcSin arcCos arcTan}.
+
+On convertit un nombre de Degr\'e \`a Radian en lui envoyant le message \ct{degreesToRadians}.
+
+\paragraph{}
+Calculer (\`a l'aide d'une fonction trigonom\'etrique) le c\^ot\'e d'un carr\'e dont la diagonale mesure 1.41421 m\`etres.
+
+\subsection{Maximum}
+
+La m\'ethode \ct{max: unAutreNombre} appliqu\'e \`a un nombre
+renvoie le plus grand des deux nombres.\\
+Exemple~: \ct{2 max: 6} renvoie \ct{6}.
+
+\begin{enumerate}
+\item Calculer le maximum de la somme des couples form\'es \`a partir de trois variables  \ct{a b c} contenant des valeurs quelconques, en stockant dans des variables les r\'esultats interm\'ediaires.
+
+\item Calculer le maximum de la somme des couples form\'es \`a partir de trois variables \ct{a b c} contenant des valeurs quelconques \textbf{sans utiliser de variables interm\'ediaires}
+\end{enumerate}
+
+
+\subsection{Conversion}
+Le message binaire \ct{//} correspond \`a l'op\'eration de division enti\`ere. Le message binaire \ct{\\} correspond \`a  l'op\'eration de modulo (reste de la division enti\`ere).\\
+On utilise ces messages pour  convertir en binaire  un nombre hexad\'ecimal (de 0 \`a 15 en base 10, de 0000 \`a 1111 en base 2).
+
+\paragraph{}
+En effectuant une s\'erie de divisions enti\`eres, les chiffres binaires
+sont obtenus \textbf{de la droite vers la gauche} gr\^ace au reste de la division
+enti\`ere (le modulo).
+
+Appliquer cet algorithme pour convertir le nombre hexadecimal $(F)_{16}$ (valeur d\'ecimale 15)  en base 2.
+
+
+
+
+\section{Tableau et point}
+Les messages \`a mots cl\'es \ct{at: unIndex} et  \ct{at: unIndex put:uneValeur} permettent l'acc\`es en lecture ou \'ecriture d'un \'el\'ement se trouvant dans un tableau. Les messages \ct{x},  \ct{y},  \ct{x: uneValeur} et  \ct{y: uneValeur} permettent l'acc\`es en lecture ou \'ecriture de l'abscisse ou de l'ordonn\'ee d'un point.
+
+\subsection{Analyse de code}
+Rep\'erer dans les lignes de code suivantes, les messages unaires, binaires et \`a mots cl\'es. En d\'eduire l'\'evaluation des expressions et des portions de code.
+ 
+
+\begin{scode}
+\stBar aPoint \stBar
+aPoint:= Point x:2 y:1.
+aPoint x: aPoint x * 2.
+aPoint
+\end{scode}
+
+\begin{scode}
+\stBar x tab \stBar
+tab := #(4 5.0 'toto' 1111).
+x := tab at:1.
+tab at: 1 put: (Fraction  numerator: x*2 denominator: 7 + x negated).
+tab
+\end{scode}
+
+
+\subsection{Exercices sur les tableaux et les points}
+
+
+\begin{enumerate}
+
+\item Multiplier  par 2 le 2 \`eme \'el\'ement d'un tableau,
+\item Remplacer la valeur du 2 \`eme \'el\'ement d'un tableau par son oppos\'e.
+\item  Remplacer la valeur du 3 \`eme  \'el\'ement par la valeur du 2 \`eme
+\'el\'ement.
+\item  Remplacer la valeur du 3 \`eme  \'el\'ement par la somme des 2 \`eme
+et 3\`eme (ancienne valeur) \'el\'ements.
+\end{enumerate}
+
+\subsection{Pour aller plus loin}
+
+\begin{enumerate}
+\item Le 2 \`eme du tableau \'etant une fraction, remplacer cette fraction par la fraction inverse dans le tableau.
+\item On d\'esire d\'efinir le barycentre de points. La notion de barycentre s'applique \`a un ensemble de points effect\'es par une masse. Soit $p_{1}$,$p_{2}$,$\ldots$, $p_{n}$ un ensemble de points affect\'es des masses $m_{1}$,$m_{2}$,$\ldots$, $m_{n}$, on appelle barycentre le point $p$ d\'efini de la mani\`ere suivante:
+$$m.p = \sum_{i=1}^{n} m_{i}.p_{i}\; avec\; m=\sum_{i=1}^{n} m_{i}$$
+D\'efinir des expressions smalltalk permettant de d\'efinir le barycentre $p$, on prendra $n=4$ et les valeurs des masses et des points seront donn\'es dans des tableaux que l'on d\'efinira.
+\end{enumerate}
+
+
+
+\ifx\wholebook\relax\else\end{document}\fi
+
+

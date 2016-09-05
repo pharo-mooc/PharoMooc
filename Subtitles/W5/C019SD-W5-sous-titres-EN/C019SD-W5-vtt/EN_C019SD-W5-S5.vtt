@@ -1,0 +1,480 @@
+﻿WEBVTT
+
+00:00:00.560 --> 00:00:01.360 align:middle
+Hello everyone.
+
+00:00:01.520 --> 00:00:04.800 align:middle
+In this sequence we're going
+to quickly present the debugger,
+
+00:00:04.960 --> 00:00:09.360 align:middle
+and the notion of breakpoints,
+the different breakpoints in Pharo.
+
+00:00:09.600 --> 00:00:11.560 align:middle
+What you'll see is that
+
+00:00:11.760 --> 00:00:14.760 align:middle
+the system is alive
+and that we can communicate,
+
+00:00:14.920 --> 00:00:18.040 align:middle
+we have to communicate
+with it and its objects.
+
+00:00:18.840 --> 00:00:22.000 align:middle
+We don't work with source code,
+we work with objects,
+
+00:00:22.160 --> 00:00:25.520 align:middle
+which have a state,
+and receive and send messages.
+
+00:00:26.760 --> 00:00:29.200 align:middle
+Don't be afraid of using the debugger.
+
+00:00:29.360 --> 00:00:33.480 align:middle
+We can code in debugger,
+inspect the program while it's running...
+
+00:00:33.920 --> 00:00:37.360 align:middle
+It's a powerful and really useful tool.
+
+00:00:37.920 --> 00:00:41.040 align:middle
+I know several developers,
+myself included,
+
+00:00:41.200 --> 00:00:45.360 align:middle
+who have a tendency
+to develop directly in debuggers.
+
+00:00:45.520 --> 00:00:49.440 align:middle
+So a great deal of code
+is written in debuggers rather than
+
+00:00:49.600 --> 00:00:51.280 align:middle
+in a code browser.
+
+00:00:51.440 --> 00:00:54.040 align:middle
+The advantage of that is,
+while you're writing the code,
+
+00:00:54.200 --> 00:00:58.400 align:middle
+you've access to the method settings,
+to the objects, to the variables.
+
+00:00:58.560 --> 00:01:00.960 align:middle
+You can see it all and test it.
+
+00:01:01.120 --> 00:01:04.640 align:middle
+You've all the data to hand
+to be able to test it
+
+00:01:04.800 --> 00:01:06.360 align:middle
+while writing the code.
+
+00:01:06.920 --> 00:01:10.280 align:middle
+The debugger looks like this.
+
+00:01:10.440 --> 00:01:14.560 align:middle
+There's a title bar
+indicating the error message.
+
+00:01:14.720 --> 00:01:16.920 align:middle
+Here's the "stack", the call stack,
+
+00:01:17.080 --> 00:01:20.200 align:middle
+that's to say the call method.
+Here we can see that
+
+00:01:20.360 --> 00:01:24.440 align:middle
+this method, "performTest"
+has called the method "testSumming",
+
+00:01:24.600 --> 00:01:27.600 align:middle
+which has called the method "place",
+
+00:01:27.760 --> 00:01:32.400 align:middle
+which has raised the problem
+"DoesNotUnderstand".
+
+00:01:33.680 --> 00:01:37.720 align:middle
+Here we have the code
+of the area that's selected here.
+
+00:01:37.880 --> 00:01:41.440 align:middle
+What's selected here is the method
+plus the DiceHandle class,
+
+00:01:41.600 --> 00:01:44.480 align:middle
+so it appears in the lower window.
+
+00:01:44.640 --> 00:01:48.640 align:middle
+And right at the bottom
+we have different variables,
+
+00:01:48.800 --> 00:01:50.760 align:middle
+all the variables accessible
+
+00:01:50.920 --> 00:01:53.720 align:middle
+within the context
+of the execution underway,
+
+00:01:53.880 --> 00:01:56.480 align:middle
+in order to modify the variables,
+
+00:01:56.640 --> 00:01:59.840 align:middle
+to inspect the objects, etc...
+
+00:02:00.400 --> 00:02:04.000 align:middle
+It's a group of actions
+in that area that allows us
+
+00:02:04.160 --> 00:02:08.280 align:middle
+to restart the execution
+of the method or dive into the code
+
+00:02:08.440 --> 00:02:10.760 align:middle
+or see line by line what's happening.
+
+00:02:11.400 --> 00:02:14.880 align:middle
+When a debugger opens,
+closing it won't solve the problem.
+
+00:02:15.160 --> 00:02:17.560 align:middle
+It's much easier to open the debugger,
+
+00:02:17.720 --> 00:02:21.200 align:middle
+to look inside in detail
+at what's causing the problem
+
+00:02:21.360 --> 00:02:24.120 align:middle
+and inspect the call stack and objects,
+
+00:02:24.280 --> 00:02:26.240 align:middle
+and fix the problem in debugger
+
+00:02:26.400 --> 00:02:30.040 align:middle
+rather than close it and then
+guess why debugger opened.
+
+00:02:31.480 --> 00:02:34.840 align:middle
+The debugger is your best friend.
+
+00:02:35.000 --> 00:02:37.560 align:middle
+It allows you to communicate
+with all the context objects,
+
+00:02:37.720 --> 00:02:42.440 align:middle
+whether it's the settings,
+the instance variables, etc...
+
+00:02:42.600 --> 00:02:47.040 align:middle
+To check the state of all the variables
+and even modify this state.
+
+00:02:48.000 --> 00:02:51.560 align:middle
+To send messages to check
+the state of certain objects
+
+00:02:51.720 --> 00:02:54.440 align:middle
+or check how they're reacting.
+
+00:02:55.080 --> 00:02:59.160 align:middle
+We can, of course, modify the methods
+on the call stack, saved,
+
+00:02:59.320 --> 00:03:02.160 align:middle
+and continue with the new code
+without any problem,
+
+00:03:02.320 --> 00:03:06.920 align:middle
+all without restarting
+execution from scratch.
+
+00:03:07.400 --> 00:03:10.120 align:middle
+So if a method fails,
+we correct the method,
+
+00:03:10.280 --> 00:03:14.080 align:middle
+we restart execution of the method
+and the program continues.
+
+00:03:15.000 --> 00:03:16.200 align:middle
+One way of debugging
+
+00:03:17.040 --> 00:03:19.240 align:middle
+that's very frequently used
+
+00:03:19.680 --> 00:03:22.400 align:middle
+is showing things on the console.
+
+00:03:22.560 --> 00:03:27.200 align:middle
+We can see that this is really
+
+00:03:27.360 --> 00:03:31.720 align:middle
+a poor way of debugging,
+because you have to modify
+
+00:03:32.320 --> 00:03:37.480 align:middle
+all the methods you want traces in,
+and then modify them again
+
+00:03:37.640 --> 00:03:40.600 align:middle
+to remove them when the problem's fixed.
+
+00:03:40.760 --> 00:03:44.400 align:middle
+And then you have to know,
+or have an idea, where the problem...
+
+00:03:44.560 --> 00:03:47.680 align:middle
+Where the problem might lie,
+or where it comes from,
+
+00:03:47.840 --> 00:03:52.440 align:middle
+to know where to put the line
+and what to show.
+
+00:03:52.760 --> 00:03:57.240 align:middle
+The other way of doing this
+is using breakpoints.
+
+00:03:57.680 --> 00:04:01.920 align:middle
+A breakpoint is a place in the code
+where we'll indicate
+
+00:04:02.080 --> 00:04:06.040 align:middle
+to Pharo that it has to stop
+next time it passes this place.
+
+00:04:06.200 --> 00:04:09.560 align:middle
+So the most simple breakpoint
+is "Halt now".
+
+00:04:09.720 --> 00:04:13.800 align:middle
+Send the message "now"
+to the object "Halt", which is a class,
+
+00:04:13.960 --> 00:04:17.360 align:middle
+which will immediately stop execution.
+
+00:04:17.520 --> 00:04:19.520 align:middle
+From there, a debugger will open.
+
+00:04:19.680 --> 00:04:23.760 align:middle
+We can see line by line what's happening,
+the state of the program, etc...
+
+00:04:24.320 --> 00:04:27.520 align:middle
+So, "Halt now" pauses the program...
+
+00:04:27.680 --> 00:04:30.120 align:middle
+we can restart it,
+but for now it's paused...
+
+00:04:30.280 --> 00:04:33.880 align:middle
+and opens a debugger with
+the current state of the application.
+
+00:04:34.040 --> 00:04:36.120 align:middle
+So, "Halt now" is very good,
+
+00:04:36.280 --> 00:04:40.120 align:middle
+unless you put it in a method
+that's executed constantly,
+
+00:04:40.320 --> 00:04:43.200 align:middle
+including by the system itself.
+
+00:04:43.360 --> 00:04:48.120 align:middle
+You can have dozens
+of debuggers opening
+
+00:04:48.280 --> 00:04:52.520 align:middle
+if you put a "Halt now" in a place
+used by an opening debugger.
+
+00:04:52.920 --> 00:04:55.800 align:middle
+So you put "Halt now"
+in the debugger's code.
+
+00:04:55.960 --> 00:04:57.400 align:middle
+If the debugger opens,
+
+00:04:57.560 --> 00:04:59.440 align:middle
+it will execute "Halt now" itself,
+
+00:04:59.600 --> 00:05:04.200 align:middle
+which will open another debugger, etc,
+recursively, and pause your system.
+
+00:05:04.520 --> 00:05:07.760 align:middle
+In this case, we use "Halt once",
+
+00:05:07.920 --> 00:05:12.520 align:middle
+which, once "Halt once" is activated,
+stops once, pauses once,
+
+00:05:12.680 --> 00:05:17.240 align:middle
+and all the subsequent passages through
+"Halt once" won't pause the program.
+
+00:05:18.520 --> 00:05:22.120 align:middle
+So we write "Halt once"
+anywhere in the code,
+
+00:05:23.880 --> 00:05:26.200 align:middle
+we activate it, once,
+
+00:05:26.360 --> 00:05:28.280 align:middle
+we execute the program,
+
+00:05:28.440 --> 00:05:31.680 align:middle
+a debugger opens and
+"Halt once" is immediately disabled.
+
+00:05:32.360 --> 00:05:35.240 align:middle
+Another possibility is to stop
+after a number of iterations.
+
+00:05:35.640 --> 00:05:38.560 align:middle
+We might stop after the 10th iteration
+
+00:05:38.720 --> 00:05:42.080 align:middle
+if we know that an element
+in a collection that interests us
+
+00:05:42.240 --> 00:05:44.800 align:middle
+is in 10th position.
+It's not necessarily worth
+
+00:05:44.960 --> 00:05:47.880 align:middle
+debugging the 9
+previous times for nothing,
+
+00:05:48.040 --> 00:05:51.000 align:middle
+so we stop at the 10th iteration.
+
+00:05:52.040 --> 00:05:56.280 align:middle
+Another possibility is to stop
+when a particular condition
+
+00:05:56.520 --> 00:05:59.920 align:middle
+is true, so for that we have "Halt if".
+
+00:06:00.080 --> 00:06:02.040 align:middle
+"Halt if" either takes
+
+00:06:02.240 --> 00:06:04.200 align:middle
+a symbol indicating a method,
+
+00:06:04.400 --> 00:06:07.480 align:middle
+which has to be in the call stack
+for the debugger to open,
+
+00:06:07.640 --> 00:06:11.280 align:middle
+meaning that,
+if I put "Halt if:printString"
+
+00:06:11.440 --> 00:06:15.920 align:middle
+the Dice&gt;&gt;faces code has to be called
+
+00:06:16.080 --> 00:06:18.000 align:middle
+from the printString method
+
+00:06:18.160 --> 00:06:20.200 align:middle
+for the breakpoint
+
+00:06:20.520 --> 00:06:23.120 align:middle
+to activate and the program to pause.
+
+00:06:23.720 --> 00:06:25.360 align:middle
+"If" can also take a block.
+
+00:06:25.520 --> 00:06:28.320 align:middle
+We can put any
+bit of code in the block,
+
+00:06:28.480 --> 00:06:32.680 align:middle
+if it evaluates to true,
+to make the debugger stop,
+
+00:06:32.880 --> 00:06:35.080 align:middle
+for it not to open
+and the program to continue.
+
+00:06:35.320 --> 00:06:38.840 align:middle
+Since the tests in Pharo
+are methods in the call stack,
+
+00:06:39.000 --> 00:06:42.840 align:middle
+you can put the test number,
+so that a bit of code only stops
+
+00:06:43.000 --> 00:06:45.400 align:middle
+when it's executed from a test.
+
+00:06:45.960 --> 00:06:49.560 align:middle
+All of these methods,
+"now", "once", "onCount" and "if",
+
+00:06:50.240 --> 00:06:53.000 align:middle
+are methods in Halt class.
+
+00:06:53.160 --> 00:06:56.720 align:middle
+You can study the code,
+see what the code's done to it,
+
+00:06:56.880 --> 00:06:59.880 align:middle
+and you can also add your own methods,
+
+00:07:00.040 --> 00:07:03.760 align:middle
+add your own kind of breakpoint
+according to your needs.
+
+00:07:03.920 --> 00:07:06.240 align:middle
+So in the example below,
+
+00:07:06.400 --> 00:07:11.080 align:middle
+I've coded a breakpoint,
+called "between: and"
+
+00:07:11.240 --> 00:07:14.280 align:middle
+which only stops the program
+
+00:07:14.440 --> 00:07:19.320 align:middle
+when it's in between
+"minTime" and "maxTime".
+
+00:07:20.400 --> 00:07:23.800 align:middle
+So this program will only stop,
+
+00:07:23.960 --> 00:07:27.640 align:middle
+the debugger will only open,
+between midnight and 2am.
+
+00:07:27.800 --> 00:07:31.240 align:middle
+You should know that
+the debugger is a very powerful tool.
+
+00:07:31.560 --> 00:07:35.280 align:middle
+There are a lot of breakpoints
+already defined in the system.
+
+00:07:35.440 --> 00:07:37.760 align:middle
+You can add as many as you like.
+
+00:07:37.920 --> 00:07:41.360 align:middle
+To add a breakpoint,
+modify one method, the debugger opens,
+
+00:07:41.520 --> 00:07:44.240 align:middle
+and you can see line by line
+what's happening.
+
+00:07:45.120 --> 00:07:48.720 align:middle
+The breakpoints are really powerful
+
+00:07:48.880 --> 00:07:52.440 align:middle
+and you shouldn't hesitate
+to use them or the debuggers.

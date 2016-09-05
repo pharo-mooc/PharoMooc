@@ -1,0 +1,387 @@
+﻿WEBVTT
+
+00:00:00.480 --> 00:00:03.680 align:middle
+In this session, we will revisit
+Pharo syntax.
+
+00:00:03.840 --> 00:00:07.000 align:middle
+We will review it entirely
+using a concrete example,
+
+00:00:07.160 --> 00:00:11.480 align:middle
+the example of a simple
+HTTP application from the real world.
+
+00:00:11.640 --> 00:00:15.960 align:middle
+We will analyze the code and review
+Pharo syntax through it.
+
+00:00:16.720 --> 00:00:20.240 align:middle
+This application
+is a simple web application
+
+00:00:20.400 --> 00:00:23.160 align:middle
+which displays information on books.
+
+00:00:23.320 --> 00:00:26.840 align:middle
+I will give you the first example:
+I'll use the framework Zinc,
+
+00:00:27.000 --> 00:00:30.440 align:middle
+a HTTP framework
+we'll study in another course.
+
+00:00:30.600 --> 00:00:34.080 align:middle
+It comes in two parts:
+client and server.
+
+00:00:34.240 --> 00:00:37.440 align:middle
+It can make HTTP requests, etc.
+
+00:00:37.600 --> 00:00:41.880 align:middle
+First, we can see ZnClient is a class.
+
+00:00:42.040 --> 00:00:45.280 align:middle
+So it starts with uppercase Z
+as we saw previously.
+
+00:00:45.440 --> 00:00:48.920 align:middle
+Names of classes and global variables
+start with uppercase.
+
+00:00:49.080 --> 00:00:50.360 align:middle
+ZnClient is a class.
+
+00:00:50.520 --> 00:00:53.680 align:middle
+You send the message new
+to this class;
+
+00:00:53.840 --> 00:00:56.800 align:middle
+it will create
+a new instance of ZnClient.
+
+00:00:56.960 --> 00:01:01.880 align:middle
+To this new instance, you send
+a first message url: with a parameter,
+
+00:01:02.040 --> 00:01:03.880 align:middle
+which is a string.
+
+00:01:04.040 --> 00:01:06.760 align:middle
+Then we'll use the cascade.
+
+00:01:06.920 --> 00:01:09.680 align:middle
+Let me remind you
+that ";" at the end means:
+
+00:01:09.840 --> 00:01:13.520 align:middle
+you send a new message, get,
+to the same receiver.
+
+00:01:15.040 --> 00:01:20.000 align:middle
+This bit of code simulates
+what your navigator will do
+
+00:01:20.160 --> 00:01:23.040 align:middle
+when you type in the url
+and press enter.
+
+00:01:23.200 --> 00:01:25.760 align:middle
+If I type in an url and press enter,
+
+00:01:25.920 --> 00:01:28.600 align:middle
+it contacts the server
+of this web application
+
+00:01:28.760 --> 00:01:31.400 align:middle
+and it returns a HTTP response:
+
+00:01:31.560 --> 00:01:36.160 align:middle
+in this case, the information
+on a book, the book number 1.
+
+00:01:38.240 --> 00:01:40.200 align:middle
+I will give you another example,
+
+00:01:40.360 --> 00:01:43.480 align:middle
+another request
+built with Pharo and ZnClient.
+
+00:01:43.640 --> 00:01:47.360 align:middle
+So it's the same:
+you instantiate an object Znclient.
+
+00:01:47.520 --> 00:01:50.560 align:middle
+You send messages using cascades.
+
+00:01:50.720 --> 00:01:54.320 align:middle
+And then, you can see something
+we have already studied:
+
+00:01:54.480 --> 00:01:56.920 align:middle
+in Pharo, we have keyword messages,
+
+00:01:57.080 --> 00:02:01.800 align:middle
+meaning that the method name
+is formAt: put:.
+
+00:02:01.960 --> 00:02:05.800 align:middle
+This is equivalent
+in typical Java syntax
+
+00:02:05.960 --> 00:02:08.960 align:middle
+to formAtput
+(the method name is all attached).
+
+00:02:09.120 --> 00:02:12.600 align:middle
+And I put all the arguments
+between parentheses.
+
+00:02:15.720 --> 00:02:17.880 align:middle
+On this slide, I'd like to show you
+
+00:02:18.040 --> 00:02:21.160 align:middle
+the complete code
+of this web application
+
+00:02:21.320 --> 00:02:23.200 align:middle
+constructed with Zinc.
+
+00:02:25.480 --> 00:02:29.200 align:middle
+I will show you some parts
+of this code one element at a time.
+
+00:02:29.360 --> 00:02:33.400 align:middle
+First of all, the first part corresponds
+to the server configuration.
+
+00:02:33.560 --> 00:02:37.160 align:middle
+On the first line,
+
+00:02:37.320 --> 00:02:39.760 align:middle
+there are local variable declarations.
+
+00:02:39.920 --> 00:02:43.080 align:middle
+Remember they start with lowercase.
+
+00:02:43.240 --> 00:02:47.880 align:middle
+books and teapot are two local variables
+between vertical bars.
+
+00:02:48.040 --> 00:02:52.520 align:middle
+Next, there are assignments:
+here is the first one.
+
+00:02:52.680 --> 00:02:54.600 align:middle
+It's := in Pharo.
+
+00:02:55.640 --> 00:02:57.480 align:middle
+You can have symbols.
+
+00:02:57.640 --> 00:03:00.320 align:middle
+Thirdly: there is #port
+
+00:03:00.480 --> 00:03:03.320 align:middle
+which is located here in the code.
+
+00:03:03.480 --> 00:03:06.520 align:middle
+It corresponds to a symbol,
+a unique string.
+
+00:03:06.680 --> 00:03:08.360 align:middle
+It's created only once.
+
+00:03:09.120 --> 00:03:12.560 align:middle
+There are messages sent
+to the class Teapot.
+
+00:03:12.720 --> 00:03:15.400 align:middle
+For example, the class Teapot is here.
+
+00:03:15.560 --> 00:03:17.960 align:middle
+And I can send
+the message configure to it.
+
+00:03:18.120 --> 00:03:19.320 align:middle
+Look at configure:.
+
+00:03:19.480 --> 00:03:23.160 align:middle
+Let me remind you that ":"
+marks the presence of an argument
+
+00:03:23.320 --> 00:03:26.520 align:middle
+which you send to this method.
+
+00:03:26.680 --> 00:03:31.240 align:middle
+The argument starts with a brace
+
+00:03:31.400 --> 00:03:33.400 align:middle
+and ends with a brace.
+
+00:03:33.560 --> 00:03:37.960 align:middle
+So what's between the braces
+is a dynamic array:
+
+00:03:38.120 --> 00:03:40.200 align:middle
+all this between braces.
+
+00:03:40.360 --> 00:03:44.640 align:middle
+Each expression separated by "."
+will be evaluated
+
+00:03:44.800 --> 00:03:48.400 align:middle
+and we'll build an array
+with the results of each expression.
+
+00:03:49.000 --> 00:03:51.880 align:middle
+There's only one argument
+in the method configure.
+
+00:03:52.040 --> 00:03:57.600 align:middle
+And inside this dynamic array
+between braces,
+
+00:03:57.760 --> 00:04:03.720 align:middle
+you will use an arrow
+to build association objects.
+
+00:04:03.880 --> 00:04:05.800 align:middle
+So it's one key, one value.
+
+00:04:10.440 --> 00:04:13.160 align:middle
+So to make the server work,
+
+00:04:13.320 --> 00:04:16.120 align:middle
+you won't just define
+the server's configuration
+
+00:04:16.280 --> 00:04:18.920 align:middle
+but also routes.
+
+00:04:19.080 --> 00:04:23.800 align:middle
+I will explain using a smaller example:
+this is an extract of the complete code.
+
+00:04:23.960 --> 00:04:27.600 align:middle
+If I want my application to process
+URLs like this one,
+
+00:04:28.960 --> 00:04:31.400 align:middle
+which ends with books/1,
+
+00:04:31.560 --> 00:04:34.600 align:middle
+if I want the information
+on the book 1, for example,
+
+00:04:34.760 --> 00:04:38.720 align:middle
+I define a route
+in my Zinc application.
+
+00:04:38.880 --> 00:04:42.600 align:middle
+When I receive a request
+of the type GET,
+
+00:04:42.760 --> 00:04:47.680 align:middle
+which starts with /books/
+and an integer,
+
+00:04:47.840 --> 00:04:52.400 align:middle
+- can you see this ? -
+it executes this block of code.
+
+00:04:52.560 --> 00:04:57.600 align:middle
+Remember that a block
+starts and ends with brackets.
+
+00:04:57.760 --> 00:05:00.840 align:middle
+So it's an anonymous method
+which can take a parameter:
+
+00:05:01.000 --> 00:05:05.080 align:middle
+in this case,
+the parameter is called :request
+
+00:05:05.240 --> 00:05:08.280 align:middle
+and it is separated by a vertical bar.
+
+00:05:09.000 --> 00:05:12.240 align:middle
+Next, the body of the block is all here.
+
+00:05:12.400 --> 00:05:15.040 align:middle
+There's only one expression here,
+this one.
+
+00:05:15.200 --> 00:05:19.480 align:middle
+So you send the message at:
+to the object books.
+
+00:05:23.600 --> 00:05:27.840 align:middle
+What book do you want
+in the book collection?
+
+00:05:28.000 --> 00:05:31.640 align:middle
+You want the book whose id
+was passed as parameter in the url.
+
+00:05:31.800 --> 00:05:33.520 align:middle
+I query the request.
+
+00:05:33.680 --> 00:05:38.440 align:middle
+The variable here is the parameter
+of the block defined in the beginning.
+
+00:05:38.600 --> 00:05:42.440 align:middle
+I get the element called id
+in this request.
+
+00:05:42.600 --> 00:05:45.480 align:middle
+I convert this element.
+Remember, it's an integer.
+
+00:05:45.640 --> 00:05:47.360 align:middle
+I convert it into a string.
+
+00:05:47.520 --> 00:05:51.720 align:middle
+This allows me to get the book 1.
+
+00:05:52.600 --> 00:05:56.760 align:middle
+To conclude, we have reviewed
+all the Pharo syntax
+
+00:05:56.920 --> 00:05:58.320 align:middle
+in this class.
+
+00:05:58.480 --> 00:06:01.040 align:middle
+The goal was to take an interest
+in syntax,
+
+00:06:01.200 --> 00:06:04.840 align:middle
+but we were also able to rediscover
+the syntax through a package
+
+00:06:05.000 --> 00:06:08.960 align:middle
+which is quite interesting
+and fun to program with, Teapot.
+
+00:06:09.120 --> 00:06:12.920 align:middle
+Go find out by yourself.
+You can download it from smalltalk.
+
+00:06:13.080 --> 00:06:17.400 align:middle
+You can build
+HTTP applications very easily.
+
+00:06:17.560 --> 00:06:21.920 align:middle
+Also, it's a package
+built based on Zinc.
+
+00:06:22.080 --> 00:06:26.720 align:middle
+Zinc is one of the very strong
+libraries in Pharo
+
+00:06:26.880 --> 00:06:29.240 align:middle
+to make more complex web applications,
+
+00:06:29.400 --> 00:06:32.480 align:middle
+as we will see
+in following courses.

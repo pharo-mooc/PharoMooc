@@ -1,0 +1,331 @@
+﻿WEBVTT
+
+00:00:00.640 --> 00:00:03.600 align:middle
+In this session,
+we'll talk about loops in Pharo.
+
+00:00:03.760 --> 00:00:08.320 align:middle
+In Pharo, loops are messages
+sent to objects.
+
+00:00:08.480 --> 00:00:10.680 align:middle
+There are many types of loops.
+
+00:00:11.320 --> 00:00:14.680 align:middle
+They're messages
+sent to numbers, collections,
+
+00:00:14.840 --> 00:00:16.360 align:middle
+or even to blocks.
+
+00:00:16.520 --> 00:00:21.040 align:middle
+In some cases, they are iterators
+over the elements of a collection.
+
+00:00:22.080 --> 00:00:23.600 align:middle
+This is an example:
+
+00:00:23.760 --> 00:00:27.240 align:middle
+I send the message timesRepeat:
+
+00:00:27.400 --> 00:00:29.000 align:middle
+to the integer 4.
+
+00:00:29.160 --> 00:00:31.640 align:middle
+I pass it a block as a parameter.
+
+00:00:31.800 --> 00:00:34.480 align:middle
+We studied blocks
+in the previous course.
+
+00:00:34.640 --> 00:00:38.400 align:middle
+This blocks starts here and ends there.
+
+00:00:39.080 --> 00:00:43.520 align:middle
+This message repeats
+the evaluation of this block
+
+00:00:44.120 --> 00:00:46.960 align:middle
+several times: in this example,
+four times
+
+00:00:47.120 --> 00:00:48.840 align:middle
+as the receiver is 4.
+
+00:00:50.720 --> 00:00:54.080 align:middle
+There are other types of messages
+to create loops.
+
+00:00:54.240 --> 00:00:57.000 align:middle
+In this example,
+it's the message to:do:.
+
+00:00:57.160 --> 00:01:00.360 align:middle
+The message to:do:
+is defined on the class Number.
+
+00:01:01.520 --> 00:01:04.360 align:middle
+I'll also pass it a block
+as a parameter,
+
+00:01:04.520 --> 00:01:06.400 align:middle
+the last argument of the message.
+
+00:01:06.560 --> 00:01:09.440 align:middle
+This block gets executed
+a number of times
+
+00:01:09.600 --> 00:01:13.640 align:middle
+with a loop cursor
+that goes from the receiver
+
+00:01:13.800 --> 00:01:16.320 align:middle
+to the first argument of the message.
+
+00:01:17.800 --> 00:01:19.960 align:middle
+For instance,
+
+00:01:20.120 --> 00:01:23.080 align:middle
+with the exact same example:
+
+00:01:23.240 --> 00:01:26.360 align:middle
+I send the message to:do:
+to the integer 1.
+
+00:01:27.160 --> 00:01:31.840 align:middle
+In the block,
+you display the parameter of the block,
+
+00:01:32.000 --> 00:01:34.080 align:middle
+the parameter i at each loop.
+
+00:01:34.240 --> 00:01:39.200 align:middle
+In the transcript, you have all
+the integers between 1 and 100.
+
+00:01:42.000 --> 00:01:47.120 align:middle
+There are other messages
+to create loops.
+
+00:01:47.280 --> 00:01:50.280 align:middle
+For instance, the message to:by:do
+
+00:01:50.440 --> 00:01:52.440 align:middle
+to increment by more than 1.
+
+00:01:52.600 --> 00:01:55.680 align:middle
+You control the scale of the increment.
+
+00:01:55.840 --> 00:01:58.040 align:middle
+You can increment by 3 in this example.
+
+00:01:58.200 --> 00:02:02.160 align:middle
+With every loop,
+i takes values by step of 3.
+
+00:02:03.920 --> 00:02:08.080 align:middle
+You can see what happens
+when you execute this bit of code.
+
+00:02:08.240 --> 00:02:12.040 align:middle
+You can see i went from 1 to 100
+
+00:02:12.200 --> 00:02:14.400 align:middle
+with an increment of 3 each time.
+
+00:02:15.880 --> 00:02:18.920 align:middle
+There are also iterators
+to create loops.
+
+00:02:19.080 --> 00:02:23.360 align:middle
+Iterators are messages
+that must be sent to collections,
+
+00:02:23.520 --> 00:02:25.000 align:middle
+to collection objects.
+
+00:02:25.160 --> 00:02:28.440 align:middle
+There are many types such as do:.
+
+00:02:28.600 --> 00:02:31.880 align:middle
+do: iterates
+over every element of a collection.
+
+00:02:32.040 --> 00:02:35.400 align:middle
+collect: iterates
+over the elements of a collection
+
+00:02:35.560 --> 00:02:39.040 align:middle
+but also collects the results
+
+00:02:39.200 --> 00:02:41.040 align:middle
+to put them in a new collection.
+
+00:02:41.200 --> 00:02:45.560 align:middle
+select: selects matching elements
+in a collection:
+
+00:02:45.720 --> 00:02:48.720 align:middle
+you build a new collection
+with those you selected.
+
+00:02:48.880 --> 00:02:53.280 align:middle
+reject: rejects the elements
+of a collection you don't want.
+
+00:02:53.440 --> 00:02:56.320 align:middle
+detect: helps to determine
+
+00:02:56.480 --> 00:03:00.120 align:middle
+whether an element exists
+in a given collection, etc.
+
+00:03:00.280 --> 00:03:03.360 align:middle
+We'll study some of these
+in the next slides.
+
+00:03:04.200 --> 00:03:08.440 align:middle
+do:, for instance,
+is the most common message.
+
+00:03:08.600 --> 00:03:13.000 align:middle
+You send the message do:
+to a collection and pass it a block.
+
+00:03:13.160 --> 00:03:16.240 align:middle
+With every loop,
+
+00:03:16.400 --> 00:03:19.160 align:middle
+the parameter of the block, :each,
+
+00:03:19.320 --> 00:03:22.200 align:middle
+receives the first element
+of the collection,
+
+00:03:22.360 --> 00:03:26.000 align:middle
+then the second, until the final element
+of the collection.
+
+00:03:28.280 --> 00:03:31.680 align:middle
+This is an example:
+it's a defined collection.
+
+00:03:31.840 --> 00:03:34.200 align:middle
+A reminder of the syntax: open with #(
+
+00:03:34.360 --> 00:03:37.080 align:middle
+and close with )
+for literal collections.
+
+00:03:37.240 --> 00:03:42.120 align:middle
+This collection contains four integers:
+15, 10, 19, and 68.
+
+00:03:42.280 --> 00:03:46.320 align:middle
+You send the message do:
+to the collection and pass it a block.
+
+00:03:46.480 --> 00:03:51.000 align:middle
+i, the parameter of the block,
+
+00:03:51.160 --> 00:03:53.560 align:middle
+takes the value 15 on the first loop,
+
+00:03:53.720 --> 00:03:56.120 align:middle
+then 10, 19, and 68.
+
+00:03:59.040 --> 00:04:01.680 align:middle
+This is another message: whileTrue:.
+
+00:04:01.840 --> 00:04:04.680 align:middle
+whileTrue: can also create loops,
+
+00:04:04.840 --> 00:04:07.640 align:middle
+but it is a message you send to a block.
+
+00:04:07.800 --> 00:04:09.800 align:middle
+It is defined over the class Block.
+
+00:04:09.960 --> 00:04:12.480 align:middle
+This is the receiver block.
+
+00:04:12.640 --> 00:04:14.720 align:middle
+There's a block of arguments here.
+
+00:04:15.320 --> 00:04:19.320 align:middle
+I give you a concrete example
+from the class Color.
+
+00:04:19.480 --> 00:04:22.120 align:middle
+This is whileTrue:.
+
+00:04:22.760 --> 00:04:25.800 align:middle
+In the receiver block,
+there's a condition.
+
+00:04:25.960 --> 00:04:28.560 align:middle
+The block is evaluated to true or false.
+
+00:04:28.720 --> 00:04:32.200 align:middle
+Depending on the evaluation
+of the first block, the receiver,
+
+00:04:32.360 --> 00:04:34.800 align:middle
+you trigger or don't trigger
+the execution
+
+00:04:34.960 --> 00:04:38.600 align:middle
+of the second block,
+which is the parameter of whileTrue:.
+
+00:04:39.520 --> 00:04:42.080 align:middle
+There's another version of whileTrue:.
+
+00:04:42.240 --> 00:04:46.480 align:middle
+It's the method whileTrue
+without a parameter.
+
+00:04:46.640 --> 00:04:50.280 align:middle
+It takes the receiver block
+and evaluates it.
+
+00:04:50.440 --> 00:04:52.920 align:middle
+If it returns true or false,
+
+00:04:53.080 --> 00:04:55.800 align:middle
+it is re-evaluated once more, and so on.
+
+00:04:55.960 --> 00:04:59.240 align:middle
+You re-evaluate the block
+as long as its value is true.
+
+00:05:00.840 --> 00:05:04.960 align:middle
+You have the twins of whileTrue
+with the methods whileFalse,
+
+00:05:05.120 --> 00:05:07.440 align:middle
+with and without parameters.
+
+00:05:07.600 --> 00:05:12.120 align:middle
+Every variation exists
+when it comes to classes and blocks.
+
+00:05:14.160 --> 00:05:16.640 align:middle
+To sum up, in this course,
+
+00:05:16.800 --> 00:05:20.840 align:middle
+we saw that loops are expressed
+as normal messages in Pharo.
+
+00:05:21.000 --> 00:05:22.440 align:middle
+They're sent to objects
+
+00:05:22.600 --> 00:05:27.560 align:middle
+(integers, collections, blocks...).
+
+00:05:28.280 --> 00:05:32.400 align:middle
+You can use them to build
+plenty of different loops.
+
+00:05:32.560 --> 00:05:34.680 align:middle
+You can even add some if you wish.

@@ -1,0 +1,109 @@
+% $Author: ducasse $
+% $Date: 2005/05/16 13:38:14 $
+% $Revision: 1.1.1.1 $
+
+\ifx\wholebook\relax\else
+\input{../Common.tex}
+\begin{document}
+\fi
+
+\chapter{ Hook and Template Methods}
+\mainauthor{Ducasse and Wuyts}
+
+
+In this chapter you will learn how to introduce hooks and template methods to favor extensibility. First we look at the current situation and introduce changes step by steps.
+
+\section{Providing Hook Methods}
+
+\paragraph{Current situation.} The solution proposed for printing a \ct{Node} displays the following string \ct{Node named: Node1 connected to: PC1} obtained by executing the following expression:
+
+\begin{scode}
+(Node withName: \#Node1 connectedTo: (Node new name: \#PC1)) printString
+\end{scode}
+
+A straightforward way to implement the \ct{printOn:} method on the  class \ct{Node} is the following code:
+
+\begin{scode}
+Node\sep{}printOn: aStream
+
+    aStream nextPutAll: 'Node named: ', self name asString.
+    self hasNextNode 
+        ifTrue: [ aStream nextPutAll: ' connected to: ', self nextNode name ]
+\end{scode}
+
+However, with such an implementation the printing of all kinds of nodes is the same.
+
+\paragraph{New Requirements.}
+To help in the understanding of the LAN we would like that depending on the specific class of node we obtain a specific printing like the following ones:
+
+\begin{scode}
+ (Workstation withName: \#Mac connectedTo: (LanPrinter withName: 
+\#PC1) printString
+
+      Workstation Mac connected to Printer PC1
+
+(LanPrinter withName: \#Pr1 connectedTo: (Node withName: \#N1) 
+printString
+
+     Printer Pr1 connected to Node N1
+\end{scode}
+
+Define the method \emph{typeName} that returns a string representing 
+the name of the type of node in the \ct{`printing' protocol}. This 
+method should be defined in Node and all its subclasses. 
+
+\begin{scode}
+(LanPrinter withName: \#PC1) typeName
+
+      `Printer'
+
+(Node withName: \#N1) typeName
+     `Node'
+\end{scode}
+
+ 
+Define the method \ct{simplePrintString} on the class \ct{Node} to provide 
+more information about a node as show below:
+
+\begin{scode}
+(Workstation withName: \#Mac connectedTo: (LanPrinter withName: 
+\#PC1)) simplePrintString
+
+      `Workstation Mac'
+
+(LanPrinter withName: \#PC1) simplePrintString
+
+      `Printer PC1'
+\end{scode}
+
+Then modify the \ct{printOn:} method of the class \ct{Node} to produce 
+the following output:
+
+\begin{scode}
+(self withName: \#Mac connectedTo: (LanPrinter new name: 
+\#PC1))
+
+`Node Mac connected to Printer PC1'
+\end{scode}
+
+\paragraph{Remark:} The method \ct{typeName} is called a \textit{hook} method. This 
+reflects the fact that it allows the subclasses to specialize the behavior of the superclass, here the printing of a all the different kinds of nodes. The method \ct{simplePrintString}, even if in our case is rather simple, is called a template method.  This name reflects the fact that the method specifies the context in which hook methods will be called and how they will fit into the template method to produce the expected result. 
+
+
+Note that for abstract classes hook methods can be abstract too, 
+one other case the hook method can propose a default behavior.
+
+
+The Smalltalk class library contains a lot of such hooks that 
+allows an easy customization of the proposed behavior. The proposed 
+requirement already exists in the system. 
+
+\exercise Study the method \ct{printOn:} on the class \ct{Object}. 
+Check its implementors and senders.
+
+\exercise Study the method \ct{copy} on the class \ct{Object}. 
+Check its implementors and senders. What do you think about the method \ct{postCopy}
+check its senders and implementors. 
+
+
+\ifx\wholebook\relax\else\end{document}\fi

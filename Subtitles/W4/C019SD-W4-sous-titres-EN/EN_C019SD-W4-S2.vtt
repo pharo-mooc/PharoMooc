@@ -1,0 +1,429 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:04.800 align:middle
+Hello, everyone.
+This second sequence on inheritance
+
+00:00:04.960 --> 00:00:08.480 align:middle
+will teach you more
+about behavior inheritance
+
+00:00:08.640 --> 00:00:11.800 align:middle
+and what happens when you
+send a message to an object.
+
+00:00:12.440 --> 00:00:15.320 align:middle
+The goal of this sequence
+
+00:00:15.480 --> 00:00:18.720 align:middle
+is to understand
+the message-sending algorithm
+
+00:00:19.720 --> 00:00:24.400 align:middle
+that makes it possible
+to convert a message
+
+00:00:24.560 --> 00:00:28.560 align:middle
+sent by a receiver to a method.
+
+00:00:28.720 --> 00:00:32.720 align:middle
+That is, what method will be run,
+in relation to the message sent,
+
+00:00:34.320 --> 00:00:37.640 align:middle
+and 'self" semantics,
+or what self really means.
+
+00:00:38.800 --> 00:00:40.920 align:middle
+As we saw in sequence 1,
+
+00:00:41.400 --> 00:00:45.320 align:middle
+inheritance is static, for state.
+
+00:00:45.480 --> 00:00:48.640 align:middle
+That is, when the subclass is defined,
+
+00:00:49.160 --> 00:00:51.240 align:middle
+its state is known.
+
+00:00:51.400 --> 00:00:53.840 align:middle
+But inheritance of behavior is dynamic.
+
+00:00:54.000 --> 00:00:56.040 align:middle
+When the program is running,
+
+00:00:56.400 --> 00:00:58.720 align:middle
+when you send a message to an object
+
+00:00:58.880 --> 00:01:02.000 align:middle
+you look for methods
+for class and superclass.
+
+00:01:02.400 --> 00:01:06.200 align:middle
+Message-sending is a two-step process.
+
+00:01:06.920 --> 00:01:11.400 align:middle
+First, you look up the method
+that matches the message.
+
+00:01:11.760 --> 00:01:15.120 align:middle
+Step two, you execute the method
+on the receiver.
+
+00:01:16.760 --> 00:01:19.680 align:middle
+So here, we have the Rectangle class,
+
+00:01:20.280 --> 00:01:22.880 align:middle
+the ColoredRectangle class,
+
+00:01:23.920 --> 00:01:27.760 align:middle
+and an instance of ColoredRectangle
+called aColoredRectangle,
+
+00:01:28.280 --> 00:01:31.760 align:middle
+We send the message "area"
+to this object.
+
+00:01:34.440 --> 00:01:40.200 align:middle
+Our lookup algorithm looks for a method
+matching the "area" message.
+
+00:01:41.400 --> 00:01:43.680 align:middle
+It finds the method
+
+00:01:44.160 --> 00:01:46.880 align:middle
+and carries it out
+
+00:01:47.880 --> 00:01:51.400 align:middle
+in relation to the object
+aColoredRectangle.
+
+00:01:52.600 --> 00:01:54.200 align:middle
+The lookup algorithm
+
+00:01:54.640 --> 00:01:57.640 align:middle
+identifies the method to be executed
+
+00:01:57.880 --> 00:02:00.000 align:middle
+when a message is sent to an object.
+
+00:02:00.320 --> 00:02:04.560 align:middle
+There are clearly two steps:
+message sending, and method execution.
+
+00:02:04.720 --> 00:02:07.920 align:middle
+They are fundamentally different,
+in object programming.
+
+00:02:08.640 --> 00:02:10.760 align:middle
+Even if you use another language,
+
+00:02:10.880 --> 00:02:15.000 align:middle
+it is important to understand
+the difference between the two.
+
+00:02:15.320 --> 00:02:20.200 align:middle
+If you send the "area" message
+to the aColoredRectangle object,
+
+00:02:20.400 --> 00:02:23.160 align:middle
+the first thing the lookup algorithm
+will do
+
+00:02:23.320 --> 00:02:26.800 align:middle
+is search for the class of the receiver.
+
+00:02:27.440 --> 00:02:29.840 align:middle
+The receiver of the message "area"
+
+00:02:30.000 --> 00:02:31.360 align:middle
+is aColoredRectangle.
+
+00:02:31.520 --> 00:02:34.640 align:middle
+The lookup algorithm
+starts searching for a method
+
+00:02:34.800 --> 00:02:38.720 align:middle
+in the object's class:
+ColoredRectangle.
+
+00:02:39.080 --> 00:02:41.840 align:middle
+It looks for an "area" method
+in that class.
+
+00:02:42.160 --> 00:02:44.160 align:middle
+The lookup algorithm
+
+00:02:44.320 --> 00:02:48.000 align:middle
+will not find the method "area"
+in that subclass.
+
+00:02:48.480 --> 00:02:51.200 align:middle
+So it will look elsewhere.
+
+00:02:51.640 --> 00:02:54.960 align:middle
+It looks in the superclass Rectangle.
+
+00:02:55.640 --> 00:02:57.760 align:middle
+It finds the method "area" there,
+
+00:02:58.720 --> 00:02:59.920 align:middle
+and returns it.
+
+00:03:00.080 --> 00:03:03.320 align:middle
+The lookup algorithm is done
+when it finds a method.
+
+00:03:04.320 --> 00:03:09.320 align:middle
+Let's study two cases, and review
+the algorithm I just listed on them.
+
+00:03:10.640 --> 00:03:13.200 align:middle
+We send the message "color"
+
+00:03:13.360 --> 00:03:14.680 align:middle
+to aColoredRectangle.
+
+00:03:14.840 --> 00:03:18.360 align:middle
+The algorithm searches
+the receiver class
+
+00:03:18.680 --> 00:03:20.920 align:middle
+for a method called color.
+
+00:03:21.440 --> 00:03:23.840 align:middle
+It finds it, and returns it.
+
+00:03:25.160 --> 00:03:29.600 align:middle
+If we now send the message "area"
+to aColoredRectangle,
+
+00:03:30.320 --> 00:03:33.560 align:middle
+the algorithm searches
+the receiver's class
+
+00:03:33.720 --> 00:03:35.160 align:middle
+for the method "area."
+
+00:03:35.320 --> 00:03:37.920 align:middle
+Not finding it, it searches the superclass.
+
+00:03:38.160 --> 00:03:40.920 align:middle
+It finds it, and returns the method.
+
+00:03:42.280 --> 00:03:45.520 align:middle
+"Self" always represents the receiver.
+
+00:03:45.960 --> 00:03:49.720 align:middle
+The following examples
+will make it clear to you
+
+00:03:50.320 --> 00:03:54.560 align:middle
+that the lookup algorithm always
+applies to the receiver self.
+
+00:03:54.960 --> 00:03:57.800 align:middle
+Here we have an instance of class A.
+
+00:04:01.240 --> 00:04:02.920 align:middle
+We send the message "foo."
+
+00:04:03.760 --> 00:04:06.120 align:middle
+The lookup algorithm searches for foo,
+
+00:04:06.360 --> 00:04:08.120 align:middle
+finds it, and executes it.
+
+00:04:10.000 --> 00:04:12.680 align:middle
+For B new, we start with aB,
+
+00:04:13.000 --> 00:04:14.880 align:middle
+the same thing as B new.
+
+00:04:15.040 --> 00:04:16.960 align:middle
+We search for a method, "foo."
+
+00:04:17.440 --> 00:04:19.360 align:middle
+The lookup algorithm finds it,
+
+00:04:20.200 --> 00:04:22.000 align:middle
+executes it, and returns 50.
+
+00:04:22.160 --> 00:04:23.440 align:middle
+So, here we have 10,
+
+00:04:24.520 --> 00:04:25.320 align:middle
+and 50.
+
+00:04:25.640 --> 00:04:30.200 align:middle
+It's important for you to take the time
+to think about what "self" means.
+
+00:04:30.560 --> 00:04:33.040 align:middle
+It is important to describe two points.
+
+00:04:33.400 --> 00:04:35.120 align:middle
+What does "self" represent?
+
+00:04:36.280 --> 00:04:40.000 align:middle
+How does message sending behave
+
+00:04:40.280 --> 00:04:42.640 align:middle
+when a message is sent to "self"?
+
+00:04:43.160 --> 00:04:47.160 align:middle
+"self" and "this" -
+"this" being the term in Java -
+
+00:04:47.680 --> 00:04:48.880 align:middle
+are the same thing.
+
+00:04:49.640 --> 00:04:52.560 align:middle
+They always represent the receiver
+of the message.
+
+00:04:52.880 --> 00:04:54.240 align:middle
+So, we saw this example
+
+00:04:54.560 --> 00:04:58.440 align:middle
+with A new foo and B new foo.
+
+00:04:59.040 --> 00:05:01.520 align:middle
+Now we'll send the message "bar."
+
+00:05:02.480 --> 00:05:05.000 align:middle
+Bar is sent to an instance.
+
+00:05:05.560 --> 00:05:08.520 align:middle
+Bar is found here, and executed.
+
+00:05:09.360 --> 00:05:12.960 align:middle
+and we send the message foo
+to object self.
+
+00:05:13.240 --> 00:05:15.600 align:middle
+"Self" is this object,
+
+00:05:16.800 --> 00:05:17.760 align:middle
+A new.
+
+00:05:18.800 --> 00:05:21.960 align:middle
+So we search this object
+for a method "foo."
+
+00:05:22.560 --> 00:05:24.920 align:middle
+We search the class for the method.
+
+00:05:25.480 --> 00:05:28.160 align:middle
+We find it, execute it, and return 10.
+
+00:05:30.400 --> 00:05:33.560 align:middle
+The other case is exactly identical.
+
+00:05:33.760 --> 00:05:37.480 align:middle
+But pay attention, because many
+beginning object programmers
+
+00:05:37.640 --> 00:05:38.760 align:middle
+get it wrong.
+
+00:05:39.280 --> 00:05:41.520 align:middle
+But the algorithm is identical.
+
+00:05:42.560 --> 00:05:45.920 align:middle
+We send "bar" to this object.
+
+00:05:46.200 --> 00:05:47.600 align:middle
+bar is not found here.
+
+00:05:47.760 --> 00:05:51.120 align:middle
+It is found here.
+So this is the bar that is executed.
+
+00:05:51.840 --> 00:05:55.520 align:middle
+At that point, the message "foo"
+is sent to self, which is...
+
+00:05:56.840 --> 00:05:58.520 align:middle
+aB, thus B new.
+
+00:06:00.360 --> 00:06:01.880 align:middle
+We send the message foo,
+
+00:06:02.040 --> 00:06:05.640 align:middle
+so the algorithm looks for the method
+in the object class.
+
+00:06:06.280 --> 00:06:07.480 align:middle
+It finds it.
+
+00:06:07.920 --> 00:06:09.160 align:middle
+50 is returned.
+
+00:06:09.720 --> 00:06:12.200 align:middle
+This is how the algorithm unfolds.
+
+00:06:12.480 --> 00:06:16.400 align:middle
+Look at each step in the process.
+It is what I just told you.
+
+00:06:18.040 --> 00:06:20.680 align:middle
+This example is also identical
+
+00:06:21.080 --> 00:06:22.280 align:middle
+to the preceding one.
+
+00:06:23.480 --> 00:06:26.200 align:middle
+Class B, here, is now empty.
+
+00:06:27.360 --> 00:06:31.120 align:middle
+A new class, C, is defined
+with the method foo return of 50.
+
+00:06:31.440 --> 00:06:34.760 align:middle
+You go through the algorithm process
+I just presented.
+
+00:06:34.920 --> 00:06:38.360 align:middle
+Here, you will get 10.
+
+00:06:38.760 --> 00:06:41.760 align:middle
+This is the foo that is executed,
+in the end.
+
+00:06:42.120 --> 00:06:43.520 align:middle
+Here, you get 50.
+
+00:06:45.160 --> 00:06:45.960 align:middle
+To conclude:
+
+00:06:46.520 --> 00:06:50.880 align:middle
+"Self," like "this" in Java,
+always represents the receiver.
+
+00:06:51.560 --> 00:06:54.200 align:middle
+Message sending always involves
+two steps.
+
+00:06:54.680 --> 00:06:58.360 align:middle
+First, the lookup algorithm looks
+for a match between the method
+
+00:06:59.800 --> 00:07:01.480 align:middle
+and the message sent.
+
+00:07:01.680 --> 00:07:05.160 align:middle
+Second step: the method found
+is executed on the receiver.
+
+00:07:05.800 --> 00:07:09.800 align:middle
+The lookup algorithm travels up
+from the receiver's class.
+
+00:07:10.200 --> 00:07:12.840 align:middle
+The goal of the algorithm lookup
+
+00:07:13.080 --> 00:07:17.520 align:middle
+is to find a method that matches
+the message sent to a receiver.
+

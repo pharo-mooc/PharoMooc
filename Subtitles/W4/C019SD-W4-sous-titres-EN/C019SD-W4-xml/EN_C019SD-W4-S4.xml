@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W4-S4</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:00:13" end="00:00:05:19" region="bottom">Hello. Welcome to the fourth sequence<br/>on inheritance and lookup.</p>
+            <p xml:id="p2" begin="00:00:06:09" end="00:00:11:09" region="bottom">We will now learn what happens when<br/>the algorithm does not find a method.</p>
+            <p xml:id="p3" begin="00:00:11:20" end="00:00:13:03" region="bottom">As you will see,</p>
+            <p xml:id="p4" begin="00:00:14:09" end="00:00:18:11" region="bottom">the class codes<br/>can add processing in this case,</p>
+            <p xml:id="p5" begin="00:00:18:23" end="00:00:23:00" region="bottom">to handle the fact<br/>that a lookup message</p>
+            <p xml:id="p6" begin="00:00:23:04" end="00:00:24:23" region="bottom">was not understood.</p>
+            <p xml:id="p7" begin="00:00:25:15" end="00:00:28:17" region="bottom">I'll review message-sending briefly:</p>
+            <p xml:id="p8" begin="00:00:29:13" end="00:00:33:10" region="bottom">The "area" message is sent<br/>to ColoredRectangle.</p>
+            <p xml:id="p9" begin="00:00:33:19" end="00:00:38:20" region="bottom">First, the algorithm looks up<br/>the method matching the message.</p>
+            <p xml:id="p10" begin="00:00:39:04" end="00:00:43:09" region="bottom">It starts by searching for the method<br/>in the receiver's class:</p>
+            <p xml:id="p11" begin="00:00:43:20" end="00:00:47:10" region="bottom">If it finds "area" in ColoredRectangle,<br/>it executes it.</p>
+            <p xml:id="p12" begin="00:00:47:18" end="00:00:51:19" region="bottom">But "area" is not there,<br/>so the algorithm searches the superclass</p>
+            <p xml:id="p13" begin="00:00:52:03" end="00:00:54:13" region="bottom">In "Rectangle," it finds "area."</p>
+            <p xml:id="p14" begin="00:00:55:16" end="00:00:58:17" region="bottom">The method is executed on the receiver.</p>
+            <p xml:id="p15" begin="00:01:00:17" end="00:01:04:03" region="bottom">What happens in the total absence<br/>of an "area" method?</p>
+            <p xml:id="p16" begin="00:01:04:11" end="00:01:07:03" region="bottom">What if the lookup fails?</p>
+            <p xml:id="p17" begin="00:01:08:01" end="00:01:13:04" region="bottom">Here is an example: a "coucou" message<br/>is sent to Object Node 1.</p>
+            <p xml:id="p18" begin="00:01:13:20" end="00:01:16:16" region="bottom">"Coucou" cannot be found<br/>in the hierarchy.</p>
+            <p xml:id="p19" begin="00:01:16:24" end="00:01:20:07" region="bottom">The "coucou" message is sent to Node 1.</p>
+            <p xml:id="p20" begin="00:01:20:15" end="00:01:24:09" region="bottom">The algorithm fails to find "coucou"<br/>in "Node."</p>
+            <p xml:id="p21" begin="00:01:24:18" end="00:01:27:24" region="bottom">Next, the algorithm searches<br/>"Object." No "coucou"</p>
+            <p xml:id="p22" begin="00:01:28:03" end="00:01:29:11" region="bottom">At that point,</p>
+            <p xml:id="p23" begin="00:01:29:21" end="00:01:34:22" region="bottom">the Pharo virtual machine<br/>sends a "does not understand" message</p>
+            <p xml:id="p24" begin="00:01:35:08" end="00:01:38:13" region="bottom">to the receiver - Node 1.</p>
+            <p xml:id="p25" begin="00:01:40:09" end="00:01:43:08" region="bottom">DNU = Does Not Understand.</p>
+            <p xml:id="p26" begin="00:01:43:22" end="00:01:47:15" region="bottom">It transfers the initial message<br/>as a parameter.</p>
+            <p xml:id="p27" begin="00:01:48:12" end="00:01:50:13" region="bottom">This is the parameter: "coucou stef."</p>
+            <p xml:id="p28" begin="00:01:50:21" end="00:01:53:20" region="bottom">If I go through it again step by step,</p>
+            <p xml:id="p29" begin="00:01:54:06" end="00:01:57:22" region="bottom">"Coucou" is sent to Node 1.<br/>A match is sought in the class,</p>
+            <p xml:id="p30" begin="00:01:59:02" end="00:02:01:01" region="bottom">then in the superclass.</p>
+            <p xml:id="p31" begin="00:02:01:05" end="00:02:05:23" region="bottom">"Coucou" is not there, so the message<br/>"does not understand" is resent</p>
+            <p xml:id="p32" begin="00:02:06:04" end="00:02:08:05" region="bottom">to Object Node 1.</p>
+            <p xml:id="p33" begin="00:02:09:00" end="00:02:12:16" region="bottom">The algorithm looks up the method<br/>"does not understand."</p>
+            <p xml:id="p34" begin="00:02:12:22" end="00:02:14:05" region="bottom">in Node 1 class.</p>
+            <p xml:id="p35" begin="00:02:14:20" end="00:02:19:24" region="bottom">Not finding a match there, the algorithm<br/>searches the superclass.</p>
+            <p xml:id="p36" begin="00:02:20:15" end="00:02:22:17" region="bottom">It is located there.</p>
+            <p xml:id="p37" begin="00:02:22:21" end="00:02:27:02" region="bottom">A "does not understand" method<br/>is found in Object and executed.</p>
+            <p xml:id="p38" begin="00:02:27:11" end="00:02:29:12" region="bottom">That means</p>
+            <p xml:id="p39" begin="00:02:29:24" end="00:02:32:00" region="bottom">in all the subclasses of Object,</p>
+            <p xml:id="p40" begin="00:02:32:09" end="00:02:34:20" region="bottom">"does not understand"<br/>can be implemented</p>
+            <p xml:id="p41" begin="00:02:34:24" end="00:02:38:09" region="bottom">to trigger a specific behavior</p>
+            <p xml:id="p42" begin="00:02:39:05" end="00:02:43:16" region="bottom">when an object, instance, or class<br/>does not understand a message.</p>
+            <p xml:id="p43" begin="00:02:44:12" end="00:02:46:22" region="bottom">This slide shows the details,</p>
+            <p xml:id="p44" begin="00:02:47:05" end="00:02:50:17" region="bottom">step by step.</p>
+            <p xml:id="p45" begin="00:02:51:10" end="00:02:54:07" region="bottom">"Does not understand" is a message<br/>like any other.</p>
+            <p xml:id="p46" begin="00:02:54:14" end="00:02:58:24" region="bottom">Therefore, you can implement<br/>a "DNU" method to be executed</p>
+            <p xml:id="p47" begin="00:02:59:10" end="00:03:03:05" region="bottom">whenever an instance<br/>does not understand a message.</p>
+            <p xml:id="p48" begin="00:03:03:19" end="00:03:05:04" region="bottom">This mechanism is used</p>
+            <p xml:id="p49" begin="00:03:05:20" end="00:03:09:19" region="bottom">in certain somewhat complicated cases</p>
+            <p xml:id="p50" begin="00:03:10:03" end="00:03:12:22" region="bottom">like proxies and automatic delegation:</p>
+            <p xml:id="p51" begin="00:03:13:14" end="00:03:17:20" region="bottom">when you want a certain object<br/>to transmit all the messages it gets</p>
+            <p xml:id="p52" begin="00:03:17:24" end="00:03:19:17" region="bottom">to another object.</p>
+            <p xml:id="p53" begin="00:03:19:21" end="00:03:23:05" region="bottom">The "does not understand" mechanism<br/>can be used for that.</p>
+            <p xml:id="p54" begin="00:03:24:01" end="00:03:27:10" region="bottom">Default implementation<br/>of "does not understand" is found</p>
+            <p xml:id="p55" begin="00:03:27:14" end="00:03:28:16" region="bottom">in the Object class.</p>
+            <p xml:id="p56" begin="00:03:29:00" end="00:03:32:05" region="bottom">It raises one exception.</p>
+            <p xml:id="p57" begin="00:03:33:00" end="00:03:34:06" region="bottom">The exception</p>
+            <p xml:id="p58" begin="00:03:35:02" end="00:03:38:07" region="bottom">is called "Message Not Understood."</p>
+            <p xml:id="p59" begin="00:03:38:16" end="00:03:41:19" region="bottom">So if the "DNU" method<br/>of the Object class</p>
+            <p xml:id="p60" begin="00:03:41:23" end="00:03:44:17" region="bottom">is executed, an exception is raised.</p>
+            <p xml:id="p61" begin="00:03:45:06" end="00:03:49:15" region="bottom">That means the code you are writing<br/>can catch the exception,</p>
+            <p xml:id="p62" begin="00:03:49:23" end="00:03:52:16" region="bottom">the way it would catch any exception.</p>
+            <p xml:id="p63" begin="00:03:52:22" end="00:03:57:13" region="bottom">The exception opens a debugger<br/>for messages that are not understood.</p>
+            <p xml:id="p64" begin="00:03:58:01" end="00:03:59:11" region="bottom">In this example,</p>
+            <p xml:id="p65" begin="00:04:00:02" end="00:04:02:16" region="bottom">we return to the class "Node."</p>
+            <p xml:id="p66" begin="00:04:02:24" end="00:04:07:03" region="bottom">We have a "say hello" method in Node,<br/>which sends a "coucou" message</p>
+            <p xml:id="p67" begin="00:04:07:15" end="00:04:09:12" region="bottom">to the receiver or self.</p>
+            <p xml:id="p68" begin="00:04:10:19" end="00:04:12:19" region="bottom">There's also a "welcome" method</p>
+            <p xml:id="p69" begin="00:04:13:03" end="00:04:16:07" region="bottom">that sends a "say hello" message<br/>to self.</p>
+            <p xml:id="p70" begin="00:04:16:17" end="00:04:20:15" region="bottom">It provides special handling<br/>in the context</p>
+            <p xml:id="p71" begin="00:04:21:09" end="00:04:23:07" region="bottom">of a misunderstood message.</p>
+            <p xml:id="p72" begin="00:04:23:15" end="00:04:28:15" region="bottom">If a message is not understood,<br/>it will be handled.</p>
+            <p xml:id="p73" begin="00:04:28:19" end="00:04:32:00" region="bottom">Here, "say hello"<br/>sends a "coucou" message to self.</p>
+            <p xml:id="p74" begin="00:04:32:04" end="00:04:34:07" region="bottom">"Coucou" is still unimplemented.</p>
+            <p xml:id="p75" begin="00:04:34:22" end="00:04:37:16" region="bottom">Ultimately,<br/>the "does not understand" method</p>
+            <p xml:id="p76" begin="00:04:38:00" end="00:04:40:23" region="bottom">will be executed.</p>
+            <p xml:id="p77" begin="00:04:41:14" end="00:04:45:06" region="bottom">The "message not understood"<br/>exception will be raised.</p>
+            <p xml:id="p78" begin="00:04:46:03" end="00:04:48:07" region="bottom">The code here, following on/do,</p>
+            <p xml:id="p79" begin="00:04:48:17" end="00:04:52:14" region="bottom">is used to catch exceptions,<br/>like "try/catch" in Java.</p>
+            <p xml:id="p80" begin="00:04:52:24" end="00:04:56:20" region="bottom">A later sequence of the course<br/>will go into these exceptions.</p>
+            <p xml:id="p81" begin="00:04:57:22" end="00:05:00:20" region="bottom">The point here is to notice<br/>that this code</p>
+            <p xml:id="p82" begin="00:05:00:24" end="00:05:05:18" region="bottom">is the same as Java's "catch," and<br/>it will be executed for every exception.</p>
+            <p xml:id="p83" begin="00:05:06:16" end="00:05:09:07" region="bottom">Say we send the message "welcome"</p>
+            <p xml:id="p84" begin="00:05:10:11" end="00:05:11:21" region="bottom">to Node 1.</p>
+            <p xml:id="p85" begin="00:05:12:00" end="00:05:14:02" region="bottom">Knowing that "coucou"<br/>is not implemented,</p>
+            <p xml:id="p86" begin="00:05:14:13" end="00:05:18:13" region="bottom">the console will display "something<br/>went wrong with the message."</p>
+            <p xml:id="p87" begin="00:05:19:11" end="00:05:20:16" region="bottom">What you should know:</p>
+            <p xml:id="p88" begin="00:05:22:17" end="00:05:27:06" region="bottom">When the lookup algorithm does not find<br/>a method to match a message,</p>
+            <p xml:id="p89" begin="00:05:27:14" end="00:05:31:11" region="bottom">a "does not understand" message is sent<br/>to the initial receiver,</p>
+            <p xml:id="p90" begin="00:05:31:15" end="00:05:33:19" region="bottom">with the first message as a parameter.</p>
+            <p xml:id="p91" begin="00:05:34:09" end="00:05:37:13" region="bottom">Each class can implement this method.</p>
+            <p xml:id="p92" begin="00:05:37:20" end="00:05:41:21" region="bottom">The default implementation in the Object<br/>class will be executed.</p>
+            <p xml:id="p93" begin="00:05:42:02" end="00:05:45:05" region="bottom">This default implementation<br/>raises an exception,</p>
+            <p xml:id="p94" begin="00:05:45:11" end="00:05:47:10" region="bottom">called "message not understood."</p>
+            <p xml:id="p95" begin="00:05:47:14" end="00:05:50:14" region="bottom">The code you are writing can catch<br/>the exception</p>
+            <p xml:id="p96" begin="00:05:50:18" end="00:05:53:05" region="bottom">and subject it to debugging.</p>
+        </div>
+    </body>
+</tt>

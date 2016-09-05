@@ -1,0 +1,501 @@
+WEBVTT
+
+00:00:08.000 --> 00:00:12.320 align:middle
+Hi everyone, this video shows
+some advanced points on classes.
+
+00:00:13.720 --> 00:00:15.320 align:middle
+It has three main parts.
+
+00:00:15.520 --> 00:00:20.760 align:middle
+Firstly, how to share a state between
+instances of a class and its subclasses.
+
+00:00:22.280 --> 00:00:27.240 align:middle
+Secondly, how to enable classes
+to have their own variables.
+
+00:00:28.600 --> 00:00:30.960 align:middle
+Thirdly, how to initialize classes.
+
+00:00:32.760 --> 00:00:36.160 align:middle
+First up, how to share a state
+between instances.
+
+00:00:37.560 --> 00:00:41.640 align:middle
+Here we have a class
+with several instances.
+
+00:00:41.920 --> 00:00:47.200 align:middle
+To share a state, these instances
+require a common object.
+
+00:00:47.720 --> 00:00:53.920 align:middle
+In Java, we use an "instance" variable
+that takes the keyword "static."
+
+00:00:55.160 --> 00:00:58.240 align:middle
+The value of a static variable
+
+00:00:58.680 --> 00:01:00.720 align:middle
+is the same for all instances.
+
+00:01:01.640 --> 00:01:04.640 align:middle
+In Pharo, we use "class variables."
+
+00:01:06.200 --> 00:01:11.120 align:middle
+This should be a familiar expression
+that allows us to create classes.
+
+00:01:11.480 --> 00:01:15.640 align:middle
+Here we create the Color class,
+which is a subclass of Object.
+
+00:01:15.800 --> 00:01:21.600 align:middle
+First, we list its instance variables,
+then take a look at the line below.
+
+00:01:21.920 --> 00:01:25.480 align:middle
+It lists the class variables
+of the Color class.
+
+00:01:26.640 --> 00:01:32.200 align:middle
+Color class has at least two variables,
+ColorRegistry and ComponentMask.
+
+00:01:32.720 --> 00:01:34.440 align:middle
+A class variable's values
+
+00:01:34.680 --> 00:01:39.400 align:middle
+are shared between all instances
+of the class and subclasses.
+
+00:01:40.480 --> 00:01:46.600 align:middle
+These variables are accessible
+from both instance and class methods.
+
+00:01:47.480 --> 00:01:49.920 align:middle
+They start with a capital letter.
+
+00:01:50.520 --> 00:01:52.840 align:middle
+Let's go back to our example.
+
+00:01:53.320 --> 00:01:55.600 align:middle
+Here we have our Color class,
+
+00:01:55.920 --> 00:01:59.520 align:middle
+which is an instance
+of the metaclass Color class.
+
+00:02:01.160 --> 00:02:06.760 align:middle
+The Color class defines
+two standard variables, rgb and alpha.
+
+00:02:06.960 --> 00:02:09.720 align:middle
+These instance variables are private,
+
+00:02:10.760 --> 00:02:16.240 align:middle
+meaning that they're only accessible
+using Color class methods.
+
+00:02:18.440 --> 00:02:24.560 align:middle
+It also defines ColorRegistry,
+which is underlined and uses capitals.
+
+00:02:25.240 --> 00:02:28.360 align:middle
+This indicates that this variable
+is shared.
+
+00:02:29.480 --> 00:02:33.080 align:middle
+It's a class variable that is accessible
+
+00:02:33.600 --> 00:02:39.640 align:middle
+by the methods of the Color class
+and those of the class Color class.
+
+00:02:40.240 --> 00:02:43.600 align:middle
+Here are some examples
+of uses of this variable.
+
+00:02:44.000 --> 00:02:48.520 align:middle
+In one instance method,
+that of privateBlue in the Color class,
+
+00:02:48.840 --> 00:02:54.320 align:middle
+we access the class variable
+using its name.
+
+00:02:55.360 --> 00:02:59.280 align:middle
+Likewise, if we want to
+give this variable a value,
+
+00:02:59.640 --> 00:03:03.560 align:middle
+we use a colon-equals sign,
+as with any variable.
+
+00:03:03.880 --> 00:03:06.920 align:middle
+We can do this
+on the instance or class side.
+
+00:03:07.400 --> 00:03:08.480 align:middle
+Very often,
+
+00:03:09.000 --> 00:03:14.720 align:middle
+the values of these class variables
+can be read
+
+00:03:15.800 --> 00:03:17.600 align:middle
+within instance methods,
+
+00:03:17.800 --> 00:03:21.680 align:middle
+and are written within class methods.
+
+00:03:22.080 --> 00:03:25.960 align:middle
+This is what occurs most frequently,
+it's not obligatory.
+
+00:03:28.040 --> 00:03:31.440 align:middle
+Now let's look at
+instance variables of classes.
+
+00:03:33.320 --> 00:03:34.920 align:middle
+It's not the same thing.
+
+00:03:35.200 --> 00:03:38.360 align:middle
+A class is an object,
+like everything else.
+
+00:03:38.520 --> 00:03:41.600 align:middle
+Like all objects,
+a class can have instances.
+
+00:03:42.440 --> 00:03:48.560 align:middle
+The metaclass describes the class
+and lists the instance variables
+
+00:03:48.760 --> 00:03:52.800 align:middle
+that can only be accessed
+by its sole instance, its class.
+
+00:03:53.440 --> 00:03:57.840 align:middle
+To define an instance variable
+on the class side,
+
+00:03:58.480 --> 00:04:02.000 align:middle
+we click on the "class" button
+in the code browser.
+
+00:04:02.160 --> 00:04:04.400 align:middle
+That gives us the expression here.
+
+00:04:04.560 --> 00:04:07.840 align:middle
+So, now I'm browsing
+the RPackageSet class.
+
+00:04:08.280 --> 00:04:13.400 align:middle
+The metaclass of this class
+defines a variable named cachePackages.
+
+00:04:15.440 --> 00:04:19.240 align:middle
+These variables can only be accessed
+from class methods
+
+00:04:20.280 --> 00:04:24.920 align:middle
+and they always start
+with a lowercase letter.
+
+00:04:25.800 --> 00:04:27.240 align:middle
+Here's an example.
+
+00:04:27.960 --> 00:04:32.960 align:middle
+The variable cachePackages is defined
+in the metaclass RPackageSet class.
+
+00:04:35.280 --> 00:04:36.720 align:middle
+This means that
+
+00:04:37.520 --> 00:04:42.480 align:middle
+the RPackageSet class,
+which is an instance of the metaclass,
+
+00:04:42.640 --> 00:04:45.560 align:middle
+has a value
+associated with this variable.
+
+00:04:46.840 --> 00:04:48.080 align:middle
+Similarly,
+
+00:04:49.280 --> 00:04:53.760 align:middle
+all instances of the subclasses
+of the RPackageSet class
+
+00:04:54.000 --> 00:04:58.600 align:middle
+have a specific value for that variable,
+which is a different value.
+
+00:04:58.760 --> 00:05:00.400 align:middle
+There's no sharing here.
+
+00:05:00.600 --> 00:05:04.920 align:middle
+Each instance of the RPackageSet class
+or its subclasses
+
+00:05:05.080 --> 00:05:07.600 align:middle
+has its own value for this variable.
+
+00:05:08.040 --> 00:05:14.040 align:middle
+Class variables and instance variables
+on the class side are different things.
+
+00:05:14.200 --> 00:05:17.960 align:middle
+We'll explain this
+using the Singleton Design Pattern,
+
+00:05:18.160 --> 00:05:23.240 align:middle
+whose purpose is to ensure
+that a class has only one instance.
+
+00:05:24.800 --> 00:05:29.720 align:middle
+One solution for executing this Pattern
+is to store, within a variable,
+
+00:05:30.920 --> 00:05:36.160 align:middle
+the instance that is freely accessible
+and disable creation of a new instance.
+
+00:05:36.920 --> 00:05:39.920 align:middle
+That's what we'll do here
+with WebServer.
+
+00:05:41.040 --> 00:05:45.440 align:middle
+Here we use an instance variable
+on the class side.
+
+00:05:46.760 --> 00:05:48.960 align:middle
+Its name takes lower case.
+
+00:05:49.120 --> 00:05:53.200 align:middle
+This variable is defined
+in the definition of the metaclass.
+
+00:05:53.760 --> 00:05:56.920 align:middle
+Now we disable execution
+of the "new" method.
+
+00:05:57.200 --> 00:06:02.040 align:middle
+No messages can be sent to
+WebServer class to create new instances.
+
+00:06:02.240 --> 00:06:05.200 align:middle
+It's imperative
+to go via uniqueInstance,
+
+00:06:05.360 --> 00:06:10.640 align:middle
+which either returns the variable's value
+if it's not nil and has content,
+
+00:06:11.200 --> 00:06:15.440 align:middle
+or else it adds something
+to the variable using "super new."
+
+00:06:15.600 --> 00:06:18.840 align:middle
+It creates a new instance
+of WebServer class,
+
+00:06:19.000 --> 00:06:21.960 align:middle
+and stores it
+in the uniqueInstance variable.
+
+00:06:22.560 --> 00:06:27.760 align:middle
+The fact that we use
+class instance variables
+
+00:06:28.400 --> 00:06:30.480 align:middle
+leads to the following result.
+
+00:06:31.240 --> 00:06:34.000 align:middle
+Each subclass of the WebServer class
+
+00:06:34.520 --> 00:06:36.640 align:middle
+will have its own value
+
+00:06:37.240 --> 00:06:39.640 align:middle
+for uniqueInstance.
+
+00:06:40.120 --> 00:06:43.040 align:middle
+So, if WebServer has three subclasses,
+
+00:06:43.200 --> 00:06:47.480 align:middle
+the uniqueInstance variable
+will have a total of four values.
+
+00:06:47.640 --> 00:06:50.600 align:middle
+One for WebServer and for each subclass.
+
+00:06:51.320 --> 00:06:54.600 align:middle
+If we now use a class variable,
+
+00:06:55.160 --> 00:07:00.000 align:middle
+we edit the class on the instance side
+
+00:07:00.200 --> 00:07:04.480 align:middle
+and we add UniqueInstance,
+using a capital U.
+
+00:07:06.720 --> 00:07:11.920 align:middle
+Again we disallow sending "new" messages
+and implement UniqueInstance.
+
+00:07:12.080 --> 00:07:16.200 align:middle
+The only difference
+is that we use a capital U.
+
+00:07:18.080 --> 00:07:21.040 align:middle
+As a result of choosing a class variable,
+
+00:07:22.120 --> 00:07:25.040 align:middle
+the class hierarchy
+has only one singleton.
+
+00:07:25.240 --> 00:07:27.520 align:middle
+If WebServer has three subclasses,
+
+00:07:27.680 --> 00:07:32.080 align:middle
+these three subclasses and WebServer
+share the same singleton.
+
+00:07:32.240 --> 00:07:35.680 align:middle
+Thus we have one instance shared by all.
+
+00:07:36.640 --> 00:07:38.680 align:middle
+Now for class initialization.
+
+00:07:38.920 --> 00:07:43.720 align:middle
+We can have variables shared
+between a class and its instances,
+
+00:07:43.920 --> 00:07:46.960 align:middle
+but at some point
+we must give them a value.
+
+00:07:47.800 --> 00:07:50.400 align:middle
+We do this when we initialize the class.
+
+00:07:50.560 --> 00:07:55.160 align:middle
+Objects are initialized
+when the initialize message is sent.
+
+00:07:55.320 --> 00:07:59.120 align:middle
+Likewise, we can send
+the initialize message to a class.
+
+00:07:59.320 --> 00:08:04.240 align:middle
+We decide how to initialize variables
+using the initialize method code.
+
+00:08:05.840 --> 00:08:09.000 align:middle
+If we want to initialize
+the Color class,
+
+00:08:09.320 --> 00:08:11.840 align:middle
+we send the initialize message to it.
+
+00:08:12.680 --> 00:08:16.840 align:middle
+Typically, when a class
+is loaded in the system
+
+00:08:17.160 --> 00:08:19.040 align:middle
+by the version control tool,
+
+00:08:19.280 --> 00:08:22.520 align:middle
+the initialize message
+is sent to all classes.
+
+00:08:22.880 --> 00:08:26.560 align:middle
+This is automatic,
+there's no need to send the message
+
+00:08:26.920 --> 00:08:28.960 align:middle
+manually to all classes loaded.
+
+00:08:29.120 --> 00:08:31.120 align:middle
+But if we implement a class,
+
+00:08:31.320 --> 00:08:35.000 align:middle
+if we create a new class
+using the initialize method
+
+00:08:35.400 --> 00:08:37.760 align:middle
+we must send the message manually.
+
+00:08:38.640 --> 00:08:41.280 align:middle
+Here's an example in the Color class.
+
+00:08:41.480 --> 00:08:44.360 align:middle
+We can see we're on the metaclass side.
+
+00:08:44.680 --> 00:08:49.000 align:middle
+Here we initialize
+several class variables,
+
+00:08:50.320 --> 00:08:53.000 align:middle
+or instance variables on the class side.
+
+00:08:53.240 --> 00:08:55.960 align:middle
+There are both types of variable here.
+
+00:08:57.800 --> 00:08:59.680 align:middle
+In the initialize methods,
+
+00:08:59.880 --> 00:09:03.360 align:middle
+we never use super initialize
+on the class side.
+
+00:09:03.560 --> 00:09:07.880 align:middle
+When we add an initialize method
+on the instance side,
+
+00:09:08.080 --> 00:09:10.920 align:middle
+we systematically call super initialize
+
+00:09:11.080 --> 00:09:15.320 align:middle
+to initialize all instance variables
+of a newly created object.
+
+00:09:15.520 --> 00:09:16.760 align:middle
+But for classes,
+
+00:09:16.920 --> 00:09:22.000 align:middle
+since classes and superclasses exist
+when the initialize message is sent,
+
+00:09:22.160 --> 00:09:25.920 align:middle
+we don't call super initialize
+in the initialize method
+
+00:09:26.120 --> 00:09:29.760 align:middle
+on the class side
+to avoid re-initializing classes.
+
+00:09:30.160 --> 00:09:31.680 align:middle
+Here are the takeaways.
+
+00:09:31.880 --> 00:09:35.640 align:middle
+We use class variables to share a state.
+
+00:09:37.200 --> 00:09:41.000 align:middle
+Classes are objects
+that can have their own variables,
+
+00:09:41.160 --> 00:09:44.320 align:middle
+so we use instance variables
+on the class side.
+
+00:09:45.000 --> 00:09:48.680 align:middle
+To initialize a class,
+we send it an initialize message
+
+00:09:48.840 --> 00:09:52.200 align:middle
+and apply the initialize method
+on the class side.
+

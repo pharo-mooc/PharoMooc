@@ -1,0 +1,78 @@
+\documentclass{article}
+
+\usepackage{ifthen}
+%\newboolean{showanswers}
+%% \setboolean{showanswers}{true}
+%\setboolean{showanswers}{false}
+%\ifthenelse{\boolean{showanswers}}
+%{\newcommand{\question}[3]{\item #1 \emph{#3}}}
+%{\newcommand{\question}[3]{\item #1}}
+\newcommand{\noquestion}[3]{}
+
+{\newcommand{\question}[1]{\item #1\\ \vspace{3cm}}
+\newcommand{\co}[1]{\textsf{#1}}
+
+\begin{document}
+\begin{center}
+{\huge Questionnaire de connaissances g\'en\'erales\\
+}
+\end{center}
+\begin{flushleft}\large Nom: \\
+Pr\'enom:
+\end{flushleft}
+
+\section*{Questions}
+
+\begin{enumerate}
+\question{Qu'est-ce qu'une classe ?}
+
+\question{Qu'est-ce qu'un object ?}
+
+\question{Qu'est-ce que l'encapsulation ?}
+
+\question{Qu'est-ce que \co{self} ou \co{this} ?}
+ 
+\question{Quelle est la diff\'erence entre du souclassage et du soutypage ?}
+
+\question{Comment fonctionne la recherche de m\'ethode ?}
+
+\question{Qu'est-ce que le polymorphisme ?}
+
+\question{Qu'est-ce que l'h\'eritage?}
+
+\question{Quelle est la s\'emantique de \textit{super} ?} 
+
+\question{Comparez h\'eritage et composition}
+
+\question{Donnez un exemple montrant la diff\'erence entre \co{self} et \co{super}}
+
+\question{Qu'est-ce que \co{new} ? Expliquez comment cela fonctionne ?}
+
+\question{Qu'est-ce que la liaison tardive ?}
+
+\question{Qu'est-ce qu'un framework ?}
+
+\question{Pourquoi la classe \co{Class} h\'erite de la classe \co{Object} ?}
+
+\question{Quelle est la diff\'erence entre une biblioth\`eque et un framework ?}
+
+\question{Que pensez-vous du fait de d\'efinir \co{Stack} comme souclasse de \co{OrderedCollection} ou \co{Array} ?}
+
+\question{Pourquoi dit-on que \co{super} est statique ?}
+ 
+\question{On d\'efinit la m\'ethode \co{m}  suivante dans la classe \co{A} qui est une souclasse de la classe \co{Object}. Le corps de m est \co{\^self class == super class} en Smalltalk ou \co{return this.getClass.getName.equals(super.getClass.getName())}. On invoque cette m\'ethode sur une instance de la classe \co{A}. Quelle la valeur rendue et pourquoi ?}
+
+\question{Qu'est-ce que la loi de Demeter ?}
+
+\question{Qu'est-ce que le mot clef \co{static} exprime ?}
+
+\question{Pourquoi en Java ne peut-on pas h\'eriter les m\'ethodes \co{static} ?}
+
+\question{Quelle la diff\'erence entre le polymorphisme et la liaison tardive ?}
+
+\question{Qu'est-ce qu'une interface en Java ? Pourquoi en a-t-on besoin ?}
+
+\question{Pourquoi faut-il eviter des typechecks ?}
+
+\end{enumerate}
+\end{document}

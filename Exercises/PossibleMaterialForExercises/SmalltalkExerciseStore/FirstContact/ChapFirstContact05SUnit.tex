@@ -1,0 +1,52 @@
+% $Author: ducasse $
+% $Date: 2005/11/06 13:11:22 $
+% $Revision: 1.2 $
+\ifx\wholebook\relax\else
+\input{../Common.tex}
+\begin{document}
+\fi
+
+\chapter{SUnit Testing}
+
+\mainauthor{St\'ephane Ducasse}
+
+For each class described in the Chapter on collection "Set, Dictionary and Bag", define unit tests for each of the described behavior. 
+ 
+\section{Set}
+
+\exercise create a Unit test for each of the following methods
+
+\begin{itemize}
+\item \ct{aSet add: anObject} and \ct{aSet addAll: aCollection},
+\item \ct{aSet includes: anObject}
+\item \ct{aSet remove: un Objet} and \ct{aSet remove: anObjet ifAbsent: aBlocException},
+\item  \ct{aSet size} and \ct{aSet capacity}. 
+\end{itemize}
+
+
+\section{Dictionary}
+\begin{itemize} 
+\item \ct{aDictionary at: aKey put: anObject},
+\item \ct{aDictionary add: uneAssociation},
+\item \ct{aDictionary removeKey: aKey}, \ct{aDictionary removeKey: aKey ifAbsent: aBloc},
+\item \ct{aDictionary includesKey: aKey},
+\item \ct{aDictionary includes: anObject},
+\item \ct{aDictionary occurencesOf: anObject},
+\item \ct{aDictionary keyAtValue: anObject},
+\item \ct{aDictionary do: aBloc},
+\item \ct{aDictionary keysDo: aBloc},
+\item \ct{aDictionary keysAndValuesDo: aBloc}.
+\end{itemize}
+
+\section{Bag}
+\begin{itemize} 
+\item \ct{aBag add: unObjet}
+\item \ct{aBag remove: unObjet} and \ct{aBag remove: unObjet  ifAbsent: aBlock}
+\item \ct{aBag addAll: aCollection} and  \ct{aBag removeAll: aCollection}
+\item \ct{aBag add: anObject withOccurrences: n} and
+\ct{aBag removeAllOccurrencesOf: anObject ifAbsent: aBlock}
+\end{itemize}
+
+
+
+\ifx\wholebook\relax\else\end{document}\fi

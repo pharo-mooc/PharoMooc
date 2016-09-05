@@ -1,0 +1,313 @@
+\documentclass{report}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{xspace}
+\usepackage{alltt}
+\usepackage{ifpdf}
+\usepackage{ifthen}
+\usepackage{amsmath}
+\usepackage{a4wide}
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+
+\graphicspath{{../figures/}{figures/}{FirstContact/}{Seaside/}{Seaside/figures/}{SmallWiki/}{AdvancedSmalltalking/}{Environment/}{BotsIncExos/}{Models/}}
+\usepackage[pdftex,colorlinks=true,pdfstartview=FitV,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{ifpdf}
+\ifpdf
+    \pdfoutput=1
+    \DeclareGraphicsExtensions{.pdf, .jpg, .png}
+\else
+    \renewcommand{\includegraphics}{} % No graphics in case of latex
+    \DeclareGraphicsExtensions{.eps, .jpg}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mainauthor}[1]{Main Author(s): #1}
+\newcommand{\ducasse}{S. Ducasse, Universit\'e de Savoie, \textsf{stephane.ducasse@univ-savoie.fr}}
+\newcommand{\wuyts}{R. Wuyts, Universit\'e Libre de Bruxelles, \textsf{roel.wuyts@ulb.ac.be}}
+\newcommand{\bouraqadi}{N. Bouraqadi, Universit\'e Libre de Bruxelles, \textsf{bouraqadi@ensm-douai.fr}}
+\newcommand{\stinckwich}{S. Stinckwich, Universit\'e de Caen, \textsf{Serge.Stinckwich@info.unicaen.fr}}
+\newcommand{\bergel}{A. Bergel, Universitaet Bern, \textsf{bergel@iam.unibe.ch}}
+\newcommand{\pottier}{B. Pottier, Universit\'e de Brest, \textsf{Bernard.Pottier@univ-brest.fr}}
+
+\newcommand{\metadata}[5]{}
+%\newcommand{\metadata}[5]{\begin{quote}\emph{Currently developed on: #1, Can be used for lectures using #2, latest version #4 available on #3, contact person: #5}\end{quote}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newboolean{hidden}
+\setboolean{hidden}{true}
+\newcommand{\hidden}[1]{\ifthenelse{\boolean{hidden}}{#1}{}}
+
+
+\newboolean{seevwspecific}
+\setboolean{seevwspecific}{true}
+\newcommand{\vwspecific}[1]{\ifthenelse{\boolean{seevwspecific}}{#1}{}}
+
+\newboolean{seesqspecific}
+\setboolean{seesqspecific}{false}
+\newcommand{\sqspecific}[1]{\ifthenelse{\boolean{seesqspecific}}{#1}{}}
+
+\newboolean{seecategoryspecific}
+\setboolean{seecategoryspecific}{false}
+\newcommand{\categoryspecific}[1]{\ifthenelse{\boolean{seecategoryspecific}}{#1}{}}
+
+\newboolean{seeparcelspecific}
+\setboolean{seeparcelspecific}{false}
+\newcommand{\parcelspecific}[1]{\ifthenelse{\boolean{seeparcelspecific}}{#1}{}}
+
+\newboolean{seestorespecific}
+\setboolean{seestorespecific}{true}
+\newcommand{\storespecific}[1]{\ifthenelse{\boolean{seestorespecific}}{#1}{}}
+
+\newboolean{seesqueaksourcespecific}
+\setboolean{seesqueaksourcespecific}{false}
+\newcommand{\squeaksourcespecific}[1]{\ifthenelse{\boolean{seesqueaksourcespecific}}{#1}{}}
+
+\newboolean{seesqueakspecific}
+\setboolean{seesqueakspecific}{false}
+\newcommand{\squeakspecific}[1]{\ifthenelse{\boolean{seesqueakspecific}}{#1}{}}
+
+\newcommand{\category}[0]
+{\ifthenelse{\boolean{seestorespecific}}
+        {package\xspace}
+        {category\xspace}}
+
+\newcommand{\stc}[1]{{\small {\sf #1}}\xspace}
+\newcommand{\ST}{{\textsc Smalltalk}\xspace}
+\newcommand{\tab}{\makebox[4em]{}}
+\newcommand{\ttt}[1]{{\sf #1}}
+\newcommand{\chev}{\ttt{>>}}
+\newcommand{\superior}{\ttt{>}}
+\newcommand{\assoc}{\texttt{->}}
+\newcommand{\sepa}{...}
+%% to get | in code
+\newcommand{\stBar}{$\mid$}
+
+%% to get >>
+%%\newcommand{\sep}{$\gg$}
+\newcommand{\sep}{\texttt{>>}}
+%\newcommand{\sllash}{\verb=\\=}
+
+%%code in text
+\newcommand{\ct}[1]{\textsf{#1}}
+
+\newcommand{\stMethod}[1]{\textsf{#1}}
+
+
+\newcommand{\vw}{VisualWorks\xspace}
+\newcommand{\VW}{VisualWorks\xspace}
+\newcommand{\sq}{Squeak\xspace}
+\newcommand{\store}{Store\xspace}
+\renewcommand{\chaptername}{chapter}
+
+\newcounter{exo}
+%\newcommand{\exercise}[0]
+%   {\stepcounter{exo}\par\vspace{0.2cm}\noindent \textbf{Exercise: \arabic{exo}.}\xspace}
+
+
+\newcommand{\block}[3]{\vspace{7pt}\noindent
+	\textbf{#1~\arabic{exo}\stepcounter{exo}}#2\quad#3}
+\newcommand{\exercise}[1]{\block{Exercise}{}{#1}}
+\newcommand{\exercisestar}[1]{\block{Exercise}{$^\bigstar$}{#1}}
+\newcommand{\question}[1]{\block{Question}{}{#1}}
+\newcommand{\questionstar}[1]{\block{Question}{$^\bigstar$}{#1}}
+
+\newcommand{\exoitem}
+    {\stepcounter{exo} \item[Exercise: \arabic{exo}.]}
+    
+%\newcommand{\fig}[3]{
+%   \begin{figure}[#3]
+%   \begin{center}
+%   \includegraphics[width=0.8\linewidth]{#1}
+%   \caption{#2.\label{fig:#1}}
+%   \end{center}
+%   \end{figure}
+%}
+
+
+\newenvironment{scode}
+{\begin{alltt}\hrule\vspace{0.1cm}\sffamily}
+{\vspace{0.1cm}\hrule\end{alltt}\normalsize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% Only here for backward compatibility
+
+\newsavebox{\fminibox}
+\newlength{\fminilength}
+
+% Fait un truc encadre
+\newenvironment{fminipage}[1][\linewidth]
+  {\setlength{\fminilength}{#1-2\fboxsep-2\fboxrule}
+        \begin{lrbox}{\fminibox}\begin{minipage}{\fminilength}}
+  { \end{minipage}\end{lrbox}\noindent\fbox{\usebox{\fminibox}}}
+
+% Pareil mais pas encadre (a utiliser pour ne pas couper une fonction
+
+\newenvironment{nminipage}[1][\linewidth]
+  {\setlength{\fminilength}{#1}
+        \begin{lrbox}{\fminibox}\begin{minipage}{\fminilength}}
+  { \end{minipage}\end{lrbox}\noindent\mbox{\usebox{\fminibox}}}
+
+% Un alltt encadre
+\newenvironment{falltt}
+  {\vspace*{0.3cm}\begin{fminipage}\begin{alltt}}
+  {\end{alltt}\end{fminipage}\vspace*{0.3cm}}
+
+% Un alltt pas encadre
+\newenvironment{nalltt}
+  {\vspace*{0.3cm}\begin{nminipage}\begin{alltt}}
+  {\end{alltt}\end{nminipage}\vspace*{0.3cm}}
+
+% Une fonction encadree
+\newenvironment{ffonction}[1]
+  {\begin{fonction}[#1]
+        \begin{fminipage}
+\begin{alltt}
+\rule{\linewidth}{0.5pt}}
+{\end{alltt}\end{fminipage}\end{fonction}}
+
+\newenvironment{codeonepage}
+  {\begin{nminipage}\vspace*{0.2cm}\hrule\vspace*{0.1cm}
+\begin{alltt}}
+  {\end{alltt} \vspace*{-0.2cm}\hrule \vspace*{0.2cm} \end{nminipage}}
+
+\newenvironment{code}
+  {\vspace*{0.1cm}\hrule\vspace*{-0.1cm}\begin{alltt}}
+  {\end{alltt}\vspace*{-0.2cm}\hrule \vspace*{0.1cm}}
+
+\newcommand{\cod}[1]{{\small\textsf{#1}\xspace}}
+\newcommand{\cb}[1]{\cod{#1}}
+\newcommand{\trait}[1]{\cod{#1}}
+\newcommand{\cls}[1]{\cod{#1}}
+\newcommand{\class}[1]{\cod{#1}}
+
+\newcommand{\ie}{i.e.,~}
+
+%To put a return char in a code section inside a \vwspecific, \squeakspecific, ...
+\chardef\caret=`\^
+
+\newcommand{\di}{$\gg$\xspace}
+\newcommand{\cat}[1]{\texttt{#1}\xspace}
+
+\newboolean{usesqueak}
+\setboolean{usesqueak}{true}
+\newcommand{\smalltalk}[2]
+	{\ifthenelse{\boolean{usesqueak}}
+	        {#1\xspace}
+	        {#2\xspace}}
+	        
+
+%%% for chapter
+\font\fonttitre=cmbx12 scaled 4200
+\font\fonttitrep=cmbx12 scaled 2200
+%\font\fontpartie=cmbx10 scaled 1800 % Titres des parties dans la tab des mats
+%\font\fontpartiegrosse=cmbx25 scaled 2000 % Titres des parties dans le texte
+%\font\fontchapitre=cmbxsl10 scaled 2500 % Titres des chapitres pas utilise
+\font\fontchap=cmbx12 scaled 2200% Titres des chapitres
+\font\fontchapnumero=cmbx12 scaled 4000 % Titres des chapitres
+	        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Affichage d'une tete d'un chapitre sans numero (et biblio, index)
+\def\@makeschapterhead#1{%
+  \vspace*{2\p@}%
+  {\parindent \z@ \raggedright
+    \reset@font
+	\vskip 18pt
+	\baselineskip=16mm
+	\fontencoding{OT1}\selectfont\fontchap #1\par
+	\baselineskip=4mm
+    \nobreak
+    \vskip 30\p@
+  }}
+% Macro for Chapter
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{-1cm}
+  \vspace*{2\p@}%
+  {\parindent \z@ \raggedright \reset@font
+    \ifnum \c@secnumdepth >\m@ne
+       \if@mainmatter
+      	\flushright{\hfill\fontencoding{T1}\selectfont\fontchap\fontchapnumero\thechapter}
+	%\flushright{\LARGE\@chapapp{}\thechapter}
+         \par
+         \vskip 9\p@
+       \fi
+	 \hrule height 2pt\par
+	\vskip 16pt
+	\baselineskip=12mm
+	\fontencoding{T1}\selectfont\fontchap #1\par
+	\baselineskip=4mm
+    \nobreak
+    \vskip 45\p@
+  }}
+\makeatother
+
+
+\newboolean{showcomments}
+\setboolean{showcomments}{false}
+\ifthenelse{\boolean{showcomments}}
+  {\newcommand{\mynote}[2]{
+    \fbox{\bfseries\sffamily\scriptsize#1}
+    {\small$\blacktriangleright$\textsf{\emph{#2}}$\blacktriangleleft$}
+    % \marginpar{\fbox{\bfseries\sffamily#1}}
+   }
+   \newcommand{\cvsversion}{\emph{\scriptsize$-$Id: Common.tex,v 1.2 2005/11/06 13:11:22 ducasse Exp $-$}}
+  }
+  {\newcommand{\mynote}[2]{}
+   \newcommand{\cvsversion}{}
+  }
+\newcommand{\here}{\mynote{***}{CONTINUE HERE}}
+\newcommand\nb[1]{\mynote{NB}{#1}}
+\newcommand\fix[1]{\mynote{FIX}{#1}}
+% \newcommand\todo[1]{\mynote{TO DO}{#1}}
+\newcommand\ab[1]{\mynote{Alex}{#1}}
+\newcommand\on[1]{\mynote{Oscar}{#1}}
+\newcommand\ga[1]{\mynote{Gabi}{#1}}
+\newcommand\sd[1]{\mynote{Stef}{#1}}
+\newcommand\lr[1]{\mynote{Lukas}{#1}}
+
+\newboolean{toseecomment}
+\setboolean{toseecomment}{false}
+%%change to false to hide comment 
+\newcommand{\comment}[1]{\ifthenelse{\boolean{toseecomment}}{$\blacktriangleright$ \textit{#1}$\blacktriangleleft$}{}}
+
+\newcommand{\commented}[1]{}
+
+
+% M A C R O S
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% text styles
+%\newcommand{\code}[1]{\texttt{#1}}
+%\newcommand{\class}[1]{\ct{#1}}
+\newcommand{\method}[1]{\ct{\##1}}
+\newcommand{\bundle}[1]{\emph{#1}}
+\newcommand{\package}[1]{\emph{#1}}
+
+%% block counter
+%\newcounter{block_nr}
+%\setcounter{block_nr}{1}
+%% block styles
+%\newcommand{\block}[3]{
+%	\vspace{7pt}\noindent
+%	\textbf{#1~\arabic{block_nr}\addtocounter{block_nr}{1}#2}\quad#3}
+%\newcommand{\exercise}[1]{\block{Exercise}{}{#1}}
+%\newcommand{\exercisestar}[1]{\block{Exercise}{$^\bigstar$}{#1}}
+%\newcommand{\question}[1]{\block{Question}{}{#1}}
+%\newcommand{\questionstar}[1]{\block{Question}{$^\bigstar$}{#1}}
+
+% references
+\newcommand{\secref}[1]{Section~\ref{#1}}
+\newcommand{\figref}[1]{Figure~\ref{#1}}
+
+
+
+

@@ -1,0 +1,312 @@
+﻿WEBVTT
+
+00:00:00.720 --> 00:00:05.440 align:middle
+Hello, in this course I'll show you
+how to profile an application in Pharo.
+
+00:00:05.600 --> 00:00:08.640 align:middle
+That means measuring
+the execution of expressions
+
+00:00:08.800 --> 00:00:11.320 align:middle
+to see if we can replace
+them with others to gain time,
+
+00:00:11.480 --> 00:00:13.520 align:middle
+during the execution of a program.
+
+00:00:14.560 --> 00:00:18.360 align:middle
+Basically, what people say is,
+if you've never profiled
+
+00:00:18.520 --> 00:00:22.920 align:middle
+an application you could
+increase speeds by 40-50%.
+
+00:00:23.080 --> 00:00:26.240 align:middle
+I'm not convinced.
+I don't know, I've no proof.
+
+00:00:26.400 --> 00:00:29.160 align:middle
+But I can show you the tools in Pharo
+
+00:00:29.320 --> 00:00:32.160 align:middle
+for doing this profiling.
+
+00:00:32.320 --> 00:00:35.800 align:middle
+The first expression in Pharo
+is "timeToRun".
+
+00:00:35.960 --> 00:00:38.320 align:middle
+It's a message we send to a block,
+
+00:00:38.480 --> 00:00:40.720 align:middle
+which will give us the run time
+of an expression.
+
+00:00:40.880 --> 00:00:43.680 align:middle
+So, here in "1000 factorial",
+
+00:00:43.840 --> 00:00:48.120 align:middle
+I want to measure the run time
+of "1000 factorial", I put it in a block
+
+00:00:48.280 --> 00:00:50.600 align:middle
+and I send the message,
+"timeToRun".
+
+00:00:50.760 --> 00:00:55.120 align:middle
+Now that we have 'timeToRun"
+it's easy to compare 2 executions.
+
+00:00:55.280 --> 00:00:57.520 align:middle
+Here's a little exercise:
+
+00:00:57.680 --> 00:01:00.720 align:middle
+If I do "select" followed by "collect",
+
+00:01:00.880 --> 00:01:05.280 align:middle
+is it slower than "select:thenCollect",
+
+00:01:05.440 --> 00:01:08.400 align:middle
+knowing that this involves two passes
+
+00:01:08.560 --> 00:01:10.600 align:middle
+in the first case
+and one in the second.
+
+00:01:10.760 --> 00:01:14.120 align:middle
+So I think it will take longer,
+but we're going to check.
+
+00:01:14.840 --> 00:01:17.560 align:middle
+What do I do?
+I create my collection in both cases,
+
+00:01:17.720 --> 00:01:21.920 align:middle
+I'm looking, I create my collection
+with 10 elements, a small collection,
+
+00:01:22.080 --> 00:01:26.200 align:middle
+and what I'll do is create
+a certain number of times,
+
+00:01:27.360 --> 00:01:31.000 align:middle
+I'll make a loop so I can run
+the expressions several times.
+
+00:01:31.160 --> 00:01:32.960 align:middle
+You can see, in the first part,
+
+00:01:33.120 --> 00:01:38.000 align:middle
+I've my collection,
+I select every element larger than 5,
+
+00:01:38.160 --> 00:01:41.920 align:middle
+and afterwards, I'll square
+the elements I've selected,
+
+00:01:42.080 --> 00:01:45.960 align:middle
+and in the 2nd expression, I'll say,
+what do I want to select?
+
+00:01:46.120 --> 00:01:49.840 align:middle
+Everything larger than 5,
+and I'll square them.
+
+00:01:50.000 --> 00:01:53.360 align:middle
+We see that the system tells me
+that's 500 milliseconds,
+
+00:01:53.520 --> 00:01:57.320 align:middle
+and that's 300 milliseconds.
+The 2nd expression is better.
+
+00:01:57.480 --> 00:01:59.960 align:middle
+You see how it works,
+it's up to you to do it.
+
+00:02:00.120 --> 00:02:05.800 align:middle
+Note that we're sometimes obliged
+to put very large loops inside,
+
+00:02:06.560 --> 00:02:11.600 align:middle
+to amplify the measurement,
+for both cases, of course.
+
+00:02:12.080 --> 00:02:16.800 align:middle
+Otherwise, there's another operation,
+another message called "bench".
+
+00:02:16.960 --> 00:02:20.520 align:middle
+"Bench" will tell us
+how many times the code,
+
+00:02:20.680 --> 00:02:26.240 align:middle
+which is being studied,
+is executed over 5 seconds.
+
+00:02:27.560 --> 00:02:31.560 align:middle
+I take my "1000 factorial bench"
+example again, and I can execute it
+
+00:02:31.720 --> 00:02:33.840 align:middle
+610,000 times a second.
+
+00:02:34.000 --> 00:02:37.000 align:middle
+In this case, if we so desire,
+we can also make it
+
+00:02:37.160 --> 00:02:39.320 align:middle
+that the figure is as high as possible.
+
+00:02:39.480 --> 00:02:42.680 align:middle
+There's also a variant
+of bench, "benchFor",
+
+00:02:42.840 --> 00:02:46.800 align:middle
+where you can specify the size.
+What's interesting to see
+
+00:02:46.960 --> 00:02:50.000 align:middle
+is that "2 seconds",
+it's really the "second" message,
+
+00:02:50.160 --> 00:02:54.920 align:middle
+which is sent to message 2,
+which will give us a duration,
+
+00:02:55.080 --> 00:02:57.480 align:middle
+an instance of the Duration class,
+
+00:02:58.120 --> 00:03:01.080 align:middle
+and which will control
+how long the system runs.
+
+00:03:01.240 --> 00:03:04.960 align:middle
+This shows you once again
+that everything's an object in Pharo.
+
+00:03:05.120 --> 00:03:09.240 align:middle
+I set the seconds at 2 seconds.
+I send the "second" message to object 2.
+
+00:03:10.600 --> 00:03:15.080 align:middle
+What you have next,
+there's also what we call a "profiler",
+
+00:03:15.240 --> 00:03:16.880 align:middle
+which is sampling-based.
+
+00:03:17.040 --> 00:03:20.520 align:middle
+What will happen is,
+you'll execute your program,
+
+00:03:20.680 --> 00:03:23.880 align:middle
+and it will go at regular intervals
+
+00:03:24.040 --> 00:03:26.400 align:middle
+to inspect the execution stack,
+
+00:03:26.560 --> 00:03:29.040 align:middle
+see what's in the stack
+and collect information.
+
+00:03:29.200 --> 00:03:33.760 align:middle
+So how do we bring it up?
+We do "timeProfiler, spyOn"
+
+00:03:33.920 --> 00:03:37.800 align:middle
+and we'll pass it a block.
+I want to repeat 20 times
+
+00:03:37.960 --> 00:03:39.680 align:middle
+that I'll show on the Transcript,
+
+00:03:39.840 --> 00:03:42.000 align:middle
+"1000 factorial",
+
+00:03:42.160 --> 00:03:45.920 align:middle
+which I convert into a string,
+which usually costs the most.
+
+00:03:46.080 --> 00:03:50.480 align:middle
+After that, the profiler will give us
+this kind of result,
+
+00:03:50.640 --> 00:03:55.080 align:middle
+with a tree showing us the branches
+amongst which we've spent most time.
+
+00:03:55.240 --> 00:04:00.000 align:middle
+It shows us we spent 63% of the time
+in the method "printOn:base".
+
+00:04:01.040 --> 00:04:03.240 align:middle
+It's just to show you it's there.
+
+00:04:03.400 --> 00:04:06.960 align:middle
+There's a profiler you can play with
+if you're interested.
+
+00:04:07.960 --> 00:04:09.240 align:middle
+So to summarize,
+
+00:04:09.480 --> 00:04:10.640 align:middle
+to begin with,
+
+00:04:10.800 --> 00:04:14.600 align:middle
+you can use "timeToRun",
+"bench" and the profiler.
+
+00:04:14.760 --> 00:04:19.280 align:middle
+There's a chapter in the book
+"Deep into Pharo" showing this kind
+
+00:04:19.440 --> 00:04:22.560 align:middle
+of optimization technique.
+
+00:04:22.720 --> 00:04:26.240 align:middle
+I just wanted to point out,
+as you see in these 3 examples,
+
+00:04:26.400 --> 00:04:30.440 align:middle
+we always use blocks.
+This is a block...
+
+00:04:30.600 --> 00:04:33.400 align:middle
+This is a block too... Why?
+
+00:04:33.560 --> 00:04:36.680 align:middle
+You saw in the course
+on blocks that they allow you
+
+00:04:36.840 --> 00:04:39.520 align:middle
+to freeze the expression,
+the definition of the block
+
+00:04:39.680 --> 00:04:42.560 align:middle
+doesn't execute and give "bench"
+the possibility
+
+00:04:42.720 --> 00:04:44.920 align:middle
+of controlling
+the number of executions
+
+00:04:45.080 --> 00:04:48.080 align:middle
+or deciding when execution
+of the program will begin.
+
+00:04:48.240 --> 00:04:50.080 align:middle
+The other thing I'd say is,
+
+00:04:50.240 --> 00:04:54.680 align:middle
+find out about how "timeToRun"
+and "bench" are implemented.
+
+00:04:54.840 --> 00:04:57.520 align:middle
+To do that you click on Expression
+
+00:04:57.680 --> 00:05:00.840 align:middle
+and do "browse" or "implement"
+and you'll see the code.

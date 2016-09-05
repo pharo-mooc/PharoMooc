@@ -1,0 +1,654 @@
+﻿1
+00:00:00,440 --> 00:00:01,520
+Hello everyone.
+
+2
+00:00:01,680 --> 00:00:06,040
+In this class, I'll illustrate Pharo
+
+3
+00:00:06,200 --> 00:00:11,880
+by comparing it
+to another OOP language, Java.
+
+4
+00:00:12,520 --> 00:00:16,040
+In Pharo, you only manipulate objects.
+
+5
+00:00:16,200 --> 00:00:20,200
+You do things
+thanks to messages only
+
+6
+00:00:20,360 --> 00:00:22,640
+and by assigning values to variables.
+
+7
+00:00:23,280 --> 00:00:27,440
+The following slides will show a few
+equivalences between Java and Pharo
+
+8
+00:00:27,600 --> 00:00:30,720
+to understand their differences
+and similitudes.
+
+9
+00:00:30,880 --> 00:00:32,360
+Over there,
+
+10
+00:00:33,080 --> 00:00:35,840
+Java is used to create a new collection
+
+11
+00:00:36,000 --> 00:00:38,840
+which contains strings.
+
+12
+00:00:39,000 --> 00:00:43,560
+This collection is affected
+to a variable called strings.
+
+13
+00:00:44,920 --> 00:00:46,560
+In Pharo, it's the same.
+
+14
+00:00:46,720 --> 00:00:49,240
+The class which manages collections
+
+15
+00:00:49,400 --> 00:00:52,120
+is called OrderedCollection,
+not ArrayList,
+
+16
+00:00:52,280 --> 00:00:54,240
+but the behavior is the same.
+
+17
+00:00:54,400 --> 00:00:56,640
+You have to be aware of several things:
+
+18
+00:00:57,560 --> 00:01:02,960
+first, in Pharo,
+new is a message sent to a class.
+
+19
+00:01:03,120 --> 00:01:06,280
+The message new is sent
+to the class OrderedCollection
+
+20
+00:01:06,440 --> 00:01:09,000
+to create a new instance
+of the collection.
+
+21
+00:01:09,160 --> 00:01:11,440
+In Java, new comes first.
+
+22
+00:01:11,600 --> 00:01:14,320
+This syntactic collection is specific
+
+23
+00:01:15,280 --> 00:01:18,360
+to object instantiation in Java,
+
+24
+00:01:18,520 --> 00:01:21,640
+whereas in Pharo
+it's standard message sending.
+
+25
+00:01:22,920 --> 00:01:26,960
+There's no static typing in Pharo.
+
+26
+00:01:27,120 --> 00:01:31,840
+Many things which are needed in Java
+are not used in Pharo.
+
+27
+00:01:32,000 --> 00:01:36,280
+You don't need to specify
+that the collection contains strings.
+
+28
+00:01:36,440 --> 00:01:40,360
+And strings isn't a collection.
+
+29
+00:01:41,120 --> 00:01:46,480
+There's another equivalence when
+it comes to creating a child process.
+
+30
+00:01:47,080 --> 00:01:50,960
+We'd like to execute this bit of code
+
+31
+00:01:51,120 --> 00:01:52,720
+in another process.
+
+32
+00:01:52,880 --> 00:01:56,000
+In Java, you must create
+
+33
+00:01:56,160 --> 00:01:59,400
+a new instance of the class Thread
+
+34
+00:01:59,560 --> 00:02:01,920
+by giving it Runnable() as a parameter.
+
+35
+00:02:02,760 --> 00:02:04,680
+You write new Runnable().
+
+36
+00:02:04,840 --> 00:02:09,960
+Runnable() being an abstract class,
+you have to define the missing method.
+
+37
+00:02:10,800 --> 00:02:13,160
+This method is called run().
+
+38
+00:02:13,320 --> 00:02:17,440
+It contains the code
+you want to execute in a child process:
+
+39
+00:02:17,600 --> 00:02:19,640
+this.doSomething().
+
+40
+00:02:20,960 --> 00:02:25,520
+The method doSomething
+belongs to the same class
+
+41
+00:02:25,680 --> 00:02:27,680
+as that where the code is located.
+
+42
+00:02:28,400 --> 00:02:31,520
+In Pharo, the syntax is much simpler.
+
+43
+00:02:32,680 --> 00:02:37,720
+What is equivalent to all that part
+is this part.
+
+44
+00:02:39,160 --> 00:02:41,440
+In the end,
+
+45
+00:02:42,360 --> 00:02:46,880
+this start helps to launch
+the child process.
+
+46
+00:02:47,040 --> 00:02:50,680
+You can do this thanks to fork,
+
+47
+00:02:50,840 --> 00:02:53,440
+a message which gets sent to the block.
+
+48
+00:02:54,320 --> 00:02:58,760
+Since Java 8,
+the latest version of Java,
+
+49
+00:02:58,920 --> 00:03:02,080
+the syntax of Java has improved much.
+
+50
+00:03:02,240 --> 00:03:05,480
+As you can see,
+code in Java is much clearer.
+
+51
+00:03:06,280 --> 00:03:10,200
+The equivalent of this block
+
+52
+00:03:10,360 --> 00:03:14,280
+is the lexical closure located here.
+
+53
+00:03:15,200 --> 00:03:19,080
+The rest is the same
+as in the previous slide.
+
+54
+00:03:19,240 --> 00:03:22,080
+In Pharo,
+there are three types of messages:
+
+55
+00:03:22,240 --> 00:03:23,760
+unary messages,
+
+56
+00:03:23,920 --> 00:03:27,840
+which are messages without arguments
+applied to a receiver,
+
+57
+00:03:28,000 --> 00:03:32,040
+such as the method factorial
+we already studied
+
+58
+00:03:32,800 --> 00:03:35,880
+or as the method cr
+
+59
+00:03:36,040 --> 00:03:40,160
+which displays an empty line
+in the console.
+
+60
+00:03:41,120 --> 00:03:45,400
+Binary messages
+are applied to a receiver
+
+61
+00:03:45,560 --> 00:03:48,240
+and take a value as an argument.
+
+62
+00:03:48,400 --> 00:03:51,600
+For instance, operators
+
+63
+00:03:51,760 --> 00:03:54,320
+such as + which adds three and four.
+
+64
+00:03:54,480 --> 00:03:58,560
+-> is used to create a pair
+with a key and a value.
+
+65
+00:03:58,720 --> 00:04:02,560
+5->10 creates the pair 5 10.
+
+66
+00:04:04,200 --> 00:04:06,840
+The third type of messages
+is keyword-based.
+
+67
+00:04:07,000 --> 00:04:10,520
+They can take one, two, three,
+or more parameters.
+
+68
+00:04:11,160 --> 00:04:13,320
+They are separated by a colon.
+
+69
+00:04:14,600 --> 00:04:18,920
+The keyword message here is show.
+It gets sent to the object Transcript
+
+70
+00:04:19,080 --> 00:04:22,240
+and takes the string in the console
+as a parameter.
+
+71
+00:04:22,800 --> 00:04:26,240
+In the second example,
+the message is between: and:.
+
+72
+00:04:26,400 --> 00:04:29,360
+It's one message
+separated in two keywords.
+
+73
+00:04:29,520 --> 00:04:34,000
+It takes two arguments
+and is applied to one receiver.
+
+74
+00:04:34,160 --> 00:04:38,520
+The message between: and:
+is applied to the object 2
+
+75
+00:04:38,680 --> 00:04:40,920
+and takes 0 and 5 as arguments.
+
+76
+00:04:41,960 --> 00:04:44,320
+To compare with Java,
+
+77
+00:04:44,480 --> 00:04:48,120
+especially when it comes
+to keyword-based messages,
+
+78
+00:04:48,280 --> 00:04:51,840
+as they are very different
+compared to Java:
+
+79
+00:04:52,800 --> 00:04:56,960
+In Java, you have one receiver,
+one period,
+
+80
+00:04:57,720 --> 00:05:00,560
+the name of the message
+sent to the object,
+
+81
+00:05:00,720 --> 00:05:04,200
+and the arguments between parentheses
+separated by commas.
+
+82
+00:05:05,440 --> 00:05:07,800
+In Pharo, you express the same thing
+
+83
+00:05:09,560 --> 00:05:14,120
+by separating the keywords
+from the name of the method
+
+84
+00:05:14,280 --> 00:05:16,720
+and by putting the arguments
+in the middle.
+
+85
+00:05:16,880 --> 00:05:18,520
+For instance:
+
+86
+00:05:19,600 --> 00:05:24,040
+I send the message send to a postman
+
+87
+00:05:24,200 --> 00:05:27,840
+in order to send mail to a recipient.
+
+88
+00:05:28,000 --> 00:05:30,200
+This is the Java syntax.
+
+89
+00:05:30,360 --> 00:05:34,040
+I'll decompose it gradually
+to end up with the Pharo syntax.
+
+90
+00:05:34,200 --> 00:05:35,640
+First step:
+
+91
+00:05:35,800 --> 00:05:40,320
+extract the parts that belong
+to the Java syntax:
+
+92
+00:05:41,120 --> 00:05:45,320
+the period, the parentheses,
+the comma, and the semicolon.
+
+93
+00:05:46,680 --> 00:05:48,000
+Let's remove them.
+
+94
+00:05:48,160 --> 00:05:51,360
+You end up with:
+postman send mail recipient.
+
+95
+00:05:51,520 --> 00:05:54,600
+If you turn this into a sentence
+to make reading easier,
+
+96
+00:05:54,760 --> 00:05:59,120
+you get: postman send mail to recipient.
+It's easier to read.
+
+97
+00:05:59,280 --> 00:06:02,440
+To get the right Pharo syntax,
+you add colons.
+
+98
+00:06:04,640 --> 00:06:08,680
+There's one message, the message
+send: to: applied to the postman.
+
+99
+00:06:08,840 --> 00:06:14,320
+It takes two arguments,
+the mail and the recipient.
+
+100
+00:06:14,480 --> 00:06:18,560
+Conditionals
+such as if and else,
+
+101
+00:06:18,720 --> 00:06:22,280
+and loops such as do, for, etc.
+
+102
+00:06:22,440 --> 00:06:26,560
+are keywords in Java.
+In Pharo, they aren't.
+
+103
+00:06:26,720 --> 00:06:31,800
+They aren't specific words defined
+by the language and the compiler.
+
+104
+00:06:31,960 --> 00:06:36,760
+They're just methods and messages
+sent to some types of objects.
+
+105
+00:06:36,920 --> 00:06:41,240
+In Pharo, for instance, to execute if,
+
+106
+00:06:41,880 --> 00:06:44,160
+you send the message ifTrue: if False:.
+
+107
+00:06:44,320 --> 00:06:47,600
+It's a message you send to one Boolean.
+
+108
+00:06:47,760 --> 00:06:51,840
+It takes two blocks as parameters:
+one is executed if the Boolean is true,
+
+109
+00:06:52,000 --> 00:06:54,320
+one if the Boolean is false.
+
+110
+00:06:54,920 --> 00:06:58,800
+Likewise, loops are just methods
+sent to some types of objects.
+
+111
+00:06:58,960 --> 00:07:00,640
+In the first example,
+
+112
+00:07:02,080 --> 00:07:03,560
+the object 4 is a number.
+
+113
+00:07:03,720 --> 00:07:07,320
+I can send the message timesRepeat:
+with a block as a parameter.
+
+114
+00:07:08,040 --> 00:07:12,520
+The underlying method executes the block
+
+115
+00:07:13,920 --> 00:07:17,280
+as many times
+as is indicated by the receiver.
+
+116
+00:07:17,840 --> 00:07:22,200
+4timesRepeat:
+executes something four times.
+
+117
+00:07:23,320 --> 00:07:27,280
+Likewise, the message to: do:
+is sent to a number.
+
+118
+00:07:27,440 --> 00:07:29,960
+It takes a number and a block
+as parameters.
+
+119
+00:07:30,120 --> 00:07:34,760
+The value i
+which is the parameter of the block
+
+120
+00:07:34,920 --> 00:07:37,440
+takes every value between 0 and 100.
+
+121
+00:07:38,840 --> 00:07:40,080
+Likewise,
+
+122
+00:07:41,120 --> 00:07:43,000
+the message to: by: do:
+
+123
+00:07:44,320 --> 00:07:49,120
+selects the values comprised
+between 0 and 100
+
+124
+00:07:49,280 --> 00:07:53,080
+which are multiples of 3:
+0, 3, 6, 9, etc.
+
+125
+00:07:55,480 --> 00:07:58,600
+Finally, the message do:
+sent to a collection
+
+126
+00:07:58,760 --> 00:08:02,160
+is the same as a foreach loop in Java.
+
+127
+00:08:02,320 --> 00:08:06,760
+It executes the block
+for each element of the collection.
+
+128
+00:08:07,680 --> 00:08:10,920
+The variable :each
+
+129
+00:08:11,080 --> 00:08:14,480
+first takes the first value
+of the collection,
+
+130
+00:08:14,640 --> 00:08:16,320
+its first element.
+
+131
+00:08:16,480 --> 00:08:19,640
+The block is executed using
+this value of :each.
+
+132
+00:08:19,800 --> 00:08:23,360
+Then :each takes
+the second element of the collection.
+
+133
+00:08:23,520 --> 00:08:27,880
+The block is executed using this value
+until the end of the collection.
+
+134
+00:08:28,480 --> 00:08:31,560
+To sum up,
+there are three types of messages:
+
+135
+00:08:31,720 --> 00:08:34,600
+unary messages, binary messages,
+and keywords.
+
+136
+00:08:35,160 --> 00:08:37,400
+The order of precedence:
+
+137
+00:08:37,560 --> 00:08:40,280
+first execute
+what's between parentheses,
+
+138
+00:08:40,440 --> 00:08:44,800
+then unary messages,
+then binary messages, then keywords.
+
+139
+00:08:45,840 --> 00:08:47,600
+Conditionals and loops
+
+140
+00:08:47,760 --> 00:08:51,200
+are messages sent
+to some types of objects,
+
+141
+00:08:51,360 --> 00:08:54,240
+unlike as in other languages
+such as Java,
+
+142
+00:08:54,400 --> 00:08:56,800
+where specific keywords of the language
+
+143
+00:08:56,960 --> 00:09:00,480
+have specific instructions
+regarding the compiler.
+
+144
+00:09:00,640 --> 00:09:03,760
+In Pharo, they're messages
+sent to specific objects.

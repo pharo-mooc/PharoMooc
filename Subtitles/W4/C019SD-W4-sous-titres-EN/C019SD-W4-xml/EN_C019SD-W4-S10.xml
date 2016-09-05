@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W4-S10</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:00:12" end="00:00:03:02" region="bottom">Hello, and welcome back<br/>to the Pharo course.</p>
+            <p xml:id="p2" begin="00:00:03:06" end="00:00:05:15" region="bottom">This segment<br/>covers two more aspects.</p>
+            <p xml:id="p3" begin="00:00:05:19" end="00:00:07:09" region="bottom">I'll cover them in depth.</p>
+            <p xml:id="p4" begin="00:00:07:13" end="00:00:11:07" region="bottom">You'll use them yourselves<br/>in the TinyBlog exercises.</p>
+            <p xml:id="p5" begin="00:00:11:13" end="00:00:16:04" region="bottom">First, what web development can we do<br/>once we have described data?</p>
+            <p xml:id="p6" begin="00:00:16:08" end="00:00:18:09" region="bottom">Second, how does Seaside use REST?</p>
+            <p xml:id="p7" begin="00:00:18:13" end="00:00:22:02" region="bottom">Seaside is one of the frameworks<br/>for REST in Pharo.</p>
+            <p xml:id="p8" begin="00:00:22:07" end="00:00:24:13" region="bottom">Let's start with the first subject.</p>
+            <p xml:id="p9" begin="00:00:24:17" end="00:00:27:16" region="bottom">Magritte is a framework<br/>based on the hypothesis</p>
+            <p xml:id="p10" begin="00:00:27:20" end="00:00:30:08" region="bottom">that if you describe your data once,</p>
+            <p xml:id="p11" begin="00:00:30:12" end="00:00:33:17" region="bottom">it can generate several objects<br/>based on this data.</p>
+            <p xml:id="p12" begin="00:00:33:22" end="00:00:36:19" region="bottom">Webforms and graphic interfaces,<br/>for example.</p>
+            <p xml:id="p13" begin="00:00:36:23" end="00:00:39:09" region="bottom">In this course, I'll be focusing on</p>
+            <p xml:id="p14" begin="00:00:39:13" end="00:00:42:20" region="bottom">showing you how to generate<br/>Seaside components</p>
+            <p xml:id="p15" begin="00:00:43:00" end="00:00:46:04" region="bottom">so that you can code<br/>web applications faster.</p>
+            <p xml:id="p16" begin="00:00:46:09" end="00:00:49:04" region="bottom">We'll take the class "Address"<br/>as an example.</p>
+            <p xml:id="p17" begin="00:00:49:08" end="00:00:51:12" region="bottom">These are Swiss addresses.</p>
+            <p xml:id="p18" begin="00:00:51:23" end="00:00:55:00" region="bottom">An address is defined<br/>as a street, a place,</p>
+            <p xml:id="p19" begin="00:00:56:17" end="00:00:58:24" region="bottom">a postal code, and a canton.</p>
+            <p xml:id="p20" begin="00:00:59:08" end="00:01:03:14" region="bottom">I have an instance which describes<br/>a particular street.</p>
+            <p xml:id="p21" begin="00:01:04:01" end="00:01:07:00" region="bottom">So far, this is just<br/>standard programming.</p>
+            <p xml:id="p22" begin="00:01:07:10" end="00:01:09:00" region="bottom">Now, what Magritte does</p>
+            <p xml:id="p23" begin="00:01:09:05" end="00:01:11:18" region="bottom">is describe the fields<br/>in the class.</p>
+            <p xml:id="p24" begin="00:01:11:22" end="00:01:16:06" region="bottom">It will describe a string in such a way<br/>as to define it as a street name.</p>
+            <p xml:id="p25" begin="00:01:16:14" end="00:01:19:16" region="bottom">The postal code description<br/>is more interesting.</p>
+            <p xml:id="p26" begin="00:01:19:20" end="00:01:21:23" region="bottom">First of all, we are going to say</p>
+            <p xml:id="p27" begin="00:01:22:02" end="00:01:25:06" region="bottom">an address is not valid<br/>without a postal code.</p>
+            <p xml:id="p28" begin="00:01:25:10" end="00:01:28:02" region="bottom">Addresses lacking postal codes<br/>are invalid.</p>
+            <p xml:id="p29" begin="00:01:28:12" end="00:01:33:20" region="bottom">And all Swiss postal codes<br/>are figures between 1000 and 9999.</p>
+            <p xml:id="p30" begin="00:01:33:24" end="00:01:37:04" region="bottom">This is specified<br/>in the NumberDescription.</p>
+            <p xml:id="p31" begin="00:01:37:10" end="00:01:39:24" region="bottom">This information can be taken<br/>into account</p>
+            <p xml:id="p32" begin="00:01:40:03" end="00:01:41:21" region="bottom">for automatic form validation.</p>
+            <p xml:id="p33" begin="00:01:42:00" end="00:01:46:21" region="bottom">For Place, we also describe<br/>it as required, and as place.</p>
+            <p xml:id="p34" begin="00:01:47:00" end="00:01:50:16" region="bottom">Moreover, in Switzerland,<br/>there are 26 cantons.</p>
+            <p xml:id="p35" begin="00:01:50:22" end="00:01:54:20" region="bottom">The canton is part of a list,<br/>so we have SingleOptionDescription.</p>
+            <p xml:id="p36" begin="00:01:55:02" end="00:01:58:24" region="bottom">It is required. We want it to be sorted,<br/>and the options listed.</p>
+            <p xml:id="p37" begin="00:01:59:03" end="00:02:03:03" region="bottom">So the list of options<br/>is limited to these 26.</p>
+            <p xml:id="p38" begin="00:02:03:20" end="00:02:04:23" region="bottom">Once that's done,</p>
+            <p xml:id="p39" begin="00:02:05:06" end="00:02:07:05" region="bottom">what can we do with Magritte?</p>
+            <p xml:id="p40" begin="00:02:07:10" end="00:02:10:22" region="bottom">Here is how the address<br/>is described in Pharo.</p>
+            <p xml:id="p41" begin="00:02:11:06" end="00:02:16:08" region="bottom">We'll define a descriptionStreet<br/>as a StringDescription,</p>
+            <p xml:id="p42" begin="00:02:17:20" end="00:02:20:05" region="bottom">with such and such a label<br/>and priority.</p>
+            <p xml:id="p43" begin="00:02:20:09" end="00:02:23:22" region="bottom">For street numbers,<br/>I define a NumberDescription:</p>
+            <p xml:id="p44" begin="00:02:24:24" end="00:02:27:16" region="bottom">I assign a different priority<br/>and label.</p>
+            <p xml:id="p45" begin="00:02:27:20" end="00:02:32:05" region="bottom">I specify "Required"<br/>and give my minimum and maximum values.</p>
+            <p xml:id="p46" begin="00:02:32:13" end="00:02:36:02" region="bottom">The very first thing<br/>I can do with this description</p>
+            <p xml:id="p47" begin="00:02:36:06" end="00:02:39:16" region="bottom">is write a little tiny program<br/>to interpret the address</p>
+            <p xml:id="p48" begin="00:02:39:23" end="00:02:41:05" region="bottom">and generate reports.</p>
+            <p xml:id="p49" begin="00:02:41:14" end="00:02:44:12" region="bottom">I take an address,</p>
+            <p xml:id="p50" begin="00:02:44:20" end="00:02:47:02" region="bottom">and run it through this program,</p>
+            <p xml:id="p51" begin="00:02:47:12" end="00:02:49:12" region="bottom">which generates a little report:</p>
+            <p xml:id="p52" begin="00:02:50:04" end="00:02:52:13" region="bottom">The name of the street,</p>
+            <p xml:id="p53" begin="00:02:55:10" end="00:02:58:01" region="bottom">The place - Bern,<br/>and the canton, Bern.</p>
+            <p xml:id="p54" begin="00:02:58:05" end="00:02:59:11" region="bottom">Postal code 3012.</p>
+            <p xml:id="p55" begin="00:02:59:16" end="00:03:03:20" region="bottom">I can use the fact<br/>that my data has been described</p>
+            <p xml:id="p56" begin="00:03:04:11" end="00:03:06:11" region="bottom">to generate reports.</p>
+            <p xml:id="p57" begin="00:03:06:23" end="00:03:09:02" region="bottom">That was the simplest kind.</p>
+            <p xml:id="p58" begin="00:03:09:06" end="00:03:12:12" region="bottom">But now we'll do more complex<br/>things with Seaside,</p>
+            <p xml:id="p59" begin="00:03:12:22" end="00:03:15:04" region="bottom">like creating a visual component.</p>
+            <p xml:id="p60" begin="00:03:15:10" end="00:03:16:16" region="bottom">Here, I am saying,</p>
+            <p xml:id="p61" begin="00:03:17:06" end="00:03:20:10" region="bottom">"Address object, I want to see you<br/>as a component."</p>
+            <p xml:id="p62" begin="00:03:20:14" end="00:03:22:15" region="bottom">That generates this part.</p>
+            <p xml:id="p63" begin="00:03:24:19" end="00:03:29:15" region="bottom">I'll add a validation form,<br/>which gives me "Save" and "Cancel."</p>
+            <p xml:id="p64" begin="00:03:30:05" end="00:03:33:04" region="bottom">And I'll write a "call" command<br/>so it displays.</p>
+            <p xml:id="p65" begin="00:03:33:08" end="00:03:37:24" region="bottom">As you can see, I managed all that<br/>without even using the Seaside DSL.</p>
+            <p xml:id="p66" begin="00:03:38:08" end="00:03:41:22" region="bottom">Described, my web components<br/>are generated automatically.</p>
+            <p xml:id="p67" begin="00:03:42:05" end="00:03:43:15" region="bottom">That's powerful!</p>
+            <p xml:id="p68" begin="00:03:43:22" end="00:03:46:14" region="bottom">Here is what the company Quuve does</p>
+            <p xml:id="p69" begin="00:03:46:21" end="00:03:50:10" region="bottom">Quuve is an American<br/>portfolio management platform.</p>
+            <p xml:id="p70" begin="00:03:50:15" end="00:03:54:02" region="bottom">The whole display<br/>was done with Seaside and Magritte.</p>
+            <p xml:id="p71" begin="00:03:54:10" end="00:03:57:04" region="bottom">All the reports<br/>are generated automatically.</p>
+            <p xml:id="p72" begin="00:03:58:07" end="00:04:01:08" region="bottom">That's a serious gain<br/>in productivity!</p>
+            <p xml:id="p73" begin="00:04:01:14" end="00:04:05:20" region="bottom">The idea of this course<br/>is to give you some intuition</p>
+            <p xml:id="p74" begin="00:04:05:24" end="00:04:08:24" region="bottom">of what can be done<br/>when you describe your data,</p>
+            <p xml:id="p75" begin="00:04:09:24" end="00:04:13:07" region="bottom">especially<br/>with web component generation.</p>
+            <p xml:id="p76" begin="00:04:13:21" end="00:04:15:14" region="bottom">You'll do that in TinyBlog.</p>
+            <p xml:id="p77" begin="00:04:15:19" end="00:04:20:17" region="bottom">Now, I'll show you the potential<br/>in Seaside's REST layer.</p>
+            <p xml:id="p78" begin="00:04:21:02" end="00:04:25:23" region="bottom">It enables client-server communication<br/>in the absence of visual components.</p>
+            <p xml:id="p79" begin="00:04:26:07" end="00:04:29:19" region="bottom">REST is integrated into Seaside<br/>smoothly.</p>
+            <p xml:id="p80" begin="00:04:30:02" end="00:04:32:11" region="bottom">Domain objects will be annotated.</p>
+            <p xml:id="p81" begin="00:04:32:15" end="00:04:36:01" region="bottom">You'll have a natural conversion<br/>between URL parameters</p>
+            <p xml:id="p82" begin="00:04:36:07" end="00:04:38:18" region="bottom">and SmallTalk or Pharo methods.</p>
+            <p xml:id="p83" begin="00:04:39:20" end="00:04:43:19" region="bottom">To give you an idea of the complexity,</p>
+            <p xml:id="p84" begin="00:04:44:01" end="00:04:47:22" region="bottom">we'll define what we call a "filter":</p>
+            <p xml:id="p85" begin="00:04:48:03" end="00:04:51:06" region="bottom">TinyBlog Restful Filter.</p>
+            <p xml:id="p86" begin="00:04:51:10" end="00:04:54:20" region="bottom">is a subclass of WARestful -<br/>it doesn't matter.</p>
+            <p xml:id="p87" begin="00:04:55:04" end="00:05:00:01" region="bottom">The important part is the filter I add<br/>down here when I create my application.</p>
+            <p xml:id="p88" begin="00:05:00:12" end="00:05:02:09" region="bottom">You'll see it in the exercise.</p>
+            <p xml:id="p89" begin="00:05:02:24" end="00:05:06:14" region="bottom">Now, let's imagine<br/>that I want to get all the blogs</p>
+            <p xml:id="p90" begin="00:05:06:22" end="00:05:09:21" region="bottom">that I have on my TinyBlog server.</p>
+            <p xml:id="p91" begin="00:05:11:03" end="00:05:11:24" region="bottom">Here's how:</p>
+            <p xml:id="p92" begin="00:05:12:04" end="00:05:15:17" region="bottom">First, I define a method</p>
+            <p xml:id="p93" begin="00:05:17:01" end="00:05:20:08" region="bottom">in the RestfulFilter class,<br/>a method called listAll.</p>
+            <p xml:id="p94" begin="00:05:21:13" end="00:05:25:07" region="bottom">It corresponds to the anchor<br/>I'm going to use:</p>
+            <p xml:id="p95" begin="00:05:26:07" end="00:05:30:18" region="bottom">I tell it to use its "get"<br/>from the REST protocol</p>
+            <p xml:id="p96" begin="00:05:31:04" end="00:05:33:05" region="bottom">to generate text in json form.</p>
+            <p xml:id="p97" begin="00:05:33:09" end="00:05:37:19" region="bottom">I create a Pharo string stream</p>
+            <p xml:id="p98" begin="00:05:38:02" end="00:05:41:15" region="bottom">I want the stream to contain<br/>all available blogs.</p>
+            <p xml:id="p99" begin="00:05:42:00" end="00:05:45:07" region="bottom">I'll take each blog -<br/>and you see another iterator -</p>
+            <p xml:id="p100" begin="00:05:45:16" end="00:05:48:10" region="bottom">Take each blog<br/>and convert it to Javascript,</p>
+            <p xml:id="p101" begin="00:05:48:20" end="00:05:50:10" region="bottom">separated by commas.</p>
+            <p xml:id="p102" begin="00:05:51:09" end="00:05:53:01" region="bottom">That gives me what I want.</p>
+            <p xml:id="p103" begin="00:05:53:05" end="00:05:57:05" region="bottom">Now we want to do something<br/>a little more advanced.</p>
+            <p xml:id="p104" begin="00:05:58:00" end="00:06:03:07" region="bottom">Say I want to find a blog<br/>by searching for a title match.</p>
+            <p xml:id="p105" begin="00:06:04:11" end="00:06:06:19" region="bottom">Here, I can use "post," for example.</p>
+            <p xml:id="p106" begin="00:06:07:02" end="00:06:11:14" region="bottom">I'll say I want this blog post,<br/>by giving the title next to it.</p>
+            <p xml:id="p107" begin="00:06:11:19" end="00:06:16:04" region="bottom">I do that by defining a "post" method<br/>that takes a title as a parameter</p>
+            <p xml:id="p108" begin="00:06:16:18" end="00:06:18:16" region="bottom">along with the "path" concept.</p>
+            <p xml:id="p109" begin="00:06:18:22" end="00:06:24:09" region="bottom">I tell it, when the URL<br/>contains http..., post/</p>
+            <p xml:id="p110" begin="00:06:25:05" end="00:06:28:22" region="bottom">and something here,<br/>those characters are the title.</p>
+            <p xml:id="p111" begin="00:06:29:05" end="00:06:33:07" region="bottom">That's what we see here,<br/>inside the wavy brackets.</p>
+            <p xml:id="p112" begin="00:06:35:13" end="00:06:39:18" region="bottom">Likewise, I tell it,<br/>that will produce text in json form.</p>
+            <p xml:id="p113" begin="00:06:40:02" end="00:06:44:02" region="bottom">Then what I do is call upon<br/>TinyBlog functionalities.</p>
+            <p xml:id="p114" begin="00:06:44:06" end="00:06:48:13" region="bottom">I ask, do you have a post<br/>with a title specified as a parameter?</p>
+            <p xml:id="p115" begin="00:06:49:05" end="00:06:51:16" region="bottom">Yes? If it's empty, I return an error.</p>
+            <p xml:id="p116" begin="00:06:51:20" end="00:06:55:05" region="bottom">Otherwise, I put it in my stream<br/>and render my stream.</p>
+            <p xml:id="p117" begin="00:06:55:16" end="00:06:57:20" region="bottom">There are lots of things<br/>we can do.</p>
+            <p xml:id="p118" begin="00:06:58:03" end="00:07:01:03" region="bottom">If I want to do a search,<br/>it's the same thing.</p>
+            <p xml:id="p119" begin="00:07:05:00" end="00:07:06:16" region="bottom">In my URL line, I type</p>
+            <p xml:id="p120" begin="00:07:06:23" end="00:07:10:19" region="bottom">"search: title" with a value,<br/>it will be matched automatically.</p>
+            <p xml:id="p121" begin="00:07:10:23" end="00:07:13:22" region="bottom">My title will appear here.</p>
+            <p xml:id="p122" begin="00:07:16:13" end="00:07:20:04" region="bottom">That's how you work with REST<br/>in Seaside.</p>
+            <p xml:id="p123" begin="00:07:20:14" end="00:07:24:14" region="bottom">You can have your graphic components<br/>in Seaside</p>
+            <p xml:id="p124" begin="00:07:24:18" end="00:07:27:17" region="bottom">and a way to expose<br/>your domain functionalities</p>
+            <p xml:id="p125" begin="00:07:27:21" end="00:07:28:22" region="bottom">with a REST API.</p>
+            <p xml:id="p126" begin="00:07:29:14" end="00:07:32:11" region="bottom">I've only shown you "gets."</p>
+            <p xml:id="p127" begin="00:07:32:19" end="00:07:36:21" region="bottom">But all the other REST functionalities<br/>are available:</p>
+            <p xml:id="p128" begin="00:07:37:06" end="00:07:39:04" region="bottom">Delete, Post, Get, etc.</p>
+            <p xml:id="p129" begin="00:07:40:11" end="00:07:43:18" region="bottom">I also showed you how Seaside,<br/>paired with Magritte,</p>
+            <p xml:id="p130" begin="00:07:43:22" end="00:07:46:15" region="bottom">generates powerful forms,<br/>automatically.</p>
+            <p xml:id="p131" begin="00:07:47:01" end="00:07:48:21" region="bottom">And REST is well integrated.</p>
+            <p xml:id="p132" begin="00:07:49:02" end="00:07:53:00" region="bottom">Often, people use Teapot<br/>as a REST solution, as well.</p>
+            <p xml:id="p133" begin="00:07:53:04" end="00:07:56:11" region="bottom">It's a Zinc overlayer<br/>for doing REST prototypes.</p>
+            <p xml:id="p134" begin="00:07:56:24" end="00:08:01:05" region="bottom">It's a quick way to find out<br/>if their REST API is working.</p>
+            <p xml:id="p135" begin="00:08:01:17" end="00:08:02:19" region="bottom">Have fun with it.</p>
+            <p xml:id="p136" begin="00:08:02:23" end="00:08:06:16" region="bottom">There's documentation<br/>in the Web Enterprise Book.</p>
+        </div>
+    </body>
+</tt>

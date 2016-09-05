@@ -1,0 +1,29 @@
+! Challenge 2 - Solution
+
+Extract sprites from a larger png file such as the one we can find at *http://gaurav.munjal.us/Universal-LPC-Spritesheet-Character-Generator/*
+The picture below is showing one of the sprite collection. 
+
+!!! Hints:
+- You can read and convert a PNG into a form (a graphics pharo basic element) using ==PNGReadWriter==.
+- Use ==asFileReference== or ==FileSystem workingDirectory== if the file is located close to the pharo.image file to get to a file.
+- You can use the message ==/== to specify a file name in the path. 
+- Pay attention the stream should be binary.
+- You can access the size of a form using message ==width== and ==height==.
+- You can copy a part of a form using the message ==form copy: aRectangle==.
+- Looking at the results of expressions with the inspector is a great idea.
+
+
+!!! Solution 
+
+[[[
+	| form sprites |
+	form := 'images/Sprites.png' asFileReference 
+		binaryReadStreamDo: [ :stream | PNGReadWriter formFromStream: stream ].
+	sprites := OrderedCollection new.
+	0 to: (form width - 64) by: 64 do: [ :x |
+	   0 to: (form height - 64) by: 64 do: [ :y |
+	      sprites add: (form copy: (x@y corner: (x+64)@(y+64)))]].
+	sprites
+]]]
+
++>file://figures/sprites.png|width=80+

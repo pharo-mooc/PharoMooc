@@ -1,0 +1,487 @@
+1
+00:00:02,030 --> 00:00:03,770
+Dans cette vidéo, je
+voudrais vous montrer un des aspects
+
+2
+00:00:03,937 --> 00:00:06,700
+super sympa de Pharo,
+c'est son inspecteur.
+
+3
+00:00:07,170 --> 00:00:10,610
+Un inspecteur c'est un objet
+qui nous permet d'interagir
+
+4
+00:00:10,777 --> 00:00:14,190
+avec des objets, et de pouvoir
+discuter avec eux de manière vivante.
+
+5
+00:00:15,250 --> 00:00:17,690
+On va faire un essai sur
+le système de fichiers.
+
+6
+00:00:19,520 --> 00:00:21,450
+Par exemple, si je fais "File system
+
+7
+00:00:24,330 --> 00:00:29,130
+working directory", ça va me
+
+8
+00:00:29,297 --> 00:00:32,190
+donner tous les fichiers qui
+sont par exemple à la racine
+
+9
+00:00:32,357 --> 00:00:33,870
+de mon image, donc on va
+donc avoir ces objets-là.
+
+10
+00:00:35,030 --> 00:00:39,610
+Regardons. Ce que je vais
+faire si je fais "Inspect",
+
+11
+00:00:40,030 --> 00:00:41,240
+j'ouvre un inspecteur.
+
+12
+00:00:41,870 --> 00:00:43,240
+Donc là j'ai un inspecteur.
+
+13
+00:00:45,430 --> 00:00:47,690
+C'est le nouvel inspecteur
+de Pharo qui a été développé
+
+14
+00:00:47,857 --> 00:00:51,730
+par l'équipe, qui
+s'appelle GT, et il a des
+
+15
+00:00:51,897 --> 00:00:53,140
+fonctionnalités qui
+sont très intéressantes.
+
+16
+00:00:53,307 --> 00:00:56,740
+Commençons tout
+d'abord par regarder l'onglet
+
+17
+00:00:58,330 --> 00:00:59,640
+qui s'appelle "Raw",
+qui veut dire brut.
+
+18
+00:00:59,807 --> 00:01:03,880
+L'onglet "Raw" c'est l'ancien
+inspecteur et qu'est-ce qu'il
+
+19
+00:01:04,047 --> 00:01:04,850
+va me montrer lui ?
+
+20
+00:01:05,017 --> 00:01:08,000
+Il me montre les données de
+l'objet, les variables d'instances
+
+21
+00:01:08,167 --> 00:01:09,710
+de l'objet tel que
+défini dans la classe.
+
+22
+00:01:10,420 --> 00:01:12,480
+Je peux interagir avec.
+
+23
+00:01:12,647 --> 00:01:15,930
+Je peux, par exemple,
+demander toutes les entrées.
+
+24
+00:01:16,530 --> 00:01:20,940
+Là il me donne toutes les
+entrées, ou donne-moi tous les
+
+25
+00:01:21,107 --> 00:01:25,850
+directory, par exemple,
+là j'ai les directories.
+
+26
+00:01:27,880 --> 00:01:31,380
+Si on regarde la classe de
+cet objet, si je fais "Self
+
+27
+00:01:31,547 --> 00:01:36,240
+browse", qu'est-ce que je
+
+28
+00:01:36,407 --> 00:01:40,430
+vois finalement? Cette
+vue me montre les valeurs
+
+29
+00:01:41,250 --> 00:01:44,450
+pour l'objet en question
+des variables d'instances qui
+
+30
+00:01:44,617 --> 00:01:46,100
+ont été définies dans la
+ classe de cette manière.
+
+31
+00:01:47,520 --> 00:01:49,820
+Ça va me permettre de
+regarder à l'intérieur.
+
+32
+00:01:50,000 --> 00:01:54,650
+Par exemple, là je peux voir
+que le chemin "Path" en fait
+
+33
+00:01:55,350 --> 00:01:59,530
+est composé de cet objet
+"Self", et je pourrai le voir
+
+34
+00:01:59,697 --> 00:02:03,660
+ici, donc là je suis
+encore en mode brut et puis de
+
+35
+00:02:03,827 --> 00:02:04,800
+pouvoir naviguer à l'intérieur.
+
+36
+00:02:05,000 --> 00:02:07,550
+Là, si je fais ça, je
+vais aller voir finalement la
+
+37
+00:02:07,717 --> 00:02:09,780
+chaîne User et ce genre de choses.
+
+38
+00:02:09,947 --> 00:02:13,280
+Donc là finalement je viole
+essentiellement l'encapsulation.
+
+39
+00:02:15,210 --> 00:02:18,250
+Le système va regarder,
+avec des fonctionnalités
+
+40
+00:02:18,417 --> 00:02:21,290
+introspectives, il va me
+montrer les valeurs de mes champs.
+
+41
+00:02:23,000 --> 00:02:23,920
+C'est très pratique cette vue.
+
+42
+00:02:24,087 --> 00:02:28,540
+Mais maintenant ce que fait le
+nouvel inspecteur c'est plus.
+
+43
+00:02:28,707 --> 00:02:33,310
+Ça veut dire que chaque objet va
+pouvoir présenter à l'utilisateur
+
+44
+00:02:34,150 --> 00:02:38,820
+différents facets de
+comment il va être représenté.
+
+45
+00:02:40,700 --> 00:02:44,880
+Tous les objets ont par
+défaut le facet brut, Raw.
+
+46
+00:02:45,300 --> 00:02:47,900
+Vous avez aussi le facet
+Meta, donc le facet Meta c'est
+
+47
+00:02:48,067 --> 00:02:49,310
+ce qui permet de browser la classe.
+
+48
+00:02:49,477 --> 00:02:51,380
+On peut browser la classe
+rapidement, par exemple, comme ça.
+
+49
+00:02:52,150 --> 00:02:55,330
+Normalement, c'est juste
+pour quand on est dans le flot
+
+50
+00:02:55,590 --> 00:03:00,440
+de la navigation, de
+pouvoir savoir directement sans
+
+51
+00:03:00,607 --> 00:03:01,350
+ouvrir un autre browser.
+
+52
+00:03:01,650 --> 00:03:03,140
+Mais le plus important,
+ce sont les autres onglets.
+
+53
+00:03:03,307 --> 00:03:08,090
+Là, par exemple,
+
+54
+00:03:08,257 --> 00:03:11,640
+l’inspecteur sachant
+qu'on a une référence,
+
+55
+00:03:13,470 --> 00:03:17,730
+un dossier, nous montre tout
+ce que contient le dossier.
+
+56
+00:03:17,900 --> 00:03:19,690
+C'était ce que je vous ai
+montré ici quand j'ai fait ça.
+
+57
+00:03:20,270 --> 00:03:21,960
+Là, on obtient la même chose.
+
+58
+00:03:26,190 --> 00:03:31,140
+Maintenant, on va pouvoir
+naviguer à l'intérieur de
+
+59
+00:03:31,307 --> 00:03:32,180
+ce système de fichiers.
+
+60
+00:03:32,347 --> 00:03:36,090
+Là, si je prends Ston, c'est
+l'équivalent de Json en Pharo.
+
+61
+00:03:36,460 --> 00:03:40,920
+Là, encore une fois, j'obtiens une
+
+62
+00:03:41,087 --> 00:03:45,780
+référence à l'intérieur du
+système de fichiers, qui est
+
+63
+00:03:46,280 --> 00:03:51,110
+ce fichier-là,
+j'obtiens un accès sur le
+
+64
+00:03:51,277 --> 00:03:52,500
+fichier qui s'appelle 
+
+65
+00:03:52,667 --> 00:03:57,270
+meta-inf.ston. Et maintenant 
+l'inspecteur est
+
+66
+00:03:57,437 --> 00:04:00,390
+intelligent il et me dit, je vais
+te montrer son contenu si tu veux.
+
+67
+00:04:01,000 --> 00:04:02,940
+Je regarde son contenu et
+il se trouve que j'ai un
+
+68
+00:04:03,107 --> 00:04:06,020
+contenu, je ne sais pas exactement à
+quoi ça sert, mais c'est un contenu.
+
+69
+00:04:07,210 --> 00:04:11,070
+De la même manière, je vais
+pouvoir naviguer mes sous-dossiers.
+
+70
+00:04:11,237 --> 00:04:14,950
+Là, si je fais
+package-cash, c'est l'endroit où les
+
+71
+00:04:15,117 --> 00:04:16,180
+packages sont stockés par défaut.
+
+72
+00:04:16,347 --> 00:04:19,160
+Effectivement, c'est
+toujours un objet du système de
+
+73
+00:04:19,327 --> 00:04:21,760
+fichiers mais il me
+montre son contenu.
+
+74
+00:04:22,540 --> 00:04:26,880
+Si je regarde dans Data, je vois
+
+75
+00:04:30,210 --> 00:04:33,740
+un png. Si je clique sur
+le png, je vais naviguer.
+
+76
+00:04:34,040 --> 00:04:36,760
+Là, vous voyez qu'il
+y a d'autres onglets.
+
+77
+00:04:38,030 --> 00:04:38,680
+Il y a l'onglet Content.
+
+78
+00:04:39,500 --> 00:04:41,540
+Si je clique sur Content
+qu'est-ce que je vois, je vois
+
+79
+00:04:41,707 --> 00:04:44,550
+le png tel que stocké sous
+forme binaire sur mon disque.
+
+80
+00:04:47,300 --> 00:04:50,460
+Comme c'est un png,
+l'inspecteur me montre une preview de
+
+81
+00:04:50,627 --> 00:04:53,570
+ce que contient le png.
+
+82
+00:04:53,737 --> 00:04:55,140
+Si je regarde le script.st
+
+83
+00:04:55,307 --> 00:04:58,510
+par exemple, j'aurai des
+panes qui sont différents.
+
+84
+00:04:58,677 --> 00:05:00,740
+Là, il y en a deux, je ne
+sais pas exactement pourquoi
+
+85
+00:05:00,907 --> 00:05:03,150
+mais il y en a un avec du
+syntax highlighting et l'autre
+
+86
+00:05:03,317 --> 00:05:05,400
+sans, qui me montre le
+contenu encore une fois.
+
+87
+00:05:06,050 --> 00:05:09,470
+Si c'est un zip, c'est
+encore mieux parce que quand je
+
+88
+00:05:09,637 --> 00:05:14,520
+clique sur un zip, le
+contenu du zip est encodé
+
+89
+00:05:14,687 --> 00:05:19,100
+et compressé mais les
+items, à ce moment là, sont
+
+90
+00:05:19,267 --> 00:05:22,920
+interprétés. Là, je vais
+pouvoir naviguer directement
+
+91
+00:05:24,240 --> 00:05:26,080
+mes objets et de la
+même manière récursivement.
+
+92
+00:05:29,730 --> 00:05:34,300
+C'était pour vous montrer
+que l'inspecteur de Pharo est
+
+93
+00:05:34,467 --> 00:05:37,400
+vraiment un outil très
+puissant, pour aller interagir
+
+94
+00:05:37,567 --> 00:05:42,160
+avec des objets de manière
+fine, et en plus comme chaque
+
+95
+00:05:42,327 --> 00:05:45,430
+objet va définir une
+représentation ou l'ensemble des
+
+96
+00:05:45,597 --> 00:05:48,840
+représentations qui font
+du sens, pour qu'on puisse
+
+97
+00:05:49,007 --> 00:05:51,270
+interagir avec et qu'on
+soit le plus efficace possible,
+
+98
+00:05:51,550 --> 00:05:53,820
+ça permet de très rapidement
+construire des petits outils.
+
+99
+00:05:54,000 --> 00:05:56,940
+Là, on a un petit navigateur de
+systèmes de fichiers, pourquoi?
+
+100
+00:05:57,107 --> 00:05:59,270
+Parce que quand on navigue et
+qu'on est en train d'inspecter
+
+101
+00:05:59,510 --> 00:06:01,890
+le système de fichiers,
+parfois, on veut savoir ce qu'on
+
+102
+00:06:02,057 --> 00:06:02,840
+est vraiment en train d'inspecter.
+

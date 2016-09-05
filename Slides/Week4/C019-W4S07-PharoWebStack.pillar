@@ -1,0 +1,45 @@
+{
+  "title":"Overview of Pharo Web Stack",
+  "slidesid" : "W4S07"
+}
+
+${slide:title=Pharo and the Web: a Gorgeous Stack}$
+
++file://figures/GorgeousWebStack.png|width=140+
+
+${slide:title=Seaside}$
+
+- A Web Framework 
+- Applications are built out of reusable components
+- No HTTP noise
+
+- *http://www.seaside.st*
+- *http://book.seaside.st*
+
+
+${slide:title=Persistence}$
+
+- ""Voyage"" framework 
+-- a unified API for NoSQL databases
+-- MongoTalk, Riak
+
+- ""Garage"" framework 
+-- a unified API for Relational databases
+-- Postgres, mysql, sqlite, opendbx
+
+${slide:title=Forms Report Builder}$
+
+- ""Magritte"" framework
+-- write descriptions for your data
+-- use them to generate all kind of elements: Web forms, reports, ...
+
+${slide:title=Conclusion}$
+
+- A rich eco-system (frameworks) 
+- Lots of Pharo Success stories are related to the Web
+- Enterprise ready 
+- Innovative, powerful and solid
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week3/W3S8-ClassMethodsAtWork.pillar"
+% End:

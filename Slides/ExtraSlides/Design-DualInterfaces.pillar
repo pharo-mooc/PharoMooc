@@ -1,0 +1,57 @@
+{
+    "title":"The Two Interfaces in OOP"
+}
+
+${slide:title=Outline}$
+- Some questions
+- Two different clients
+
+${slide:title=What are the Consequences of}$
+
+[[[
+A 
+{ private x ;
+void foo(){ ... x ...}
+}
+]]]
+
+${slide:title=Consequences}$
+
+- cannot access x from
+- cannot replace x
+- cannot extend!
+
+Cannot even copy and paste foo(){ ...} in subclasses!
+
+${slide:title=Clients?}$
+
+What are the clients of a class?
+- Its users (e.g., Person is client of Address)
+- but also its subclasse
+
+${slide:title=What do you think about this}$
+
+Some tutorials mention: Fields should be private 
+
+
+${slide:title=The correct idiom is...}$
+
+- Fields should be private AND class should provide protected accessors
+- OR
+- Fields should be protected
+
+${slide:title=Benefits}$
+
+- Your clients cannot access your fields
+- And your subclasses are empowered
+-- A subclass can extend/refine the behavior of the superclass
+
++.>file://figures/DualInterfaces2.png|width=60+
+
+${slide:title=Conclusion}$
+
+A class has always two clients:
+- its users 
+- its extenders
+
+

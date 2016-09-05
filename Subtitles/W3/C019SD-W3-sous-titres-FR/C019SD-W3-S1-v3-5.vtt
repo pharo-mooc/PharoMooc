@@ -1,0 +1,603 @@
+WEBVTT
+
+00:00:06.520 --> 00:00:11.160 align:middle
+Bonjour. Pour ce cours, on
+va parler essentiellement de
+
+00:00:11.360 --> 00:00:15.460 align:middle
+conception objet et on va
+regarder ce qui est l'essence
+
+00:00:15.730 --> 00:00:19.400 align:middle
+du dispatch ou de la
+liaison tardive dans le langage à
+
+00:00:20.830 --> 00:00:25.740 align:middle
+objet. Ce cours prend
+Pharo comme exemple et c'
+
+00:00:25.940 --> 00:00:28.150 align:middle
+est agréable de voir que
+Pharo est bien implémenté, mais
+
+00:00:28.350 --> 00:00:31.670 align:middle
+il y a une forte généralisation
+possible qu'on verra dans le cours qui suit.
+
+00:00:32.220 --> 00:00:33.000 align:middle
+Commençons.
+
+00:00:35.000 --> 00:00:39.560 align:middle
+Si on regarde les
+booléens, dans Pharo, c'est
+
+00:00:40.890 --> 00:00:43.000 align:middle
+tout ce qu'il y a de plus basique.
+
+00:00:43.180 --> 00:00:47.000 align:middle
+Vous avez des opérateurs booléens
+qui sont gloutons comme &, |, not.
+
+00:00:47.930 --> 00:00:50.570 align:middle
+Vous avez des opérateurs
+paresseux comme or: qui vont
+
+00:00:50.770 --> 00:00:52.220 align:middle
+évaluer leurs
+arguments que si nécessaire.
+
+00:00:52.420 --> 00:00:57.010 align:middle
+Vous avez aussi les conditions,
+ce qu'on verra dans un autre cours.
+
+00:00:58.580 --> 00:01:02.210 align:middle
+C'est bien implémenté, mais il n'y a
+rien de fantastique ou de spécifique.
+
+00:01:03.570 --> 00:01:06.000 align:middle
+La semaine dernière, je vous
+avais demandé de faire un exercice.
+
+00:01:06.200 --> 00:01:08.820 align:middle
+Je vous avais posé trois
+questions, je vous demandais
+
+00:01:09.020 --> 00:01:11.140 align:middle
+comment est-ce qu'on
+implémente not; comment est-ce qu'on
+
+00:01:11.340 --> 00:01:13.930 align:middle
+implémente |, et ça,
+c'est la question la plus
+
+00:01:14.130 --> 00:01:15.640 align:middle
+importante, pourquoi est-ce
+que je posais ces questions?
+
+00:01:16.830 --> 00:01:19.290 align:middle
+On va d'abord répondre aux
+2 premières et puis dans la
+
+00:01:19.490 --> 00:01:22.330 align:middle
+séance qui suit, je répondrai à
+
+00:01:26.000 --> 00:01:27.150 align:middle
+la question trois.
+
+00:01:27.350 --> 00:01:28.820 align:middle
+L'exercice, c'était
+vraiment, j'ai false.
+
+00:01:29.020 --> 00:01:32.890 align:middle
+Si j'envoie le message not à
+false, ça va me rendre true.
+
+00:01:33.090 --> 00:01:35.170 align:middle
+Si j'envoie le message not à
+true, ça va me rendre false.
+
+00:01:35.920 --> 00:01:38.080 align:middle
+J'ai des objets, comment
+est-ce que j'implémente ça?
+
+00:01:38.910 --> 00:01:42.310 align:middle
+Je vais d'abord vous donner
+une indication: la solution
+
+00:01:42.510 --> 00:01:45.530 align:middle
+ne contient pas de
+conditions. En général, vous arrivez à
+
+00:01:45.730 --> 00:01:47.630 align:middle
+avoir une solution qui a une
+condition, mais moi je vous
+
+00:01:47.830 --> 00:01:49.840 align:middle
+assure que la solution
+que je propose ou que Pharo
+
+00:01:50.040 --> 00:01:52.780 align:middle
+implémente en fait ne
+contient absolument aucune
+
+00:01:53.000 --> 00:01:56.390 align:middle
+condition ou conditionnel.
+
+00:01:56.590 --> 00:01:58.580 align:middle
+Vous n'avez pas de
+if dans la solution.
+
+00:02:00.940 --> 00:02:04.720 align:middle
+Réfléchissez un peu pour
+voir si ça vous donne une idée.
+
+00:02:05.030 --> 00:02:07.580 align:middle
+En général, ça ne marche pas
+trop ce genre d'indications.
+
+00:02:07.820 --> 00:02:11.800 align:middle
+Donc je vais vous donner
+une deuxième indication: en
+
+00:02:12.000 --> 00:02:13.130 align:middle
+fait la solution a trois classes.
+
+00:02:15.050 --> 00:02:18.290 align:middle
+Elle a la classe Booléens
+qui est une classe abstraite.
+
+00:02:18.490 --> 00:02:22.420 align:middle
+Elle a la classe
+True et la classe False.
+
+00:02:24.000 --> 00:02:28.420 align:middle
+L'objet booléen true, c'est
+l'unique instance de la classe True.
+
+00:02:28.620 --> 00:02:33.280 align:middle
+Vous voyez la différence, l'
+
+00:02:33.480 --> 00:02:38.370 align:middle
+instance true commence par
+un petit t et la classe False
+
+00:02:38.770 --> 00:02:40.320 align:middle
+commence avec une majuscule.
+
+00:02:40.520 --> 00:02:44.450 align:middle
+False est l'unique
+instance de la classe False.
+
+00:02:44.650 --> 00:02:46.060 align:middle
+Qu'est-ce que ça
+donne sur un schéma?
+
+00:02:46.440 --> 00:02:48.860 align:middle
+On voit bien que true est
+instance de la classe True,
+
+00:02:49.060 --> 00:02:50.450 align:middle
+false est instance
+de la classe False.
+
+00:02:50.650 --> 00:02:52.620 align:middle
+Normalement avec cette
+indication-là, vous devriez me
+
+00:02:52.820 --> 00:02:55.120 align:middle
+dire "C'est évident, la
+solution doit être comme ça.
+
+00:02:55.320 --> 00:02:57.140 align:middle
+" Je ne sais pas si vous la voyez.
+
+00:02:57.730 --> 00:02:58.780 align:middle
+On va la voir dans un moment.
+
+00:02:59.000 --> 00:03:00.040 align:middle
+Je vous laisse un
+petit peu réfléchir.
+
+00:03:00.740 --> 00:03:05.610 align:middle
+Je ne vais pas
+parler tout de suite de la
+
+00:03:05.810 --> 00:03:08.760 align:middle
+solution, mais réfléchir de
+comment est-ce qu'on exprime
+
+00:03:08.960 --> 00:03:11.230 align:middle
+finalement un choix
+dans un langage à objets.
+
+00:03:12.710 --> 00:03:15.350 align:middle
+Un choix, on l'exprime en
+définissant des classes avec
+
+00:03:15.550 --> 00:03:18.580 align:middle
+des interfaces qui sont
+compatibles, avec des méthodes
+
+00:03:18.780 --> 00:03:21.200 align:middle
+compatibles et en envoyant
+un message à une instance.
+
+00:03:21.400 --> 00:03:22.350 align:middle
+Donc là, c'est ce que j'ai illustré.
+
+00:03:22.550 --> 00:03:23.310 align:middle
+Quand je fais x open,
+
+00:03:27.430 --> 00:03:30.200 align:middle
+je vais choisir la
+bonne méthode associée à x.
+
+00:03:30.400 --> 00:03:31.930 align:middle
+Ça veut dire que si c'est
+un fichier, ça va ouvrir un
+
+00:03:32.130 --> 00:03:33.880 align:middle
+fichier; si c'est une
+fenêtre, ça va ouvrir une fenêtre
+
+00:03:34.080 --> 00:03:36.060 align:middle
+; si c'est un outil,
+ça va ouvrir un outil.
+
+00:03:37.390 --> 00:03:40.720 align:middle
+La méthode va être sélectionnée
+suivant la base de la classe de x.
+
+00:03:42.950 --> 00:03:45.950 align:middle
+Comment avec cette
+indication on peut maintenant avoir la
+
+00:03:46.150 --> 00:03:49.620 align:middle
+solution? On va
+l'implémenter comme ça.
+
+00:03:51.490 --> 00:03:52.250 align:middle
+Ça veut dire quoi ?
+
+00:03:52.450 --> 00:03:55.210 align:middle
+Ça veut dire que
+j'implémente la méthode not dans la
+
+00:03:55.410 --> 00:03:58.480 align:middle
+ classe False et dans
+ces cas-là, je rends true.
+
+00:03:58.790 --> 00:04:03.460 align:middle
+J'implémente la méthode not dans
+la classe True en rendant false.
+
+00:04:04.750 --> 00:04:06.250 align:middle
+De manière visuelle, on obtient ça.
+
+00:04:08.540 --> 00:04:11.640 align:middle
+Vous voyez que la solution n'a
+pas de conditions explicites.
+
+00:04:12.110 --> 00:04:14.570 align:middle
+Je n'utilise pas un if à
+l'intérieur de ce genre de choses.
+
+00:04:15.100 --> 00:04:17.260 align:middle
+Comment ça marche ?
+
+00:04:17.460 --> 00:04:18.220 align:middle
+Ça marche comme ça.
+
+00:04:18.420 --> 00:04:22.470 align:middle
+Ça veut dire que quand
+j'envoie le message not ici, où
+
+00:04:22.670 --> 00:04:24.100 align:middle
+est-ce que je
+recherche la méthode not?
+
+00:04:24.300 --> 00:04:27.470 align:middle
+Je la cherche dans la classe du
+receveur donc true est instance de True.
+
+00:04:28.330 --> 00:04:30.830 align:middle
+Ah ben tiens, c'est cette
+méthode-là qui va être exécutée.
+
+00:04:31.030 --> 00:04:31.790 align:middle
+Qu'est-ce que je dois faire ?
+
+00:04:32.000 --> 00:04:32.750 align:middle
+Je dois rendre false.
+
+00:04:32.950 --> 00:04:33.710 align:middle
+Ah ben tiens, ça marche.
+
+00:04:33.910 --> 00:04:37.820 align:middle
+Maintenant, j'envoie un
+message à l'instance false.
+
+00:04:38.020 --> 00:04:39.530 align:middle
+Je cherche où? Dans
+la classe de False.
+
+00:04:40.370 --> 00:04:43.140 align:middle
+C'est ce not-là qui va être
+exécuté donc ça rend true.
+
+00:04:43.340 --> 00:04:47.240 align:middle
+Donc, j'ai bien implémenté
+la négation de booléens avec
+
+00:04:47.440 --> 00:04:49.160 align:middle
+deux méthodes sans
+avoir besoin de conditions.
+
+00:04:55.260 --> 00:04:58.500 align:middle
+On peut regarder aussi
+l'implémentation de la super classe.
+
+00:04:59.050 --> 00:05:00.860 align:middle
+La classe Booléens est
+une classe abstraite.
+
+00:05:01.060 --> 00:05:04.640 align:middle
+Elle a deux sous-classes qui vont
+implémenter les opérateurs qu'il faut.
+
+00:05:05.000 --> 00:05:08.140 align:middle
+Et en Pharo, on va
+exprimer que not est une méthode
+
+00:05:08.340 --> 00:05:11.750 align:middle
+abstraite sur booléens en utilisant
+le message self subclassResponsability.
+
+00:05:11.950 --> 00:05:16.680 align:middle
+Ça, c'est juste l'aspect
+Pharo de la chose, mais c'était
+
+00:05:16.880 --> 00:05:17.640 align:middle
+pour être complet.
+
+00:05:18.650 --> 00:05:20.880 align:middle
+Maintenant, normalement
+vous devriez avoir compris
+
+00:05:21.230 --> 00:05:23.720 align:middle
+comment vous pouvez
+exprimer le comportement de |.
+
+00:05:24.000 --> 00:05:25.460 align:middle
+Je vais vous laisser un
+petit moment pour exprimer ça.
+
+00:05:25.660 --> 00:05:27.830 align:middle
+Là, l'idée c'est que vous
+allez devoir définir une
+
+00:05:28.030 --> 00:05:32.070 align:middle
+méthode qui va prendre un
+argument de plus et qui suivant
+
+00:05:32.270 --> 00:05:36.580 align:middle
+la valeur de cet
+argument, va rendre la bonne
+
+00:05:36.800 --> 00:05:41.400 align:middle
+chose. Là, souvent vous allez dire
+"Il suffit que j'aie une condition.
+
+00:05:41.600 --> 00:05:42.840 align:middle
+" Mais non, c'est ça le truc.
+
+00:05:43.040 --> 00:05:46.210 align:middle
+Là, encore une fois, vous
+n'avez pas besoin de conditions
+
+00:05:46.410 --> 00:05:51.230 align:middle
+pour implémenter |. Je vous
+laisse dix secondes pour réfléchir.
+
+00:05:51.490 --> 00:05:53.070 align:middle
+Normalement, vous auriez
+dû préparer l'exercice.
+
+00:05:53.270 --> 00:05:58.160 align:middle
+Là, je vais définir | sur la classe
+
+00:05:58.360 --> 00:06:01.130 align:middle
+Booléens abstraite
+comme une méthode abstraite.
+
+00:06:03.440 --> 00:06:08.210 align:middle
+Sur la classe False, je
+le vois c'est écrit, le
+
+00:06:08.410 --> 00:06:10.330 align:middle
+receveur est de la classe
+False, qu'est-ce que je dois rendre?
+
+00:06:11.310 --> 00:06:13.870 align:middle
+Ah ben tiens, quand c'est
+true, je rends true; quand c'est
+
+00:06:14.070 --> 00:06:14.830 align:middle
+false, je rends false et
+quand c'est n'importe quoi, je
+
+00:06:15.030 --> 00:06:17.740 align:middle
+rends n'importe quoi. Donc ça
+veut dire que je rends l'argument.
+
+00:06:18.660 --> 00:06:23.500 align:middle
+Là, l'implémentation sur
+la classe False de |, c'est
+
+00:06:23.700 --> 00:06:25.290 align:middle
+rendre l'argument qui est passé.
+
+00:06:25.630 --> 00:06:26.500 align:middle
+Et c'est exactement ce qu'on fait.
+
+00:06:29.290 --> 00:06:33.820 align:middle
+De la même manière, si on
+regarde sur la classe True, c'est
+
+00:06:34.020 --> 00:06:37.400 align:middle
+expliqué là.
+
+00:06:39.020 --> 00:06:43.780 align:middle
+Quand j'envoie | au receveur true,
+
+00:06:44.030 --> 00:06:45.210 align:middle
+je rends le receveur.
+
+00:06:45.630 --> 00:06:48.590 align:middle
+Donc là, je rends true.
+
+00:06:48.790 --> 00:06:51.050 align:middle
+Vous voyez encore une fois
+que je n'ai pas de conditions,
+
+00:06:51.680 --> 00:06:55.200 align:middle
+j'ai juste utilisé
+de l'envoi de message.
+
+00:06:55.400 --> 00:06:59.130 align:middle
+De manière un petit peu plus
+propre, comment c'est écrit dans Pharo?
+
+00:06:59.410 --> 00:07:04.360 align:middle
+On sait que true va être le
+receveur du message donc au
+
+00:07:04.560 --> 00:07:06.490 align:middle
+lieu d'écrire true ici, on
+peut écrire self, c'est pareil.
+
+00:07:07.100 --> 00:07:08.950 align:middle
+Si vous lisez la
+définition, vous pouvez voir self et
+
+00:07:09.150 --> 00:07:10.930 align:middle
+vous pouvez vous dire "Ah
+ben oui, c'est normal puisque
+
+00:07:11.130 --> 00:07:15.710 align:middle
+le receveur sera true donc ces deux
+écritures sont strictement équivalentes.
+
+00:07:18.750 --> 00:07:19.510 align:middle
+"
+
+00:07:19.710 --> 00:07:21.520 align:middle
+Là, encore une fois, si on
+regarde de manière visuelle,
+
+00:07:21.810 --> 00:07:26.570 align:middle
+quand j'envoie le
+message | avec quelque
+
+00:07:26.770 --> 00:07:30.430 align:middle
+chose ici à l'objet
+true, je vais chercher cette
+
+00:07:30.630 --> 00:07:34.270 align:middle
+définition-là de | et
+elle va me rendre self.
+
+00:07:34.470 --> 00:07:35.230 align:middle
+Donc, elle va me rendre true.
+
+00:07:35.910 --> 00:07:39.630 align:middle
+Celle-là, quand j'envoie le
+message | avec quelque chose,
+
+00:07:40.220 --> 00:07:42.590 align:middle
+je vais chercher dans la
+ classe de False qui est False,
+
+00:07:42.850 --> 00:07:46.790 align:middle
+donc je tombe sur cette
+implémentation-là, donc je vais rendre alpha.
+
+00:07:47.790 --> 00:07:50.870 align:middle
+C'est bien les tables de
+booléens que je cherchais à
+
+00:07:53.490 --> 00:07:54.250 align:middle
+implémenter.
+
+00:07:55.000 --> 00:07:57.080 align:middle
+Ce qu'il faut voir,
+c'est que la solution qu'on a
+
+00:07:57.280 --> 00:08:01.870 align:middle
+implémentée n'utilise
+absolument pas de conditions ou
+
+00:08:02.070 --> 00:08:05.280 align:middle
+d’instructions
+conditionnelles comme une boucle explicite.
+
+00:08:05.920 --> 00:08:06.680 align:middle
+Qu'est-ce qu'elle fait ?
+
+00:08:06.880 --> 00:08:08.240 align:middle
+En fait, elle laisse
+le receveur décider.
+
+00:08:08.900 --> 00:08:11.430 align:middle
+Ça veut dire que je dis à
+l'objet booléen qui reçoit le
+
+00:08:11.630 --> 00:08:14.170 align:middle
+message "Trouve la bonne
+version, fais ce qu'il faut.
+
+00:08:14.370 --> 00:08:17.840 align:middle
+" Je ne suis pas en train
+de prendre une décision par
+
+00:08:18.040 --> 00:08:19.030 align:middle
+rapport à ce qui devrait être fait.
+
+00:08:19.410 --> 00:08:21.050 align:middle
+C'est un principe qu'on
+va retrouver un petit peu
+
+00:08:21.250 --> 00:08:23.680 align:middle
+ailleurs et qui est vraiment
+un principe fondamental objet.
+
+00:08:23.880 --> 00:08:28.170 align:middle
+C'est les heuristiques dont
+on parlait au début du cours,
+
+00:08:28.370 --> 00:08:29.470 align:middle
+c'est "Do not ask, tell.
+
+00:08:29.670 --> 00:08:33.750 align:middle
+" Ça veut dire "Je ne veux
+pas exprimer une condition, je
+
+00:08:33.950 --> 00:08:37.550 align:middle
+veux juste donner un ordre "
+Et ça, c'est une grande clé
+
+00:08:37.750 --> 00:08:39.420 align:middle
+de la programmation-objet.
+
+00:08:40.020 --> 00:08:42.630 align:middle
+Et l'autre, c'est
+"Laisse le receveur décider.
+
+00:08:42.870 --> 00:08:46.100 align:middle
+" Je donne un ordre au
+receveur, c'est à lui d'encapsuler
+
+00:08:46.300 --> 00:08:48.210 align:middle
+son savoir et de
+prendre les bonnes décisions.
+

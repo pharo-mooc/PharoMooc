@@ -1,0 +1,405 @@
+﻿1
+00:00:00,560 --> 00:00:04,240
+In this course, we'll study
+Booleans and conditions in Pharo.
+
+2
+00:00:04,960 --> 00:00:09,160
+There are two Booleans objects:
+true and false.
+
+3
+00:00:09,320 --> 00:00:12,480
+true is the only instance
+of the class True.
+
+4
+00:00:12,640 --> 00:00:15,440
+false is the only instance
+of the class False.
+
+5
+00:00:15,600 --> 00:00:20,640
+We'll send messages to these objects
+to set Boolean operations
+
+6
+00:00:20,800 --> 00:00:24,160
+or alternative structures
+such as ifTrue:IfFalse:, etc.
+
+7
+00:00:24,320 --> 00:00:26,280
+We'll study this.
+
+8
+00:00:26,920 --> 00:00:29,880
+In the first example of this slide,
+
+9
+00:00:30,040 --> 00:00:34,240
+you send the message &,
+a binary operator,
+
+10
+00:00:34,400 --> 00:00:35,720
+to the object false.
+
+11
+00:00:35,880 --> 00:00:38,520
+You pass it a parameter,
+which is all this.
+
+12
+00:00:38,680 --> 00:00:42,320
+It's an expression between parentheses,
+(1 error:'crazy').
+
+13
+00:00:42,480 --> 00:00:45,480
+This expression triggers an error.
+
+14
+00:00:45,640 --> 00:00:50,280
+You can see the evaluation of this
+whole expression triggers an error.
+
+15
+00:00:50,440 --> 00:00:53,600
+Why? Because the operand
+has also been evaluated
+
+16
+00:00:53,760 --> 00:00:56,280
+in this Boolean expression.
+
+17
+00:00:57,560 --> 00:01:01,000
+The operand has been evaluated,
+hence the mistake.
+
+18
+00:01:01,160 --> 00:01:05,640
+If you want to get the lazy version
+of the Boolean operators,
+
+19
+00:01:05,800 --> 00:01:10,960
+you must use the method and:
+of the class Boolean.
+
+20
+00:01:11,120 --> 00:01:13,440
+This method takes a block
+as a parameter.
+
+21
+00:01:13,600 --> 00:01:18,000
+Blocks start with [ and end with ].
+
+22
+00:01:18,160 --> 00:01:21,320
+They contain expressions,
+but the definition of a block
+
+23
+00:01:21,480 --> 00:01:24,800
+doesn't trigger
+the execution of its expressions.
+
+24
+00:01:24,960 --> 00:01:28,640
+For now, these expressions
+are not evaluated.
+
+25
+00:01:28,800 --> 00:01:31,600
+It is only if the first operand
+is true or false
+
+26
+00:01:32,320 --> 00:01:35,600
+that the block passed as a parameter
+is evaluated.
+
+27
+00:01:35,760 --> 00:01:39,880
+In the second example,
+you have false and: a block.
+
+28
+00:01:40,040 --> 00:01:45,440
+It returns false without evaluating
+the block passed as a parameter.
+
+29
+00:01:45,960 --> 00:01:49,360
+It is a typical lazy operator
+but built using blocks.
+
+30
+00:01:51,400 --> 00:01:55,160
+In Pharo, conditionals
+(if, false, while, etc.)
+
+31
+00:01:55,320 --> 00:01:59,160
+are always messages
+sent to Booleans or blocks.
+
+32
+00:02:00,080 --> 00:02:01,800
+Let's take another example:
+
+33
+00:02:01,960 --> 00:02:06,960
+the message ifTrue:ifFalse:, the typical
+alternative of any programming language.
+
+34
+00:02:07,120 --> 00:02:09,280
+But in Pharo, it's actually a message:
+
+35
+00:02:09,440 --> 00:02:13,440
+I can send the message ifTrue:ifFalse
+to a Boolean object.
+
+36
+00:02:13,600 --> 00:02:16,480
+This expression returns a Boolean.
+
+37
+00:02:17,840 --> 00:02:22,760
+I pass two blocks as parameters
+of this message:
+
+38
+00:02:22,920 --> 00:02:26,560
+one block is evaluated
+if the receiver Boolean is true,
+
+39
+00:02:26,720 --> 00:02:29,480
+the other if the receiver is false.
+
+40
+00:02:30,560 --> 00:02:33,200
+Careful: the message ifTrue:ifFalse:
+
+41
+00:02:33,360 --> 00:02:37,000
+is heavily used by Pharo:
+it's at the heart of the system.
+
+42
+00:02:37,160 --> 00:02:42,320
+It's so important
+that it's been heavily optimized
+
+43
+00:02:42,480 --> 00:02:46,480
+to be efficient without slowing down
+the entire system.
+
+44
+00:02:47,800 --> 00:02:51,160
+Let's talk again
+about Boolean implementation in Pharo:
+
+45
+00:02:51,320 --> 00:02:53,360
+it's extremely elegant.
+
+46
+00:02:53,520 --> 00:02:59,000
+the objects true and false are both
+instances of the classes True and False
+
+47
+00:02:59,160 --> 00:03:01,400
+which inherit the class Boolean.
+
+48
+00:03:01,560 --> 00:03:04,760
+Each of these classes
+define a set of methods
+
+49
+00:03:04,920 --> 00:03:07,640
+to return the expected behavior.
+
+50
+00:03:07,800 --> 00:03:13,080
+We'll give you more information
+about this elegant implementation
+
+51
+00:03:13,240 --> 00:03:15,200
+in a further lesson.
+
+52
+00:03:16,640 --> 00:03:19,560
+Back to the message ifTrue:ifFalse:.
+
+53
+00:03:19,720 --> 00:03:23,200
+There are different versions
+of these messages.
+
+54
+00:03:23,360 --> 00:03:28,040
+There's a version with only ifTrue:
+with a block as a parameter
+
+55
+00:03:28,960 --> 00:03:31,760
+to return only the first part
+of the alternative.
+
+56
+00:03:31,920 --> 00:03:34,960
+The message ifTrue:ifFalse
+takes two blocks
+
+57
+00:03:35,120 --> 00:03:39,480
+to return an alternative
+when the Boolean is true or false.
+
+58
+00:03:40,520 --> 00:03:43,720
+There are several examples here.
+
+59
+00:03:43,880 --> 00:03:46,480
+This only sends the message ifTrue:
+
+60
+00:03:46,640 --> 00:03:49,960
+with only one block to execute
+if the expression is true.
+
+61
+00:03:50,120 --> 00:03:53,080
+In this example,
+there's one block to execute:
+
+62
+00:03:53,240 --> 00:03:55,920
+this one if the receiver Boolean
+is true,
+
+63
+00:03:56,080 --> 00:03:58,320
+that one if it is false.
+
+64
+00:04:00,960 --> 00:04:02,960
+There are two different messages.
+
+65
+00:04:03,120 --> 00:04:05,120
+It's the same with ifFalse:
+
+66
+00:04:05,280 --> 00:04:08,760
+when it comes to the classes
+Boolean, True, and False.
+
+67
+00:04:10,400 --> 00:04:15,560
+There are other types of messages
+available to express conditions.
+
+68
+00:04:15,720 --> 00:04:18,360
+For instance,
+there's ifEmpty: ifNotempty:
+
+69
+00:04:18,520 --> 00:04:20,600
+which I can send to a collection.
+
+70
+00:04:20,760 --> 00:04:23,920
+With ifEmpty:, I pass a block.
+
+71
+00:04:24,920 --> 00:04:29,200
+The block is evaluated only if the
+receiver collection is or isn't empty.
+
+72
+00:04:29,960 --> 00:04:34,480
+ifNotEmpty: is the opposite condition.
+
+73
+00:04:34,640 --> 00:04:38,240
+If the collection isn't empty,
+then you execute the block.
+
+74
+00:04:38,400 --> 00:04:40,920
+But there's an extra problem:
+
+75
+00:04:41,080 --> 00:04:45,080
+this block takes an argument
+as a parameter
+
+76
+00:04:45,240 --> 00:04:47,680
+which is the non-empty collection.
+
+77
+00:04:47,840 --> 00:04:51,880
+The collection might be the result
+of a complex computation.
+
+78
+00:04:52,040 --> 00:04:54,520
+You can query once more
+for the collection.
+
+79
+00:04:54,680 --> 00:04:58,600
+If the collection isn't empty,
+it is passed as the block's parameter.
+
+80
+00:04:58,760 --> 00:05:01,320
+It can be used
+in the expressions of the block.
+
+81
+00:05:02,160 --> 00:05:03,920
+In this session,
+
+82
+00:05:04,080 --> 00:05:06,800
+we saw Booleans
+are normal objects in Pharo
+
+83
+00:05:06,960 --> 00:05:10,800
+and instances of the classes True
+and False which inherit Booleans.
+
+84
+00:05:10,960 --> 00:05:12,560
+You can send them messages.
+
+85
+00:05:12,720 --> 00:05:18,240
+These messages define
+all the constructions of alternatives
+
+86
+00:05:18,400 --> 00:05:21,520
+or of possible conditions in Pharo.
+
+87
+00:05:21,680 --> 00:05:26,440
+In other languages, it would rather be
+structures in the compiler.

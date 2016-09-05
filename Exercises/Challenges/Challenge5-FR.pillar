@@ -1,0 +1,24 @@
+! Défi 5
+
+Le site *http://nominatim.openstreetmap.org/* offre un service de recherche *http://nominatim.openstreetmap.org/search/* qui lorsqu'on lui donne
+un nom de rue rend toutes les occurrences de cette rue, chacune avec des informations la caractérisant telles que sa longitude et latitude.
+Dans ce défi, vous devez écrire une expression qui rend une collection de lui en utilisant par exemple une paire dont la clef
+est une description et la valeur sa latitude et longitude.
+
+Par exemple, nous avons fait une recherche avec 'Rue de Paris' et voici quelques échantillons du résultat:
+
+[[[
+{
+'La Rue de Paris, Lainsecq, Auxerre, Yonne, Bourgogne-Franche-Comte, France metropolitaine, 89520, France'->(47.5612874@3.2933713) .
+'Rue de Paris, Boulogne-Billancourt, Hauts-de-Seine, Ile-de-France, France metropolitaine, 92100, France'->(48.8416645@2.236876) .
+}
+]]]
+
+
+!!! Indices : 
+- Nous suggérons de demander au serveru de nous renvoyer du JSON.
+- Pour spécifier le format lors de la requête, il faut mettre la valeur 'jsonv2' pour la variable 'format' dans la requête.
+- Vous pouvez limiter le nombre de résultats en mettant la variable 'limit' à '10' (en utilisant le message ==queryAt:put:==).
+- Pour convertir une chaine JSON en objets Pharo regardez la classe ==STON==.
+- Utiliser le message ==->== pour construire une paire d'objets. 
+

@@ -1,0 +1,109 @@
+\chapter{ Hook and Template Methods}
+
+
+
+\section{Providing Hook Methods}
+
+
+
+\paragraph{Current situation. }
+
+
+The solution proposed for printing a Node displays the following 
+information: 
+
+\begin{code}
+(Node withName: \#Node1 connectedTo: (Node new name: \#PC1)) printString
+
+      Node named: Node1 connected to: PC1
+\end{code}
+
+A straightforward way to implement the printOn: method on the 
+class Node is the following code:
+
+\begin{code}
+Node\texttt{>>}printOn: aStream
+
+ aStream nextPutAll: 'Node named: ', self name asString.
+ self hasNextNode 
+  ifTrue:\ensuremath{[} aStream nextPutAll: ' connected to: ', self nextNode name\ensuremath{]}
+\end{code}
+
+However, with such implementation the printing of all kinds of 
+nodes is the same.
+
+
+
+\paragraph{New Requirements.}
+To help in the understanding of the LAN we would like that depending 
+on the specific class of node we obtain a specific printing like 
+the following ones:
+
+\begin{code}
+ (Workstation withName: \#Mac connectedTo: (LanPrinter withName: 
+\#PC1) printString
+
+   Workstation Mac connected to Printer PC1
+
+(LanPrinter withName: \#Pr1 connectedTo: (Node withName: \#N1) 
+printString
+
+ Printer Pr1 connected to Node N1
+\end{code}
+
+Define the method typeName that returns a string representing 
+the name of the type of node in the `printing' protocol. This 
+method should be defined in Node and all its subclasses. 
+
+\begin{code}
+(LanPrinter withName: \#PC1) typeName
+
+      `Printer'
+
+(Node withName: \#N1) typeName
+     `Node'
+\end{code}
+
+ 
+Define the method simplePrintString on the class Node to provide 
+more information about a node as show below:
+
+\begin{code}
+(Workstation withName: \#Mac connectedTo: (LanPrinter withName: 
+\#PC1)) simplePrint
+
+`Workstation Mac'
+
+(LanPrinter withName: \#PC1) simplePrint
+
+`Printer PC1'
+\end{code}
+
+Then modify the printOn: method of the class Node to produce 
+the following output:
+\begin{code}
+(self withName: \#Mac connectedTo: (LanPrinter new name: 
+\#PC1))
+
+`Node Mac connected to Printer PC1'
+\end{code}
+
+\paragraph{Remark:} The method typeName is called a \textit{hook} method. This 
+reflects the fact that it allows the subclasses to specialize 
+the behavior of the superclass, here the printing of a all the 
+different kinds of nodes. The method simplePrintString, even 
+if in our case is rather simple, is called a template method. 
+This name reflects the fact that the method specifies the context 
+in which hook methods will be called and how they will fit into 
+the template method to produce the expected result. 
+
+
+Note that for abstract classes hook methods can be abstract too, 
+one other case the hook method can propose a default behavior.
+
+The Smalltalk class library contains a lot of such hooks that 
+allows an easy customization of the proposed behavior. The proposed 
+requirement already exists in the system. Study the method printOn: 
+on the class Object. 
+
+\endinput

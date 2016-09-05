@@ -1,0 +1,267 @@
+{
+  "title":"Understanding Metaclasses",
+  "slidesid":"W7S03"
+}
+
+
+
+${slide:title=What You Will Learn}$
+
+- Not needed to program in Pharo :)
+- But intellectually exciting
+-- Where ==new== is defined?
+-- What is the class of a metaclass?
+-- Uniformity of the instance relationship
+
+${slide:title=The Key: Only One Method Lookup}$
+
+${columns}$
+
+${column:width=60}$
+
+When a message is sent to an object, a method is searched starting from the class of the object and following the inheritance chain
+
+${column:width=40}$
+
++>file://figures/LookupEssenceWithGeneric.png|width=150+
+
+${endColumns}$
+
+
+
+${slide:title=Metaclasses in 7 Points}$
+
+
+# Every object is an instance of a class
+# Every class eventually inherits from ==Object==
+# Every class is an instance of a metaclass
+# The metaclass hierarchy parallels the class hierarchy
+# Every metaclass inherits from ==Class== up to ==Behavior==
+# Every metaclass is an instance of ==Metaclass==
+# The metaclass of ==Metaclass== is an instance of ==Metaclass==
+
+${slide:title=Metaclasses in 7 Points}$
+
+
+# ""Every object is an instance of a class""
+# Every class eventually inherits from ==Object==
+# Every class is an instance of a metaclass
+# The metaclass hierarchy parallels the class hierarchy
+# Every metaclass inherits from ==Class== up to ==Behavior==
+# Every metaclass is an instance of ==Metaclass==
+# The metaclass of ==Metaclass== is an instance of ==Metaclass==
+
+${slide:title=Every Object is an Instance of a Class}$
+
++>file://figures/01-SortedCollectionInstanceOfSortedCollection.png|width=60+
+
+
+${slide:title=Metaclasses in 7 Points}$
+
+
+# Every object is an instance of a class
+# ""Every class eventually inherits from ==Object==""
+# Every class is an instance of a metaclass
+# The metaclass hierarchy parallels the class hierarchy
+# Every metaclass inherits from ==Class== up to ==Behavior==
+# Every metaclass is an instance of ==Metaclass==
+# The metaclass of ==Metaclass== is an instance of ==Metaclass==
+
+${slide:title=Every Class Eventually Inherits From Object}$
+
+
++>file://figures/02-SortedCollectionInheritsFromObject.png|width=70+
+
+
+${slide:title=Responsibility of Object}$
+
+Class ==Object== represents the common object behavior
+- error handling, halting, announcements
+- all classes eventually inherit from ==Object== 
+
+
+${slide:title=Metaclasses in 7 Points}$
+
+
+# Every object is an instance of a class
+# Every class eventually inherits from ==Object==
+# ""Every class is an instance of a metaclass""
+# The metaclass hierarchy parallels the class hierarchy
+# Every metaclass inherits from ==Class== up to ==Behavior==
+# Every metaclass is an instance of ==Metaclass==
+# The metaclass of ==Metaclass== is an instance of ==Metaclass==
+
+
+${slide:title=Every class is an instance of a metaclass}$
+
+Classes are objects too!
+
+-Every class ==X== is the unique instance of its metaclass, called ==X class==
+
++>file://figures/04-OrderedCollectionIsInstanceOfOrderedCollectionClass.png|width=110+
+
+
+
+
+
+${slide:title=Metaclass are Implicit}$
+
+Metaclasses are automatically created when creating a class
+
+
+${slide:title=Metaclasses in 7 Points}$
+
+
+# Every object is an instance of a class
+# Every class eventually inherits from ==Object==
+# Every class is an instance of a metaclass
+# ""The metaclass hierarchy parallels the class hierarchy""
+# Every metaclass inherits from ==Class== up to ==Behavior==
+# Every metaclass is an instance of ==Metaclass==
+# The metaclass of ==Metaclass== is an instance of ==Metaclass==
+
+
+
+${slide:title=Metaclass Hierarchy Parallels Class Hierarchy}$
+
++>file://figures/05-OrderedCollectionIsInstanceOfOrderedCollectionClassInherit|width=120+
+
+
+${slide:title=Sending a Message to a Class}$
+
++>file://figures/06-OrderedCollectionIsInstanceOfOrderedCollectionClass|width=140+
+
+
+${slide:title=Questions}$
+- What is the class of a metaclass?
+- What is the superclass of ==Object class==?
+- What about sending a message to a metaclass?
+
++>file://figures/07-2Questions.png|width=110+
+
+
+
+
+${slide:title=Metaclasses in 7 Points}$
+
+# Every object is an instance of a class
+# Every class eventually inherits from ==Object==
+# Every class is an instance of a metaclass
+# The metaclass hierarchy parallels the class hierarchy
+# ""Every metaclass inherits from ==Class== up to ==Behavior==""
+# Every metaclass is an instance of ==Metaclass==
+# The metaclass of ==Metaclass== is an instance of ==Metaclass==
+
+
+${slide:title=Every Metaclass Inherits from Class up to Behavior}$
+
++>file://figures/08-BehaviorClassDescriptionAndClass.png|width=100+
+
+${slide:title=Where new is Defined?}$
+
++>file://figures/09-BehaviorClassDescriptionAndClassWithNew.png|width=100+
+
+
+
+${slide:title=Responsibilities of Behavior}$
+
+==Behavior==
+- Minimum state for objects that ""have instances""
+- State:
+-- superclass link, method dictionary, description of instances (representation and number)
+- Methods:
+-- method dictionary, compiling method
+-- instance creation (==new==, ==basicNew==, ==new:==, ==basicNew:==)
+-- class hierarchy manipulation (==superclass:==, ==addSubclass:==) 
+-- accessing (==selectors==, ==allSelectors==, ==compiledMethodAt:==, ==allInstances==, ==instVarNames==) 
+
+
+
+${slide:title=Responsibilities of ClassDescription}$
+
+==ClassDescription==
+- Abstract class superclass of ==Class== and ==Metaclass==
+-  Adds a number of facilities to ==Behavior==:
+--  named instance variables
+--  category organization for methods
+--  the notion of a name (abstract)
+--  maintenance of Change sets and logging changes
+--  most of the mechanisms needed for fileOut
+
+${slide:title=Responsibilities of Class}$
+
+==Class==
+- represents the common behavior of all classes
+--  name, compilation, method storing, instance variables ...
+-  representation for classVariable names (==addClassVarName:==, ==initialize==)
+
+${slide:title=Classes are Instances of Metaclasses}$
+
+Metaclass and class inheritances are parallel
+
++>file://figures/10-BehaviorClassDescriptionAndClassWithMetaclasses.png|width=100+
+
+${slide:title=Metaclasses in 7 Points}$
+
+# Every object is an instance of a class
+# Every class eventually inherits from ==Object==
+# Every class is an instance of a metaclass
+# The metaclass hierarchy parallels the class hierarchy
+# Every metaclass inherits from ==Class== up to ==Behavior==
+# ""Every metaclass is an instance of ==Metaclass==""
+# The metaclass of ==Metaclass== is an instance of ==Metaclass==
+
+${slide:title=Every Metaclass is an Instance of Metaclass}$
+
+==Metaclass== inherits from ==ClassDescription==
++>file://figures/11-BehaviorClassDescriptionAndClassWithMetaclassesInstanceOfMetaclass.png|width=115+
+
+
+${slide:title=Metaclass Responsibilities}$
+
+==Metaclass== is responsible for creating and initializing a metaclass's sole instance (a Class)
+
+${slide:title=Metaclasses in 7 Points}$
+
+# Every object is an instance of a class
+# Every class eventually inherits from ==Object==
+# Every class is an instance of a metaclass
+# The metaclass hierarchy parallels the class hierarchy
+# Every metaclass inherits from ==Class== up to ==Behavior==
+# Every metaclass is an instance of ==Metaclass==
+# ""The metaclass of ==Metaclass== is an instance of ==Metaclass==""
+
+${slide:title=The metaclass of Metaclass is an Instance of Metaclass}$
+
++>file://figures/12-FullMetaclasses.png|width=130+
+
+
+
+${slide:title=Observations}$
+
+${columns}$
+
+${column:width=70}$
+
+- When programming we do not really care about that!
+- Now the full graph is consistent
+-- Any class can receive a message 
+-- Only one message lookup
+
+${column:width=30}$
+
++>file://figures/LookupEssenceWithGeneric.png|width=180+
+
+${endColumns}$
+
+
+${slide:title=A Consistent World}$
+
++>file://figures/12-FullMetaclasses.png|width=130+
+
+
+${slide:What You Should Know}$
+
+- Classes are objects and can receive messages
+- The process is ""exactly"" the same as for any other objects
+

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W5-S9</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:00:18" end="00:00:05:11" region="bottom">Hello, in this course I'll show you<br/>how to profile an application in Pharo.</p>
+            <p xml:id="p2" begin="00:00:05:15" end="00:00:08:16" region="bottom">That means measuring<br/>the execution of expressions</p>
+            <p xml:id="p3" begin="00:00:08:20" end="00:00:11:08" region="bottom">to see if we can replace<br/>them with others to gain time,</p>
+            <p xml:id="p4" begin="00:00:11:12" end="00:00:13:13" region="bottom">during the execution of a program.</p>
+            <p xml:id="p5" begin="00:00:14:14" end="00:00:18:09" region="bottom">Basically, what people say is,<br/>if you've never profiled</p>
+            <p xml:id="p6" begin="00:00:18:13" end="00:00:22:23" region="bottom">an application you could<br/>increase speeds by 40-50%.</p>
+            <p xml:id="p7" begin="00:00:23:02" end="00:00:26:06" region="bottom">I'm not convinced.<br/>I don't know, I've no proof.</p>
+            <p xml:id="p8" begin="00:00:26:10" end="00:00:29:04" region="bottom">But I can show you the tools in Pharo</p>
+            <p xml:id="p9" begin="00:00:29:08" end="00:00:32:04" region="bottom">for doing this profiling.</p>
+            <p xml:id="p10" begin="00:00:32:08" end="00:00:35:20" region="bottom">The first expression in Pharo<br/>is "timeToRun".</p>
+            <p xml:id="p11" begin="00:00:35:24" end="00:00:38:08" region="bottom">It's a message we send to a block,</p>
+            <p xml:id="p12" begin="00:00:38:12" end="00:00:40:18" region="bottom">which will give us the run time<br/>of an expression.</p>
+            <p xml:id="p13" begin="00:00:40:22" end="00:00:43:17" region="bottom">So, here in "1000 factorial",</p>
+            <p xml:id="p14" begin="00:00:43:21" end="00:00:48:03" region="bottom">I want to measure the run time<br/>of "1000 factorial", I put it in a block</p>
+            <p xml:id="p15" begin="00:00:48:07" end="00:00:50:15" region="bottom">and I send the message,<br/>"timeToRun".</p>
+            <p xml:id="p16" begin="00:00:50:19" end="00:00:55:03" region="bottom">Now that we have 'timeToRun"<br/>it's easy to compare 2 executions.</p>
+            <p xml:id="p17" begin="00:00:55:07" end="00:00:57:13" region="bottom">Here's a little exercise:</p>
+            <p xml:id="p18" begin="00:00:57:17" end="00:01:00:18" region="bottom">If I do "select" followed by "collect",</p>
+            <p xml:id="p19" begin="00:01:00:22" end="00:01:05:07" region="bottom">is it slower than "select:thenCollect",</p>
+            <p xml:id="p20" begin="00:01:05:11" end="00:01:08:10" region="bottom">knowing that this involves two passes</p>
+            <p xml:id="p21" begin="00:01:08:14" end="00:01:10:15" region="bottom">in the first case<br/>and one in the second.</p>
+            <p xml:id="p22" begin="00:01:10:19" end="00:01:14:03" region="bottom">So I think it will take longer,<br/>but we're going to check.</p>
+            <p xml:id="p23" begin="00:01:14:21" end="00:01:17:14" region="bottom">What do I do?<br/>I create my collection in both cases,</p>
+            <p xml:id="p24" begin="00:01:17:18" end="00:01:21:23" region="bottom">I'm looking, I create my collection<br/>with 10 elements, a small collection,</p>
+            <p xml:id="p25" begin="00:01:22:02" end="00:01:26:05" region="bottom">and what I'll do is create<br/>a certain number of times,</p>
+            <p xml:id="p26" begin="00:01:27:09" end="00:01:31:00" region="bottom">I'll make a loop so I can run<br/>the expressions several times.</p>
+            <p xml:id="p27" begin="00:01:31:04" end="00:01:32:24" region="bottom">You can see, in the first part,</p>
+            <p xml:id="p28" begin="00:01:33:03" end="00:01:38:00" region="bottom">I've my collection,<br/>I select every element larger than 5,</p>
+            <p xml:id="p29" begin="00:01:38:04" end="00:01:41:23" region="bottom">and afterwards, I'll square<br/>the elements I've selected,</p>
+            <p xml:id="p30" begin="00:01:42:02" end="00:01:45:24" region="bottom">and in the 2nd expression, I'll say,<br/>what do I want to select?</p>
+            <p xml:id="p31" begin="00:01:46:03" end="00:01:49:21" region="bottom">Everything larger than 5,<br/>and I'll square them.</p>
+            <p xml:id="p32" begin="00:01:50:00" end="00:01:53:09" region="bottom">We see that the system tells me<br/>that's 500 milliseconds,</p>
+            <p xml:id="p33" begin="00:01:53:13" end="00:01:57:08" region="bottom">and that's 300 milliseconds.<br/>The 2nd expression is better.</p>
+            <p xml:id="p34" begin="00:01:57:12" end="00:01:59:24" region="bottom">You see how it works,<br/>it's up to you to do it.</p>
+            <p xml:id="p35" begin="00:02:00:03" end="00:02:05:20" region="bottom">Note that we're sometimes obliged<br/>to put very large loops inside,</p>
+            <p xml:id="p36" begin="00:02:06:14" end="00:02:11:15" region="bottom">to amplify the measurement,<br/>for both cases, of course.</p>
+            <p xml:id="p37" begin="00:02:12:02" end="00:02:16:20" region="bottom">Otherwise, there's another operation,<br/>another message called "bench".</p>
+            <p xml:id="p38" begin="00:02:16:24" end="00:02:20:13" region="bottom">"Bench" will tell us<br/>how many times the code,</p>
+            <p xml:id="p39" begin="00:02:20:17" end="00:02:26:06" region="bottom">which is being studied,<br/>is executed over 5 seconds.</p>
+            <p xml:id="p40" begin="00:02:27:14" end="00:02:31:14" region="bottom">I take my "1000 factorial bench"<br/>example again, and I can execute it</p>
+            <p xml:id="p41" begin="00:02:31:18" end="00:02:33:21" region="bottom">610,000 times a second.</p>
+            <p xml:id="p42" begin="00:02:34:00" end="00:02:37:00" region="bottom">In this case, if we so desire,<br/>we can also make it</p>
+            <p xml:id="p43" begin="00:02:37:04" end="00:02:39:08" region="bottom">that the figure is as high as possible.</p>
+            <p xml:id="p44" begin="00:02:39:12" end="00:02:42:17" region="bottom">There's also a variant<br/>of bench, "benchFor",</p>
+            <p xml:id="p45" begin="00:02:42:21" end="00:02:46:20" region="bottom">where you can specify the size.<br/>What's interesting to see</p>
+            <p xml:id="p46" begin="00:02:46:24" end="00:02:50:00" region="bottom">is that "2 seconds",<br/>it's really the "second" message,</p>
+            <p xml:id="p47" begin="00:02:50:04" end="00:02:54:23" region="bottom">which is sent to message 2,<br/>which will give us a duration,</p>
+            <p xml:id="p48" begin="00:02:55:02" end="00:02:57:12" region="bottom">an instance of the Duration class,</p>
+            <p xml:id="p49" begin="00:02:58:03" end="00:03:01:02" region="bottom">and which will control<br/>how long the system runs.</p>
+            <p xml:id="p50" begin="00:03:01:06" end="00:03:04:24" region="bottom">This shows you once again<br/>that everything's an object in Pharo.</p>
+            <p xml:id="p51" begin="00:03:05:03" end="00:03:09:06" region="bottom">I set the seconds at 2 seconds.<br/>I send the "second" message to object 2.</p>
+            <p xml:id="p52" begin="00:03:10:15" end="00:03:15:02" region="bottom">What you have next,<br/>there's also what we call a "profiler",</p>
+            <p xml:id="p53" begin="00:03:15:06" end="00:03:16:22" region="bottom">which is sampling-based.</p>
+            <p xml:id="p54" begin="00:03:17:01" end="00:03:20:13" region="bottom">What will happen is,<br/>you'll execute your program,</p>
+            <p xml:id="p55" begin="00:03:20:17" end="00:03:23:22" region="bottom">and it will go at regular intervals</p>
+            <p xml:id="p56" begin="00:03:24:01" end="00:03:26:10" region="bottom">to inspect the execution stack,</p>
+            <p xml:id="p57" begin="00:03:26:14" end="00:03:29:01" region="bottom">see what's in the stack<br/>and collect information.</p>
+            <p xml:id="p58" begin="00:03:29:05" end="00:03:33:19" region="bottom">So how do we bring it up?<br/>We do "timeProfiler, spyOn"</p>
+            <p xml:id="p59" begin="00:03:33:23" end="00:03:37:20" region="bottom">and we'll pass it a block.<br/>I want to repeat 20 times</p>
+            <p xml:id="p60" begin="00:03:37:24" end="00:03:39:17" region="bottom">that I'll show on the Transcript,</p>
+            <p xml:id="p61" begin="00:03:39:21" end="00:03:42:00" region="bottom">"1000 factorial",</p>
+            <p xml:id="p62" begin="00:03:42:04" end="00:03:45:23" region="bottom">which I convert into a string,<br/>which usually costs the most.</p>
+            <p xml:id="p63" begin="00:03:46:02" end="00:03:50:12" region="bottom">After that, the profiler will give us<br/>this kind of result,</p>
+            <p xml:id="p64" begin="00:03:50:16" end="00:03:55:02" region="bottom">with a tree showing us the branches<br/>amongst which we've spent most time.</p>
+            <p xml:id="p65" begin="00:03:55:06" end="00:04:00:00" region="bottom">It shows us we spent 63% of the time<br/>in the method "printOn:base".</p>
+            <p xml:id="p66" begin="00:04:01:01" end="00:04:03:06" region="bottom">It's just to show you it's there.</p>
+            <p xml:id="p67" begin="00:04:03:10" end="00:04:06:24" region="bottom">There's a profiler you can play with<br/>if you're interested.</p>
+            <p xml:id="p68" begin="00:04:07:24" end="00:04:09:06" region="bottom">So to summarize,</p>
+            <p xml:id="p69" begin="00:04:09:12" end="00:04:10:16" region="bottom">to begin with,</p>
+            <p xml:id="p70" begin="00:04:10:20" end="00:04:14:15" region="bottom">you can use "timeToRun",<br/>"bench" and the profiler.</p>
+            <p xml:id="p71" begin="00:04:14:19" end="00:04:19:07" region="bottom">There's a chapter in the book<br/>"Deep into Pharo" showing this kind</p>
+            <p xml:id="p72" begin="00:04:19:11" end="00:04:22:14" region="bottom">of optimization technique.</p>
+            <p xml:id="p73" begin="00:04:22:18" end="00:04:26:06" region="bottom">I just wanted to point out,<br/>as you see in these 3 examples,</p>
+            <p xml:id="p74" begin="00:04:26:10" end="00:04:30:11" region="bottom">we always use blocks.<br/>This is a block...</p>
+            <p xml:id="p75" begin="00:04:30:15" end="00:04:33:10" region="bottom">This is a block too... Why?</p>
+            <p xml:id="p76" begin="00:04:33:14" end="00:04:36:17" region="bottom">You saw in the course<br/>on blocks that they allow you</p>
+            <p xml:id="p77" begin="00:04:36:21" end="00:04:39:13" region="bottom">to freeze the expression,<br/>the definition of the block</p>
+            <p xml:id="p78" begin="00:04:39:17" end="00:04:42:14" region="bottom">doesn't execute and give "bench"<br/>the possibility</p>
+            <p xml:id="p79" begin="00:04:42:18" end="00:04:44:23" region="bottom">of controlling<br/>the number of executions</p>
+            <p xml:id="p80" begin="00:04:45:02" end="00:04:48:02" region="bottom">or deciding when execution<br/>of the program will begin.</p>
+            <p xml:id="p81" begin="00:04:48:06" end="00:04:50:02" region="bottom">The other thing I'd say is,</p>
+            <p xml:id="p82" begin="00:04:50:06" end="00:04:54:17" region="bottom">find out about how "timeToRun"<br/>and "bench" are implemented.</p>
+            <p xml:id="p83" begin="00:04:54:21" end="00:04:57:13" region="bottom">To do that you click on Expression</p>
+            <p xml:id="p84" begin="00:04:57:17" end="00:05:00:21" region="bottom">and do "browse" or "implement"<br/>and you'll see the code.</p>
+        </div>
+    </body>
+</tt>

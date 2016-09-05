@@ -1,0 +1,401 @@
+WEBVTT
+
+00:00:01.250 --> 00:00:03.460 align:middle
+Dans cette vidéo,
+j'aimerais vous montrer que Nautilus
+
+00:00:03.870 --> 00:00:06.710 align:middle
+propose des refactorings. Donc
+qu'est-ce que c'est qu'un refactoring?
+
+00:00:07.050 --> 00:00:11.560 align:middle
+C'est une opération qui
+va transformer du code en
+
+00:00:11.727 --> 00:00:13.000 align:middle
+préservant son comportement.
+
+00:00:13.320 --> 00:00:15.850 align:middle
+Il faut voir que,
+historiquement, les refactorings ont
+
+00:00:16.017 --> 00:00:18.700 align:middle
+été implémentés pour la
+première fois dans l'ancêtre de
+
+00:00:18.867 --> 00:00:21.840 align:middle
+Pharo, et après ont été dans
+tous les langages comme Java.
+
+00:00:22.170 --> 00:00:26.470 align:middle
+Donc dès 95, Smalltalk
+avait un outil de refactoring et
+
+00:00:26.637 --> 00:00:27.890 align:middle
+celui de Pharo est
+inspiré de celui-là.
+
+00:00:28.540 --> 00:00:31.070 align:middle
+Donc ouvrons Nautilus pour
+regarder un petit peu les
+
+00:00:31.237 --> 00:00:32.020 align:middle
+refactorings qui sont proposés.
+
+00:00:33.320 --> 00:00:36.440 align:middle
+Ce qu'on va faire, on va
+travailler sur notre classe.
+
+00:00:38.000 --> 00:00:39.800 align:middle
+Donc vous avez des
+refactorings à plusieurs niveaux.
+
+00:00:39.967 --> 00:00:41.790 align:middle
+Il y a des refactorings
+au niveau classe, au niveau
+
+00:00:41.957 --> 00:00:45.330 align:middle
+méthode et au niveau code.
+Donc au niveau classe, on a
+
+00:00:48.710 --> 00:00:49.343 align:middle
+tous ces refactorings-là.
+
+00:00:51.270 --> 00:00:53.120 align:middle
+On va pouvoir avoir des
+refactorings au niveau des
+
+00:00:53.287 --> 00:00:56.020 align:middle
+variables d'instance et au
+niveau des variables de classe.
+
+00:00:57.550 --> 00:01:00.580 align:middle
+Quand un refactoring est
+très utile en fait, il a été mis
+
+00:01:01.490 --> 00:01:05.320 align:middle
+au niveau le plus haut des
+menus, de façon à ce que vous
+
+00:01:05.487 --> 00:01:07.490 align:middle
+alliez plus vite, vous
+n'avez pas besoin de faire classe,
+
+00:01:07.960 --> 00:01:09.210 align:middle
+refactoring, Rename il est ici.
+
+00:01:10.140 --> 00:01:14.690 align:middle
+De la même manière,
+pour les méthodes, les
+
+00:01:14.857 --> 00:01:17.310 align:middle
+refactorings on va avoir
+toutes ces méthodes-là, avec
+
+00:01:19.850 --> 00:01:22.470 align:middle
+renommage aussi, comme
+c'est un refactoring qui est
+
+00:01:22.637 --> 00:01:25.310 align:middle
+important à ce niveau-là.
+Maintenant si je prends un
+
+00:01:25.477 --> 00:01:28.750 align:middle
+autre morceau de code, ils
+ne sont pas très compliqués
+
+00:01:28.917 --> 00:01:33.820 align:middle
+dans cette classe, on va
+avoir les refactorings suivants
+
+00:01:35.350 --> 00:01:38.040 align:middle
+qui vont travailler au
+niveau du code de la méthode.
+
+00:01:41.300 --> 00:01:45.450 align:middle
+Si je renomme, si je fais un
+Rename de la Class Counter,
+
+00:01:45.617 --> 00:01:50.020 align:middle
+je vais l'appeler la Class
+Counter 2, le système me dit ok.
+
+00:01:50.187 --> 00:01:51.300 align:middle
+Je fais un Rename, très bien.
+
+00:01:55.130 --> 00:01:56.710 align:middle
+Il me donne du retour, je
+ne sais pas trop ce que c'est
+
+00:01:56.877 --> 00:01:57.960 align:middle
+mais ce n'est pas grave, je l'ignore.
+
+00:01:58.870 --> 00:02:00.750 align:middle
+Et là ce que je vais voir,
+c'est que mes endroits où
+
+00:02:04.510 --> 00:02:08.710 align:middle
+la Class Counter était invoquée,
+maintenant j'ai bien Counter 2 à la place.
+
+00:02:10.000 --> 00:02:14.780 align:middle
+Donc ça, c'est typiquement
+un refactoring de renommage de
+
+00:02:14.947 --> 00:02:15.580 align:middle
+ classe.
+
+00:02:16.490 --> 00:02:18.830 align:middle
+Donc maintenant, si je veux
+renommer, et c'est un très
+
+00:02:19.000 --> 00:02:23.480 align:middle
+bon exemple, imaginons que je
+veuille renommer la méthode incrémente.
+
+00:02:24.450 --> 00:02:27.230 align:middle
+Je vais faire Rename, et comme
+je suis en manque d'inspiration,
+
+00:02:27.397 --> 00:02:28.520 align:middle
+je vais aussi l'appeler Increment2.
+
+00:02:31.480 --> 00:02:33.670 align:middle
+Là ce que le système me
+dit, il me dit: attention.
+
+00:02:33.837 --> 00:02:35.550 align:middle
+Et là je fais attention.
+
+00:02:36.350 --> 00:02:40.520 align:middle
+Attention, tu vas renommer
+
+00:02:41.740 --> 00:02:44.630 align:middle
+plusieurs, il y a une
+dizaine d'implémenteurs dans le
+
+00:02:44.797 --> 00:02:48.750 align:middle
+système, tu vas tous les
+renommer, est-ce que tu veux faire ça?
+
+00:02:48.917 --> 00:02:50.600 align:middle
+Premièrement, je ne veux pas
+le faire et deuxièmement je
+
+00:02:50.767 --> 00:02:52.730 align:middle
+n'ai pas envie non plus de
+sélectionner ou de désélectionner.
+
+00:02:53.470 --> 00:02:56.580 align:middle
+Donc on pourrait le faire,
+ça permet de montrer que le
+
+00:02:56.747 --> 00:02:58.700 align:middle
+ programmeur est quand
+même en charge, à la fin, de
+
+00:02:58.867 --> 00:03:00.490 align:middle
+choisir, mais moi je
+ne veux pas le faire.
+
+00:03:01.000 --> 00:03:03.700 align:middle
+Par contre ce que je peux
+faire, c'est dire: moi je suis
+
+00:03:03.867 --> 00:03:06.630 align:middle
+en train de travailler
+vraiment sur que le package mon
+
+00:03:06.797 --> 00:03:09.450 align:middle
+Counter et modifier le reste
+du système, je n'ai pas trop
+
+00:03:09.617 --> 00:03:11.020 align:middle
+envie que ça se
+fasse automatiquement.
+
+00:03:11.310 --> 00:03:13.680 align:middle
+Donc ce que je vais faire, je
+dis à Nautilus: moi j'aimerais
+
+00:03:13.847 --> 00:03:17.280 align:middle
+que tu m'ouvres un browser
+que sur mon package et que
+
+00:03:17.447 --> 00:03:20.380 align:middle
+toutes les opérations fassent
+référence qu'à cette sélection.
+
+00:03:20.890 --> 00:03:23.770 align:middle
+Donc c'est ce que je vais
+faire avec browse scoped.
+
+00:03:26.530 --> 00:03:28.710 align:middle
+C'est ce que vous pouvez
+obtenir aussi quand vous pressez
+
+00:03:28.877 --> 00:03:30.180 align:middle
+le bouton Scoped,
+c'est la même chose.
+
+00:03:30.570 --> 00:03:32.940 align:middle
+C'est tellement intéressant
+comme fonctionnalité qu'on l'a
+
+00:03:33.107 --> 00:03:36.240 align:middle
+mise comme bouton. Donc la
+différence entre ces 2 mondes,
+
+00:03:36.407 --> 00:03:40.780 align:middle
+si vous regardez, c'est
+qu’ici j'ai tous mes packages et
+
+00:03:40.947 --> 00:03:41.890 align:middle
+là je n'ai qu'un seul package.
+
+00:03:42.057 --> 00:03:45.310 align:middle
+Je pourrais en avoir plusieurs, je
+n'ai qu'une sélection de ces packages.
+
+00:03:45.477 --> 00:03:47.120 align:middle
+Et maintenant, ce que je
+vais pouvoir faire, c'est que si
+
+00:03:47.287 --> 00:03:52.200 align:middle
+je veux modifier
+Increment, je vais lui dire: “Rename”
+
+00:03:52.460 --> 00:03:57.180 align:middle
+en incremente 2,
+et il va ne le faire que
+
+00:03:57.500 --> 00:04:01.510 align:middle
+localement au package ou à la
+sélection qui est dans le browser Scoped.
+
+00:04:03.380 --> 00:04:05.590 align:middle
+Donc je fais OK, et
+maintenant on va regarder les tests.
+
+00:04:05.757 --> 00:04:08.150 align:middle
+Donc déjà mes tests fonctionnent
+toujours, ils sont toujours verts.
+
+00:04:08.480 --> 00:04:11.890 align:middle
+Et ce que je vois, c'est
+que maintenant tous mes
+
+00:04:12.057 --> 00:04:13.790 align:middle
+Increment ont été
+renommés en Increment2.
+
+00:04:16.800 --> 00:04:18.890 align:middle
+Donc là, ce qu'on a vu dans
+cette vidéo, c'est que Pharo
+
+00:04:19.057 --> 00:04:21.610 align:middle
+va vous permettre tout
+un panel d'opérations, de
+
+00:04:21.777 --> 00:04:25.080 align:middle
+sélections et de
+manipulations de codes, avec en plus la
+
+00:04:25.247 --> 00:04:27.960 align:middle
+notion de restrictions à
+un sous-ensemble de packages
+
+00:04:28.200 --> 00:04:30.630 align:middle
+pour contrôler où vont être
+appliqués les changements.
+
+00:04:31.110 --> 00:04:32.870 align:middle
+Donc ce que vous avez aussi
+dans Pharo, vous avez aussi
+
+00:04:33.037 --> 00:04:35.240 align:middle
+un outil qui va vous
+permettre de faire de la réécriture
+
+00:04:35.407 --> 00:04:38.060 align:middle
+de code automatique, je ne
+vais pas m'étendre, ça si vous
+
+00:04:38.227 --> 00:04:40.650 align:middle
+en avez vraiment besoin il
+faut demander, il y a un outil
+
+00:04:40.817 --> 00:04:42.310 align:middle
+spécifique pour
+faire ce genre de choses.
+
+00:04:43.160 --> 00:04:45.480 align:middle
+Maintenant, le dernier point
+que je voulais vous montrer,
+
+00:04:45.647 --> 00:04:50.410 align:middle
+c'est que souvent vous avez
+des opérations qui vous sont
+
+00:04:50.577 --> 00:04:51.210 align:middle
+proposées, qui sont générées.
+
+00:04:51.470 --> 00:04:54.900 align:middle
+Vous allez les appliquer, le
+système vous propose de les
+
+00:04:55.067 --> 00:04:57.330 align:middle
+faire mais ce n'est pas dit que ça
+fonctionne, que ça soit vraiment adapté.
+
+00:04:57.890 --> 00:05:00.810 align:middle
+Ce que Pharo propose,
+c'est aussi ce que Nautilus
+
+00:05:01.000 --> 00:05:03.460 align:middle
+propose, c'est aussi ce qu'on
+appelle les Smart Suggestions.
+
+00:05:03.627 --> 00:05:08.090 align:middle
+Donc les Smart Suggestions,
+c'est un outil qui va savoir
+
+00:05:08.520 --> 00:05:12.530 align:middle
+et vous proposer des opérations
+basées sur la sélection courante.
+
+00:05:14.120 --> 00:05:18.590 align:middle
+Donc par exemple, là il
+peut me proposer de faire un
+
+00:05:18.757 --> 00:05:22.510 align:middle
+Extract method, ce n'est
+pas très intéressant dans ce
+
+00:05:22.677 --> 00:05:25.900 align:middle
+cas-là, ou un Inline method.
+Mais ça veut dire que si je
+
+00:05:26.067 --> 00:05:29.230 align:middle
+sélectionne par exemple
+l'affectation, je ne vais pas du
+
+00:05:29.397 --> 00:05:32.490 align:middle
+tout avoir les mêmes
+opérations à ma disposition.
+
+00:05:33.400 --> 00:05:36.110 align:middle
+Donc si je suis sur une
+ classe, il va me demander de
+
+00:05:36.277 --> 00:05:37.710 align:middle
+browser les références,
+de renommer la classe.
+
+00:05:37.877 --> 00:05:41.000 align:middle
+Et vous voyez que, suivant
+l'endroit où est le curseur,
+
+00:05:41.710 --> 00:05:43.000 align:middle
+je n'ai pas les mêmes opérations.
+

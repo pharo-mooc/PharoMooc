@@ -1,0 +1,162 @@
+{
+	"title":"Reflective Operations for Live Programming",
+	"slidesid":"W7S04"
+}
+
+${slide:title=Behind the Scene}$
+
+- What is happening when we recompile a class?
+- What are the reflective operations that take place?
+
+${slide:title=A Typical Scenario}$
+
+- Define one class
+- Define some methods
+- Create some instances
+- Add an instance variable to the class
+- Existing instances got mutated
+- Continue working
+
+${slide:title=Operations Supporting Interactive Coding}$
+
+- Dynamic class (re)definition
+- Method recompilation
+- Transparent instance migration
+-- Collecting instances
+-- Switching pointers from old to new instances
+
+${slide:title=Getting All Instances}$
+
+[[[
+Dictionary allInstances size
+]]]
+
+
+[[[
+Window allInstances first close
+]]]
+
+${slide:title=Getting All Pointers to an Object}$
+
+[[[
+anObject pointersTo
+]]]
+
+returns all objects that store a reference to ==anObject==
+
+
+${slide:title=Symmetric Pointer Swapping}$
+
+[[[
+anObject become: anotherObject
+]]]
+
+- All the pointers to ==anObject== point now to ==anotherObject== 
+- And "the inverse" atomically
+
+${slide:title=Symmetric Pointer Swapping}$
+
+[[[
+| pt1 pt2 pt3 |
+pt1 := 0@0.
+pt2 := pt1.
+pt3 := 100@100.
+pt1 become: pt3.
+self assert: pt2 = (100@100). 
+self assert: pt3 = (0@0).
+self assert: pt1 = (100@100)
+]]]
+
+${slide:title=Asymmetric Pointer Swapping}$
+
+Swap all the pointers from one object to the other (asymmetric)
+
+[[[
+anObject becomeForward: anotherObject
+]]]
+
+${slide:title=Example: Asymmetric Pointer Swapping}$
+
+[[[
+| pt1 pt2 pt3 |
+pt1 := 0@0.
+pt2 := pt1.
+pt3 := 100@100.
+pt1 becomeForward: pt3.
+self assert: pt1 = (100@100).
+self assert: pt1 == pt2.
+self assert: pt2 == pt3.
+]]]
+
+
+${slide:title=Changing the Class of an Object}$
+
+[[[
+Class >> adoptInstance: anInstance
+   "Change the class of anInstance to me. Returns the class rather than the modified instance"
+]]]
+
+- Limited reflective feature
+- Target class should have the same format as the original one
+
+${slide:title=Essence of a Class}$
+
+# A format  i.e., a number of instance variables and types (named/indexed)
+# A superclass
+# A method dictionary
+
+${slide:title=Class initialize}$
+
+[[[
+Behavior >> initialize
+
+  super initialize.
+  self superclass: Object.
+  self methodDict: self emptyMethodDictionary.
+  self setFormat: Object format.
+]]]
+
+
+${slide:title=Instance Specific Behavior}$
+
+[[[
+| behavior model newClass |
+behavior := Behavior new.
+behavior superclass: Model.
+behavior setFormat: Model format.
+model := Model new.
+model primitiveChangeClassTo: behavior new. 
+self assert: model class = behavior.
+self assert: model class superclass = Model.
+behavior compile: 'foo ^ 2'.
+self assert: model foo = 2.
+self should: [Model new foo] raise: MessageNotUnderstood
+]]]
+
+${slide:title=Instance Specific Behavior}$
+
++file://figures/10AnonymousClasses.png|width=100+
+
+${slide:title=Anonymous Classes For Spying}$
+
+[[[
+| logClass set | 
+logClass := Behavior new. 
+logClass superclass: Set;
+   setFormat: Set format.
+logClass compile: 'add: anObject
+      Transcript show: ''adding '', anObject printString; cr.
+      ^ super add: anObject'.
+set := Set new.
+set add: 1.
+set class. 
+set primitiveChangeClassTo: logClass basicNew. 
+set add: 2.
+]]]
+
+${slide:title=Conclusion}$
+
+- Reflection is a solid foundation for innovation and language extensibility
+- Avoid using reflective operations in domain code
+- Understand when you absolutely need reflection
+

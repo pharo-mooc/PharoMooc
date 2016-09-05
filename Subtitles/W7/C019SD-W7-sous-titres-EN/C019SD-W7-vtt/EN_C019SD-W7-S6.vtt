@@ -1,0 +1,507 @@
+﻿WEBVTT
+
+00:00:00.560 --> 00:00:04.040 align:middle
+This course explores
+another advanced feature.
+
+00:00:04.200 --> 00:00:07.080 align:middle
+I want to show you how we can transform
+
+00:00:07.280 --> 00:00:10.560 align:middle
+the execution stack into an object,
+on demand.
+
+00:00:11.200 --> 00:00:15.600 align:middle
+The aim is to give you intuitive tools
+without going into details.
+
+00:00:17.080 --> 00:00:19.840 align:middle
+We can manipulate
+and navigate the stack,
+
+00:00:20.040 --> 00:00:23.160 align:middle
+and modify it,
+but we'll focus on navigating.
+
+00:00:23.600 --> 00:00:28.400 align:middle
+There are two chapters
+you can read on this subject.
+
+00:00:28.640 --> 00:00:31.640 align:middle
+They are the chapters on blocks
+
+00:00:31.840 --> 00:00:35.080 align:middle
+and exceptions
+in the book <i>Deep into Pharo</i>.
+
+00:00:35.280 --> 00:00:39.280 align:middle
+They're worth reading
+as they give clear explanations.
+
+00:00:39.520 --> 00:00:43.400 align:middle
+In Pharo, the Context class
+also represents the stack.
+
+00:00:44.600 --> 00:00:45.600 align:middle
+So,
+
+00:00:46.280 --> 00:00:50.160 align:middle
+we'll use a scenario
+that is already in your debugger.
+
+00:00:50.400 --> 00:00:55.000 align:middle
+Here, a message you sent is not found
+because you didn't define it,
+
+00:00:55.200 --> 00:00:57.520 align:middle
+while you execute a unitary test.
+
+00:00:57.840 --> 00:01:02.720 align:middle
+In the debugger, you answer
+that you want to create a method.
+
+00:01:02.920 --> 00:01:06.040 align:middle
+It compiles and installs it
+in the class.
+
+00:01:06.200 --> 00:01:07.920 align:middle
+Then it reexecutes it.
+
+00:01:08.080 --> 00:01:12.560 align:middle
+This method raises an exception
+since the system is not magic!
+
+00:01:12.720 --> 00:01:16.200 align:middle
+It sends you
+the shouldBeImplemented message
+
+00:01:16.360 --> 00:01:19.440 align:middle
+telling you to edit
+the method in the debugger.
+
+00:01:19.640 --> 00:01:21.440 align:middle
+You implement the method,
+
+00:01:21.840 --> 00:01:26.000 align:middle
+you recompile the method on the spot,
+then select "proceed"
+
+00:01:26.600 --> 00:01:28.080 align:middle
+to resume the program.
+
+00:01:28.920 --> 00:01:32.360 align:middle
+There are two key points
+in this scenario.
+
+00:01:32.920 --> 00:01:36.280 align:middle
+Firstly, we recompile
+the method on the fly.
+
+00:01:36.640 --> 00:01:40.080 align:middle
+Several times,
+but that's the compiler's job.
+
+00:01:40.920 --> 00:01:44.920 align:middle
+Secondly, and importantly,
+we modify the execution stack
+
+00:01:45.080 --> 00:01:48.840 align:middle
+in order to inject new chunks of stack,
+
+00:01:49.040 --> 00:01:53.200 align:middle
+which allow us to continue the program
+after an error.
+
+00:01:53.440 --> 00:01:58.600 align:middle
+It's not just a matter of reifying
+the stack, or making it an object.
+
+00:01:58.760 --> 00:02:03.640 align:middle
+It's not just a formal exercise,
+it can enhance user experience
+
+00:02:03.920 --> 00:02:05.560 align:middle
+and create new tools.
+
+00:02:05.720 --> 00:02:10.640 align:middle
+It's also used in Seaside
+to utilize web applications.
+
+00:02:11.080 --> 00:02:15.720 align:middle
+Pharo usually has a C stack,
+the virtual machine's own stack.
+
+00:02:16.040 --> 00:02:19.360 align:middle
+On demand, we can turn this
+into a live object.
+
+00:02:19.520 --> 00:02:25.440 align:middle
+What's interesting is that we can
+navigate and modify this object.
+
+00:02:25.760 --> 00:02:30.200 align:middle
+By modify, I mean that
+when we change this Pharo object,
+
+00:02:30.400 --> 00:02:34.400 align:middle
+it will change the implicit C stack,
+so it's very powerful.
+
+00:02:35.800 --> 00:02:41.280 align:middle
+It also supports all exceptions,
+so I recommend reading those chapters.
+
+00:02:41.560 --> 00:02:44.080 align:middle
+We navigate the stack for exceptions
+
+00:02:44.440 --> 00:02:47.920 align:middle
+to search for block catches,
+
+00:02:49.920 --> 00:02:51.800 align:middle
+known as exception handlers.
+
+00:02:52.000 --> 00:02:57.200 align:middle
+In addition, this ability
+to transform the stack into an object
+
+00:02:57.400 --> 00:02:59.840 align:middle
+allows us to create continuations
+
+00:03:00.040 --> 00:03:04.400 align:middle
+and web servers, such as for
+functional languages like Scheme.
+
+00:03:05.320 --> 00:03:09.080 align:middle
+To explain how this works,
+we can look at the variable
+
+00:03:09.200 --> 00:03:13.640 align:middle
+called thisContext,
+one of Pharo's three pseudovariables.
+
+00:03:14.160 --> 00:03:17.360 align:middle
+These are self, super, and thisContext.
+
+00:03:17.920 --> 00:03:22.600 align:middle
+When you ask for thisContext's value,
+it returns the execution stack.
+
+00:03:22.920 --> 00:03:27.400 align:middle
+That's what you see
+when you open the debugger.
+
+00:03:27.640 --> 00:03:31.840 align:middle
+The execution stack is displayed,
+based on thisContext.
+
+00:03:32.200 --> 00:03:36.280 align:middle
+As an exercise, you can define a method
+
+00:03:36.400 --> 00:03:39.360 align:middle
+in which you insert "halt."
+
+00:03:39.520 --> 00:03:44.400 align:middle
+The debugger will pop up,
+but you can also type "thisContext"
+
+00:03:45.440 --> 00:03:50.040 align:middle
+and an inspector will open
+on the execution stack itself.
+
+00:03:50.600 --> 00:03:53.800 align:middle
+Now I'll show you two examples
+
+00:03:53.920 --> 00:03:56.400 align:middle
+of how we use thisContext.
+
+00:03:56.680 --> 00:04:02.360 align:middle
+The first is deprecation,
+used when we want to change API.
+
+00:04:02.640 --> 00:04:08.560 align:middle
+As a programmer, we edit the method
+and use the message "deprecated"
+
+00:04:08.720 --> 00:04:13.640 align:middle
+with "on" and "in," as I explained
+in the course on exceptions.
+
+00:04:14.680 --> 00:04:19.760 align:middle
+Here we want to express
+the message "Use bar."
+
+00:04:20.080 --> 00:04:23.840 align:middle
+And what will the deprecation display?
+
+00:04:24.000 --> 00:04:26.840 align:middle
+It will show the user the message
+
+00:04:27.040 --> 00:04:30.200 align:middle
+"Message foo is deprecated in Pharo."
+
+00:04:30.360 --> 00:04:33.920 align:middle
+It's important to note that as a user,
+
+00:04:34.200 --> 00:04:36.600 align:middle
+I did not declare the method used,
+
+00:04:36.840 --> 00:04:40.920 align:middle
+but the system identified foo
+as the method caller.
+
+00:04:42.080 --> 00:04:46.640 align:middle
+As you can see, we don't use foo
+in the arguments of deprecated
+
+00:04:47.320 --> 00:04:48.920 align:middle
+or in the method caller.
+
+00:04:49.080 --> 00:04:51.840 align:middle
+So, how is this implemented?
+
+00:04:52.600 --> 00:04:54.280 align:middle
+The message "deprecated"
+
+00:04:55.920 --> 00:04:58.040 align:middle
+is an exception, "Deprecation."
+
+00:04:58.200 --> 00:05:03.160 align:middle
+The system takes the arguments,
+anExplanationString, and so on,
+
+00:05:03.320 --> 00:05:07.800 align:middle
+and adds the expression
+"thisContext sender method."
+
+00:05:08.160 --> 00:05:13.920 align:middle
+ThisContext is the stack at the time
+of execution of the deprecated method.
+
+00:05:15.720 --> 00:05:19.320 align:middle
+Now, using sender
+we can access the method caller.
+
+00:05:20.000 --> 00:05:23.200 align:middle
+That will give us foo,
+which was our example.
+
+00:05:23.600 --> 00:05:25.560 align:middle
+Then we ask for the method.
+
+00:05:25.720 --> 00:05:29.800 align:middle
+ThisContext sender method
+returns the compiled method,
+
+00:05:29.920 --> 00:05:31.640 align:middle
+which is an object,
+
+00:05:31.800 --> 00:05:35.080 align:middle
+named A&gt;&gt;foo.
+
+00:05:35.280 --> 00:05:39.720 align:middle
+So, the exception uses what it needs
+to be able to extract
+
+00:05:39.920 --> 00:05:43.840 align:middle
+the method selector
+and create a clearer message.
+
+00:05:44.280 --> 00:05:49.600 align:middle
+It's used to make messages
+easier for users to understand,
+
+00:05:49.800 --> 00:05:54.040 align:middle
+without forcing the programmer
+to hard-code the message source.
+
+00:05:54.320 --> 00:05:59.040 align:middle
+Now I'll show you
+another very powerful function.
+
+00:06:01.640 --> 00:06:05.280 align:middle
+Often when debugging,
+we want to insert a breakpoint
+
+00:06:05.400 --> 00:06:08.760 align:middle
+in a method that is heavily used.
+
+00:06:09.360 --> 00:06:13.320 align:middle
+You may simply want to debug
+your version of the program
+
+00:06:13.440 --> 00:06:15.720 align:middle
+without halting the whole system.
+
+00:06:15.920 --> 00:06:21.040 align:middle
+Conditions like "halt once"
+will interrupt the system once,
+
+00:06:21.200 --> 00:06:25.680 align:middle
+but what you want
+is to halt execution only if the method
+
+00:06:25.920 --> 00:06:29.000 align:middle
+has been called by another method.
+
+00:06:29.640 --> 00:06:32.840 align:middle
+How does a programmer express this?
+
+00:06:33.040 --> 00:06:37.400 align:middle
+We express that we only want to halt
+if foo has been called
+
+00:06:37.600 --> 00:06:40.520 align:middle
+by the method testSetInitialized.
+
+00:06:41.520 --> 00:06:44.280 align:middle
+How do we implement this?
+
+00:06:44.440 --> 00:06:47.200 align:middle
+Usually, this method must not be halted.
+
+00:06:47.760 --> 00:06:52.760 align:middle
+You can open the code in Pharo
+to see how it's implemented.
+
+00:06:52.920 --> 00:06:54.840 align:middle
+So, halt throws an exception
+
+00:06:55.400 --> 00:06:57.640 align:middle
+by showing the message "If:."
+
+00:06:57.840 --> 00:07:00.160 align:middle
+We have several argument options.
+
+00:07:00.320 --> 00:07:05.080 align:middle
+In a case involving a symbol,
+we pose a query to confirm it's true.
+
+00:07:05.320 --> 00:07:10.200 align:middle
+We look to see if the call chain
+contains the symbol.
+
+00:07:10.400 --> 00:07:11.400 align:middle
+Let's check.
+
+00:07:12.360 --> 00:07:15.360 align:middle
+Let's look at the method that comes up.
+
+00:07:16.000 --> 00:07:19.800 align:middle
+Suppose that we have a test
+that is named
+
+00:07:20.840 --> 00:07:22.200 align:middle
+testSetInitialized.
+
+00:07:23.800 --> 00:07:25.280 align:middle
+It's an argument here.
+
+00:07:26.200 --> 00:07:31.400 align:middle
+First, the method will retrieve
+the execution stack, or context,
+
+00:07:32.720 --> 00:07:35.560 align:middle
+which is a synonym for execution stack.
+
+00:07:35.760 --> 00:07:41.080 align:middle
+So we use Context to access the stack,
+then we add whileFalse.
+
+00:07:41.200 --> 00:07:44.920 align:middle
+Note that we're not at the top
+of the execution stack,
+
+00:07:45.160 --> 00:07:48.080 align:middle
+where there is no sender invoking us.
+
+00:07:48.440 --> 00:07:52.280 align:middle
+At the top of the stack,
+the sender is nil.
+
+00:07:52.600 --> 00:07:56.160 align:middle
+In a case where the sender is not nil,
+
+00:07:56.520 --> 00:07:59.400 align:middle
+we move between sections of the stack.
+
+00:07:59.560 --> 00:08:02.920 align:middle
+We can picture
+the areas of stack like this,
+
+00:08:03.200 --> 00:08:06.040 align:middle
+and we travel upwards using sender,
+
+00:08:06.840 --> 00:08:07.920 align:middle
+each time.
+
+00:08:09.080 --> 00:08:12.080 align:middle
+Now we need to see if the selector...
+
+00:08:12.200 --> 00:08:15.520 align:middle
+Somewhere in this area,
+we should see the test
+
+00:08:16.680 --> 00:08:18.320 align:middle
+asking the question
+
+00:08:18.840 --> 00:08:23.080 align:middle
+if this stack's call symbol
+matches where we intend to halt.
+
+00:08:23.200 --> 00:08:26.400 align:middle
+We ask if we have been called
+by testSet.
+
+00:08:26.640 --> 00:08:31.200 align:middle
+If so, we stop and mark a signal
+because the class is an exception.
+
+00:08:32.000 --> 00:08:36.320 align:middle
+It's important to understand
+that this is difficult to implement
+
+00:08:36.440 --> 00:08:39.760 align:middle
+in a language
+that does not reify the stack.
+
+00:08:40.080 --> 00:08:44.640 align:middle
+Here you see it in five lines,
+even if it seems hard to understand.
+
+00:08:44.840 --> 00:08:49.560 align:middle
+It's compact and powerful,
+and only possible through reification.
+
+00:08:50.160 --> 00:08:55.640 align:middle
+ThisContext is rarely used
+as it is an advanced feature.
+
+00:08:55.920 --> 00:08:59.160 align:middle
+But it is very important
+for new innovations,
+
+00:08:59.320 --> 00:09:02.080 align:middle
+such as tools, as shown by these tests,
+
+00:09:02.840 --> 00:09:05.560 align:middle
+which are facilitated by this language.
+
+00:09:05.720 --> 00:09:09.080 align:middle
+It's also used
+to represent continuations.
+
+00:09:09.400 --> 00:09:12.600 align:middle
+Seaside's creator used it
+in Pharo's ancestor
+
+00:09:12.760 --> 00:09:16.280 align:middle
+to manipulate the stack
+to represent continuations.
+
+00:09:16.400 --> 00:09:21.840 align:middle
+This is the basis of the call-and-answer
+mechanism in Seaside.
+
+00:09:22.280 --> 00:09:27.280 align:middle
+Here you have an advanced feature
+of Pharo to play around with.

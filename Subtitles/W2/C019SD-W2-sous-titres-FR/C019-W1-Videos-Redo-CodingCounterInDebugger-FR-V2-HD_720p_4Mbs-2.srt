@@ -1,0 +1,629 @@
+1
+00:00:01,220 --> 00:00:02,580
+Dans cette séance, j'ai
+envie de vous montrer comme on
+
+2
+00:00:02,747 --> 00:00:05,220
+doit utiliser le debugger
+pour programmer différemment.
+
+3
+00:00:05,760 --> 00:00:09,330
+On va ré-implémenter
+l'application counter mais d'une
+
+4
+00:00:09,497 --> 00:00:14,190
+manière différente, avec un flow
+de développement plus interactif.
+
+5
+00:00:16,940 --> 00:00:18,290
+La première chose que je
+vais faire, je vais créer un
+
+6
+00:00:18,457 --> 00:00:20,840
+nouveau package avec
+Counter comme précédemment.
+
+7
+00:00:26,050 --> 00:00:28,810
+Je vais filtrer aussi parce
+qu'au moins j'aurai moins de choses.
+
+8
+00:00:29,270 --> 00:00:33,240
+Dans MyCounter, je
+vais commencer par définir
+
+9
+00:00:34,960 --> 00:00:37,100
+un test, une classe de test.
+
+10
+00:00:37,267 --> 00:00:39,090
+Donc, les classes de
+test héritent de TestCase.
+
+11
+00:00:40,260 --> 00:00:41,650
+Je vais l'appeler Counter Test.
+
+12
+00:00:42,790 --> 00:00:44,870
+Je vais compiler. Je le
+fais encore une fois au menu et
+
+13
+00:00:45,037 --> 00:00:46,340
+puis après, je vais le
+faire avec les commentaires.
+
+14
+00:00:46,507 --> 00:00:47,830
+Ça m'a créé ma classe de test.
+
+15
+00:00:48,260 --> 00:00:51,610
+Dans ma classe de test, je
+vais écrire une méthode de
+
+16
+00:00:53,260 --> 00:00:56,150
+test. Les méthodes de
+test commencent par test.
+
+17
+00:01:02,260 --> 00:01:04,160
+Qu'est -ce que je fais ?
+
+18
+00:01:04,520 --> 00:01:07,820
+Comme précédemment je
+définis une variable locale, dans
+
+19
+00:01:08,000 --> 00:01:12,570
+cette variable
+locale je vais mettre un
+
+20
+00:01:12,737 --> 00:01:15,150
+objet de la classe Counter.
+
+21
+00:01:16,770 --> 00:01:21,130
+Je vais initialiser la
+valeur de ce Counter et je vais
+
+22
+00:01:21,297 --> 00:01:25,500
+vérifier que le
+Counter a la bonne valeur.
+
+23
+00:01:31,450 --> 00:01:32,083
+Je compile.
+
+24
+00:01:33,320 --> 00:01:36,070
+Maintenant, le système me
+dit attention, je ne sais pas
+
+25
+00:01:36,237 --> 00:01:38,250
+ce que c'est que le
+Counter. Il me l'avait déjà indiqué
+
+26
+00:01:38,417 --> 00:01:39,670
+parce que c'était
+déjà en italique ici.
+
+27
+00:01:40,030 --> 00:01:42,460
+Il me propose: "Est-ce que tu veux
+dire définir une nouvelle classe?
+
+28
+00:01:42,627 --> 00:01:44,040
+Une nouvelle globale ou
+une variable de classe?"
+
+29
+00:01:44,207 --> 00:01:45,000
+Moi c'est une nouvelle classe.
+
+30
+00:01:45,137 --> 00:01:48,260
+Là, il me propose la définition
+de la classe qui pourrait définir.
+
+31
+00:01:48,427 --> 00:01:50,790
+Je dis, oui c'est correct,
+dans le bon package, ça hérite
+
+32
+00:01:50,957 --> 00:01:51,590
+d'object, très bien, fais-le.
+
+33
+00:01:51,757 --> 00:01:55,160
+Et là, il a crée une classe vide.
+
+34
+00:01:56,050 --> 00:01:58,520
+Maintenant, on va reclasser ça.
+
+35
+00:02:00,520 --> 00:02:04,260
+Maintenant ce que je peux
+voir ma classe Counter est vide.
+
+36
+00:02:04,610 --> 00:02:07,130
+Maintenant si j'exécute
+mon test, il est rouge.
+
+37
+00:02:07,297 --> 00:02:08,820
+Pourquoi est-il rouge ?
+
+38
+00:02:09,000 --> 00:02:09,860
+Parce que j'ai une erreur.
+
+39
+00:02:10,290 --> 00:02:11,760
+Alors comment je
+dois lire ce message?
+
+40
+00:02:11,927 --> 00:02:13,470
+Prenons 2 minutes pour faire ça.
+
+41
+00:02:14,630 --> 00:02:19,590
+Le système me dit: "un
+message Count a été envoyé à
+
+42
+00:02:19,757 --> 00:02:23,440
+une instance de la classe
+Counter et on n'a pas trouvé la
+
+43
+00:02:23,607 --> 00:02:28,240
+méthode qui
+correspond". Je vais regarder.
+
+44
+00:02:31,590 --> 00:02:32,360
+J'ouvre le debugger.
+
+45
+00:02:32,760 --> 00:02:36,050
+Le débugger me présente la
+pile d'exécution, donc je peux
+
+46
+00:02:36,217 --> 00:02:39,760
+voir et il me montre qu'il y a eu
+un message qui n'a pas été compris.
+
+47
+00:02:39,927 --> 00:02:42,960
+Et là, il me montre l'endroit
+où ce message a été invoqué.
+
+48
+00:02:43,760 --> 00:02:46,020
+Ce que je vois, c'est que
+si je viens ici, je vois les
+
+49
+00:02:46,187 --> 00:02:50,770
+variables du système, si je
+regarde C, ça me permet d'accéder
+
+50
+00:02:50,937 --> 00:02:55,010
+à la variable temporaire C,
+qui elle, vaut un Counter.
+
+51
+00:02:55,177 --> 00:02:56,920
+De toute façon, si je
+fais C class par exemple,
+
+52
+00:02:57,830 --> 00:03:00,730
+selfclass, il me dit
+c'est la classe Counter.
+
+53
+00:03:03,790 --> 00:03:08,230
+C'est évident. Pour le
+moment, dans ma classe, je n'ai
+
+54
+00:03:08,397 --> 00:03:12,620
+pas de méthode. Je vais demander
+au système d'en créer une pour moi.
+
+55
+00:03:12,787 --> 00:03:13,590
+Je vais dire Create.
+
+56
+00:03:14,290 --> 00:03:15,630
+Il me propose dans quelle classe.
+
+57
+00:03:15,797 --> 00:03:17,370
+Je vais dire dans la classe Counter.
+
+58
+00:03:17,537 --> 00:03:18,670
+Est-ce que tu peux créer cela ?
+
+59
+00:03:18,837 --> 00:03:20,330
+Je fais oui dans Accessing.
+
+60
+00:03:21,780 --> 00:03:23,620
+Et là, qu'est-ce
+qu'il a fait finalement?
+
+61
+00:03:25,930 --> 00:03:29,200
+Il a compilé automatiquement une
+méthode avec la bonne signature.
+
+62
+00:03:30,310 --> 00:03:31,850
+Pour le corps de la
+méthode, il ne sait pas quoi faire,
+
+63
+00:03:32,017 --> 00:03:36,010
+donc il utilise
+ShouldBeImplemented. Qu'est-ce que ça fait?
+
+64
+00:03:36,177 --> 00:03:40,360
+Ça va lever une exception à
+l'exécution et le système a
+
+65
+00:03:40,527 --> 00:03:41,630
+ré-exécuté cette méthode.
+
+66
+00:03:41,797 --> 00:03:44,140
+Maintenant, j'ai une
+nouvelle erreur et je dois
+
+67
+00:03:44,570 --> 00:03:46,680
+implémenter le corps de la méthode.
+
+68
+00:03:48,090 --> 00:03:49,950
+Je sais Count.
+Qu'est-ce que je vais faire?
+
+69
+00:03:50,117 --> 00:03:53,020
+J'ai envie de stocker cette
+variable, cette valeur dans
+
+70
+00:03:53,187 --> 00:03:55,450
+une variable d'instance. Donc là
+
+71
+00:03:58,180 --> 00:04:02,600
+c'est rouge, parce que pour le
+moment ma classe n'a pas cette instance.
+
+72
+00:04:02,860 --> 00:04:04,170
+Je vais faire Compile.
+
+73
+00:04:05,130 --> 00:04:07,360
+Le système me propose:
+"Est-ce que tu veux une variable
+
+74
+00:04:07,527 --> 00:04:09,140
+temporaire ou une
+variable d'instance?"
+
+75
+00:04:09,307 --> 00:04:11,350
+Je veux une variable d'instance.
+
+76
+00:04:14,330 --> 00:04:19,040
+Donc je fais ça. Si je
+regarde dans ma classe, j'ai bien
+
+77
+00:04:19,207 --> 00:04:21,640
+une variable d'instance
+Count qui a été créée et la
+
+78
+00:04:21,807 --> 00:04:26,650
+méthode, le Setter qui va bien mettre
+
+79
+00:04:26,817 --> 00:04:27,450
+la valeur.
+
+80
+00:04:29,790 --> 00:04:31,390
+Une fois que j'ai fait
+ça, je peux dire au debugger
+
+81
+00:04:31,557 --> 00:04:34,550
+continue, Proceed, ça veut
+dire continue l'exécution
+
+82
+00:04:34,717 --> 00:04:37,610
+comme si de rien n'était.
+
+83
+00:04:38,470 --> 00:04:39,103
+Qu'est ce qui se passe ?
+
+84
+00:04:39,270 --> 00:04:40,020
+J'ai encore une erreur.
+
+85
+00:04:41,310 --> 00:04:44,600
+Le système me dit
+toujours, il y a une instance de la
+
+86
+00:04:44,767 --> 00:04:47,000
+ classe Counter qui a reçu le
+message count et je n'ai pas
+
+87
+00:04:47,167 --> 00:04:50,360
+trouvé la bonne méthode.
+C'est normal parce que si je
+
+88
+00:04:50,527 --> 00:04:54,250
+regarde C, je peux
+voir que C a bien 7
+
+89
+00:04:55,680 --> 00:05:00,420
+dans son Counter, dans sa
+variable count, mais par contre
+
+90
+00:05:00,587 --> 00:05:01,850
+la méthode count n'existe pas.
+
+91
+00:05:02,250 --> 00:05:03,080
+Je vais la recréer.
+
+92
+00:05:03,247 --> 00:05:05,360
+Je vais faire
+Create, Dans quelle classe?
+
+93
+00:05:05,527 --> 00:05:09,000
+Toujours la classe Counter,
+dans le protocole accessing
+
+94
+00:05:09,460 --> 00:05:14,310
+car c'est un
+accesseur. Et là, ce que vous
+
+95
+00:05:14,477 --> 00:05:18,260
+voyez, c'est que le système
+est un peu plus intelligent.
+
+96
+00:05:18,427 --> 00:05:21,680
+Il s'est dit qu'il y avait une
+variable d'instance qui s'appelait
+
+97
+00:05:21,847 --> 00:05:26,000
+count, il veut définir une
+méthode qui s'appelle count
+
+98
+00:05:27,120 --> 00:05:29,240
+donc proposons-lui un accesseur.
+
+99
+00:05:29,410 --> 00:05:30,140
+C'est ce que je voulais.
+
+100
+00:05:30,307 --> 00:05:31,050
+Donc là maintenant je
+peux donc faire Proceed.
+
+101
+00:05:32,440 --> 00:05:33,350
+Qu'est-ce que je vois ?
+
+102
+00:05:33,517 --> 00:05:37,750
+Mon test est vert. J'ai
+mon test qui est vert et ma
+
+103
+00:05:37,917 --> 00:05:42,050
+ classe a bien 2
+méthodes qui ont été créées.
+
+104
+00:05:44,240 --> 00:05:45,470
+Maintenant je vais faire la
+même chose pour increment.
+
+105
+00:05:49,640 --> 00:05:51,100
+En fait finalement ce que je
+suis en train de faire c'est
+
+106
+00:05:51,267 --> 00:05:54,490
+que je suis en train de
+spécifier ce que la méthode doit
+
+107
+00:05:54,657 --> 00:05:56,240
+faire, et de vérifier
+qu'elle le fait bien.
+
+108
+00:05:58,360 --> 00:06:03,090
+Donc là je dois obtenir
+9, je compile, j'exécute.
+
+109
+00:06:03,300 --> 00:06:07,730
+Et là le système me dit, je ne
+connais pas la méthode increment.
+
+110
+00:06:07,897 --> 00:06:12,490
+Oui c'est normal, Je vais
+faire Create, ici dans opération.
+
+111
+00:06:15,960 --> 00:06:19,950
+Si je regarde
+increment, je peux faire count.
+
+112
+00:06:20,750 --> 00:06:25,230
+= count + 1. Je compile.
+
+113
+00:06:27,080 --> 00:06:29,570
+Proceed. J'ai bien mon test.
+
+114
+00:06:30,370 --> 00:06:31,760
+Dans la foulée, on
+va faire decrement.
+
+115
+00:06:31,927 --> 00:06:36,050
+L'idée, c'est que vous le
+fassiez, que vous le pratiquiez.
+
+116
+00:06:39,520 --> 00:06:43,120
+Donc là ce sera 5.
+Je définis mon test.
+
+117
+00:06:45,460 --> 00:06:46,750
+Je crée ma méthode.
+
+118
+00:06:51,480 --> 00:06:55,000
+OK. Donc à vous commencez
+à savoir count: = count,
+
+119
+00:07:00,330 --> 00:07:01,660
+je compile dans le debugger.
+
+120
+00:07:01,827 --> 00:07:05,640
+Je fais Proceed. Et
+mes tests sont verts.
+
+121
+00:07:05,807 --> 00:07:10,060
+Ma classe a maintenant 2
+opérations: increment et decrement.
+
+122
+00:07:10,420 --> 00:07:11,770
+C'est le moment de
+sauver, par exemple.
+
+123
+00:07:12,010 --> 00:07:14,500
+Je vais sauver comme je
+vous l'ai montré précédemment.
+
+124
+00:07:15,280 --> 00:07:19,180
+Je sauve, je vais faire
+Save, je sauve et là je vais
+
+125
+00:07:20,040 --> 00:07:20,760
+lui dire "with
+
+126
+00:07:25,740 --> 00:07:29,430
+accessors and decrement
+increment covered by green tests".
+
+127
+00:07:29,597 --> 00:07:34,000
+Donc voila j'ai sauvé ça,
+
+128
+00:07:47,250 --> 00:07:47,883
+très bien.
+
+129
+00:07:49,100 --> 00:07:52,860
+Ce qui est important de
+voir dans cette session, c'est
+
+130
+00:07:53,390 --> 00:07:58,250
+que le debugger nous a
+permis d'accéder à l'état d'
+
+131
+00:07:58,417 --> 00:08:02,340
+objet, et d'être vraiment dans
+le contexte d'appel et d'utiliser
+
+132
+00:08:02,507 --> 00:08:04,460
+ce contexte d'appel pour
+avoir toutes les informations
+
+133
+00:08:04,627 --> 00:08:07,390
+nécessaires pour
+pouvoir écrire notre code.
+
+134
+00:08:07,557 --> 00:08:08,690
+Et ça, c'est vraiment
+très, très puissant.
+

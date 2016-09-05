@@ -1,0 +1,52 @@
+! Syntax Key Points
+
+Stephane Ducasse
+
+*http://www.pharo.org*
+
+
+
+!! Only Messages
+
+
+!! Three Kinds
+
+
+!! Keyword Messages for Javaists
+
+
+
+
+!! Block: Lambda Expression
+
+[[[
+	[ :x | x + 2 ] value: 5
+	-> 7
+]]]
+
+- ==[]== delimits the block
+- ==:x== is block argument
+- ==x+2== is the block body
+- ==value:== is a message that executes a block passing a value, here 5 as argument. ==x== will have the value 5.
+
+!! Blocks can be stored
+
+A block can be stored into a variable, here ==b==. 
+
+[[[
+	| b |
+	b := [ :x | x + 2 ].
+	b value: 5
+	-> 7
+	b value: 33
+	-> 35
+]]]
+
+A block can be executed multiple times.
+
+
+!! One Method
+
+
+!! One Class
+

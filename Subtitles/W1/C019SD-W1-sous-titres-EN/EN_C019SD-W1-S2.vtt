@@ -1,0 +1,538 @@
+﻿WEBVTT
+
+00:00:00.560 --> 00:00:03.280 align:middle
+In this session
+we'll look at what Pharo is.
+
+00:00:03.680 --> 00:00:06.080 align:middle
+It's a pure object language.
+
+00:00:06.440 --> 00:00:10.720 align:middle
+But it's also an IDE,
+an integrated development environment.
+
+00:00:11.080 --> 00:00:14.040 align:middle
+It's inspired by Smalltalk.
+That's its spiritual father.
+
+00:00:14.200 --> 00:00:18.520 align:middle
+It's a powerful and elegant language
+that's fun to program.
+
+00:00:18.680 --> 00:00:23.320 align:middle
+There's a great community of people
+who do a variety of things with it.
+
+00:00:23.480 --> 00:00:27.480 align:middle
+What we'll try to teach you on
+this course, with the help of videos,
+
+00:00:27.640 --> 00:00:30.960 align:middle
+is that it's a living system
+you can script as you go.
+
+00:00:31.600 --> 00:00:36.240 align:middle
+You can take Pharo with its MIT
+licence and do what you want with it.
+
+00:00:36.880 --> 00:00:41.760 align:middle
+When I say that Pharo is elegant
+I have arguments to back that up.
+
+00:00:42.000 --> 00:00:44.160 align:middle
+The syntax fits on a postcard
+
+00:00:44.320 --> 00:00:46.840 align:middle
+and the simple
+and powerful object model
+
+00:00:47.000 --> 00:00:49.080 align:middle
+takes up four lines.
+I'll show you...
+
+00:00:49.920 --> 00:00:52.800 align:middle
+On this slide
+you have the full Pharo syntax.
+
+00:00:52.960 --> 00:00:55.120 align:middle
+I mean "full", there's nothing else.
+
+00:00:55.280 --> 00:01:00.840 align:middle
+That doesn't mean you can understand
+the syntax just by reading this slide.
+
+00:01:01.000 --> 00:01:03.840 align:middle
+We'll have several sessions,
+deciphering
+
+00:01:04.000 --> 00:01:07.640 align:middle
+and helping you understand
+how the syntax is structured.
+
+00:01:07.800 --> 00:01:11.120 align:middle
+But it gives you an idea
+of the work to be done.
+
+00:01:11.280 --> 00:01:14.320 align:middle
+There's nothing else
+but this syntax.
+
+00:01:14.560 --> 00:01:17.960 align:middle
+Likewise, the object model
+is summed up on that slide.
+
+00:01:18.120 --> 00:01:20.520 align:middle
+Everything is dynamically typed,
+
+00:01:20.680 --> 00:01:22.840 align:middle
+everything is an object instance
+of a class,
+
+00:01:23.000 --> 00:01:27.000 align:middle
+all methods are public virtual,
+all attributes are protected,
+
+00:01:27.160 --> 00:01:28.640 align:middle
+and there's single inheritance.
+
+00:01:28.800 --> 00:01:33.520 align:middle
+There's no boxing,
+no primitive and non-primitive type,
+
+00:01:33.680 --> 00:01:36.120 align:middle
+no generic type, and so on.
+
+00:01:36.280 --> 00:01:37.160 align:middle
+You have everything.
+
+00:01:37.320 --> 00:01:39.960 align:middle
+You just saw
+the Pharo syntax and model.
+
+00:01:40.120 --> 00:01:41.720 align:middle
+We'll come back to that,
+
+00:01:41.880 --> 00:01:45.960 align:middle
+but it's just to give you an idea
+of the system's complexity.
+
+00:01:46.840 --> 00:01:50.200 align:middle
+You have to realise that Pharo
+is entirely written in itself.
+
+00:01:50.360 --> 00:01:54.160 align:middle
+What do I mean by Pharo?
+I mean the strings, characters,
+
+00:01:54.320 --> 00:01:58.000 align:middle
+booleans, IDE, compiler, sockets...
+
+00:01:58.160 --> 00:02:00.040 align:middle
+Everything is written in Pharo.
+
+00:02:00.200 --> 00:02:05.600 align:middle
+So if you master this syntax,
+written on one page, and this model,
+
+00:02:05.760 --> 00:02:08.880 align:middle
+then you'll have access
+to the entirety of Pharo.
+
+00:02:09.120 --> 00:02:11.840 align:middle
+I think that this is exciting
+intellectually
+
+00:02:12.000 --> 00:02:15.040 align:middle
+because you have
+this tiny entrance door
+
+00:02:15.200 --> 00:02:17.080 align:middle
+into a gigantic world.
+
+00:02:17.680 --> 00:02:20.840 align:middle
+So if you look
+at the title of this mooc,
+
+00:02:21.080 --> 00:02:24.960 align:middle
+it includes the word "immersive".
+Why is this?
+
+00:02:25.200 --> 00:02:27.440 align:middle
+Because Pharo isn't a blackbox.
+
+00:02:27.600 --> 00:02:30.280 align:middle
+The entire system
+is fully inspectable,
+
+00:02:30.440 --> 00:02:33.440 align:middle
+so you can go and see
+how it's implemented.
+
+00:02:33.600 --> 00:02:35.480 align:middle
+And Pharo is reflective.
+
+00:02:35.640 --> 00:02:37.840 align:middle
+It has a representation of itself
+
+00:02:38.000 --> 00:02:40.480 align:middle
+that you can use
+in order to understand it.
+
+00:02:40.640 --> 00:02:44.880 align:middle
+This means you can get completely
+immersed in a world of objects.
+
+00:02:45.040 --> 00:02:48.080 align:middle
+I like this metaphor of the fish tank.
+
+00:02:48.240 --> 00:02:51.240 align:middle
+A language is usually a blackbox.
+
+00:02:51.400 --> 00:02:54.920 align:middle
+Pharo isn't a blackbox,
+it's a fish tank,
+
+00:02:55.080 --> 00:02:59.560 align:middle
+where you can see the objects
+and constituents of the system itself,
+
+00:02:59.720 --> 00:03:03.960 align:middle
+but you can also dive into the tank
+and interact with the objects.
+
+00:03:04.120 --> 00:03:06.520 align:middle
+So it's really in that sense
+
+00:03:06.680 --> 00:03:10.080 align:middle
+that we're inviting you
+to play with Pharo.
+
+00:03:11.160 --> 00:03:14.920 align:middle
+Here I'm showing you an example
+of an immersive system.
+
+00:03:15.680 --> 00:03:19.000 align:middle
+What we call immersive
+or interactive.
+
+00:03:19.360 --> 00:03:24.120 align:middle
+On the left you have the code.
+On the right, what it produces.
+
+00:03:24.800 --> 00:03:30.440 align:middle
+Each time the programmer
+presses the compilation key,
+
+00:03:30.600 --> 00:03:33.880 align:middle
+the screen goes blue
+and the result is on the right.
+
+00:03:34.040 --> 00:03:36.680 align:middle
+He's constantly modifying his code
+
+00:03:36.840 --> 00:03:40.360 align:middle
+and seeing what he's doing
+in the right-hand window.
+
+00:03:40.520 --> 00:03:43.800 align:middle
+You can do this
+with any element of the system,
+
+00:03:43.960 --> 00:03:47.000 align:middle
+whether it's a socket, a file...
+
+00:03:47.720 --> 00:03:51.240 align:middle
+3D, like here.
+But a web server would be the same.
+
+00:03:51.400 --> 00:03:55.000 align:middle
+The web server functions
+and you can modify it as you go.
+
+00:03:57.560 --> 00:04:00.960 align:middle
+Now I'll show you
+the supports available
+
+00:04:01.120 --> 00:04:03.600 align:middle
+if you want to work Pharo
+outside this mooc.
+
+00:04:03.760 --> 00:04:06.520 align:middle
+There are several books,
+all open source.
+
+00:04:06.680 --> 00:04:10.440 align:middle
+There's <i>Pharo by Example</i>,
+for beginners, in several languages.
+
+00:04:10.600 --> 00:04:14.800 align:middle
+It's currently being updated
+for Pharo 5.
+
+00:04:14.960 --> 00:04:17.600 align:middle
+<i>Deep into Pharo </i>is more advanced,
+
+00:04:17.760 --> 00:04:19.840 align:middle
+going into the libraries,
+
+00:04:20.000 --> 00:04:24.760 align:middle
+into less-known aspects
+of the language and the tools.
+
+00:04:25.400 --> 00:04:28.160 align:middle
+There's
+<i>Enterprise Pharo, a Web Perspective,</i>
+
+00:04:28.320 --> 00:04:30.840 align:middle
+which puts the emphasis
+on web libraries,
+
+00:04:31.000 --> 00:04:35.280 align:middle
+like WebSockets,
+HTTP/HTTPS servers
+
+00:04:35.440 --> 00:04:37.480 align:middle
+and templating.
+
+00:04:37.680 --> 00:04:38.920 align:middle
+They're all open source.
+
+00:04:39.080 --> 00:04:43.120 align:middle
+What we'll use mainly for this course
+is a web framework, <i>Seaside</i>.
+
+00:04:43.280 --> 00:04:47.080 align:middle
+You have 300 pages available
+at the indicated address.
+
+00:04:47.240 --> 00:04:50.840 align:middle
+You can read the book
+if you want to know more.
+
+00:04:51.000 --> 00:04:54.240 align:middle
+But we'll give you all you need
+to follow the mooc
+
+00:04:54.400 --> 00:04:57.400 align:middle
+without having to read the book too.
+
+00:04:58.440 --> 00:05:00.840 align:middle
+For those interested
+in other aspects,
+
+00:05:01.000 --> 00:05:06.000 align:middle
+there's this book of about 300 pages
+about the numerical methods in Pharo,
+
+00:05:06.160 --> 00:05:09.600 align:middle
+going from things
+like statistical series,
+
+00:05:09.760 --> 00:05:13.280 align:middle
+to iterative algorithms and clustering.
+
+00:05:14.240 --> 00:05:19.120 align:middle
+I told you that Pharo
+is a system to learn from.
+
+00:05:19.280 --> 00:05:22.800 align:middle
+I'll give you a few illustrations.
+
+00:05:22.960 --> 00:05:25.880 align:middle
+We'll see them again
+in the videos.
+
+00:05:26.040 --> 00:05:29.440 align:middle
+Every graphic element of Pharo
+that you click on...
+
+00:05:29.600 --> 00:05:32.320 align:middle
+With Cmd+Shift+Option,
+
+00:05:32.480 --> 00:05:37.840 align:middle
+you'll get a little menu
+around the graphic element.
+
+00:05:38.120 --> 00:05:42.320 align:middle
+By using these menus,
+you can go directly inside
+
+00:05:42.480 --> 00:05:46.600 align:middle
+and manipulate the visual elements
+you're dealing with.
+
+00:05:46.760 --> 00:05:48.680 align:middle
+We'll show you what
+an Inspector is,
+
+00:05:48.840 --> 00:05:53.120 align:middle
+an object that lets you manipulate
+the properties of other objects,
+
+00:05:53.280 --> 00:05:55.560 align:middle
+and start to implement them.
+
+00:05:55.720 --> 00:05:58.480 align:middle
+We also have an object
+called a Finder.
+
+00:05:58.640 --> 00:06:00.680 align:middle
+So I can ask the Finder
+
+00:06:00.840 --> 00:06:04.400 align:middle
+to find all the system's methods
+that contain the word "match".
+
+00:06:04.560 --> 00:06:08.640 align:middle
+It shows me a list, and I can access
+the method's code directly.
+
+00:06:08.960 --> 00:06:13.800 align:middle
+There's also a tool called Spotter,
+which you get with Shift+Enter.
+
+00:06:14.120 --> 00:06:16.000 align:middle
+And you tell it what you want.
+
+00:06:16.160 --> 00:06:20.200 align:middle
+Spotter will help you find
+classes, methods or resources.
+
+00:06:20.360 --> 00:06:22.800 align:middle
+You'll have videos
+to explain all that.
+
+00:06:22.960 --> 00:06:25.600 align:middle
+But, again,
+Spotter is written in Pharo itself.
+
+00:06:26.760 --> 00:06:29.680 align:middle
+The Finder has quite a nice function,
+
+00:06:29.840 --> 00:06:32.040 align:middle
+when you start learning Pharo.
+
+00:06:32.200 --> 00:06:34.560 align:middle
+There'll be a video about this too.
+
+00:06:34.720 --> 00:06:37.240 align:middle
+You can give examples and say:
+
+00:06:37.400 --> 00:06:41.720 align:middle
+"This is what I want to do but I don't
+know how to write it in Pharo."
+
+00:06:42.200 --> 00:06:45.360 align:middle
+The Finder will look for methods.
+
+00:06:45.520 --> 00:06:47.160 align:middle
+I have an example.
+
+00:06:47.320 --> 00:06:51.120 align:middle
+I say: "I have two strings, AB and C.
+I'd like to concatenate them."
+
+00:06:51.280 --> 00:06:55.240 align:middle
+And I know that the result
+should be the string ABC.
+
+00:06:55.400 --> 00:06:56.480 align:middle
+It sounds simple.
+
+00:06:56.640 --> 00:06:58.320 align:middle
+So I say to the system:
+
+00:06:58.480 --> 00:07:02.080 align:middle
+"Give me the message,
+if one exists,
+
+00:07:02.240 --> 00:07:05.400 align:middle
+"which will let me
+concatenate these strings."
+
+00:07:05.560 --> 00:07:08.000 align:middle
+And that's what you can see here.
+
+00:07:08.160 --> 00:07:11.040 align:middle
+It says “,” is a method implemented
+in SequencableCollection.
+
+00:07:11.200 --> 00:07:14.680 align:middle
+This will be sent to my first string,
+
+00:07:14.840 --> 00:07:17.480 align:middle
+and I'll get my third string.
+
+00:07:17.640 --> 00:07:21.240 align:middle
+You'll be able to use this Finder
+on examples,
+
+00:07:21.400 --> 00:07:24.040 align:middle
+to make you quicker in Pharo.
+
+00:07:24.520 --> 00:07:28.520 align:middle
+In this Mooc we'll talk
+about object oriented design, which is part
+
+00:07:28.760 --> 00:07:31.000 align:middle
+of the DNA of Pharo.
+
+00:07:31.240 --> 00:07:35.080 align:middle
+People who program in Pharo
+think OO in an elegant way.
+
+00:07:35.320 --> 00:07:38.280 align:middle
+I'll show you the exercises
+we'll be presenting.
+
+00:07:38.520 --> 00:07:42.280 align:middle
+We're often asked
+how not is implemented.
+
+00:07:42.440 --> 00:07:46.240 align:middle
+People often wonder
+if this is an interesting question.
+
+00:07:46.400 --> 00:07:51.240 align:middle
+It is interesting because
+fundamental rules result from it.
+
+00:07:51.400 --> 00:07:53.720 align:middle
+It'll be part of the exercise.
+
+00:07:53.880 --> 00:07:57.960 align:middle
+Once you have Pharo
+and you see how not is implemented,
+
+00:07:58.120 --> 00:08:00.760 align:middle
+you'll start thinking
+in a different way.
+
+00:08:00.920 --> 00:08:04.480 align:middle
+This really is part of the culture
+of people who use Pharo:
+
+00:08:04.720 --> 00:08:07.800 align:middle
+to think a design
+in a really elegant way.
+
+00:08:08.040 --> 00:08:13.480 align:middle
+You can install Pharo
+as described on the Pharo website.
+
+00:08:13.640 --> 00:08:18.000 align:middle
+Of course, during the MOOC
+and on the FUN site,
+
+00:08:18.160 --> 00:08:21.280 align:middle
+you'll get all the instructions
+
+00:08:21.440 --> 00:08:23.920 align:middle
+for installing Pharo on any system.
+
+00:08:24.080 --> 00:08:26.920 align:middle
+Pharo is very easy to install,
+
+00:08:27.080 --> 00:08:30.920 align:middle
+as a drag and drop,
+onto any OS.

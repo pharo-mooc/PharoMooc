@@ -1,0 +1,231 @@
+﻿WEBVTT
+
+00:00:00.120 --> 00:00:02.360 align:middle
+In this session,
+I'll mention two points:
+
+00:00:02.520 --> 00:00:06.840 align:middle
+sequence and cascade,
+which are very common in Pharo.
+
+00:00:07.520 --> 00:00:13.000 align:middle
+There are often
+several expressions in a row.
+
+00:00:13.160 --> 00:00:14.640 align:middle
+They must be separated.
+
+00:00:14.800 --> 00:00:17.800 align:middle
+You do that with a period
+as in the example.
+
+00:00:17.960 --> 00:00:22.600 align:middle
+Here you have: Transcript cr
+and a period.
+
+00:00:22.760 --> 00:00:27.760 align:middle
+The transcript is a small tool
+for log messages.
+
+00:00:27.920 --> 00:00:31.400 align:middle
+I want a new line.
+I want to show the object 1.
+
+00:00:32.320 --> 00:00:36.360 align:middle
+I want to show 2.
+I could or couldn't have used a period.
+
+00:00:37.040 --> 00:00:39.800 align:middle
+The expressions
+are separated by periods.
+
+00:00:41.600 --> 00:00:44.160 align:middle
+Let's see another example.
+
+00:00:44.320 --> 00:00:47.320 align:middle
+I've defined two local variables.
+
+00:00:47.960 --> 00:00:51.640 align:middle
+I define a workstation,
+which is a network simulator.
+
+00:00:51.800 --> 00:00:55.600 align:middle
+I write a period
+as it's the end of this expression.
+
+00:00:55.760 --> 00:00:59.600 align:middle
+I continue with the next expression.
+I could have used a period here.
+
+00:00:59.760 --> 00:01:03.520 align:middle
+As I explained, a period is a separator,
+not a terminator.
+
+00:01:03.680 --> 00:01:06.560 align:middle
+In Java, you must use
+a semicolon here and there.
+
+00:01:06.720 --> 00:01:08.480 align:middle
+In Pharo, you don't have to.
+
+00:01:09.840 --> 00:01:14.680 align:middle
+What can be a bit strange for beginners
+
+00:01:14.840 --> 00:01:19.280 align:middle
+is that pipes
+are definitions of local variables.
+
+00:01:19.440 --> 00:01:21.320 align:middle
+There'll be a lesson about this.
+
+00:01:21.480 --> 00:01:23.880 align:middle
+You don't use a period here.
+
+00:01:24.040 --> 00:01:27.480 align:middle
+Usually, you define the local variable.
+Then you start.
+
+00:01:27.640 --> 00:01:30.400 align:middle
+After the first expression,
+you use a period.
+
+00:01:30.560 --> 00:01:32.680 align:middle
+There's something else:
+
+00:01:32.840 --> 00:01:37.320 align:middle
+you'd often like to send several
+messages to the same object.
+
+00:01:37.480 --> 00:01:41.000 align:middle
+But since we're lazy,
+we don't want to repeat the receiver.
+
+00:01:41.160 --> 00:01:42.600 align:middle
+Look at this:
+
+00:01:42.760 --> 00:01:46.280 align:middle
+I write Transcript cr.
+Transcript show: Transcript...
+
+00:01:46.440 --> 00:01:49.720 align:middle
+I already said transcript
+three times instead of once.
+
+00:01:49.880 --> 00:01:52.600 align:middle
+I can do it:
+I'll use a cascade, the semicolon.
+
+00:01:52.760 --> 00:01:54.720 align:middle
+I write: Transcript cr;
+
+00:01:54.880 --> 00:01:58.000 align:middle
+I send the message cr
+to the object transcript.
+
+00:01:58.160 --> 00:01:59.480 align:middle
+The cascade says:
+
+00:01:59.640 --> 00:02:04.120 align:middle
+"From now on, all messages are sent
+to the same receiver as the first."
+
+00:02:04.280 --> 00:02:07.120 align:middle
+It means show 1 is sent to Transcript
+
+00:02:07.280 --> 00:02:08.920 align:middle
+and show 2 to Transcript.
+
+00:02:09.560 --> 00:02:12.640 align:middle
+I'll say this again as it's unusual.
+
+00:02:14.320 --> 00:02:17.400 align:middle
+I send the first message normally.
+
+00:02:17.560 --> 00:02:21.520 align:middle
+Instead of using a period,
+which is a separator, I use a semicolon.
+
+00:02:21.680 --> 00:02:25.280 align:middle
+It means every other message
+must be sent to the same receiver.
+
+00:02:25.440 --> 00:02:27.280 align:middle
+show: 1 is sent to same receiver.
+
+00:02:27.440 --> 00:02:30.600 align:middle
+A semicolon means:
+show: 2 is sent to the same receiver.
+
+00:02:32.240 --> 00:02:36.520 align:middle
+Another example:
+imagine you want to create a collection.
+
+00:02:36.680 --> 00:02:40.720 align:middle
+I have a collection,
+so I define a variable c.
+
+00:02:40.880 --> 00:02:44.480 align:middle
+I write the collection in c.
+See the period here?
+
+00:02:44.640 --> 00:02:47.240 align:middle
+I add 1 and 2 to the collection.
+
+00:02:47.400 --> 00:02:49.960 align:middle
+These two expressions
+are exactly the same.
+
+00:02:50.120 --> 00:02:52.920 align:middle
+It means I write:
+OrderedCollection new
+
+00:02:53.080 --> 00:02:57.240 align:middle
+I create it then add the first message
+add: 1 to add an element.
+
+00:02:57.400 --> 00:03:01.360 align:middle
+The semicolon means this message
+must be sent to this collection.
+
+00:03:01.520 --> 00:03:04.080 align:middle
+As Pharo beginners, I'd advise you
+
+00:03:04.240 --> 00:03:07.080 align:middle
+not to bother using the cascade.
+
+00:03:07.240 --> 00:03:10.240 align:middle
+I introduced it
+because you'll read code.
+
+00:03:10.400 --> 00:03:12.120 align:middle
+People use it in code.
+
+00:03:12.280 --> 00:03:16.360 align:middle
+When you feel comfortable
+with this syntax and with periods,
+
+00:03:16.520 --> 00:03:20.320 align:middle
+you can start to think
+you can be a bit more flexible
+
+00:03:20.480 --> 00:03:23.640 align:middle
+and use the cascade.
+That's how I learned.
+
+00:03:23.800 --> 00:03:27.160 align:middle
+Just go step by step.
+
+00:03:27.320 --> 00:03:29.160 align:middle
+What did we study?
+
+00:03:29.320 --> 00:03:33.360 align:middle
+. is a separator.
+It's the same as ; in Java.
+
+00:03:33.520 --> 00:03:38.840 align:middle
+; is a cascade which is useful
+to avoid repeating the same receiver.
+
+00:03:39.000 --> 00:03:43.640 align:middle
+The cascade returns the value
+of the last message sent.

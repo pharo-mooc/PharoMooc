@@ -1,0 +1,665 @@
+﻿1
+00:00:07,120 --> 00:00:12,760
+Hello. During this course, I will mainly
+talk about object-oriented programming,
+
+2
+00:00:13,480 --> 00:00:17,320
+and we will learn about
+the essence of dispatch
+
+3
+00:00:17,480 --> 00:00:20,560
+and late binding
+in objects-oriented languages.
+
+4
+00:00:20,720 --> 00:00:24,880
+So this course uses Pharo as an example.
+
+5
+00:00:25,040 --> 00:00:27,880
+It's good that Pharo has been
+well implemented.
+
+6
+00:00:28,040 --> 00:00:32,040
+In the next class, we'll talk
+about its big potential generalization.
+
+7
+00:00:32,200 --> 00:00:33,960
+Let's start.
+
+8
+00:00:34,720 --> 00:00:36,160
+Let's look at Booleans.
+
+9
+00:00:37,520 --> 00:00:38,680
+Booleans in Pharo
+
+10
+00:00:38,840 --> 00:00:42,920
+are the most basic stuff indeed.
+
+11
+00:00:43,080 --> 00:00:47,720
+There are eager Boolean operators
+like &, |, not,
+
+12
+00:00:47,880 --> 00:00:52,040
+lazy operators like or:, and:,
+with argument evaluation when necessary;
+
+13
+00:00:52,200 --> 00:00:57,320
+there are also conditionals
+which we will see in another course.
+
+14
+00:00:57,480 --> 00:01:02,600
+So it's well implemented but there's
+nothing amazing or specific.
+
+15
+00:01:02,760 --> 00:01:05,920
+Last week, I asked you
+to do some exercises.
+
+16
+00:01:06,080 --> 00:01:07,920
+There were three questions.
+
+17
+00:01:08,080 --> 00:01:10,400
+How to implement Not,
+
+18
+00:01:10,560 --> 00:01:12,000
+how to implement Or,
+
+19
+00:01:12,160 --> 00:01:15,760
+and the most important:
+what is the goal of these exercises?
+
+20
+00:01:16,560 --> 00:01:20,400
+I will answer the first two questions;
+then in the next course,
+
+21
+00:01:20,560 --> 00:01:24,000
+I will answer the last question.
+
+22
+00:01:25,880 --> 00:01:28,080
+The exercise was really...
+
+23
+00:01:28,240 --> 00:01:32,560
+If you send the message not to false,
+it will return true.
+
+24
+00:01:32,720 --> 00:01:35,240
+If not to true, it will return false.
+
+25
+00:01:35,400 --> 00:01:38,600
+You have objects. How to implement this?
+
+26
+00:01:38,760 --> 00:01:41,000
+I'll first give you some hints.
+
+27
+00:01:41,160 --> 00:01:43,720
+The solution does not use conditionals.
+
+28
+00:01:44,280 --> 00:01:46,960
+Mostly, you find
+a solution with a condition.
+
+29
+00:01:47,120 --> 00:01:50,960
+But I'm telling you that my solution,
+implemented by Pharo,
+
+30
+00:01:51,120 --> 00:01:53,440
+does not contain any conditions.
+
+31
+00:01:54,600 --> 00:01:55,960
+Nor conditionals.
+
+32
+00:01:56,120 --> 00:01:58,640
+So you don't have if in the solution.
+
+33
+00:02:00,600 --> 00:02:04,800
+Think about it for a bit
+to see if you have an idea.
+
+34
+00:02:04,960 --> 00:02:09,960
+Normally, this kind of hint
+doesn't really work.
+
+35
+00:02:10,120 --> 00:02:13,840
+The second hint:
+the solution uses three classes.
+
+36
+00:02:14,360 --> 00:02:17,240
+It has the class Boolean
+
+37
+00:02:17,400 --> 00:02:19,440
+which is abstract.
+
+38
+00:02:19,600 --> 00:02:22,760
+It has the class True
+and the class False.
+
+39
+00:02:22,920 --> 00:02:28,400
+The Boolean object true
+is the singleton instance of True.
+
+40
+00:02:28,560 --> 00:02:30,480
+Do you see the difference?
+
+41
+00:02:31,040 --> 00:02:35,200
+The instance true
+starts with a lower case
+
+42
+00:02:35,360 --> 00:02:40,920
+and the class False
+starts with a capital F.
+
+43
+00:02:41,080 --> 00:02:44,000
+And false is the singleton instance
+of False.
+
+44
+00:02:44,160 --> 00:02:46,200
+If we visualize it in a diagram,
+
+45
+00:02:46,360 --> 00:02:50,160
+we can see true is instance of True,
+and false of False.
+
+46
+00:02:50,320 --> 00:02:55,000
+In theory, with this hint,
+the solution should be obvious to you.
+
+47
+00:02:55,160 --> 00:02:57,520
+I am not sure you can see it.
+
+48
+00:02:57,680 --> 00:03:00,520
+I will let you think more about it.
+
+49
+00:03:00,680 --> 00:03:03,520
+The solution is in the end...
+
+50
+00:03:04,720 --> 00:03:07,600
+I won't tell you right now...
+Let's think about it.
+
+51
+00:03:07,760 --> 00:03:11,320
+How do you express a choice
+in object-oriented languages?
+
+52
+00:03:12,400 --> 00:03:14,920
+A choice is expressed
+by defining classes
+
+53
+00:03:15,080 --> 00:03:18,920
+with compatible interfaces,
+i.e. methods,
+
+54
+00:03:19,080 --> 00:03:21,360
+and by sending a message to an instance.
+
+55
+00:03:21,520 --> 00:03:25,720
+That's my example.
+When I type x open,
+
+56
+00:03:27,240 --> 00:03:29,920
+I choose the right method
+associated with x.
+
+57
+00:03:30,080 --> 00:03:33,720
+It means if it's a file, it will open
+a file; if a window, a window;
+
+58
+00:03:33,880 --> 00:03:35,720
+if a tool, a tool.
+
+59
+00:03:35,880 --> 00:03:40,800
+So the method will be selected
+based on x's class.
+
+60
+00:03:41,800 --> 00:03:46,520
+Then how can we have the solution
+with this hint?
+
+61
+00:03:48,400 --> 00:03:50,280
+We will implement it like this.
+
+62
+00:03:51,400 --> 00:03:56,320
+It means I implement
+the method not in the class False;
+
+63
+00:03:56,480 --> 00:03:58,560
+in this case, it will return true.
+
+64
+00:03:58,720 --> 00:04:03,480
+I implement the method not
+in the class True; it will return false.
+
+65
+00:04:04,440 --> 00:04:06,440
+In a diagram, it looks like this.
+
+66
+00:04:08,200 --> 00:04:11,840
+You can see this solution
+doesn't have any explicit conditions.
+
+67
+00:04:12,000 --> 00:04:14,760
+I don't use any if in this case.
+
+68
+00:04:14,920 --> 00:04:16,200
+How does it work?
+
+69
+00:04:17,040 --> 00:04:20,160
+It works like this.
+When I send the message not,
+
+70
+00:04:21,520 --> 00:04:25,600
+where do I search for the method not?
+In the receiver class.
+
+71
+00:04:25,760 --> 00:04:27,640
+true is instance of True.
+
+72
+00:04:27,800 --> 00:04:30,640
+So this method here will be executed,
+
+73
+00:04:30,800 --> 00:04:33,400
+and the result will be false.
+It works.
+
+74
+00:04:33,560 --> 00:04:37,640
+Now I send a message
+to the instance false.
+
+75
+00:04:37,800 --> 00:04:40,040
+Where do I look? In the class False.
+
+76
+00:04:40,200 --> 00:04:42,760
+This not is executed,
+and it returns true.
+
+77
+00:04:42,920 --> 00:04:46,760
+I have implemented my Booleans,
+
+78
+00:04:46,920 --> 00:04:49,680
+the Boolean negation with two methods
+
+79
+00:04:51,560 --> 00:04:53,640
+without the use of conditionals.
+
+80
+00:04:54,960 --> 00:04:58,800
+We can also look at the implementation
+of the superclass.
+
+81
+00:04:58,960 --> 00:05:00,840
+The Boolean class is abstract.
+
+82
+00:05:01,000 --> 00:05:04,720
+It has two subclasses
+which implement the necessary operators.
+
+83
+00:05:04,880 --> 00:05:06,600
+In Pharo,
+
+84
+00:05:06,760 --> 00:05:10,080
+you express not
+as an abstract method on Boolean
+
+85
+00:05:10,240 --> 00:05:13,040
+by using self subclassResponsibility.
+
+86
+00:05:13,200 --> 00:05:17,440
+I just wanted to tell you about Pharo
+to be comprehensive.
+
+87
+00:05:18,400 --> 00:05:21,000
+By now, you must have understood
+
+88
+00:05:21,160 --> 00:05:23,520
+how to express the behavior of Or.
+
+89
+00:05:23,680 --> 00:05:25,960
+I'll give you time to express this.
+
+90
+00:05:26,120 --> 00:05:28,560
+The idea here is to define a method
+
+91
+00:05:28,720 --> 00:05:31,280
+which will use an extra argument.
+
+92
+00:05:31,440 --> 00:05:33,560
+Depending on its value,
+
+93
+00:05:33,720 --> 00:05:37,240
+it'll be followed by the right result.
+
+94
+00:05:38,000 --> 00:05:41,240
+You often think
+using a condition is enough:
+
+95
+00:05:41,400 --> 00:05:42,720
+No. That's the thing.
+
+96
+00:05:42,880 --> 00:05:47,360
+Once again, you don't need
+conditionals to implement Or.
+
+97
+00:05:47,520 --> 00:05:51,280
+I will give you 10 seconds
+to think about it.
+
+98
+00:05:51,440 --> 00:05:54,160
+You were supposed to have prepared this.
+
+99
+00:05:55,720 --> 00:05:58,960
+I will define Or
+in the abstract Boolean class
+
+100
+00:05:59,120 --> 00:06:01,640
+as an abstract method.
+Very good.
+
+101
+00:06:02,800 --> 00:06:06,800
+Then in the class False:
+it's written here.
+
+102
+00:06:06,960 --> 00:06:10,280
+The receiver belongs to False.
+What do I return?
+
+103
+00:06:11,240 --> 00:06:15,600
+When it's true, it returns true: when
+false, false; when anything, anything.
+
+104
+00:06:15,760 --> 00:06:17,880
+So it means I return the argument.
+
+105
+00:06:18,600 --> 00:06:22,840
+So here, the implementation of Or
+in the class False
+
+106
+00:06:23,000 --> 00:06:25,400
+is about returning the argument.
+
+107
+00:06:25,560 --> 00:06:27,240
+That's exactly what we did.
+
+108
+00:06:29,320 --> 00:06:30,600
+Likewise,
+
+109
+00:06:31,960 --> 00:06:34,720
+if we look at the class True,
+it's explained.
+
+110
+00:06:37,200 --> 00:06:38,800
+It's explained here.
+
+111
+00:06:38,960 --> 00:06:43,640
+When I send or to the receiver true,
+
+112
+00:06:43,800 --> 00:06:45,360
+I return the receiver.
+
+113
+00:06:45,520 --> 00:06:46,840
+So I return true.
+
+114
+00:06:48,360 --> 00:06:51,440
+As you can see here again,
+I don't use conditionals,
+
+115
+00:06:51,600 --> 00:06:53,240
+I just used message sends.
+
+116
+00:06:55,000 --> 00:06:59,240
+So in a cleaner way,
+how is it written in Pharo?
+
+117
+00:06:59,400 --> 00:07:03,480
+We know that true
+is the receiver of the message;
+
+118
+00:07:03,640 --> 00:07:06,200
+so instead of writing true,
+we can write self.
+
+119
+00:07:06,360 --> 00:07:09,680
+If you read the definition,
+you can see self and say:
+
+120
+00:07:09,840 --> 00:07:12,480
+"It makes sense.
+Since the receiver is true,
+
+121
+00:07:12,640 --> 00:07:15,800
+"it's exactly the same."
+
+122
+00:07:18,680 --> 00:07:21,560
+Once again, let's visualize it.
+
+123
+00:07:21,720 --> 00:07:26,960
+When I send the message or
+with something
+
+124
+00:07:27,120 --> 00:07:29,400
+to the object true,
+
+125
+00:07:29,560 --> 00:07:33,080
+I look for this definition of or here,
+
+126
+00:07:33,240 --> 00:07:35,680
+and it will return self, hence true.
+
+127
+00:07:35,840 --> 00:07:39,720
+When I send the message or
+with something,
+
+128
+00:07:39,880 --> 00:07:42,640
+I look into the class False
+which is false.
+
+129
+00:07:42,800 --> 00:07:47,280
+So I end up with this implementation,
+and I return alpha.
+
+130
+00:07:47,440 --> 00:07:51,040
+<i>This is the Boolean table</i>
+<i>I was trying to implement.</i>
+
+131
+00:07:53,440 --> 00:07:55,360
+What you have to remember is:
+
+132
+00:07:55,520 --> 00:07:59,480
+the solution we have implemented
+does not use any conditionals
+
+133
+00:08:00,160 --> 00:08:03,120
+or any conditional instructions
+
+134
+00:08:03,280 --> 00:08:05,640
+such as an explicit loop;
+
+135
+00:08:05,800 --> 00:08:08,480
+it lets the receiver decide.
+
+136
+00:08:08,640 --> 00:08:12,400
+It means that I tell the Boolean object
+which receives the message
+
+137
+00:08:12,560 --> 00:08:14,680
+to find the right solution.
+
+138
+00:08:14,840 --> 00:08:18,920
+I am not here to dictate
+what has to be decided.
+
+139
+00:08:19,080 --> 00:08:21,480
+This principle is found elsewhere too.
+
+140
+00:08:21,640 --> 00:08:24,520
+It's a fundamental principle of OOP.
+
+141
+00:08:24,680 --> 00:08:28,560
+It's the heuristics I mentioned
+in the beginning of this lesson:
+
+142
+00:08:28,720 --> 00:08:30,160
+don't ask, tell.
+
+143
+00:08:30,320 --> 00:08:33,400
+It means I don't want to express
+any conditionals;
+
+144
+00:08:33,560 --> 00:08:35,240
+I just want to give an order.
+
+145
+00:08:35,400 --> 00:08:39,680
+That's one of the important keys of OOP.
+
+146
+00:08:39,840 --> 00:08:42,640
+The other is about
+letting the receiver decide.
+
+147
+00:08:42,800 --> 00:08:46,760
+I give the receiver an order:
+it must encapsulate its knowledge
+
+148
+00:08:46,920 --> 00:08:48,840
+and make the right decisions.

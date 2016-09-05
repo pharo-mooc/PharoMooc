@@ -1,0 +1,750 @@
+﻿WEBVTT
+
+00:00:00.960 --> 00:00:05.160 align:middle
+In this course,
+we'll study the essential elements
+
+00:00:05.320 --> 00:00:07.600 align:middle
+of the collections hierarchy in Pharo.
+
+00:00:07.760 --> 00:00:11.760 align:middle
+We'll see that Pharo
+has many types of collections.
+
+00:00:11.920 --> 00:00:14.960 align:middle
+They make a programmer's life easier
+
+00:00:15.120 --> 00:00:17.360 align:middle
+as they all share the same API.
+
+00:00:17.520 --> 00:00:22.720 align:middle
+We'll also see the difference
+between literal and dynamic collections.
+
+00:00:23.960 --> 00:00:28.720 align:middle
+The collections' API is very diverse:
+there are many types of collections.
+
+00:00:28.880 --> 00:00:32.360 align:middle
+They all share a common API
+which is well organized
+
+00:00:32.520 --> 00:00:34.880 align:middle
+and make a programmer's life easier.
+
+00:00:35.440 --> 00:00:37.880 align:middle
+What's specific about Pharo
+
+00:00:38.040 --> 00:00:41.000 align:middle
+is that the first element is at index 1
+
+00:00:41.160 --> 00:00:43.560 align:middle
+instead of 0 in other languages.
+
+00:00:44.280 --> 00:00:47.880 align:middle
+Collections can contain
+any types of objects in Pharo.
+
+00:00:48.040 --> 00:00:50.840 align:middle
+It's not always the case
+with other languages.
+
+00:00:51.440 --> 00:00:55.240 align:middle
+Let's see some of the most remarkable
+and widely used collections:
+
+00:00:55.400 --> 00:00:57.960 align:middle
+OrderedCollection
+is a dynamic collection
+
+00:00:58.120 --> 00:01:02.160 align:middle
+which grows
+whenever you add elements in it.
+
+00:01:02.320 --> 00:01:05.560 align:middle
+Array is a collection of fixed size.
+
+00:01:05.720 --> 00:01:09.200 align:middle
+You can access the elements
+according to an index, Set,
+
+00:01:09.360 --> 00:01:13.280 align:middle
+which contains elements
+without duplicates.
+
+00:01:13.440 --> 00:01:16.200 align:middle
+You can't insert the same element twice.
+
+00:01:16.360 --> 00:01:21.160 align:middle
+Dictionaries are hash tables:
+to one key is associated one value.
+
+00:01:22.040 --> 00:01:24.840 align:middle
+This is an excerpt
+of the collection hierarchy.
+
+00:01:25.000 --> 00:01:28.160 align:middle
+It's only an excerpt:
+in Pharo, it's bigger.
+
+00:01:28.320 --> 00:01:31.240 align:middle
+There are many classes.
+They all have collections
+
+00:01:31.400 --> 00:01:34.120 align:middle
+with a shared API
+for all the collections.
+
+00:01:34.880 --> 00:01:39.160 align:middle
+In this course, I'll tell you
+about those in bold type.
+
+00:01:40.480 --> 00:01:44.240 align:middle
+There's a shared API
+with seven elements:
+
+00:01:44.400 --> 00:01:49.240 align:middle
+specific methods for the creation
+of collections sent to the classes;
+
+00:01:49.400 --> 00:01:52.120 align:middle
+specific methods
+to access their properties
+
+00:01:52.280 --> 00:01:54.840 align:middle
+(the size of the collections
+
+00:01:55.000 --> 00:01:57.840 align:middle
+or even the elements they contain);
+
+00:01:58.000 --> 00:02:00.920 align:middle
+testing methods
+(is the collection empty?);
+
+00:02:01.080 --> 00:02:05.320 align:middle
+elements adding and removing methods;
+collection elements enumeration
+
+00:02:05.480 --> 00:02:11.400 align:middle
+(I want to browse the elements
+or know whether an element is there);
+
+00:02:11.560 --> 00:02:15.920 align:middle
+and conversion methods
+from one type to another.
+
+00:02:16.760 --> 00:02:20.640 align:middle
+Let's start with an example:
+I want to create a collection in Pharo.
+
+00:02:20.800 --> 00:02:24.120 align:middle
+I'll just select
+the class I'm interested in
+
+00:02:24.280 --> 00:02:28.040 align:middle
+and send the message new
+to instantiate this class.
+
+00:02:28.200 --> 00:02:30.360 align:middle
+First option: I use new.
+
+00:02:30.520 --> 00:02:33.720 align:middle
+Second option: I can't use new directly.
+
+00:02:33.880 --> 00:02:36.360 align:middle
+I want to specify the size
+of the collection.
+
+00:02:36.520 --> 00:02:41.440 align:middle
+I could send new: 4.
+I create a size-4 or size-2 array.
+
+00:02:41.600 --> 00:02:45.720 align:middle
+It also work with OrderedCollection.
+I could create one of size 1000.
+
+00:02:47.400 --> 00:02:51.920 align:middle
+There are other existing methods
+to create pre-initialized collections:
+
+00:02:52.080 --> 00:02:53.520 align:middle
+withAll: for instance.
+
+00:02:53.680 --> 00:02:58.360 align:middle
+I'll pass a literal collection.
+A literal collection starts with #(.
+
+00:02:59.120 --> 00:03:02.480 align:middle
+I'll create a new instance
+of OrderedCollection
+
+00:03:02.640 --> 00:03:06.760 align:middle
+which will contain all the elements
+passed when it was created.
+
+00:03:07.600 --> 00:03:09.360 align:middle
+I could do the same with Set.
+
+00:03:09.520 --> 00:03:12.760 align:middle
+In a set, you can't have any duplicates.
+
+00:03:12.920 --> 00:03:16.640 align:middle
+The number 7, which you have twice
+in the literal collection,
+
+00:03:16.800 --> 00:03:19.000 align:middle
+can't end up twice in Set.
+
+00:03:21.200 --> 00:03:25.680 align:middle
+There are other types of messages
+you can send
+
+00:03:25.840 --> 00:03:27.920 align:middle
+to the classes to initialize them.
+
+00:03:28.080 --> 00:03:31.600 align:middle
+This is another example: new: withAll:.
+
+00:03:31.760 --> 00:03:33.880 align:middle
+I want a size-5 collection.
+
+00:03:34.040 --> 00:03:37.360 align:middle
+Every element must be initialized
+with a specific object:
+
+00:03:37.520 --> 00:03:40.000 align:middle
+in this case, a string containing a.
+
+00:03:42.240 --> 00:03:46.400 align:middle
+Remember that in Pharo,
+every collection starts at index 1.
+
+00:03:46.560 --> 00:03:49.480 align:middle
+If I ask this 3-element collection
+
+00:03:49.640 --> 00:03:53.440 align:middle
+to return the element at index 2,
+it'll be this one.
+
+00:03:53.600 --> 00:03:56.000 align:middle
+This is 1; this is 2; this is 3.
+
+00:03:56.760 --> 00:03:58.960 align:middle
+It's the same with OrderedCollection:
+
+00:03:59.120 --> 00:04:02.480 align:middle
+If I convert this collection
+and ask it to return its index 2,
+
+00:04:02.640 --> 00:04:04.560 align:middle
+I'll get the same result: hates.
+
+00:04:05.840 --> 00:04:09.960 align:middle
+Collections can contain
+any types of objects.
+
+00:04:10.120 --> 00:04:12.280 align:middle
+I'll show you one example:
+
+00:04:12.440 --> 00:04:16.920 align:middle
+this literal collection
+contains the string calvin
+
+00:04:17.080 --> 00:04:22.000 align:middle
+and a collection
+containing the numbers 1 2 3.
+
+00:04:22.160 --> 00:04:23.960 align:middle
+I can create an array.
+
+00:04:24.120 --> 00:04:28.360 align:middle
+This array is composed
+of the elements 1 2
+
+00:04:29.360 --> 00:04:32.600 align:middle
+and of Set at the end.
+
+00:04:33.360 --> 00:04:37.160 align:middle
+I added the element 1 here,
+then the element 2, then Set.
+
+00:04:37.920 --> 00:04:41.160 align:middle
+You can browse
+the elements of a collection
+
+00:04:41.320 --> 00:04:43.800 align:middle
+by using the message do: for instance.
+
+00:04:44.600 --> 00:04:46.400 align:middle
+This is a collection
+
+00:04:47.400 --> 00:04:51.080 align:middle
+to which I'll send the message do:
+before passing it a block.
+
+00:04:51.720 --> 00:04:56.920 align:middle
+The block starts with "["
+and ends with "]".
+
+00:04:57.080 --> 00:05:00.720 align:middle
+The block's parameter is called :each.
+
+00:05:00.880 --> 00:05:03.240 align:middle
+It is separated
+from the block's body by |.
+
+00:05:03.400 --> 00:05:07.200 align:middle
+With each loop, the value of :each
+is the collection's 1st element,
+
+00:05:07.360 --> 00:05:08.800 align:middle
+then the second, etc.
+
+00:05:08.960 --> 00:05:12.440 align:middle
+And on the transcript you have:
+Calvin hates Suzie.
+
+00:05:14.480 --> 00:05:18.120 align:middle
+Arrays are fixed-size collections.
+
+00:05:18.280 --> 00:05:22.280 align:middle
+You can query an array for its size:
+I send the message size.
+
+00:05:22.440 --> 00:05:26.440 align:middle
+You can directly access an array's
+element by sending at:.
+
+00:05:26.600 --> 00:05:28.120 align:middle
+I want the second element.
+
+00:05:28.280 --> 00:05:31.640 align:middle
+You can modify the element
+at index 2 in the collection
+
+00:05:31.800 --> 00:05:35.160 align:middle
+by sending at: 1 put: 'Calvin':
+
+00:05:35.680 --> 00:05:38.400 align:middle
+I insert the string Calvin
+in cell 1.
+
+00:05:39.160 --> 00:05:41.040 align:middle
+I can also ask the size.
+
+00:05:41.200 --> 00:05:44.600 align:middle
+What's interesting about this example
+
+00:05:44.760 --> 00:05:47.800 align:middle
+is that the same array
+has been built in two ways:
+
+00:05:47.960 --> 00:05:51.720 align:middle
+first a literal version,
+then a dynamic version.
+
+00:05:51.880 --> 00:05:56.360 align:middle
+Here, I instantiated
+the class Array by myself
+
+00:05:56.520 --> 00:05:58.120 align:middle
+and filled in every cell.
+
+00:05:59.440 --> 00:06:03.200 align:middle
+You can send size to a collection
+to learn about its size.
+
+00:06:03.360 --> 00:06:07.600 align:middle
+You can access a collection's element
+by using the method at:.
+
+00:06:07.760 --> 00:06:09.200 align:middle
+I already mentioned it.
+
+00:06:10.480 --> 00:06:12.480 align:middle
+Be careful:
+
+00:06:12.640 --> 00:06:16.000 align:middle
+when you access an element
+by providing an index,
+
+00:06:16.160 --> 00:06:18.400 align:middle
+you must ensure that the index
+
+00:06:18.560 --> 00:06:23.400 align:middle
+is within the collection's bounds:
+it should be smaller than its size.
+
+00:06:23.560 --> 00:06:27.720 align:middle
+If I ask this collection to return
+the element at index 55, it won't exist.
+
+00:06:27.880 --> 00:06:30.400 align:middle
+It'll return an error.
+
+00:06:33.360 --> 00:06:35.480 align:middle
+To modify the elements:
+
+00:06:35.640 --> 00:06:40.120 align:middle
+at index 2, I want to insert
+a new element in the collection.
+
+00:06:40.280 --> 00:06:43.960 align:middle
+The string loves
+will replace the string hates.
+
+00:06:44.120 --> 00:06:46.200 align:middle
+You can see it in the result.
+
+00:06:48.800 --> 00:06:52.080 align:middle
+Literal arrays:
+
+00:06:52.240 --> 00:06:55.400 align:middle
+this is an example of a literal array.
+
+00:06:55.560 --> 00:06:57.840 align:middle
+It starts with #(, as I told you.
+
+00:06:58.000 --> 00:07:01.520 align:middle
+You can put anything inside:
+a number, a string, etc.
+
+00:07:02.360 --> 00:07:05.160 align:middle
+Every literal array in Pharo
+
+00:07:05.320 --> 00:07:07.840 align:middle
+are instance of the class Array
+by default.
+
+00:07:08.000 --> 00:07:10.960 align:middle
+I can send the message class
+to a literal array.
+
+00:07:11.120 --> 00:07:14.920 align:middle
+It returns Array, which means
+it's instance of the class Array.
+
+00:07:18.800 --> 00:07:22.400 align:middle
+Dynamic and literal versions
+are equivalent in Pharo.
+
+00:07:22.560 --> 00:07:26.440 align:middle
+Literal arrays are simply shorter:
+you can write them faster.
+
+00:07:26.600 --> 00:07:29.760 align:middle
+Here you have a collection's
+literal version.
+
+00:07:29.920 --> 00:07:33.760 align:middle
+And that's the dynamic version
+where I instantiate the class Array.
+
+00:07:33.920 --> 00:07:37.240 align:middle
+They're equivalent
+as they return the same results.
+
+00:07:40.000 --> 00:07:43.560 align:middle
+The class OrderedCollection
+defines a specific collection
+
+00:07:43.720 --> 00:07:45.600 align:middle
+which can be extended.
+
+00:07:45.760 --> 00:07:48.640 align:middle
+Whenever you add elements, it grows.
+
+00:07:49.280 --> 00:07:53.320 align:middle
+I instantiate OrderedCollection
+by sending the message new.
+
+00:07:53.480 --> 00:07:57.040 align:middle
+I use the method add: to add
+new elements in this collection.
+
+00:07:57.200 --> 00:08:01.280 align:middle
+I could use addFirst: to add an element
+at the beginning of the collection.
+
+00:08:01.440 --> 00:08:03.080 align:middle
+By default, it's at the end.
+
+00:08:04.400 --> 00:08:07.600 align:middle
+You can see what the collection returns.
+
+00:08:07.760 --> 00:08:11.440 align:middle
+It is composed of three elements:
+Pharo, Reef, Pharo.
+
+00:08:11.600 --> 00:08:15.400 align:middle
+With add: 'Seaside',
+'Seaside' is added at the end.
+
+00:08:17.760 --> 00:08:21.520 align:middle
+I have conversion methods
+between a collection type and another.
+
+00:08:21.680 --> 00:08:26.160 align:middle
+Here I'm using a literal collection,
+which is an array.
+
+00:08:26.320 --> 00:08:30.440 align:middle
+The message asOrderedCollection
+will turn this array
+
+00:08:30.600 --> 00:08:32.600 align:middle
+into an ordered collection.
+
+00:08:33.520 --> 00:08:37.200 align:middle
+Sets are a type of collection
+without duplicates.
+
+00:08:37.360 --> 00:08:41.600 align:middle
+They can be extended:
+they grow with every added element.
+
+00:08:41.760 --> 00:08:45.560 align:middle
+I can use a literal collection
+I turn into a Set.
+
+00:08:45.720 --> 00:08:49.080 align:middle
+I end up with a Set
+without any duplicates.
+
+00:08:49.880 --> 00:08:53.400 align:middle
+I could also choose the dynamic version
+over the literal one:
+
+00:08:53.560 --> 00:08:57.720 align:middle
+Set with: with: creates a Set
+and fills it with two elements,
+
+00:08:57.880 --> 00:08:59.440 align:middle
+that's two Sets each time.
+
+00:09:02.000 --> 00:09:06.640 align:middle
+Conversion methods are convenient to
+turn a collection into something else.
+
+00:09:06.800 --> 00:09:11.280 align:middle
+It's always the same: as + the name
+of the collection you want to get.
+
+00:09:13.840 --> 00:09:17.000 align:middle
+Dictionaries are a group
+of collections key/values:
+
+00:09:17.160 --> 00:09:19.280 align:middle
+I associate a value to a key.
+
+00:09:19.440 --> 00:09:22.760 align:middle
+They can be extended:
+they grow with every added element.
+
+00:09:22.920 --> 00:09:25.560 align:middle
+There's also an unusual API
+
+00:09:25.720 --> 00:09:28.360 align:middle
+when it comes to this collection:
+
+00:09:28.520 --> 00:09:32.120 align:middle
+typical at: message; at:ifabsent:
+
+00:09:32.280 --> 00:09:37.200 align:middle
+(what do I return if I want to access
+a specific key that doesn't exist?);
+
+00:09:37.360 --> 00:09:42.160 align:middle
+at:put: insert a new value
+into a specific key.
+
+00:09:42.320 --> 00:09:47.520 align:middle
+I can iterate using typical messages
+such as do:,
+
+00:09:47.680 --> 00:09:49.080 align:middle
+but also new messages
+
+00:09:49.240 --> 00:09:52.640 align:middle
+such as keysDo: which browses
+all the dictionary's keys
+
+00:09:52.800 --> 00:09:54.280 align:middle
+or keys and values.
+
+00:09:54.440 --> 00:09:58.240 align:middle
+For instance, I create an instance
+of the class Dictionary.
+
+00:09:59.040 --> 00:10:03.360 align:middle
+Picture the Dictionary as an array:
+
+00:10:03.520 --> 00:10:08.040 align:middle
+to the key January, I associate 31;
+to the key February, 28;
+
+00:10:08.200 --> 00:10:10.160 align:middle
+to the key March, 31.
+
+00:10:12.840 --> 00:10:16.280 align:middle
+It's equivalent to a dynamic collection.
+
+00:10:16.440 --> 00:10:21.480 align:middle
+You create a dynamic collection using {:
+
+00:10:21.640 --> 00:10:23.720 align:middle
+{ and }.
+
+00:10:23.880 --> 00:10:26.640 align:middle
+You use arrows to create associations.
+
+00:10:26.800 --> 00:10:29.000 align:middle
+This is a symbol.
+
+00:10:29.160 --> 00:10:33.080 align:middle
+To the symbol January
+I associate the number 31.
+
+00:10:33.240 --> 00:10:35.720 align:middle
+I have a collection of associations
+
+00:10:35.880 --> 00:10:38.440 align:middle
+I turn into a dictionary
+with asDictionary.
+
+00:10:38.600 --> 00:10:42.840 align:middle
+These two ways of creating a dictionary
+are equivalent.
+
+00:10:45.480 --> 00:10:48.280 align:middle
+If I query association for its key,
+
+00:10:48.440 --> 00:10:50.760 align:middle
+it will return the key,
+so the beginning.
+
+00:10:50.920 --> 00:10:52.400 align:middle
+It's the same.
+
+00:10:52.560 --> 00:10:56.400 align:middle
+If I query an association for its value,
+it'll only return the value.
+
+00:10:56.560 --> 00:10:58.760 align:middle
+This is a pair or an association.
+
+00:11:00.560 --> 00:11:01.760 align:middle
+Dictionaries:
+
+00:11:01.920 --> 00:11:06.080 align:middle
+if I want to access a specific value
+in a Dictionary,
+
+00:11:06.240 --> 00:11:11.600 align:middle
+I just need to use at: and to specify
+the key whose value I want.
+
+00:11:11.760 --> 00:11:13.800 align:middle
+If the key doesn't exist,
+
+00:11:14.360 --> 00:11:17.720 align:middle
+I will get an error in return.
+
+00:11:18.560 --> 00:11:23.000 align:middle
+To avoid that,
+I can use at: ifAbsent:.
+
+00:11:23.160 --> 00:11:26.600 align:middle
+I write at: plus a key
+that doesn't exist in the Dictionary.
+
+00:11:26.760 --> 00:11:30.720 align:middle
+If it is absent,
+it will return this value, 0.
+
+00:11:31.480 --> 00:11:35.040 align:middle
+The key doesn't exist in the Dictionary,
+so I get the value 0.
+
+00:11:35.200 --> 00:11:40.480 align:middle
+I can iterate over a Dictionary:
+if use do: over its elements,
+
+00:11:40.640 --> 00:11:45.280 align:middle
+I get the Dictionary's values only.
+You can't see the keys.
+
+00:11:45.440 --> 00:11:48.800 align:middle
+One might wonder why
+as it's quite strange.
+
+00:11:48.960 --> 00:11:50.720 align:middle
+It's very logical, actually.
+
+00:11:50.880 --> 00:11:55.560 align:middle
+If you look at the way do:, taking
+a block, is implemented in Dictionary,
+
+00:11:55.720 --> 00:11:58.760 align:middle
+what happens is ^self valuesDo:.
+
+00:11:58.920 --> 00:12:01.480 align:middle
+By default, if you apply do:
+to a Dictionary,
+
+00:12:01.640 --> 00:12:04.080 align:middle
+you only browse its values,
+not the keys.
+
+00:12:05.440 --> 00:12:07.040 align:middle
+If I want to browse both,
+
+00:12:07.200 --> 00:12:10.680 align:middle
+I must use a specific method
+called keysAndValuesDo:
+
+00:12:10.840 --> 00:12:15.120 align:middle
+which takes a block with two arguments
+(:k and :v) as parameter.
+
+00:12:15.280 --> 00:12:18.680 align:middle
+:k is a key
+and v: is the value.
+
+00:12:19.360 --> 00:12:22.160 align:middle
+The Dictionary is full.
+
+00:12:23.880 --> 00:12:26.720 align:middle
+In this course, we learned that
+
+00:12:26.880 --> 00:12:30.520 align:middle
+Pharo has plenty of different types
+of collections available.
+
+00:12:31.160 --> 00:12:33.800 align:middle
+The collections have a common vocabulary
+
+00:12:33.960 --> 00:12:35.720 align:middle
+when it comes to creating them,
+
+00:12:35.880 --> 00:12:38.760 align:middle
+accessing their elements,
+their size, etc.
+
+00:12:38.920 --> 00:12:41.080 align:middle
+It makes a programmer's life easier.
+
+00:12:41.240 --> 00:12:44.560 align:middle
+It's easy to convert a collection
+into another type.
+
+00:12:44.720 --> 00:12:46.600 align:middle
+We even learned something more:
+
+00:12:46.760 --> 00:12:50.800 align:middle
+when you have questions, it's easy
+to look into the system, into Pharo,
+
+00:12:50.960 --> 00:12:54.960 align:middle
+by reading the code of the classes
+to learn new classes of collections.

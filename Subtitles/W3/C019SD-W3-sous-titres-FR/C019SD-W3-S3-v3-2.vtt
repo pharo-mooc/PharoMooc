@@ -1,0 +1,332 @@
+WEBVTT
+
+00:00:00.450 --> 00:00:03.410 align:middle
+Bonjour. Dans cette
+séquence, on va voir les variables et
+
+00:00:03.610 --> 00:00:06.030 align:middle
+les différents types de
+variables qui existent en Pharo.
+
+00:00:06.230 --> 00:00:08.180 align:middle
+En fait, il existe deux
+grands types de variables: les
+
+00:00:08.380 --> 00:00:11.120 align:middle
+variables locales qui
+commencent toujours par convention
+
+00:00:11.320 --> 00:00:13.670 align:middle
+de nommage par une lettre minuscule.
+
+00:00:13.870 --> 00:00:15.820 align:middle
+On va voir les différents types
+de variables locales qui existent.
+
+00:00:16.150 --> 00:00:19.300 align:middle
+La deuxième grande famille,
+c'est les variables partagées
+
+00:00:19.500 --> 00:00:22.530 align:middle
+qui commencent par
+convention par une lettre majuscule.
+
+00:00:22.830 --> 00:00:24.540 align:middle
+On verra aussi qu'il en
+existe plusieurs types.
+
+00:00:25.730 --> 00:00:28.270 align:middle
+On va commencer par les
+variables locales qui commencent
+
+00:00:28.470 --> 00:00:30.240 align:middle
+toujours par une lettre
+minuscule, typiquement des
+
+00:00:30.440 --> 00:00:32.090 align:middle
+variables locales à une
+méthode. Je vous le rappelle,
+
+00:00:32.290 --> 00:00:37.230 align:middle
+elles sont déclarées entre des
+pipes ( | ), des barres droites.
+
+00:00:37.610 --> 00:00:40.350 align:middle
+Ici, on a une variable
+locale qui s'appelle | c | qui est
+
+00:00:40.550 --> 00:00:42.600 align:middle
+locale à la méthode, qui
+n'existe que pendant l'exécution
+
+00:00:43.110 --> 00:00:46.860 align:middle
+de la méthode et qui doit toujours
+commencer par une lettre minuscule.
+
+00:00:47.220 --> 00:00:49.360 align:middle
+On remarque au passage
+que tous les noms de classes
+
+00:00:49.820 --> 00:00:53.000 align:middle
+commencent par une lettre
+majuscule puisque les classes
+
+00:00:53.200 --> 00:00:55.020 align:middle
+sont partagées dans le système.
+
+00:00:57.890 --> 00:00:59.500 align:middle
+D'autres types de variables locales.
+
+00:01:00.920 --> 00:01:03.640 align:middle
+On a par exemple les
+variables d'instance d'un objet,
+
+00:01:03.840 --> 00:01:05.180 align:middle
+elles sont locales à un objet.
+
+00:01:05.470 --> 00:01:07.130 align:middle
+Ici, il y en a deux : x et y.
+
+00:01:07.330 --> 00:01:09.240 align:middle
+Elles doivent toujours
+commencer par une lettre minuscule.
+
+00:01:10.200 --> 00:01:14.100 align:middle
+En tant que variables
+locales, on a encore les arguments
+
+00:01:14.410 --> 00:01:19.190 align:middle
+des méthodes ici. On voit
+que aPoint, le a pour commencer
+
+00:01:19.390 --> 00:01:22.570 align:middle
+est en minuscule puisque cette
+variable est aussi locale à la méthode.
+
+00:01:23.000 --> 00:01:26.820 align:middle
+Et ensuite en variables locales, on a
+également les paramètres des blocks.
+
+00:01:27.140 --> 00:01:31.320 align:middle
+Donc ici, x:x.:x, c'est le
+nom d'une variable locale à
+
+00:01:32.140 --> 00:01:33.570 align:middle
+un argument de block.
+
+00:01:33.770 --> 00:01:37.000 align:middle
+Ici, elle commence bien par une
+
+00:01:39.240 --> 00:01:40.000 align:middle
+lettre minuscule.
+
+00:01:40.200 --> 00:01:44.210 align:middle
+Dans Pharo, on a six
+variables spécifiques qu'on appelle
+
+00:01:44.410 --> 00:01:46.490 align:middle
+des variables spéciales dont
+on ne peut pas changer le nom.
+
+00:01:47.230 --> 00:01:48.880 align:middle
+C'est des mots réservés du langage.
+
+00:01:49.080 --> 00:01:52.420 align:middle
+Pour l'anecdote, il en existe plus
+de cinquante en Java ou en JavaScript.
+
+00:01:52.850 --> 00:01:57.000 align:middle
+En Pharo, on n’en a que six: true,
+false, nil, self, super et thisContext.
+
+00:01:58.100 --> 00:01:59.700 align:middle
+On va voir à quoi
+correspondent ces mots réservés.
+
+00:02:00.470 --> 00:02:04.470 align:middle
+True et false sont des
+instances de booléens.
+
+00:02:04.670 --> 00:02:07.380 align:middle
+True, c'est l'unique
+instance la classe True.
+
+00:02:07.780 --> 00:02:09.630 align:middle
+False, c'est l'unique
+instance la classe False.
+
+00:02:09.830 --> 00:02:13.260 align:middle
+Nil, c'est l'unique instance
+de la classe UndefineObject.
+
+00:02:13.460 --> 00:02:17.370 align:middle
+True, false et nil sont des
+objets comme les autres sauf
+
+00:02:17.570 --> 00:02:19.160 align:middle
+qu'ils sont instances,
+c'est l'unique instance d'une
+
+00:02:19.360 --> 00:02:20.710 align:middle
+ classe particulière du système.
+
+00:02:21.920 --> 00:02:24.030 align:middle
+Ensuite on a trois pseudo variables.
+
+00:02:24.300 --> 00:02:28.280 align:middle
+Self qui désigne le receveur courant
+et qui est équivalent de this en java.
+
+00:02:28.910 --> 00:02:31.890 align:middle
+Super qui désigne toujours
+le receveur courant, mais
+
+00:02:32.090 --> 00:02:35.280 align:middle
+cette fois quand on envoie
+un message à travers super, ça
+
+00:02:35.480 --> 00:02:37.940 align:middle
+veut dire que la méthode
+lookup, l'algorithme de
+
+00:02:38.140 --> 00:02:40.260 align:middle
+sélection de méthode
+qu'on verra dans une séquence
+
+00:02:40.460 --> 00:02:43.320 align:middle
+suivante, va commencer dans
+la super classe dans laquelle
+
+00:02:43.710 --> 00:02:45.350 align:middle
+est écrit le mot-clef super.
+
+00:02:46.880 --> 00:02:49.750 align:middle
+Et thisContext, c'est une
+pseudo variable qui permet de
+
+00:02:49.950 --> 00:02:53.550 align:middle
+désigner l'objet qui réifie la
+pile d'exécution du programme.
+
+00:02:53.800 --> 00:02:57.080 align:middle
+C'est un concept un petit peu avancé
+qu'on verra tout à la fin de ce MOOC.
+
+00:02:58.830 --> 00:03:00.290 align:middle
+On l'expliquera plus tard.
+
+00:03:00.490 --> 00:03:02.730 align:middle
+Il faut juste savoir que c'est
+une pseudo variable qui existe.
+
+00:03:05.000 --> 00:03:07.870 align:middle
+Maintenant, les variables
+partagées, les variables globales.
+
+00:03:08.560 --> 00:03:11.330 align:middle
+On a pour commencer toutes
+les classes, tous les noms de
+
+00:03:11.530 --> 00:03:14.810 align:middle
+ classes commencent par une
+lettre majuscule puisque je
+
+00:03:15.010 --> 00:03:17.480 align:middle
+peux référencer une classe
+depuis n'importe où dans le système.
+
+00:03:18.520 --> 00:03:20.670 align:middle
+Attention, tout ce qui
+commence par une majuscule n'est
+
+00:03:20.870 --> 00:03:23.770 align:middle
+pas forcément une classe.
+Ici, je donne un exemple avec
+
+00:03:24.000 --> 00:03:28.140 align:middle
+Transcript, c'est le nom d'un objet
+
+00:03:28.420 --> 00:03:30.870 align:middle
+partagé dans le système,
+tout le monde peut référencer
+
+00:03:31.750 --> 00:03:34.350 align:middle
+cet objet et c'est
+la sortie standard.
+
+00:03:34.550 --> 00:03:36.880 align:middle
+C'est l'équivalent de
+stdout dans d'autres langages.
+
+00:03:37.230 --> 00:03:39.630 align:middle
+C'est un objet instance
+d'une classe, mais globalement
+
+00:03:39.830 --> 00:03:42.510 align:middle
+accessible donc son nom
+commence par une lettre majuscule.
+
+00:03:45.720 --> 00:03:48.840 align:middle
+On a également les
+variables de classes qui sont
+
+00:03:49.040 --> 00:03:52.030 align:middle
+déclarées ici au moment de la
+déclaration d'une classe dans classe VarNames.
+
+00:03:52.230 --> 00:03:56.000 align:middle
+Ici, la classe
+CombinedChar définit deux variables de
+
+00:03:56.340 --> 00:03:58.460 align:middle
+ classes: une qui s'appelle
+Compositions et une qui s'appelle
+
+00:03:58.660 --> 00:04:01.700 align:middle
+Decompositions ici. Ces
+deux variables de classes sont
+
+00:04:01.900 --> 00:04:04.180 align:middle
+accessibles à la fois par
+les instances de la classe
+
+00:04:04.380 --> 00:04:07.010 align:middle
+CombinedChar et à la
+fois par les instances des
+
+00:04:07.210 --> 00:04:10.430 align:middle
+sous-classes de la classe
+CombinedChar. C'est pour ça qu'on
+
+00:04:10.630 --> 00:04:12.710 align:middle
+parle de variables
+partagées, elles sont partagées par
+
+00:04:12.910 --> 00:04:14.610 align:middle
+toutes les instances de la
+ classe et de ses sous-classes
+
+00:04:15.690 --> 00:04:19.930 align:middle
+et elles commencent par une
+lettre majuscule toutes les deux.
+
+00:04:20.130 --> 00:04:22.650 align:middle
+En résumé ce qu'il faut
+retenir de cette séquence, c'est
+
+00:04:22.850 --> 00:04:25.860 align:middle
+que toutes les variables
+locales, locales à un objet,
+
+00:04:26.060 --> 00:04:28.340 align:middle
+locales à un block ou à une
+méthode, commencent par une
+
+00:04:28.540 --> 00:04:31.860 align:middle
+lettre minuscule et toutes
+les variables globales, donc
+
+00:04:32.060 --> 00:04:35.140 align:middle
+les noms de classes, etc.,
+commencent par une lettre majuscule.
+

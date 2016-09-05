@@ -1,0 +1,647 @@
+WEBVTT
+
+00:00:00.520 --> 00:00:03.800 align:middle
+Hi. During this class
+I'll be showing you exceptions,
+
+00:00:03.960 --> 00:00:06.400 align:middle
+which are really powerful in Pharo.
+I'll give you an overview.
+
+00:00:06.600 --> 00:00:09.160 align:middle
+What can we do with exceptions?
+We can resume them,
+
+00:00:09.520 --> 00:00:11.840 align:middle
+restart them,
+signal them as new exceptions.
+
+00:00:12.000 --> 00:00:16.240 align:middle
+I'm only going to show you
+things that will be useful in a practical way
+
+00:00:16.400 --> 00:00:17.840 align:middle
+when first using exceptions,
+
+00:00:18.000 --> 00:00:20.840 align:middle
+but it's important that you know
+that this isn't everything.
+
+00:00:21.000 --> 00:00:24.600 align:middle
+There are 2 kinds of exceptions,
+"Errors", which are often fatal
+
+00:00:24.760 --> 00:00:27.680 align:middle
+and "notifications"
+which we can say we don't need,
+
+00:00:27.840 --> 00:00:29.160 align:middle
+they're just for reference.
+
+00:00:30.320 --> 00:00:32.800 align:middle
+So, if you're interested in reading
+
+00:00:32.960 --> 00:00:35.800 align:middle
+a complete reference on exceptions
+
+00:00:35.960 --> 00:00:39.640 align:middle
+there's a whole chapter in the book,
+"Deep Into Pharo",
+
+00:00:39.800 --> 00:00:45.040 align:middle
+which is on the MOOC website
+and available free online.
+
+00:00:45.600 --> 00:00:50.640 align:middle
+So, what are you going to learn?
+To raise and trap exceptions,
+
+00:00:50.800 --> 00:00:54.400 align:middle
+and some nice helper methods
+we can use every day.
+
+00:00:54.960 --> 00:00:55.800 align:middle
+So basically,
+
+00:00:56.000 --> 00:00:58.440 align:middle
+everything about this class
+is on this page.
+
+00:00:58.800 --> 00:01:02.360 align:middle
+You're going to install a handler
+to trap an exception,
+
+00:01:02.520 --> 00:01:03.480 align:middle
+you'll signal them,
+
+00:01:03.640 --> 00:01:08.280 align:middle
+and we'll have 2 nice messages,
+which are "ensure" and "ifCurtailed"
+
+00:01:09.400 --> 00:01:11.280 align:middle
+So, let's take a look.
+
+00:01:11.840 --> 00:01:14.680 align:middle
+Imagine that I wanted
+to trap an exception.
+
+00:01:14.840 --> 00:01:16.880 align:middle
+It's the "on: do" message.
+
+00:01:17.040 --> 00:01:20.120 align:middle
+I make a block, if I've an action,
+when I have an action,
+
+00:01:20.280 --> 00:01:23.160 align:middle
+if ever I have an exception,
+what do I do?
+
+00:01:23.320 --> 00:01:27.280 align:middle
+"Something" and here is the exception,
+which is passed in argument.
+
+00:01:27.920 --> 00:01:31.520 align:middle
+If we look at an example
+of zero division,
+
+00:01:31.680 --> 00:01:34.960 align:middle
+if I do 7 divided by 0...
+
+00:01:35.600 --> 00:01:38.120 align:middle
+when I have a zero divide,
+what do I have to do?
+
+00:01:38.280 --> 00:01:41.640 align:middle
+I'll write, "Watch out,
+there's a zero divide."
+
+00:01:41.800 --> 00:01:47.160 align:middle
+The thing to notice here is that
+an instance of the Exception class
+
+00:01:48.360 --> 00:01:49.840 align:middle
+has been passed as an argument,
+
+00:01:50.000 --> 00:01:52.600 align:middle
+and I'll be able to question it
+and send it messages,
+
+00:01:52.760 --> 00:01:54.680 align:middle
+because exceptions
+are objects in Pharo.
+
+00:01:54.840 --> 00:01:56.600 align:middle
+I'll send messages in my exceptions
+
+00:01:56.760 --> 00:02:00.400 align:middle
+to do something and it will show me 0.
+
+00:02:00.800 --> 00:02:02.920 align:middle
+So how do we raise an exception?
+
+00:02:03.240 --> 00:02:07.400 align:middle
+Basically, we create an exception
+and we send it the signal message.
+
+00:02:07.560 --> 00:02:10.840 align:middle
+So here, when we want to give
+a warning I do, "Warning new".
+
+00:02:11.000 --> 00:02:15.240 align:middle
+I create an exception, customise it,
+I put the message I want inside,
+
+00:02:15.400 --> 00:02:16.760 align:middle
+and send the Signal message.
+
+00:02:16.920 --> 00:02:21.000 align:middle
+When I've an exception
+to be able to ask the author,
+
+00:02:21.160 --> 00:02:23.000 align:middle
+writing the method,
+
+00:02:23.160 --> 00:02:24.720 align:middle
+then you'll have another API,
+
+00:02:24.880 --> 00:02:28.240 align:middle
+because it's "AuthorNameRequest"
+that defines this API,
+
+00:02:28.400 --> 00:02:30.440 align:middle
+so I've passed "Stef"
+then I'll do "signal".
+
+00:02:30.600 --> 00:02:33.080 align:middle
+What usually happens
+is that the classes
+
+00:02:33.240 --> 00:02:38.040 align:middle
+propose shortcuts to avoid
+having to create, so I'm sending
+
+00:02:38.200 --> 00:02:41.640 align:middle
+"OutOfMemory", that's the class.
+I send the signal message to the class.
+
+00:02:41.800 --> 00:02:44.800 align:middle
+Normally, with warnings,
+I don't do "Warning new, blah, blah..."
+
+00:02:44.960 --> 00:02:48.840 align:middle
+I do "Warning signal" with the text,
+because it's shorter,
+
+00:02:49.000 --> 00:02:51.160 align:middle
+but that depends on your exceptions.
+
+00:02:51.720 --> 00:02:56.800 align:middle
+So, since we like agile
+programming with unit tests,
+
+00:02:57.000 --> 00:03:00.080 align:middle
+and test-driven programming,
+
+00:03:00.240 --> 00:03:04.440 align:middle
+how can we test that an exception
+is raised in SUnit?
+
+00:03:04.600 --> 00:03:08.840 align:middle
+We're going to use "shouldn't raise"
+and "should raise".
+
+00:03:09.000 --> 00:03:10.440 align:middle
+Let's read this together.
+
+00:03:10.600 --> 00:03:13.640 align:middle
+I want to say here,
+"Look out, I don't want
+
+00:03:13.800 --> 00:03:15.840 align:middle
+"an exception to be raised,
+
+00:03:16.000 --> 00:03:18.240 align:middle
+"for it to be a SubscriptOutOfBounds.
+
+00:03:18.400 --> 00:03:21.640 align:middle
+"if I create a date in February".
+
+00:03:21.800 --> 00:03:25.200 align:middle
+Now, if I want to test
+that I should have an error
+
+00:03:25.360 --> 00:03:29.040 align:middle
+when I create a date in the 13th month,
+
+00:03:29.200 --> 00:03:32.240 align:middle
+something you don't usually get,
+in your pay,
+
+00:03:32.400 --> 00:03:35.560 align:middle
+then I'll use "should raise",
+
+00:03:35.720 --> 00:03:37.080 align:middle
+which means, "Watch out,
+
+00:03:37.240 --> 00:03:40.960 align:middle
+"if you create a date in a 13th month,
+I'll raise an error".
+
+00:03:41.120 --> 00:03:44.000 align:middle
+That allows you to create the unit test,
+
+00:03:44.160 --> 00:03:46.280 align:middle
+while controlling exceptions.
+
+00:03:46.440 --> 00:03:48.400 align:middle
+It's a digression, but it's important
+
+00:03:48.560 --> 00:03:51.120 align:middle
+to know there are these
+2 little helper methods.
+
+00:03:52.120 --> 00:03:54.360 align:middle
+So, what are exceptions in Pharo?
+
+00:03:54.560 --> 00:03:56.040 align:middle
+There are errors:
+
+00:03:56.200 --> 00:03:59.360 align:middle
+"message not understood",
+"subscript", "division by zero",
+
+00:03:59.520 --> 00:04:03.280 align:middle
+you have "halt", which we'll look at
+when we come to debugging.
+
+00:04:03.440 --> 00:04:04.840 align:middle
+You can put a break point,
+
+00:04:05.000 --> 00:04:07.480 align:middle
+which will stop
+execution of the system.
+
+00:04:07.640 --> 00:04:10.760 align:middle
+You have notifications,
+everything non fatal,
+
+00:04:10.920 --> 00:04:15.400 align:middle
+so a deprecation,
+"don't use this method, use another",
+
+00:04:15.560 --> 00:04:16.880 align:middle
+warnings and timedout.
+
+00:04:17.040 --> 00:04:19.760 align:middle
+One nice thing is,
+you have an error message
+
+00:04:19.920 --> 00:04:22.240 align:middle
+which describes unhandled errors.
+
+00:04:22.400 --> 00:04:25.240 align:middle
+This is what raises the debugger.
+
+00:04:25.400 --> 00:04:28.680 align:middle
+We don't normally use it,
+but it's just to tell you
+
+00:04:28.840 --> 00:04:31.360 align:middle
+that unhandled errors
+are also a class of error.
+
+00:04:32.080 --> 00:04:34.720 align:middle
+Exceptions are real objects.
+
+00:04:34.920 --> 00:04:37.920 align:middle
+If we look at how the
+"doesNotUnderstand" message
+
+00:04:38.120 --> 00:04:41.600 align:middle
+is defined, you can see it
+in ProtoObject with your Pharo browser,
+
+00:04:41.760 --> 00:04:43.920 align:middle
+you do, "messageNotUnderstood new",
+
+00:04:44.080 --> 00:04:48.960 align:middle
+I send a message to the receiver,
+which is the object, and give a signal.
+
+00:04:49.120 --> 00:04:53.480 align:middle
+You get this signal when you send
+"point new strangeAndBizarre".
+
+00:04:53.640 --> 00:04:56.160 align:middle
+It's not known as a message,
+"strangeAndBizarre"
+
+00:04:56.320 --> 00:04:57.920 align:middle
+so it will create this exception.
+
+00:04:59.440 --> 00:05:01.880 align:middle
+We have deprecation,
+for example, which means,
+
+00:05:02.040 --> 00:05:05.040 align:middle
+if you use an API
+which evolves over time
+
+00:05:05.200 --> 00:05:08.200 align:middle
+and which Pharo has decided
+is no longer valid,
+
+00:05:08.360 --> 00:05:09.520 align:middle
+in fact...
+
+00:05:09.680 --> 00:05:15.000 align:middle
+How do we do that in Pharo?
+We say, "deprecated: on: in"
+
+00:05:15.160 --> 00:05:17.360 align:middle
+Here, I've chosen a clear example,
+
+00:05:17.520 --> 00:05:19.680 align:middle
+"menu, item, title"
+and what does it say?
+
+00:05:19.840 --> 00:05:23.880 align:middle
+"Use the method addTitle
+instead of "title".
+
+00:05:25.200 --> 00:05:26.960 align:middle
+How is it implemented?
+
+00:05:27.120 --> 00:05:30.480 align:middle
+It's implemented
+in the following way: "deprecated",
+
+00:05:30.640 --> 00:05:33.960 align:middle
+this, "create an exception",
+
+00:05:34.120 --> 00:05:35.280 align:middle
+which is called "deprecation"
+
+00:05:35.440 --> 00:05:39.960 align:middle
+within which I'll pass it
+"method, explanation, on, in",
+
+00:05:40.120 --> 00:05:42.680 align:middle
+which will give a signal.
+So it's just to show you that
+
+00:05:42.840 --> 00:05:46.800 align:middle
+"deprecation", "messageNotUnderstood",
+are exceptions we create and raise.
+
+00:05:48.320 --> 00:05:52.080 align:middle
+So this is just a detail,
+you can have exception sets.
+
+00:05:52.240 --> 00:05:54.960 align:middle
+You can say, "If I have ZeroDivide,
+and I have Warning,
+
+00:05:55.120 --> 00:05:59.080 align:middle
+or I have Warning,
+you're going to be able,
+
+00:05:59.240 --> 00:06:02.800 align:middle
+to contain the exceptions with a comma",
+which will create an exception set,
+
+00:06:02.960 --> 00:06:06.200 align:middle
+allowing you to say,
+"I want to react to all these exceptions".
+
+00:06:06.360 --> 00:06:11.000 align:middle
+It's very rarely used,
+it's just for completeness.
+
+00:06:11.720 --> 00:06:14.840 align:middle
+Now we're going to look at
+some very handy methods,
+
+00:06:15.520 --> 00:06:17.320 align:middle
+which we often use.
+
+00:06:17.480 --> 00:06:20.680 align:middle
+How can I ensure that
+an expression is always executed,
+
+00:06:20.840 --> 00:06:24.360 align:middle
+even if the program fails beforehand?
+
+00:06:24.520 --> 00:06:27.320 align:middle
+So the idea is "ensure".
+What does "ensure" do?
+
+00:06:27.480 --> 00:06:29.120 align:middle
+You do something,
+
+00:06:29.280 --> 00:06:33.520 align:middle
+and I guarantee that the other block
+will be executed.
+
+00:06:33.680 --> 00:06:38.800 align:middle
+It's very powerful,
+it lets you to close files automatically.
+
+00:06:39.400 --> 00:06:43.160 align:middle
+That's what we see in SpyOn,
+for the Pharo profiler.
+
+00:06:43.320 --> 00:06:46.680 align:middle
+There's a class on it.
+I say, " I'm starting profiling",
+
+00:06:46.840 --> 00:06:49.640 align:middle
+I execute the block I want to profile
+
+00:06:49.800 --> 00:06:52.160 align:middle
+and I guarantee myself
+I'll stop profiling,
+
+00:06:52.320 --> 00:06:55.200 align:middle
+even if you've passed me
+a block with an error.
+
+00:06:55.400 --> 00:06:57.480 align:middle
+There's another helper
+
+00:06:57.680 --> 00:07:00.000 align:middle
+which is really nice,
+which is how can I ensure
+
+00:07:00.160 --> 00:07:04.680 align:middle
+an expression is executed only
+if the program fails?
+
+00:07:05.440 --> 00:07:09.320 align:middle
+What I'll do is I'll say,
+"You do something if ever
+
+00:07:09.480 --> 00:07:13.880 align:middle
+"something strange happens,
+I want you to execute this code".
+
+00:07:14.040 --> 00:07:16.680 align:middle
+Here I've taken an example
+in "wait", which is really
+
+00:07:16.840 --> 00:07:20.800 align:middle
+very low level, which allows you
+to change the processor scheduling.
+
+00:07:21.520 --> 00:07:26.800 align:middle
+I say, "There's the system,
+schedule a semaphore,"
+
+00:07:26.960 --> 00:07:30.320 align:middle
+I do an operation and if ever
+something doesn't work,
+
+00:07:30.480 --> 00:07:32.520 align:middle
+the system guarantees
+
+00:07:32.680 --> 00:07:36.160 align:middle
+that I'll remove it from the scheduler.
+
+00:07:36.320 --> 00:07:40.080 align:middle
+These methods are really handy,
+because they're very powerful.
+
+00:07:40.480 --> 00:07:45.280 align:middle
+I've given you a slide to explain
+how the method lookup works,
+
+00:07:45.440 --> 00:07:47.120 align:middle
+in addition to the book.
+
+00:07:47.320 --> 00:07:48.480 align:middle
+Now...
+
+00:07:48.680 --> 00:07:50.440 align:middle
+just for your information,
+
+00:07:50.600 --> 00:07:53.600 align:middle
+the things we can do
+with exceptions in Pharo,
+
+00:07:53.760 --> 00:07:59.160 align:middle
+you can return an alternative result,
+you can retry, in fact.
+
+00:07:59.320 --> 00:08:01.320 align:middle
+You can change the execution
+of the program and say,
+
+00:08:01.480 --> 00:08:05.320 align:middle
+"Act as though
+the exception didn't happen".
+
+00:08:05.480 --> 00:08:07.800 align:middle
+I can resume,
+
+00:08:07.960 --> 00:08:11.600 align:middle
+I can say, "No, I don't want to deal
+with this exception at this level,
+
+00:08:11.760 --> 00:08:13.280 align:middle
+"I want to deal with it higher up".
+
+00:08:13.440 --> 00:08:14.920 align:middle
+I can resignal an exception,
+
+00:08:15.080 --> 00:08:18.840 align:middle
+"No, you raised this exception
+but it's old, I want a new one"
+
+00:08:19.000 --> 00:08:19.880 align:middle
+with resignal.
+
+00:08:20.040 --> 00:08:23.520 align:middle
+When you need this it means
+you know what you're doing,
+
+00:08:23.680 --> 00:08:28.400 align:middle
+and you've read the chapter,
+so just be aware that it exists.
+
+00:08:28.600 --> 00:08:30.520 align:middle
+This was just to show you.
+
+00:08:30.720 --> 00:08:33.600 align:middle
+I want to return another value
+from an exception, I do "return",
+
+00:08:33.760 --> 00:08:38.160 align:middle
+and you can see that here,
+I had my block which gave me this value.
+
+00:08:38.320 --> 00:08:41.400 align:middle
+I raised an exception, and in the end,
+
+00:08:41.560 --> 00:08:45.400 align:middle
+it's this value that was returned.
+That's with "return".
+
+00:08:45.560 --> 00:08:48.400 align:middle
+Now, with "resume",
+what you're going to have,
+
+00:08:48.560 --> 00:08:50.920 align:middle
+"resume" is...
+
+00:08:51.080 --> 00:08:54.240 align:middle
+I've my exception which is raised here,
+
+00:08:54.400 --> 00:08:58.560 align:middle
+and what I see is that,
+in my exception, when I do "resume",
+
+00:08:58.720 --> 00:09:02.120 align:middle
+it's not this value that's returned,
+it's the next value, so I say,
+
+00:09:02.280 --> 00:09:07.360 align:middle
+"Continue after the exception point",
+so start again from here,
+
+00:09:07.520 --> 00:09:10.120 align:middle
+and that will give me this value.
+
+00:09:11.240 --> 00:09:14.000 align:middle
+So now if we look at
+what you should know:
+
+00:09:14.200 --> 00:09:16.960 align:middle
+exceptions are powerful in Pharo,
+OK, great.
+
+00:09:17.120 --> 00:09:20.840 align:middle
+There's a very simple API,
+it's "signal" to raise an exception,
+
+00:09:21.000 --> 00:09:22.720 align:middle
+"on: do" to trap them,
+
+00:09:22.880 --> 00:09:27.880 align:middle
+and you have "ensure" to guarantee
+that this expression is always executed,
+
+00:09:28.040 --> 00:09:30.280 align:middle
+if I have a problem here or not,
+
+00:09:30.440 --> 00:09:32.720 align:middle
+and there's this expression,
+with "ifCurtailed",
+
+00:09:32.880 --> 00:09:35.720 align:middle
+which will execute "onProblem"
+if I've a problem in "doSomething".
+
+00:09:35.880 --> 00:09:38.760 align:middle
+That's all you need to know
+to get started with exceptions.
+

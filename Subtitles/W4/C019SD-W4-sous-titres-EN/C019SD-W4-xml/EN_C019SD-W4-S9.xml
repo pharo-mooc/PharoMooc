@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W4-S9</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:00:17" end="00:00:03:23" region="bottom">Hello! In this sequence,<br/>we'll learn more about Seaside,</p>
+            <p xml:id="p2" begin="00:00:04:02" end="00:00:06:10" region="bottom">especially the part<br/>that generates HTML.</p>
+            <p xml:id="p3" begin="00:00:07:14" end="00:00:10:17" region="bottom">You recall that all Seaside components</p>
+            <p xml:id="p4" begin="00:00:10:21" end="00:00:13:16" region="bottom">respond<br/>to "renderContentOn" messages.</p>
+            <p xml:id="p5" begin="00:00:14:03" end="00:00:18:16" region="bottom">This message is what enables us<br/>to generate the appropriate HTML code.</p>
+            <p xml:id="p6" begin="00:00:19:00" end="00:00:22:09" region="bottom">This method has a parameter<br/>named HTML.</p>
+            <p xml:id="p7" begin="00:00:23:03" end="00:00:27:00" region="bottom">It is an object instance<br/>of the WAHtmlCanvas class or subclass.</p>
+            <p xml:id="p8" begin="00:00:27:06" end="00:00:31:19" region="bottom">It is dedicated, offering the programmer<br/>an API to generate valid HTML.</p>
+            <p xml:id="p9" begin="00:00:32:03" end="00:00:34:18" region="bottom">Our counter code is here.</p>
+            <p xml:id="p10" begin="00:00:34:22" end="00:00:39:22" region="bottom">The html object here is used to generate<br/>headings, anchors, spaces, etc.</p>
+            <p xml:id="p11" begin="00:00:40:23" end="00:00:44:10" region="bottom">Today's sequence<br/>goes further into this language.</p>
+            <p xml:id="p12" begin="00:00:46:04" end="00:00:50:10" region="bottom">The dedicated language<br/>is made up of "brushes."</p>
+            <p xml:id="p13" begin="00:00:50:22" end="00:00:55:18" region="bottom">Each brush is dedicated to generating<br/>a particular HTML tag.</p>
+            <p xml:id="p14" begin="00:00:56:03" end="00:00:59:07" region="bottom">The API is object-oriented.</p>
+            <p xml:id="p15" begin="00:01:01:06" end="00:01:05:02" region="bottom">Its very construction,<br/>using message-sending to objects,</p>
+            <p xml:id="p16" begin="00:01:05:10" end="00:01:09:02" region="bottom">guarantees the validity<br/>of the HTML code,</p>
+            <p xml:id="p17" begin="00:01:09:08" end="00:01:12:15" region="bottom">unless we have made<br/>a messaging error.</p>
+            <p xml:id="p18" begin="00:01:15:00" end="00:01:18:13" region="bottom">Here's an example,<br/>using the dedicated language.</p>
+            <p xml:id="p19" begin="00:01:19:04" end="00:01:22:03" region="bottom">I send the html object<br/>the message "div"</p>
+            <p xml:id="p20" begin="00:01:22:09" end="00:01:24:04" region="bottom">which will render one object.</p>
+            <p xml:id="p21" begin="00:01:24:22" end="00:01:28:07" region="bottom">This object is a brush<br/>dedicated to generating</p>
+            <p xml:id="p22" begin="00:01:29:13" end="00:01:31:12" region="bottom">html div codes.</p>
+            <p xml:id="p23" begin="00:01:31:16" end="00:01:34:03" region="bottom">It includes the "id" message,</p>
+            <p xml:id="p24" begin="00:01:34:16" end="00:01:36:13" region="bottom">and the message "with."</p>
+            <p xml:id="p25" begin="00:01:37:01" end="00:01:41:18" region="bottom">This generates a div with the attribute<br/>id = title.</p>
+            <p xml:id="p26" begin="00:01:41:23" end="00:01:47:18" region="bottom">The character string identified<br/>as Title will be part of the div.</p>
+            <p xml:id="p27" begin="00:01:49:08" end="00:01:53:06" region="bottom">I can generate<br/>more complex things.</p>
+            <p xml:id="p28" begin="00:01:54:05" end="00:01:56:20" region="bottom">The beginning is the same:<br/>html div id list.</p>
+            <p xml:id="p29" begin="00:01:57:02" end="00:01:59:01" region="bottom">This is my div line.</p>
+            <p xml:id="p30" begin="00:01:59:19" end="00:02:02:14" region="bottom">But I can put lots of other tags<br/>inside the div.</p>
+            <p xml:id="p31" begin="00:02:02:22" end="00:02:07:10" region="bottom">Instead of sending a character string<br/>to "with," I send a script.</p>
+            <p xml:id="p32" begin="00:02:07:23" end="00:02:11:02" region="bottom">Within that script,<br/>I can reuse my html object</p>
+            <p xml:id="p33" begin="00:02:11:08" end="00:02:13:20" region="bottom">and other brushes<br/>to generate other tags.</p>
+            <p xml:id="p34" begin="00:02:13:24" end="00:02:16:09" region="bottom">With "html span class item"</p>
+            <p xml:id="p35" begin="00:02:16:13" end="00:02:21:02" region="bottom">I generate a span<br/>with a class attribute and content.</p>
+            <p xml:id="p36" begin="00:02:24:09" end="00:02:26:15" region="bottom">Now I can use loops.</p>
+            <p xml:id="p37" begin="00:02:26:24" end="00:02:29:20" region="bottom">This DSL is as powerful as Pharo.</p>
+            <p xml:id="p38" begin="00:02:29:24" end="00:02:34:03" region="bottom">Here, I generate an unorderedList.</p>
+            <p xml:id="p39" begin="00:02:35:06" end="00:02:37:04" region="bottom">It's abbreviated "ul."</p>
+            <p xml:id="p40" begin="00:02:38:01" end="00:02:40:09" region="bottom">It has an id list attribute.</p>
+            <p xml:id="p41" begin="00:02:40:13" end="00:02:43:22" region="bottom">I have list items<br/>inside the unordered list.</p>
+            <p xml:id="p42" begin="00:02:44:03" end="00:02:45:18" region="bottom">They are here.</p>
+            <p xml:id="p43" begin="00:02:46:02" end="00:02:49:00" region="bottom">Only I generated them<br/>using a loop.</p>
+            <p xml:id="p44" begin="00:02:49:12" end="00:02:52:09" region="bottom">I have a "to do 1 to 5" loop.</p>
+            <p xml:id="p45" begin="00:02:53:05" end="00:02:56:15" region="bottom">A classic Pharo loop.<br/>I generate 5 list items</p>
+            <p xml:id="p46" begin="00:02:57:00" end="00:03:00:16" region="bottom">with an attribute<br/>class... item...</p>
+            <p xml:id="p47" begin="00:03:00:20" end="00:03:03:16" region="bottom">followed by the name<br/>of each list item.</p>
+            <p xml:id="p48" begin="00:03:03:23" end="00:03:06:17" region="bottom">I have concatenated the loop cursor.</p>
+            <p xml:id="p49" begin="00:03:08:01" end="00:03:10:02" region="bottom">Item 1, Item 2, Item 3, etc.</p>
+            <p xml:id="p50" begin="00:03:12:15" end="00:03:14:17" region="bottom">We can go one notch farther,</p>
+            <p xml:id="p51" begin="00:03:14:21" end="00:03:17:19" region="bottom">and code<br/>for a different class selector CSS</p>
+            <p xml:id="p52" begin="00:03:18:12" end="00:03:20:11" region="bottom">for each list item,</p>
+            <p xml:id="p53" begin="00:03:20:22" end="00:03:23:15" region="bottom">depending on an odd or even loop cursor.</p>
+            <p xml:id="p54" begin="00:03:24:10" end="00:03:28:12" region="bottom">Typically, here, for example,<br/>I use the message .class: if:</p>
+            <p xml:id="p55" begin="00:03:28:24" end="00:03:33:03" region="bottom">That means "add this class<br/>if the following condition is true."</p>
+            <p xml:id="p56" begin="00:03:33:08" end="00:03:36:24" region="bottom">Here's the one for "even."</p>
+            <p xml:id="p57" begin="00:03:37:08" end="00:03:41:01" region="bottom">You can see that in the generated code,<br/>the first list item</p>
+            <p xml:id="p58" begin="00:03:41:12" end="00:03:43:10" region="bottom">has this particular class CSS.</p>
+            <p xml:id="p59" begin="00:03:43:20" end="00:03:44:22" region="bottom">"itemodd."</p>
+            <p xml:id="p60" begin="00:03:45:01" end="00:03:48:18" region="bottom">The second item has this CSS class:<br/>even.</p>
+            <p xml:id="p61" begin="00:03:49:01" end="00:03:52:02" region="bottom">This one is even, this one is odd,<br/>etc., etc.</p>
+            <p xml:id="p62" begin="00:03:52:20" end="00:03:54:22" region="bottom">The syntax is concise.</p>
+            <p xml:id="p63" begin="00:03:55:05" end="00:03:59:05" region="bottom">It packs all the power of Pharo<br/>to generate HTML using a DSL.</p>
+            <p xml:id="p64" begin="00:04:00:18" end="00:04:03:09" region="bottom">Another feature<br/>of this dedicated language</p>
+            <p xml:id="p65" begin="00:04:03:13" end="00:04:04:16" region="bottom">is extensibility.</p>
+            <p xml:id="p66" begin="00:04:04:20" end="00:04:07:18" region="bottom">It is easy to make it support<br/>modern CSS frameworks</p>
+            <p xml:id="p67" begin="00:04:07:22" end="00:04:10:06" region="bottom">like Bootstrap, for example.</p>
+            <p xml:id="p68" begin="00:04:10:19" end="00:04:12:23" region="bottom">This CSS framework<br/>uses CSS classes</p>
+            <p xml:id="p69" begin="00:04:13:04" end="00:04:16:17" region="bottom">to generate attractive HTML elements,</p>
+            <p xml:id="p70" begin="00:04:16:21" end="00:04:19:11" region="bottom">like green or blue backgrounds, etc.</p>
+            <p xml:id="p71" begin="00:04:20:02" end="00:04:23:05" region="bottom">How do we go about<br/>extending the dedicated language?</p>
+            <p xml:id="p72" begin="00:04:23:09" end="00:04:26:17" region="bottom">We have special brushes<br/>like the one here.</p>
+            <p xml:id="p73" begin="00:04:27:00" end="00:04:30:22" region="bottom">They all have a "tbs" prefix,<br/>meaning "twitter bootstrap."</p>
+            <p xml:id="p74" begin="00:04:31:04" end="00:04:34:14" region="bottom">I send the message "tbsAlert"<br/>to my HTML object.</p>
+            <p xml:id="p75" begin="00:04:34:22" end="00:04:38:11" region="bottom">That means "generate an HTML div<br/>or element</p>
+            <p xml:id="p76" begin="00:04:38:15" end="00:04:41:17" region="bottom">"compliant with<br/>the Twitter Bootstrap framework."</p>
+            <p xml:id="p77" begin="00:04:43:11" end="00:04:48:21" region="bottom">Many brushes will refer<br/>to the TBS framework.</p>
+            <p xml:id="p78" begin="00:04:49:00" end="00:04:52:18" region="bottom">I can render Twitter buttons<br/>with "tbsButton."</p>
+            <p xml:id="p79" begin="00:04:52:22" end="00:04:55:08" region="bottom">And TBS button groups, this way.</p>
+            <p xml:id="p80" begin="00:04:55:12" end="00:05:00:24" region="bottom">You can see that these three buttons<br/>all belong to one group.</p>
+            <p xml:id="p81" begin="00:05:02:12" end="00:05:06:21" region="bottom">To return to the example<br/>of the counter, from last session:</p>
+            <p xml:id="p82" begin="00:05:07:05" end="00:05:08:24" region="bottom">We defined a simple counter.</p>
+            <p xml:id="p83" begin="00:05:09:06" end="00:05:12:10" region="bottom">Now I'll make<br/>a Twitter Bootstrap version of it.</p>
+            <p xml:id="p84" begin="00:05:12:15" end="00:05:16:19" region="bottom">It's very easy. I make a subclass<br/>of my earlier counter,</p>
+            <p xml:id="p85" begin="00:05:16:23" end="00:05:18:21" region="bottom">called "WATwitterCounter."</p>
+            <p xml:id="p86" begin="00:05:19:14" end="00:05:22:08" region="bottom">I go to the "class" side</p>
+            <p xml:id="p87" begin="00:05:24:10" end="00:05:25:19" region="bottom">of this class</p>
+            <p xml:id="p88" begin="00:05:26:03" end="00:05:29:13" region="bottom">and define the method<br/>"initialize," which specifies:</p>
+            <p xml:id="p89" begin="00:05:29:17" end="00:05:34:07" region="bottom">"this component will be using<br/>the TBS development library."</p>
+            <p xml:id="p90" begin="00:05:34:15" end="00:05:39:08" region="bottom">Here is TBSDevelopmentLibrary<br/>and JQDevelopmentLibrary.</p>
+            <p xml:id="p91" begin="00:05:39:20" end="00:05:42:15" region="bottom">Those are Javascript<br/>and CSS frameworks.</p>
+            <p xml:id="p92" begin="00:05:45:24" end="00:05:49:22" region="bottom">Next, I'll return to the instance side<br/>of this class.</p>
+            <p xml:id="p93" begin="00:05:50:01" end="00:05:52:15" region="bottom">I'll define a new<br/>renderContentOn method,</p>
+            <p xml:id="p94" begin="00:05:52:19" end="00:05:54:24" region="bottom">redefining the preceding one.</p>
+            <p xml:id="p95" begin="00:05:55:06" end="00:05:58:01" region="bottom">All my brushes will begin with tbs.</p>
+            <p xml:id="p96" begin="00:05:58:17" end="00:06:02:02" region="bottom">"tbsButtonGroup," "tbsButton,"<br/>etc., etc.</p>
+            <p xml:id="p97" begin="00:06:02:11" end="00:06:05:00" region="bottom">But this doesn't change<br/>my regular code,</p>
+            <p xml:id="p98" begin="00:06:05:04" end="00:06:08:14" region="bottom">still consisting of callbacks<br/>with "self increase"</p>
+            <p xml:id="p99" begin="00:06:09:08" end="00:06:11:02" region="bottom">and "self decrease."</p>
+            <p xml:id="p100" begin="00:06:11:09" end="00:06:13:00" region="bottom">It doesn't change a thing.</p>
+            <p xml:id="p101" begin="00:06:14:02" end="00:06:18:07" region="bottom">The only parts that use TBS<br/>are the HTML rendering brushes.</p>
+            <p xml:id="p102" begin="00:06:19:16" end="00:06:22:11" region="bottom">Now we'll see<br/>what my new counter looks like.</p>
+            <p xml:id="p103" begin="00:06:22:15" end="00:06:26:13" region="bottom">The plus and minus buttons<br/>are together in my Button Group.</p>
+            <p xml:id="p104" begin="00:06:26:17" end="00:06:29:04" region="bottom">And counter value is displayed<br/>on a badge,</p>
+            <p xml:id="p105" begin="00:06:29:10" end="00:06:31:11" region="bottom">in this Bootstrap version.</p>
+            <p xml:id="p106" begin="00:06:34:14" end="00:06:37:17" region="bottom">You can go even farther,<br/>beyond Bootstrap.</p>
+            <p xml:id="p107" begin="00:06:37:21" end="00:06:40:23" region="bottom">You can define your own style rules.</p>
+            <p xml:id="p108" begin="00:06:41:02" end="00:06:44:06" region="bottom">For example, here, I decided to say</p>
+            <p xml:id="p109" begin="00:06:44:21" end="00:06:48:05" region="bottom">that I want all "odd" elements</p>
+            <p xml:id="p110" begin="00:06:48:18" end="00:06:50:20" region="bottom">to be in the "odd" class.</p>
+            <p xml:id="p111" begin="00:06:51:16" end="00:06:56:10" region="bottom">Every time I render the counter value<br/>here, as a TBS badge...</p>
+            <p xml:id="p112" begin="00:06:56:22" end="00:07:00:23" region="bottom">That is, the counter value<br/>will be displayed...</p>
+            <p xml:id="p113" begin="00:07:01:12" end="00:07:05:03" region="bottom">But I'm adding the CSS class "odd"</p>
+            <p xml:id="p114" begin="00:07:05:16" end="00:07:07:21" region="bottom">only if the value is odd.</p>
+            <p xml:id="p115" begin="00:07:10:19" end="00:07:14:15" region="bottom">The CSS class is added<br/>only if this condition is true.</p>
+            <p xml:id="p116" begin="00:07:16:05" end="00:07:18:15" region="bottom">I defined the CSS class "odd"</p>
+            <p xml:id="p117" begin="00:07:18:19" end="00:07:21:20" region="bottom">by defining the method "style"<br/>on my counter.</p>
+            <p xml:id="p118" begin="00:07:21:24" end="00:07:25:20" region="bottom">It will render a character string<br/>according to CSS style rules.</p>
+            <p xml:id="p119" begin="00:07:25:24" end="00:07:29:02" region="bottom">".odd color: red"<br/>will make the counter red</p>
+            <p xml:id="p120" begin="00:07:29:11" end="00:07:30:12" region="bottom">for odd numbers.</p>
+            <p xml:id="p121" begin="00:07:31:09" end="00:07:32:09" region="bottom">To sum up:</p>
+            <p xml:id="p122" begin="00:07:32:23" end="00:07:37:05" region="bottom">A web application is a root component.<br/>Seaside is a root component.</p>
+            <p xml:id="p123" begin="00:07:37:19" end="00:07:42:05" region="bottom">All components can be rendered<br/>in HTML using renderContentOn.</p>
+            <p xml:id="p124" begin="00:07:42:11" end="00:07:47:07" region="bottom">And we have a dedicated language<br/>that is powerful and extensible.</p>
+            <p xml:id="p125" begin="00:07:47:20" end="00:07:52:03" region="bottom">It enables us to generate HTML<br/>easily, using brushes,</p>
+            <p xml:id="p126" begin="00:07:52:17" end="00:07:57:07" region="bottom">and an extensibility that supports<br/>existing CSS frameworks</p>
+            <p xml:id="p127" begin="00:07:57:11" end="00:07:59:13" region="bottom">like Bootstrap, JQuery, UI, etc.</p>
+            <p xml:id="p128" begin="00:08:00:20" end="00:08:04:18" region="bottom">You can take advantage<br/>of Pharo's scripting powers like loops,</p>
+            <p xml:id="p129" begin="00:08:05:05" end="00:08:07:21" region="bottom">to generate arrays of elements<br/>easily.</p>
+        </div>
+    </body>
+</tt>

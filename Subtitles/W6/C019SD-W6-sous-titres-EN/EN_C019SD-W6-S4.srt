@@ -1,0 +1,677 @@
+﻿1
+00:00:00,680 --> 00:00:01,800
+Hello.
+
+2
+00:00:01,960 --> 00:00:04,640
+Today we are going
+to talk about messages.
+
+3
+00:00:04,800 --> 00:00:08,800
+You'll see why having lots of messages
+and small methods is good.
+
+4
+00:00:08,960 --> 00:00:11,520
+Contrary to what
+many developers believe.
+
+5
+00:00:12,640 --> 00:00:16,120
+This slide illustrates
+a design sequence.
+
+6
+00:00:16,640 --> 00:00:18,920
+This is valid not only for Pharo,
+
+7
+00:00:19,080 --> 00:00:22,280
+but for design
+in any object-oriented language.
+
+8
+00:00:23,800 --> 00:00:27,240
+As you know,
+message sends are hooks,
+
+9
+00:00:27,400 --> 00:00:30,640
+places where we can define behavior.
+
+10
+00:00:30,840 --> 00:00:35,680
+Developers often say
+that they like big methods because
+
+11
+00:00:35,840 --> 00:00:37,760
+they're easy to understand.
+
+12
+00:00:37,920 --> 00:00:41,480
+You read the lines
+and you understand the code.
+
+13
+00:00:41,640 --> 00:00:44,320
+But in this session I will show you
+
+14
+00:00:44,480 --> 00:00:46,720
+that this is not such a good thing.
+
+15
+00:00:46,880 --> 00:00:50,080
+In general,
+big methods mean bad design.
+
+16
+00:00:51,280 --> 00:00:53,120
+A hierarchy of classes
+
+17
+00:00:53,280 --> 00:00:56,280
+and a same method
+implemented in several classes,
+
+18
+00:00:56,440 --> 00:00:58,480
+is one means of defining choices.
+
+19
+00:00:59,000 --> 00:01:02,960
+If I take a fat class
+with lots of operations,
+
+20
+00:01:03,120 --> 00:01:07,320
+and I have to choose
+an operation according to status,
+
+21
+00:01:07,480 --> 00:01:11,240
+my code will say: "If I'm in this state,
+I do this operation.
+
+22
+00:01:11,400 --> 00:01:13,960
+"If I'm in that state,
+I do that operation."
+
+23
+00:01:14,120 --> 00:01:16,680
+You'll have big codes
+
+24
+00:01:16,840 --> 00:01:19,360
+with IFs all over the place.
+
+25
+00:01:19,520 --> 00:01:22,520
+This means that
+when you want to add new cases,
+
+26
+00:01:22,680 --> 00:01:25,040
+you have to modify methods everywhere.
+
+27
+00:01:25,400 --> 00:01:28,400
+In the version on the right-hand side,
+
+28
+00:01:29,200 --> 00:01:33,880
+the operation for each case
+is divided into a specific class.
+
+29
+00:01:34,240 --> 00:01:38,040
+All you have to do
+is send an operation message
+
+30
+00:01:38,320 --> 00:01:41,280
+to an object to create an IF.
+
+31
+00:01:41,440 --> 00:01:45,320
+The IF does not need to be written
+by the programmer.
+
+32
+00:01:46,640 --> 00:01:50,480
+It's done automatically
+via the polymorphism principle.
+
+33
+00:01:50,640 --> 00:01:55,920
+In the following slides, I'll show you
+how to improve one example
+
+34
+00:01:56,080 --> 00:01:58,120
+by changing small bits at a time.
+
+35
+00:01:58,640 --> 00:02:01,760
+Here is a big method
+that is not easy to understand
+
+36
+00:02:01,920 --> 00:02:03,480
+and which does many things.
+
+37
+00:02:03,640 --> 00:02:05,560
+Here's what we want to do.
+
+38
+00:02:06,280 --> 00:02:07,640
+In a subclass,
+
+39
+00:02:07,800 --> 00:02:11,840
+we want to give this variable here
+a different value.
+
+40
+00:02:12,800 --> 00:02:14,720
+As it's set up,
+
+41
+00:02:14,880 --> 00:02:18,000
+the only way to do that
+is to create the subclass,
+
+42
+00:02:18,160 --> 00:02:20,920
+then duplicate all of the code,
+
+43
+00:02:21,080 --> 00:02:24,080
+adding the small modification
+you want to make.
+
+44
+00:02:24,920 --> 00:02:27,480
+In languages like Java
+
+45
+00:02:27,640 --> 00:02:29,160
+that use private keywords,
+
+46
+00:02:29,320 --> 00:02:32,560
+if the attributes
+used by the method are private,
+
+47
+00:02:32,720 --> 00:02:34,760
+what I just did is impossible.
+
+48
+00:02:35,000 --> 00:02:39,040
+If the method uses
+instance variables that are private,
+
+49
+00:02:39,200 --> 00:02:42,520
+subclasses cannot duplicate code.
+
+50
+00:02:42,880 --> 00:02:46,960
+But in any case,
+duplicating is not good practice,
+
+51
+00:02:47,480 --> 00:02:50,120
+because duplication copies bugs too.
+
+52
+00:02:50,280 --> 00:02:54,560
+If I have a bug in my original version,
+I'll have a bug in my copies.
+
+53
+00:02:55,800 --> 00:03:00,640
+And if I modify one copy,
+I have to modify every duplication.
+
+54
+00:03:01,520 --> 00:03:03,760
+It's extra work for the developer
+
+55
+00:03:03,920 --> 00:03:07,200
+and you must remember
+that there are various copies.
+
+56
+00:03:08,760 --> 00:03:11,960
+The real solution is sending messages.
+
+57
+00:03:12,320 --> 00:03:16,560
+In a method, when you send a message
+rather than writing
+
+58
+00:03:16,720 --> 00:03:20,160
+the content of the
+corresponding method directly inside,
+
+59
+00:03:20,320 --> 00:03:22,920
+subclasses can override behavior.
+
+60
+00:03:24,160 --> 00:03:26,640
+If we look at the bar method,
+
+61
+00:03:26,800 --> 00:03:28,680
+it sends foo to self.
+
+62
+00:03:28,840 --> 00:03:30,960
+In A, foo returns 10,
+
+63
+00:03:31,120 --> 00:03:33,880
+but the subclasses
+can override this value
+
+64
+00:03:34,040 --> 00:03:36,600
+and replace it with 42, for example.
+
+65
+00:03:37,240 --> 00:03:40,720
+So how can we improve
+the code you just saw
+
+66
+00:03:40,880 --> 00:03:44,360
+and benefit from
+the inheritance mechanism
+
+67
+00:03:44,520 --> 00:03:46,320
+without using duplication?
+
+68
+00:03:46,480 --> 00:03:50,520
+I'm going to extract this part here
+and send a message instead.
+
+69
+00:03:50,680 --> 00:03:54,200
+It's done by a refactoring function
+called extract method.
+
+70
+00:03:54,360 --> 00:03:58,080
+You have tools to transform this code
+into this code here.
+
+71
+00:03:59,200 --> 00:04:01,960
+The code I selected
+in the previous slide
+
+72
+00:04:02,120 --> 00:04:06,240
+was transferred
+into a new method called ratio.
+
+73
+00:04:07,800 --> 00:04:12,320
+And here where the code was written,
+we now have a message send.
+
+74
+00:04:13,240 --> 00:04:15,880
+This means that in the subclasses,
+
+75
+00:04:17,000 --> 00:04:20,360
+I can change this behavior.
+
+76
+00:04:20,520 --> 00:04:22,440
+Either change it completely
+
+77
+00:04:22,600 --> 00:04:26,640
+or recall the behavior of the superclass
+and make a modification.
+
+78
+00:04:26,800 --> 00:04:28,560
+That's what I'm doing here.
+
+79
+00:04:28,720 --> 00:04:30,720
+I send a ratio message to super
+
+80
+00:04:30,880 --> 00:04:34,760
+to execute the code as it is
+in the superclass,
+
+81
+00:04:34,920 --> 00:04:37,720
+and I add 10,
+which is what my goal was.
+
+82
+00:04:39,880 --> 00:04:44,760
+Another possible method
+is to extract this part here,
+
+83
+00:04:44,920 --> 00:04:49,440
+so that the subclasses
+can change this behavior.
+
+84
+00:04:50,360 --> 00:04:53,160
+I extract this piece of code
+
+85
+00:04:53,320 --> 00:04:55,640
+into a specific method.
+
+86
+00:04:56,200 --> 00:04:59,440
+And in the primary method,
+I send a message.
+
+87
+00:05:02,120 --> 00:05:03,240
+In this case,
+
+88
+00:05:03,480 --> 00:05:07,520
+the class we want
+an instance variable for is in hardcode.
+
+89
+00:05:07,680 --> 00:05:11,400
+This means that if the subclasses
+want to change this class,
+
+90
+00:05:11,560 --> 00:05:14,160
+to potentially get a UINode subclass,
+
+91
+00:05:14,320 --> 00:05:17,280
+it will have to duplicate
+the entire method.
+
+92
+00:05:17,440 --> 00:05:19,600
+Here we can use the same process
+
+93
+00:05:19,760 --> 00:05:23,440
+and extract the class into a method,
+
+94
+00:05:23,600 --> 00:05:27,040
+so that the subclasses
+can change the instance variable.
+
+95
+00:05:27,200 --> 00:05:28,840
+That's what I'm doing here.
+
+96
+00:05:29,000 --> 00:05:32,440
+I extract the part that interests me
+into a method,
+
+97
+00:05:34,720 --> 00:05:36,760
+and I send a message.
+
+98
+00:05:36,920 --> 00:05:40,560
+Sending a message enables the subclasses
+to change behavior.
+
+99
+00:05:40,920 --> 00:05:43,760
+Like I said earlier,
+certain programmers
+
+100
+00:05:43,920 --> 00:05:46,440
+do not agree with this approach.
+
+101
+00:05:47,120 --> 00:05:51,520
+They find it difficult to read lots of
+small, spread out methods.
+
+102
+00:05:51,680 --> 00:05:54,280
+They'd rather read a big method
+line by line.
+
+103
+00:05:54,440 --> 00:05:58,200
+This isn't good practice,
+because reading code line by line
+
+104
+00:05:58,360 --> 00:06:01,400
+won't work
+if the application is very big.
+
+105
+00:06:01,560 --> 00:06:05,640
+You can't read line by line
+and understand what's going on.
+
+106
+00:06:05,800 --> 00:06:10,440
+This is where abstractions are useful
+and extracting bits of behavior
+
+107
+00:06:10,600 --> 00:06:13,040
+or expressions from methods
+makes sense.
+
+108
+00:06:13,200 --> 00:06:17,320
+You can read a method globally
+without understanding every detail.
+
+109
+00:06:18,040 --> 00:06:21,520
+So little methods are good,
+you should use them everywhere.
+
+110
+00:06:22,400 --> 00:06:24,920
+Let's carry on.
+
+111
+00:06:26,160 --> 00:06:30,240
+Here we see that
+the value 55 appears in hardcode
+
+112
+00:06:30,400 --> 00:06:31,800
+in the method code.
+
+113
+00:06:31,960 --> 00:06:36,000
+This means the subclasses
+cannot change to 100, for example.
+
+114
+00:06:36,160 --> 00:06:40,480
+So we will extract this value
+like we did previously,
+
+115
+00:06:41,800 --> 00:06:46,600
+and put it in a separate method so that
+the subclasses can change the value.
+
+116
+00:06:47,440 --> 00:06:50,120
+Another advantage is that previously
+
+117
+00:06:50,280 --> 00:06:52,520
+the value 55 was written here.
+
+118
+00:06:52,680 --> 00:06:54,720
+Now it's called self averageRatio.
+
+119
+00:06:54,880 --> 00:06:58,560
+This means we replaced
+a numerical value by a name,
+
+120
+00:06:58,720 --> 00:07:02,200
+and I now know what
+the value 55 corresponds to.
+
+121
+00:07:02,360 --> 00:07:07,440
+I know it means averageRatio
+and when I read the code, I understand.
+
+122
+00:07:07,600 --> 00:07:11,240
+So having many small methods
+helps to read the code.
+
+123
+00:07:11,680 --> 00:07:14,800
+Creating an averageRatio method
+to return 55
+
+124
+00:07:14,960 --> 00:07:17,720
+enables all subclasses
+to change values.
+
+125
+00:07:17,880 --> 00:07:21,640
+But how can we let class users
+change their value too?
+
+126
+00:07:22,000 --> 00:07:23,360
+What we can do,
+
+127
+00:07:23,520 --> 00:07:25,840
+is use an instance variable.
+
+128
+00:07:26,640 --> 00:07:30,600
+The averageRatio method
+used in the previous slide
+
+129
+00:07:30,760 --> 00:07:33,920
+will return the value
+of the instance variable,
+
+130
+00:07:34,080 --> 00:07:38,480
+if it contains a value.
+If not, it returns the default value.
+
+131
+00:07:38,800 --> 00:07:40,920
+The default value was 55.
+
+132
+00:07:41,640 --> 00:07:45,120
+And the users of a node object
+
+133
+00:07:45,280 --> 00:07:48,080
+can program
+whatever value they like inside.
+
+134
+00:07:48,240 --> 00:07:49,680
+With this design,
+
+135
+00:07:49,840 --> 00:07:54,520
+subclasses can override
+the defaultAverageRatio
+
+136
+00:07:55,000 --> 00:07:56,320
+and change the value.
+
+137
+00:07:56,480 --> 00:08:01,120
+And class users can set a value
+by executing the program.
+
+138
+00:08:01,640 --> 00:08:04,360
+This is called
+gruyere-oriented programming.
+
+139
+00:08:05,400 --> 00:08:09,440
+An object-oriented program,
+a WIN method,
+
+140
+00:08:09,600 --> 00:08:12,200
+contains holes called hooks,
+
+141
+00:08:12,360 --> 00:08:15,960
+which can be filled with subclasses.
+
+142
+00:08:16,800 --> 00:08:18,320
+As a conclusion,
+
+143
+00:08:18,480 --> 00:08:22,280
+code can be reused
+and refined in subclasses.
+
+144
+00:08:22,440 --> 00:08:25,280
+Each time we send a message,
+
+145
+00:08:25,440 --> 00:08:29,240
+subclasses can change
+the behavior of the superclass:
+
+146
+00:08:29,400 --> 00:08:31,600
+Refine it or completely change it.
+
+147
+00:08:32,560 --> 00:08:37,760
+Small methods are great because
+they give names to bits of expressions,
+
+148
+00:08:38,080 --> 00:08:42,560
+and because they give subclasses
+the freedom to change behavior.

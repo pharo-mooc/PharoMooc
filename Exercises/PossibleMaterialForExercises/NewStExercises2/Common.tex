@@ -1,0 +1,46 @@
+\documentclass{report}\usepackage{times}\usepackage{epsfig}\usepackage{alltt}\usepackage{xspace}\usepackage{graphicx}\usepackage{ifpdf}
+\usepackage{ifthen}
+\usepackage{amsmath}
+\usepackage{a4wide}
+
+\graphicspath{{figures/}} 
+
+\ifpdf
+\DeclareGraphicsExtensions{.pdf, .jpg, .tif, .png}
+\else
+\DeclareGraphicsExtensions{.eps, .jpg}
+\fi
+
+\newboolean{toseecomment}
+\setboolean{toseecomment}{false}
+%%change to false to hidde comment 
+\newcommand{\comment}[1]{\ifthenelse{\boolean{toseecomment}}{$\blacktriangleright$ \textit{#1}$\blacktriangleleft$}{}}
+
+\newcommand{\commented}[1]{}
+
+\newboolean{seevwspecific}
+\setboolean{seevwspecific}{true}
+\newcommand{\vwspecific}[1]{\ifthenelse{\boolean{seevwspecific}}{#1}{}}
+
+\newboolean{seecategoryspecific}
+\setboolean{seecategoryspecific}{false}
+\newcommand{\categoryspecific}[1]{\ifthenelse{\boolean{seecategoryspecific}}{#1}{}}
+
+\newboolean{seestorespecific}
+\setboolean{seestorespecific}{true}
+\newcommand{\storespecific}[1]{\ifthenelse{\boolean{seestorespecific}}{#1}{}}
+
+\newboolean{seesqueakspecific}
+\setboolean{seesqueakspecific}{false}
+\newcommand{\squeakspecific}[1]{\ifthenelse{\boolean{seesqueakspecific}}{#1}{}}
+
+
+\newcommand{\category}[0]
+{\ifthenelse{\boolean{seestorespecific}}
+	{package\xspace}
+	{category\xspace}}
+
+\newcommand{\ct}[1]{\texttt{#1}\xspace}\newcommand{\stc}[1]{{\small {\sf #1}}\xspace}\newcommand{\ST}{{\textsc Smalltalk}\xspace}\newcommand{\tab}{\makebox[4em]{}}\newcommand{\ttt}[1]{{\tt #1}}\newcommand{\chev}{\ttt{>>}}
+\newcommand{\vw}{VisualWorks\xspace}
+\newcommand{\sq}{Squeak\xspace}
+\newcommand{\store}{Store\xspace}\renewcommand{\chaptername}{Exercise}\newcommand{\exercise}{\vspace{0.2cm}\noindent \textbf{Exercise:}\xspace}\newsavebox{\fminibox}\newlength{\fminilength}% Fait un truc encadre\newenvironment{fminipage}[1][\linewidth]  {\setlength{\fminilength}{#1-2\fboxsep-2\fboxrule}        \begin{lrbox}{\fminibox}\begin{minipage}{\fminilength}}  { \end{minipage}\end{lrbox}\noindent\fbox{\usebox{\fminibox}}}% Pareil mais pas encadre (a utiliser pour ne pas couper une fonction\newenvironment{nminipage}[1][\linewidth]  {\setlength{\fminilength}{#1}        \begin{lrbox}{\fminibox}\begin{minipage}{\fminilength}}  { \end{minipage}\end{lrbox}\noindent\mbox{\usebox{\fminibox}}}% Un alltt encadre\newenvironment{falltt}  {\vspace*{0.3cm}\begin{fminipage}\begin{alltt}}  {\end{alltt}\end{fminipage}\vspace*{0.3cm}}% Un alltt pas encadre\newenvironment{nalltt}  {\vspace*{0.3cm}\begin{nminipage}\begin{alltt}}  {\end{alltt}\end{nminipage}\vspace*{0.3cm}}% Une fonction encadree\newenvironment{ffonction}[1]  {\begin{fonction}[#1]        \begin{fminipage}\begin{alltt}\rule{\linewidth}{0.5pt}}{\end{alltt}\end{fminipage}\end{fonction}}\newenvironment{codeonepage}  {\begin{nminipage}\vspace*{0.2cm}\hrule\vspace*{0.1cm}\begin{alltt}}  {\end{alltt} \vspace*{-0.2cm}\hrule \vspace*{0.2cm} \end{nminipage}}\newenvironment{code}  {\vspace*{0.1cm}\hrule\vspace*{-0.1cm}\begin{alltt}}  {\end{alltt}\vspace*{-0.2cm}\hrule \vspace*{0.1cm}}

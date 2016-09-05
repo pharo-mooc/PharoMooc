@@ -1,0 +1,223 @@
+﻿WEBVTT
+
+00:00:00.000 --> 00:00:03.520 align:start position:10% line:-11
+Hello. In this session,
+we will learn about return.
+
+00:00:03.680 --> 00:00:07.440 align:middle
+How can you return a value
+
+00:00:07.600 --> 00:00:09.600 align:middle
+from a block or method?
+
+00:00:10.480 --> 00:00:12.840 align:middle
+And what are the default return values?
+
+00:00:13.520 --> 00:00:15.840 align:middle
+There are four cases to study:
+
+00:00:16.000 --> 00:00:20.640 align:middle
+a method which uses the caret to return,
+
+00:00:20.800 --> 00:00:23.080 align:middle
+a method without the caret,
+
+00:00:23.240 --> 00:00:25.720 align:middle
+a block with the caret,
+
+00:00:25.880 --> 00:00:28.000 align:middle
+and a block without the caret.
+
+00:00:29.000 --> 00:00:31.040 align:middle
+In a method,
+
+00:00:31.200 --> 00:00:34.120 align:middle
+if you use the caret to return a value,
+
+00:00:36.280 --> 00:00:39.120 align:middle
+here, it will return
+
+00:00:39.280 --> 00:00:42.160 align:middle
+a specific value.
+
+00:00:43.240 --> 00:00:44.920 align:middle
+It will exit the method.
+
+00:00:46.360 --> 00:00:48.640 align:middle
+If I don't use the caret,
+
+00:00:48.800 --> 00:00:51.680 align:middle
+the method returns self by default.
+
+00:00:53.560 --> 00:00:56.720 align:middle
+This part is optional.
+You don't usually write it.
+
+00:00:56.880 --> 00:01:01.640 align:middle
+The return value of a block
+is its last expression.
+
+00:01:01.800 --> 00:01:03.720 align:middle
+In the case of this block,
+
+00:01:04.320 --> 00:01:06.120 align:middle
+between these, I have a block
+
+00:01:06.280 --> 00:01:08.960 align:middle
+which takes a value x as a parameter.
+
+00:01:09.120 --> 00:01:11.200 align:middle
+I add 33 to x.
+
+00:01:12.280 --> 00:01:16.560 align:middle
+The value, the result
+of this expression x+33
+
+00:01:16.720 --> 00:01:19.120 align:middle
+is not used, so it was erased.
+
+00:01:19.760 --> 00:01:23.640 align:middle
+The following instruction is x+2,
+so I add 2 to the value x.
+
+00:01:24.960 --> 00:01:28.040 align:middle
+As it's the block's last expression,
+
+00:01:28.200 --> 00:01:30.720 align:middle
+its value
+
+00:01:30.880 --> 00:01:33.960 align:middle
+represents the return value
+of the block.
+
+00:01:34.920 --> 00:01:36.800 align:middle
+So my block, value:5.
+
+00:01:36.960 --> 00:01:39.800 align:middle
+It means I execute the block
+
+00:01:39.960 --> 00:01:42.360 align:middle
+with x taking the value 5.
+
+00:01:42.520 --> 00:01:44.800 align:middle
+So I compute 33+5;
+
+00:01:44.960 --> 00:01:47.840 align:middle
+the result gets erased,
+since it's useless.
+
+00:01:48.000 --> 00:01:50.840 align:middle
+5+2 gives the value 7
+
+00:01:51.000 --> 00:01:53.480 align:middle
+which is used
+as the block's return value.
+
+00:01:53.640 --> 00:01:57.360 align:middle
+So the entire expression's value is 7.
+
+00:01:59.640 --> 00:02:02.440 align:middle
+If I use the caret in a block,
+
+00:02:05.800 --> 00:02:09.400 align:middle
+the behavior is totally different
+from a method.
+
+00:02:10.320 --> 00:02:14.320 align:middle
+You shouldn't expect
+the block to be terminated,
+
+00:02:15.120 --> 00:02:17.440 align:middle
+but the method.
+
+00:02:17.600 --> 00:02:21.120 align:middle
+Let's look at the example
+of the method factorial
+
+00:02:21.280 --> 00:02:22.760 align:middle
+in the class Integer.
+
+00:02:24.200 --> 00:02:27.800 align:middle
+There's one return here and one there.
+
+00:02:27.960 --> 00:02:31.040 align:middle
+These two returns
+terminate the method's execution.
+
+00:02:32.680 --> 00:02:35.920 align:middle
+So if the receiver self is zero
+
+00:02:36.080 --> 00:02:38.480 align:middle
+during the execution of the method,
+
+00:02:38.640 --> 00:02:40.680 align:middle
+the block is executed,
+
+00:02:40.840 --> 00:02:44.160 align:middle
+1 is immediately returned,
+and the method will terminate.
+
+00:02:44.320 --> 00:02:46.080 align:middle
+So the method returns 1.
+
+00:02:47.000 --> 00:02:51.360 align:middle
+return is not used to terminate
+the block but the embracing method.
+
+00:02:52.680 --> 00:02:55.720 align:middle
+In the second example,
+if self is bigger than zero,
+
+00:02:56.600 --> 00:03:00.000 align:middle
+you compute with a recursive call
+
+00:03:00.160 --> 00:03:02.400 align:middle
+and immediately return the result.
+
+00:03:02.560 --> 00:03:05.520 align:middle
+So the method
+doesn't continue to execute
+
+00:03:05.680 --> 00:03:07.360 align:middle
+when self is bigger than zero.
+
+00:03:08.000 --> 00:03:11.480 align:middle
+In the other cases,
+if you reach the third instruction,
+
+00:03:11.640 --> 00:03:15.760 align:middle
+you get an error message, meaning
+that the receiver is a negative number.
+
+00:03:16.440 --> 00:03:18.280 align:middle
+You should remember
+
+00:03:18.440 --> 00:03:23.560 align:middle
+that the caret allows you
+to terminate the method
+
+00:03:23.720 --> 00:03:27.760 align:middle
+whether caret is located in the method
+or in the block in the method.
+
+00:03:27.920 --> 00:03:30.240 align:middle
+The caret always terminates the method
+
+00:03:30.400 --> 00:03:33.200 align:middle
+and returns a value
+specified after the caret.
+
+00:03:34.320 --> 00:03:37.280 align:middle
+By default, a method returns self.
+
+00:03:38.040 --> 00:03:40.720 align:middle
+It's useless to write method self
+at the end
+
+00:03:40.880 --> 00:03:43.920 align:middle
+as it is the value
+which is returned by default.
+
+00:03:45.760 --> 00:03:50.240 align:middle
+A block returns the result
+of its last expression.

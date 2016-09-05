@@ -1,0 +1,115 @@
+\ifx\wholebook\relax\else\input{Common.tex}\begin{document}\fi
+
+\chapter{Objects and expressions}
+
+This lesson is about reading and understanding Smalltalk expressions, and differentiating between different types of messages and receivers.
+Note that in the expressions you will be asked to read and evaluate, you can assume that the implementation of methods generally corresponds to what their message names imply (i.e. 2 + 2 = 4).
+\exercise For each of the Smalltalk expressions below, fill in the answers:
+
+\begin{code}
+3 + 4
+\end{code}
+\begin{itemize}
+\item What is the receiver object?  
+\item What is the message selector?  
+\item What is/are the argument (s)? 
+\item What is the message? 
+\item What is the result returned by evaluating this expression? 
+\end{itemize}
+
+\begin{code}
+Date today
+\end{code}
+\begin{itemize}
+\item What is the receiver object? 
+\item What is the message selector? 
+\item What is/are the argument (s)? 
+\item What is the message? 
+\item What is the result returned by evaluating this expression?
+\end{itemize}
+
+\begin{code}
+anArray at: 1 put: 'hello'
+\end{code}
+
+\begin{itemize}
+\item What is the receiver object? 
+\item What is the message selector? 
+\item What is/are the argument (s)? 
+\item What is the message? 
+\item What is the result returned by evaluating this expression?
+\end{itemize}
+
+\exercise What kind of object does the literal expression \stc{'Hello, Dave'} describe?
+\exercise What kind of object does the literal expression \stc{\#Node1} describe?
+\exercise What kind of object does the literal expression \stc{\#(1 2 3)} describe?
+\exercise What can one assume about a variable named \stc{Transcript}?
+\exercise What can one assume about a variable named \stc{rectangle}?
+\exercise Examine the following expression :
+
+\begin{code}
+\ttt{|} anArray \ttt{|}
+anArray := #('first' 'second' 'third' 'fourth').
+^anArray at: 2
+\end{code}
+
+What is the resulting value when it is evaluated (\^ means return)? 
+What happens if you remove the \^. Explain
+
+\exercise Which sets of parentheses are redundant with regard to evaluation of the following
+
+\begin{code}
+((3 + 4) + (2 * 2) + (2 * 3))
+
+(x isZero) 
+   ifTrue: [....]
+(x includes: y) 
+   ifTrue: [....]      
+\end{code}
+
+\exercise Guess what are the results of the following expressions
+
+\begin{code}
+6 + 4 / 2 
+1 + 3 negated 
+1 + (3 negated) 
+2 raisedTo: 3 + 2 
+2 negated raisedTo: 3 + 2
+\end{code}
+
+\exercise Examine the following expression:
+
+\stc{25@50}
+\begin{itemize}
+\item What is the receiver object? 
+\item What is the message selector? 
+\item What is/are the argument (s)? 
+\item What is the message? 
+\item What is the result returned by evaluating this expression?
+\end{itemize}
+
+\exercise Examine the following expression and write down the sequence of steps that the Smalltalk system would take to execute the following expression:
+\stc{Date today daysInMonth}
+\exercise Examine the following expression and write down the sequence of steps that the Smalltalk system would take to execute the following expression:
+\stc{Transcript show: (45 + 9) printString}
+\exercise Examine the following expression and write down the sequence of steps that the Smalltalk system would take to execute the following expression:
+\stc{5@5 extent: 6.0 truncated @ 7}
+\exercise In lesson 1 we saw how to write strings to the Transcript, and how the message printString could be sent to any non-string object to obtain a string representation. Now write a Smalltalk expression to print the result of 34 + 89 on the Transcript. Test your code !
+
+\newpage
+\exercise Examine the block expression:
+
+\begin{code}
+\ttt{|} anArray sum \ttt{|}
+sum := 0.
+anArray := #(21 23 53 66 87).
+anArray do: [:item | sum := sum + item].
+sum
+\end{code}
+
+What is the final result of sum ?
+How could this piece of code be rewritten to use explicit array indexing (with the method at: ) to access the array elements ? Test your version.
+Rewrite this code using inject:into:
+
+
+\ifx\wholebook\relax\else\end{document}\fi

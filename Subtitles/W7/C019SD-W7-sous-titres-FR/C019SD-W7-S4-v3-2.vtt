@@ -1,0 +1,863 @@
+WEBVTT
+
+00:00:00.550 --> 00:00:02.930 align:middle
+Bonjour. Dans cette séquence,
+on va voir quelque chose d'un
+
+00:00:03.130 --> 00:00:05.760 align:middle
+petit peu avancé en
+Pharo que sont les opérations
+
+00:00:05.960 --> 00:00:08.190 align:middle
+réflexives qui
+permettent de supporter le live
+
+00:00:08.390 --> 00:00:10.810 align:middle
+ programming, le développement
+interactif qu'on utilise toujours.
+
+00:00:12.200 --> 00:00:14.710 align:middle
+On va se poser la question
+qu'est-ce qui se passe quand
+
+00:00:15.210 --> 00:00:18.660 align:middle
+je recompile une classe,
+quelles sont les opérations
+
+00:00:18.860 --> 00:00:23.070 align:middle
+réflexives mises en jeu pour
+implémenter tout ce qui est
+
+00:00:23.270 --> 00:00:25.200 align:middle
+nécessaire pour le
+développement interactif?
+
+00:00:25.400 --> 00:00:26.160 align:middle
+Je vais prendre un scénario.
+
+00:00:26.780 --> 00:00:29.900 align:middle
+Typiquement le scénario
+standard, c'est je définis une
+
+00:00:30.100 --> 00:00:33.000 align:middle
+ classe, j'ajoute des
+méthodes sur cette classe, je crée
+
+00:00:33.200 --> 00:00:36.950 align:middle
+des instances de cette
+ classe et ensuite, je vais changer
+
+00:00:37.150 --> 00:00:38.860 align:middle
+la définition de la
+ classe et je vais rajouter des
+
+00:00:39.060 --> 00:00:42.030 align:middle
+nouvelles variables
+d'instances dans cette classe.
+
+00:00:42.230 --> 00:00:43.520 align:middle
+Donc ça veut dire
+qu'est-ce que je dois faire des
+
+00:00:43.720 --> 00:00:46.550 align:middle
+instances qui existent
+déjà, qui ont été créées, alors
+
+00:00:46.750 --> 00:00:48.050 align:middle
+qu'il y avait un attribut
+de moins dans la classe.
+
+00:00:48.600 --> 00:00:51.860 align:middle
+Ça veut dire qu'il va falloir
+être capable de migrer ces instances.
+
+00:00:52.610 --> 00:00:55.030 align:middle
+Il faut mettre en place un
+mécanisme pour transférer ces
+
+00:00:55.230 --> 00:00:57.350 align:middle
+instances sur la
+nouvelle version de la classe.
+
+00:00:57.690 --> 00:00:58.760 align:middle
+Et ensuite, je continue à travailler.
+
+00:00:59.430 --> 00:01:00.900 align:middle
+C'est ce qu'on va voir dans la suite.
+
+00:01:01.220 --> 00:01:05.280 align:middle
+On va voir les opérations
+qui permettent la recompilation
+
+00:01:05.480 --> 00:01:08.460 align:middle
+dynamique de classes, qui
+permettent la recompilation de
+
+00:01:08.660 --> 00:01:13.210 align:middle
+méthodes, qui vont permettre
+de migrer automatiquement et
+
+00:01:13.410 --> 00:01:16.400 align:middle
+de façon transparente pour
+le programmeur les instances
+
+00:01:16.600 --> 00:01:18.070 align:middle
+sur la nouvelle version de la classe.
+
+00:01:18.640 --> 00:01:21.260 align:middle
+Pour ça, il va falloir que
+je sois capable de récupérer
+
+00:01:21.460 --> 00:01:23.610 align:middle
+toutes les instances d'une
+ classe, et ensuite que je sois
+
+00:01:23.810 --> 00:01:27.640 align:middle
+capable de changer tous
+ceux qui utilisaient ces
+
+00:01:27.840 --> 00:01:31.000 align:middle
+objets-là, de façon à leur
+changer leur pointeur pour
+
+00:01:31.200 --> 00:01:32.000 align:middle
+qu'ils utilisent les nouveaux objets.
+
+00:01:34.180 --> 00:01:35.920 align:middle
+Alors on commence par le début.
+
+00:01:36.230 --> 00:01:37.890 align:middle
+Comment est-ce que je fais
+pour récupérer toutes les
+
+00:01:38.090 --> 00:01:41.080 align:middle
+instances d'une classe? J'ai
+un message pour ça, si j'envoie
+
+00:01:41.280 --> 00:01:45.060 align:middle
+allInstances à une classe,
+ça me rend bien une collection
+
+00:01:45.260 --> 00:01:47.180 align:middle
+de tous les objets
+instances de cette classe.
+
+00:01:47.840 --> 00:01:50.350 align:middle
+C'est vraiment une collection de
+tous les objets, je peux les manipuler.
+
+00:01:50.550 --> 00:01:51.330 align:middle
+Ce sont des objets standards.
+
+00:01:51.730 --> 00:01:54.000 align:middle
+Par exemple, si je
+demande allInstances à la classe
+
+00:01:54.200 --> 00:01:56.050 align:middle
+Window, j'obtiens bien une
+collection d'objets Window.
+
+00:01:58.250 --> 00:02:00.260 align:middle
+Je peux récupérer le premier
+élément de la collection et
+
+00:02:00.460 --> 00:02:02.510 align:middle
+lui envoyer le message
+close puisque c'est une fenêtre.
+
+00:02:03.590 --> 00:02:06.540 align:middle
+Dans la classe window, il y a bien
+la méthode close qui est définie.
+
+00:02:07.840 --> 00:02:12.290 align:middle
+On a une autre primitive
+réflexif qui est pointersTo, qui
+
+00:02:12.490 --> 00:02:14.870 align:middle
+permet quand j'envoie ce
+message-là à un objet de
+
+00:02:15.070 --> 00:02:19.080 align:middle
+récupérer la collection de
+tous les objets qui détiennent
+
+00:02:19.280 --> 00:02:20.420 align:middle
+une référence sur cet objet.
+
+00:02:21.210 --> 00:02:23.840 align:middle
+Ça va être extrêmement
+pratique quand on va vouloir
+
+00:02:24.590 --> 00:02:27.220 align:middle
+changer des objets.
+
+00:02:29.660 --> 00:02:30.560 align:middle
+Justement on y vient.
+
+00:02:31.820 --> 00:02:35.050 align:middle
+Pour changer tous les
+pointeurs, c'est la primitive become.
+
+00:02:35.250 --> 00:02:39.710 align:middle
+L'idée, ça va être de dire
+je veux échanger 2 objets.
+
+00:02:41.310 --> 00:02:44.360 align:middle
+Pour échanger 2 objets et de
+façon symétrique, c'est-à-dire
+
+00:02:44.600 --> 00:02:47.500 align:middle
+que tous ceux qui
+pointaient sur cet objet-là dans le
+
+00:02:47.700 --> 00:02:50.430 align:middle
+système, et là on avait
+d'autres pointeurs sur cet
+
+00:02:50.630 --> 00:02:53.400 align:middle
+objet-là, je vais inverser.
+Je vais dire maintenant tous
+
+00:02:53.600 --> 00:02:57.870 align:middle
+ces éléments pointent sur
+celui-là et tous ceux qui
+
+00:02:58.070 --> 00:03:02.910 align:middle
+étaient ici, je casse
+ces liens, ils vont pointer
+
+00:03:03.110 --> 00:03:07.820 align:middle
+sur cet objet-là.
+C'est ça le become, c'est
+
+00:03:08.020 --> 00:03:11.510 align:middle
+inverser tous les pointeurs
+dans le système symétriquement.
+
+00:03:13.410 --> 00:03:15.000 align:middle
+Je vous donne un exemple ici.
+
+00:03:15.650 --> 00:03:19.080 align:middle
+Je crée un point 1
+qui pointe vers l'objet.
+
+00:03:19.540 --> 00:03:24.440 align:middle
+00, une variable pt2 qui
+pointe vers l'objet 00 aussi
+
+00:03:24.640 --> 00:03:29.280 align:middle
+ici, une variable pt3 qui
+pointe vers le point 100
+
+00:03:29.480 --> 00:03:32.500 align:middle
+100. Et puis j'écris la
+primitive pt1 become pt3.
+
+00:03:32.700 --> 00:03:36.670 align:middle
+Ça veut dire que tous ceux
+qui pointaient sur l'objet
+
+00:03:36.870 --> 00:03:41.330 align:middle
+pointé par la variable pt1,
+maintenant ils vont pointer vers le point 3.
+
+00:03:44.750 --> 00:03:49.160 align:middle
+On voit que la variable
+pt2 pointait bien sur le même
+
+00:03:49.360 --> 00:03:52.820 align:middle
+objet que pt1 et maintenant
+elle pointe vers celui qui
+
+00:03:53.020 --> 00:03:55.510 align:middle
+était référencé par
+pt3. Pt3 lui, vu que c'est
+
+00:03:55.710 --> 00:03:59.870 align:middle
+symétrique, ça va pointer
+sur ce qui était pointé par
+
+00:04:00.070 --> 00:04:01.600 align:middle
+pt1, c'était celui-là, là-haut.
+
+00:04:03.270 --> 00:04:05.650 align:middle
+Et pt1 pointe bien vers
+celui qui était pointé par pt3.
+
+00:04:06.240 --> 00:04:09.860 align:middle
+On a bien les pointeurs qui ont
+été échangés de façon symétrique.
+
+00:04:11.250 --> 00:04:15.640 align:middle
+On a le pendant
+asymétrique qui est becomeForward qui
+
+00:04:15.840 --> 00:04:18.110 align:middle
+permet de dire que je
+veux changer les pointeurs.
+
+00:04:18.420 --> 00:04:21.350 align:middle
+Tous ceux qui
+pointaient vers cet objet-là vont
+
+00:04:21.550 --> 00:04:24.940 align:middle
+maintenant pointer sur cet
+objet-là, mais pas l'inverse.
+
+00:04:25.140 --> 00:04:26.400 align:middle
+C'est-à-dire ceux qui
+pointaient sur cet objet-là
+
+00:04:26.600 --> 00:04:28.000 align:middle
+continuent à
+pointer sur cet objet-là.
+
+00:04:31.650 --> 00:04:34.080 align:middle
+Je vous donne encore un
+exemple, le même exemple avec des
+
+00:04:34.280 --> 00:04:38.880 align:middle
+points où ici on effectue
+le becomeForward, et ce qu'on
+
+00:04:39.080 --> 00:04:43.180 align:middle
+peut voir c'est que ceux
+qui ont été impactés, ce sont
+
+00:04:43.380 --> 00:04:47.880 align:middle
+vraiment pt1 et pt2, pt3 n'a pas du
+tout été impacté par le becomeForward.
+
+00:04:49.000 --> 00:04:52.690 align:middle
+Tous ceux qui pointaient sur cet
+objet là n'ont pas été changés.
+
+00:04:55.650 --> 00:04:59.690 align:middle
+On a une autre primitive
+réflexive qui est adoptInstance,
+
+00:05:00.180 --> 00:05:02.510 align:middle
+qui permet de changer
+la classe d'un objet.
+
+00:05:02.810 --> 00:05:05.910 align:middle
+En gros je demande à une
+ classe d'adopter une nouvelle
+
+00:05:06.110 --> 00:05:10.640 align:middle
+instance passée en
+paramètre. Changer la classe d'un
+
+00:05:10.840 --> 00:05:13.290 align:middle
+objet c'est extrêmement
+puissant mais ça a ses limites.
+
+00:05:13.490 --> 00:05:16.070 align:middle
+Il faut absolument que la
+ classe de départ de l'objet,
+
+00:05:16.400 --> 00:05:21.220 align:middle
+donc la classe de
+anInstance, soit compatible du
+
+00:05:21.420 --> 00:05:24.490 align:middle
+point de vue du format
+avec la classe receveur ici.
+
+00:05:24.860 --> 00:05:27.350 align:middle
+Je ne peux pas changer
+n'importe quel objet, par exemple
+
+00:05:27.550 --> 00:05:29.570 align:middle
+en collection si ce n'en
+est pas une, et caetera, ça
+
+00:05:29.770 --> 00:05:31.520 align:middle
+dépend si c'est une
+collection indexée, et caetera.
+
+00:05:32.060 --> 00:05:35.650 align:middle
+Le format des objets
+va avoir une importance.
+
+00:05:36.900 --> 00:05:38.620 align:middle
+En fait une classe,
+qu'est-ce que c'est?
+
+00:05:38.820 --> 00:05:40.680 align:middle
+Si on revient à
+l'essence des classes.
+
+00:05:41.190 --> 00:05:43.100 align:middle
+Une classe, ce n'est ni
+plus ni moins qu'un format.
+
+00:05:44.630 --> 00:05:47.110 align:middle
+Le format va spécifier le
+nombre de variables d'instances,
+
+00:05:47.480 --> 00:05:50.390 align:middle
+le type de ces variables,
+nommer, indexer, vous vous
+
+00:05:50.590 --> 00:05:52.440 align:middle
+souvenez on l'a vu dans
+une séquence précédente.
+
+00:05:53.160 --> 00:05:55.640 align:middle
+Une classe a une superclass et
+un dictionnaire des méthodes.
+
+00:05:57.250 --> 00:06:00.580 align:middle
+On peut voir sur la classe
+Behavior, la classe Behavior c'est
+
+00:06:00.780 --> 00:06:04.390 align:middle
+une superclass de la
+ classe class qui définit le
+
+00:06:04.590 --> 00:06:07.430 align:middle
+comportement de base des classes.
+
+00:06:08.150 --> 00:06:10.700 align:middle
+Je vous montre juste le
+minimum vital qu'on doit avoir
+
+00:06:10.900 --> 00:06:12.870 align:middle
+dans une classe, une
+ classe a une superclass, un
+
+00:06:13.070 --> 00:06:15.940 align:middle
+dictionnaire de méthode et
+elle spécifie un ensemble de
+
+00:06:16.140 --> 00:06:17.390 align:middle
+format pour ses instances.
+
+00:06:19.540 --> 00:06:21.740 align:middle
+Dans cet exemple, je vais
+résumer un peu tout ce qu'on a
+
+00:06:21.940 --> 00:06:24.380 align:middle
+vu jusqu'à maintenant, tous
+les comportements réflexifs
+
+00:06:25.000 --> 00:06:29.780 align:middle
+que l'on a vus pour doter certaines
+
+00:06:30.000 --> 00:06:32.670 align:middle
+instances d'un comportement
+spécifique, qui leur est propre.
+
+00:06:32.870 --> 00:06:37.550 align:middle
+Je vous explique le code au fur et
+
+00:06:38.080 --> 00:06:40.470 align:middle
+à mesure. Ici, sur les
+trois premières lignes, on va
+
+00:06:40.670 --> 00:06:44.110 align:middle
+créer une instance de la classe
+behavior, je vous rappelle c'est une classe.
+
+00:06:47.380 --> 00:06:50.000 align:middle
+Je crée une instance de
+cette classe que j'appelle
+
+00:06:51.690 --> 00:06:53.700 align:middle
+behavior, donc là
+j'ai un objet behavior.
+
+00:06:55.050 --> 00:06:59.550 align:middle
+Je vais indiquer que cet
+objet behavior hérite de la
+
+00:06:59.750 --> 00:07:04.310 align:middle
+ classe Model. Je fixe le
+
+00:07:04.510 --> 00:07:07.480 align:middle
+format de cet objet behavior.
+
+00:07:07.680 --> 00:07:10.920 align:middle
+Ensuite, je crée une
+instance de la classe Model.
+
+00:07:11.620 --> 00:07:15.710 align:middle
+J'ai un objet Model.
+
+00:07:17.240 --> 00:07:21.080 align:middle
+Et puis, la ligne importante
+de ce morceau de code est ici.
+
+00:07:21.280 --> 00:07:24.590 align:middle
+Je vais changer la classe de
+cet objet Model pour être la
+
+00:07:24.790 --> 00:07:27.490 align:middle
+ classe de l'objet passé en
+paramètre, donc behavior.
+
+00:07:27.690 --> 00:07:31.790 align:middle
+Maintenant, je vais casser
+ce lien et je vais dire tu
+
+00:07:32.000 --> 00:07:34.310 align:middle
+deviens une instance de cette classe.
+
+00:07:34.850 --> 00:07:37.000 align:middle
+Cette classe est bien une
+sous-classe de la classe de Model.
+
+00:07:38.790 --> 00:07:41.000 align:middle
+Je vais être capable
+maintenant de compiler une nouvelle
+
+00:07:41.200 --> 00:07:45.320 align:middle
+méthode dans cette classe. Je vais
+compiler la méthode foo qui retourne 2.
+
+00:07:49.140 --> 00:07:51.140 align:middle
+Et c'est bien dans
+l'objet behavior que je fais ça.
+
+00:07:54.490 --> 00:07:57.800 align:middle
+On voit que la ligne
+importante, si j'envoie le message
+
+00:07:58.000 --> 00:08:03.000 align:middle
+foo à mon objet Model, il
+
+00:08:03.200 --> 00:08:04.010 align:middle
+va bien me répondre 2.
+
+00:08:04.610 --> 00:08:07.590 align:middle
+Pourquoi? Si vous vous
+souvenez de la méthode look-up,
+
+00:08:07.790 --> 00:08:09.860 align:middle
+j'envoie le message foo à
+l'objet Model, l'objet Model
+
+00:08:10.400 --> 00:08:13.170 align:middle
+commence la recherche de la
+méthode à exécuter dans sa
+
+00:08:13.370 --> 00:08:15.520 align:middle
+ classe qui est l'objet
+behavior; et dans son dictionnaire
+
+00:08:15.720 --> 00:08:17.840 align:middle
+de méthode il y a
+bien la méthode foo.
+
+00:08:18.040 --> 00:08:18.800 align:middle
+Ça marche parfaitement.
+
+00:08:19.880 --> 00:08:22.070 align:middle
+Par contre, si je crée une
+nouvelle instance de la classe
+
+00:08:22.270 --> 00:08:27.130 align:middle
+Model, je lui envoie le
+
+00:08:27.330 --> 00:08:31.770 align:middle
+message foo. Donc là, j'ai
+une erreur qui est signalée,
+
+00:08:32.080 --> 00:08:35.000 align:middle
+message not understood
+puisque si j'applique l'algorithme
+
+00:08:35.200 --> 00:08:38.270 align:middle
+du look-up, je remonte dans
+la classe de cet objet, c'est
+
+00:08:38.470 --> 00:08:41.510 align:middle
+la classe Model et dans son
+dictionnaire de méthode, il n'y
+
+00:08:41.710 --> 00:08:43.080 align:middle
+a pas la méthode foo, ni
+dans aucune des superclass.
+
+00:08:46.750 --> 00:08:49.680 align:middle
+Ce mécanisme un peu avancé
+nous a permis de doter une
+
+00:08:49.880 --> 00:08:53.330 align:middle
+instance spécifique de la classe
+modèle d'un comportement particulier.
+
+00:08:53.530 --> 00:08:57.670 align:middle
+Je reprends le même exemple sur la
+ classe Set pour que vous compreniez bien.
+
+00:08:58.050 --> 00:09:02.130 align:middle
+Je crée set1, c'est une
+instance de la classe Set.
+
+00:09:03.090 --> 00:09:05.340 align:middle
+La classe set a un dictionnaire
+de méthode avec la méthode add.
+
+00:09:06.760 --> 00:09:09.940 align:middle
+Je veux, pour une instance
+de la classe Set particulière,
+
+00:09:10.290 --> 00:09:12.450 align:middle
+changer cette méthode
+add qui a un comportement
+
+00:09:12.650 --> 00:09:15.270 align:middle
+particulier spécifique
+pour un set particulier.
+
+00:09:15.480 --> 00:09:19.570 align:middle
+Donc, je vais créer une
+ classe anonyme, une classe
+
+00:09:19.770 --> 00:09:23.440 align:middle
+particulière, mon objet behavior
+d'avant qui hérite de la classe Set.
+
+00:09:23.640 --> 00:09:25.010 align:middle
+C'est de l'héritage.
+
+00:09:25.600 --> 00:09:30.300 align:middle
+Je vais avoir mon objet
+set2 qui est instance de cette
+
+00:09:30.500 --> 00:09:34.150 align:middle
+ classe anonyme. Dans le
+dictionnaire de méthode de cette
+
+00:09:34.350 --> 00:09:37.500 align:middle
+ classe anonyme, je vais
+redéfinir la méthode add en lui
+
+00:09:37.700 --> 00:09:40.470 align:middle
+mettant du comportement spécifique,
+le comportement qui va m'intéresser.
+
+00:09:41.000 --> 00:09:45.130 align:middle
+Et maintenant si j'envoie
+le message add à cet objet
+
+00:09:45.330 --> 00:09:48.110 align:middle
+set2, c'est bien cette
+méthode qui va être sélectionnée,
+
+00:09:49.160 --> 00:09:53.760 align:middle
+qui va avoir un
+comportement spécifique et différent de
+
+00:09:54.000 --> 00:09:57.630 align:middle
+la méthode add, si
+j'envoyais le message add à ce set-là.
+
+00:09:58.290 --> 00:10:01.720 align:middle
+On a bien 2 Set qui
+n'auront pas le même comportement
+
+00:10:02.070 --> 00:10:03.840 align:middle
+face au message add.
+
+00:10:04.040 --> 00:10:07.000 align:middle
+Je vous montre le code pour
+réaliser cette expérience.
+
+00:10:08.360 --> 00:10:11.250 align:middle
+Exactement comme avant,
+je vais créer une classe,
+
+00:10:11.880 --> 00:10:14.850 align:middle
+instance de la classe
+behavior. Je vais fixer la
+
+00:10:15.050 --> 00:10:18.570 align:middle
+super-classe à la classe
+Set. Je fixe le format.
+
+00:10:18.830 --> 00:10:23.420 align:middle
+Je vais compiler la méthode
+add dans cette classe anonyme.
+
+00:10:24.280 --> 00:10:27.660 align:middle
+La méthode add, je viens
+redéfinir la méthode add qui est
+
+00:10:27.860 --> 00:10:29.260 align:middle
+définie dans la classe Set.
+
+00:10:30.110 --> 00:10:32.610 align:middle
+Je fais un Transcript show
+juste pour faire un affichage,
+
+00:10:32.810 --> 00:10:35.920 align:middle
+pour dire que la méthode a
+été exécutée avec tel objet.
+
+00:10:36.360 --> 00:10:39.640 align:middle
+Je l'appelle super pour
+exécuter la méthode add qui se
+
+00:10:39.840 --> 00:10:40.600 align:middle
+trouve dans la classe Set.
+
+00:10:41.370 --> 00:10:43.210 align:middle
+Donc maintenant on va tester ce code.
+
+00:10:43.840 --> 00:10:45.530 align:middle
+Pour faire ça, je vais
+créer un premier Set.
+
+00:10:45.730 --> 00:10:48.500 align:middle
+Je vous rappelle j'ai la classe Set.
+
+00:10:50.210 --> 00:10:53.590 align:middle
+Je vais créer une première instance
+de cette classe que j'appelle Set.
+
+00:10:53.790 --> 00:10:56.780 align:middle
+Cette instance, je vais
+lui envoyer le message add1.
+
+00:11:00.000 --> 00:11:03.480 align:middle
+Donc là, c'est bien la méthode add
+de la classe Set qui va être utilisée.
+
+00:11:05.290 --> 00:11:08.460 align:middle
+Si je demande cette classe, je
+vais bien obtenir la classe Set.
+
+00:11:09.360 --> 00:11:12.310 align:middle
+Sauf que maintenant je
+vais exécuter cette primitive.
+
+00:11:12.510 --> 00:11:15.480 align:middle
+Donc, je vais demander à
+cet objet set de changer sa
+
+00:11:15.680 --> 00:11:19.260 align:middle
+ classe et d'utiliser comme
+ classe la classe Behavior que
+
+00:11:19.460 --> 00:11:22.830 align:middle
+j'avais avant, qui était
+une sous-classe de la classe
+
+00:11:23.030 --> 00:11:24.590 align:middle
+Set, donc Behavior.
+
+00:11:24.790 --> 00:11:27.180 align:middle
+On va le changer maintenant
+il va devenir une instance de
+
+00:11:27.380 --> 00:11:30.140 align:middle
+cette classe, qui lui, a une
+nouvelle version de la méthode add.
+
+00:11:30.450 --> 00:11:31.330 align:middle
+Ce lien a été cassé.
+
+00:11:31.530 --> 00:11:35.620 align:middle
+Si j'envoie
+maintenant le message add2
+
+00:11:37.090 --> 00:11:41.090 align:middle
+à cet objet, ça va
+sélectionner la méthode add de mon
+
+00:11:41.290 --> 00:11:43.260 align:middle
+objet Behavior, qui est une
+sous-classe de la classe set
+
+00:11:43.620 --> 00:11:45.140 align:middle
+et ça va bien exécuter ce code-là.
+
+00:11:47.620 --> 00:11:52.460 align:middle
+Je vais voir sur le
+transcript que la méthode a été
+
+00:11:52.660 --> 00:11:56.730 align:middle
+exécutée. Par contre,
+l'action va bien être exécutée in
+
+00:11:56.930 --> 00:11:59.540 align:middle
+fine puisque jusqu'ici
+super pour aller exécuter la
+
+00:11:59.740 --> 00:12:03.000 align:middle
+méthode add aussi de la classe Set.
+
+00:12:03.190 --> 00:12:06.470 align:middle
+Ça m'a permis de doter ou
+d'espionner les instances de
+
+00:12:06.670 --> 00:12:09.040 align:middle
+Set que j'aurais
+sélectionnées grâce à cette ligne-là.
+
+00:12:09.240 --> 00:12:10.000 align:middle
+En conclusion.
+
+00:12:12.590 --> 00:12:14.840 align:middle
+Tous les outils de
+réflexions qu'on a vu jusqu'à
+
+00:12:15.040 --> 00:12:17.000 align:middle
+maintenant sont
+extrêmement utiles, et permettent la
+
+00:12:17.200 --> 00:12:19.000 align:middle
+construction d'outils
+novateurs et innovants.
+
+00:12:19.390 --> 00:12:23.000 align:middle
+On peut vraiment
+expérimenter d'implémenter des nouvelles
+
+00:12:23.200 --> 00:12:25.710 align:middle
+choses grâce à ces
+primitives réflexives.
+
+00:12:26.210 --> 00:12:28.660 align:middle
+Ça promeut
+l'extensibilité du langage.
+
+00:12:30.680 --> 00:12:33.480 align:middle
+Par contre, il y a une
+règle d'or, quand on utilise la
+
+00:12:33.680 --> 00:12:36.640 align:middle
+réflexion il ne faut
+absolument pas l'utiliser à mauvais
+
+00:12:36.840 --> 00:12:38.600 align:middle
+escient dans vos
+ programmes, dans du code métier.
+
+00:12:39.000 --> 00:12:43.170 align:middle
+Dans du code métier, on va
+limiter l'utilisation des
+
+00:12:43.370 --> 00:12:45.380 align:middle
+codes réflexifs puisque
+je vous ai dit qu'avec la
+
+00:12:45.580 --> 00:12:48.490 align:middle
+réflexion, on peut aller trop
+loin, violer l'encapsulation
+
+00:12:48.690 --> 00:12:53.340 align:middle
+des objets et vraiment
+s'affranchir des règles de la
+
+00:12:53.540 --> 00:12:54.770 align:middle
+bonne pratique de la
+ programmation objet.
+
+00:12:55.000 --> 00:12:57.700 align:middle
+Donc c'est vraiment réservé
+à la construction d'outils.
+

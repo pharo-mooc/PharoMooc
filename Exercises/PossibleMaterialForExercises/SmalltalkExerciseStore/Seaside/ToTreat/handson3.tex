@@ -1,0 +1,178 @@
+\documentclass[a4paper,10pt]{scrartcl}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{alltt}
+\input{../Framework/layout.tex}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\serieheader{Programming Fundamentals 2 - Smalltalk}
+	{2004 - 2005}
+	{Prof. Michele Lanza}
+	{Paolo Bonzini, Mircea Lungu and Romain Robbes}
+	{Hands on 3 : more on Seaside}
+	{16/03/2005 @ 10:30}
+
+
+This hands-on session will tell you some more advanced concepts in
+Seaside, namely call/answer, forms, tasks.  It consists of two relatively
+short exercises because you first have to synchronize with your partner
+regarding Assignment 2.  In other words, if you have not completed
+Assignment 2 successfully, do not start this hands on before your partner
+has explained you how to complete it.
+
+If nobody in your group has completed the assignment, reach at least item
+3 in exercise 3 before proceeding with this hands on.  In other words,
+your table should be rendered as several separate \texttt{WAPlayer} components,
+all of which are children of \texttt{WAPlayerPool}.
+
+\begin{exercise}{How forms work}
+
+The assignment required you to make the statistics of a player modifiable,
+using \texttt{request:} to have the user enter the new value.  With this
+exercise, you will implement your own web form.
+
+First of all, look at the existing Seaside forms to understand how they
+work.  Look at \texttt{WAInputDialog} in particular.
+
+So you decided to skip this?  No, open your browser and look at how this
+component is implemented---it is a very small one, but it is also instructive.
+
+The key method is of course \texttt{renderContentOn:}, which I'll copy down
+here for clarity.
+
+\begin{verbatim}
+        html form: [
+            html defaultAction: [self answer: value].
+            html textInputWithValue: value callback: [:v | value := v].
+            html space.
+            html submitButtonWithText: self label.
+        ]
+\end{verbatim}
+
+A form is defined using a block, just like tables, table rows, and so on.
+The peculiar thing about forms, is that you can have \emph{callbacks}
+defined within them.  Here there are two, one for the default action and
+one for the textual input.  When you press the form's submit button, Seaside
+will evaluate callbacks in this order:
+\begin{itemize}
+\item cancel callbacks; these are created when you use the HTML renderer's
+  \texttt{cancelButtonWithAction:} method.
+\item value callbacks, such as the one-argument block
+  \texttt{[:v | value := v]}.
+\item submit callbacks; these are created when you use the HTML renderer's
+  \texttt{submitButtonWithAction:text:} method.  Here, the submit button
+  has no attached action, because a different method is used.
+\item the default callback, created by \texttt{defaultAction:} as in
+  this case.
+\end{itemize}
+
+Forms are often invoked using \texttt{call:}, so that at any time a callback
+can use \texttt{answer:} to stop the evaluation of callbacks.  Indeed, cancel
+callbacks are evaluated first so that subsequent callbacks may be stopped.
+
+An example of using \texttt{call:} is given by \texttt{request:} itself.
+You can find it in \texttt{WAComponent}, under the \emph{convenience}
+category.  However, since it is a bit more complex than this, look at
+\texttt{inform:} and \texttt{confirm:} in the same place.  You can see
+that you basically create your own component (with \texttt{new}) and
+pass it to the method:
+
+\begin{verbatim}
+    inform: aString
+        self call: (WAFormDialog new addMessage: aString)
+\end{verbatim}
+
+\end{exercise}
+
+\begin{exercise}{Creating superclasses}
+
+Your task, now, is to \emph{define a component for an editable player}.
+We want to create a superclass of \texttt{WAPlayer}, which will also be
+the superclass of \texttt{WAPlayerComponent}.
+
+\begin{enumerate}
+\item Create a \texttt{WAPlayerComponent} class.  Do this by going to
+  \emph{WAPlayer} and changing the name of the class in the code pane to
+  \texttt{WAPlayerComponent}.  Then remove the instance variable names,
+  and \emph{Accept} the definition.
+
+\item Make the class a \emph{superclass} of \texttt{WAPlayer}.
+  Go back to \texttt{WAPlayer} and change the
+  superclass from \texttt{WAComponent} to \texttt{ProFund.WAPlayerComponent}.
+
+\item You want to move the instance variable that holds the \texttt{FMPlayer}
+  instance up to \texttt{WAEditablePlayer}.  In the class definition for
+  \texttt{WAPlayer}, highlight the name of the variable and pick the
+  \emph{Push up} refactoring (Edit $\to$ Refactoring $\to$ Push Up).
+
+\item Similarly, push up the accessor methods for your instance variable.
+  The refactoring is now under Methods $\to$ Refactoring $\to$
+  Push Up.
+
+\item If you have an instance variable that points from the \texttt{WAPlayer}
+  back to the \texttt{WAPlayerPool}, push it up as well.
+
+\item Create the \texttt{WAEditablePlayer} subclass of \texttt{WAPlayerComponent}.
+While the two \texttt{renderContentOn:} methods for \texttt{WAPlayer}
+and \texttt{WAEditablePlayer} will be different, they will be overall similar.
+
+\item Start by changing \texttt{WAPlayer}, removing your previous attempt at making statistics
+modifiable.  Then copy the methods that take care of rendering into your new class.
+
+\item Go to \texttt{WAEditablePlayer} and remove anything related to folded view.
+This should get rid of all references to undeclared variables (that is, no more
+red underlines in the methods).
+\end{enumerate}
+
+\end{exercise}
+
+\begin{exercise}{Create the editable player component}
+
+\begin{enumerate}
+\item Go to \texttt{WAPlayerPool} and (temporarily) make it create instances of
+\texttt{WAEditablePlayer} instead of \texttt{WAPlayer}.  Fix any bugs you have
+introduced, then go on.
+
+\item Using the information you found out in exercise 1, complete the
+functionality of \texttt{WAEditablePlayer}.  Use callbacks to store data in
+the \texttt{FMPlayer}, like you used to do with the return value of
+\texttt{\#request:}.
+
+If necessary, you can use the
+default action to update the list of players shown by the \texttt{WAPlayerPool}
+(see the penultimate item of the assignment).  Otherwise, just use an
+empty block for the default action.
+\end{enumerate}
+
+Now, your football manager will be composed exclusively of \texttt{WAEditablePlayer}
+components, but you should have at least restored the functionality of the player.
+\end{exercise}
+
+\begin{exercise}{Use call/answer}
+
+This part is actually the easiest.
+
+\begin{enumerate}
+\item First of all, switch \texttt{WAPlayerPool} back to creating instances
+of \texttt{WAPlayer}.
+
+\item Add an anchor to the side of the fold/unfold button in
+\texttt{WAPlayer}, named \emph{Modify}.  Leave the action empty for now.
+If you do not have a fold/unfold button, put it to the right of the name.
+
+\item For the anchor's action, use \texttt{call:} to switch to a \texttt{WAEditablePlayer}.
+Use the accessor methods so that the instance variables of the
+\texttt{WAEditablePlayer} are equal to those of the calling \texttt{WAPlayer}.
+
+\item Go to the \texttt{WAEditablePlayer}'s default action, and append
+a call to \texttt{self answer} to get back to the \texttt{WAPlayer}.
+\end{enumerate}
+
+Note that in our case, we already stored the value in the \texttt{FMPlayer}
+during the callbacks, so we need not use the one-argument \texttt{\#answer:}
+method that you saw in exercise 1.
+\end{exercise}
+
+\end{document}

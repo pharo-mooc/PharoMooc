@@ -1,0 +1,903 @@
+WEBVTT
+
+00:00:01.190 --> 00:00:03.000 align:middle
+Dans cette vidéo, nous
+allons vous montrer comment on va
+
+00:00:03.167 --> 00:00:05.220 align:middle
+créer un package, une
+ classe, décrire des tests.
+
+00:00:05.770 --> 00:00:09.100 align:middle
+La première chose à faire déjà, c'est
+commencer à ouvrir le système Browser.
+
+00:00:09.530 --> 00:00:11.710 align:middle
+Le système Browser, ça nous
+permet de browser des packages.
+
+00:00:11.877 --> 00:00:12.590 align:middle
+Là, il y a des packages.
+
+00:00:14.260 --> 00:00:16.600 align:middle
+La première chose à faire,
+c'est qu'on va créer un package.
+
+00:00:16.830 --> 00:00:21.790 align:middle
+On va faire "Add
+package" "MyCounter".
+
+00:00:22.280 --> 00:00:23.640 align:middle
+Comme il y a beaucoup de
+packages et qu'on ne veut pas
+
+00:00:23.807 --> 00:00:27.050 align:middle
+les voir, c'est une bonne
+chose de filtrer tout ça.
+
+00:00:27.950 --> 00:00:30.000 align:middle
+On a notre package "MyCounter".
+
+00:00:30.157 --> 00:00:32.740 align:middle
+Et là, on va définir une
+ classe qu'on va appeler
+
+00:00:32.907 --> 00:00:37.550 align:middle
+"Counter" et elle a une
+variable d'instance count.
+
+00:00:38.140 --> 00:00:42.290 align:middle
+Le petit icône orange nous
+indique que le code n'est pas sauvé.
+
+00:00:42.610 --> 00:00:45.690 align:middle
+Là, on va compiler le code
+avec la fonction "Accept".
+
+00:00:46.290 --> 00:00:49.570 align:middle
+Et là, j'ai la classe
+"Counter" qui a été compilée.
+
+00:00:49.830 --> 00:00:51.920 align:middle
+Le système regarde un petit
+peu et nous dit qu'il y a des
+
+00:00:53.200 --> 00:00:56.290 align:middle
+commentaires de qualité, on verra ça
+plus tard pour le moment on s'en fiche.
+
+00:01:00.790 --> 00:01:03.690 align:middle
+Il y a un point
+d'exclamation rouge parce qu'on n'a pas
+
+00:01:03.857 --> 00:01:05.280 align:middle
+écrit de commentaire.
+Donc, on va écrire un premier
+
+00:01:05.447 --> 00:01:12.330 align:middle
+commentaire :
+
+00:01:12.497 --> 00:01:13.880 align:middle
+"I'ma simple counter".
+
+00:01:45.790 --> 00:01:49.230 align:middle
+On va mettre un petit
+exemple pour que lecteur comprenne
+
+00:01:49.397 --> 00:01:53.050 align:middle
+comment ça va
+fonctionner: Counter new,
+
+00:01:55.750 --> 00:02:00.120 align:middle
+Counter increment, Counter
+
+00:02:02.920 --> 00:02:07.500 align:middle
+count. Là, ça devrait être égal à 2.
+
+00:02:09.880 --> 00:02:14.180 align:middle
+Encore une fois, le texte n'est
+pas sauvé et on va le compiler.
+
+00:02:14.347 --> 00:02:16.540 align:middle
+Il est sauvegardé. On
+n'a plus de counter.
+
+00:02:16.850 --> 00:02:20.050 align:middle
+Maintenant, on va
+définir des accesseurs.
+
+00:02:21.940 --> 00:02:24.770 align:middle
+Les accesseurs, on les met
+généralement dans le protocole Accessing.
+
+00:02:26.640 --> 00:02:31.540 align:middle
+On va faire "count rend count".
+
+00:02:33.160 --> 00:02:35.720 align:middle
+Et de la même manière, on va faire
+
+00:02:38.220 --> 00:02:40.740 align:middle
+aNumber, on va faire un Setter.
+
+00:02:46.190 --> 00:02:48.380 align:middle
+Vous avez vu, j'ai
+modifié la méthode count.
+
+00:02:48.547 --> 00:02:50.770 align:middle
+Là, vous pouvez penser
+qu'elle est perdue mais non parce
+
+00:02:50.937 --> 00:02:54.120 align:middle
+qu'à chaque fois que je
+change une méthode avec un nom
+
+00:02:54.287 --> 00:02:55.320 align:middle
+différent, il en crée une nouvelle.
+
+00:02:55.487 --> 00:02:58.530 align:middle
+Là, je compile une
+nouvelle méthode, j'ai count.
+
+00:03:01.160 --> 00:03:05.190 align:middle
+Maintenant, on peut vraiment tester
+et faire notre premier petit programme.
+
+00:03:07.360 --> 00:03:08.000 align:middle
+Là, je prends Playground.
+
+00:03:09.910 --> 00:03:14.700 align:middle
+Je vais créer un counter.
+On se met sur une autre
+
+00:03:14.867 --> 00:03:19.730 align:middle
+ligne. Je vais lui mettre une valeur
+
+00:03:21.000 --> 00:03:25.420 align:middle
+: C count 7. Si je demande
+sa valeur, qu'est-ce que ça
+
+00:03:25.587 --> 00:03:29.600 align:middle
+doit me rendre ? Ça va me rendre 7.
+
+00:03:32.400 --> 00:03:34.390 align:middle
+Maintenant ce qu'on voudrait
+faire, c'est vraiment écrire
+
+00:03:34.557 --> 00:03:38.460 align:middle
+ça sous forme d'un test parce
+que là, on ne peut pas l'exécuter
+
+00:03:39.040 --> 00:03:40.350 align:middle
+et on aimerait
+l'exécuter automatiquement.
+
+00:03:40.630 --> 00:03:42.910 align:middle
+On va créer une classe de test.
+
+00:03:43.077 --> 00:03:44.820 align:middle
+Comment on crée une
+ classe de test dans Pharo?
+
+00:03:45.000 --> 00:03:48.450 align:middle
+On change la super
+ classe, on dit que ça hérite de
+
+00:03:50.220 --> 00:03:55.000 align:middle
+TestCase et on va
+définir une classe de
+
+00:03:55.167 --> 00:03:56.140 align:middle
+test qu'on appelle CounterTest.
+
+00:03:56.910 --> 00:03:59.860 align:middle
+Maintenant ce que je vais
+faire je vais la compiler.
+
+00:04:00.660 --> 00:04:03.700 align:middle
+J'ai une nouvelle classe
+CounterTest dans mon système.
+
+00:04:04.570 --> 00:04:08.410 align:middle
+Je vais définir une nouvelle
+méthode, je vais ajouter un
+
+00:04:08.577 --> 00:04:10.030 align:middle
+protocole qui s'appelle tests.
+
+00:04:11.620 --> 00:04:14.300 align:middle
+Là, je vais pouvoir
+définir une nouvelle méthode.
+
+00:04:14.467 --> 00:04:17.940 align:middle
+Les méthodes de tests
+doivent commencer par "test"
+
+00:04:18.107 --> 00:04:21.690 align:middle
+toujours et être dans une
+ classe qui hérite de TestCase.
+
+00:04:22.380 --> 00:04:23.580 align:middle
+On va l'appeler
+"testCounterisSetAndRead"
+
+00:04:31.170 --> 00:04:35.590 align:middle
+par exemple. On l'a
+pratiquement notre test, on a déjà
+
+00:04:35.757 --> 00:04:36.540 align:middle
+presque tout écrit.
+
+00:04:37.620 --> 00:04:40.330 align:middle
+On va l'indenter un
+peu plus joliment.
+
+00:04:40.497 --> 00:04:41.730 align:middle
+Je crée mon counter.
+
+00:04:42.580 --> 00:04:45.680 align:middle
+Et maintenant, je
+vais faire "self assert
+
+00:04:49.750 --> 00:04:54.200 align:middle
+equals 7". Cette phrase-là est
+
+00:04:54.367 --> 00:04:58.560 align:middle
+exactement équivalente à
+"self assert C count égale 7".
+
+00:05:01.870 --> 00:05:04.640 align:middle
+C'est que c'est plus
+pratique, quand on fait une erreur
+
+00:05:04.807 --> 00:05:08.470 align:middle
+le retour est beaucoup plus
+intelligent quand on utilise la première forme.
+
+00:05:08.637 --> 00:05:10.910 align:middle
+Là, on va compiler.
+
+00:05:12.790 --> 00:05:17.690 align:middle
+Maintenant, je vais pouvoir
+faire exécuter mon test, mon
+
+00:05:19.790 --> 00:05:22.440 align:middle
+test est vert. Quand on a
+un test et qu'il est vert,
+
+00:05:22.607 --> 00:05:26.180 align:middle
+c'est un bon moment pour
+sauver sa production, son code.
+
+00:05:26.370 --> 00:05:27.930 align:middle
+Dans Pharo, vous allez
+pouvoir sauver l'image.
+
+00:05:28.097 --> 00:05:30.080 align:middle
+Là, c'est-ce que je fais, je
+vais sauver l'image mais ce
+
+00:05:30.247 --> 00:05:31.320 align:middle
+n'est pas satisfaisant l'image.
+
+00:05:32.770 --> 00:05:35.040 align:middle
+Je voudrais vous montrer
+comment vous allez sauver du
+
+00:05:35.207 --> 00:05:36.820 align:middle
+code dans un système de version.
+
+00:05:37.070 --> 00:05:39.960 align:middle
+Là, comme je ne sais pas
+si vous allez avoir accès à
+
+00:05:40.127 --> 00:05:44.610 align:middle
+Internet, je vais le
+faire dans mon cache local.
+
+00:05:44.777 --> 00:05:48.860 align:middle
+Vous voyez, j'ai ce
+dossier-là qui pointe
+
+00:05:49.027 --> 00:05:52.930 align:middle
+sur tous les
+packages, sur lesquels je peux
+
+00:05:54.000 --> 00:05:55.360 align:middle
+travailler, que j'ai chargés ou pas.
+
+00:05:55.770 --> 00:05:58.490 align:middle
+Là, ce que nous montre
+le système, c'est que j'ai
+
+00:05:58.657 --> 00:06:02.870 align:middle
+plusieurs packages qui ont des
+modifications qui n'ont pas été sauvegardées.
+
+00:06:03.070 --> 00:06:05.060 align:middle
+On s'en fiche des 2
+premières, mais nous, on voit que
+
+00:06:05.227 --> 00:06:09.160 align:middle
+MyPackage a une étoile. Ça
+veut dire que j'ai du code
+
+00:06:09.327 --> 00:06:10.760 align:middle
+dans l'image qui n'a pas été sauvé.
+
+00:06:12.130 --> 00:06:14.020 align:middle
+Là c'est ce que je vais
+faire, je vais faire Save, je
+
+00:06:14.187 --> 00:06:15.230 align:middle
+vais dire voila je
+choisis le repository.
+
+00:06:16.520 --> 00:06:17.320 align:middle
+Je vais faire save.
+
+00:06:21.400 --> 00:06:26.180 align:middle
+Là, je vais marquer "first
+version with accessors and a
+
+00:06:27.210 --> 00:06:29.090 align:middle
+green test". Là,
+
+00:06:32.640 --> 00:06:35.600 align:middle
+j'accepte. Là, il
+m'a sauvé un package.
+
+00:06:35.800 --> 00:06:36.530 align:middle
+On va aller vérifier.
+
+00:06:36.697 --> 00:06:41.370 align:middle
+Je peux ouvrir ce dossier
+et si je regarde, il contient
+
+00:06:42.410 --> 00:06:44.460 align:middle
+plein de packages qui ont
+été chargés par le système.
+
+00:06:44.627 --> 00:06:48.470 align:middle
+Mais en particulier, si je
+filtre là, je retrouve bien
+
+00:06:48.637 --> 00:06:51.130 align:middle
+mon package avec ses versions.
+
+00:06:57.620 --> 00:07:00.740 align:middle
+Je vous conseille à chaque
+fois que vous avez ajouté une
+
+00:07:00.907 --> 00:07:03.460 align:middle
+fonctionnalité, c'est ce qu'on va
+faire systématiquement, de sauvegarder.
+
+00:07:06.770 --> 00:07:09.900 align:middle
+Maintenant ce qu'on va
+faire, on va d'abord définir un
+
+00:07:10.067 --> 00:07:12.130 align:middle
+test avant de l'implémenter.
+
+00:07:12.410 --> 00:07:14.590 align:middle
+On va écrire un test pour
+qu'est-ce que c'est que l'incrément
+
+00:07:14.757 --> 00:07:19.710 align:middle
+d'un
+
+00:07:19.877 --> 00:07:21.200 align:middle
+counter. "TestIncrement"
+qu'est-ce qu'on aimerait avoir?
+
+00:07:21.367 --> 00:07:22.000 align:middle
+On aimerait lui dire "Je
+
+00:07:26.330 --> 00:07:27.430 align:middle
+crée un counter,
+
+00:07:33.510 --> 00:07:38.400 align:middle
+je vais lui mettre
+une valeur par défaut,
+
+00:07:38.840 --> 00:07:43.410 align:middle
+puis je vais
+incrémenter 2 fois ce counter.
+
+00:07:44.100 --> 00:07:45.310 align:middle
+" Qu'est-ce que je dois vérifier ?
+
+00:07:45.477 --> 00:07:48.130 align:middle
+Je dois vérifier que
+le counter en question
+
+00:07:51.150 --> 00:07:51.870 align:middle
+a la bonne valeur.
+
+00:07:57.900 --> 00:08:02.800 align:middle
+Je compile. Mon test
+
+00:08:03.000 --> 00:08:06.880 align:middle
+est bien rouge puisque je
+n'ai pas implémenté counter,
+
+00:08:07.510 --> 00:08:10.390 align:middle
+les opérations dans compteur
+incrémentent et décrémentent.
+
+00:08:11.520 --> 00:08:12.450 align:middle
+Je vais ajouter
+"operations increment".
+
+00:08:21.660 --> 00:08:22.390 align:middle
+Qu'est-ce qu'on va faire ?
+
+00:08:22.557 --> 00:08:26.890 align:middle
+On va faire "self
+count 2: self count +
+
+00:08:27.200 --> 00:08:30.270 align:middle
+1". Si on utilise
+systématiquement les accesseurs en
+
+00:08:30.437 --> 00:08:32.080 align:middle
+interne ou pas, ça dépend,
+c'est une question de style.
+
+00:08:34.510 --> 00:08:37.630 align:middle
+De la même manière vu que
+c'est très proche, on va
+
+00:08:39.710 --> 00:08:40.500 align:middle
+définir "decrement".
+
+00:08:42.380 --> 00:08:44.470 align:middle
+Vous voyez que sur increment
+il y a un test, donc je peux
+
+00:08:44.637 --> 00:08:48.190 align:middle
+l'exécuter et mon test est vert.
+
+00:08:48.357 --> 00:08:50.370 align:middle
+Donc, j'ai bien 2
+tests qui fonctionnent.
+
+00:08:50.710 --> 00:08:53.350 align:middle
+Si je vais dans la classe
+test, tous mes tests sont verts.
+
+00:08:53.670 --> 00:08:54.540 align:middle
+Qu'est-ce que je vais faire ?
+
+00:08:54.707 --> 00:08:56.790 align:middle
+Je sauvegarde. Je vais
+faire une nouvelle sauvegarde.
+
+00:08:56.957 --> 00:09:00.340 align:middle
+Je vais dire "Adding
+increment and decrement".
+
+00:09:13.110 --> 00:09:17.850 align:middle
+Là maintenant si je
+regarde, j'ai bien 2 versions
+
+00:09:23.250 --> 00:09:23.883 align:middle
+de mes packages.
+
+00:09:24.090 --> 00:09:29.020 align:middle
+On va écrire un test pour "decrement"
+
+00:09:29.187 --> 00:09:30.100 align:middle
+parce qu'il n'y a pas de raison.
+
+00:09:31.700 --> 00:09:36.590 align:middle
+"Decrement", par exemple je
+
+00:09:36.757 --> 00:09:40.320 align:middle
+pourrais mettre une valeur
+à 2 si j'en ai envie et je
+
+00:09:40.487 --> 00:09:43.890 align:middle
+décrémente 2 fois. Je dois obtenir 0.
+
+00:09:44.057 --> 00:09:48.550 align:middle
+Mon test est vert donc
+
+00:09:49.570 --> 00:09:50.203 align:middle
+je vais sauver.
+
+00:10:06.490 --> 00:10:10.490 align:middle
+Maintenant ce qu'on
+aimerait avoir, c'est que si je
+
+00:10:10.657 --> 00:10:14.300 align:middle
+regarde et que je fais
+"Counter new" et que je fais
+
+00:10:14.467 --> 00:10:16.910 align:middle
+"Print it", ça m'affiche un
+counter et je ne sais pas sa
+
+00:10:17.077 --> 00:10:19.000 align:middle
+valeur, donc ce n'est pas pratique.
+
+00:10:19.360 --> 00:10:22.260 align:middle
+Ce qu'on aimerait c'est
+modifier ce comportement.
+
+00:10:24.130 --> 00:10:26.630 align:middle
+Pour cela ce qu'on va faire
+on va ajouter une méthode qui
+
+00:10:26.797 --> 00:10:29.840 align:middle
+s'appelle "PrintOn",
+dans le protocole Printing.
+
+00:10:31.340 --> 00:10:33.110 align:middle
+Print on, c'est une
+méthode qui est appelée par le
+
+00:10:33.277 --> 00:10:34.530 align:middle
+système à chaque fois
+que l'on fait PrintStream.
+
+00:10:35.760 --> 00:10:36.750 align:middle
+On a comme argument aStream.
+
+00:10:38.690 --> 00:10:39.440 align:middle
+Qu'est-ce qu'on va faire ?
+
+00:10:40.200 --> 00:10:43.170 align:middle
+On va dire qu'on
+aimerait avoir un counter.
+
+00:10:43.337 --> 00:10:47.460 align:middle
+Là typiquement, j'invoque
+les fonctions du dessus.
+
+00:10:51.740 --> 00:10:54.170 align:middle
+Maintenant ce que je
+vais faire, j'aimerais
+
+00:10:58.530 --> 00:10:59.850 align:middle
+ajouter un petit
+
+00:11:04.470 --> 00:11:05.103 align:middle
+texte
+
+00:11:17.370 --> 00:11:20.570 align:middle
+par exemple "with
+value" et puis "self count".
+
+00:11:24.150 --> 00:11:27.740 align:middle
+Je fais ça parce que le
+counter c'est un nombre, donc je
+
+00:11:27.907 --> 00:11:32.180 align:middle
+dois obtenir sa
+représentation textuelle.
+
+00:11:34.260 --> 00:11:35.290 align:middle
+Je vais faire "cr".
+
+00:11:35.457 --> 00:11:36.260 align:middle
+Je compile.
+
+00:11:42.900 --> 00:11:45.550 align:middle
+Le système me dit que je pourrais
+faire mieux mais bon ce n'est pas grave.
+
+00:11:46.040 --> 00:11:47.270 align:middle
+Pour le moment on s'en fiche.
+
+00:11:48.590 --> 00:11:49.760 align:middle
+Je peux faire c'est "Counter new".
+
+00:11:51.000 --> 00:11:54.740 align:middle
+Je regarde, il me dit que c'est
+un counter avec comme valeur nil.
+
+00:11:54.907 --> 00:11:58.020 align:middle
+C'est normal puisque je ne
+l'ai pas encore initialisé.
+
+00:12:01.260 --> 00:12:04.960 align:middle
+Maintenant, on va ajouter un
+support à l'initialisation.
+
+00:12:07.590 --> 00:12:09.780 align:middle
+On va commencer par écrire
+un test et pour faire cela
+
+00:12:14.050 --> 00:12:18.020 align:middle
+je vais dire, je veux que
+les valeurs à la création
+
+00:12:19.770 --> 00:12:23.180 align:middle
+soient 0.
+
+00:12:24.950 --> 00:12:25.760 align:middle
+Qu'est-ce que je vais faire ?
+
+00:12:25.927 --> 00:12:27.280 align:middle
+Je vais faire "self assert".
+
+00:12:27.447 --> 00:12:30.840 align:middle
+Je vais m'assurer que "Counter new
+
+00:12:33.030 --> 00:12:36.210 align:middle
+count = 0". Là,
+
+00:12:38.020 --> 00:12:39.010 align:middle
+qu'est-ce qu'on voit ?
+
+00:12:39.177 --> 00:12:41.090 align:middle
+Mon test est faux. Pourquoi ?
+
+00:12:41.257 --> 00:12:45.140 align:middle
+Parce que si je fais
+ça, j'obtiens nil.
+
+00:12:47.140 --> 00:12:49.820 align:middle
+Vu que c'est une classe et
+que je n'accède pas à des
+
+00:12:50.000 --> 00:12:53.560 align:middle
+variables d'instance de la
+ classe CounterTest, je peux
+
+00:12:53.727 --> 00:12:57.110 align:middle
+sélectionner l'expression
+et l'exécuter directement.
+
+00:13:00.280 --> 00:13:03.170 align:middle
+Maintenant, une fois que
+j'ai ce test qui ne passe pas,
+
+00:13:03.680 --> 00:13:04.420 align:middle
+qu'est-ce que je vais faire ?
+
+00:13:04.587 --> 00:13:09.110 align:middle
+Je vais ajouter une méthode
+initialize dans le protocole initialisation.
+
+00:13:16.900 --> 00:13:21.730 align:middle
+Et là qu'est-ce que je vais faire ?
+
+00:13:22.160 --> 00:13:25.760 align:middle
+Je vais faire "super
+initialize", au cas où, et je vais
+
+00:13:25.927 --> 00:13:27.730 align:middle
+dire "count 2 points = 0".
+
+00:13:27.897 --> 00:13:31.550 align:middle
+Cette méthode-là est invoquée à
+chaque fois que j'ajoute la méthode "new".
+
+00:13:32.330 --> 00:13:35.700 align:middle
+Maintenant je peux regarder
+avec mes tests, c'est vert.
+
+00:13:35.867 --> 00:13:40.070 align:middle
+De la même manière, si je
+faisais "count", j'obtiens bien 0.
+
+00:13:41.010 --> 00:13:45.320 align:middle
+Encore une fois, là on va
+sauvegarder: ""added printOn"
+
+00:13:45.487 --> 00:13:47.490 align:middle
+"added initialize + tests".
+
+00:14:04.000 --> 00:14:06.270 align:middle
+Donc ce qu'on peut
+maintenant qui est intéressant c'est
+
+00:14:06.437 --> 00:14:09.300 align:middle
+que je peux voir tout mon historique.
+
+00:14:09.467 --> 00:14:12.310 align:middle
+Je peux aussi voir et
+naviguer dans cet historique.
+
+00:14:12.520 --> 00:14:16.180 align:middle
+Si je clique sur "version" je peux
+voir la différence entre 2 systèmes.
+
+00:14:17.960 --> 00:14:20.440 align:middle
+Les changements entre la
+version 3 et la version 4, c'est
+
+00:14:20.607 --> 00:14:21.530 align:middle
+"initialize" "printOn" et le Test.
+
+00:14:22.000 --> 00:14:24.660 align:middle
+Si je veux la
+différence entre la version
+
+00:14:28.490 --> 00:14:33.360 align:middle
+2 et la version 4, j'ai tous ces
+
+00:14:33.527 --> 00:14:34.160 align:middle
+changements.
+
+00:14:35.870 --> 00:14:38.220 align:middle
+Maintenant il me reste une
+chose à faire, j'aimerais bien
+
+00:14:38.387 --> 00:14:43.100 align:middle
+changer un petit peu la
+manière dont les objets sont créés.
+
+00:14:43.820 --> 00:14:47.210 align:middle
+Je vais commencer par créer
+un test pour vous expliciter
+
+00:14:47.377 --> 00:14:51.040 align:middle
+ce que j'ai envie
+d'obtenir. Je vais définir un test
+
+00:14:53.040 --> 00:14:56.000 align:middle
+que je vais appeler 
+"AlternateClassCreation".
+
+00:14:58.000 --> 00:14:59.500 align:middle
+Qu'est-ce qu'on a envie d'avoir ?
+
+00:15:01.000 --> 00:15:03.000 align:middle
+On va dire, moi ce que je veux,
+je veux garantir quoi...
+
+00:15:05.000 --> 00:15:11.000 align:middle
+que Counter withValue: 19
+
+00:15:11.500 --> 00:15:13.000 align:middle
+Si je fais increment dessus
+
+00:15:15.000 --> 00:15:20.000 align:middle
+et que je demande sa valeur,
+ça doit me rendre 20, 
+
+00:15:21.000 --> 00:15:23.000 align:middle
+d'accord.
+
+00:15:30.000 --> 00:15:34.000 align:middle
+On va mettre une parenthèse ici, 
+c'est mieux,voilà.
+
+00:15:38.000 --> 00:15:42.000 align:middle
+Donc, encore une fois, le 
+test ne passe pas,
+
+00:15:44.000 --> 00:15:48.000 align:middle
+et l'assistant me dit : "tu envoies 
+un message qui n'est pas connu".
+
+00:15:49.000 --> 00:15:52.000 align:middle
+Ce qu'il faut voir c'est que 
+le message withValue 
+
+00:15:52.200 --> 00:15:55.000 align:middle
+est envoyé non plus à un objet
+mais à une classe.
+
+00:15:55.500 --> 00:15:58.500 align:middle
+Donc ça veut dire que je vais 
+devoir définir ce message là
+
+00:15:58.600 --> 00:15:59.900 align:middle
+sur la classe.
+Donc je sélectionne la classe.
+
+00:16:00.000 --> 00:16:03.000 align:middle
+Maintenant je passe au niveau classe 
+et je vais ajouter 
+
+00:16:03.200 --> 00:16:10.000 align:middle
+un protocole qui s'appelle
+instance creation 
+
+00:16:12.500 --> 00:16:16.400 align:middle
+withValue: aNumber
+Alors qu'est-ce que je dois faire ?
+
+00:16:17.500 --> 00:16:18.400 align:middle
+La première des choses à faire 
+ça va être,
+
+00:16:19.000 --> 00:16:21.800 align:middle
+je vais créer un counter, une 
+variable counter,
+
+00:16:22.000 --> 00:16:24.500 align:middle
+counter, je le fais lentement hein, 
+
+00:16:24.600 --> 00:16:26.000 align:middle
+self new 
+Donc je crée un counter 
+
+00:16:26.100 --> 00:16:29.900 align:middle
+et je vais faire 
+self count: aNumber
+
+00:16:30.000 --> 00:16:34.000 align:middle
+et je vais rendre ce counter.
+
+00:16:34.100 --> 00:16:35.000 align:middle
+On peut le faire de manière plus 
+compacte 
+
+00:16:35.100 --> 00:16:38.000 align:middle
+mais pour le moment
+faisons-le simplement.
+
+00:16:38.100 --> 00:16:40.000 align:middle
+Donc je compile ma méthode.
+
+00:16:40.100 --> 00:16:43.000 align:middle
+Et maintenant ça veut dire que 
+je peux envoyer des messages.
+
+00:16:43.500 --> 00:16:49.000 align:middle
+Et vous avez vu, quand je clique 
+sur ce bouton, 
+
+00:16:49.100 --> 00:16:52.000 align:middle
+je passe au niveau classe.
+Donc je passe du niveau classe 
+
+00:16:52.100 --> 00:16:53.000 align:middle
+au niveau instance.
+
+00:16:53.100 --> 00:16:55.000 align:middle
+Donc là j'étais au niveau classe 
+et là je reviens sur 
+
+00:16:55.100 --> 00:16:57.500 align:middle
+les messages qui sont envoyés 
+à des instances.
+
+00:16:58.100 --> 00:17:01.200 align:middle
+Qu'est-ce que ça veut dire ?
+ça veut dire que si je fais 
+
+00:17:01.500 --> 00:17:08.900 align:middle
+Counter withValue: 18,
+qu'est-ce que je vais obtenir ?
+
+00:17:09.000 --> 00:17:11.000 align:middle
+Je vais obtenir une instance 
+de la classe counter.
+
+00:17:12.500 --> 00:17:15.000 align:middle
+J'obtiens bien un counter 
+avec value 18.
+
+00:17:15.100 --> 00:17:18.000 align:middle
+Et là je pourrais le faire
+decrement.
+
+00:17:21.100 --> 00:17:23.000 align:middle
+Et si je rafraichis, j'ai bien 17.
+
+00:17:26.100 --> 00:17:28.900 align:middle
+Donc maintenant si je regarde 
+mon test,
+
+00:17:29.000 --> 00:17:32.000 align:middle
+tous mes tests passent, 
+donc je vais encore une fois 
+
+00:17:32.100 --> 00:17:35.000 align:middle
+sauvegarder et j'ai fini.
+
+00:17:37.100 --> 00:17:44.000 align:middle
+Added instance creation 
+API and tests. 
+
+00:17:45.000 --> 00:17:48.000 align:middle
+Done for now.
+
+ align:middle
+

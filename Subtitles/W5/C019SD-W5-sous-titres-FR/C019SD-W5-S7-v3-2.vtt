@@ -1,0 +1,536 @@
+WEBVTT
+
+00:00:00.580 --> 00:00:04.120 align:middle
+Bonjour à tous. Dans cette
+séquence nous allons voir l'API
+
+00:00:04.320 --> 00:00:05.780 align:middle
+qui permet de manipuler les fichiers.
+
+00:00:06.780 --> 00:00:09.430 align:middle
+Donc ce que nous allons
+étudier plus en particulier c'est
+
+00:00:09.630 --> 00:00:14.110 align:middle
+comment naviguer entre les
+dossiers, comment créer et
+
+00:00:14.310 --> 00:00:18.570 align:middle
+supprimer des dossiers,
+comment lister les fichiers d'un
+
+00:00:18.770 --> 00:00:22.470 align:middle
+dossier et, comment
+lire et écrire depuis et
+
+00:00:23.180 --> 00:00:23.940 align:middle
+vers des fichiers.
+
+00:00:24.430 --> 00:00:27.280 align:middle
+Alors pour commencer il
+faut un point d'entrée dans le
+
+00:00:27.490 --> 00:00:31.130 align:middle
+système de fichiers, il y
+en a plusieurs, donc avec
+
+00:00:31.330 --> 00:00:34.700 align:middle
+FileLocator home vous avez
+le dossier de l'utilisateur,.
+
+00:00:35.810 --> 00:00:39.000 align:middle
+FileLocator root vous avez la racine
+
+00:00:40.460 --> 00:00:44.390 align:middle
+du système de fichier et
+avec FileLocator C sous
+
+00:00:45.000 --> 00:00:46.790 align:middle
+Windows vous avez
+le disque C 2 points.
+
+00:00:47.620 --> 00:00:51.690 align:middle
+Une fois que vous avez un
+dossier, donc ces 3 éléments-là
+
+00:00:51.890 --> 00:00:54.940 align:middle
+sont des dossiers, là j'en
+prends un, FileLocator home,
+
+00:00:55.730 --> 00:00:59.810 align:middle
+donc j'ai la home
+directory d'un des utilisateurs.
+
+00:01:01.370 --> 00:01:05.940 align:middle
+À partir de là je peux
+demander donne-moi ton chemin d'accès.
+
+00:01:06.250 --> 00:01:08.820 align:middle
+Donc home ce n'est pas une
+chaîne de caractères c'est un
+
+00:01:09.020 --> 00:01:13.140 align:middle
+objet qui représente un
+dossier et je peux lui demander
+
+00:01:13.340 --> 00:01:16.040 align:middle
+donne-moi la chaîne de
+caractères qui montre où tu te
+
+00:01:16.240 --> 00:01:19.360 align:middle
+trouves dans le système.
+Donc là c'est / home / Cassou.
+
+00:01:21.050 --> 00:01:23.610 align:middle
+À un dossier je peux y
+demander quels sont tous tes
+
+00:01:23.810 --> 00:01:26.070 align:middle
+enfants, c'est-à-dire quels
+sont tous les fichiers et les
+
+00:01:26.270 --> 00:01:30.890 align:middle
+dossiers que tu contiens.
+Donc là il me dit dans Home
+
+00:01:31.160 --> 00:01:35.670 align:middle
+j'ai un fichier point
+bashrc et j'ai un dossier Music.
+
+00:01:37.080 --> 00:01:41.160 align:middle
+Donc ça children,
+retourne un ensemble d'objets,
+
+00:01:41.890 --> 00:01:44.510 align:middle
+qui sont des
+fichiers ou des dossiers.
+
+00:01:45.910 --> 00:01:50.310 align:middle
+Si on joue un petit peu
+encore avec cet API-là, on peut
+
+00:01:50.510 --> 00:01:54.830 align:middle
+remarquer la méthode /,
+quand on voit le message /
+
+00:01:55.880 --> 00:01:59.560 align:middle
+à un dossier on va
+pouvoir indiquer un enfant en
+
+00:01:59.760 --> 00:02:01.430 align:middle
+particulier qui nous intéresse.
+
+00:02:02.430 --> 00:02:06.700 align:middle
+Donc home / Music me
+donne le dossier music.
+
+00:02:08.160 --> 00:02:12.450 align:middle
+En envoyant le message
+"directories" à un dossier, j'obtiens
+
+00:02:12.790 --> 00:02:13.550 align:middle
+tous les sous-dossiers.
+
+00:02:14.730 --> 00:02:18.560 align:middle
+Donc là je vois que dans ma
+bibliothèque de musiques j'ai
+
+00:02:18.760 --> 00:02:19.560 align:middle
+un dossier Anouar Brahem.
+
+00:02:22.170 --> 00:02:24.830 align:middle
+Le message "parent" me
+permet de remonter d'un cran.
+
+00:02:25.640 --> 00:02:28.810 align:middle
+Donc si je suis dans le
+dossier musique, j'envoie
+
+00:02:29.010 --> 00:02:31.080 align:middle
+"parent" bah je reviens
+dans mon dossier home.
+
+00:02:32.270 --> 00:02:36.000 align:middle
+En partant de mon dossier
+musique comme vu précédemment,
+
+00:02:36.250 --> 00:02:38.350 align:middle
+je vais essayer de créer un dossier.
+
+00:02:39.640 --> 00:02:43.230 align:middle
+Donc pour cela je peux déjà
+vérifier est-ce que le dossier existe.
+
+00:02:43.430 --> 00:02:47.070 align:middle
+En envoyant un message
+"isDirectory" à un dossier j'obtiens
+
+00:02:47.270 --> 00:02:48.320 align:middle
+vrai ou faux suivant
+qu'il existe ou pas.
+
+00:02:48.700 --> 00:02:51.670 align:middle
+Donc là ça me dit, le
+dossier n'existe pas, très bien,
+
+00:02:51.870 --> 00:02:54.180 align:middle
+avec
+"ensureCreateDirectory" je le crée.
+
+00:02:55.320 --> 00:02:57.390 align:middle
+Puis je teste,
+est-ce que tu existes?
+
+00:02:57.820 --> 00:02:59.000 align:middle
+Dans ce cas-là il existe.
+
+00:03:00.080 --> 00:03:03.040 align:middle
+Avec delete, je peux
+l'effacer et je vérifie qu'il est
+
+00:03:03.240 --> 00:03:04.920 align:middle
+bien effacé en envoyant isDirectory.
+
+00:03:06.310 --> 00:03:11.210 align:middle
+Pour trouver tous les fils
+d'un dossier il y a plusieurs
+
+00:03:11.410 --> 00:03:12.890 align:middle
+possibilités, donc là j'en montre 2.
+
+00:03:13.090 --> 00:03:17.200 align:middle
+En envoyant le message
+"allChidrenMatching" à un dossier
+
+00:03:17.550 --> 00:03:21.670 align:middle
+et en lui passant
+une expression qui est
+
+00:03:21.870 --> 00:03:24.710 align:middle
+typique d'échelle et, qui représente
+
+00:03:26.770 --> 00:03:29.940 align:middle
+le nom du fichier auquel on
+s'attend, donc avec * point
+
+00:03:30.140 --> 00:03:32.670 align:middle
+ogg, je veux tous les
+fichiers dont l'extension est "ogg".
+
+00:03:35.000 --> 00:03:37.340 align:middle
+Donc ça ça me retourner
+tous mes fichiers musiques ogg
+
+00:03:37.920 --> 00:03:38.680 align:middle
+dans mon dossier Pink Floyd.
+
+00:03:40.640 --> 00:03:43.390 align:middle
+Je peux faire la même chose
+un petit peu plus verbeux.
+
+00:03:43.910 --> 00:03:46.000 align:middle
+En envoyant le message
+"allChildren" je récupère tous les
+
+00:03:46.200 --> 00:03:49.630 align:middle
+enfants, tous les fichiers
+et tous les dossiers, d'un
+
+00:03:49.830 --> 00:03:53.910 align:middle
+dossier en particulier et,
+je filtre avec le message
+
+00:03:54.110 --> 00:03:57.760 align:middle
+"select", tous ceux dont
+le nom se termine par "ogg".
+
+00:03:58.150 --> 00:04:00.290 align:middle
+Donc "basename" retourne
+la chaîne de caractères qui
+
+00:04:00.490 --> 00:04:03.820 align:middle
+représente le nom du
+fichier et, je veux que le nom du
+
+00:04:04.020 --> 00:04:05.320 align:middle
+fichier se termine par "ogg".
+
+00:04:05.520 --> 00:04:07.830 align:middle
+Ces 2 bootcuts sont à
+peu près équivalents.
+
+00:04:08.780 --> 00:04:11.900 align:middle
+Alors comment est-ce qu'on peut
+récupérer de l'information sur un fichier?
+
+00:04:12.800 --> 00:04:16.610 align:middle
+Donc d'abord comment créer un fichier
+à partir d'une chaîne de caractères?
+
+00:04:16.810 --> 00:04:20.810 align:middle
+Là j'ai un nom de fichier
+" asFileReference", ça me
+
+00:04:21.010 --> 00:04:23.760 align:middle
+transforme le nom de fichier en
+une référence vers un fichier.
+
+00:04:24.270 --> 00:04:26.100 align:middle
+Ça peut être une référence
+vers un fichier qui existe ou
+
+00:04:26.300 --> 00:04:27.700 align:middle
+une référence vers une
+fichier qui n'existe pas, pour le
+
+00:04:27.900 --> 00:04:31.750 align:middle
+moment je ne sais pas. En
+envoyant le message "isFile" à
+
+00:04:31.950 --> 00:04:34.520 align:middle
+cette référence j'obtiens
+"vrai", si c'est un fichier qui
+
+00:04:34.720 --> 00:04:36.170 align:middle
+existe, et "faux", si c'est
+un fichier qui n'existe pas.
+
+00:04:37.620 --> 00:04:40.680 align:middle
+En envoyant le message
+"basename", j'obtiens le nom du fichier.
+
+00:04:42.000 --> 00:04:44.340 align:middle
+En envoyant "extension",
+j'obtiens l'extension du fichier.
+
+00:04:46.000 --> 00:04:50.250 align:middle
+Avec "size", j'obtiens
+la taille et "pathString",
+
+00:04:51.010 --> 00:04:53.500 align:middle
+comme on l'a vu
+précédemment, j'obtiens le chemin d'accès
+
+00:04:53.700 --> 00:04:54.840 align:middle
+sous la forme d'une
+chaîne de caractères.
+
+00:04:56.020 --> 00:04:58.520 align:middle
+Maintenant voyons comment on
+peut écrire et lire dans un fichier.
+
+00:04:58.720 --> 00:05:03.400 align:middle
+Alors pour écrire, d'abord
+je récupère une référence vers
+
+00:05:03.600 --> 00:05:06.790 align:middle
+un fichier, ici je
+vérifie qu'il n'existe pas.
+
+00:05:07.410 --> 00:05:09.730 align:middle
+Donc on peut écrire dans un
+fichier qui existe mais là je
+
+00:05:09.930 --> 00:05:11.280 align:middle
+vérifie qu'il n'existe pas.
+
+00:05:12.000 --> 00:05:16.300 align:middle
+J'écris dedans, donc pour
+écrire je créé un stream
+
+00:05:17.470 --> 00:05:21.030 align:middle
+avec "nextPutAll" je demande
+d'écrire chaque caractère de
+
+00:05:21.230 --> 00:05:24.100 align:middle
+la chaîne de caractères
+dans le fichier et, à la fin je
+
+00:05:24.300 --> 00:05:26.570 align:middle
+ferme mon flux pour m'assurer
+que le système d'exploitation
+
+00:05:26.770 --> 00:05:28.580 align:middle
+a bien tout écrit sur le disque.
+
+00:05:29.270 --> 00:05:32.110 align:middle
+À l'inverse je peux lire
+depuis un fichier, donc je
+
+00:05:32.310 --> 00:05:35.540 align:middle
+reprends le même fichier et
+le point txt, je vérifie qu'il
+
+00:05:35.740 --> 00:05:38.210 align:middle
+existe, là il existe puisqu'on vient
+d'écrire faire quelque chose dedans.
+
+00:05:39.630 --> 00:05:43.390 align:middle
+Je crée un flux en lecture,
+donc un "reasdStream" et je
+
+00:05:43.590 --> 00:05:45.760 align:middle
+vais regarder, donc soit
+caractère par caractère en
+
+00:05:45.960 --> 00:05:48.520 align:middle
+envoyant le message "next",
+donc avec le message "next je
+
+00:05:48.720 --> 00:05:51.440 align:middle
+veux d'abord obtenir H puis
+E puis L, puis L et caetera.
+
+00:05:51.740 --> 00:05:54.580 align:middle
+Donc là je fais "next" une
+seule fois, j'obtiens H et
+
+00:05:54.780 --> 00:05:57.660 align:middle
+après je vais récupérer
+tout depuis le premier H que je
+
+00:05:57.860 --> 00:06:00.200 align:middle
+viens de lire jusqu'à la fin
+du fichier, donc là j'obtiens
+
+00:06:00.400 --> 00:06:02.180 align:middle
+"ello World" mais sans le H.
+
+00:06:02.380 --> 00:06:04.780 align:middle
+À la fin j'envoie le
+message "close" à l'objet "stream"
+
+00:06:05.590 --> 00:06:08.000 align:middle
+pour m'assurer que la
+référence du fichier est bien fermée.
+
+00:06:09.270 --> 00:06:13.450 align:middle
+On peut écrire ces
+codes-là plus simplement en
+
+00:06:14.130 --> 00:06:18.390 align:middle
+n'ayant plus besoin non plus
+d'envoyer le message "close".
+
+00:06:19.000 --> 00:06:21.270 align:middle
+Parce qu'envoyer le message
+"close" on peut oublier de le
+
+00:06:21.470 --> 00:06:24.500 align:middle
+faire et, il peut y avoir
+une exception qui fait qu'au
+
+00:06:24.700 --> 00:06:26.060 align:middle
+final le "close" n'est jamais envoyé.
+
+00:06:26.480 --> 00:06:29.370 align:middle
+Donc en général on essaye de ne
+pas avoir à l'écrire soi-même.
+
+00:06:31.010 --> 00:06:35.830 align:middle
+Donc pour ça, pour écrire,
+je prends ma référence de
+
+00:06:36.030 --> 00:06:40.400 align:middle
+fichier, j'envoie le message
+"readStreamDo", qui prend un
+
+00:06:40.600 --> 00:06:45.250 align:middle
+bloc en paramètres, le Bloc
+prend un stream en paramètre.
+
+00:06:45.670 --> 00:06:48.110 align:middle
+Donc ce stream-là il sera
+fourni automatiquement par la
+
+00:06:48.310 --> 00:06:50.740 align:middle
+méthode "writeStreamDo",
+qui va créer le stream, qui va
+
+00:06:50.940 --> 00:06:53.500 align:middle
+créer un
+"writestream" sur le fichier.
+
+00:06:54.260 --> 00:06:55.880 align:middle
+Moi la seule chose que
+j'ai besoin de faire, c'est à
+
+00:06:56.080 --> 00:06:58.750 align:middle
+partir de ce stream, je
+manipule le stream pour faire ce
+
+00:06:58.950 --> 00:07:01.000 align:middle
+que je veux avec le
+fichier. Donc là je vais écrire
+
+00:07:01.200 --> 00:07:03.490 align:middle
+"Hello World" dans le fichier, je
+fais "streamnextall" "Hello World".
+
+00:07:04.810 --> 00:07:07.040 align:middle
+Quand le bloc se
+termine le flux est fermé
+
+00:07:07.240 --> 00:07:09.650 align:middle
+automatiquement et le
+fichier s'écrit sur le disque.
+
+00:07:11.230 --> 00:07:13.050 align:middle
+Pour la lecture, c'est
+exactement le même principe je
+
+00:07:13.250 --> 00:07:14.560 align:middle
+remplace
+"writeStreamDo" par e"readStreamDo".
+
+00:07:16.300 --> 00:07:19.030 align:middle
+Ici j'ai un stream, j'en
+fais ce que j'en veux et là ce
+
+00:07:19.230 --> 00:07:22.020 align:middle
+que je décide c'est de récupérer
+l'ensemble du contenu du stream.
+
+00:07:24.190 --> 00:07:27.400 align:middle
+Alors ce que vous devez
+retenir, c'est que les fichiers
+
+00:07:27.600 --> 00:07:31.760 align:middle
+et les dossiers sont des
+références, sont des objets qui
+
+00:07:31.960 --> 00:07:33.950 align:middle
+sont des références vers des
+fichiers et des dossiers sur
+
+00:07:34.150 --> 00:07:35.710 align:middle
+le disque, qui
+peuvent ou pas exister.
+
+00:07:35.910 --> 00:07:38.010 align:middle
+Donc on peut demander avec
+"exist", avec "isFile", avec
+
+00:07:38.210 --> 00:07:40.840 align:middle
+"isDirectory" si les fichiers et
+dossiers existent sur le disque.
+
+00:07:42.000 --> 00:07:45.700 align:middle
+L'API est simple et permet
+une navigation simplifiée et
+
+00:07:45.900 --> 00:07:48.000 align:middle
+une manipulation des
+dossiers et des fichiers simplifiée.
+
+00:07:49.150 --> 00:07:53.600 align:middle
+On peut lire et écrire des
+fichiers grâce au stream et,
+
+00:07:54.840 --> 00:07:58.660 align:middle
+avec une API qui va imposer
+
+00:07:58.860 --> 00:08:02.000 align:middle
+automatiquement un "close" à la
+fin de l'utilisation du stream.
+

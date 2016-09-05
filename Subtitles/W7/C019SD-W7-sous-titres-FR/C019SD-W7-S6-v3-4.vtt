@@ -1,0 +1,716 @@
+WEBVTT
+
+00:00:00.610 --> 00:00:03.720 align:middle
+Bonjour. Ce cours va
+traiter d'un sujet avancé.
+
+00:00:04.120 --> 00:00:06.080 align:middle
+Ce que je voudrais vous
+montrer c'est comment à la
+
+00:00:06.280 --> 00:00:08.940 align:middle
+demande, on peut
+transformer la pile d'exécution en un
+
+00:00:09.140 --> 00:00:12.540 align:middle
+objet Pharo et le manipuler.
+L'idée de ce cours n'est pas
+
+00:00:12.740 --> 00:00:15.380 align:middle
+d'aller dans les détails, mais
+vraiment de vous donner l'intuition.
+
+00:00:17.090 --> 00:00:19.290 align:middle
+L'idée, c'est qu'on peut
+manipuler la pile, on peut la
+
+00:00:19.490 --> 00:00:21.260 align:middle
+naviguer, on peut la
+changer. Je vais essentiellement
+
+00:00:21.460 --> 00:00:23.000 align:middle
+vous montrer comment
+on peut la naviguer.
+
+00:00:23.540 --> 00:00:27.280 align:middle
+Il y a 2 chapitres que vous
+pouvez lire, qui traitent un
+
+00:00:27.480 --> 00:00:31.450 align:middle
+petit peu de ce sujet:
+c'est le chapitre sur les blocks
+
+00:00:31.850 --> 00:00:34.470 align:middle
+et le chapitre sur les
+exceptions du livre "Deep into Pharo".
+
+00:00:35.150 --> 00:00:37.390 align:middle
+Pour ceux qui sont
+intéressés, il faut vraiment les lire
+
+00:00:37.660 --> 00:00:39.080 align:middle
+parce que c'est
+vraiment bien expliqué.
+
+00:00:39.560 --> 00:00:42.080 align:middle
+Sinon, vous avez la classe
+"Context", qui se trouve dans
+
+00:00:42.280 --> 00:00:43.280 align:middle
+Pharo, qui représente la pile.
+
+00:00:46.280 --> 00:00:47.140 align:middle
+J'ai pris le scénario suivant.
+
+00:00:47.340 --> 00:00:50.100 align:middle
+Si vous regardez, on vous a fait
+coder dans le débuggeur depuis le début.
+
+00:00:50.380 --> 00:00:51.700 align:middle
+Qu'est-ce qui se
+passe dans le débuggeur?
+
+00:00:52.000 --> 00:00:53.800 align:middle
+Vous envoyez un message,
+il n'est pas connu parce que
+
+00:00:54.000 --> 00:00:55.870 align:middle
+vous ne l'avez pas défini,
+vous êtes en train de faire
+
+00:00:56.070 --> 00:00:58.690 align:middle
+tourner votre test unitaire,
+vous arrivez dans le débugger.
+
+00:00:58.910 --> 00:01:01.520 align:middle
+Dans le débugger, il vous demande
+"Voulez-vous créer une méthode?"
+
+00:01:01.720 --> 00:01:02.640 align:middle
+Oui, vous créez votre méthode.
+
+00:01:02.930 --> 00:01:05.120 align:middle
+Là, le système compile la
+méthode au vol et l'installe
+
+00:01:05.320 --> 00:01:07.660 align:middle
+dans la classe puis
+relance cette méthode.
+
+00:01:08.090 --> 00:01:10.680 align:middle
+Cette méthode, en général,
+va lever une exception parce
+
+00:01:10.880 --> 00:01:14.820 align:middle
+que le système n'est pas
+magique: avec l'exception
+
+00:01:15.100 --> 00:01:18.030 align:middle
+"ShouldBeImplemented", il vous
+dit que c'est à vous d'implémenter
+
+00:01:18.280 --> 00:01:19.200 align:middle
+la méthode dans le débugger.
+
+00:01:19.400 --> 00:01:22.220 align:middle
+Vous implémentez la
+méthode dans le débugger, vous
+
+00:01:22.420 --> 00:01:24.730 align:middle
+recompilez cette méthode au
+vol, vous faites "Proceed",
+
+00:01:24.930 --> 00:01:27.850 align:middle
+le système repart et
+votre programme continue.
+
+00:01:28.940 --> 00:01:32.320 align:middle
+En fait si on regarde dans ce
+scénario, il y a 2 points vraiment importants.
+
+00:01:32.910 --> 00:01:35.710 align:middle
+Il y a, d'une part, le fait
+qu'on a recompilé la méthode
+
+00:01:35.910 --> 00:01:38.350 align:middle
+au vol, plusieurs fois
+d'ailleurs, mais ça c'est le
+
+00:01:38.550 --> 00:01:39.940 align:middle
+travail du compilateur, on va dire.
+
+00:01:40.900 --> 00:01:44.220 align:middle
+Mais surtout c'est qu'on a
+transformé et modifié la pile
+
+00:01:44.420 --> 00:01:48.640 align:middle
+d'exécution de façon à
+pouvoir injecter des morceaux de
+
+00:01:48.840 --> 00:01:51.620 align:middle
+piles de façon à ce qu'on
+puisse continuer l'exécution,
+
+00:01:51.820 --> 00:01:52.890 align:middle
+alors qu'au départ
+on avait une erreur.
+
+00:01:53.710 --> 00:01:55.760 align:middle
+Ce que je veux vous
+montrer, c'est que finalement il ne
+
+00:01:56.000 --> 00:01:58.450 align:middle
+s'agit pas juste de réifier
+la pile ou rendre objet la
+
+00:01:58.650 --> 00:02:00.460 align:middle
+pile, il ne s'agit pas juste
+d'un exercice de style, c'est
+
+00:02:00.660 --> 00:02:02.550 align:middle
+quelque chose qui va
+permettre d'améliorer l'expérience
+
+00:02:02.750 --> 00:02:05.450 align:middle
+utilisateur et de créer des
+outils beaucoup plus puissants.
+
+00:02:05.660 --> 00:02:08.410 align:middle
+Ce que je vais vous montrer
+aussi que c'est utilisé dans
+
+00:02:08.610 --> 00:02:10.430 align:middle
+Seaside pour servir
+des applications Web.
+
+00:02:11.150 --> 00:02:13.050 align:middle
+En fait, ce qu'il faut voir,
+c'est que la pile Pharo, en
+
+00:02:13.250 --> 00:02:15.650 align:middle
+général c'est une pile C, la
+machine virtuelle a sa pile,
+
+00:02:16.060 --> 00:02:19.110 align:middle
+et que, à la demande, on peut la
+transformer en un objet vivant.
+
+00:02:19.310 --> 00:02:20.940 align:middle
+Ce qui est sympa, c'est
+qu'on peut naviguer cet objet
+
+00:02:21.140 --> 00:02:25.380 align:middle
+vivant, mais aussi
+qu'on peut le modifier.
+
+00:02:25.790 --> 00:02:27.540 align:middle
+Quand je dis le "modifier",
+ça veut dire que, quand je
+
+00:02:27.740 --> 00:02:31.840 align:middle
+vais modifier cet objet "Pharo", ça
+va modifier la pile C sous-jacente.
+
+00:02:32.040 --> 00:02:34.070 align:middle
+Ça, c'est vraiment très puissant.
+
+00:02:35.770 --> 00:02:38.840 align:middle
+C'est le support aussi pour
+toutes les exceptions, c'est
+
+00:02:39.040 --> 00:02:40.830 align:middle
+pour ça que je vous suggère de
+lire le chapitre sur les exceptions.
+
+00:02:42.320 --> 00:02:46.360 align:middle
+En effet, on va naviguer
+cette pile pour chercher les
+
+00:02:46.560 --> 00:02:51.100 align:middle
+Block Catch, qu'on
+appelle les handlers, des
+
+00:02:51.300 --> 00:02:54.860 align:middle
+exceptions. Et c'est aussi
+la transformation de cette
+
+00:02:55.060 --> 00:02:59.410 align:middle
+pile en objet permet de
+construire des continuations, et
+
+00:02:59.610 --> 00:03:02.730 align:middle
+donc de faire des serveurs
+Web comme dans les langages
+
+00:03:02.930 --> 00:03:04.480 align:middle
+fonctionnels, tels
+que Scheme par exemple.
+
+00:03:05.660 --> 00:03:07.000 align:middle
+Comment ça marche ?
+
+00:03:07.200 --> 00:03:10.330 align:middle
+En fait, Pharo vous propose une
+variable qui s'appelle thisContext.
+
+00:03:11.100 --> 00:03:15.180 align:middle
+En général, on dit que Pharo
+a 3 pseudo-variables: self,
+
+00:03:15.380 --> 00:03:16.520 align:middle
+super et thisContext.
+
+00:03:19.340 --> 00:03:21.090 align:middle
+Quand vous demandez la
+valeur de thisContext, ça va
+
+00:03:21.290 --> 00:03:24.130 align:middle
+retourner la pile
+d'exécution que vous pouvez naviguer.
+
+00:03:24.330 --> 00:03:26.410 align:middle
+C'est la pile qui est
+affichée quand vous ouvrez un
+
+00:03:26.610 --> 00:03:31.470 align:middle
+débugger, et c'est
+basé sur thisContext.
+
+00:03:31.670 --> 00:03:34.090 align:middle
+Donc, ce que je vous
+suggère, c'est par exemple de vous
+
+00:03:34.290 --> 00:03:37.070 align:middle
+amuser à définir une petite
+méthode dans laquelle vous
+
+00:03:37.270 --> 00:03:40.710 align:middle
+allez mettre un halt, ça
+va vous ouvrir un débugger;
+
+00:03:40.910 --> 00:03:42.360 align:middle
+mais vous pouvez aussi,
+dans cette méthode, taper
+
+00:03:42.610 --> 00:03:47.000 align:middle
+littéralement thisContext, et
+vous allez pouvoir l'inspecter
+
+00:03:47.200 --> 00:03:49.640 align:middle
+et vous allez avoir un inspecteur
+sur la pile d'exécution elle-même.
+
+00:03:50.720 --> 00:03:55.420 align:middle
+Là, je voudrais vous montrer 2
+petits exemples d'utilisation
+
+00:03:55.620 --> 00:03:57.480 align:middle
+de thisContext. Le
+premier, c'est la déprécation.
+
+00:03:58.430 --> 00:04:00.860 align:middle
+Quand on veut changer une
+API en disant "N'utilisez plus
+
+00:04:01.060 --> 00:04:04.650 align:middle
+cette API, utilisez cette API", que
+va-t-on faire en tant que programmeur?
+
+00:04:04.850 --> 00:04:07.770 align:middle
+En tant que programmeur, je
+vais éditer ma méthode et je
+
+00:04:08.000 --> 00:04:11.410 align:middle
+vais utiliser le message
+"Deprecated on in", c'est ce que
+
+00:04:11.610 --> 00:04:13.370 align:middle
+je vous avais montré dans
+le cours sur les exceptions.
+
+00:04:14.650 --> 00:04:19.150 align:middle
+Donc là, je veux juste
+exprimer un petit message "Utilise
+
+00:04:19.350 --> 00:04:24.150 align:middle
+Bar". Qu'est-ce que la
+déprécation va afficher à l'
+
+00:04:24.350 --> 00:04:28.690 align:middle
+utilisateur? Elle va
+afficher "Message foo is deprecated
+
+00:04:29.110 --> 00:04:33.000 align:middle
+in Pharo". Il faut voir ici
+que moi, en tant qu'utilisateur,
+
+00:04:33.200 --> 00:04:37.030 align:middle
+je n'ai pas écrit dans
+quelle méthode j'étais, par
+
+00:04:37.230 --> 00:04:40.750 align:middle
+contre, lui il sait identifier que
+"foo", c'était la méthode appelante.
+
+00:04:42.270 --> 00:04:45.230 align:middle
+C'est ça le point, dans
+les arguments du message
+
+00:04:45.430 --> 00:04:48.380 align:middle
+"Deprecated", je n'utilise pas
+"foo" ou la méthode appelante.
+
+00:04:49.130 --> 00:04:50.420 align:middle
+Maintenant, voyons
+comment c'est implémenter.
+
+00:04:52.610 --> 00:04:57.360 align:middle
+Le message "Deprecated" est
+une exception, deprecation.
+
+00:04:59.410 --> 00:05:02.020 align:middle
+Il va prendre les arguments,
+la chaîne d'explications, la
+
+00:05:02.220 --> 00:05:05.150 align:middle
+date et puis la version, mais en
+plus il va rajouter l'expression
+
+00:05:05.350 --> 00:05:06.220 align:middle
+"thisContext sender method".
+
+00:05:06.920 --> 00:05:08.310 align:middle
+Qu'est-ce que ça veut dire ?
+
+00:05:08.510 --> 00:05:12.440 align:middle
+thisContext, c'est la pile
+au moment de l'exécution de la
+
+00:05:12.640 --> 00:05:17.430 align:middle
+méthode Deprecated. Ça veut
+dire que là, avec Sender, je
+
+00:05:17.630 --> 00:05:20.510 align:middle
+vais pouvoir accéder à la
+méthode appelante, ça, ça va me
+
+00:05:20.710 --> 00:05:24.080 align:middle
+rendre "fou", puisque
+c'était l'exemple, et je vais
+
+00:05:24.280 --> 00:05:25.440 align:middle
+pouvoir lui demander
+quelle est ta méthode.
+
+00:05:25.650 --> 00:05:28.160 align:middle
+Donc, en fait,
+thisContext sender method, ça va me
+
+00:05:28.360 --> 00:05:30.950 align:middle
+retourner la méthode
+compilée, puisque c'est un objet en
+
+00:05:31.150 --> 00:05:34.350 align:middle
+Pharo bien sûr, la
+méthode compilée à foo.
+
+00:05:35.300 --> 00:05:38.390 align:middle
+Et donc l'exception va
+pouvoir vraiment utiliser ce qu'il
+
+00:05:38.590 --> 00:05:41.340 align:middle
+faut et aller extraire le
+sélecteur de cette méthode,
+
+00:05:41.540 --> 00:05:43.730 align:middle
+pour pouvoir faire un message
+qui soit plus compréhensible.
+
+00:05:44.340 --> 00:05:46.820 align:middle
+Donc ça, c'était juste
+pour faire en sorte que les
+
+00:05:47.020 --> 00:05:49.770 align:middle
+messages soient plus
+compréhensibles pour l'utilisateur
+
+00:05:50.000 --> 00:05:53.730 align:middle
+sans forcer le programmeur à coder en
+dur à chaque fois d'où c'était appelé.
+
+00:05:54.340 --> 00:05:56.370 align:middle
+Maintenant, je vais vous
+montrer une autre fonctionnalité
+
+00:05:57.220 --> 00:05:58.880 align:middle
+qui est vraiment
+extrêmement puissante.
+
+00:05:59.870 --> 00:06:03.880 align:middle
+Quand on a un problème,
+souvent on veut débugger, on
+
+00:06:04.080 --> 00:06:07.160 align:middle
+aimerait pouvoir mettre un
+Breakpoint dans une méthode
+
+00:06:07.360 --> 00:06:10.070 align:middle
+qui est extrêmement
+utilisée. Ça peut être par exemple
+
+00:06:10.270 --> 00:06:13.130 align:middle
+utilisé par un Framework, et vous
+vous voulez juste débugger votre version.
+
+00:06:13.610 --> 00:06:16.690 align:middle
+Vous ne voulez pas
+arrêter tout le système, et les
+
+00:06:16.890 --> 00:06:20.920 align:middle
+conditions qu'on a, comme
+halt once, vont arrêter une
+
+00:06:21.120 --> 00:06:23.110 align:middle
+fois, alors que ce que vous
+voulez dire, c'est que vous n'aimeriez
+
+00:06:23.310 --> 00:06:27.800 align:middle
+vous arrêter que si cette
+méthode a été appelée par cette
+
+00:06:28.000 --> 00:06:30.070 align:middle
+autre méthode.
+Comment exprime-t-on ça?
+
+00:06:31.240 --> 00:06:33.380 align:middle
+D'un point de vue des outils
+du programmeur je vais juste
+
+00:06:33.580 --> 00:06:35.080 align:middle
+exprimer ça de la manière
+suivante: nous allons dire "Je
+
+00:06:35.600 --> 00:06:38.310 align:middle
+veux m'arrêter seulement si
+j'ai été appelé, si foo a été
+
+00:06:38.510 --> 00:06:39.470 align:middle
+appelé par la
+méthode testSetInitialized.
+
+00:06:39.740 --> 00:06:42.710 align:middle
+Maintenant, voyons
+comme on implémente ça.
+
+00:06:43.000 --> 00:06:45.330 align:middle
+Vous voyez bien en effet que
+dans tous les autres cas, il
+
+00:06:45.530 --> 00:06:46.790 align:middle
+faut que cette
+méthode ne s'arrête pas.
+
+00:06:47.000 --> 00:06:48.890 align:middle
+Comment donc est-ce implémenté ?
+
+00:06:49.090 --> 00:06:51.940 align:middle
+Vous pouvez le voir dans Pharo,
+je vous invite à ouvrir le code.
+
+00:06:52.260 --> 00:06:56.910 align:middle
+Vous avez Halt qui est une
+exception, et vous avez la méthode "if".
+
+00:06:57.820 --> 00:06:58.580 align:middle
+Qu'est ce qu'on fait ?
+
+00:06:58.780 --> 00:07:00.040 align:middle
+Elle a plusieurs cas parce
+que vous pouvez passer un
+
+00:07:00.240 --> 00:07:01.860 align:middle
+block, on va juste
+regarder le cas qui nous intéresse
+
+00:07:02.060 --> 00:07:03.720 align:middle
+quand on a un symbole:
+donc, il regarde la condition
+
+00:07:03.920 --> 00:07:04.680 align:middle
+"est-ce que c'est un symbole ?",
+
+00:07:04.880 --> 00:07:09.680 align:middle
+si oui, alors regarde si la
+chaîne d'appel contient le
+
+00:07:09.880 --> 00:07:11.400 align:middle
+symbole. Donc regardons.
+
+00:07:12.560 --> 00:07:16.030 align:middle
+Voilà, on tombe sur cette
+méthode-là, que fait cette méthode?
+
+00:07:16.230 --> 00:07:18.940 align:middle
+Là, vous imaginez que vous
+avez "testSetInitialized"
+
+00:07:23.830 --> 00:07:24.590 align:middle
+qui est un argument ici.
+
+00:07:26.290 --> 00:07:28.110 align:middle
+La première chose qu'elle
+fait, déjà, c'est de dire "Je
+
+00:07:28.840 --> 00:07:33.010 align:middle
+veux récupérer la pile
+d'exécution", donc Context, en
+
+00:07:33.210 --> 00:07:36.140 align:middle
+Pharo c'est souvent
+synonyme de pile d'exécution, donc
+
+00:07:36.340 --> 00:07:38.340 align:middle
+Context, je veux
+avoir la pile d'exécution.
+
+00:07:38.540 --> 00:07:41.660 align:middle
+Et maintenant, je vais
+faire un WhileFalse, tant que je
+
+00:07:41.860 --> 00:07:43.570 align:middle
+ne suis pas en haut de la
+pile d'exécution… Alors,
+
+00:07:43.770 --> 00:07:45.270 align:middle
+comment définir "en
+haut de la pile exécution"?
+
+00:07:45.470 --> 00:07:47.010 align:middle
+Ça veut dire qu'il n'y a
+plus de Sender, il n'y a plus
+
+00:07:47.210 --> 00:07:51.700 align:middle
+personne qui m'invoque. Donc en
+haut, c'est quand l'invocation
+
+00:07:51.900 --> 00:07:55.330 align:middle
+est nil. Donc tant que
+l'invocation n'est pas nil, je
+
+00:07:55.530 --> 00:07:59.860 align:middle
+vais passer d'un morceau
+de pile à l'autre, donc vous
+
+00:08:00.060 --> 00:08:02.420 align:middle
+avez vos morceaux de pile
+comme ça, conceptuellement au
+
+00:08:02.620 --> 00:08:05.400 align:middle
+moins, et vous allez monter de l'un
+à l'autre, et là vous faites Sender.
+
+00:08:06.930 --> 00:08:11.340 align:middle
+Et là on va regarder si le
+
+00:08:11.540 --> 00:08:15.500 align:middle
+sélecteur, par exemple
+quelque part ici je vais avoir
+
+00:08:15.700 --> 00:08:20.300 align:middle
+"Test", est-ce que le
+symbole d'appel de cette
+
+00:08:20.500 --> 00:08:23.280 align:middle
+pile correspond à l'endroit
+où je voudrais m'arrêter, où
+
+00:08:23.480 --> 00:08:26.450 align:middle
+j'ai dit "Est-ce que je
+suis appelé par TestSet?"
+
+00:08:26.650 --> 00:08:29.120 align:middle
+Oui, si c'est le cas, je
+m'arrête, je fais un signal
+
+00:08:29.320 --> 00:08:31.170 align:middle
+parce que la classe
+est une exception.
+
+00:08:32.060 --> 00:08:35.140 align:middle
+Et donc, ce dont il faut bien se
+rendre compte, c'est qu'implémenter
+
+00:08:35.340 --> 00:08:38.100 align:middle
+ça dans un langage qui n'a
+pas de réification de la pile
+
+00:08:38.330 --> 00:08:41.540 align:middle
+c'est extrêmement compliqué.
+Là vous l'avez en 5 lignes.
+
+00:08:41.810 --> 00:08:43.800 align:middle
+Dans Pharo, ça paraît un
+peu complexe peut-être à
+
+00:08:44.000 --> 00:08:47.130 align:middle
+comprendre mais c'est super
+puissant, c'est super compact
+
+00:08:47.330 --> 00:08:49.550 align:middle
+et on ne peut faire ça que
+parce qu'on a cette réification.
+
+00:08:50.180 --> 00:08:52.660 align:middle
+Donc ce qu'il faut voir,
+c'est qu'on ne va pas souvent se
+
+00:08:52.860 --> 00:08:54.120 align:middle
+servir de thisContext parce que
+c'est une fonctionnalité avancée.
+
+00:08:54.320 --> 00:08:57.780 align:middle
+Maintenant, c'est super
+important pour l'innovation.
+
+00:08:58.000 --> 00:08:59.410 align:middle
+Ça peut être de l'innovation
+au niveau des outils, c'est
+
+00:08:59.610 --> 00:09:03.740 align:middle
+ce qu'on a montré avec ces
+tests qui sont extrêmement
+
+00:09:03.940 --> 00:09:06.320 align:middle
+compliqués à exprimer dans
+d'autres langages, mais ça va
+
+00:09:06.520 --> 00:09:09.030 align:middle
+être par exemple la possibilité
+de représenter les continuations.
+
+00:09:09.470 --> 00:09:11.080 align:middle
+Et donc c'est pour ça que la
+personne qui a fait Seaside
+
+00:09:11.280 --> 00:09:13.390 align:middle
+l'a fait dans l'ancêtre de
+Pharo, parce qu'il pouvait
+
+00:09:14.100 --> 00:09:16.410 align:middle
+manipuler la pile pour
+représenter des continuations qui
+
+00:09:16.610 --> 00:09:20.180 align:middle
+allaient être la base du
+mécanisme Call and Answer, qu'on
+
+00:09:20.380 --> 00:09:21.730 align:middle
+vous a présentés dans Seaside.
+
+00:09:23.440 --> 00:09:25.280 align:middle
+Je vous ai présenté une
+fonctionnalité assez avancée de
+
+00:09:25.480 --> 00:09:26.760 align:middle
+Pharo, vous pouvez vous amuser avec.
+

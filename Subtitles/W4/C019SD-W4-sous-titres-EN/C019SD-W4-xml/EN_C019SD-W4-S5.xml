@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W4-S5</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:00:10" end="00:00:01:10" region="bottom">Hello, everyone.</p>
+            <p xml:id="p2" begin="00:00:01:16" end="00:00:06:18" region="bottom">This is the fifth sequence<br/>on inheritance and lookup.</p>
+            <p xml:id="p3" begin="00:00:07:08" end="00:00:10:08" region="bottom">We'll be covering<br/>messaging</p>
+            <p xml:id="p4" begin="00:00:10:15" end="00:00:13:03" region="bottom">and lookup algorithms<br/>for metaclasses.</p>
+            <p xml:id="p5" begin="00:00:13:11" end="00:00:14:14" region="bottom">In Pharo,</p>
+            <p xml:id="p6" begin="00:00:14:22" end="00:00:16:10" region="bottom">everything is an object,</p>
+            <p xml:id="p7" begin="00:00:16:13" end="00:00:19:10" region="bottom">and objects<br/>can receive messages.</p>
+            <p xml:id="p8" begin="00:00:19:20" end="00:00:23:05" region="bottom">So classes are objects, too.</p>
+            <p xml:id="p9" begin="00:00:23:19" end="00:00:26:03" region="bottom">And since objects<br/>can receive messages,</p>
+            <p xml:id="p10" begin="00:00:26:08" end="00:00:28:01" region="bottom">classes can receive messages.</p>
+            <p xml:id="p11" begin="00:00:28:12" end="00:00:33:12" region="bottom">The messaging mechanism<br/>is exactly the same,</p>
+            <p xml:id="p12" begin="00:00:33:20" end="00:00:37:01" region="bottom">whether the receiver is a class<br/>or other object.</p>
+            <p xml:id="p13" begin="00:00:38:21" end="00:00:42:09" region="bottom">There is only one way<br/>to look up a method.</p>
+            <p xml:id="p14" begin="00:00:42:18" end="00:00:46:07" region="bottom">This is the lookup algorithm<br/>we've seen several times</p>
+            <p xml:id="p15" begin="00:00:46:11" end="00:00:48:08" region="bottom">in earlier sessions.</p>
+            <p xml:id="p16" begin="00:00:49:05" end="00:00:51:14" region="bottom">Now let's look at the example</p>
+            <p xml:id="p17" begin="00:00:51:19" end="00:00:54:05" region="bottom">of messaging a class.</p>
+            <p xml:id="p18" begin="00:00:56:06" end="00:00:58:04" region="bottom">Understand<br/>the basic principle:</p>
+            <p xml:id="p19" begin="00:00:58:16" end="00:01:00:22" region="bottom">Since classes are objects,</p>
+            <p xml:id="p20" begin="00:01:02:01" end="00:01:04:10" region="bottom">and each object<br/>is linked to a class,</p>
+            <p xml:id="p21" begin="00:01:04:14" end="00:01:07:00" region="bottom">that is,<br/>an instance of a class,</p>
+            <p xml:id="p22" begin="00:01:07:06" end="00:01:10:13" region="bottom">aNode is an instance<br/>of Node class.</p>
+            <p xml:id="p23" begin="00:01:10:23" end="00:01:15:01" region="bottom">Since Node class<br/>is an object,</p>
+            <p xml:id="p24" begin="00:01:16:04" end="00:01:19:03" region="bottom">Node class is an instance<br/>of another class.</p>
+            <p xml:id="p25" begin="00:01:19:17" end="00:01:22:14" region="bottom">It is called Node class.</p>
+            <p xml:id="p26" begin="00:01:22:22" end="00:01:25:05" region="bottom">So, aNode is an instance<br/>of Node class,</p>
+            <p xml:id="p27" begin="00:01:25:19" end="00:01:30:03" region="bottom">and Node class is an object<br/>that is an instance of Node class class.</p>
+            <p xml:id="p28" begin="00:01:30:21" end="00:01:33:07" region="bottom">If that's the way it is,<br/>you may wonder</p>
+            <p xml:id="p29" begin="00:01:34:03" end="00:01:39:07" region="bottom">Node class is a class; a class<br/>is an object, an instance of a class.</p>
+            <p xml:id="p30" begin="00:01:39:15" end="00:01:43:10" region="bottom">which class Node class<br/>is an instance of.</p>
+            <p xml:id="p31" begin="00:01:43:21" end="00:01:47:20" region="bottom">You will see that in the next sequence,<br/>on metaclasses.</p>
+            <p xml:id="p32" begin="00:01:48:06" end="00:01:50:14" region="bottom">Here are a few examples.</p>
+            <p xml:id="p33" begin="00:01:50:24" end="00:01:56:22" region="bottom">Here, the object, aWorkstation,<br/>is an instance of Workstation class.</p>
+            <p xml:id="p34" begin="00:01:57:01" end="00:02:00:12" region="bottom">Workstation is a subclass of Node,<br/>a subclass of Object.</p>
+            <p xml:id="p35" begin="00:02:00:16" end="00:02:03:08" region="bottom">Here, you must<br/>pay attention to the arrows.</p>
+            <p xml:id="p36" begin="00:02:04:05" end="00:02:06:09" region="bottom">The arrow with a blank tip</p>
+            <p xml:id="p37" begin="00:02:07:00" end="00:02:09:04" region="bottom">indicates a subclass relationship.</p>
+            <p xml:id="p38" begin="00:02:09:10" end="00:02:12:07" region="bottom">Node is a subclass of Object.</p>
+            <p xml:id="p39" begin="00:02:12:16" end="00:02:14:19" region="bottom">Workstation<br/>is a subclass of Node.</p>
+            <p xml:id="p40" begin="00:02:15:01" end="00:02:17:15" region="bottom">The arrow with a black point,</p>
+            <p xml:id="p41" begin="00:02:17:23" end="00:02:21:20" region="bottom">is sometimes represented<br/>as a simple two-line arrow, too.</p>
+            <p xml:id="p42" begin="00:02:22:04" end="00:02:23:24" region="bottom">It indicates instanciation.</p>
+            <p xml:id="p43" begin="00:02:25:08" end="00:02:27:22" region="bottom">aWorkstation is an instance<br/>of Workstation.</p>
+            <p xml:id="p44" begin="00:02:28:04" end="00:02:30:15" region="bottom">Workstation is an instance<br/>of Workstation class.</p>
+            <p xml:id="p45" begin="00:02:30:23" end="00:02:34:07" region="bottom">Likewise, Object<br/>is an instance of Object class.</p>
+            <p xml:id="p46" begin="00:02:34:17" end="00:02:36:04" region="bottom">If I message</p>
+            <p xml:id="p47" begin="00:02:36:09" end="00:02:37:22" region="bottom">the object aWorkstation,</p>
+            <p xml:id="p48" begin="00:02:39:17" end="00:02:42:22" region="bottom">the lookup algorithm searches<br/>the aWorkstation class.</p>
+            <p xml:id="p49" begin="00:02:43:10" end="00:02:45:16" region="bottom">Then it goes up<br/>through superclasses</p>
+            <p xml:id="p50" begin="00:02:45:20" end="00:02:48:06" region="bottom">until it finds<br/>a matching method.</p>
+            <p xml:id="p51" begin="00:02:48:18" end="00:02:51:23" region="bottom">The mechanism<br/>is exactly the same</p>
+            <p xml:id="p52" begin="00:02:52:11" end="00:02:56:08" region="bottom">when I message<br/>the Workstation class.</p>
+            <p xml:id="p53" begin="00:02:56:18" end="00:03:00:11" region="bottom">For example, if I send the message<br/>"new"</p>
+            <p xml:id="p54" begin="00:03:00:24" end="00:03:04:02" region="bottom">to Workstation,<br/>the lookup algorithm</p>
+            <p xml:id="p55" begin="00:03:04:07" end="00:03:08:07" region="bottom">searches Workstation class<br/>for a method called "new."</p>
+            <p xml:id="p56" begin="00:03:08:23" end="00:03:11:04" region="bottom">If it finds it here,<br/>it executes it.</p>
+            <p xml:id="p57" begin="00:03:11:10" end="00:03:14:24" region="bottom">If it does not find a match,<br/>it moves up to the superclass,</p>
+            <p xml:id="p58" begin="00:03:15:03" end="00:03:17:22" region="bottom">and then up<br/>to the next superclass.</p>
+            <p xml:id="p59" begin="00:03:19:00" end="00:03:21:19" region="bottom">And so on.<br/>This hierarchy continues.</p>
+            <p xml:id="p60" begin="00:03:22:24" end="00:03:26:22" region="bottom">I'll leave you with this slide<br/>summing up messaging</p>
+            <p xml:id="p61" begin="00:03:27:01" end="00:03:30:14" region="bottom">to standard objects<br/>and classes as standard objects.</p>
+            <p xml:id="p62" begin="00:03:31:20" end="00:03:33:03" region="bottom">Here's what to remember:</p>
+            <p xml:id="p63" begin="00:03:33:12" end="00:03:36:09" region="bottom">A class is an object<br/>like any other.</p>
+            <p xml:id="p64" begin="00:03:37:01" end="00:03:40:17" region="bottom">Messages can be sent to objects,<br/>and therefore to classes.</p>
+            <p xml:id="p65" begin="00:03:41:12" end="00:03:45:16" region="bottom">The lookup mechanism<br/>is exactly the same in both cases.</p>
+            <p xml:id="p66" begin="00:03:47:10" end="00:03:51:07" region="bottom">It starts searching<br/>in the class of the receiver,</p>
+            <p xml:id="p67" begin="00:03:51:17" end="00:03:55:10" region="bottom">and then searches each superclass<br/>in the inheritance chain</p>
+            <p xml:id="p68" begin="00:03:55:19" end="00:03:58:03" region="bottom">until it finds a matching method.</p>
+            <p xml:id="p69" begin="00:03:58:15" end="00:04:02:22" region="bottom">You'll learn more about metaclasses<br/>in "Understanding Metaclasses."</p>
+        </div>
+    </body>
+</tt>

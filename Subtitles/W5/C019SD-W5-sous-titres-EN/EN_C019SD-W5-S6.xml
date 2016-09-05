@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W5-S6</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:00:13" end="00:00:04:21" region="bottom">Hello, in this sequence we'll look<br/>at the SUnit test framework in Pharo,</p>
+            <p xml:id="p2" begin="00:00:05:00" end="00:00:08:18" region="bottom">which allow us to write unit tests,<br/>as you're going to see.</p>
+            <p xml:id="p3" begin="00:00:08:22" end="00:00:13:05" region="bottom">A test framework is used<br/>to support Agile development.</p>
+            <p xml:id="p4" begin="00:00:13:09" end="00:00:16:14" region="bottom">The idea is to do incremental<br/>development and to test</p>
+            <p xml:id="p5" begin="00:00:16:18" end="00:00:18:18" region="bottom">your code regularly to check</p>
+            <p xml:id="p6" begin="00:00:18:22" end="00:00:23:06" region="bottom">that in modifying it we haven't broken<br/>a property or invariant in the code.</p>
+            <p xml:id="p7" begin="00:00:23:10" end="00:00:25:06" region="bottom">We want to be prepared for changes.</p>
+            <p xml:id="p8" begin="00:00:25:10" end="00:00:28:04" region="bottom">We write tests then we modify our codes</p>
+            <p xml:id="p9" begin="00:00:28:08" end="00:00:30:13" region="bottom">then we can re-execute the tests</p>
+            <p xml:id="p10" begin="00:00:30:17" end="00:00:33:17" region="bottom">to check we haven't broken or modified<br/>anything we shouldn't have.</p>
+            <p xml:id="p11" begin="00:00:33:22" end="00:00:38:13" region="bottom">Automated tests are very important<br/>in supporting this kind of programming.</p>
+            <p xml:id="p12" begin="00:00:38:17" end="00:00:42:17" region="bottom">The SUnit framework is<br/>a special framework for writing tests.</p>
+            <p xml:id="p13" begin="00:00:42:21" end="00:00:46:10" region="bottom">It makes them easier to write.<br/>It's in 4 classes, it's very simple.</p>
+            <p xml:id="p14" begin="00:00:46:14" end="00:00:48:24" region="bottom">It was originally<br/>developed by Kent Beck,</p>
+            <p xml:id="p15" begin="00:00:49:03" end="00:00:52:24" region="bottom">and has inspired numerous tests<br/>in other languages,</p>
+            <p xml:id="p16" begin="00:00:53:03" end="00:00:55:01" region="bottom">like JUnit, for example.</p>
+            <p xml:id="p17" begin="00:00:55:21" end="00:00:57:11" region="bottom">So, what is a test?</p>
+            <p xml:id="p18" begin="00:00:57:15" end="00:01:00:02" region="bottom">There are 3 steps to writing a test:</p>
+            <p xml:id="p19" begin="00:01:00:06" end="00:01:04:24" region="bottom">Step one, we create a context,<br/>for example, an empty set.</p>
+            <p xml:id="p20" begin="00:01:05:03" end="00:01:07:12" region="bottom">Step two, I create a stimulus,</p>
+            <p xml:id="p21" begin="00:01:07:16" end="00:01:11:24" region="bottom">here, so I try to insert<br/>an element twice</p>
+            <p xml:id="p22" begin="00:01:12:03" end="00:01:14:21" region="bottom">in the set I've just created,</p>
+            <p xml:id="p23" begin="00:01:15:00" end="00:01:18:19" region="bottom">and step three,<br/>I test the result that I get,</p>
+            <p xml:id="p24" begin="00:01:18:23" end="00:01:23:04" region="bottom">which means that I wait until<br/>the set only contains one element.</p>
+            <p xml:id="p25" begin="00:01:23:08" end="00:01:26:24" region="bottom">A set object can only contain<br/>an element once.</p>
+            <p xml:id="p26" begin="00:01:27:03" end="00:01:28:17" region="bottom">It can't contain it twice.</p>
+            <p xml:id="p27" begin="00:01:28:21" end="00:01:32:13" region="bottom">Then I test the result,<br/>hoping the variant isn't broken.</p>
+            <p xml:id="p28" begin="00:01:33:03" end="00:01:35:08" region="bottom">Here's an example.<br/>To write a test...</p>
+            <p xml:id="p29" begin="00:01:35:12" end="00:01:40:19" region="bottom">I have to write a TestCase subclass.<br/>I'll call this one "SetTestCase".</p>
+            <p xml:id="p30" begin="00:01:40:23" end="00:01:44:12" region="bottom">It's to test the sets.<br/>I define the method, "testAdd".</p>
+            <p xml:id="p31" begin="00:01:44:16" end="00:01:47:06" region="bottom">All the methods begin with "test".</p>
+            <p xml:id="p32" begin="00:01:47:10" end="00:01:48:24" region="bottom">Then I set up the context,</p>
+            <p xml:id="p33" begin="00:01:49:03" end="00:01:52:05" region="bottom">I create an instance<br/>of the Set class, which is empty,</p>
+            <p xml:id="p34" begin="00:01:52:09" end="00:01:55:21" region="bottom">I add 2 elements,<br/>the same element twice...</p>
+            <p xml:id="p35" begin="00:01:56:00" end="00:01:59:06" region="bottom">I try and add the same element twice</p>
+            <p xml:id="p36" begin="00:01:59:10" end="00:02:03:09" region="bottom">to the bundle,<br/>so 5 twice, here and here.</p>
+            <p xml:id="p37" begin="00:02:03:13" end="00:02:06:00" region="bottom">Then I test it, I've "check" here,</p>
+            <p xml:id="p38" begin="00:02:06:04" end="00:02:08:15" region="bottom">I use "assert" to do this,</p>
+            <p xml:id="p39" begin="00:02:09:23" end="00:02:12:21" region="bottom">where I check that the size of my set</p>
+            <p xml:id="p40" begin="00:02:13:00" end="00:02:16:12" region="bottom">is 1, that I've succeeded<br/>in only adding the element once.</p>
+            <p xml:id="p41" begin="00:02:16:16" end="00:02:19:08" region="bottom">I can start the test thanks to this...</p>
+            <p xml:id="p42" begin="00:02:20:18" end="00:02:24:07" region="bottom">Thanks to this expression,<br/>so my test will reveal</p>
+            <p xml:id="p43" begin="00:02:24:11" end="00:02:28:19" region="bottom">if the variance, if "assert",<br/>the expression passed here, is true.</p>
+            <p xml:id="p44" begin="00:02:29:14" end="00:02:30:22" region="bottom">All the methods that begin</p>
+            <p xml:id="p45" begin="00:02:31:02" end="00:02:34:24" region="bottom">with the string "test" represent a test,</p>
+            <p xml:id="p46" begin="00:02:35:03" end="00:02:39:16" region="bottom">and will be automatically executed<br/>by the test runner tool.</p>
+            <p xml:id="p47" begin="00:02:40:11" end="00:02:44:12" region="bottom">We'll see that all the results,<br/>all the executions of the test method</p>
+            <p xml:id="p48" begin="00:02:44:16" end="00:02:48:01" region="bottom">produce a result.<br/>All these results are collected,</p>
+            <p xml:id="p49" begin="00:02:48:05" end="00:02:52:14" region="bottom">and they're collected within<br/>a class instance object, TestResult.</p>
+            <p xml:id="p50" begin="00:02:54:03" end="00:02:55:19" region="bottom">I'll give you another example.</p>
+            <p xml:id="p51" begin="00:02:55:23" end="00:02:59:23" region="bottom">In this example, we've the test method,<br/>its name begins with "test"</p>
+            <p xml:id="p52" begin="00:03:00:02" end="00:03:03:14" region="bottom">in lowercase, and this<br/>is the name of this method,</p>
+            <p xml:id="p53" begin="00:03:03:18" end="00:03:07:06" region="bottom">"AdjacentRunsWithEquals<br/>AttributesAreMerged"</p>
+            <p xml:id="p54" begin="00:03:07:10" end="00:03:12:24" region="bottom">So we've the context here,<br/>we've created an object.</p>
+            <p xml:id="p55" begin="00:03:13:03" end="00:03:14:18" region="bottom">Here we've a stimulus.</p>
+            <p xml:id="p56" begin="00:03:14:22" end="00:03:18:16" region="bottom">We've tried to send the message<br/>"addLast times"</p>
+            <p xml:id="p57" begin="00:03:18:20" end="00:03:22:19" region="bottom">to this object 3 times,<br/>the 1st time with</p>
+            <p xml:id="p58" begin="00:03:22:23" end="00:03:26:22" region="bottom">the settings here,<br/>and a 2nd time, the same settings</p>
+            <p xml:id="p59" begin="00:03:27:01" end="00:03:28:16" region="bottom">the 2nd and 3rd time.</p>
+            <p xml:id="p60" begin="00:03:28:20" end="00:03:31:14" region="bottom">We test here, it's the check,</p>
+            <p xml:id="p61" begin="00:03:31:18" end="00:03:35:19" region="bottom">that this element is size 2.<br/>All right?</p>
+            <p xml:id="p62" begin="00:03:35:24" end="00:03:40:24" region="bottom">We weren't able to add the same<br/>element several times adjacently.</p>
+            <p xml:id="p63" begin="00:03:41:18" end="00:03:46:08" region="bottom">In the execution of a test,<br/>several scenarios can occur.</p>
+            <p xml:id="p64" begin="00:03:46:16" end="00:03:50:18" region="bottom">One scenario is what we call<br/>a "failure", meaning that</p>
+            <p xml:id="p65" begin="00:03:50:22" end="00:03:53:18" region="bottom">one of the assertions,<br/>a variant we thought was true,</p>
+            <p xml:id="p66" begin="00:03:53:22" end="00:03:56:14" region="bottom">which should be true is false,<br/>in which case</p>
+            <p xml:id="p67" begin="00:03:56:18" end="00:04:01:14" region="bottom">the test which contains "failure"</p>
+            <p xml:id="p68" begin="00:04:01:18" end="00:04:03:15" region="bottom">is an anticipated problem.</p>
+            <p xml:id="p69" begin="00:04:03:19" end="00:04:09:06" region="bottom">We expected that, potentially,<br/>this error would be present.</p>
+            <p xml:id="p70" begin="00:04:09:15" end="00:04:13:04" region="bottom">After that, an error is a condition<br/>we didn't check for.</p>
+            <p xml:id="p71" begin="00:04:13:08" end="00:04:17:06" region="bottom">It's something that happens,<br/>an exception that's raised,</p>
+            <p xml:id="p72" begin="00:04:17:10" end="00:04:20:12" region="bottom">which we didn't expect<br/>when writing the test.</p>
+            <p xml:id="p73" begin="00:04:20:16" end="00:04:22:12" region="bottom">They're 2 very different cases.</p>
+            <p xml:id="p74" begin="00:04:23:03" end="00:04:27:16" region="bottom">What do we do in a test<br/>when we want to check</p>
+            <p xml:id="p75" begin="00:04:28:12" end="00:04:32:00" region="bottom">that a bit of code<br/>raises an exception?</p>
+            <p xml:id="p76" begin="00:04:32:04" end="00:04:36:17" region="bottom">For example, I want to check<br/>that "set new remove: 1"</p>
+            <p xml:id="p77" begin="00:04:36:21" end="00:04:40:03" region="bottom">this bit of code,<br/>will raise the exception "NotFound".</p>
+            <p xml:id="p78" begin="00:04:40:07" end="00:04:42:13" region="bottom">If I do "Set new", it's an empty set.</p>
+            <p xml:id="p79" begin="00:04:42:17" end="00:04:44:16" region="bottom">I'm trying to take an element<br/>from an empty set.</p>
+            <p xml:id="p80" begin="00:04:44:20" end="00:04:47:15" region="bottom">It doesn't make sense.<br/>It will raise the exception "NotFound"</p>
+            <p xml:id="p81" begin="00:04:47:19" end="00:04:50:20" region="bottom">and in my test I use "should raise".</p>
+            <p xml:id="p82" begin="00:04:50:24" end="00:04:53:15" region="bottom">I pass a block<br/>and in my evaluation of the block,</p>
+            <p xml:id="p83" begin="00:04:53:19" end="00:04:55:06" region="bottom">if an exception is raised,</p>
+            <p xml:id="p84" begin="00:04:55:10" end="00:04:59:11" region="bottom">and the exception is NotFound,<br/>the test will be green, will be OK.</p>
+            <p xml:id="p85" begin="00:05:00:23" end="00:05:02:07" region="bottom">I can also test the reverse,</p>
+            <p xml:id="p86" begin="00:05:02:11" end="00:05:04:17" region="bottom">that a bit of code doesn't<br/>raise an exception.</p>
+            <p xml:id="p87" begin="00:05:04:21" end="00:05:08:11" region="bottom">Here I use the method<br/>"self shouldn't raise".</p>
+            <p xml:id="p88" begin="00:05:08:15" end="00:05:12:22" region="bottom">So this bit of code shouldn't<br/>raise the exception "NotFound".</p>
+            <p xml:id="p89" begin="00:05:14:00" end="00:05:16:24" region="bottom">We might, when writing lots of tests,</p>
+            <p xml:id="p90" begin="00:05:17:03" end="00:05:19:12" region="bottom">realise that there are duplicates</p>
+            <p xml:id="p91" begin="00:05:19:16" end="00:05:21:15" region="bottom">when writing the context of the test.</p>
+            <p xml:id="p92" begin="00:05:21:23" end="00:05:23:22" region="bottom">For example,<br/>here I've written another test</p>
+            <p xml:id="p93" begin="00:05:24:01" end="00:05:26:03" region="bottom">for the sets, a "testOccurrences".</p>
+            <p xml:id="p94" begin="00:05:26:07" end="00:05:31:20" region="bottom">We see that here, in the context,<br/>I'm going to recreate a new empty set.</p>
+            <p xml:id="p95" begin="00:05:31:24" end="00:05:35:03" region="bottom">Each time I write a test, I open a set,</p>
+            <p xml:id="p96" begin="00:05:35:07" end="00:05:37:22" region="bottom">and each time I'll do<br/>"Set new" in the context.</p>
+            <p xml:id="p97" begin="00:05:38:01" end="00:05:41:23" region="bottom">We'd like not to repeat this line<br/>every time in all of our tests.</p>
+            <p xml:id="p98" begin="00:05:42:02" end="00:05:45:03" region="bottom">To not have to repeat them,<br/>to be able to factor it out</p>
+            <p xml:id="p99" begin="00:05:45:07" end="00:05:48:02" region="bottom">somewhere else, we have a solution.</p>
+            <p xml:id="p100" begin="00:05:48:06" end="00:05:52:07" region="bottom">The SUnit solution<br/>is to use the method "setUp"</p>
+            <p xml:id="p101" begin="00:05:52:11" end="00:05:57:04" region="bottom">to factor out all the initializations<br/>before execution of a test.</p>
+            <p xml:id="p102" begin="00:05:57:08" end="00:05:59:17" region="bottom">So what actually happens is,</p>
+            <p xml:id="p103" begin="00:05:59:21" end="00:06:02:07" region="bottom">at the moment a test is executed,<br/>just before a test,</p>
+            <p xml:id="p104" begin="00:06:02:11" end="00:06:05:14" region="bottom">therefore a method starting<br/>with the test string, is executed,</p>
+            <p xml:id="p105" begin="00:06:05:18" end="00:06:08:19" region="bottom">we'll trigger execution<br/>of the method "setUp",</p>
+            <p xml:id="p106" begin="00:06:08:24" end="00:06:11:05" region="bottom">and specify the context.</p>
+            <p xml:id="p107" begin="00:06:11:09" end="00:06:15:08" region="bottom">During the test we'll use the stimuli</p>
+            <p xml:id="p108" begin="00:06:15:12" end="00:06:17:07" region="bottom">and the check, the assertions,</p>
+            <p xml:id="p109" begin="00:06:17:11" end="00:06:20:05" region="bottom">and at the end<br/>of the execution of the test</p>
+            <p xml:id="p110" begin="00:06:20:09" end="00:06:22:09" region="bottom">whether it fails or not,</p>
+            <p xml:id="p111" begin="00:06:22:13" end="00:06:24:22" region="bottom">we'll execute the method "tearDown",</p>
+            <p xml:id="p112" begin="00:06:25:01" end="00:06:26:24" region="bottom">which will allow us to clean up</p>
+            <p xml:id="p113" begin="00:06:27:03" end="00:06:29:13" region="bottom">all the resources that<br/>should be released.</p>
+            <p xml:id="p114" begin="00:06:29:17" end="00:06:33:09" region="bottom">If we look at the execution<br/>of several test methods, it's easy,</p>
+            <p xml:id="p115" begin="00:06:33:13" end="00:06:35:10" region="bottom">we'll have the execution of "setUp"</p>
+            <p xml:id="p116" begin="00:06:35:14" end="00:06:37:18" region="bottom">the first test method executed here,</p>
+            <p xml:id="p117" begin="00:06:37:22" end="00:06:41:09" region="bottom">the execution of "tearDown" to clean,<br/>a new execution of "setUp"</p>
+            <p xml:id="p118" begin="00:06:41:13" end="00:06:44:18" region="bottom">the execution of a new test,<br/>"tearDown", "setUp",</p>
+            <p xml:id="p119" begin="00:06:44:22" end="00:06:47:19" region="bottom">the execution of a test<br/>and "tearDown'.</p>
+            <p xml:id="p120" begin="00:06:47:23" end="00:06:50:24" region="bottom">This allows us to factorize<br/>implementation of the context,</p>
+            <p xml:id="p121" begin="00:06:51:03" end="00:06:55:01" region="bottom">and clean up resources in two methods,<br/>"setUp" and "tearDown".</p>
+            <p xml:id="p122" begin="00:06:56:06" end="00:06:58:14" region="bottom">What does it look like?</p>
+            <p xml:id="p123" begin="00:06:58:18" end="00:07:01:11" region="bottom">In our example,<br/>if I take "SetTestCase"</p>
+            <p xml:id="p124" begin="00:07:01:15" end="00:07:04:16" region="bottom">I can put in place<br/>"define setUp method",</p>
+            <p xml:id="p125" begin="00:07:04:20" end="00:07:07:08" region="bottom">in which I write,<br/>"empty :=Set new",</p>
+            <p xml:id="p126" begin="00:07:07:12" end="00:07:11:21" region="bottom">so "empty" becomes an instance<br/>variable of "SetTestCase",</p>
+            <p xml:id="p127" begin="00:07:12:13" end="00:07:14:14" region="bottom">and then in my test,<br/>in my test method,</p>
+            <p xml:id="p128" begin="00:07:14:18" end="00:07:18:02" region="bottom">I can directly use<br/>the instance variable "empty",</p>
+            <p xml:id="p129" begin="00:07:18:06" end="00:07:21:22" region="bottom">which was correctly initialized,<br/>because before execution</p>
+            <p xml:id="p130" begin="00:07:22:01" end="00:07:26:20" region="bottom">of "testOccurence"<br/>the method "setUp" was executed.</p>
+            <p xml:id="p131" begin="00:07:29:17" end="00:07:33:01" region="bottom">If we look at the organisation<br/>of the classes</p>
+            <p xml:id="p132" begin="00:07:33:05" end="00:07:37:15" region="bottom">within the core of SUnit,<br/>as I said, there are only 4 classes:</p>
+            <p xml:id="p133" begin="00:07:37:19" end="00:07:41:11" region="bottom">so one test case,<br/>which is nothing more nor less</p>
+            <p xml:id="p134" begin="00:07:41:15" end="00:07:43:14" region="bottom">than a test that verifies<br/>that certain conditions,</p>
+            <p xml:id="p135" begin="00:07:43:18" end="00:07:47:00" region="bottom">are true in a given context,<br/>so one test case has</p>
+            <p xml:id="p136" begin="00:07:47:24" end="00:07:50:07" region="bottom">one "setUp" method<br/>one "tearDown" method</p>
+            <p xml:id="p137" begin="00:07:50:11" end="00:07:52:21" region="bottom">and then a group of test methods.</p>
+            <p xml:id="p138" begin="00:07:53:00" end="00:07:57:12" region="bottom">We write a "new" all the time,<br/>the subclasses of the test case.</p>
+            <p xml:id="p139" begin="00:07:57:16" end="00:08:00:13" region="bottom">These test cases are combined</p>
+            <p xml:id="p140" begin="00:08:00:17" end="00:08:05:02" region="bottom">in a "TestSuite",</p>
+            <p xml:id="p141" begin="00:08:05:06" end="00:08:08:14" region="bottom">and we can launch the execution<br/>of a complete suite.</p>
+            <p xml:id="p142" begin="00:08:08:18" end="00:08:11:16" region="bottom">When we launch the execution<br/>of a suite we get a result,</p>
+            <p xml:id="p143" begin="00:08:11:20" end="00:08:16:01" region="bottom">and this result is an instance<br/>of "testResult" here,</p>
+            <p xml:id="p144" begin="00:08:16:05" end="00:08:19:03" region="bottom">which tells us<br/>how many tests have passed,</p>
+            <p xml:id="p145" begin="00:08:19:07" end="00:08:22:20" region="bottom">how many tests have been executed,<br/>how many have potentially</p>
+            <p xml:id="p146" begin="00:08:23:12" end="00:08:26:06" region="bottom">met with failures and errors.</p>
+            <p xml:id="p147" begin="00:08:27:04" end="00:08:29:14" region="bottom">We also have the notion<br/>of "TestResource"</p>
+            <p xml:id="p148" begin="00:08:29:18" end="00:08:33:24" region="bottom">which allows us to define<br/>the TestResources for a whole suite.</p>
+            <p xml:id="p149" begin="00:08:36:01" end="00:08:39:19" region="bottom">A TestCase, as I said,<br/>represents one test.</p>
+            <p xml:id="p150" begin="00:08:39:23" end="00:08:44:01" region="bottom">It's one method starting with "test"<br/>defined in a subclass, TestCase.</p>
+            <p xml:id="p151" begin="00:08:45:09" end="00:08:47:09" region="bottom">A TestSuite is a group of tests.</p>
+            <p xml:id="p152" begin="00:08:47:13" end="00:08:52:08" region="bottom">It's all the TestCase methods<br/>defined in one or several classes.</p>
+            <p xml:id="p153" begin="00:08:52:12" end="00:08:56:22" region="bottom">And a TestResult will be a result<br/>of several test executions.</p>
+            <p xml:id="p154" begin="00:08:58:04" end="00:09:02:01" region="bottom">A TestResource<br/>is an object that will enable</p>
+            <p xml:id="p155" begin="00:09:02:15" end="00:09:05:03" region="bottom">the initialization<br/>of a group of resources,</p>
+            <p xml:id="p156" begin="00:09:05:07" end="00:09:07:13" region="bottom">which are costly<br/>to initialize in normal time,</p>
+            <p xml:id="p157" begin="00:09:07:17" end="00:09:10:07" region="bottom">and which we only want to<br/>initialize once for a group of tests.</p>
+            <p xml:id="p158" begin="00:09:10:11" end="00:09:14:10" region="bottom">We set up a TestResource, initialize<br/>it once and execute lots of tests,</p>
+            <p xml:id="p159" begin="00:09:14:14" end="00:09:17:11" region="bottom">and then we can release it at the end.</p>
+            <p xml:id="p160" begin="00:09:17:16" end="00:09:20:08" region="bottom">What you should know</p>
+            <p xml:id="p161" begin="00:09:20:20" end="00:09:24:13" region="bottom">is how to write tests.<br/>Writing tests is extremely simple,</p>
+            <p xml:id="p162" begin="00:09:24:17" end="00:09:27:12" region="bottom">you just have to write a subclass<br/>of the TestCase class,</p>
+            <p xml:id="p163" begin="00:09:27:16" end="00:09:31:06" region="bottom">define the methods in it<br/>which begin with "test",</p>
+            <p xml:id="p164" begin="00:09:31:10" end="00:09:33:11" region="bottom">and then set up a context inside it,</p>
+            <p xml:id="p165" begin="00:09:33:15" end="00:09:36:24" region="bottom">send the stimuli and test<br/>the assertions, which should be true.</p>
+            <p xml:id="p166" begin="00:09:37:20" end="00:09:39:18" region="bottom">We'll reuse the contexts,</p>
+            <p xml:id="p167" begin="00:09:39:22" end="00:09:42:06" region="bottom">so you can reuse the contexts<br/>through several test methods,</p>
+            <p xml:id="p168" begin="00:09:42:10" end="00:09:45:16" region="bottom">by factorizing them<br/>in a SetUp method for example.</p>
+            <p xml:id="p169" begin="00:09:47:00" end="00:09:52:02" region="bottom">To summarize, in this sequence<br/>we've seen the SUnit test framework,</p>
+            <p xml:id="p170" begin="00:09:52:06" end="00:09:54:09" region="bottom">which is extremely simple to use,</p>
+            <p xml:id="p171" begin="00:09:54:13" end="00:09:57:14" region="bottom">and extremely efficient<br/>for setting up Agile developments.</p>
+            <p xml:id="p172" begin="00:09:57:18" end="00:10:01:13" region="bottom">I strongly urge you to use them,<br/>defining tests is very easy.</p>
+            <p xml:id="p173" begin="00:10:01:17" end="00:10:04:21" region="bottom">The big advantage is that when<br/>you've created one test</p>
+            <p xml:id="p174" begin="00:10:05:00" end="00:10:10:10" region="bottom">you can run it a million times<br/>and it's really handy for making sure</p>
+            <p xml:id="p175" begin="00:10:10:14" end="00:10:13:09" region="bottom">that your code still works,<br/>even if you've changed things,</p>
+            <p xml:id="p176" begin="00:10:13:13" end="00:10:16:16" region="bottom">and edge effects have occured,<br/>you can detect them</p>
+            <p xml:id="p177" begin="00:10:16:20" end="00:10:20:18" region="bottom">if you've been up-to-date<br/>enough in the tests you've written.</p>
+            <p xml:id="p178" begin="00:10:20:22" end="00:10:25:08" region="bottom">You can go further in creating tests<br/>by using dot frameworks,</p>
+            <p xml:id="p179" begin="00:10:25:12" end="00:10:28:16" region="bottom">typically Mock frameworks<br/>like BabyMock, etc...</p>
+            <p xml:id="p180" begin="00:10:28:21" end="00:10:33:11" region="bottom">to have different<br/>styles of test and test writing.</p>
+            <p xml:id="p181" begin="00:10:34:12" end="00:10:38:18" region="bottom">I encourage you to use and create<br/>a lot of tests in your program.</p>
+        </div>
+    </body>
+</tt>

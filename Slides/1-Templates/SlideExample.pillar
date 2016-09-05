@@ -1,0 +1,335 @@
+{
+	"title":"To the Roots of Objects",
+	"subtitle":"Learning from beauty",
+	"author":"Stephane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+}
+
+
+${toc:depthLevel=2|level=0|highlight=0}$
+
+%Les sections ne sont pas des titres de slide mais définnissent la structure du doucment. Il est possible de rajouter "renderStructureAsSlide":false dans pillar.conf pour ne pas créer de slide à partir d'un titre.
+
+
+${slide:title=License}$
+
++>file://figures/CreativeCommons.png|width=50|label=figCreativeCommons+
+
+
+! Introduction
+
+%
+${toc:depthLevel=1|level=0|highlight=1}$
+
+
+${slide:title=Really?!|label=really}$
+
+${columns}$
+
+${column:width=50}$
+
+%the width parameter take an Int between 1 and 100
+%For now we have to pass a line before and after an annotation, I'll correct that soon in Pillar.
+- No primitive types
+- No hardcoded constructs for conditional
+- Only messages
+- Only objects
+
+${column:width=50}$
+
+- and this works?
+- I mean really?
+- Not even slow?
+- Can't be real!
+
+${endColumns}$
+
+${slide:title=Motto}$
+
+- Let's open our eyes, look, understand, and deeply understand the underlying design aspects of object-oriented programming.
+
+
+*@really*
+
+*TEST !>@really*
+
+${slide:title=Booleans}$
+
+[[[language=smalltalk 
+3 > 0
+	ifTrue: ['positive']
+	ifFalse: ['negative']
+-> 'positive'
+]]]
+
+${slide:title=Yes ifTrue\:ifFalse\: is a message!}$
+
+[[[language=smalltalk 
+Weather isRaining
+	ifTrue: [self takeMyUmbrella]
+	ifFalse: [self takeMySunglasses]
+]]]
+
+- Conceptually ==ifTrue:ifFalse:== is a message sent to an object: a boolean!
+- ==ifTrue:ifFalse:== is in fact radically optimized by the compiler but you can implement another one such ==siAlors:sinon:== and check. 
+
+${slide:title=Booleans}$
+
+In Pharo booleans have nothing special
+- & | not
+- or: and: (lazy)
+- xor:
+- ifTrue:ifFalse:
+- ifFalse:ifTrue:
+- ...
+
+${slide:title=Lazy Logical Operators}$
+
+	*LINK>@frm:really*
+
+[[[language=smalltalk 
+	false and: [1 error: 'crazy']
+ -> false and not an error
+]]]
+
+! Exercices
+${toc:depthLevel=1|level=0|highlight=1}$
+
+!! Exercise 1: Implement not
+
+${slide:title=Exercise 1\: Implement not}$
+
+- Propose an implementation of not in a world where you do not have Booleans.
+- You only have objects and messages.
+[[[language=smalltalk 
+false not 
+	-> true
+
+true not 
+	-> false
+]]]
+
+!!Exercise 2: Implement | (Or) ifTrue: ifFalse:
+
+${toc:depthLevel=2|level=0|highlight=1}$
+
+${slide:title=Exercise 2\: Implement \| (Or)}$
+
+- Propose an implementation of or in a world where you do not have Booleans.
+- You only have objects and messages.
+
+[[[language=smalltalk 
+	true | true -> true
+	true | false -> true
+	true | anything -> true
+
+	false | true -> true
+	false | false -> false
+	false | anything -> anything
+]]]
+
+${slide:title=Exercise2\: Variation - Implement ifTrue\:ifFalse\:}$
+
+- Propose an implementation of not in a world where you do not have Booleans.
+- You only have objects, messages and closures.
+
+[[[language=smalltalk 
+false ifTrue: [ 3 ] ifFalse: [ 5 ]
+-> 5
+true ifTrue: [ 3 ] ifFalse: [ 5 ]
+-> 3
+]]]
+
+! Boolean Implementation
+
+${toc:depthLevel=1|level=0|highlight=1}$
+
+${slide:title=Booleans Implementation Hint One}$
+
+- The solution does not use conditionals 
+- else we would obtain a recursive definition of ==ifTrue:ifFalse:==
+
+${slide:title=Boolean Implementation Hint Two}$
+
+- The solution uses three classes: ==Boolean==, ==True== and ==False==
+- ==false== and ==true== are unique instances described by their own classes 
+- ==false== is an instance of the class ==False==
+- ==true== is an instance of the class ==True==
+
++Boolean Hierarchy>file://figures/BooleanHiearchyAndInstances.png|width=50+
+
+${slide:title=How do we express choice in OOP?}$
+
+- We send messages to objects
+
+[[[language=smalltalk 
+	aButton color
+	-> Color red
+	
+	aPane color
+	-> Color blue
+	
+	aWindow color
+	-> Color grey
+]]]
+
+- Let's the receiver decide
+
+- Do not ask, tell
+
+${slide:title=Boolean not implementation}$
+
+- Class ==Boolean== is an abstract class that implements behavior common to true and false. Its subclasses are ==True== and ==False==. 
+Subclasses must implement methods for logical operations ==&==, ==not==, and controls ==and:==, ==or:==, ==ifTrue:==, ==ifFalse:==, ==ifTrue:ifFalse:==, ==ifFalse:ifTrue:==
+
+[[[language=smalltalk
+Boolean>>not
+	"Negation. Answer true if the receiver is false, answer false if the receiver is true."
+	self subclassResponsibility
+]]]
+
+${slide:title=Not implementation in two methods}$
+
+[[[language=smalltalk 
+False>>not
+	"Negation -- answer true since the receiver is false."
+	^ true
+]]]
+
+[[[language=smalltalk 
+True>>not
+	"Negation--answer false since the receiver is true."
+	^ false
+]]]
+
+${slide:title=Not implementation in two methods}$
+
++Not implementation.>file://figures/BooleanHiearchyAndInstancesWithNotMethods.png|width=80+
+
+${slide:title=\| (Or)}$
+[[[language=smalltalk 
+	
+	true | true -> true
+	true | false -> true
+	true | anything -> true
+
+	false | true -> true
+	false | false -> false
+	false | anything -> anything
+
+]]]
+
+${slide:title=Boolean>> \| aBoolean}$
+
+[[[language=smalltalk 
+	Boolean>> | aBoolean
+		"Evaluating disjunction (OR). Evaluate the argument. Answer true if either the receiver or the argument is
+true."
+	self subclassResponsibility
+]]]
+
+${slide:title=False>> \| aBoolean}$
+
+[[[language=smalltalk 
+false | true -> true
+false | false -> false
+false | anything -> anything
+]]]
+
+[[[language=smalltalk 
+False >> | aBoolean
+	"Evaluating disjunction (OR) -- answer with the argument, aBoolean."
+	^ aBoolean 
+]]]
+
+${slide:title=True>> \| aBoolean}$
+
+[[[language=smalltalk 
+true | true -> true
+true | false -> true
+true | anything -> true
+]]]
+
+[[[language=smalltalk 
+True>> | aBoolean
+	"Evaluating disjunction (OR) -- answer true since the receiver is true."
+	^ self
+]]]	
+
+${slide:title=Or implementation in two methods}$
+
++>file://figures/BooleanHiearchyAndInstancesWithOrMethods.png|width=80+
+
+${slide:title=Implementing ifTrue\:ifFalse\:}$
+
+- Do you see the pattern?
+- Remember that a closure freezes execution and that value launches the execution of a frozen code.
+
+[[[language=smalltalk 
+True>>ifTrue: aTrueBlock ifFalse: aFalseBlock
+	^ aTrueBlock value
+]]]
+
+[[[language=smalltalk 
+False>>ifTrue: aTrueBlock ifFalse: aFalseBlock
+	^ aFalseBlock value
+]]]
+
+${slide:title=Implementation Note}$
+
+- Note that the Virtual Machine shortcuts calls to boolean such as condition for speed reason.
+- But you can implement your own conditional method and debug to see that sending a message is dispatching to the right object.
+
+! So what ?
+
+${toc:depthLevel=1|level=0|highlight=1}$
+
+${slide:title=Ok so what?}$
+
+- You will probably not implement another Boolean classes
+- So is it really that totally useless?
+
+
+${slide:title=Message sends act as case statements}$
+
+- The execution engine will select the right method in the class of the receiver
+- The case statements is dynamic in the sense that it depends on the classes loaded and the objects to which the message is sent.
+- Each time you send a message, the system will select the method corresponding to the receiver.
+
+
+${slide:title=A Class Hierarchy is a Skeleton for Dynamic Dispatch}$
+
+- If we would have said that the ==Boolean== would be composed of only one class, we could not have use dynamic binding.
+- A class hierarchy is the exoskeleton for dynamic binding
+
+- Compare the solution with one class vs. a hierarchy.
+
++One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatch.png|width=70+
+
+- The hierarchy provides a way to specialize behavior.
+- It is also more declarative in the sense that you only focus on one class.
+- It is more modular in the sense that you can package different classes in different packages.
+
+${slide:title=Avoid Conditionals}$
+
+- Use objects and messages, when you can
+- The execution engine acts as a conditional switch: Use it!
+- Check the AntiIfCampaign.
+
+${slide:title=Follow-up: Implement ternary logic}$
+
+- Boolean: ==true==, ==false==, ==unknown==
++Ternaru Logic decision table >file://figures/ArrayBoolean.png|width=30|label=fig:ternLogic+
+
+- Implementing in your own classes.
+
+! Summary
+
+${toc:depthLevel=1|level=0|highlight=1}$
+
+${slide:title=Summary}$
+- Tell, do not ask
+- Let the receiver decide
+- Message sends as potential dynamic conditional
+- Class hiearchy builds a skeleton for dynamic dispatch
+- Avoid conditional

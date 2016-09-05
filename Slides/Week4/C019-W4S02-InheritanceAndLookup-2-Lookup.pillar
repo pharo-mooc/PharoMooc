@@ -1,0 +1,221 @@
+{
+  "title":"Inheritance and Lookup",
+  "subtitle":"2: Lookup",
+  "slidesid" : "W4S02"
+}
+
+${slide:title=Goal}$
+
+- Understanding
+-- message sending
+-- method lookup
+-- semantics of ==self==
+
+${slide:title=Inheritance}$
+
+- Inheritance of state is static
+- Inheritance of behavior is dynamic
+
+${slide:title=Message Sending}$
+
+${columns}$
+
+${column:width=38}$
+
+""Sending"" a ""message"" is a two-step process:
+# ""look up"" the ""method"" matching the message
+# execute this method on the ""receiver""
+
+${column:width=62}$
+
++>file://figures/InheritanceDiagram-sendingMessage.png|width=100+
+
+${endColumns}$
+
+
+${slide:title=Method Lookup}$
+
+${columns}$
+
+${column:width=38}$
+
+The lookup starts in the ""class"" of the ""receiver"" then:
+- if the method is defined in the class, it is returned
+- otherwise the search continues in the superclass
+
+${column:width=62}$
+
++>file://figures/InheritanceDiagram-lookupTwoStages.png|width=100+
+
+${endColumns}$
+
+${slide:title=Some Lookup Cases}$
+
+${columns}$
+
+${column:width=47}$
+
+Sending the message ==color== to ==aColoredRectangle==
+
+${column:width=53}$
+
++>file://figures/InheritanceDiagram-lookup-superclass.png|width=95+
+
+${endColumns}$
+
+${slide:title=Some Lookup Cases}$
+
+${columns}$
+
+${column:width=47}$
+
+Sending the message ==area== to ==aColoredRectangle==
+
+${column:width=53}$
+
++>file://figures/InheritanceDiagram-lookup-superclass.png|width=95+
+
+${endColumns}$
+
+
+${slide:title=self Always Represents the Receiver}$
+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=71+
+
+[[[
+A new foo
+> ...
+B new foo
+> ...
+]]]
+
+${slide:title=self Always Represents the Receiver}$
+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=71+
+
+[[[
+A new foo
+> 10
+B new foo
+> 50
+]]]
+
+${slide:title=What is self/this?}$
+
+Take 5 min and write the definition of ==self== (==this== in Java).
+
+- your definition should have two points:
+-- what does ==self== represent?
+-- how is a method looked up when a message is sent to ==self==?
+
+${slide:title=self/this}$
+
+- ==self== represents the receiver of the message
+- ==self== in Pharo, ==this== in Java
+- The method lookup starts in the class of the receiver
+
+${slide:title=self Always Represents the Receiver}$
+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=71+
+
+[[[
+A new bar
+> ...
+B new bar
+> ...
+]]]
+
+${slide:title=self Always Represents the Receiver}$
+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=71+
+
+[[[
+A new bar
+> 10
+B new bar
+> 50
+]]]
+
+${slide:title=self Always Represents the Receiver}$
+
+${columns}$
+
+${column:width=35}$
+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=110+
+
+[[[
+    B new bar
+    > 50
+]]]
+
+${column:width=65}$
+
+Evaluation of ==aB bar==
+#==aB=='s class is ==B==
+#no method ==bar== in ==B==
+#look up in ==A== - ==bar== is found
+#method ==bar== is executed
+#==self== refers to the receiver ==aB==
+#==foo== is sent to ==self==
+#look up ==foo== in the ==aB=='s class: ==B==
+#==foo== is found there and executed
+
+${endColumns}$
+
+${slide:title=self Always Represents the Receiver}$
+
+${columns}$
+
+${column:width=60}$
+
++>file://figures/LookupWithSelfInSuperclassMethodThreeClasses.png|width=100+
+
+${column:width=40}$
+
+[[[
+    A new bar
+    > ...
+    B new bar
+    > ...
+    C new bar
+    > ...
+]]]
+
+${endColumns}$
+
+${slide:title=self Always Represents the Receiver}$
+
+${columns}$
+
+${column:width=60}$
+
++>file://figures/LookupWithSelfInSuperclassMethodThreeClasses.png|width=100+
+
+${column:width=40}$
+
+[[[
+    A new bar
+    > 10
+    B new bar
+    > 10
+    C new bar
+    > 50
+]]]
+
+${endColumns}$
+
+${slide:title=What You Should Know}$
+
+
+-==self== always represents the receiver
+- Sending a message is a two-step process:
+-# Look up the method matching the message
+-# Execute this method on the receiver
+- Method lookup maps a message to a method
+- Method lookup starts in the class of the receiver
+-- ...and goes up in the hierarchy
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/Week4/C019-W4S02-InheritanceAndLookup-2-Lookup.pillar"
+% End:

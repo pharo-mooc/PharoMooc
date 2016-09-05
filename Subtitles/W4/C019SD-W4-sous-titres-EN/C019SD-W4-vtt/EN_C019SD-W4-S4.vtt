@@ -1,0 +1,339 @@
+﻿WEBVTT
+
+00:00:00.520 --> 00:00:05.760 align:middle
+Hello. Welcome to the fourth sequence
+on inheritance and lookup.
+
+00:00:06.360 --> 00:00:11.360 align:middle
+We will now learn what happens when
+the algorithm does not find a method.
+
+00:00:11.800 --> 00:00:13.120 align:middle
+As you will see,
+
+00:00:14.360 --> 00:00:18.440 align:middle
+the class codes
+can add processing in this case,
+
+00:00:18.920 --> 00:00:23.000 align:middle
+to handle the fact
+that a lookup message
+
+00:00:23.160 --> 00:00:24.920 align:middle
+was not understood.
+
+00:00:25.600 --> 00:00:28.680 align:middle
+I'll review message-sending briefly:
+
+00:00:29.520 --> 00:00:33.400 align:middle
+The "area" message is sent
+to ColoredRectangle.
+
+00:00:33.760 --> 00:00:38.800 align:middle
+First, the algorithm looks up
+the method matching the message.
+
+00:00:39.160 --> 00:00:43.360 align:middle
+It starts by searching for the method
+in the receiver's class:
+
+00:00:43.800 --> 00:00:47.400 align:middle
+If it finds "area" in ColoredRectangle,
+it executes it.
+
+00:00:47.720 --> 00:00:51.760 align:middle
+But "area" is not there,
+so the algorithm searches the superclass
+
+00:00:52.120 --> 00:00:54.520 align:middle
+In "Rectangle," it finds "area."
+
+00:00:55.640 --> 00:00:58.680 align:middle
+The method is executed on the receiver.
+
+00:01:00.680 --> 00:01:04.120 align:middle
+What happens in the total absence
+of an "area" method?
+
+00:01:04.440 --> 00:01:07.120 align:middle
+What if the lookup fails?
+
+00:01:08.040 --> 00:01:13.160 align:middle
+Here is an example: a "coucou" message
+is sent to Object Node 1.
+
+00:01:13.800 --> 00:01:16.640 align:middle
+"Coucou" cannot be found
+in the hierarchy.
+
+00:01:16.960 --> 00:01:20.280 align:middle
+The "coucou" message is sent to Node 1.
+
+00:01:20.600 --> 00:01:24.360 align:middle
+The algorithm fails to find "coucou"
+in "Node."
+
+00:01:24.720 --> 00:01:27.960 align:middle
+Next, the algorithm searches
+"Object." No "coucou"
+
+00:01:28.120 --> 00:01:29.440 align:middle
+At that point,
+
+00:01:29.840 --> 00:01:34.880 align:middle
+the Pharo virtual machine
+sends a "does not understand" message
+
+00:01:35.320 --> 00:01:38.520 align:middle
+to the receiver - Node 1.
+
+00:01:40.360 --> 00:01:43.320 align:middle
+DNU = Does Not Understand.
+
+00:01:43.880 --> 00:01:47.600 align:middle
+It transfers the initial message
+as a parameter.
+
+00:01:48.480 --> 00:01:50.520 align:middle
+This is the parameter: "coucou stef."
+
+00:01:50.840 --> 00:01:53.800 align:middle
+If I go through it again step by step,
+
+00:01:54.240 --> 00:01:57.880 align:middle
+"Coucou" is sent to Node 1.
+A match is sought in the class,
+
+00:01:59.080 --> 00:02:01.040 align:middle
+then in the superclass.
+
+00:02:01.200 --> 00:02:05.920 align:middle
+"Coucou" is not there, so the message
+"does not understand" is resent
+
+00:02:06.160 --> 00:02:08.200 align:middle
+to Object Node 1.
+
+00:02:09.000 --> 00:02:12.640 align:middle
+The algorithm looks up the method
+"does not understand."
+
+00:02:12.880 --> 00:02:14.200 align:middle
+in Node 1 class.
+
+00:02:14.800 --> 00:02:19.960 align:middle
+Not finding a match there, the algorithm
+searches the superclass.
+
+00:02:20.600 --> 00:02:22.680 align:middle
+It is located there.
+
+00:02:22.840 --> 00:02:27.080 align:middle
+A "does not understand" method
+is found in Object and executed.
+
+00:02:27.440 --> 00:02:29.480 align:middle
+That means
+
+00:02:29.960 --> 00:02:32.000 align:middle
+in all the subclasses of Object,
+
+00:02:32.360 --> 00:02:34.800 align:middle
+"does not understand"
+can be implemented
+
+00:02:34.960 --> 00:02:38.360 align:middle
+to trigger a specific behavior
+
+00:02:39.200 --> 00:02:43.640 align:middle
+when an object, instance, or class
+does not understand a message.
+
+00:02:44.480 --> 00:02:46.880 align:middle
+This slide shows the details,
+
+00:02:47.200 --> 00:02:50.680 align:middle
+step by step.
+
+00:02:51.400 --> 00:02:54.280 align:middle
+"Does not understand" is a message
+like any other.
+
+00:02:54.560 --> 00:02:58.960 align:middle
+Therefore, you can implement
+a "DNU" method to be executed
+
+00:02:59.400 --> 00:03:03.200 align:middle
+whenever an instance
+does not understand a message.
+
+00:03:03.760 --> 00:03:05.160 align:middle
+This mechanism is used
+
+00:03:05.800 --> 00:03:09.760 align:middle
+in certain somewhat complicated cases
+
+00:03:10.120 --> 00:03:12.880 align:middle
+like proxies and automatic delegation:
+
+00:03:13.560 --> 00:03:17.800 align:middle
+when you want a certain object
+to transmit all the messages it gets
+
+00:03:17.960 --> 00:03:19.680 align:middle
+to another object.
+
+00:03:19.840 --> 00:03:23.200 align:middle
+The "does not understand" mechanism
+can be used for that.
+
+00:03:24.040 --> 00:03:27.400 align:middle
+Default implementation
+of "does not understand" is found
+
+00:03:27.560 --> 00:03:28.640 align:middle
+in the Object class.
+
+00:03:29.000 --> 00:03:32.200 align:middle
+It raises one exception.
+
+00:03:33.000 --> 00:03:34.240 align:middle
+The exception
+
+00:03:35.080 --> 00:03:38.280 align:middle
+is called "Message Not Understood."
+
+00:03:38.640 --> 00:03:41.760 align:middle
+So if the "DNU" method
+of the Object class
+
+00:03:41.920 --> 00:03:44.680 align:middle
+is executed, an exception is raised.
+
+00:03:45.240 --> 00:03:49.600 align:middle
+That means the code you are writing
+can catch the exception,
+
+00:03:49.920 --> 00:03:52.640 align:middle
+the way it would catch any exception.
+
+00:03:52.880 --> 00:03:57.520 align:middle
+The exception opens a debugger
+for messages that are not understood.
+
+00:03:58.040 --> 00:03:59.440 align:middle
+In this example,
+
+00:04:00.080 --> 00:04:02.640 align:middle
+we return to the class "Node."
+
+00:04:02.960 --> 00:04:07.120 align:middle
+We have a "say hello" method in Node,
+which sends a "coucou" message
+
+00:04:07.600 --> 00:04:09.480 align:middle
+to the receiver or self.
+
+00:04:10.760 --> 00:04:12.760 align:middle
+There's also a "welcome" method
+
+00:04:13.120 --> 00:04:16.280 align:middle
+that sends a "say hello" message
+to self.
+
+00:04:16.680 --> 00:04:20.600 align:middle
+It provides special handling
+in the context
+
+00:04:21.360 --> 00:04:23.280 align:middle
+of a misunderstood message.
+
+00:04:23.600 --> 00:04:28.600 align:middle
+If a message is not understood,
+it will be handled.
+
+00:04:28.760 --> 00:04:32.000 align:middle
+Here, "say hello"
+sends a "coucou" message to self.
+
+00:04:32.160 --> 00:04:34.280 align:middle
+"Coucou" is still unimplemented.
+
+00:04:34.880 --> 00:04:37.640 align:middle
+Ultimately,
+the "does not understand" method
+
+00:04:38.000 --> 00:04:40.920 align:middle
+will be executed.
+
+00:04:41.560 --> 00:04:45.240 align:middle
+The "message not understood"
+exception will be raised.
+
+00:04:46.120 --> 00:04:48.280 align:middle
+The code here, following on/do,
+
+00:04:48.680 --> 00:04:52.560 align:middle
+is used to catch exceptions,
+like "try/catch" in Java.
+
+00:04:52.960 --> 00:04:56.800 align:middle
+A later sequence of the course
+will go into these exceptions.
+
+00:04:57.880 --> 00:05:00.800 align:middle
+The point here is to notice
+that this code
+
+00:05:00.960 --> 00:05:05.720 align:middle
+is the same as Java's "catch," and
+it will be executed for every exception.
+
+00:05:06.640 --> 00:05:09.280 align:middle
+Say we send the message "welcome"
+
+00:05:10.440 --> 00:05:11.840 align:middle
+to Node 1.
+
+00:05:12.000 --> 00:05:14.080 align:middle
+Knowing that "coucou"
+is not implemented,
+
+00:05:14.520 --> 00:05:18.520 align:middle
+the console will display "something
+went wrong with the message."
+
+00:05:19.440 --> 00:05:20.640 align:middle
+What you should know:
+
+00:05:22.680 --> 00:05:27.240 align:middle
+When the lookup algorithm does not find
+a method to match a message,
+
+00:05:27.560 --> 00:05:31.440 align:middle
+a "does not understand" message is sent
+to the initial receiver,
+
+00:05:31.600 --> 00:05:33.760 align:middle
+with the first message as a parameter.
+
+00:05:34.360 --> 00:05:37.520 align:middle
+Each class can implement this method.
+
+00:05:37.800 --> 00:05:41.840 align:middle
+The default implementation in the Object
+class will be executed.
+
+00:05:42.080 --> 00:05:45.200 align:middle
+This default implementation
+raises an exception,
+
+00:05:45.440 --> 00:05:47.400 align:middle
+called "message not understood."
+
+00:05:47.560 --> 00:05:50.560 align:middle
+The code you are writing can catch
+the exception
+
+00:05:50.720 --> 00:05:53.200 align:middle
+and subject it to debugging.

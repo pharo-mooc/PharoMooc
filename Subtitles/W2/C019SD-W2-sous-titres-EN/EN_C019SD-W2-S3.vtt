@@ -1,0 +1,455 @@
+﻿WEBVTT
+
+00:00:00.520 --> 00:00:03.880 align:middle
+In this session,
+we'll study message composition.
+
+00:00:04.040 --> 00:00:08.720 align:middle
+We'll see how precedence works:
+the hierarchy of items.
+
+00:00:08.880 --> 00:00:11.600 align:middle
+The question that need to be asked is:
+
+00:00:11.760 --> 00:00:15.080 align:middle
+"What happens when you have
+a sequence of unary messages?"
+
+00:00:15.240 --> 00:00:18.040 align:middle
+I wrote the following expression:
+
+00:00:18.200 --> 00:00:20.720 align:middle
+1000 factorial class name
+What happens?
+
+00:00:20.880 --> 00:00:24.400 align:middle
+You execute it as if I had written
+all these parentheses.
+
+00:00:24.560 --> 00:00:26.680 align:middle
+You can see they're annoying.
+
+00:00:26.840 --> 00:00:30.840 align:middle
+When you have messages
+at the same level
+
+00:00:31.000 --> 00:00:35.000 align:middle
+(unary, binary, or keywords:
+it works with all three),
+
+00:00:35.160 --> 00:00:37.320 align:middle
+it evaluates them from left to right.
+
+00:00:37.480 --> 00:00:40.280 align:middle
+I send the message factorial to 1000.
+
+00:00:40.440 --> 00:00:43.960 align:middle
+Then I send the message class
+to the result of factorial.
+
+00:00:44.120 --> 00:00:46.600 align:middle
+Then I send the message name
+
+00:00:47.800 --> 00:00:50.600 align:middle
+to this new object.
+
+00:00:50.760 --> 00:00:52.880 align:middle
+It returns LargePositiveInteger.
+
+00:00:53.640 --> 00:00:56.080 align:middle
+Factorial 1000 is a large number.
+
+00:00:56.240 --> 00:00:59.320 align:middle
+You can also try with factorial 10000.
+
+00:00:59.920 --> 00:01:01.160 align:middle
+It's a bit longer.
+
+00:01:02.160 --> 00:01:06.160 align:middle
+There are messages with parentheses
+
+00:01:06.320 --> 00:01:08.520 align:middle
+when they need to be executed first.
+
+00:01:08.680 --> 00:01:11.960 align:middle
+Then you have unary messages,
+then binary, then keywords.
+
+00:01:12.120 --> 00:01:15.200 align:middle
+When at the same level,
+you go from left to right.
+
+00:01:15.920 --> 00:01:17.720 align:middle
+Let's take one example.
+
+00:01:17.880 --> 00:01:21.800 align:middle
+I have an unary message, squared,
+
+00:01:21.960 --> 00:01:24.480 align:middle
+and a binary message, +.
+
+00:01:24.640 --> 00:01:27.000 align:middle
+The unary message wins.
+
+00:01:27.160 --> 00:01:30.800 align:middle
+First, I send squared.
+
+00:01:30.960 --> 00:01:33.760 align:middle
+Next, I send the message +.
+
+00:01:33.920 --> 00:01:36.640 align:middle
+It returns 11. It's right.
+
+00:01:37.480 --> 00:01:39.560 align:middle
+This is another situation.
+
+00:01:39.720 --> 00:01:42.360 align:middle
+I'm going to raise to the power
+using raisedTo.
+
+00:01:42.520 --> 00:01:47.040 align:middle
+I have a binary message and a keyword.
+The binary message wins.
+
+00:01:47.200 --> 00:01:49.520 align:middle
+First, I get 5.
+
+00:01:49.680 --> 00:01:53.080 align:middle
+Then I execute raisedTo, it returns 32.
+It's right.
+
+00:01:54.000 --> 00:01:56.160 align:middle
+This is a more complicated example.
+
+00:01:56.320 --> 00:02:00.120 align:middle
+Colors in Pharo are objects.
+
+00:02:00.280 --> 00:02:01.680 align:middle
+I have the class Color.
+
+00:02:01.840 --> 00:02:06.240 align:middle
+I have three unary messages:
+gray, white, and black.
+
+00:02:06.400 --> 00:02:11.360 align:middle
+I have two binary messages:
+= and -.
+
+00:02:11.520 --> 00:02:16.160 align:middle
+What happens then? The system first
+executes every unary message.
+
+00:02:16.840 --> 00:02:21.320 align:middle
+It returns the color aGray,
+the color aWhite, and the color aBlack.
+
+00:02:21.480 --> 00:02:25.080 align:middle
+Now I have to send messages.
+
+00:02:25.240 --> 00:02:28.560 align:middle
+I have to choose between
+the message - and the message =.
+
+00:02:29.520 --> 00:02:34.480 align:middle
+I send the message - to the object aGray
+with white as an argument.
+
+00:02:34.640 --> 00:02:36.800 align:middle
+It returns the color aBlack.
+
+00:02:37.520 --> 00:02:41.520 align:middle
+I compare the two colors.
+I get aBlack = aBlack, which is true.
+
+00:02:43.320 --> 00:02:46.160 align:middle
+This is an example to show you
+
+00:02:47.360 --> 00:02:50.200 align:middle
+you can also do automatic conversion
+with Pharo.
+
+00:02:50.360 --> 00:02:52.880 align:middle
+It's some sort of joke.
+
+00:02:53.960 --> 00:02:57.960 align:middle
+I have the expression
+1 class maxVal + 1
+
+00:02:58.120 --> 00:03:00.920 align:middle
+I have two unary messages,
+class and maxVal,
+
+00:03:01.080 --> 00:03:02.400 align:middle
+and one binary message.
+
+00:03:03.640 --> 00:03:05.720 align:middle
+How is this expression executed?
+
+00:03:05.880 --> 00:03:08.800 align:middle
+I send the message class
+to the small integer 1.
+
+00:03:08.960 --> 00:03:12.760 align:middle
+It returns SmallInteger
+since 1 is an integer. It works.
+
+00:03:13.560 --> 00:03:18.840 align:middle
+Since it's the result of 1 class,
+I send it the message maxVal.
+
+00:03:19.000 --> 00:03:20.800 align:middle
+What is the message maxVal?
+
+00:03:20.960 --> 00:03:25.560 align:middle
+It means: "What is the largest number
+you can encode over a small integer?"
+
+00:03:25.720 --> 00:03:29.960 align:middle
+I get this large number
+which ends with 23.
+
+00:03:30.960 --> 00:03:36.120 align:middle
+To this number, I send the message + 1.
+
+00:03:36.920 --> 00:03:40.160 align:middle
+It doesn't return a small integer
+
+00:03:40.320 --> 00:03:44.240 align:middle
+since this is the value that can be
+represented by a small integer.
+
+00:03:44.400 --> 00:03:47.080 align:middle
+As a result,
+it can't be a small integer.
+
+00:03:47.240 --> 00:03:51.440 align:middle
+I want to know
+what the class of this number is.
+
+00:03:51.960 --> 00:03:56.480 align:middle
+I write parentheses and I send class.
+It returns LargePositiveInteger.
+
+00:03:56.640 --> 00:04:00.160 align:middle
+This is the largest of small integers.
+
+00:04:00.320 --> 00:04:02.840 align:middle
+And that's the smallest
+of large integers.
+
+00:04:04.280 --> 00:04:06.280 align:middle
+I wrote parentheses
+
+00:04:06.440 --> 00:04:09.480 align:middle
+because without them,
+class would have been sent to 1.
+
+00:04:09.640 --> 00:04:12.760 align:middle
+I don't want that:
+I want to send class to the result.
+
+00:04:14.520 --> 00:04:18.640 align:middle
+Imagine that I created a rectangle.
+
+00:04:18.800 --> 00:04:22.120 align:middle
+I want to get the point
+on the bottom right of the rectangle.
+
+00:04:22.280 --> 00:04:24.640 align:middle
+I wrote this.
+It crashes when I execute it.
+
+00:04:24.800 --> 00:04:29.080 align:middle
+The system doesn't understand:
+100 does not understand bottomRight
+
+00:04:29.240 --> 00:04:33.680 align:middle
+Why? Because bottomRight
+is a unary message.
+
+00:04:33.840 --> 00:04:38.560 align:middle
+It gets executed before the others:
+it is sent to 100, its receiver.
+
+00:04:38.720 --> 00:04:42.520 align:middle
+100 can't understand this API
+as it is that of the class Rectangle.
+
+00:04:42.680 --> 00:04:46.360 align:middle
+I have to write parentheses
+as I did in this expression.
+
+00:04:46.520 --> 00:04:50.440 align:middle
+How does it work? What's between
+parentheses is executed first.
+
+00:04:50.600 --> 00:04:55.880 align:middle
+Inside, I have two unary messages
+which are executed.
+
+00:04:56.040 --> 00:04:58.960 align:middle
+They create points:
+two of them get created.
+
+00:04:59.120 --> 00:05:02.360 align:middle
+I send extent:
+to a point which creates a rectangle.
+
+00:05:02.520 --> 00:05:05.120 align:middle
+I have a point 0@0.
+
+00:05:05.280 --> 00:05:09.880 align:middle
+I pass it extent 100@100.
+
+00:05:10.440 --> 00:05:12.080 align:middle
+It returns this rectangle.
+
+00:05:12.240 --> 00:05:15.680 align:middle
+I query it for the value bottomRight.
+
+00:05:15.840 --> 00:05:17.200 align:middle
+I get a rectangle.
+
+00:05:17.360 --> 00:05:20.480 align:middle
+It returns the value of the point here:
+
+00:05:20.640 --> 00:05:23.400 align:middle
+it is 100@100.
+
+00:05:24.960 --> 00:05:28.600 align:middle
+I told you things were very simple
+in Pharo:
+
+00:05:28.760 --> 00:05:30.360 align:middle
+there are only messages.
+
+00:05:30.520 --> 00:05:34.560 align:middle
++ is a message like any other.
+There's no order of precedence.
+
+00:05:34.720 --> 00:05:38.400 align:middle
+What's nice is that you can use +
+for domain specific languages.
+
+00:05:38.560 --> 00:05:42.920 align:middle
+You can use + between objects
+unrelated to mathematical objects.
+
+00:05:43.080 --> 00:05:47.200 align:middle
+You can't do it in Java. You can do it
+in C++ by redefining operators.
+
+00:05:47.360 --> 00:05:49.760 align:middle
+In Pharo, the solution
+
+00:05:49.920 --> 00:05:53.200 align:middle
+was to decide + would be
+like any other message.
+
+00:05:53.360 --> 00:05:55.280 align:middle
+Emphasis was put on simplicity.
+
+00:05:55.440 --> 00:05:58.880 align:middle
+There's a price to pay:
+there's no mathematical precedence.
+
+00:05:59.040 --> 00:06:00.960 align:middle
+Let's see this with an example.
+
+00:06:02.160 --> 00:06:05.640 align:middle
+In this expression,
+there are two operators:
+
+00:06:05.800 --> 00:06:08.480 align:middle
+two binary messages.
+
+00:06:08.640 --> 00:06:10.560 align:middle
+I execute from left to right.
+
+00:06:11.720 --> 00:06:15.480 align:middle
+I get 5 and it returns 50:
+it's not what I learned in school.
+
+00:06:15.640 --> 00:06:19.440 align:middle
+To disambiguate this, I have
+to rewrite this using parentheses
+
+00:06:19.600 --> 00:06:21.200 align:middle
+around *.
+
+00:06:21.360 --> 00:06:26.400 align:middle
+You have to be careful when
+using arithmetic operations in Pharo
+
+00:06:26.560 --> 00:06:29.520 align:middle
+since mathematical operators
+are just messages.
+
+00:06:30.040 --> 00:06:31.160 align:middle
+Another example:
+
+00:06:31.320 --> 00:06:34.800 align:middle
+if I write 1/3 + 2/3,
+I don't get the right result
+
+00:06:34.960 --> 00:06:38.640 align:middle
+as the system first executes
+this expression
+
+00:06:39.160 --> 00:06:41.120 align:middle
+since it goes from left to right.
+
+00:06:41.280 --> 00:06:43.840 align:middle
+If I add parentheses,
+I get the right result.
+
+00:06:44.000 --> 00:06:46.640 align:middle
+I have an interesting point to make:
+
+00:06:46.800 --> 00:06:49.960 align:middle
+when I write 1/3 + 2/3,
+I get the small integer 1.
+
+00:06:50.120 --> 00:06:54.280 align:middle
+I don't get 1.000... or 0.999...
+
+00:06:54.440 --> 00:06:59.440 align:middle
+I manipulate exact fractions.
+I get exact calculations.
+
+00:06:59.600 --> 00:07:01.200 align:middle
+To sum up,
+
+00:07:01.360 --> 00:07:05.600 align:middle
+there are three types of messages,
+which you should know by now:
+
+00:07:05.760 --> 00:07:07.560 align:middle
+unary, binary, keywords.
+
+00:07:07.720 --> 00:07:11.040 align:middle
+You first execute parentheses,
+
+00:07:11.200 --> 00:07:13.320 align:middle
+then unary, binary, and keywords.
+
+00:07:13.480 --> 00:07:16.120 align:middle
+When at the same level,
+
+00:07:16.280 --> 00:07:20.480 align:middle
+for instance with two unary messages,
+you go from left to right.
+
+00:07:20.640 --> 00:07:23.320 align:middle
+There's no mathematical precedence
+
+00:07:23.480 --> 00:07:26.480 align:middle
+as mathematical operations
+are plain messages.
+
+00:07:26.640 --> 00:07:29.280 align:middle
+What's different from most languages:
+
+00:07:29.440 --> 00:07:34.160 align:middle
+arguments are placed inside the message
+structure. between: and: for instance.

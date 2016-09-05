@@ -1,0 +1,82 @@
+{
+	"title":"Essence of Dispatch",
+	"slidesid" : "W3S02"
+}
+
+
+
+${slide:title=Remember: Implementing not in Two Methods}$
+
++Not implementation>file://figures/BooleanHiearchyAndInstancesWithNotMethodsLookup.png|width=95+
+
+${slide:title=Stepping Back}$
+- Let the receiver decide
+- Do not ask, tell
+
+${slide:title=Ok So What?}$
+
+- You will probably never implement ==Booleans== in the future
+- So is it really that totally useless?
+- What is the lesson to learn?
+
+
+
+${slide:title=Message Sends Act as Case Statements}$
+
+- Message sends act as case statements
+- But with messages, the case statement is ""dynamic"" in the sense that it depends on the objects to which the message is sent
+
+${slide:title=Sending a Message is Making a Choice}$
+
+- Each time you send a message, the execution ""selects the right"" method depending on the class of the receiver
+- Sending a message is a ""choice"" operator
+
+
+${slide:title=Question}$
+
+Can we implement the same implementation for Not in only one class?
+- No
+- NO
+- NO!
+
+${slide:title=Classes Play Case Roles}$
+
+- To activate the choice operator we must have choices: classes
+- A class represents a case
+
+${slide:title=A Class Hierarchy is a Skeleton for Dynamic Dispatch}$
+
+Compare the solution with one class vs. a hierarchy
+- More modular
+- Hierarchy provides a way to specialize behavior
+- You only focus on one class at a time
+
+
++One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatch.png|width=80+
+
+
+${slide:title=Advantages of Class Hierarchy}$
+
++One single class vs. a nice hierarchy.>file://figures/Design-FatVsDispatchWithPackages.png|width=90+
+
+More modular: We can package different classes in different packages
+
+
+${slide:title=Let the Receiver Decide}$
+
+- Sending a message lets the receiver decide
+- Client does not have to decide
+- Client code is more declarative: give orders
+- Different receivers may be substitued dynamically
+
+${slide:title=Avoid Conditionals}$
+
+- Use objects and messages, when you can
+- The execution engine acts as a conditional switch: Use it!
+- Check the AntiIfCampaign
+
+${slide:title=Summary: Cornerstone of OOP}$
+- Let the receiver decide
+- Message sends act as potential dynamic conditionals
+- Class hierarchy: a skeleton for dynamic dispatch
+- Avoid conditionals

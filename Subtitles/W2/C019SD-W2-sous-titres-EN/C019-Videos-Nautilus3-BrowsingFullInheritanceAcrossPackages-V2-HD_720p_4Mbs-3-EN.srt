@@ -1,0 +1,226 @@
+1
+00:00:01,350 --> 00:00:04,550
+In this video, I’d like to show 
+you a tip with Nautilus.
+
+2
+00:00:06,450 --> 00:00:09,370
+And just for you to know: 
+Nautilus is the submarine name
+
+3
+00:00:09,370 --> 00:00:11,500
+in Jules Verne’s “20 000 
+Leagues Under the Sea” 
+
+4
+00:00:11,500 --> 00:00:14,420
+Nautilus enables to navigate
+under the seas so it suits
+
+5
+00:00:14,420 --> 00:00:15,490
+very very well to Pharo.
+
+6
+00:00:16,920 --> 00:00:18,430
+Let’s have a look to the
+OrderedCollection class.
+
+7
+00:00:25,260 --> 00:00:28,070
+It is defined in the
+Collection-Sequenceable package.
+
+8
+00:00:30,040 --> 00:00:32,500
+In this package, there are several
+core classes of the system.
+
+9
+00:00:32,500 --> 00:00:36,400
+There is the Array class, 
+the Interval class, LinkedList class.
+
+10
+00:00:36,960 --> 00:00:40,070
+I can see that in the package
+there is
+
+11
+00:00:40,070 --> 00:00:42,840
+the OrderedCollection class which
+has a sub-class, SortedCollection.
+
+12
+00:00:42,840 --> 00:00:47,280
+Now what I can also see,
+
+13
+00:00:47,280 --> 00:00:51,390
+which is not expressed in
+a graphical way,
+
+14
+00:00:52,380 --> 00:00:55,800
+it is that OrderedCollection is
+a sub-class of SequenceableCollection.
+
+15
+00:00:57,920 --> 00:00:59,820
+Sometimes, I would like to
+
+16
+00:00:59,820 --> 00:01:02,390
+navigate inside the super-class
+in order to see which
+
+17
+00:01:02,390 --> 00:01:04,410
+methods are redefined or 
+this kind of thing.
+
+18
+00:01:06,160 --> 00:01:09,510
+To do this, I click on
+Inheritance.
+
+19
+00:01:13,110 --> 00:01:16,120
+Hence, I see the hierarchy, 
+I see the super-class
+
+20
+00:01:17,140 --> 00:01:20,430
+of OrderedCollection,
+SequenceableCollection and its hierarchy.
+
+21
+00:01:23,450 --> 00:01:26,550
+I also see that there are other sub-classes
+of OrderedCollection
+
+22
+00:01:26,990 --> 00:01:29,950
+in other packages,
+and I see that
+
+23
+00:01:29,950 --> 00:01:32,210
+SortedCollection is a sub-class
+of OrderedCollection,
+
+24
+00:01:33,050 --> 00:01:37,660
+this is in black, I am 
+still in the package 
+
+25
+00:01:37,660 --> 00:01:40,210
+containing OrderedCollection.
+
+26
+00:01:41,190 --> 00:01:46,090
+So, like this, I can browse, 
+and see
+
+27
+00:01:46,090 --> 00:01:47,850
+the methods which are 
+in other packages.
+
+28
+00:01:50,490 --> 00:01:55,230
+Now, if I unselect
+this mode while I’m on
+
+29
+00:01:55,230 --> 00:01:56,890
+the super-class,
+what will I see?
+
+30
+00:01:57,340 --> 00:02:00,330
+I will see the class package.
+
+31
+00:02:00,650 --> 00:02:03,450
+So, the SequenceableCollection
+class is in the
+
+32
+00:02:03,450 --> 00:02:04,440
+Collection-Abstract package.
+
+33
+00:02:05,470 --> 00:02:08,180
+So now if I ask again to see the
+inheritance,
+
+34
+00:02:08,180 --> 00:02:12,490
+I will see all the 
+sub-classes and super-classes 
+
+35
+00:02:12,490 --> 00:02:13,480
+inheritance of
+SequenceableCollection.
+
+36
+00:02:14,570 --> 00:02:17,990
+I see that
+SequenceableCollection inherits from
+
+37
+00:02:17,990 --> 00:02:20,640
+Collection in the same package, 
+that it defines in the same
+
+38
+00:02:20,640 --> 00:02:25,260
+package ArrayedCollection.
+I see that the hierarchy is
+
+39
+00:02:25,260 --> 00:02:27,490
+is quite big, so normally
+I should find
+
+40
+00:02:27,490 --> 00:02:30,620
+somewhere
+OrderedCollection, and OrderedCollection is here.
+
+41
+00:02:30,650 --> 00:02:34,190
+Now if I select again
+OrderedCollection and I
+
+42
+00:02:34,190 --> 00:02:36,700
+click again on Inheritance,
+I will go back into
+
+43
+00:02:36,700 --> 00:02:39,390
+the original package, Sequenceable.
+
+44
+00:02:40,860 --> 00:02:42,440
+And we are back to the start.
+
+45
+00:02:43,810 --> 00:02:46,670
+What you’ve seen there is 
+that Nautilus will
+
+46
+00:02:46,670 --> 00:02:50,260
+enable you to browse
+the inheritance ignoring
+
+47
+00:02:50,610 --> 00:02:54,130
+packages, while showing
+in which package you are browsing. 

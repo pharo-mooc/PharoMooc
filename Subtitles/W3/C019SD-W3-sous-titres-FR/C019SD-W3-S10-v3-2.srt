@@ -1,0 +1,767 @@
+1
+00:00:00,490 --> 00:00:04,960
+Bonjour. Dans cette
+séquence nous allons parler de la
+
+2
+00:00:05,160 --> 00:00:07,770
+bibliothèque de Stream qui
+est fournie de base avec Pharo.
+
+3
+00:00:09,340 --> 00:00:11,760
+Nous verrons ce que sont
+les streams et comment les
+
+4
+00:00:11,960 --> 00:00:13,460
+utiliser, et dans quels
+cas ils peuvent être utiles.
+
+5
+00:00:15,070 --> 00:00:16,060
+Alors qu'est-ce qu'un stream ?
+
+6
+00:00:16,530 --> 00:00:18,690
+Un stream, c'est un objet qui permet
+
+7
+00:00:21,420 --> 00:00:24,390
+d'itérer sur une séquence d'éléments.
+
+8
+00:00:24,590 --> 00:00:28,140
+Cette séquence, ça peut
+être une collection en mémoire,
+
+9
+00:00:28,830 --> 00:00:33,530
+ça peut être un flux
+réseau, ça peut être un fichier
+
+10
+00:00:33,730 --> 00:00:38,410
+ou autres. Un stream
+garde en mémoire la
+
+11
+00:00:38,610 --> 00:00:41,390
+position courante, et au fur
+à mesure de l'utilisation du
+
+12
+00:00:41,590 --> 00:00:45,300
+stream on va pouvoir avancer
+ou reculer pour pouvoir lire
+
+13
+00:00:45,500 --> 00:00:46,660
+ou écrire des
+éléments dans le stream.
+
+14
+00:00:48,030 --> 00:00:51,400
+Un aperçu de l'API des streams.
+
+15
+00:00:51,600 --> 00:00:56,080
+Pour créer un stream, il y a
+quelques objets sur lesquels
+
+16
+00:00:56,280 --> 00:00:59,750
+on peut utiliser les
+messages readStream et writeStream,
+
+17
+00:01:00,940 --> 00:01:02,850
+pour créer des streams à
+partir de ces objets-là.
+
+18
+00:01:03,220 --> 00:01:06,090
+Par exemple à partir d'un
+fichier ou à partir d'une
+
+19
+00:01:06,290 --> 00:01:10,450
+collection on peut créer
+des streams de cette façon-là.
+
+20
+00:01:12,380 --> 00:01:16,000
+Ce message-là,
+"streamContents" s'envoie à une collection
+
+21
+00:01:16,850 --> 00:01:19,040
+et prend un block en
+paramètre qui reçoit un stream.
+
+22
+00:01:19,840 --> 00:01:22,450
+Et l'utilisation de ce
+stream au sein de ce block là va
+
+23
+00:01:22,750 --> 00:01:27,430
+créer une collection qui
+sera finalement retournée par la
+
+24
+00:01:27,630 --> 00:01:30,170
+méthode. On verra
+l'utilisation de cette méthode-là à la fin.
+
+25
+00:01:32,400 --> 00:01:35,650
+Dans ces cas-là on demande
+directement à une classe de
+
+26
+00:01:35,850 --> 00:01:37,470
+streams, soit
+readStream, soit writeStream, soit
+
+27
+00:01:37,670 --> 00:01:42,610
+rewriteStream, de créer une nouvelle
+instance par rapport à une collection.
+
+28
+00:01:44,830 --> 00:01:48,430
+Les 3 méthodes qui sont
+là permettent de lire des
+
+29
+00:01:48,630 --> 00:01:53,210
+éléments, donc un ou
+plusieurs jusqu'à une certaine limite.
+
+30
+00:01:54,220 --> 00:01:58,150
+Et les 2 éléments qui sont
+là permettent d'écrire un
+
+31
+00:01:58,350 --> 00:02:00,240
+élément ou une collection
+d'éléments dans le stream.
+
+32
+00:02:01,250 --> 00:02:04,500
+Alors voici quelques exemples
+permettant de lire dans un stream.
+
+33
+00:02:04,700 --> 00:02:06,340
+Première étape, on crée un stream.
+
+34
+00:02:06,890 --> 00:02:11,800
+Ici, on crée un stream en
+lecture à partir d'une collection.
+
+35
+00:02:12,070 --> 00:02:14,760
+Cette collection contient
+les lettres de l'alphabet entre
+
+36
+00:02:14,960 --> 00:02:19,790
+A à F, donc avec un caractère
+par élément dans la collection.
+
+37
+00:02:20,280 --> 00:02:22,660
+On créé un stream sur
+cette collection-là et on va
+
+38
+00:02:22,860 --> 00:02:25,680
+regarder les caractères un par un.
+
+39
+00:02:25,880 --> 00:02:29,000
+Une fois qu'on a notre
+stream, la première chose qu'on
+
+40
+00:02:29,200 --> 00:02:32,000
+peut faire, c'est envoyer
+le message next qui va nous
+
+41
+00:02:32,200 --> 00:02:35,160
+retourner l'élément juste
+après la position courante.
+
+42
+00:02:35,800 --> 00:02:38,130
+Dès l'initialisation du
+stream, la position courante c'est
+
+43
+00:02:38,330 --> 00:02:41,290
+0 donc on se situe au début
+du stream, donc next retourne
+
+44
+00:02:41,490 --> 00:02:43,850
+au début le premier
+élément, c'est-à-dire A.
+
+45
+00:02:46,000 --> 00:02:50,000
+Si j'appelle next à ce
+moment-là je vais obtenir B, puis
+
+46
+00:02:50,200 --> 00:02:53,380
+C, puis D, et caetera, un
+par un en appelant next, next,
+
+47
+00:02:53,580 --> 00:02:57,000
+next on fait évoluer la
+position d'un cran à chaque fois.
+
+48
+00:02:58,160 --> 00:03:01,340
+Si j'appelle next une
+première fois et que j'obtiens A,
+
+49
+00:03:01,820 --> 00:03:06,350
+ensuite je peux envoyer le
+message upTo et un élément,
+
+50
+00:03:06,800 --> 00:03:09,300
+et cette méthode-là va me
+retourner tous les éléments
+
+51
+00:03:09,500 --> 00:03:12,900
+entre la position courante et
+l'élément que j'ai passé en paramètre.
+
+52
+00:03:13,870 --> 00:03:18,100
+Donc là si avant j'avais A,
+je me situe en position 1 et
+
+53
+00:03:18,300 --> 00:03:20,670
+si j'envoie le message upTo
+D, il va me retourner tout ce
+
+54
+00:03:20,870 --> 00:03:25,760
+qu'il y a entre la position
+courante et D, c'est-à-dire B et C.
+
+55
+00:03:25,960 --> 00:03:29,630
+D est consommé par le
+stream, c'est-à-dire que maintenant
+
+56
+00:03:29,830 --> 00:03:33,670
+le stream se situe juste
+après D mais D n'est pas retourné.
+
+57
+00:03:34,310 --> 00:03:38,930
+Stream position nous
+donne la position en cours.
+
+58
+00:03:39,230 --> 00:03:40,680
+La position commence à 0.
+
+59
+00:03:40,900 --> 00:03:45,070
+0, c'est avant le premier
+élément, donc 0, 1, 2, 3,
+
+60
+00:03:45,490 --> 00:03:48,940
+4, on se situe bien juste
+avant le E et après le D.
+
+61
+00:03:50,930 --> 00:03:54,880
+À ce moment-là si j'envoie
+le message upToEnd au stream,
+
+62
+00:03:55,080 --> 00:03:57,070
+je vais obtenir tous les
+éléments qui se situent entre la
+
+63
+00:03:57,270 --> 00:04:01,000
+position courante et la fin
+du stream, c'est-à-dire E et
+
+64
+00:04:02,340 --> 00:04:05,580
+F. Donc on voit que le
+stream maintient une position
+
+65
+00:04:05,780 --> 00:04:08,750
+courante que je peux faire
+avancer grâce à quelques méthodes.
+
+66
+00:04:08,950 --> 00:04:11,730
+De la même façon on
+peut écrire dans un stream.
+
+67
+00:04:11,930 --> 00:04:14,050
+La première étape encore une
+fois, c'est créer le stream.
+
+68
+00:04:16,060 --> 00:04:19,890
+Array new: 6 me permet de créer
+un tableau vide mais de taille 6.
+
+69
+00:04:20,690 --> 00:04:23,350
+J'envoie le message
+writeStream dessus pour créer un
+
+70
+00:04:23,550 --> 00:04:25,420
+stream sur ce tableau-là,
+de façon à pouvoir remplir le
+
+71
+00:04:25,620 --> 00:04:28,120
+tableau petit à
+petit grâce à mon stream.
+
+72
+00:04:28,320 --> 00:04:30,710
+Je stocke ce stream dans
+la variable stream et je
+
+73
+00:04:30,910 --> 00:04:34,140
+commence par envoyer le
+message nextPut 1, qui prend un
+
+74
+00:04:34,340 --> 00:04:38,420
+élément et ajoute cet élément en
+position courante dans le stream.
+
+75
+00:04:38,700 --> 00:04:43,600
+Maintenant, mon tableau
+contient un 1 suivi de 5 cases vides.
+
+76
+00:04:46,360 --> 00:04:49,030
+Le message nextPutAll, quant
+à lui, prend une collection
+
+77
+00:04:49,820 --> 00:04:53,170
+d'objets à mettre les uns
+après les autres dans le stream.
+
+78
+00:04:54,530 --> 00:04:59,200
+Après l'envoi de ce message
+nextPutAll à mon stream, j'obtiens
+
+79
+00:04:59,400 --> 00:05:03,200
+le tableau qui contient
+un résultat de mon nextPut
+
+80
+00:05:03,880 --> 00:05:06,420
+précédent suivi de 4, 8, 2, 6, 7,
+
+81
+00:05:08,770 --> 00:05:09,950
+résultats du nextPutAll.
+
+82
+00:05:11,480 --> 00:05:14,440
+Donc les streams sont
+particulièrement utiles et
+
+83
+00:05:14,640 --> 00:05:17,930
+efficaces pour lire et écrire
+dans les collections d'objets.
+
+84
+00:05:19,450 --> 00:05:21,290
+Je peux aussi lire et
+écrire dans des fichiers.
+
+85
+00:05:21,820 --> 00:05:25,750
+Là, je montre un exemple
+de comment écrire dans un
+
+86
+00:05:25,950 --> 00:05:27,350
+nouveau fichier qui
+n'existe pas encore.
+
+87
+00:05:29,890 --> 00:05:32,420
+Dans la chaîne de caractères
+ici j'indique le nom du fichier.
+
+88
+00:05:33,860 --> 00:05:36,670
+En envoyant à une chaîne
+de caractères le message
+
+89
+00:05:37,900 --> 00:05:41,820
+asFileReference, je créé
+une référence vers un fichier.
+
+90
+00:05:42,020 --> 00:05:44,000
+Là c'est un fichier qui
+n'existe pas encore mais je peux
+
+91
+00:05:44,200 --> 00:05:45,460
+quand même avoir
+une référence dessus.
+
+92
+00:05:46,790 --> 00:05:51,310
+J'ai une référence vers un
+fichier et le point txt et j'envoie
+
+93
+00:05:51,510 --> 00:05:55,220
+le message write
+Stream sur ce fichier
+
+94
+00:05:56,260 --> 00:06:00,000
+histoire d'avoir un stream
+en écriture vers ce fichier
+
+95
+00:06:00,200 --> 00:06:03,560
+qui n'existe pas encore.
+Dès qu'on va écrire dans le
+
+96
+00:06:03,760 --> 00:06:04,880
+stream, le fichier va être recréé.
+
+97
+00:06:06,550 --> 00:06:09,150
+Maintenant que j'ai mon
+stream, j'envoie le message
+
+98
+00:06:09,440 --> 00:06:12,490
+nextPutAll avec une chaîne
+de caractères et ce message
+
+99
+00:06:12,690 --> 00:06:15,320
+nextPutAll va écrire
+caractère après caractère chaque
+
+100
+00:06:15,520 --> 00:06:16,800
+élément de ma chaîne de caractères.
+
+101
+00:06:17,070 --> 00:06:18,530
+Il va écrire le H, puis
+le E, puis le L, et cetera.
+
+102
+00:06:18,730 --> 00:06:23,620
+A la fin, je
+
+103
+00:06:23,820 --> 00:06:27,360
+ferme mon stream pour
+indiquer au système d'exploitation
+
+104
+00:06:27,560 --> 00:06:31,520
+que j'ai fini d'écrire dans
+le fichier, et qu'il peut lui
+
+105
+00:06:31,720 --> 00:06:36,130
+écrire l'ensemble sur le
+support de stockage et fermer le
+
+106
+00:06:36,330 --> 00:06:37,090
+pointeur sur le fichier.
+
+107
+00:06:38,050 --> 00:06:42,830
+Maintenant que j'ai écrit dans ce
+fichier, je peux avoir envie de le lire.
+
+108
+00:06:43,030 --> 00:06:47,320
+De la même façon, j'ai le
+nom du fichier sous forme d'une
+
+109
+00:06:47,520 --> 00:06:52,420
+chaînes de caractères,
+asFile Reference qui me
+
+110
+00:06:52,620 --> 00:06:55,950
+permet de créer une
+référence vers ce fichier-là,
+
+111
+00:06:57,960 --> 00:07:02,520
+et read stream qui me permet
+d'ouvrir un flux en lecture,
+
+112
+00:07:02,720 --> 00:07:05,850
+qui permet d'ouvrir un stream
+en lecture sur ce fichier-là.
+
+113
+00:07:08,170 --> 00:07:10,770
+Avec next, je récupère le
+premier élément dans le stream.
+
+114
+00:07:11,000 --> 00:07:15,000
+J'avais écrit "Hello Pharo", le
+premier élément, c'est H, H majuscule.
+
+115
+00:07:15,670 --> 00:07:19,590
+Et avec upToEnd, je récupère
+tous les caractères entre la
+
+116
+00:07:19,790 --> 00:07:22,210
+position courante,
+c'est-à-dire juste après le H avant le
+
+117
+00:07:22,410 --> 00:07:25,590
+E et jusqu'à la fin du
+stream, jusqu'à la fin du fichier.
+
+118
+00:07:26,400 --> 00:07:29,670
+J'obtiens'ello Pharo'sans
+le H puisque je l'ai déjà
+
+119
+00:07:29,870 --> 00:07:32,660
+récupéré grâce au next précédent.
+
+120
+00:07:33,870 --> 00:07:37,060
+On peut créer des
+collections en utilisant des streams.
+
+121
+00:07:37,480 --> 00:07:40,070
+Ça c'est très utile quand
+on veut créer des collections
+
+122
+00:07:40,270 --> 00:07:42,330
+et qu'il nous faut du
+code pour choisir ce qu'on va
+
+123
+00:07:42,530 --> 00:07:44,380
+mettre dans la
+collection petit à petit.
+
+124
+00:07:45,680 --> 00:07:47,640
+Là, je veux créer
+une OrderedCollection
+
+125
+00:07:51,110 --> 00:07:53,310
+en envoyant des messages à un stream.
+
+126
+00:07:53,510 --> 00:07:57,510
+À partir de ma classe
+OrderedCollection, je fais une
+
+127
+00:07:57,710 --> 00:08:01,750
+nouvelle instance, j'en
+fais un flux en écriture
+
+128
+00:08:02,570 --> 00:08:06,430
+et avec le message next put,
+j'ajoute l'élément 1 dans mon stream.
+
+129
+00:08:06,630 --> 00:08:10,650
+Maintenant quand je vais
+faire streamContents, je vais
+
+130
+00:08:10,850 --> 00:08:13,690
+obtenir une instance de la
+ classe OrderedCollection qui
+
+131
+00:08:13,890 --> 00:08:14,840
+contient uniquement la valeur 1.
+
+132
+00:08:16,320 --> 00:08:18,710
+Ces 3 expressions peuvent
+s'écrire plus simplement comme
+
+133
+00:08:18,910 --> 00:08:22,060
+on le voit en-dessous.
+En envoyant le message
+
+134
+00:08:22,320 --> 00:08:25,020
+"streamContents" à la
+ classe de collection qui nous
+
+135
+00:08:25,220 --> 00:08:27,520
+intéresse, donc ici c'est
+OrderedCollection, j'envoie ce
+
+136
+00:08:27,720 --> 00:08:30,490
+message "streamContents" à
+OrderedCollection, je lui
+
+137
+00:08:30,690 --> 00:08:34,720
+passe en paramètre un block
+qui prend un stream en paramètre.
+
+138
+00:08:35,910 --> 00:08:37,900
+Au sein de ce block, je
+vais utiliser le stream pour
+
+139
+00:08:38,100 --> 00:08:40,020
+remplir ma collection petit
+à petit et quand le block se
+
+140
+00:08:40,220 --> 00:08:41,320
+termine j'obtiens ma collection.
+
+141
+00:08:42,610 --> 00:08:47,380
+Dans le block, je fais
+"stream nextPut 1", j'ajoute
+
+142
+00:08:47,580 --> 00:08:51,910
+1 dans mon stream qui va
+l'ajouter dans la collection.
+
+143
+00:08:52,240 --> 00:08:54,610
+Quand "streamContents"
+quitte, donc quand l'ensemble de
+
+144
+00:08:54,810 --> 00:08:57,210
+cette expression se
+termine, je vais obtenir une
+
+145
+00:08:57,410 --> 00:08:59,340
+OrderedCollection qui contient 1.
+
+146
+00:08:59,540 --> 00:09:03,320
+StreamContents c'est utile pour
+créer des collections à partir de rien.
+
+147
+00:09:04,480 --> 00:09:07,580
+Dans cette séquence, nous
+avons découvert l'API de stream.
+
+148
+00:09:07,780 --> 00:09:09,890
+Il y a énormément de
+méthodes dans cette API que je vous
+
+149
+00:09:10,090 --> 00:09:12,170
+invite à aller découvrir en
+naviguant dans les classes
+
+150
+00:09:12,370 --> 00:09:13,920
+grâce au navigateur
+de codes Nautilus.
+
+151
+00:09:14,490 --> 00:09:17,540
+Un stream peut lire et écrire
+dans des collections d'éléments
+
+152
+00:09:18,000 --> 00:09:21,770
+en mémoire, dans des fichiers, sur
+le réseau et d'autres éléments encore.
+
+153
+00:09:23,790 --> 00:09:27,800
+Un stream a toujours une
+position courante, c'est important.
+
+154
+00:09:28,000 --> 00:09:30,060
+La position courante
+sépare les éléments du passé des
+
+155
+00:09:30,260 --> 00:09:33,110
+éléments du futur, et en
+fait évoluer cette position
+
+156
+00:09:33,310 --> 00:09:37,840
+courante à chaque fois qu'on va
+vouloir lire ou écrire dans le flux.
+
+157
+00:09:38,040 --> 00:09:40,370
+Enfin, les streams peuvent servir
+à créer des nouvelles collections.
+

@@ -1,0 +1,243 @@
+\documentclass[a4paper,10pt]{scrartcl}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{alltt}
+\input{../Framework/layout.tex}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\serieheader{Programming Fundamentals 2 - Smalltalk}
+	{2004 - 2005}
+	{Prof. Michele Lanza}
+	{Paolo Bonzini, Mircea Lungu and Romain Robbes}
+	{Hands on 2 : collections, refactoring, streams}
+	{16/03/2005 @ 10:30}
+
+
+This hands-on session will tell you more about the collection classes.
+They are a very powerful abstraction and you should learn to use their
+methods.
+
+It will also tell you about refactoring, which simply means reorganizing
+code so that it has a better structure and can be reused more easily.
+The VisualWorks environment includes very good tools for refactoring,
+that help you keeping your code tidy.
+
+Finally, you'll have a short introduction to streams, another powerful
+abstraction in Smalltalk.  Basically streams provide a way to create
+collections, especially strings like the \verb!printString!.  They are often
+used and in your project you'll use something akin to a stream to
+provide web content.
+
+All these exercises will extend the \verb!FMPlayer! and \verb!FMPlayerPool!
+classes, that you should get from Moodle.  Use
+a Workspace so that you can easily look at the values of the variables
+and inspect them.  In the Workspace, remember to refer to the classes
+using the namespace, like \verb!ProFund.FMPlayer!.
+
+\begin{exercise}{Collections}
+
+To get more practice with collection, we will add more methods like
+\verb!potentialAttackers!.
+
+\begin{enumerate}
+\item First, see if you grasped \verb!select:! and \verb!reject:!  Define
+  a \verb!potentialGoalkeepers! method, which returns the players with a
+  dexterity higher than or equal to 75.  Do not look at the code for
+  \verb!potentialAttackers!: instead, compare the two methods after you are
+  finished.
+
+  Sooner or later, it will happen that all substitutions have been made and
+  a red card is showed to the goalkeeper.  Surely you don't want to have a
+  goalkeeper with a dexterity of 30, so we need a \verb!replacementGoalkeepers!
+  method.  It should use \verb!reject:! to filter away players whose dexterity
+  is lower than 30.
+
+\item To show how \verb!collect:! is used, we will need a \verb!tshirtNumber!
+  field in \verb!FMPlayer!.  Add it together with the getter,
+  \verb!tshirtNumber!, and the setter, \verb!tshirtNumber:!.
+
+  Don't forget to automatically generate the T-shirt number of the players!
+
+  Now, add a \verb!tshirtNumbers! method to \verb!FMPlayerPool! that collects
+  all the T-shirt numbers and return them.  \verb!collect:! is like
+  \verb!map! in Scheme: it takes a one-argument block, and passes to the block
+  all the objects in the collection, one at a time.  Then it returns a new
+  collection, made from the values that the block returned.
+
+\item There are various kinds of collection.  \verb!Set! is a collection
+  that stores unique values.  You can convert a collection to a set with
+  the \verb!asSet! method that the system provides to you: the resulting
+  object will have duplicates removed.
+
+  Building a \verb!Set! is often done to check if all the elements in a
+  collection are unique.  How can you do it?
+
+    \hint{If duplicates are removed, the \texttt{Set}'s \texttt{size} will be
+      lower than the original collection's\ldots}
+
+  Use this trick to create a \verb!numbersOkForGame! method in 
+  \verb!FMPlayerPool!, that checks if the player in the pool have unique
+  numbers.
+
+\item There are also sorted collections.  For now, we will use them on
+  collections of number or strings---in general, objects that respond to
+  messages like \verb!<!, \verb!<=! etc.  If you have a collection of
+  such objects, you can easily sort them using \verb!asSortedCollection!.
+
+    \hint{Puzzled?  Try using \texttt{asSortedCollection} on an array of
+      numbers in a workspace.  See what happens if you try to sort together
+      numbers and strings.}
+
+  Now, add a \verb!numbersForGame! method.  It will return the T-shirt
+  numbers in sorted order if they are unique.  Otherwise it will answer nil.
+
+\item Finally, you may want to add methods such as \verb!select:!, or
+  \verb!collect:!, to the \verb!FMPlayerPool! directly!  This way, the
+  class will behave more like a collection.
+
+  These methods will not do anything interesting: they will simply
+  \emph{delegate} their work to the \verb!players! instance variable.
+  You may want \verb!at:! and \verb!size!, for example.
+  Try adding a \verb!collect:! method to \verb!FMPlayerPool!, and
+  use it in \verb!tshirtNumbers!.
+
+% What about adding select: and having it return an FMPlayerPool?
+
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}{Refactoring}
+
+As you saw in the last part of exercise 1, changes are seldom local
+to a single method.  For example, after adding \verb!collect:! to the
+player pool class, it was natural to use it elsewhere.
+
+\begin{enumerate}
+\item One of the most useful refactorings in VisualWorks is "Extract
+  method".  It takes a part of a method, and moves it to a newly created
+  method.
+
+  A natural place to apply this refactoring is \verb!generateRandomPlayers!.
+  The whole body of the loop can be extracted to a new method which we'll
+  call \verb!addRandomPlayer!.  Select with the mouse the body of the loop;
+  in the code pane's popup menu, pick "Refactor" and then "Extract method".
+
+\item Apply this refactoring again on the last line of
+  \verb!addRandomPlayer!.  We'll call the resulting method \verb!addPlayer:!.
+  VisualWorks finds out automatically that this method needs a parameter (the
+  player it will put in the pool).
+
+\item A more complex refactoring is "Extract method to component".  Follow
+  these steps one by one to refactor \verb!potentialAttackers!, then do it
+  again on \verb!potentialGoalkeepers!.
+
+  The goal is to move \verb!each attack > 75! into a method of \verb!FMPlayer!,
+  called \verb!isPotentialAttacker!.  The steps are:
+  \begin{enumerate}
+  \item select \verb!each attack > 75!.  Pick "Extract method to component".
+  \item the player is in \verb!each!, so you want to move the method into
+    \verb!each!.
+  \item VisualWorks looks at the source code for your class and figures out
+    that \verb!each! must be an \verb!FMPlayer!.  Still, it asks you for
+    confirmation: press Ok.
+  \item Finally, VisualWorks asks you for the name of the method it will
+    create.  Type \verb!isPotentialAttacker!.
+  \end{enumerate}
+
+\end{enumerate}
+
+Most other refactorings involve classes in an inheritance hierarchy.  They
+are very useful, because they do work on many classes at once.  You will
+learn more about them by practicing---all refactorings are found in the
+popup menus of the browser, and most are enabled only once you select a
+piece of code or an instance variable name.
+
+\end{exercise}
+
+\begin{exercise}{Streams}
+
+Before we practice Streams, let's take a step back and do one more
+exercise on collections.
+
+Add a \verb!preferredRole! method to the \verb!FMPlayer! class.  First
+it will pick the highest statistic among attack, defense and dexterity.
+If it is lower than 60, the method will return \verb!#midfield!.  Otherwise,
+the result will be \verb!#attacker! if the highest statistic is attack;
+it will be \verb!#defense! if the highest statistic is defense;
+it will be \verb!#goalkeeper! if the highest statistic is dexterity.
+
+Now use a method similar to \verb!tshirtNumbers! to collect the preferred
+roles of the team.  Call it \verb!teamDistribution! and put it in
+\verb!FMPlayerPool!.
+
+We are only interested in the number of attackers, the number of goalkeepers
+etc.  So, we are interested in the number of duplicates but we don't want any
+order to be enforced on the items: in this case, what we want is a \verb!Bag!.
+To have \verb!teamDistribution! return a \verb!Bag!, send \verb!asBag! to
+the collection returned by \verb!collect:!.
+
+If you try to use \verb!teamDistribution!, you'll see that the output is
+not very tidy: Bags are most useful when you have thousands of duplicates
+of the same object, so it does not make much sense to print every object
+N times.  An output like
+
+\begin{verbatim}
+   Bag(#goalkeeper:2 #attacker:4 #midfield:3 #defense:2)
+\end{verbatim}
+
+\noindent
+would be better.  The output is quite complex, so overriding \verb!printString!
+would not be very practical; instead we'll override \verb!printOn:!, which
+prints an object's representation on a Stream.
+
+Go to the Bag class (you can find it with the Hierarchy pane) and type this
+code:
+
+\begin{verbatim}
+printOn: aStream
+    self class printOn: aStream.
+    aStream nextPut: $(.
+    self sortedCounts do: [:each |
+        each value printOn: aStream.
+        aStream nextPut: $:.
+        each key printOn: aStream.
+        aStream nextPutAll: ' ' ].
+    aStream nextPut: $)
+\end{verbatim}
+
+The method is quite complex, but you can see the basic methods:
+
+\begin{itemize}
+\item You can send \verb!nextPut:! to the Stream if you want to print
+  a single Character on it.
+\item You can send \verb!nextPutAll:! to the Stream if you want to append
+  a whole String to it.  In this case I have used it to print a single
+  space.
+\item You can use the polymorphic \verb!printOn:! method to print other
+  objects.
+\end{itemize}
+
+Actually, you should never override \verb!printString! like we have done
+until now.  The correct way to change the printed representation of an object
+is to override \verb!printOn:!, and the \verb!printString! will automatically
+adjust.
+
+\begin{enumerate}
+
+\item Reimplement your \verb!printString! methods as \verb!printOn:!.
+  Do not forget to remove your overridden \verb!printString! implementations.
+
+\item Check that the inspector still prints your objects correctly.
+
+\item Check that the \verb!players! variable of an \verb!FMPlayerPool!
+  prints correctly.  In case you had not noticed, previously it printed
+  just ``a ProFund.FMPlayer a ProFund.FMPlayer a ProFund.FMPlayer''.
+
+\item How can the \verb!printString! automatically adjust to your
+  \verb!printOn:! methods?  Look at how it is implemented in Object and
+  try to figure this out.
+\end{enumerate}
+\end{exercise}
+\end{document}

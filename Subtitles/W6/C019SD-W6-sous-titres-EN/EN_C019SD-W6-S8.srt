@@ -1,0 +1,410 @@
+﻿1
+00:00:00,520 --> 00:00:04,760
+Today we're going to review
+something else you've already learned
+
+2
+00:00:04,920 --> 00:00:06,880
+to really bring it home.
+
+3
+00:00:07,040 --> 00:00:12,000
+The topic is the difference between
+literal and dynamic arrays.
+
+4
+00:00:13,080 --> 00:00:15,000
+What you will learn is that:
+
+5
+00:00:15,160 --> 00:00:18,160
+Literal arrays are not created
+by sending messages,
+
+6
+00:00:18,320 --> 00:00:23,560
+dynamic messages are created
+at runtime using messages,
+
+7
+00:00:23,720 --> 00:00:26,600
+but both are instances
+of the array class.
+
+8
+00:00:26,760 --> 00:00:29,560
+They're simply two methods
+for creating arrays.
+
+9
+00:00:30,000 --> 00:00:31,440
+If you remember,
+
+10
+00:00:31,600 --> 00:00:36,080
+to create a literal array,
+we use the syntax #(
+
+11
+00:00:36,240 --> 00:00:40,280
+and in the middle,
+I can put any object in textual form.
+
+12
+00:00:40,440 --> 00:00:43,600
+In this case, the integer 45,
+the string 'milou',
+
+13
+00:00:44,000 --> 00:00:46,600
+the number 1300, the boolean true,
+
+14
+00:00:46,760 --> 00:00:48,760
+and the symbol #tintin.
+
+15
+00:00:49,600 --> 00:00:53,680
+If I ask this literal object
+for its class,
+
+16
+00:00:53,840 --> 00:00:56,600
+the return value
+is an instance of Array.
+
+17
+00:00:56,960 --> 00:00:59,760
+The dynamic version
+
+18
+00:00:59,920 --> 00:01:03,440
+of this literal array, is right here.
+
+19
+00:01:03,720 --> 00:01:07,160
+So to create a dynamic array,
+I take the array class,
+
+20
+00:01:07,320 --> 00:01:11,160
+I create an instance
+using the method "with-with-with-with".
+
+21
+00:01:11,320 --> 00:01:14,160
+I send it with all these values
+
+22
+00:01:14,320 --> 00:01:18,480
+and it creates an array class instance
+equal to the one above.
+
+23
+00:01:18,640 --> 00:01:21,720
+It's just two different ways
+of creating objects.
+
+24
+00:01:22,640 --> 00:01:25,600
+This is another version
+of the dynamic array.
+
+25
+00:01:25,760 --> 00:01:29,200
+I could have created an array manually
+
+26
+00:01:29,360 --> 00:01:32,480
+by sending the message "new"
+to the array class.
+
+27
+00:01:32,640 --> 00:01:37,200
+Then I would have used "at" and "put"
+to fill in the array,
+
+28
+00:01:37,360 --> 00:01:38,880
+and then return the array.
+
+29
+00:01:39,040 --> 00:01:42,240
+This is another way to create
+a dynamic array.
+
+30
+00:01:42,560 --> 00:01:46,960
+But we also have a specific syntax
+called syntactic sugar,
+
+31
+00:01:47,120 --> 00:01:49,320
+which is made with braces.
+
+32
+00:01:49,880 --> 00:01:50,880
+Okay?
+
+33
+00:01:51,040 --> 00:01:55,880
+These braces enable me to write
+exactly what I wrote above,
+
+34
+00:01:56,040 --> 00:01:59,320
+only faster and more concisely.
+
+35
+00:02:00,120 --> 00:02:01,800
+But it's the same thing.
+
+36
+00:02:02,080 --> 00:02:05,440
+This means, I will use braces
+
+37
+00:02:05,600 --> 00:02:08,680
+and put a set of expressions
+separated by dots,
+
+38
+00:02:08,840 --> 00:02:11,520
+which will be evaluated
+to create the collection.
+
+39
+00:02:11,680 --> 00:02:13,360
+The big difference
+
+40
+00:02:13,520 --> 00:02:16,000
+between a literal array
+
+41
+00:02:16,160 --> 00:02:20,920
+and an array
+created dynamically with braces...
+
+42
+00:02:21,080 --> 00:02:24,280
+If I take the expression...
+
+43
+00:02:24,440 --> 00:02:28,160
+Here's an example: I take a variable
+and initialize it at 12.
+
+44
+00:02:28,320 --> 00:02:33,640
+I want to create an array.
+Since it's a literal array, I use #(
+
+45
+00:02:33,800 --> 00:02:36,240
+and I add 'a + 1. 13'
+
+46
+00:02:36,400 --> 00:02:38,320
+and it returns this array.
+
+47
+00:02:38,720 --> 00:02:42,160
+It's an array that will contain
+the symbols a and +,
+
+48
+00:02:42,320 --> 00:02:45,520
+integer 1, symbol . and integer 13.
+
+49
+00:02:45,680 --> 00:02:48,480
+I do the same thing here
+with a dynamic array.
+
+50
+00:02:48,640 --> 00:02:50,120
+a = 12
+
+51
+00:02:50,480 --> 00:02:53,000
+braces a + 1. 13
+
+52
+00:02:53,160 --> 00:02:56,120
+and I get an array with 2 elements:
+
+53
+00:02:56,520 --> 00:02:58,000
+13 and 13.
+
+54
+00:02:58,240 --> 00:02:59,240
+Why?
+
+55
+00:02:59,400 --> 00:03:03,600
+Because a + 1
+was evaluated as an expression.
+
+56
+00:03:03,760 --> 00:03:06,600
+a = 12 + 1. 13
+
+57
+00:03:06,760 --> 00:03:10,240
+Each expression separated by a dot
+was evaluated
+
+58
+00:03:10,400 --> 00:03:12,120
+before creating an array.
+
+59
+00:03:12,880 --> 00:03:15,880
+So the important difference
+is right here:
+
+60
+00:03:16,040 --> 00:03:18,600
+When I use braces,
+it executes expressions,
+
+61
+00:03:18,760 --> 00:03:22,240
+however when I use #(
+to create a literal array,
+
+62
+00:03:22,400 --> 00:03:25,760
+the literal expressions
+are not executed.
+
+63
+00:03:25,920 --> 00:03:27,200
+Why not?
+
+64
+00:03:28,040 --> 00:03:32,720
+Because it's the compiler that will
+create the array
+
+65
+00:03:32,880 --> 00:03:34,880
+in the case of a literal array.
+
+66
+00:03:35,200 --> 00:03:39,080
+Here's another
+somewhat more complicated example.
+
+67
+00:03:39,240 --> 00:03:41,360
+I start with #(
+
+68
+00:03:41,520 --> 00:03:44,760
+and I reuse parentheses inside.
+So this is one point.
+
+69
+00:03:44,920 --> 00:03:48,800
+And I reuse parentheses
+to produce a nested literal array.
+
+70
+00:03:48,960 --> 00:03:53,760
+We see that nothing was interpreted
+in this literal array,
+
+71
+00:03:53,920 --> 00:03:57,440
+because it was created
+at compile time by the compiler.
+
+72
+00:03:57,600 --> 00:04:02,160
+So we have one array
+that contains nested arrays.
+
+73
+00:04:02,560 --> 00:04:04,440
+You can see them here.
+
+74
+00:04:06,520 --> 00:04:09,240
+The first nested array contains 10,
+
+75
+00:04:09,400 --> 00:04:13,920
+the symbol @, the integer 20, etc.
+
+76
+00:04:14,080 --> 00:04:17,680
+To give you proof:
+If I ask for element 1 of this array,
+
+77
+00:04:17,840 --> 00:04:19,560
+I get an array.
+
+78
+00:04:20,160 --> 00:04:23,000
+Whenever I put parentheses
+in a literal array,
+
+79
+00:04:23,160 --> 00:04:25,200
+it creates nested arrays.
+
+80
+00:04:26,240 --> 00:04:28,120
+What's important to remember
+
+81
+00:04:28,280 --> 00:04:31,800
+is that we have
+one single type of array in Pharo:
+
+82
+00:04:31,960 --> 00:04:34,400
+The array class and its instances.
+
+83
+00:04:34,560 --> 00:04:38,440
+But there are various ways
+to obtain instances and create arrays.
+
+84
+00:04:38,600 --> 00:04:42,520
+The first way is literal syntax:
+#(
+
+85
+00:04:42,680 --> 00:04:47,000
+Be careful, arrays are created
+by the compiler at compile time.
+
+86
+00:04:47,240 --> 00:04:50,000
+We have the simple dynamic form:
+Array new.
+
+87
+00:04:50,160 --> 00:04:53,160
+I send the message "new
+to the array class.
+
+88
+00:04:53,320 --> 00:04:57,920
+And we have another more
+syntactically compact dynamic method
+
+89
+00:04:58,080 --> 00:05:02,880
+with braces before and after,
+and expressions separated by dots
+
+90
+00:05:03,040 --> 00:05:05,720
+that are evaluated to create an array.

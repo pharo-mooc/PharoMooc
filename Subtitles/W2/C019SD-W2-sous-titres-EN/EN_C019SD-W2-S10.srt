@@ -1,0 +1,308 @@
+﻿1
+00:00:00,560 --> 00:00:01,760
+Hello everyone.
+
+2
+00:00:01,920 --> 00:00:05,280
+In this course,
+we'll learn about the method Yourself.
+
+3
+00:00:06,040 --> 00:00:10,520
+It is seemingly useless,
+and yet it's very useful.
+
+4
+00:00:10,680 --> 00:00:12,280
+Let's start with an exercise.
+
+5
+00:00:12,440 --> 00:00:16,480
+For this expression, Set new add: 2,
+
+6
+00:00:18,320 --> 00:00:23,680
+we'd like to get a set
+containing the value 2
+
+7
+00:00:23,840 --> 00:00:27,200
+so that it returns only the value 2.
+
+8
+00:00:27,360 --> 00:00:31,240
+Why do you get the value 2
+rather than a set containing 2?
+
+9
+00:00:31,400 --> 00:00:34,880
+If you look at the method add:
+implemented in the class Set,
+
+10
+00:00:35,040 --> 00:00:37,800
+you can see it returns its parameter.
+
+11
+00:00:42,320 --> 00:00:44,520
+In the expression Set new add: 2,
+
+12
+00:00:46,160 --> 00:00:48,880
+the expression Set
+returns the class Set.
+
+13
+00:00:50,480 --> 00:00:54,960
+When you send new to the class Set,
+it returns a new set.
+
+14
+00:00:55,960 --> 00:00:57,520
+Set new add: 2
+
+15
+00:00:57,680 --> 00:01:01,000
+returns the value returned by add: 2,
+which is 2.
+
+16
+00:01:01,160 --> 00:01:02,720
+The set is lost.
+
+17
+00:01:02,880 --> 00:01:05,280
+To solve this problem,
+
+18
+00:01:05,440 --> 00:01:09,000
+you can describe the expressions
+step by step.
+
+19
+00:01:09,840 --> 00:01:14,280
+You can create a temporary variable:
+you declare the variable s.
+
+20
+00:01:15,320 --> 00:01:18,920
+Assign the new Set to s.
+
+21
+00:01:19,720 --> 00:01:21,800
+Add 2 to s.
+
+22
+00:01:22,920 --> 00:01:28,480
+s now contains
+a set which contains the value 2.
+
+23
+00:01:28,640 --> 00:01:31,240
+It's what we wanted.
+
+24
+00:01:31,400 --> 00:01:33,920
+You can simplify these expressions
+
+25
+00:01:34,080 --> 00:01:36,440
+by using the method yourself.
+
+26
+00:01:36,600 --> 00:01:38,200
+If you take a closer look,
+
+27
+00:01:38,360 --> 00:01:42,960
+you'll see it contains only one thing:
+return self.
+
+28
+00:01:43,120 --> 00:01:47,160
+Return self being optional,
+this method could also be empty
+
+29
+00:01:47,320 --> 00:01:49,960
+and do nothing
+except returning its receiver.
+
+30
+00:01:50,920 --> 00:01:55,280
+This method seemingly
+only returns its receiver.
+
+31
+00:01:56,040 --> 00:01:59,680
+And yet, it's useful in such cases
+
+32
+00:02:00,800 --> 00:02:03,400
+thanks to the operator cascade.
+
+33
+00:02:03,560 --> 00:02:05,360
+After adding 2,
+
+34
+00:02:05,520 --> 00:02:08,960
+let's execute the method yourself
+
+35
+00:02:09,120 --> 00:02:11,040
+which will return the receiver
+
+36
+00:02:11,200 --> 00:02:14,360
+so that the full expression
+can be the receiver,
+
+37
+00:02:14,520 --> 00:02:17,560
+which is the new Set.
+
+38
+00:02:18,480 --> 00:02:22,520
+If I take Set new,
+
+39
+00:02:22,680 --> 00:02:24,000
+which is the new Set,
+
+40
+00:02:24,760 --> 00:02:28,600
+and write add: 2 applied to Set new,
+
+41
+00:02:28,760 --> 00:02:30,320
+it returns 2.
+
+42
+00:02:30,480 --> 00:02:34,280
+But thanks to the operator cascade
+followed by yourself,
+
+43
+00:02:34,440 --> 00:02:39,240
+the expression
+as a whole returns the new Set.
+
+44
+00:02:40,360 --> 00:02:43,240
+Why does the cascade
+systematically return
+
+45
+00:02:43,400 --> 00:02:45,760
+the value its last expression returns?
+
+46
+00:02:46,600 --> 00:02:48,800
+The cascade, in this case,
+
+47
+00:02:48,960 --> 00:02:52,840
+returns the value yourself returns.
+
+48
+00:02:53,000 --> 00:02:56,960
+We often use yourself and the cascade
+
+49
+00:02:57,120 --> 00:03:00,120
+in the methods of instantiation.
+
+50
+00:03:00,280 --> 00:03:04,840
+These are class methods
+
+51
+00:03:05,000 --> 00:03:07,280
+of messages to be sent to classes
+
+52
+00:03:07,440 --> 00:03:09,240
+which return new instances.
+
+53
+00:03:10,040 --> 00:03:12,360
+To create a new Set
+
+54
+00:03:12,520 --> 00:03:16,440
+which contains an object by default,
+
+55
+00:03:16,600 --> 00:03:21,680
+I can send the message with: anObject
+to Set.
+
+56
+00:03:21,840 --> 00:03:25,520
+This code is executed
+to create a new Set,
+
+57
+00:03:25,680 --> 00:03:27,920
+to put it in the variable instance,
+
+58
+00:03:28,680 --> 00:03:31,600
+to add to instance the new parameter,
+
+59
+00:03:31,760 --> 00:03:34,080
+and to return instance.
+
+60
+00:03:34,240 --> 00:03:38,080
+I can write this expression as a whole
+by using yourself
+
+61
+00:03:38,240 --> 00:03:42,080
+in a shorter and more idiomatic way.
+
+62
+00:03:42,240 --> 00:03:45,920
+This code is typically found in Pharo.
+
+63
+00:03:46,080 --> 00:03:50,000
+It's important to master the semicolon,
+
+64
+00:03:50,160 --> 00:03:52,400
+the cascade, and yourself.
+
+65
+00:03:53,080 --> 00:03:56,920
+What you must remember
+at the end of this course
+
+66
+00:03:57,080 --> 00:04:00,480
+is that some methods,
+even though they're very simple,
+
+67
+00:04:00,640 --> 00:04:03,240
+can be very powerful and used a lot.
+
+68
+00:04:05,200 --> 00:04:09,440
+The cascade, the semicolon,
+and the method yourself
+
+69
+00:04:09,600 --> 00:04:11,880
+are very often used together
+
+70
+00:04:12,040 --> 00:04:15,240
+to make sure a complete expression
+
+71
+00:04:15,400 --> 00:04:17,960
+returns the expected value.

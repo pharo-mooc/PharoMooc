@@ -1,0 +1,12 @@
+! Challenge 1
+
+Using the Zinc HTTP library, get a photo from an email address through gravatar *http://www.gravatar.com/avatar/*. Convert it into a morph and open it in Pharo. Using stephane.ducasse@inria.fr so that you are sure to get a .jpg. The result should look like situation shown in the figure below.
+
+!!!!Hints:
+- The path to the photo associated to an email is composed as follows: ==http://www.gravatar.com/avatar/(MD5 email-based hex).jpg==
+- To build an MD5 cypher from the email use ==MD5 hashMessage:== .Pay attention that you should convert its result in  hexadecimal.
+- Do not forget to trim blanks around the email and use it in lower case.
+- ==asMorph== convert pictures into Morphs.
+- Message ==openInHand== is fun.
+
++Grabbing the gravatar associated with stephane.ducasse@inria.fr . >file://figures/gravatar.png|width=80+

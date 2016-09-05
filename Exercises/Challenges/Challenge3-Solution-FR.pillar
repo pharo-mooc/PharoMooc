@@ -1,0 +1,37 @@
+! Défis 3 - Solution
+
+Deux petits défis:
+- Le site *http://api.geonames.org/countryInfoJSON*  donne des informations au format JSON sur les pays. Dans ce défi vous devez récupérer les capitales des pays. Vous pouvez utiliser le compte =='demo'== et une chaine vide ==\'\'== comme login et mot de passe.
+- Deuxièmement, le site *http://www.omdbapi.com/* offre une API pour récupérer des informations sur les films.  Par exemple, en utilisant ==t== nous pouvons donner le titre du film que nous cherchons. Le défi est donc de définir une expression qui récupere le poster du film =='The Terminator'==.
+
+!!! Indices :
+- Jeter un oeil sur les classes ==ZnEasy== ou ==ZnClient==. 
+- Pour obtenir le contenu d'une requête HTML, il suffit de lui envoyer le message ==contents==.
+- Pour convertir une chaine JSON en objets Pharo, utilisez la class ==STON== (N'oubliez pas de regarder le cot\'e class).
+- Pour définir les valeurs des variables dans une requête, utilisez le  message ==queryAt:put:==.
+- Utiliser l'inspecteur est toujours une bonne idée pour explorer les résultats et les objets obtenus. 
+
++Le poste de Terminator dans l'inspector Pharo.>file://figures/Terminator.png|width=80+
+
+!!! Solutions 
+
+!!!! Obtenir les capitales
+[[[
+((STON fromString: (
+    ZnEasy
+        get: 'http://api.geonames.org/countryInfoJSON'
+        username: 'demo'
+        password: '') contents) at: #geonames) collect: [ : d | d at: #capital ]
+]]]
+
+
+!!!! Get poster of The Terminator movie
+
+	[[[
+	(ZnEasy getJpeg: ((STON fromString:
+	    (ZnClient new
+	        url: 'http://www.omdbapi.com/';
+	        queryAt: 't' put: 'The Terminator';
+	        get;
+	        contents)) at: #Poster)) inspect
+	]]]

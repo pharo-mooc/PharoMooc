@@ -1,0 +1,76 @@
+\ifx\wholebook\relax\else
+\input{../Common.tex}
+\begin{document}
+\fi
+
+\chapter{Fun with Bots Inc}
+
+\mainauthor{St\'ephane Ducasse}
+
+The goal of this chapter is to get you started with some programming by steering graphical robots. We use the contents of the book Squeak: Learn programming with Robots by Stéphane Ducasse, Apress Publishers, 2005 (http://smallwiki.unibe.ch/botsinc/). 
+
+More information on http://www.apress.com/book/bookDisplay.html?bID=444 
+
+\section*{Getting the environment}
+Go to http://smallwiki.unibe.ch/botsinc/ and download the distribution for your machine. 
+Follow the instructions described page http://smallwiki.unibe.ch/botsinc/installation/ (Unzip it and drap the file name ready.image on the exe file). 
+
+Watch the videos you can find at http://www.iam.unibe.ch/~ducasse/Web/BotsInc/Videos/ and reproduce them during the following exercises.
+
+\section{Create and talking}
+
+
+Create a robot and talk to it (video 1). You can get the list of action bringing the menu and selecting vocabulary.
+
+\begin{itemize}
+\item Draw a square of 200 pixels
+\item Draw a rectangle of 100 and 200 pixels
+\end{itemize}
+
+\section{Writing Scripts}
+Direct interaction does not scale. So we propose you to write scripts as shown in the video 3. 
+
+\begin{itemize}
+\item Write a script that draws a square of 200 pixels.
+\item Write a script that draws a rectangle of 100 and 200 pixels.
+\end{itemize}
+
+
+\section{Looping}
+Read chapter 7 on loop http://smallwiki.unibe.ch/botsinc/chaptersamples/
+
+\begin{itemize}
+\item Using a loop write a script that draws a square of 100.
+\item Using a loop write a script that draws a rectangle of 100 and 200 pixels.
+\item Write a script that draws a stair case (experience 7.7)
+\item Try to reproduce Figure 7-11.
+\end{itemize}
+
+\section{Variables}
+Watch video 5 that introduces the use of variables. There the variable l is incremented
+each step of the loop. Redo the experiment shown by the video. Using the same technique, draw a staircase whose step increase regularly. Do not watch at video 6.
+
+
+\section{Methods: Naming Scripts}
+Scripts are powerful but difficult to reuse. First get a code browser (an editor to define method) (video 7, 8 and 9), then read the extra chapter available at http://www.iam.unibe.ch/$\sim$ducasse/Teaching/CoursAnnecy/0506-MDSI/4916\_Ch12\_FINAL.pdf.
+
+Follow the chapter and define the methods asked there and to the exercises.
+
+\section{Composing methods}
+Read chapter 13 available http://smallwiki.unibe.ch/botsinc/chaptersamples/ and do the exercises. 
+
+Now using the method square define the following Figures:
+
+\includegraphics[width=6cm]{Argmirescr}
+
+\includegraphics[width=6cm]{damier}
+\includegraphics[width=6cm]{cubesandcentpyra}
+
+
+\includegraphics[width=6cm]{corridor}
+\includegraphics[width=6cm]{mire}
+
+Hints: it may be appropriate to define another method square that draws a square
+centered around a point. 
+
+\ifx\wholebook\relax\else\end{document}\fi

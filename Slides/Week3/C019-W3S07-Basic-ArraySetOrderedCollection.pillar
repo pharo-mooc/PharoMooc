@@ -1,0 +1,387 @@
+{
+"title":"An Overview of Essential Collections",
+"slidesid" : "W3S07"
+}
+
+${slide:title=What You Will Learn}$
+
+- Some basic collections
+- Essential API to program collections
+- Difference between literal and dynamic arrays
+
+${slide:title=Collection Common Attributes}$
+
+- Pharo has a rich hierarchy of collection
+- Common API: ==size==, ==do:==, ==select:==, ==includes:==, ==collect:==...
+- First element is at index ==1==
+- Can contain any object
+
+
+${slide:title=Most Common Collections}$
+
+- ==OrderedCollection== (dynamically growing)
+- ==Array== (fixed size, direct access)
+- ==Set== (no duplicates)
+- ==Dictionary== (key-based, ''aka.'' maps)
+
+${slide:title=Essential Collection In a Nutshell}$
+
++>file://figures/CollectionHierarchyForIntroChapter.png|width=110+
+
+
+${slide:title=Common API Overview}$
+
+Common messages work on all collections
+
+#creation: ==with: anElt==, ==with:with:==, ==withAll: aCollection==
+#accessing: ==size==, ==at: anIndex==, ==at: anIndex put: anElt==
+#testing: ==isEmpty==, ==includes: anElt==, ==contains: aBlock==, 
+#adding: ==add: anElement==, ==addAll: aCollection==
+#removing: ==remove: anElt==, ==remove: anElt ifAbsent: aBlock==, ==removeAll: aCollection==
+#enumerating: ==do: aBlock==, ==collect: aBlock==, ==select: aBlock==, ==reject: aBlock==, ==detect: aBlock==, ...
+#converting: ==asBag==, ==asSet==, ==asOrderedCollection==, ==asSortedCollection==, ==asArray==
+
+${slide:title=Variable Size Object Creation}$
+
+- Message ==new== instantiates one object
+- Message ==new: size== creates an object specifying its size
+
+[[[
+Array new: 4
+> #(nil nil nil nil)
+]]]
+
+[[[
+Array new: 2
+> #(nil nil)
+]]]
+
+[[[  
+(OrderedCollection new: 1000)
+]]]
+
+${slide:title=With Specific Elements}$
+
+[[[  
+OrderedCollection withAll: #(7 7 3 13)
+> an OrderedCollection(7 7 3 13)
+]]]
+
+[[[  
+Set withAll: #(7 7 3 13)
+> a Set( 7 3 13)
+]]]
+Remember: no duplicate in Sets
+
+${slide:title=Creation  with Default Value}$
+
+[[[
+OrderedCollection new: 5 withAll: 'a' 
+> an OrderedCollection('a' 'a' 'a' 'a' 'a')
+]]]
+
+
+${slide:title=First Element Starts At 1}$
+
+[[[
+#('Calvin' 'hates' 'Suzie') at: 2
+> 'hates'
+
+#('Calvin' 'hates' 'Suzie') asOrderedCollection  at: 2 
+> 'hates'
+]]]
+
+${slide:title=Collections can be Heterogenous |label=arrays}$
+
+Collections can contain any sort of objects
+
+[[[
+#('calvin' (1 2 3))
+> #('calvin' #(1 2 3))
+]]]
+- An array composed of a string and an array
+
+[[[
+| s |
+s := Set new. 
+s add: Set new; 
+    add: 1;
+    add: 2.
+s asArray 
+> an Array(1 2 a Set())
+]]]
+- A set containing an empty set and some numbers
+
+
+${slide:title=Iteration}$
+
+- Using message ==do: aBlock==
+- But many iterators (see Iterators Lecture)
+[[[
+#('Calvin' 'hates' 'Suzie') 
+     do: [ :each | Transcript show: each ; cr ]
+]]]
+
++>file://figures/doTranscript2.png|width=35+
+
+${slide:title=Arrays}$
+
+- Fixed size collection
+- Direct access: ==at:== and ==at:put:==
+- Has literal syntax: ==#( ... )== 
+- Can also be created using ==new:== 
+
+[[[
+#('Calvin' 'hates' 'Suzie') size
+> 3
+]]]
+
+is equivalent to 
+
+[[[
+((Array new: 3) 
+    at: 1 put: 'Calvin'; 
+    at: 2 put: 'hates'; 
+    at: 3 put: 'Suzie') size
+> 3
+]]]
+
+
+
+${slide:title=Accessing Elements}$
+
+Getting the size of a collection
+[[[
+#('Calvin' 'hates' 'Suzie') size
+> 3
+]]]
+
+Accessing the 2nd element using ==at: anIndex==
+[[[
+#('Calvin' 'hates' 'Suzie') at: 2
+> 'hates'
+]]]
+
+Remember collection index starts at 1
+
+${slide:title=Accessing Out of Bounds Elements}$
+
+[[[
+#('Calvin' 'hates' 'Suzie') at: 55
+> SubscriptOutOfBounds Error
+]]]
+
+
+${slide:title=Modifying Elements}$
+
+Use the message ==at: anIndex put: anObject== 
+
+Modifying the second element of the receiver
+[[[
+#('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
+> #('Calvin' 'loves' 'Suzie')
+]]]
+
+
+${slide:title=Literal Arrays}$
+
+Literal arrays contain objects that have a textual (literal) representation: numbers, strings, nil, symbols
+
+[[[
+#(45 'milou' 1300 true #tintin)
+> #(45 'milou' 1300 true #tintin)
+]]]
+
+They are instances of the class ==Array==
+
+[[[
+#(45 38 1300 8) class
+> Array
+]]]
+
+
+
+${slide:title=Literals Arrays are Array Instances}$
+
+Literal arrays are equivalent to a dynamic version
+
+A literal array
+[[[
+#(45 38 'milou' 8) 
+> #(45 38 'milou' 8) 
+]]]
+
+An array
+[[[
+Array with: 45 with: 38 with: 'milou' with: 8
+> #(45 38 'milou' 8) 
+]]]
+
+
+${slide:title=OrderedCollection}$
+
+- Sequenceable
+- Growing size
+- ==add:==, ==remove:==
+
+[[[
+| ordCol |
+ordCol := OrderedCollection new.
+ordCol add: 'Reef'; add: 'Pharo'; addFirst: 'Pharo'.
+ordCol 
+> an OrderedCollection('Pharo' 'Reef' 'Pharo')
+ordCol add: 'Seaside'.
+ordCol
+> an OrderedCollection('Pharo' 'Reef' 'Pharo' 'Seaside')
+]]]
+
+${slide:title=Conversion}$
+
+[[[
+#('Pharo' 'Reef' 'Pharo' 'Pharo') asOrderedCollection
+> an OrderedCollection('Pharo' 'Reef' 'Pharo' 'Pharo')
+]]]
+
+${slide:title=Set}$
+
+- No duplicates
+- Growing size
+- ==add:==, ==remove:==
+- Can contain any object including other Sets
+[[[
+#('Pharo' 'Reef' 'Pharo' 'Pharo') asSet
+> a Set('Pharo' 'Reef')
+]]]
+
+[[[
+Set with: (Set with: 1) with: (Set with: 2)
+]]]
+
+${slide:title=Conversion}$
+
+Collections can be converted simply to other collections
+[[[
+  asOrderedCollection
+
+  asSet
+
+  asArray
+]]]
+
+
+${slide:title=Dictionary}$
+
+- Key/values
+- Growing size
+- Accessing ==at:==, ==at:ifAbsent:==
+- Changing/adding ==at:put:==, ==at:ifAbsentPut:== 
+- Iterating: ==do:==, ==keysDo:==, ==keysAndValuesDo:==
+
+${slide:title=Dictionary Creation}$
+
+[[[
+| days |
+days := Dictionary new. 
+days   
+  at: #January put: 31;
+  at: #February put: 28;
+  at: #March put: 31.  
+]]]
+
+${slide:title=Alternate Dictionary Creation}$
+
+[[[
+| days |
+days := Dictionary new. 
+days   
+  at: #January put: 31;
+  at: #February put: 28;
+  at: #March put: 31.  
+]]]
+
+is equivalent to 
+
+[[[
+{ #January -> 31.
+  #February -> 28.
+  #March -> 31} asDictionary
+]]]
+
+${slide:title=Pairs}$
+
+[[[
+(#January -> 31) key 
+> #January
+]]]
+
+[[[
+(#January -> 31) value
+> 31
+]]]
+
+${slide:title=Dictionary Access}$
+[[[
+  | days |
+  days := Dictionary new. 
+  days   
+    at: #January put: 31;
+    at: #February put: 28;
+    at: #March put: 31.  
+]]]
+
+
+[[[
+  days at: #January 
+  > 31 
+
+  days at: #NoMonth
+  > KeyNotFound Error
+
+  days at: #NoMonth ifAbsent: [0]
+  > 0 
+]]]
+
+
+
+${slide:title=Dictionary Iteration}$
+
+[[[
+days do: [ :each | Transcript show: each ;cr ] 
+]]]
+
+prints
+[[[
+  31
+  28
+  31
+]]]
+Why? 
+Because
+[[[
+Dictionary >> do: aBlock
+
+  ^self valuesDo: aBlock
+]]]
+
+${slide:title=Keys and Values Iteration}$
+
+[[[
+days keysAndValuesDo: 
+  [ :k :v | Transcript show: k asString, ' has ',  v printString, ' days' ; cr ] 
+]]]
+
+shows: 
+[[[
+  January has 31 days
+  February has 28 days
+  March has 31 days
+]]]
+
+
+
+${slide:title=Summary}$
+
+- Easy to use collections
+- Common vocabulary
+- Simple conversion between them
+- Easy to discover!

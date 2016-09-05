@@ -1,0 +1,385 @@
+% $Author: ducasse $
+% $Date: 2005/05/16 13:38:14 $
+% $Revision: 1.1.1.1 $
+
+\ifx\wholebook\relax\else
+\input{../Common.tex}
+\begin{document}
+\fi
+
+\chapter{ Object Responsibility and Better Encapsulation}
+
+
+
+
+
+\section{Reducing the coupling between classes }
+To be a good citizen you as an object should follow as much as 
+possible the following rules:
+
+\begin{itemize}
+\item
+Be private. Never let somebody else play with your data.
+\item
+Be lazy. Let do other objects your job.
+\item
+Be focused. Do only one main task. 
+\end{itemize}
+
+While these guidelines are not really formal, one of the main 
+consequences is that this is the responsibility of an object 
+to provide a well defined interface protecting itself from its 
+clients. The other consequence is that by delegating to other 
+objects an object concentrates on a single task and responsibility. 
+We now look how such guidelines can help us to provide better 
+objects in our example.
+
+
+
+\subsection{Current situation}
+The interface of the packet class is really weak. It just provides free access to its data. The main impact of this weakness is the fact that the clients of the class \ct{Packet} like \ct{Workstation} relies  on the internal coding of the \ct{Packet} as shown in the first line 
+of the following method.
+
+\begin{scode}
+ Workstation\sep{}accept: aPacket
+
+    aPacket addressee = self name
+       ifTrue: [  Transcript show: 'A packet is accepted by the Workstation ', self name asString ] 
+       ifFalse:  [ super accept: aPacket ] 
+\end{scode}
+
+
+As a consequence, if the structure of the class Packet would 
+change, the code of its clients would have to change too. Generalizing 
+such a bad practice would lead to system that are badly coupled 
+and being really difficult to change to meet new requirements.
+
+
+
+\subsection{Solution.}
+This is the responsibility of a packet to say if the packet is 
+addressed to a particular node or if it was sent by a particular 
+node.
+\begin{itemize}
+\item Define a method named \ct{isAddressedTo:} aNode in \ct{`testing'} protocol that answers if a given packet is addressed to the specified node. 
+\item Define a method named \ct{isOriginatedFrom:} aNode in \ct{`testing'} protocol that answers if a given packet is originated from the specified node. 
+\end{itemize}
+Once these methods are defined, change the code of all the clients of the class \ct{Packet} to call them.
+
+
+
+
+\section{A Question of Creation Responsibility}
+One of the problem with the previous approach for creating the nodes and the packets is the following: it is the responsibility of the client of the objects to create  them well-formed. For example, it is possible to create a node  without specifying a name! This is a disaster for our LAN system (create an example method 3, and try it out). The same problem occurs with the packet: it is possible to create a packet without address nor contents.
+
+We will find a solution to these problems.
+
+\exercise  Define a class method named withName: in the class Node 
+(protocol `instance creation') that creates a new node and assign 
+its name.
+
+\begin{scode}
+withName: aSymbol
+....
+
+\end{scode}
+
+Define a class method named withName:nextNode: in the class \ct{Node}
+(protocol `instance creation') that creates a new node and assign 
+its name and the next node in the LAN
+
+\begin{scode}
+withName: aSymbol nextNode: aNode
+....
+\end{scode}
+
+Note that the first method can simply invoke the second one.
+
+Define a class method named \ct{send:to:} in the class Packet (protocol `instance 
+creation') that creates a new Packet with a contents and an address. 
+
+\begin{scode}
+send: aString to: aSymbol
+....
+\end{scode}
+
+Now the problem is that we want to forbid the creation of non-well 
+formed instances of these classes. To do so, we will simply redefine 
+the creation method \ct{new} so that it will raise an error.
+
+\exercise  Rewrite the new method of the class \ct{Node} and \ct{Packet} as 
+the following:
+
+\begin{scode}
+new
+
+    self error: `you should invoke the method... to create a...' 
+\end{scode}
+
+However, you have just introduced a problem: the instance creation 
+methods you just wrote in exercise 11 will not work anymore, 
+because they call \textit{new}, and that calling results in an error 
+! The solution is to rewrite them such as 
+
+\begin{scode}
+Node class\sep{}withName: aSymbol nextNode: aNode
+      ^ self basicNew initialize name: aSymbol ; nextNode: aNode
+\end{scode}
+
+Do the same for the instance creation methods in class \ct{Packet}.
+
+\exercise Update and rerun your tests to make sure that your changes were correct.
+
+
+Note that the previous code may break if a subclass specialize the \ct{nextNode:} method does not return the instance. To protect ourslef from possible unexpected extension we add yourself that returns the receiver a the first cascaded message (here \ct{name:}), here the newly created instance. 
+
+\begin{scode}
+Node class\sep{}withName: aSymbol nextNode: aNode
+      ^ self basicNew initialize name: aSymbol ; nextNode: aNode ; yourself
+\end{scode}
+
+
+\section{Reducing the coupling between classes}
+To be a good citizen you as an object should follow as much as 
+possible the following rules:
+
+\begin{itemize}
+\item
+Be private. Never let somebody else play with your private data.
+\item
+Be lazy. Let do other objects your job.
+\item
+Be focused. Do only one main task. 
+\end{itemize}
+
+While these guidelines are not really formal, one of the main consequences is that this is the responsibility of an object to provide a well defined interface protecting itself from its clients. The other consequence is that by delegating to other  objects an object concentrates on a single task and responsibility. We now look how such guidelines can help us to provide better objects in our example.
+
+
+
+\subsection{Current situation}
+The interface of the \ct{Packet} class is really weak. It just provides free access to its data. The main impact of this weakness is the fact that the clients of the class \ct{Packet} like \ct{Workstation} relies on the internal coding of the \ct{Packet} as shown in the first line of the following method.
+
+\begin{scode}
+Workstation\sep{}accept: aPacket
+
+    aPacket addressee = self name
+       ifTrue: [  Transcript show: 'A packet is accepted by the Workstation ', self name asString ] 
+       ifFalse:  [ super accept: aPacket ] 
+\end{scode}
+
+As a consequence, if the structure of the class \ct{Packet} would  change, the code of its clients would have to change too. Generalizing  such a bad practice would lead to system that are badly coupled and being really difficult to change to meet new requirements.
+
+
+
+\subsection{Solution.}
+This is the responsibility of a packet to say if the packet is addressed to a particular node or if it was sent by a particular node.
+
+\begin{itemize}
+\item Define a method named \ct{isAddressedTo:} aNode in `testing' protocol that answers if a given packet is addressed to the specified node. 
+
+\item Define a method named \ct{isOriginatedFrom:} aNode in `testing' protocol that answers if a given packet is originated from the specified node. 
+\end{itemize}
+
+Once these methods are defined, change the code of all the clients of the class \ct{Packet} to call them. You should note that a better interface encapsulates better the private data and the way they are represented. This allows one to locate the change in case of evolution.
+
+\section{A Question of Creation Responsibility}
+One of the problems with the first approach for creating the nodes and the packets is the following: it is the responsibility of the client of the objects to create them well-formed. For 
+example, it is possible to create a node without specifying a name! This is a disaster for our LAN system, the node would never reachable, and worse the system would breaks because the assumptions that the name of a node is specified would not hold anymore (insert an anonymous node in Lan and try it out). The same problem occurs with the packet: it is possible to create a packet without address nor contents.
+
+The solution to these problems is to give the responsibility to the objects to create well-formed instances. Several variations are possible:
+
+\begin{itemize}
+\item
+When possible, providing default values for instance variable 
+is a good way to provide well-defined instances.
+\item
+It is also a good solution to propose a consistent and well-defined 
+creation interface. For example one can only provide an instance 
+creation method that requires the mandatory value for the instance 
+and forbid the creation of other instances.
+\end{itemize}
+
+\textbf{The class \ct{Packet}.} 
+We investigate the two solutions for the \ct{Packet} class. For the first solution, the principle is that the creation method (\ct{new}) should invoke an \ct{initialize} method. Implement this solution. Just remember that \ct{new} is sent to classes (a class method) and that \ct{initialize} is sent to instances (instance method). Implement the method \ct{new} in a `instance creation' protocol and initialize in a `initialize-release' protocol.
+
+\begin{scode}
+Packet class\sep{}new
+
+\dots 
+
+Packet\sep{}initialize
+   \dots 
+\end{scode}
+
+The only default value that can have a default value is contents, 
+choose 
+
+\begin{scode}
+contents = `no contents'
+\end{scode} 
+
+
+Ideally if each LAN would contain a default trash node, the default 
+address and originator would point to it. We will implement this 
+functionality in a future lesson. Implement first your own solution. 
+
+
+\paragraph{Remarks and Analysis.} Note that with this solution it would be convenient to know if a packet contents is the default one or not. For this purpose you could provide the method \ct{hasDefaultContents} that tests that. You can implement it in a clever way as shown below:
+
+Instead of writing:
+
+\begin{scode}
+Packet\sep{}hasDefaultContents
+ 
+ ^ contents = `no contents'
+
+Packet\sep{}initialize
+ \dots 
+
+contents := `no contents'
+\dots 
+\end{scode}
+
+You should apply the rule: `Say only once' and define a new method 
+that returns the default content and use it as shown below:
+
+\begin{scode}
+Packet\sep{}defaultContents
+
+    ^ `no contents'
+
+Packet\sep{}initialize
+    \dots 
+
+    contents := self defaultContent
+    \dots 
+
+Packet\sep{}hasDefaultContent
+    ^contents = self defaultContents
+\end{scode}
+
+With this solution, we limit the knowledge to the internal coding of the default contents value to only one method. This way changing it does not affect the clients nor the other part of the class. 
+
+\section{Proposing a creational interface}
+
+\paragraph{Packet.}
+We now apply the second approach by providing a better interface for creating packet. For this purpose we define a new creation method that requires a contents and an address.
+
+Define a \textbf{class} methods named \ct{send:to:} and \ct{to:} in the class \ct{Packet}
+(protocol `instance creation') that creates a new \ct{Packet} with a 
+contents and an address. 
+
+\begin{scode}
+Packet class\sep{}send: aString to: aSymbol
+
+....
+
+Packet class\sep{}to: aSymbol
+
+....
+\end{scode}
+
+
+
+\paragraph{The class \ct{Node}.}
+
+Now apply the same techniques to the class \ct{Node}. Note that you already implemented a similar schema that the default value in the previous lessons. Indeed by default instance variable value is \ct{nil} and you already implemented the method \ct{hasNextNode} that to provide a good interface. \\
+Define a \textbf{class} method named \ct{withName:} in the class \ct{Node} (protocol 
+`instance creation') that creates a new node and assign its name.
+
+\begin{scode}
+Node class\sep{}withName: aSymbol
+
+....
+\end{scode}
+
+Define a \textbf{class} method named \ct{withName:connectedTo:} in the class \ct{Node} 
+(protocol `instance creation') that creates a new node and assign its name and the next node in the LAN.
+
+\begin{scode}
+Node class\sep{}withName: aSymbol connectedTo: aNode
+
+....
+\end{scode}
+
+Note that if to avoid to duplicate information, the first method can simply invoke the second one.
+
+
+
+\section{Forbidding the Basic Instance Creation}
+One the last question that should be discussed is the following one: should we or not let a client create an instance without using the constrained interface? There is no general answer, it really depends on what we want to express. Sometimes it could be convenient to create an uncompleted instance for debugging or user interface interaction purpose. 
+
+Let us imagine that we want to ensure that no instance can be created without calling the methods we specified. We simply redefine the creation method new so that it will raise an error. Rewrite the \ct{new} method of the class \ct{Node} and \ct{Packet} as the following:
+
+\begin{scode}
+Node class\sep{}new
+
+    self error: `you should invoke the method... to create a...' 
+\end{scode}
+
+However, you have just introduced a problem: the instance creation methods you just wrote in the previous exercise will not work anymore, because they call \ct{new}, and that calling results in an  error! Propose a solution to this problem.
+
+
+
+\subsection{ Remarks and Analysis.}
+A first solution could be the following code: 
+
+\begin{scode}
+Node class\sep{}withName: aSymbol connectedTo: aNode
+
+      ^ super new initialize name: aSymbol ; nextNode: aNode
+\end{scode}
+
+However, even if the semantics permits such a call using super with a different method selector than the containing method one, it is a bad practice. In fact it implies an implicit dependency between two different methods in different classes, whereas the super normal use links two methods with the same name in two different classes. It is always a good practice to invoke the own methods of an object by using self. This conceptually avoids to link the class and its superclass and we can continue to consider 
+the class as self contained.
+
+The solution is to rewrite the method such as:
+\begin{scode}
+Node class\sep{}withName: aSymbol connectedTo: aNode
+
+ ^  self basicNew initialize name: aSymbol ; nextNode: aNode
+\end{scode}
+
+In Smalltalk there is a convention that all the methods starting with `basic' should not be overridden. \ct{basicNew} is the method responsible for always providing an newly created instance. You can for example browse all the methods starting with `basic*' 
+and limit yourself to \ct{Object} and \ct{Behavior}.
+
+You can do the same for the instance creation methods in class \ct{Packet}.
+
+
+\section{Protecting yourself from your children}
+The following code is a possible way to define an instance creation method for the class \ct{Node}.
+
+\begin{scode}
+Node class\sep{}withName: aSymbol
+
+ ^ self new name: aSymbol 
+\end{scode}
+
+We create a new instance by invoking new, we assign the name of the node and then we return it. One possible problem with such a code is that a subclass of the class \ct{Node} may redefine the method name: (for example to have a persistent object) and return another value than the receiver (here the newly created instance). In such a case invoking the method withName: on such a class would not return the new instance. One way to solve this problem is the following:
+
+
+\begin{scode}
+Node class\sep{}withName: aSymbol
+
+ \stBar newInstance \stBar
+ newInstance := self new.
+ NewInstance name: aSymbol.
+ ^ newInstance
+\end{scode}
+
+
+This is a good solution but it is a bit too much verbose. It introduces extra complexity by the the extra temporary variable definition and assignment. A good Smalltalk solution for this problem is illustrated by the following code and relies on the use of the yourself message. 
+
+
+\begin{scode}
+Node class\sep{}withName: aSymbol
+
+   ^ self new name: aSymbol ; yourself
+\end{scode}
+
+\ct{yourself} specifies that the receiver of the first message involved into the cascade (name: here and not new) is return. Guess what is the code of the yourself method is and check by looking in the library if your guess is right.
+
+
+
+
+\ifx\wholebook\relax\else\end{document}\fi

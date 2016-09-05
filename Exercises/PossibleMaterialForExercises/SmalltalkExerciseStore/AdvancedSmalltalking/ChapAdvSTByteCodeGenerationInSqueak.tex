@@ -1,0 +1,271 @@
+% $Author: ducasse $
+% $Date: 2005/05/16 13:37:18 $
+% $Revision: 1.1.1.1 $
+
+\ifx\wholebook\relax\else
+\input{../Common.tex}
+\begin{document}
+\fi
+
+
+
+\chapter{Generating Bytecodes}
+
+\mainauthor{Marcus Denker}
+\sd{to dry we need more information...}
+
+\section*{Introduction}
+
+Generating bytecode can be done with {\em IRBuilder}. The following exercise uses the IRBuilder
+of Squeak 3.7.
+
+Here is the the example from the lecture again: 
+
+\begin{scode}
+irMethod:= IRBuilder new
+  rargs: #(self);      "receiver and args"
+  pushTemp: #self;	
+  send: #truncated;
+  returnTop;
+  ir.
+  
+aCompiledMethod  := irMethod compiledMethod.
+\end{scode}
+
+The variable {\em aCompiledMethod} now contains the generated compiled method. This method can
+be executed:
+
+\begin{scode}
+aCompiledMethod valueWithReceiver:3.5 arguments: #()
+\end{scode}
+
+\section{Expressions}
+With the help of IRBuilder, generate a method that calculates the
+expression {\tt (3 + 4) factorial} and returns the result.
+
+% Solution:
+%irMethod:= IRBuilder new
+%  rargs: #(self);      "receiver and args"
+%  pushLiteral: 3;	
+%  pushLiteral: 4;	
+%  send: #+;
+%  send: #factorial;
+%  returnTop;
+%  ir.
+
+
+\section{Parameters}
+Change the code that you wrote for the first exercise to use parameters
+instead of hard coded numbers. So in the end you will have a method
+that requires two arguments. If executed with 
+
+\begin{scode}
+aCompiledMethod valueWithReceiver: nil arguments: #(3 4)
+\end{scode}
+
+the result should be 7.
+
+%irMethod:= IRBuilder new
+%  rargs: #(self a b);      "receiver and args"
+%  pushTemp: #a;	
+%  pushTemp: #b;	
+%  send: #+;
+%  send: #factorial;
+%  returnTop;
+%  ir.
+
+\section{Loops}
+The Squeak bytecode has support for jumps. Jumps are used to implement conditionals and
+loops in an efficient way.
+
+Generate a compiledMethod with {\tt  IRBuilder} that outputs the numbers 1 to 10 on the Transcript window. 
+
+%
+%irMethod:= IRBuilder new
+%  rargs: #(self i);      "receiver and args"
+%  pushLiteral: 0;	
+%  storeTemp: #i;
+%  popTop;
+%  jumpBackTarget: #back;
+%  pushTemp: #i;
+%  pushLiteral: 10;	
+%  send: #<;
+%  jumpAheadTo: #continue if: false;
+%  pushLiteral: Transcript;
+%  pushTemp: #i;
+%  pushLiteral: 1;
+%  send: #+;
+%  storeTemp: #i;
+%  send: #asString;
+%  send: #show:;
+%  popTop;
+%  jumpBackTo: #back;
+%  jumpAheadTarget: #continue;
+%  returnTop;
+%  ir.
+
+
+
+\section{Instance Variables}
+Generate a method that adds two instance variables and returns the result. Test the code by running
+it on a Point, e.g., 3@4.
+
+%irMethod:= IRBuilder new
+%  rargs: #(self);      "receiver and args"
+%  pushReceiver;
+%  getField: 1;	
+%  pushReceiver;
+%  getField: 2;	
+%  send: #+;
+%  returnTop;
+%  ir.
+
+
+
+\section{Installing a Method in a Class}
+Find a way to add the method from Exercise 4 to the class Point with the name {\tt returnSum}. After
+that, the following test should be green:
+
+\begin{scode}
+testReturnAdd
+   self assert: (1@2) returnSum = 3.
+   self assert: (3@4) returnSum = 7.
+\end{scode}
+
+%Behavior>>addSelector: selector withMethod: compiledMethod 
+
+\chapter{Bytecode Analysis}
+
+%%%%%%%%%%%%%%%%%%%
+
+\section{Counting Number of Executed Bytecodes}
+Look at the method \ct{tallyInstructions:} in the class \ct{ContextPart} (class-side):
+\begin{scode}
+	"This method uses the simulator to count the number of occurrences of
+	each of the Smalltalk instructions executed during evaluation of aBlock.
+	Results appear in order of the byteCode set."
+\ttt{|} tallies \ttt{|}
+	tallies := Bag new.
+	thisContext sender
+		runSimulated: aBlock
+		contextAtEachStep:
+			[:current | tallies add: current nextByte].
+	^tallies sortedElements
+
+	"ContextPart tallyInstructions: [3.14159 printString]"
+^anArray at: 2\end{scode}
+
+The method \ct{runSimulated: aBlock contextAtEachStep: [:current| ...]} execute \ct{aBlock} and for each bytecode executed in this block or in called methods, the second argument is evaluated with an instance of one of the subclasses of \ct{ContextPart} as the argument.
+
+Write a similar method named \ct{numberOfBytecodeExecuted: aBlock} that returns the number of bytecode executed when evaluating the provided block. For instance:
+\begin{scode}
+ContextPart numberOfBytecodeExecuted: [3.14159 printString]
+==> 1029
+\end{scode}
+
+In total, the expression \ct{3.14159 printString} is evaluated by executing 1029 bytecodes.
+
+%
+%numberOfBytecodeExecuted: aBlock
+%        "This method uses the simulator to count the number of occurrences of
+%        each of the Smalltalk instructions executed during evaluation of
+%aBlock. 
+%        Results appear in order of the byteCode set."
+%        | num | 
+%        num _ 0.
+%        thisContext sender
+%                runSimulated: aBlock
+%                contextAtEachStep:  
+%                        [:cur | num := num + 1].
+%        ^num                    
+%        
+%        "ContextPart numberOfBytecodeExecuted: [3.14159 printString]"
+% 
+
+
+%%%%%%%%%%%%%%%%%%%
+
+\section{Methods Coverage Analysis}
+
+Getting information about methods that are currently needed to perform a computation is often difficult to obtain with languages like Java. However this information can easily retrieved in Smalltalk.
+
+\subsection*{Number of Methods Invoked}
+Create a method \ct{numberOfInvokedMethods: aBlock} that return the number of all the methods invoked when \ct{aBlock} is evaluated.
+\begin{scode}
+ContextPart numberOfInvokedMethods: [3.14159 printString]
+==> 38
+\end{scode}
+
+%numberOfMethodCovered: aBlock    
+%	| m | 
+%	m := Set new.
+%     thisContext sender
+%		runSimulated: aBlock
+%		contextAtEachStep:  
+%			[:cur | m add: cur sender].
+%	^m size
+%        
+%	"ContextPart numberOfMethodCovered: [3.14159 printString]"
+% 
+
+
+\subsection*{Set of Methods Covered}
+We are now interested in the methods name.
+\begin{scode}
+ContextPart methodCovered: [3.14159 printString]
+==> #('ContextPart class>>DoIt' 'Object>>printString'
+ 'Object>>printStringLimitedTo:' ... )
+\end{scode}
+
+
+
+%methodCovered: aBlock    
+%	| m | 
+%	m := OrderedCollection with: ''.
+%     thisContext sender
+%		runSimulated: aBlock
+%		contextAtEachStep:  
+%			[:cur | |s| s := (cur mclass name , '>>', cur selector). (m last ~= s) ifTrue: [m add: s]].
+%	m removeFirst.
+%	^ m asArray
+%	
+%	"ContextPart methodCovered: [3.14159 printString]"
+ 
+
+\subsection*{Bytecode Covered}
+Let's focus on bytecode. When a method is invoked, not all the bytecode contained in this method are executed. For instance, when executing  \ct{3.14159 printString} the method \ct{on:} defined in the class \ct{WriteStream} is executed, but only 90\% of its bytecode are executed.
+\begin{scode}
+ContextPart bytecodeCovered: [3.14159 printString]
+==>  #(#('WriteStream>>on:' 90) #('LimitedWriteStream>>nextPut:' 69)
+#('Object>>species' 100) ...)
+\end{scode}
+%
+%bytecodeCovered: aBlock    
+%	| m m2 cm v n | 
+%	m := Dictionary new.
+%     thisContext sender
+%		runSimulated: aBlock
+%		contextAtEachStep:  
+%			[:cur | 
+%				|s| 
+%				s := cur mclass >> cur selector. 
+%				(m includesKey: s) ifFalse: [m at: s put: Set new].
+%				
+%				(m at: s) add: cur pc].
+%	
+%	m2 := OrderedCollection new.
+%	m associationsDo: [:assoc| |s|
+%		cm := assoc key.
+%		s := cm endPC - cm initialPC + 1.
+%		s ~~ 0 ifTrue: [
+%			v := (assoc value size * 100 / s) asInteger.
+%			v > 100 ifTrue: [self halt].
+%			n := assoc key who.
+%			m2 add: { n first name, '>>', n second. v}]].
+%	^ m2 asArray
+%	"ContextPart bytecodeCovered: [3.14159 printString]"
+% 
+
+
+
+\ifx\wholebook\relax\else\end{document}\fi

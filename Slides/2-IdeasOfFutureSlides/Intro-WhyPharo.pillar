@@ -1,0 +1,251 @@
+{
+	"title":"Why Pharo?",
+	"subtitle":"",
+	"author":"Stephane Ducasse",
+	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+}
+
+
+
+${slide:title=Less is More|label=block}$
+
+${slide:title=Fun view|label=block}$
+
++>file://figures/GaryLarson.jpg+
+${slide:title=Syntax on a Postcard|label=block}$
+[[[
+exampleWithNumber: x
+	"This method illustrates every part of Smalltalk method syntax except primitives."
+	<aMethodAnnotation>
+	
+	| y |
+	true & false not & (nil isNil) 
+		ifFalse: [self halt]. 
+	y := self size + super size.
+	#($a #a 'a' 1 1.0)
+		do: [ :each | Transcript
+						show: (each class name);
+						show: (each printString);
+						show: ' ' ].
+	^ x < y
+]]]
+
+${slide:title=Originally Made for Kids|label=kids}$
+
+- Read it as a non-computer-literate person:
+
+[[[language=smalltalk
+| bunny |
+bunny := Actor fromFile: 'bunny.vrml'.
+bunny head doEachFrame:
+	[ bunny head
+		pointAt: (camera
+					transformScreenPointToScenePoint: Sensor mousePoint
+					using: bunny)
+		duration: camera rightNow ]
+]]]
+
+${slide:title=A real example|label=factorial}$
+
+[[[
+Integer>>factorial
+	"Answer the factorial of the receiver."
+
+	self = 0 ifTrue: [ ^ 1 ].
+	self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+	self error: 'Not valid for negative integers'
+]]]
+
+
+${slide:title=Sending a request|label=ZnClient}$
+
+[[[
+ZnClient new
+    url: 'http://localhost:8080/books/1';
+    formAt: 'author' put: 'SquareBracketAssociates';
+    formAt: 'title'  put: 'Pharo For The Enterprise';
+    put
+]]]
+
+
+
+${slide:title=Language Constructs|label=block}$
+
+- ^ expression return
+- "..."	comments
+- # symbol or array
+- '...'string
+- [ ] block or byte array
+- . separator and not terminator
+- ; cascade (sending several messages to the same object)
+- | local or block variable definition
+- := assignment
+- $ character
+- : end of selector name
+- e, r number exponent or radix
+- <annotation> method annotation
+
+${slide:title=Syntax in a Nutshell|label=syntax}$
+
+- comment: "a comment"
+- character: $c $h $a $r $a $c $t $e $r $s $# $@
+- string: 'a nice string' 'lulu' 'l'idiot'
+- symbol: #mac #+
+- array: #(1 2 3 (1 3) $a 4)
+- byte array: #[1 2 3]
+- integer: 1, 2r101
+- real: 1.5, 6.03e-34,4, 2.4e7
+- float: 1/33
+- boolean: true, false
+- point: 10@120
+- Note that @ is not an element of the syntax, but just a message sent to a
+- number. This is the same for /, bitShift, ifTrue:, do: ...
+
+
+${slide:title=Syntax  in a Nutshell (II)|label=syntax}$
+
+- assigment: var := aValue
+- block: [:var ||tmp| expr...]
+- temporary variable: |tmp|
+- block variable: :var
+- unary message: receiver selector
+- binary message: receiver selector argument
+- keyword based: receiver keyword1: arg1 keyword2: arg2...
+- cascade: message ; selector ...
+- separator: message . message
+- result: ^
+- parenthesis: (...)
+
+${slide:title=Conditionals are also message sends|label=conditional}$
+
+[[[language=smalltalk
+Weather isRaining
+	ifTrue: [self takeMyUmbrella]
+	ifFalse: [self takeMySunglasses]
+]]]
+
+- ==ifTrue:ifFalse== is sent to an object: a boolean!
+
+
+${slide:title=Loops are also mesage sends|label=conditional}$
+
+[[[language=smalltalk
+1 to: 100 do: [: i| Transcript << i ]]
+> 1
+> 2
+> 3
+> 4
+]]]
+- ==to:do:== is a message sent to a small integer
+
+
+
+${slide:title=Loops are also mesage sends|label=conditional}$
+
+[[[language=smalltalk
+#(1 2 -4 -86)
+	do: [ :each | Transcript show: each abs printString ; cr ]
+> 1
+> 2
+> 4
+> 86
+]]]
+- Yes we ask the collection object to perform the iteration
+
+
+
+${slide:title=Messages and their composition|label=conditional}$
+
+- Three kinds of messages
+-- Unary: ==Node new==
+-- Binary: ==1+2==, ==3@4==
+-- Keywords: ==aTamagoshi eat: #cooky furiously: true==
+- Message Priority
+-- (Msg) > unary > binary > keywords
+-- Same Level from left to right
+
+-Example:
+[[[
+(10@0 extent: 10@100) bottomRight
+]]]
+- Creates a rectangle and asks its bottom right corner
+
+[[[
+s isNil ifTrue: [ self halt ]
+]]]
+
+
+${slide:title=Blocks|label=blocks}$
+
+- A kind of anonymous method
+- Can be passed as method argument or stored in variables
+- Functions
+
+[[[
+	fct(x)= x*x+3. 
+	fct(2).
+]]]
+
+[[[
+	fct :=[:x| x * x + 3].
+	fct value: 2
+]]]
+
+${slide:title=Block Usage |label=blocks}$
+
+[[[
+	#(1 2 3) do: [:each | Transcript show: each printString ; cr]	
+]]]
+
+[[[	 
+Integer>>factorial
+	| tmp |
+	tmp:= 1.
+	2 to: self do: [ :i | tmp := tmp * i ]
+]]]
+
+${slide:title=Class definition|label=class definition}$
+
+[[[
+Object subclass: #Point
+	instanceVariableNames: 'x y'
+	classVariableNames: ''
+	package: 'Graphics'
+]]]
+
+${slide:title=Method definition|label=classdefinition}$
+
+- Normally defined in a browser or (by directly invoking the compiler)	 	
+- Methods are public
+- Always return self
+
+[[[
+Node>>accept: thePacket
+	"If the packet is addressed to me, print it.
+	Else just behave like a normal node"
+		
+	thePacket isAddressedTo: self)
+		ifTrue: [ self print: thePacket ]
+		ifFalse: [ super accept: thePacket ]
+]]]
+
+${slide:title=Instance Creation are Messages Too!|label=methoddefinition}$
+
+- Messages sent to instance
+[[[
+	'1', 'abc'
+	1@2
+]]]	
+- Basic class creation messages are ==new== and ==new:== sent to a class
+[[[
+	 Monster new
+]]]
+- Class specific message creation (messages sent to classes)
+[[[
+	 Tomagoshi withHunger: 10
+]]]
+
+
+${slide:title=Conclusion|label=methoddefinition}$
+
++>file://figures/VarietyBD.png+

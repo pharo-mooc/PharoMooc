@@ -1,0 +1,298 @@
+1
+00:00:01,080 --> 00:00:03,400
+Dans cette vidéo,
+j'aimerais vous montrer comment un
+
+2
+00:00:03,400 --> 00:00:06,950
+objet peut définir des onglets qui
+vont apparaître dans l'inspecteur.
+
+3
+00:00:08,430 --> 00:00:10,280
+Comment on va voir ça ?
+
+4
+00:00:10,580 --> 00:00:12,240
+On va utiliser Spotter pour faire ça.
+
+5
+00:00:14,410 --> 00:00:18,240
+Donc dans Spotter ce dont
+je me rappelle c'est que je
+
+6
+00:00:18,240 --> 00:00:22,910
+cherche un #pragma, donc une
+annotation de méthode, qui commence par gt.
+
+7
+00:00:22,910 --> 00:00:27,440
+Je sais qu'il y a inspecteur
+dedans donc je vais aller voir ça.
+
+8
+00:00:30,190 --> 00:00:32,040
+Dans mon inspecteur je vois
+qu'il y a des #Pragmas et des
+
+9
+00:00:32,040 --> 00:00:34,080
+#Senders, je vais
+prendre les #Pragma.
+
+10
+00:00:35,760 --> 00:00:39,250
+Maintenant ce que je peux
+faire, je peux regarder par
+
+11
+00:00:39,250 --> 00:00:41,210
+exemple celui sur Morph.
+
+12
+00:00:41,280 --> 00:00:43,180
+On va ouvrir le code.
+
+13
+00:00:43,180 --> 00:00:47,450
+C'est celui qui correspond
+à, vous vous rappelez, si je
+
+14
+00:00:47,450 --> 00:00:51,320
+fais Inspect, ça va
+m'ouvrir un inspecteur et
+
+15
+00:00:52,090 --> 00:00:56,970
+cet inspecteur a cet onglet
+
+16
+00:00:57,910 --> 00:00:59,070
+et en fait comparons.
+
+17
+00:01:08,100 --> 00:01:11,240
+On voit qu'on crée un
+composite'Morph', qu'il y a un
+
+18
+00:01:11,240 --> 00:01:16,170
+titre et il y aura une
+action qui sera faite avec une
+
+19
+00:01:16,310 --> 00:01:18,950
+gestion d'erreur au cas où
+la'Morph'ne s'affiche pas bien.
+
+20
+00:01:19,290 --> 00:01:21,990
+Et là, on va convertir
+et afficher une'Morph'.
+
+21
+00:01:21,990 --> 00:01:26,840
+Vous avez aussi "act" qui
+sont la manière de pouvoir
+
+22
+00:01:28,880 --> 00:01:31,390
+associer des opérations sur
+
+23
+00:01:36,410 --> 00:01:37,060
+cet onglet.
+
+24
+00:01:37,440 --> 00:01:38,700
+On va voir un autre exemple.
+
+25
+00:01:43,660 --> 00:01:47,980
+Voila ici et là.
+
+26
+00:01:49,270 --> 00:01:50,210
+J'aimerais voir "Date".
+
+27
+00:01:56,080 --> 00:01:59,530
+Si vous vous rappelez on
+avait "date today inspect".
+
+28
+00:02:05,220 --> 00:02:07,690
+On avait Détails et Calendar.
+
+29
+00:02:09,130 --> 00:02:11,740
+Comment on crée cette'Morph'?
+
+30
+00:02:11,740 --> 00:02:16,520
+On crée juste
+la'Morph'en utilisant ce message.
+
+31
+00:02:17,570 --> 00:02:20,000
+Et Détails. Comment
+ça marche dans Détails?
+
+32
+00:02:26,990 --> 00:02:29,250
+Je demande à créer une
+table, je vais lui mettre un
+
+33
+00:02:29,250 --> 00:02:34,010
+titre, clé valeur, évaluer, rendre
+
+34
+00:02:36,190 --> 00:02:38,730
+la clé et calculer
+la valeur de la chose.
+
+35
+00:02:41,150 --> 00:02:43,080
+Le dernier exemple que je
+voulais vous montrer c'était,
+
+36
+00:02:43,990 --> 00:02:48,990
+qu'est-ce qui se passe
+quand on fait le travail qui est
+
+37
+00:02:48,990 --> 00:02:53,470
+fait pour l'inspecteur d'une méthode
+
+38
+00:02:55,200 --> 00:02:57,930
+? Vous vous rappelez, on
+avait une méthode qui était du
+
+39
+00:02:57,930 --> 00:03:02,200
+Bytecode, du moins un
+tableau qui contient du Bytecode et
+
+40
+00:03:02,200 --> 00:03:05,970
+on avait le Source ou
+l'AST ou du Bytecode.
+
+41
+00:03:06,150 --> 00:03:10,680
+Prenons l'AST. Je vais
+demander à mon très cher
+
+42
+00:03:10,910 --> 00:03:15,640
+Spotter. Je vais chercher Compiled
+
+43
+00:03:15,640 --> 00:03:19,470
+method. Prenons le Source,
+
+44
+00:03:21,290 --> 00:03:21,970
+ça me paraît bien.
+
+45
+00:03:26,410 --> 00:03:28,300
+Pour le Source, qui
+est ce panneau-là, on
+
+46
+00:03:34,330 --> 00:03:37,240
+voit qu'on définit le
+Source et là il y a pharoMethod.
+
+47
+00:03:37,240 --> 00:03:39,450
+Je ne sais pas exactement ce
+que c'est mais ça doit dire
+
+48
+00:03:39,450 --> 00:03:42,920
+que ça doit créer un objet
+qui va être capable d'afficher
+
+49
+00:03:42,920 --> 00:03:45,940
+une méthode Pharo, en
+appelant le Syntaxhighlighter ou
+
+50
+00:03:45,940 --> 00:03:50,600
+quelque chose comme ça.
+Et si je regarde AST, ça
+
+51
+00:03:50,900 --> 00:03:53,100
+va me rendre un
+
+52
+00:03:56,060 --> 00:03:56,400
+arbre,
+
+53
+00:04:01,340 --> 00:04:04,270
+ce qui va me rendre l'AST qui
+va être affiché dans l'arbre.
+
+54
+00:04:04,800 --> 00:04:06,710
+L'objectif ce n'est pas que
+vous compreniez parfaitement
+
+55
+00:04:06,710 --> 00:04:09,480
+comment ça fonctionne, c'est
+de vous montrer un petit peu
+
+56
+00:04:09,480 --> 00:04:12,020
+la complexité de la chose.
+
+57
+00:04:12,310 --> 00:04:14,820
+On voit que ce n'est pas très
+compliqué en règle générale.
+
+58
+00:04:15,180 --> 00:04:19,060
+Là, c'est pour le Bytecode, l'ir
+c'est aussi quelque chose d'autre.
+
+59
+00:04:19,060 --> 00:04:23,010
+Après, il y a de la logique
+métier à l'intérieur parce qu'il
+
+60
+00:04:23,010 --> 00:04:26,890
+faut voir comment on
+calcule la représentation
+
+61
+00:04:26,890 --> 00:04:30,630
+intermédiaire, et cetera, mais
+ça reste quelque chose de gérable.
+
+62
+00:04:31,990 --> 00:04:33,910
+Je voulais vous montrer ça
+parce que c'est sympa, vous
+
+63
+00:04:33,910 --> 00:04:37,170
+pouvez le faire parfois sur
+vos objets métier et ça vous
+
+64
+00:04:37,170 --> 00:04:38,260
+permet d'aller plus vite.
+

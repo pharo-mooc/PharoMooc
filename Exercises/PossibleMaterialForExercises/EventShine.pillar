@@ -1,0 +1,155 @@
+{
+  "title": "The EventShine application"
+}
+
+The ""whole"" app is committed on smalltalkhub.
+
+!Week 1
+
+!!Prerequisites
+
+Before doing what follows, you should know how to:
+- create a package in the code browser
+- create a class in the code browser
+- add instance variables to a class in the code browser
+- add methods to a class in the code browser
+- send message to objects
+- evaluate a piece of code (==Do it==)
+- print the result of a piece of code (==Print it==)
+- inspect the result of a piece of code (==Inspect it==)
+
+!!The User Class
+
+- Create a, ==ESUser== class in the ==EventShine== package
+- Add 2 instance variables in this class: ==name== and ==email==
+- Add a method named ==setName:email:== in this class
+- Create an instance and use the previous method to initialize it:
+[[[
+| bob |
+bob := ESUser new setName: 'Bob' email: 'mooc@pharo.org'
+]]]
+- Add methods ==gravatarUrl== and ==gravatarHash== to get the user's picture using *Gravatar's API>https://en.gravatar.com/site/implement*:
+[[[
+ESUser>>gravatarUrl
+   "Return the URL of a gravatar picture corresponding to my email address."
+   "API: https://en.gravatar.com/site/implement/images/"
+   ^ 'http://www.gravatar.com/avatar/', self gravatarHash, '.jpg'
+
+ESUser>>gravatarHash
+   "Return my email's hash using gravatar specification."
+   "API: https://en.gravatar.com/site/implement/hash/"
+   ^ (MD5 hashMessage: self email trimBoth asLowercase) hex
+]]]
+- Print the result of sending ==gravatarUrl== to your ==bob== object and copy the URL to your web browser to check it works.
+- Add a comment to the class
+
+!Week 2
+
+!!Prerequisites
+
+There is no more prerequisites than the ones of week 1.
+
+!!The Event Class
+
+- Create an ==ESvent== class in the ==EventShine== package
+- Add 4 instance variables on this class: ==name== (a string), ==date== (a date), ==location== (a point representing gps coordinates) and ==creator== (an instance of ==ESUser==)
+- Add a method to initialize all instance variables to make the following code work (bob is an object created during the previous week)
+[[[
+myParty := ESEvent new setName: 'Pharo Party' date: '2015/12/04' asDate location: 50.6@3.14 creator: bob.
+]]]
+- Add a method ==openstreetmapUrl== to get the URL of a page showing the event's location on *OpenStreetMap>http://www.openstreetmap.org*:
+[[[
+ESEvent>>openstreetmapUrl
+   "Return the URL of an OpenStreetMap view for my location."
+   "In this URL, 17 indicates the zoom level."
+   ^ 'http://www.openstreetmap.org/#map=17/', self gpsCoordinatesString
+
+ESEvent>>gpsCoordinatesString
+   "Return a string containing the latitude and longitude of my location separated by a $/ character."
+   ^ location x asString, '/', location y asString
+]]]
+- Print the result of sending ==openstreetmapUrl== to your ==myParty== object and copy the URL to your web browser to check it works.
+- Add a comment to the class
+
+!!Good Practice: Redefine how Objects are Printed
+
+When debugging, it is always easier to understand what is going on if objects print nicely. Print the ==bob== object using ==Print it== and you will get the =='an ESUser'== string. This says nothing about the object itself.
+
+- To change the print string of ==ESUser== instances, redefine the ==printOn:== method on the ==ESUser== class:
+[[[
+ESUser>>printOn: aStream
+   aStream nextPutAll: self name , ' <' , self email , '>'
+]]]
+
+Now, you should get the =='Bob <mooc@pharo.org>'==.
+
+- Do the same for the ==ESEvent== to get =='Pharo Party, 4 December 2015, at 50.6/3.14'== when printing ==myParty==.
+
+
+!Week 3
+
+!!Prerequisites
+
+Before doing what follows, you should know how to:
+- ffff
+- dddd
+
+!!Extend ESEvent
+
+- We want that an ==ESEvent== knows its participants
+[[[
+myParty := ESEvent new ....
+myParty addParticipant: bobUser.
+...
+myParty participants
+> #( 'Bob <bob@sponge.world>' )
+]]]
+
+% -- start by adding an iv named ==participants== on ==ESEvent==
+% -- initialize it by redefining the ==initialise== method
+% [[[
+% ESEvent >> intialize
+% 	super initialize.
+% 	participants := Set new
+% ]]]
+% -- finally add ==addParticipant:==
+% [[[
+% ESEvent >> addParticipant: aUser
+% 	self participants add: aUser
+% ]]]
+% -- add the accessor
+% [[[
+% ESEvent >> addParticipant: aUser
+% 	self participants add: aUser
+% ]]]
+
+!!Create ESRepository
+
+- create a ==ESRepository== class with 2 ivs: ==users== and ==events==
+- add a ==addDefaultData== on  ==ESRepository== that adds 4 users and 4 events
+- add a class-side method named default which returns an instance of ESRepository containing default data
+
+[[[
+	ESRepository default
+]]]
+
+!!Extend ESEvent
+
+- add method ==hasParticipant:== which test is the user passed in parameter is a participant or not
+
+!!Extend ESUser
+
+We want that a User knows the events he has created and the events he registered to.
+
+- add a method named ==organizedEvents== on ==ESUser== which returns the collection of events organized by the current user
+
+[[[
+ESUser >> organizedEvents
+....
+]]]
+
+- add a method named ==attendedEvents== which returns the collection of events the current user is regiterd to.
+
+% Local Variables:
+% compile-command: "cd .. && ./pillar export --to=html Exercises/Eventshine.pillar"
+% End:

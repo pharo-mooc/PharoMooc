@@ -1,0 +1,155 @@
+% for readable pdf files
+\usepackage{times} 
+\usepackage{graphicx}
+
+\pagestyle{plain}
+\voffset -5mm
+
+\oddsidemargin  0mm
+\evensidemargin -11mm
+\marginparwidth 2cm
+\marginparsep 0pt
+
+\topmargin 0mm
+\headheight 0pt
+\headsep 0pt
+\topskip 0pt        
+
+%\footheight 0pt
+%\footskip 0pt
+\textheight 255mm
+\textwidth 165mm
+
+% ----------------------------------------
+%
+% II. Macros
+%
+% ----------------------------------------
+
+\let\gaga=\phi \let\phi=\varphi \let\varphi=\gaga
+\let\gaga=\theta \let\theta=\vartheta \let\vartheta=\gaga
+\let\gaga=\epsilon \let\epsilon=\varepsilon \let\varepsilon=\gaga
+
+\newcommand\code[1]{ {\footnotesize \texttt{#1}} }
+
+\newcommand\nat{{\Bbb N}}
+\def\int{{\Bbb Z}}
+\newcommand\rat{{\Bbb Q}}
+\newcommand\real{{\Bbb R}}
+\newcommand\calD{{\cal D}}
+\newcommand\calM{{\cal M}}
+\newcommand\calL{{\cal L}}
+\newcommand\Gone{\bfmath{G1}}%
+\newcommand\Gonei{\bfmath{G1i}}%
+\newcommand\Goneai{\bfmath{G1(i)}}%
+\newcommand\Gtwo{\bfmath{G2}}%
+\newcommand\Gtwoi{\bfmath{G2i}}%
+\newcommand\Gtwoai{\bfmath{G2(i)}}%
+\newcommand\Gthree{\bfmath{G3}}%
+\newcommand\Gthreei{\bfmath{G3i}}%
+\newcommand\Gthreeai{\bfmath{G3(i)}}%
+\newcommand\True{\bfmath{True}}
+\newcommand\False{\bfmath{False}}
+\newcommand\FV{\itmath{FV}}
+%
+% mathrel's
+%
+\def\maps{\mathrel{:}}
+\def\andthen{\mathrel{;}}
+\def\suchthat{\mathrel{:}}
+\def\defid{\mathrel{:\equiv}}
+\def\defeq{\mathrel{:=}}
+\def\eqdef{\mathrel{=:}}
+\def\gewenn{\leftrightarrow}
+\newcommand\tnt{\mathrel{\supset}}
+\newcommand\pr{\mathrel{\vdash}}%
+\def\prld#1#2{\mathrel{\vrule width 0.3pt height 8pt depth 2pt\mkern-2mu\textstyle{\hskip0.5ex\raise2pt\hbox{$\scriptstyle#1$}\hskip0.1ex\over\hskip0.5ex#2\hskip0.1ex}}}
+\def\defGewenn{\mathrel{{:}{\Longleftrightarrow}}}
+\def\Gewenn{\mathrel{\Longleftrightarrow}}
+\def\To{\mathrel{\Longrightarrow}}
+\def\defsimeq{\mathrel{:\simeq}}
+\def\redone{\mathrel{\vartriangleright_1}}
+\def\red{\mathrel{\vartriangleright}}
+%
+% mathbin's
+%
+\newlength{\lminus}
+\settowidth{\lminus}{\hbox{$-$}}
+\def\dotmin{\mathbin{\vbox{\lineskip0pt\baselineskip0pt\hbox to\lminus{\hfill.\hfill}\vglue-0.55ex\hbox{$-$}}}}
+
+%
+% mathop's
+%
+\def\pow{\mathop{\rm Pow}}
+\def\dom{\mathop{\rm dom}}
+\def\ran{\mathop{\rm ran}}
+\def\seq#1{\langle #1\rangle}
+\def\Seq{\mathop{\it Seq}}
+\def\lh{\mathop{\it lh}}
+
+% ----------------------------------------------------------------------
+\newcommand{\vf}{\vspace{7mm plus7mm minus1mm}}
+\newcommand{\compl}{{\rm c}}
+\newcommand{\blank}{\hspace{0.5em}}
+\newcommand\nyt{\rule{0pt}{0pt}}
+\newcommand{\emspace}{\hspace{1em}}
+
+\newcounter{countaufg}
+
+\newenvironment{overview}[1]{%
+      \bigskip%
+      \subsection*{\selectfont #1%
+	 \makeatother}%
+      \bigskip%
+      }      
+
+\newenvironment{exercise}[1]{\addtocounter{countaufg}{1}%
+      \bigskip%
+      \subsection*{Exercise \arabic{countaufg} - %\series{m}
+	   \selectfont #1%
+	 \makeatother}%
+      \bigskip%
+      }      
+
+\newenvironment{optexercise}[1]{\addtocounter{countaufg}{1}%
+      \bigskip%
+      \subsection*{Exercise \arabic{countaufg} (optional) - %\series{m}
+	   \selectfont #1%
+	 \makeatother}%
+      \bigskip%
+      }%
+
+\newcommand\hint[1]{\emph{Hint :} #1}
+\newcommand\note[1]{\emph{Note :} #1}
+
+\newcommand\serieheader[6]{
+\thispagestyle{empty}%
+\begin{flushleft}
+\includegraphics[scale=1]{../Framework/HeaderUSI}
+\end{flushleft}
+  \noindent%
+  {\large\ignorespaces{\bf #1}\hspace{\fill}\ignorespaces{\bf #2}}\\ \\%
+  {\large\ignorespaces #3 \hspace{\fill}\ignorespaces #4}\\
+  \noindent%
+  \hrule\par\bigskip\noindent%
+  \bigskip\\ {\ignorespaces {\Large{\bf #5}} 
+  \hspace{\fill}\ignorespaces \large {\Large{\bf #6}}}\\
+
+  \hrule\par\bigskip\noindent%
+}
+
+
+
+\makeatletter
+\def\enumerateMod{\ifnum \@enumdepth >3 \@toodeep\else
+      \advance\@enumdepth \@ne
+      \edef\@enumctr{enum\romannumeral\the\@enumdepth}\list
+      {\csname label\@enumctr\endcsname}{\usecounter
+        {\@enumctr}%%%? the following differs from "enumerate"
+	\topsep0pt%
+	\partopsep0pt%
+	\itemsep0pt%
+	%%%? end(differs)
+	\def\makelabel##1{\hss\llap{##1}}}\fi}
+\let\endenumerateMod =\endlist
+\makeatother

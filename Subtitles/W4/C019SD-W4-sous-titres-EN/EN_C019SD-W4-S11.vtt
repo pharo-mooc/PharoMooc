@@ -1,0 +1,562 @@
+WEBVTT
+
+00:00:00.560 --> 00:00:05.040 align:middle
+Hello. I'll be introducing Voyage,
+a wrapper for NoSQL databases,
+
+00:00:05.560 --> 00:00:07.880 align:middle
+in this class.
+
+00:00:08.120 --> 00:00:11.520 align:middle
+The goal is to let you build
+a real application.
+
+00:00:11.680 --> 00:00:15.680 align:middle
+You'll be able to store objects
+like TinyBlog with Voyage,
+
+00:00:16.080 --> 00:00:19.200 align:middle
+in a Mongo database,
+and deploy on a real service.
+
+00:00:19.400 --> 00:00:20.880 align:middle
+I also wanted to show you
+
+00:00:21.200 --> 00:00:23.680 align:middle
+an easy way to store objects.
+
+00:00:24.080 --> 00:00:27.120 align:middle
+Voyage is a simple solution.
+
+00:00:28.640 --> 00:00:30.320 align:middle
+First, what is MongoDB?
+
+00:00:30.760 --> 00:00:35.680 align:middle
+Mongo is a new document-oriented
+NoSQL database.
+
+00:00:36.840 --> 00:00:40.280 align:middle
+It features a powerful query language.
+
+00:00:40.440 --> 00:00:44.440 align:middle
+Mongo is also one of the most popular
+DBs, with CouchDB and Riak.
+
+00:00:44.600 --> 00:00:48.240 align:middle
+We'll be using Mongo and Voyage.
+
+00:00:48.480 --> 00:00:52.480 align:middle
+Actually, Voyage is a mapper.
+It takes objects and maps them
+
+00:00:53.360 --> 00:00:56.680 align:middle
+on MongoDB, almost automatically,
+for the programmer.
+
+00:00:56.840 --> 00:00:58.880 align:middle
+If you've done Java on Hibernate
+
+00:00:59.040 --> 00:01:02.120 align:middle
+Voyage is the equivalent of Hibernate
+for MongoDB.
+
+00:01:02.400 --> 00:01:03.960 align:middle
+And it's made for Pharo.
+
+00:01:05.120 --> 00:01:08.680 align:middle
+Here are Voyage's features.
+It's very simple.
+
+00:01:08.840 --> 00:01:12.320 align:middle
+It ensures object identity
+when you reload them.
+
+00:01:13.000 --> 00:01:15.320 align:middle
+It provides error-handling.
+
+00:01:15.480 --> 00:01:18.840 align:middle
+And it also implements
+a connection pool
+
+00:01:19.000 --> 00:01:21.160 align:middle
+to speed things up.
+
+00:01:22.720 --> 00:01:25.360 align:middle
+To start simple,
+the first thing we'll do
+
+00:01:25.520 --> 00:01:28.640 align:middle
+is create a MongoRepository.
+
+00:01:28.800 --> 00:01:31.520 align:middle
+It uses these expressions:
+
+00:01:32.240 --> 00:01:35.680 align:middle
+You want to access
+your Mongo database,
+
+00:01:35.840 --> 00:01:37.920 align:middle
+which is managed from outside Pharo.
+
+00:01:38.320 --> 00:01:41.880 align:middle
+Often, when we are in prototype mode,
+
+00:01:42.040 --> 00:01:44.440 align:middle
+we use a Mongo database
+in the memory.
+
+00:01:44.600 --> 00:01:47.600 align:middle
+It's referred to here
+as Mongo Memory Repository.
+
+00:01:48.040 --> 00:01:52.440 align:middle
+You don't need a Mongo database.
+First, you prototype your application.
+
+00:01:53.040 --> 00:01:58.080 align:middle
+When it is running right,
+you switch the memory repository
+
+00:01:58.360 --> 00:02:01.560 align:middle
+into a real repository,
+and tackle your outside DB.
+
+00:02:01.720 --> 00:02:04.000 align:middle
+That's the way to proceed.
+
+00:02:07.400 --> 00:02:08.680 align:middle
+To illustrate Mongo,
+
+00:02:09.040 --> 00:02:13.240 align:middle
+we have a simple model
+of superheroes with superpowers,
+
+00:02:13.680 --> 00:02:16.440 align:middle
+their armor and weapons.
+
+00:02:16.880 --> 00:02:21.440 align:middle
+You'll be able to do the exercise
+based on what I show you in the course.
+
+00:02:21.600 --> 00:02:23.160 align:middle
+This is the support.
+
+00:02:23.560 --> 00:02:26.680 align:middle
+I think you'll enjoy scripting Superman.
+
+00:02:27.280 --> 00:02:32.240 align:middle
+First, let's look at how
+Hero and Power operate.
+
+00:02:33.400 --> 00:02:38.920 align:middle
+Basically, we have a Hero class,
+with a name, level, and powers.
+
+00:02:39.880 --> 00:02:43.720 align:middle
+I have an accessory for the name,
+a setter for the name.
+
+00:02:43.880 --> 00:02:45.640 align:middle
+Same for the level, here.
+
+00:02:46.000 --> 00:02:48.040 align:middle
+And I manage the powers
+as a set.
+
+00:02:48.200 --> 00:02:53.000 align:middle
+If powers is empty,
+I put in a set.
+
+00:02:53.600 --> 00:02:56.400 align:middle
+When I can add a power,
+I add one to the set.
+
+00:02:56.560 --> 00:02:59.040 align:middle
+So it's really very basic.
+
+00:03:00.720 --> 00:03:04.560 align:middle
+For the moment, the powers
+only have a name.
+
+00:03:05.720 --> 00:03:08.920 align:middle
+You can write the name or not.
+
+00:03:10.000 --> 00:03:13.360 align:middle
+Now, the point is
+to find a way to declare
+
+00:03:13.800 --> 00:03:17.000 align:middle
+that my domain classes
+are stored in a database.
+
+00:03:17.240 --> 00:03:22.600 align:middle
+The root class idea gives us
+an entry point for our database.
+
+00:03:23.160 --> 00:03:27.720 align:middle
+It can be any class in the system,
+and it is marked as the root
+
+00:03:28.080 --> 00:03:32.280 align:middle
+with a class method (I emphasize class)
+called isVoyageRoot.
+
+00:03:33.800 --> 00:03:38.640 align:middle
+This is how we do it for Hero class:
+isVoyageRoot returns true.
+
+00:03:39.360 --> 00:03:43.400 align:middle
+At this point, Voyage knows
+I will be able to store my heroes
+
+00:03:43.800 --> 00:03:45.360 align:middle
+in the Mongo database.
+
+00:03:46.640 --> 00:03:48.960 align:middle
+Let's do Spiderman.
+
+00:03:49.240 --> 00:03:51.880 align:middle
+His name is Spiderman,
+his level is epic.
+
+00:03:52.240 --> 00:03:56.720 align:middle
+His powers are his super strength,
+his ability to climb walls,
+
+00:03:57.160 --> 00:04:01.760 align:middle
+and the spider instincts
+he is purported to have.
+
+00:04:02.440 --> 00:04:04.480 align:middle
+I save that information.
+
+00:04:04.880 --> 00:04:09.400 align:middle
+"Save" tells Voyage
+to take this superhero,
+
+00:04:09.560 --> 00:04:11.160 align:middle
+and store it in the base.
+
+00:04:11.400 --> 00:04:15.000 align:middle
+We do the same thing
+with Wolverine and his powers,
+
+00:04:15.160 --> 00:04:16.600 align:middle
+and save that data.
+
+00:04:16.880 --> 00:04:18.880 align:middle
+Now, if I look at my Mongo base,
+
+00:04:19.040 --> 00:04:21.440 align:middle
+using db.Hero.find,
+
+00:04:21.800 --> 00:04:21.840 align:middle
+I see my hero Spiderman,
+
+00:04:25.480 --> 00:04:27.280 align:middle
+and I should see his powers.
+
+00:04:27.640 --> 00:04:29.960 align:middle
+This is where you have
+to be careful.
+
+00:04:30.360 --> 00:04:34.920 align:middle
+His superpowers are described
+in full here.
+
+00:04:35.360 --> 00:04:37.480 align:middle
+Same for Wolverine, etc.
+
+00:04:39.880 --> 00:04:43.640 align:middle
+Once you've done that,
+you can do lots with Pharo.
+
+00:04:43.800 --> 00:04:48.080 align:middle
+I won't go into the details.
+But I can select all the superheroes...
+
+00:04:48.240 --> 00:04:51.320 align:middle
+That gives me Spiderman
+and Wolverine.
+
+00:04:51.640 --> 00:04:54.960 align:middle
+I can say find Spiderman...
+
+00:04:55.240 --> 00:05:01.160 align:middle
+I can say I want to find all superheroes
+who have an epic level.
+
+00:05:02.080 --> 00:05:04.720 align:middle
+That gives me my two superheroes.
+
+00:05:06.560 --> 00:05:09.280 align:middle
+I can also express it differently.
+
+00:05:09.440 --> 00:05:12.720 align:middle
+Actually, the Mongo database
+
+00:05:13.040 --> 00:05:16.160 align:middle
+understands Json,
+so I can create Json on the fly,
+
+00:05:16.440 --> 00:05:18.800 align:middle
+inject it, and do Json-based queries.
+
+00:05:19.080 --> 00:05:21.600 align:middle
+Let's say I want to know
+
+00:05:22.320 --> 00:05:24.560 align:middle
+which superhero is named Spiderman.
+
+00:05:24.760 --> 00:05:29.760 align:middle
+But I've expressed it in Json form,
+as dictionary, so it returns an entry.
+
+00:05:30.880 --> 00:05:33.440 align:middle
+I can do the same thing
+with "select Many."
+
+00:05:33.680 --> 00:05:38.000 align:middle
+It depends on the easiest way
+for expressing your query.
+
+00:05:38.160 --> 00:05:40.640 align:middle
+But that's a detail for you, right now.
+
+00:05:40.960 --> 00:05:43.400 align:middle
+You can do much more advanced queries.
+
+00:05:43.680 --> 00:05:46.280 align:middle
+I can say "select all" the heroes
+
+00:05:46.920 --> 00:05:51.280 align:middle
+or "many" of the superheroes
+with an epic level.
+
+00:05:51.440 --> 00:05:54.480 align:middle
+I can sort their names
+in ascending order.
+
+00:05:54.640 --> 00:05:58.400 align:middle
+I set a limit of 10,
+and say I want to start at page 0.
+
+00:05:58.560 --> 00:06:01.880 align:middle
+That will bring me sections
+of the database.
+
+00:06:03.120 --> 00:06:05.760 align:middle
+When you need that,
+look in the documentation.
+
+00:06:06.360 --> 00:06:10.280 align:middle
+We can do other operations,
+like count our superheroes.
+
+00:06:10.680 --> 00:06:14.160 align:middle
+I can count those whose possess
+a certain property.
+
+00:06:14.440 --> 00:06:18.240 align:middle
+I can remove some.
+If I remove all, I empty the database.
+
+00:06:18.560 --> 00:06:20.360 align:middle
+Be careful of that command.
+
+00:06:20.520 --> 00:06:23.680 align:middle
+Here, I can select one,
+and remove it.
+
+00:06:24.520 --> 00:06:26.960 align:middle
+That hero will be removed from the base.
+
+00:06:28.360 --> 00:06:31.000 align:middle
+These are all operations
+that make sense.
+
+00:06:31.880 --> 00:06:35.600 align:middle
+Now, the question that will arise
+when using MongoDB
+
+00:06:35.760 --> 00:06:39.840 align:middle
+is, what is the base root,
+in Mongo lingo?
+
+00:06:40.280 --> 00:06:42.760 align:middle
+When is a class defined as a root?
+
+00:06:43.080 --> 00:06:46.640 align:middle
+The answer is,
+if you want to query that class.
+
+00:06:46.800 --> 00:06:48.200 align:middle
+That's the first rule.
+
+00:06:48.320 --> 00:06:51.440 align:middle
+I define that class as a root,
+
+00:06:51.600 --> 00:06:55.600 align:middle
+because I want to have access
+to all the objects in the class.
+
+00:06:55.880 --> 00:06:58.880 align:middle
+The other reason
+is wanting to be able to share
+
+00:06:59.200 --> 00:07:02.800 align:middle
+these objects between roots.
+
+00:07:03.640 --> 00:07:06.800 align:middle
+Say I want to share powers,
+to make it clearer.
+
+00:07:07.240 --> 00:07:10.440 align:middle
+I want to be able to share powers
+between heroes.
+
+00:07:11.000 --> 00:07:15.160 align:middle
+In that case, I have to define
+power as a root.
+
+00:07:15.560 --> 00:07:16.760 align:middle
+Watch this.
+
+00:07:17.560 --> 00:07:21.560 align:middle
+In our example, hero is a root.
+
+00:07:21.720 --> 00:07:24.240 align:middle
+But power can also be a root.
+
+00:07:24.520 --> 00:07:28.520 align:middle
+In Voyage, you can declare
+any class as a root.
+
+00:07:29.120 --> 00:07:31.160 align:middle
+Here is how to do it.
+
+00:07:32.280 --> 00:07:37.040 align:middle
+I say Power class isVoyageRoot.
+
+00:07:37.880 --> 00:07:42.040 align:middle
+Now, if I create the power "Fly,"
+
+00:07:42.400 --> 00:07:44.960 align:middle
+and save it, it is in the base.
+
+00:07:45.920 --> 00:07:47.840 align:middle
+Superstrength? The same.
+
+00:07:48.000 --> 00:07:52.280 align:middle
+Now I'll be able to make a query
+
+00:07:52.680 --> 00:07:55.520 align:middle
+that tells Voyage to get
+the power to fly.
+
+00:07:55.760 --> 00:08:00.160 align:middle
+I also want Voyage to get
+the power of superhuman strength.
+
+00:08:00.920 --> 00:08:03.240 align:middle
+And now I recreate Superman.
+
+00:08:03.640 --> 00:08:05.080 align:middle
+I say, "Hey!
+
+00:08:06.840 --> 00:08:11.120 align:middle
+I got these two powers, so there's
+only one in the system, and I save it.
+
+00:08:11.400 --> 00:08:15.280 align:middle
+But it's important for me
+to reset the base
+
+00:08:15.480 --> 00:08:18.720 align:middle
+so that it works right,
+
+00:08:18.880 --> 00:08:22.240 align:middle
+whenever you change the basic schema.
+
+00:08:23.600 --> 00:08:26.880 align:middle
+But now I want to show you
+what I have now.
+
+00:08:27.320 --> 00:08:30.520 align:middle
+Superman's powers
+are described differently.
+
+00:08:31.360 --> 00:08:35.640 align:middle
+The power isn't composed inside.
+I have a reference to a power.
+
+00:08:36.640 --> 00:08:41.440 align:middle
+That means if I have another superhero
+who knows how to fly,
+
+00:08:42.160 --> 00:08:46.640 align:middle
+I can share that superpower,
+instead of having two instances.
+
+00:08:47.440 --> 00:08:51.920 align:middle
+So, depending on your domain
+and how you want to modelize it,
+
+00:08:52.280 --> 00:08:54.320 align:middle
+you'll define roots differently.
+
+00:08:54.480 --> 00:08:57.440 align:middle
+This silly example
+is just to give you an idea.
+
+00:08:57.720 --> 00:09:01.240 align:middle
+Actually, if I repeat myself,
+you define a domain root
+
+00:09:01.600 --> 00:09:07.040 align:middle
+if you want to query it
+or share objects in the root.
+
+00:09:09.560 --> 00:09:13.880 align:middle
+In Voyage, relationships are expressed
+
+00:09:14.320 --> 00:09:17.360 align:middle
+the way "foreign keys" are
+in relational databases.
+
+00:09:17.640 --> 00:09:21.640 align:middle
+Voyage automatically handles
+cyclic references of root objects.
+
+00:09:21.840 --> 00:09:26.440 align:middle
+But be careful:
+Voyage does not support cyclic references
+
+00:09:26.880 --> 00:09:29.600 align:middle
+between embedded objects.
+
+00:09:31.240 --> 00:09:35.800 align:middle
+You'll experiment, and see.
+If you have roots, you're home safe.
+
+00:09:36.320 --> 00:09:40.600 align:middle
+In this course, I wanted to show you
+how easy it is to store objects
+
+00:09:41.040 --> 00:09:43.160 align:middle
+in a Mongo database.
+
+00:09:43.680 --> 00:09:48.120 align:middle
+If you want to know more, look at
+Enterprise Pharo: a Web Perspective.
+
+00:09:48.280 --> 00:09:50.200 align:middle
+It's in the MOOC resources.
+
+00:09:50.600 --> 00:09:55.680 align:middle
+You can also refer to a little tutorial
+on building the superhero base.
+
+00:09:56.840 --> 00:09:58.200 align:middle
+You can learn it all.
+

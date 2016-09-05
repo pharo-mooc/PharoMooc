@@ -1,0 +1,115 @@
+{
+  "title" : "Inheritance and Lookup",
+  "subtitle" : "4: doesNotUnderstand: aMessage",
+  "slidesid" : "W4S04"
+}
+
+${slide:title=Goal}$
+
+- A hook message is sent when the lookup fails
+- Classes can customize the reaction to this failure
+
+${slide:title=Message Sending}$
+
+${columns}$
+
+${column:width=38}$
+
+""Sending"" a ""message"" is a two-step process:
+# ""look up"" the ""method"" matching the message
+# execute this method on the ""receiver""
+
+${column:width=62}$
+
++>file://figures/InheritanceDiagram-sendingMessage.png|width=100+
+
+${endColumns}$
+
+
+${slide:title=When No Method is Found}$
+
+${columns}$
+
+${column:width=40}$
+
+- if no method is found in the hierarchy, ==doesNotUnderstand:== is sent to the receiver
+- the initial message is passed as parameter
+
+${column:width=60}$
+
++>file://figures/LookupEssenceWithDoesNotUnderstand.png|width=100+
+
+${endColumns}$
+
+${slide:title=When No Method is Found}$
+
++>file://figures/LookupEssenceWithDoesNotUnderstandFull-no-lines.png|width=70+
+
+
+
+${slide:title=Step by Step...}$
+
+${columns}$
+
+${column:width=60}$
+
+==node1 coucou: #stef==
+# ==coucou:== looked up in ==Node==
+# not defined in ==Node== -> continues in ==Object==
+# not defined in ==Object== -> send ==doesNotUnderstand:== to ==node1==
+# ==doesNotUnderstand:== looked up in ==Node==
+# not defined in ==Node== -> continues in ==Object==
+# ==doesNotUnderstand:== is found and executed
+
+${column:width=50}$
+
++>file://figures/LookupEssenceWithDoesNotUnderstandFull-no-lines.png|width=120+
+
+${endColumns}$
+
+${slide:title=doesNotUnderstand: is a Message}$
+
+- ==doesNotUnderstand:== is a message
+- any class can implement the corresponding method
+- used for automatic delegation, proxy, distribution
+
+${slide:title=doesNotUnderstand: and the Debugger}$
+
+When no class redefines ==doesNotUnderstand:==
+-- ==doesNotUnderstand:== in ==Object== is executed
+-- this method raises a ==MessageNotUnderstood== exception
+-- when not handled, this exception opens a debugger
+
+${slide:title=Catching MessageNotUnderstood Error}$
+
+${columns}$
+
+${column:width=60}$
+
+==MessageNotUnderstood== is just an exception, code can handle it:
+
+[[[
+Node >> sayHello
+  self coucou: #stef
+
+Node >> welcome
+  [ self sayHello ]
+  on: MessageNotUnderstood
+  do: [ Transcript show: 'Something went wrong with a message' ]
+]]]
+
+${column:width=40}$
+
++>file://figures/LookupEssenceWithDoesNotUnderstandFull-no-lines.png|width=130+
+
+${endColumns}$
+
+${slide:What You Should Know}$
+
+-The lookup sends ==doesNotUnderstand:== when it can not find a method
+-Each class can implement this method
+-The default implementation of ==doesNotUnderstand:== raises an exception that can be handled
+
+% Local Variables:
+% compile-command: "cd ../.. && ./compile.sh --to='Beamer' Slides/Week4/C019-W4S04-InheritanceAndLookup-4-DoesNotUnderstand.pillar"
+% End:

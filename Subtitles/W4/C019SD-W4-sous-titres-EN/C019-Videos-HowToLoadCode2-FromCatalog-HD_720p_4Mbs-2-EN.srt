@@ -1,0 +1,135 @@
+1
+00:00:01,450 --> 00:00:03,210
+Here I want to show you 
+how to load
+
+2
+00:00:03,377 --> 00:00:06,000
+packages deployed by other
+people.
+
+3
+00:00:06,380 --> 00:00:10,730
+In Pharo, there is what we call
+the Catalog Browser.
+
+4
+00:00:10,897 --> 00:00:13,160
+We're gonna open the Catalog Browser.
+
+5
+00:00:13,930 --> 00:00:17,070
+Here it will look on the Internet
+and get the 
+
+6
+00:00:17,350 --> 00:00:20,480
+catalog metadata,
+and show us all the
+
+7
+00:00:20,647 --> 00:00:24,520
+packages deployed by people
+that you can deploy too.
+
+8
+00:00:25,380 --> 00:00:27,890
+In fact, what happens is that
+when you deploy a
+
+9
+00:00:28,057 --> 00:00:30,870
+package in a particular repository,
+it will be
+
+10
+00:00:31,037 --> 00:00:34,680
+available in the catalog.
+Now
+
+11
+00:00:34,847 --> 00:00:39,740
+let's imagine I'm looking for
+XML, I will get all these
+
+12
+00:00:39,907 --> 00:00:40,950
+Parsers, here I have tags.
+
+13
+00:00:41,660 --> 00:00:45,260
+I see that XMLParser
+works for Pharo 5, I could have
+
+14
+00:00:45,427 --> 00:00:49,280
+also searched for XHTML
+validation, and I would have get it.
+
+15
+00:00:49,447 --> 00:00:51,680
+I click on it, 
+I have a little document.
+
+16
+00:00:52,840 --> 00:00:57,000
+I can install the new version
+and
+
+17
+00:00:57,167 --> 00:00:59,230
+create a group if I want to or
+only install the
+
+18
+00:01:00,000 --> 00:01:02,580
+stable release, or 
+change the configuration.
+
+19
+00:01:02,747 --> 00:01:06,260
+The configuration is the map managing 
+the dependencies between packages.
+
+20
+00:01:06,570 --> 00:01:09,290
+We install the stable
+configuration.
+
+21
+00:01:10,950 --> 00:01:12,280
+It will take a little time.
+
+22
+00:01:14,740 --> 00:01:18,350
+Here it will get the packages on 
+distributed repository
+
+23
+00:01:19,770 --> 00:01:21,290
+and load everything in memory.
+
+24
+00:01:30,330 --> 00:01:32,900
+I launch my tests because there
+is no reason otherwise.
+
+25
+00:01:33,067 --> 00:01:37,230
+I want to know if what that package
+does makes sense.
+
+26
+00:01:37,397 --> 00:01:39,630
+I go there. I select all.
+
+27
+00:01:39,797 --> 00:01:40,900
+I click on Run Selected.
+
+28
+00:01:41,620 --> 00:01:45,800
+I have 2 187 tests which are
+green, so it must work.
+
+

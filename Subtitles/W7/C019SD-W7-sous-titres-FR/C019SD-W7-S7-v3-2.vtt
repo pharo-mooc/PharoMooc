@@ -1,0 +1,603 @@
+WEBVTT
+
+00:00:00.700 --> 00:00:03.520 align:middle
+Bonjour à tous. Dans cette
+séquence, nous allons parler
+
+00:00:04.340 --> 00:00:08.590 align:middle
+de la campagne anti if, et
+en particulier pourquoi est-ce
+
+00:00:08.790 --> 00:00:13.660 align:middle
+que renvoyer nul et
+tester nul n'est pas terrible.
+
+00:00:13.890 --> 00:00:16.800 align:middle
+Voici un exemple de code qui
+n'est pas du tout objet, et
+
+00:00:17.070 --> 00:00:20.840 align:middle
+on va voir que là on a une
+méthode qui prend un animal en
+
+00:00:21.040 --> 00:00:23.930 align:middle
+paramètre, et en fonction du
+type de l'animal on va faire
+
+00:00:24.130 --> 00:00:26.760 align:middle
+des choses différentes. Si
+c'est un chien, on va lui
+
+00:00:27.000 --> 00:00:29.370 align:middle
+demander de remuer la
+queue. Si c'est un canard, on va
+
+00:00:29.570 --> 00:00:30.450 align:middle
+lui demander de faire coin coin.
+
+00:00:31.050 --> 00:00:33.260 align:middle
+Et si c'est un chat, on va lui
+demander de faire autre chose.
+
+00:00:34.190 --> 00:00:37.060 align:middle
+Pourquoi ce n'est pas bon et
+pourquoi en général et l'utilisation
+
+00:00:37.260 --> 00:00:41.870 align:middle
+de if, en particulier quand
+c'est appliqué pour vérifier
+
+00:00:42.670 --> 00:00:47.080 align:middle
+le type du receveur, pourquoi
+est-ce que ça ce n'est pas très bon?
+
+00:00:47.280 --> 00:00:49.510 align:middle
+Parce que si je veux
+ajouter un nouvel animal, il va
+
+00:00:49.710 --> 00:00:52.480 align:middle
+falloir que je cherche
+partout dans tout le code du
+
+00:00:52.680 --> 00:00:56.680 align:middle
+projet, tous les if qui
+pourraient être intéressants.
+
+00:00:57.000 --> 00:00:58.910 align:middle
+Donc, je vais devoir
+modifier plein de codes un peu
+
+00:00:59.110 --> 00:01:00.690 align:middle
+partout dans le projet, et ça
+ce n'est vraiment pas terrible.
+
+00:01:01.700 --> 00:01:03.630 align:middle
+Et puis en plus, parce
+que les méthodes, à force de
+
+00:01:03.830 --> 00:01:07.140 align:middle
+rajouter des cas, elles
+vont grossir de plus en plus et
+
+00:01:07.340 --> 00:01:09.170 align:middle
+elles vont être noyées dans
+les détails, c'est-à-dire que
+
+00:01:09.370 --> 00:01:12.530 align:middle
+si maintenant après avoir
+ajouté plein d'animaux, la
+
+00:01:12.730 --> 00:01:15.140 align:middle
+méthode va être très
+longue et pour chaque animal, je
+
+00:01:15.340 --> 00:01:16.940 align:middle
+peux avoir plein de
+détails. Par exemple ici c'est
+
+00:01:17.350 --> 00:01:19.140 align:middle
+quelque chose qui est
+particulièrement simple mais si
+
+00:01:19.340 --> 00:01:20.920 align:middle
+maintenant je me dis
+peut-être que les chiens n'ont pas
+
+00:01:21.120 --> 00:01:23.340 align:middle
+tous des queues, il va
+falloir que je fasse un cas "Si le
+
+00:01:23.540 --> 00:01:24.370 align:middle
+chien a une queue, je fais ça.
+
+00:01:24.570 --> 00:01:26.870 align:middle
+Si le chien n'a pas de
+queue, alors je fais ça " Le code
+
+00:01:27.070 --> 00:01:31.510 align:middle
+va être de plus en plus gros et
+de moins en moins compréhensible.
+
+00:01:33.000 --> 00:01:35.860 align:middle
+Pour remplacer tous ces
+trucs-là, on envoie des messages.
+
+00:01:36.070 --> 00:01:38.250 align:middle
+C'est tout ce qu'on vous
+répète depuis le début de ce
+
+00:01:38.450 --> 00:01:40.160 align:middle
+cours-là, et c'est
+vraiment la chose que vous devez
+
+00:01:40.360 --> 00:01:43.920 align:middle
+retenir: l'envoi de
+messages. On peut remplacer
+
+00:01:44.120 --> 00:01:47.560 align:middle
+facilement le code
+précédent par celui-ci où on
+
+00:01:47.760 --> 00:01:50.300 align:middle
+implémente une méthode
+showHappiness dans chaque classe
+
+00:01:50.500 --> 00:01:52.760 align:middle
+qui nous intéresse, et c'est
+chaque classe qui va décider
+
+00:01:53.000 --> 00:01:56.420 align:middle
+comment est-ce que tel ou tel
+animal va montrer qu'il est content.
+
+00:01:56.740 --> 00:02:01.680 align:middle
+Ensuite une fois que
+j'ai un animal, il me suffit
+
+00:02:01.880 --> 00:02:06.730 align:middle
+d'envoyer le
+message, showHappiness à l'
+
+00:02:06.930 --> 00:02:10.570 align:middle
+animal, et une de ces
+méthodes va être exécutée.
+
+00:02:10.770 --> 00:02:14.780 align:middle
+Là, on voit bien que
+c'est Pharo qui fait le if.
+
+00:02:15.000 --> 00:02:18.100 align:middle
+C'est Pharo qui se dit "Si
+mon animal est de ce type-là,
+
+00:02:18.310 --> 00:02:20.060 align:middle
+alors c'est cette
+méthode-là qui va s'exécuter.
+
+00:02:20.260 --> 00:02:21.600 align:middle
+" Tout ça se fait
+automatiquement, je n'ai pas besoin de
+
+00:02:21.800 --> 00:02:22.750 align:middle
+l'écrire en tant que développeur.
+
+00:02:23.120 --> 00:02:25.310 align:middle
+Donc, il n'y a aucune raison
+d'écrire des if par rapport
+
+00:02:25.510 --> 00:02:28.170 align:middle
+au type des objets,
+c'est Pharo qui gère ça.
+
+00:02:28.370 --> 00:02:30.760 align:middle
+Ça rend juste le code plus
+compliqué à lire et moins évolutif.
+
+00:02:32.580 --> 00:02:36.680 align:middle
+On va parler maintenant du
+cas particulier du nil parce
+
+00:02:36.880 --> 00:02:41.480 align:middle
+que si une méthode retourne
+un nil, vous allez forcer les
+
+00:02:41.680 --> 00:02:43.060 align:middle
+clients à utiliser if.
+
+00:02:43.260 --> 00:02:46.010 align:middle
+Et on vient de voir qu'utiliser
+if, c'était rarement une bonne idée.
+
+00:02:47.020 --> 00:02:51.190 align:middle
+Ici, si je prends un exemple
+de code qui dit l'idée c'est
+
+00:02:51.390 --> 00:02:53.630 align:middle
+de faire quelque chose en
+fonction d'un paramètre et en
+
+00:02:53.830 --> 00:02:56.490 align:middle
+fonction d'un objet inférenceur,
+peu importe ce que ce code-là fait.
+
+00:02:58.400 --> 00:03:01.110 align:middle
+Par contre ici, je vois que
+dans certains cas, il renvoie nil.
+
+00:03:01.840 --> 00:03:05.000 align:middle
+Ce qui fait quand je vais
+devoir utilise ce code, donc
+
+00:03:05.200 --> 00:03:07.360 align:middle
+quand j'envoie le message
+rulesForFact à un référenceur,
+
+00:03:07.560 --> 00:03:09.040 align:middle
+il va falloir que je teste.
+
+00:03:09.240 --> 00:03:11.150 align:middle
+Est-ce que
+rulesForFact m'a renvoyé Nil?
+
+00:03:11.350 --> 00:03:12.750 align:middle
+Si oui alors je fais ça.
+
+00:03:13.000 --> 00:03:14.470 align:middle
+Si ce n'est pas nil,
+alors je fais autre chose.
+
+00:03:14.680 --> 00:03:16.740 align:middle
+Dans ce cas-là en
+particulier, on peut se rendre compte
+
+00:03:16.940 --> 00:03:20.270 align:middle
+que ici comme on a un
+pluriel et ici on a un pluriel,
+
+00:03:20.470 --> 00:03:23.620 align:middle
+probablement que cette
+méthode-là va renvoyer une collection.
+
+00:03:24.200 --> 00:03:27.710 align:middle
+Pour éviter nil, une bonne
+solution souvent c'est que
+
+00:03:27.910 --> 00:03:29.860 align:middle
+quand on a une méthode qui
+retourne une collection, c'est
+
+00:03:30.060 --> 00:03:32.800 align:middle
+de retourner une collection vide,
+ça marche vraiment très souvent.
+
+00:03:33.390 --> 00:03:35.780 align:middle
+Et retourner une collection
+vide plutôt que de retourner
+
+00:03:36.000 --> 00:03:38.250 align:middle
+nil, ça facilite
+vraiment l'écriture du code.
+
+00:03:38.910 --> 00:03:42.000 align:middle
+Parce que maintenant les
+clients ont juste à itérer sur
+
+00:03:42.200 --> 00:03:43.720 align:middle
+la collection, si elle est
+vide il ne va rien se passer,
+
+00:03:43.920 --> 00:03:44.740 align:middle
+c'est exactement ça qui était prévu.
+
+00:03:46.470 --> 00:03:51.150 align:middle
+Pour les cas exceptionnels,
+par exemple vous avez un flux
+
+00:03:51.350 --> 00:03:53.910 align:middle
+d'écriture de fichiers et
+puis votre flux n'a pas été
+
+00:03:54.110 --> 00:03:56.100 align:middle
+ouvert en écriture, et
+donc il y a une erreur.
+
+00:03:56.580 --> 00:03:59.200 align:middle
+Plutôt que retourner nil,
+vous informez le système de la
+
+00:03:59.400 --> 00:04:01.450 align:middle
+situation exceptionnelle
+en levant une exception.
+
+00:04:02.260 --> 00:04:05.310 align:middle
+En Pharo, on appelle ça
+"signaler une exception".
+
+00:04:06.110 --> 00:04:08.760 align:middle
+On crée une instance d'une
+ classe exception ou d'une
+
+00:04:08.960 --> 00:04:11.040 align:middle
+sous-classe et on
+envoie un signal, ce
+
+00:04:13.660 --> 00:04:17.750 align:middle
+qui permet d'éviter que
+directement le client de la
+
+00:04:17.950 --> 00:04:20.260 align:middle
+méthode, ici de la méthode
+nextPutAll, ait besoin de
+
+00:04:20.460 --> 00:04:22.250 align:middle
+tester "Si c'est nil,
+probablement que quelque chose s'est
+
+00:04:22.450 --> 00:04:23.730 align:middle
+mal passé, alors il
+faut que je fasse ça.
+
+00:04:24.220 --> 00:04:26.940 align:middle
+" Là, soit le client décide
+de traiter l'exception, soit
+
+00:04:27.140 --> 00:04:28.810 align:middle
+c'est le client du client qui
+décide de traiter l'exception,
+
+00:04:29.010 --> 00:04:31.570 align:middle
+soit c'est le client du
+client du client, et caetera.
+
+00:04:32.030 --> 00:04:33.660 align:middle
+On n'est pas obligé de
+faire ça à tous les niveaux, on
+
+00:04:33.860 --> 00:04:36.200 align:middle
+peut décider d'un niveau qui
+nous intéresse pour capturer
+
+00:04:36.400 --> 00:04:37.520 align:middle
+l'exception et en
+faire quelque chose.
+
+00:04:38.520 --> 00:04:40.960 align:middle
+Ça évite tout un tas de if.
+
+00:04:41.160 --> 00:04:44.610 align:middle
+Un autre cas où on trouve
+des vérifications par rapport à
+
+00:04:44.810 --> 00:04:48.040 align:middle
+la valeur nil, c'est dans
+les variables d'instances qui
+
+00:04:48.240 --> 00:04:51.460 align:middle
+ne sont pas initialisées.
+Si vous avez du code qui dit
+
+00:04:51.660 --> 00:04:55.400 align:middle
+"Si ma variable est encore à
+nil, alors je fais ça", dans
+
+00:04:55.600 --> 00:04:58.620 align:middle
+ces cas-là il vaut mieux
+initialiser la variable tout de
+
+00:04:58.820 --> 00:05:01.620 align:middle
+suite avec une valeur qui
+va marcher dans tous les cas.
+
+00:05:02.130 --> 00:05:05.920 align:middle
+Là, ma variable members
+qui est censée contenir une
+
+00:05:06.120 --> 00:05:08.850 align:middle
+collection, plutôt que la
+laisser à nil je l'initialise à
+
+00:05:09.050 --> 00:05:10.250 align:middle
+une collection vide dès le départ.
+
+00:05:10.900 --> 00:05:13.000 align:middle
+Ça encore une fois ça
+marche très souvent.
+
+00:05:14.220 --> 00:05:18.800 align:middle
+Quand vous voulez donner une
+valeur à une variable et que
+
+00:05:19.000 --> 00:05:22.150 align:middle
+c'est coûteux de calculer la
+valeur de cette variable-là,
+
+00:05:22.600 --> 00:05:26.530 align:middle
+vous pouvez attendre le dernier
+moment avant de calculer cette valeur-là.
+
+00:05:26.730 --> 00:05:28.950 align:middle
+Peut-être qu'elle ne sera
+jamais calculée et donc que
+
+00:05:29.150 --> 00:05:30.240 align:middle
+vous aurez gagné du
+temps d'exécution.
+
+00:05:31.420 --> 00:05:34.750 align:middle
+Dans ces cas-là, on utilise
+l'initialisation paresseuse
+
+00:05:35.160 --> 00:05:39.010 align:middle
+et c'est au moment où on va
+avoir besoin d'une valeur qu'on
+
+00:05:39.210 --> 00:05:41.440 align:middle
+va regarder si la valeur est
+encore à nil, alors je mets
+
+00:05:41.640 --> 00:05:45.950 align:middle
+quelque chose dedans. Si
+elle n'est plus à nil, je
+
+00:05:46.150 --> 00:05:47.220 align:middle
+retourne directement sa valeur.
+
+00:05:48.000 --> 00:05:52.360 align:middle
+Ce qui fait qu'ici, j'ai un if par
+rapport à nil mais je n'en ai qu'un.
+
+00:05:53.110 --> 00:05:56.830 align:middle
+Tous les autres
+utilisateurs de la variable vont passer
+
+00:05:57.030 --> 00:06:00.080 align:middle
+par cette méthode et
+n'auront pas à tester si c'est nil.
+
+00:06:01.580 --> 00:06:05.960 align:middle
+Parfois, il y a des cas
+où il va falloir tester.
+
+00:06:06.160 --> 00:06:09.000 align:middle
+Il va falloir vérifier
+est-ce que j'ai quelque chose à
+
+00:06:09.200 --> 00:06:12.040 align:middle
+faire ou pas, c'est ce
+qu'on trouve dans cet exemple.
+
+00:06:12.830 --> 00:06:15.580 align:middle
+L'idée de ça c'est qu'on
+a une palette d'outils.
+
+00:06:16.140 --> 00:06:19.580 align:middle
+Si on a un outil qui est
+sélectionné, on peut faire quelque chose.
+
+00:06:19.780 --> 00:06:22.620 align:middle
+Si aucun outil n'est
+sélectionné, on ne peut rien faire.
+
+00:06:26.700 --> 00:06:30.390 align:middle
+Si selectedTool retourne
+nil, il n'y a pas d'outil
+
+00:06:30.590 --> 00:06:31.510 align:middle
+sectionné, donc on ne fait rien.
+
+00:06:31.780 --> 00:06:34.690 align:middle
+Si selectedTool retourne
+quelque chose, alors on va
+
+00:06:34.890 --> 00:06:39.610 align:middle
+demander à ce
+quelque chose de faire une
+
+00:06:39.810 --> 00:06:44.190 align:middle
+action. Une bonne façon de
+remplacer ça, c'est d'utiliser
+
+00:06:44.390 --> 00:06:45.530 align:middle
+le design pattern null Object.
+
+00:06:46.060 --> 00:06:48.870 align:middle
+Ce que je fais c'est que
+plutôt qu'avoir les 2 cas, j'ai
+
+00:06:49.070 --> 00:06:51.320 align:middle
+un outil, je n'ai pas
+d'outil, on ne va avoir qu'un seul
+
+00:06:51.520 --> 00:06:54.390 align:middle
+cas j'ai un outil et un
+des outils ne fera rien.
+
+00:06:54.590 --> 00:06:56.720 align:middle
+Et ce sera l'outil qui ne fera
+rien qui sera sélectionné par défaut.
+
+00:06:57.330 --> 00:06:59.030 align:middle
+Là, je crée un
+outil qui ne fait rien.
+
+00:06:59.260 --> 00:07:01.710 align:middle
+Quand je lui demande de faire
+des actions, il ne fait rien.
+
+00:07:03.110 --> 00:07:05.700 align:middle
+Et par défaut, dans ma palette
+d'outils je vais sectionner ce truc-là.
+
+00:07:06.550 --> 00:07:08.280 align:middle
+Plutôt que de ne rien
+sélectionner, je sélectionne un
+
+00:07:08.480 --> 00:07:11.950 align:middle
+outil qui ne fait rien.
+C'est le design pattern Null
+
+00:07:12.150 --> 00:07:14.550 align:middle
+Object, pour en savoir plus vous
+avez ses références qui sont ici.
+
+00:07:15.700 --> 00:07:19.540 align:middle
+En conclusion. Les messages
+marchent toujours mieux que les if.
+
+00:07:19.790 --> 00:07:22.940 align:middle
+Les if, vous allez vous en
+servir dans certains cas, mais
+
+00:07:23.370 --> 00:07:25.670 align:middle
+souvent vous allez pouvoir
+vous en passer et envoyer des
+
+00:07:25.870 --> 00:07:27.330 align:middle
+messages sera souvent mieux.
+
+00:07:29.940 --> 00:07:32.660 align:middle
+Évitez de retourner la
+valeur nil parce que ça force les
+
+00:07:32.860 --> 00:07:36.520 align:middle
+vérifications avec if: si
+la valeur est nulle, alors je
+
+00:07:36.720 --> 00:07:40.000 align:middle
+fais ça; si la valeur n'est
+pas nulle, alors je fais ça.
+
+00:07:40.170 --> 00:07:40.930 align:middle
+"
+
+00:07:41.130 --> 00:07:43.000 align:middle
+Initialisez vos variables
+soit dès la création de l'objet,
+
+00:07:43.200 --> 00:07:44.270 align:middle
+soit de façon paresseuse.
+
+00:07:45.740 --> 00:07:48.210 align:middle
+Si vous pouvez, créez des
+objets qui représentent un
+
+00:07:48.410 --> 00:07:50.450 align:middle
+comportement par défaut ou
+une absence de comportement.
+
+00:07:51.120 --> 00:07:52.610 align:middle
+Tout ce que je viens de vous
+raconter, c'est valable pour
+
+00:07:52.810 --> 00:07:55.330 align:middle
+Pharo, mais c'est valable
+aussi pour tous les langages objet.
+
+00:07:56.480 --> 00:07:58.460 align:middle
+C'est important de garder
+tout ce que je viens de vous
+
+00:07:58.660 --> 00:08:00.340 align:middle
+raconter en tête quel que soit
+le langage que vous utilisez.
+

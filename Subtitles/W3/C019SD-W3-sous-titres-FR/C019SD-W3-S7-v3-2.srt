@@ -1,0 +1,1260 @@
+1
+00:00:01,080 --> 00:00:04,780
+Alors dans cette séquence
+nous allons voir les éléments
+
+2
+00:00:05,000 --> 00:00:07,290
+essentiels de la
+hiérarchie des collections en Pharo.
+
+3
+00:00:07,770 --> 00:00:09,910
+Donc vous allez voir que
+Pharo est riche du point de vue
+
+4
+00:00:10,110 --> 00:00:14,070
+des différents types de
+collections, mais il facilite la
+
+5
+00:00:14,270 --> 00:00:17,000
+vie du programmeur puisqu'ils
+présentent tous une API commune.
+
+6
+00:00:17,720 --> 00:00:20,790
+Et on verra également la
+différence entre les collections
+
+7
+00:00:21,030 --> 00:00:22,640
+littérales et les
+collections dynamiques.
+
+8
+00:00:24,170 --> 00:00:26,360
+Donc là l'API des
+collections, comme je disais, est
+
+9
+00:00:26,560 --> 00:00:28,550
+riche, on verra qu'il y a beaucoup
+de types de collections différents.
+
+10
+00:00:29,000 --> 00:00:31,590
+Toutes présentent une API
+commune, on le verra, qui est
+
+11
+00:00:31,790 --> 00:00:34,910
+assez bien organisée, qui facilite
+énormément la vie du programmeur.
+
+12
+00:00:36,040 --> 00:00:39,000
+Petit point particulier en
+Pharo les collections, les
+
+13
+00:00:39,200 --> 00:00:41,910
+index des collections,
+commencent à 1 alors que ça
+
+14
+00:00:42,110 --> 00:00:43,500
+commence à 0 dans d'autres langages.
+
+15
+00:00:44,330 --> 00:00:46,630
+Et puis les collections
+peuvent contenir n'importe quel
+
+16
+00:00:46,830 --> 00:00:49,180
+type d'objet en Pharo, ce
+qui n'est pas forcément le cas
+
+17
+00:00:49,380 --> 00:00:50,140
+dans dans les autres langages.
+
+18
+00:00:51,700 --> 00:00:54,530
+Donc quelques-unes des
+collections les plus remarquables
+
+19
+00:00:54,730 --> 00:00:56,810
+et les plus utilisées, donc
+OrderedCollection qui est une
+
+20
+00:00:57,010 --> 00:01:00,580
+collection dynamique dont
+la taille va grossir à chaque
+
+21
+00:01:00,780 --> 00:01:02,230
+fois qu'on ajoute
+des éléments dedans.
+
+22
+00:01:02,530 --> 00:01:05,410
+Array qui est une
+collection de taille fixe.
+
+23
+00:01:05,880 --> 00:01:07,820
+Et puis on va accéder aux
+éléments en fonction d'un
+
+24
+00:01:08,020 --> 00:01:12,910
+indice Set, qui va contenir
+des éléments mais sans doublon.
+
+25
+00:01:13,450 --> 00:01:16,000
+On ne pourra pas insérer 2
+fois le même élément dans un Set.
+
+26
+00:01:16,330 --> 00:01:18,520
+Et puis les dictionnaires,
+donc les dictionnaires ce sont
+
+27
+00:01:18,720 --> 00:01:21,040
+des tables de hachage, à une
+clé donnée j'associe une valeur.
+
+28
+00:01:22,160 --> 00:01:24,340
+Donc vous avez ici un
+extrait de la hiérarchie des
+
+29
+00:01:24,540 --> 00:01:25,770
+collections, c'est
+seulement un extrait.
+
+30
+00:01:26,000 --> 00:01:28,080
+Il est plus riche que ça en Pharo.
+
+31
+00:01:28,280 --> 00:01:29,580
+Donc voyez qu'il y
+a plein de classes.
+
+32
+00:01:29,780 --> 00:01:32,010
+Elles héritent toutes de
+collections, ce qui nous fournit
+
+33
+00:01:32,210 --> 00:01:33,680
+une API commune pour
+l'ensemble des collections.
+
+34
+00:01:34,800 --> 00:01:36,910
+Et puis on va voir celles
+qui sont en gras, on voit les
+
+35
+00:01:37,110 --> 00:01:39,260
+expliciter un peu au fur et
+à mesure de cette séquence.
+
+36
+00:01:40,690 --> 00:01:44,270
+Donc il existe une API commune, je
+vous disais, répartie en 7 points.
+
+37
+00:01:44,540 --> 00:01:46,550
+On a des méthodes
+spécifiques pour la création des
+
+38
+00:01:46,750 --> 00:01:49,270
+collections, qu'on va envoyer
+plutôt aux classes des collections.
+
+39
+00:01:49,530 --> 00:01:51,530
+Des méthodes spécifiques
+pour accéder aux propriétés des
+
+40
+00:01:51,730 --> 00:01:53,900
+collections, que ce soit
+accéder par exemple à la taille
+
+41
+00:01:54,330 --> 00:01:57,540
+d'une collection ou accéder même aux
+éléments que la collection contient.
+
+42
+00:01:58,150 --> 00:02:01,000
+Des méthodes de tests, savoir
+est-ce que la collection est vide ou pas.
+
+43
+00:02:01,240 --> 00:02:03,020
+Des méthodes d'ajout et
+de retrait d'éléments, des
+
+44
+00:02:03,220 --> 00:02:05,130
+méthodes d'énumération des
+éléments dans une collection.
+
+45
+00:02:05,420 --> 00:02:07,190
+Donc je parcours
+l'ensemble des éléments, je voudrais
+
+46
+00:02:08,190 --> 00:02:11,080
+savoir si un élément existe, est
+présent dans une collection ou pas.
+
+47
+00:02:11,580 --> 00:02:14,410
+Et puis on a des méthodes
+de conversion d'un type de
+
+48
+00:02:14,610 --> 00:02:15,500
+collection en un autre type.
+
+49
+00:02:17,130 --> 00:02:18,200
+Commençons par un exemple.
+
+50
+00:02:18,630 --> 00:02:21,600
+Donc je veux créer une
+collection en Pharo tout bêtement.
+
+51
+00:02:21,800 --> 00:02:24,450
+Je vais sélectionner la
+bonne classe qui m'intéresse et
+
+52
+00:02:24,650 --> 00:02:26,510
+lui envoyer un message new
+pour instancier, pour créer un
+
+53
+00:02:26,710 --> 00:02:27,900
+nouvel instance sur cette classe.
+
+54
+00:02:28,350 --> 00:02:30,240
+Donc premier cas de
+figure, j'utilise new.
+
+55
+00:02:30,630 --> 00:02:31,600
+Deuxième cas de figure.
+
+56
+00:02:32,070 --> 00:02:34,260
+En fait je ne peux pas
+faire un new directement où j'ai
+
+57
+00:02:34,460 --> 00:02:36,020
+envie de spécifier la
+taille de la collection.
+
+58
+00:02:36,430 --> 00:02:39,380
+Donc typiquement Array je
+peux lui envoyer new:4, donc je
+
+59
+00:02:39,580 --> 00:02:41,490
+fais un tableau de taille 4
+ou un tableau de taille 2,
+
+60
+00:02:41,770 --> 00:02:43,280
+donc ça marche également
+sur les OrderedCollection je
+
+61
+00:02:43,480 --> 00:02:48,000
+pourrais faire un
+OrderedCollection. Donc on a d'autres
+
+62
+00:02:48,200 --> 00:02:50,440
+types de méthodes pour
+créer des collections
+
+63
+00:02:50,930 --> 00:02:53,850
+pré-initialisées, donc
+avec withAll par exemple où je
+
+64
+00:02:54,050 --> 00:02:55,160
+vais passer une collection littérale.
+
+65
+00:02:55,500 --> 00:02:58,280
+Une collection littérale ça
+commence par un #( je vous rappelle.
+
+66
+00:02:59,050 --> 00:03:01,300
+Et puis ça va me créer donc
+une nouvelle instance de la
+
+67
+00:03:01,500 --> 00:03:03,080
+ classe
+OrderedCollection, donc un nouvel
+
+68
+00:03:03,280 --> 00:03:05,000
+OrderedCollection qui
+contiendra bien tous les éléments
+
+69
+00:03:05,200 --> 00:03:06,870
+qui ont été placés au
+moment de sa création.
+
+70
+00:03:07,630 --> 00:03:10,000
+Je peux faire la même chose
+avec un Set, par contre je
+
+71
+00:03:10,200 --> 00:03:12,810
+vous rappelle hein dans un Set on
+ne peut pas avoir d'objets doublons.
+
+72
+00:03:13,030 --> 00:03:15,750
+Donc le chiffre 7 qu'on
+avait mis 2 fois dans la
+
+73
+00:03:15,950 --> 00:03:18,700
+collection littérale il ne peut
+pas se retrouver 2 fois dans le Set.
+
+74
+00:03:21,300 --> 00:03:25,070
+Donc il y a d'autres types,
+d'autres sortes de messages
+
+75
+00:03:25,270 --> 00:03:27,860
+qu'on peut envoyer aux classes
+collection pour les initialiser.
+
+76
+00:03:28,140 --> 00:03:29,390
+Ici j'en ai un autre exemple.
+
+77
+00:03:29,590 --> 00:03:33,020
+new withAll, donc qui est
+un message, je veux faire une
+
+78
+00:03:33,220 --> 00:03:35,390
+collection de taille 5
+mais je veux que toutes les
+
+79
+00:03:35,590 --> 00:03:37,100
+ classes soient
+initialisées avec un certain objet.
+
+80
+00:03:37,370 --> 00:03:39,450
+Donc en l'occurrence ici
+une Stream qui contient.
+
+81
+00:03:42,470 --> 00:03:46,230
+Donc subtilité en Pharo toutes les
+collections commencent à l'indice 1.
+
+82
+00:03:46,680 --> 00:03:49,780
+Donc si je demande à cette
+collection de 3 éléments de me
+
+83
+00:03:50,000 --> 00:03:52,470
+rendre l'élément à
+l'indice 2, c'est bien'hates'.
+
+84
+00:03:52,670 --> 00:03:53,430
+Donc c'est bien celui-là.
+
+85
+00:03:53,780 --> 00:03:55,920
+Ça c'est 1, ça c'est 2, ça c'est 3.
+
+86
+00:03:57,260 --> 00:03:58,650
+Donc c'est la même chose
+pour les OrderedCollection, si
+
+87
+00:03:58,850 --> 00:04:01,400
+je convertis cette
+collection en OrderedCollection et je
+
+88
+00:04:01,600 --> 00:04:04,210
+lui demande son élément indice 2,
+ça me revient'hates'la même chose.
+
+89
+00:04:05,950 --> 00:04:08,890
+Donc les collections peuvent
+contenir toutes sortes d'objets,
+
+90
+00:04:09,090 --> 00:04:12,380
+comme je l'ai dit, et ici
+je vous en montre un exemple
+
+91
+00:04:12,580 --> 00:04:15,190
+cette collection littérale
+va contenir, dans son premier
+
+92
+00:04:15,390 --> 00:04:17,770
+élément, la chaîne des
+caractères'calvin', et dans son
+
+93
+00:04:18,000 --> 00:04:21,460
+second élément une collection
+qui contiendra les nombres 1, 2, 3.
+
+94
+00:04:22,150 --> 00:04:25,360
+Je peux créer par exemple un
+tableau, donc ici ce tableau
+
+95
+00:04:25,560 --> 00:04:30,000
+il est composé des éléments 1, 2 ici
+
+96
+00:04:31,060 --> 00:04:32,490
+et d'un Set à la fin.
+
+97
+00:04:33,280 --> 00:04:36,960
+Donc l'élément 1 a été ajouté
+ici, l'élément 2 ici et le Set ici.
+
+98
+00:04:38,240 --> 00:04:40,180
+Donc on peut maintenant
+parcourir les éléments d'une
+
+99
+00:04:40,380 --> 00:04:43,810
+collection, en utilisant
+le message "do" par exemple.
+
+100
+00:04:44,730 --> 00:04:49,000
+Donc ici j'ai une collection et je
+vais lui envoyer le message "do".
+
+101
+00:04:49,690 --> 00:04:52,910
+Je vais lui passer un
+block, donc je vous rappelle le
+
+102
+00:04:53,110 --> 00:04:55,380
+block ici il commence avec
+le crochet ouvrant, il se
+
+103
+00:04:55,580 --> 00:04:59,040
+ferme avec le crochet fermant.
+Le paramètre du block il s'appelle
+
+104
+00:04:59,240 --> 00:05:00,550
+"each", donc qui commence par un :.
+
+105
+00:05:00,920 --> 00:05:03,850
+Il est séparé du corps de
+block par la barre verticale et
+
+106
+00:05:04,050 --> 00:05:06,410
+on va à chaque tour de
+boucles, "each" vaudra le premier
+
+107
+00:05:06,610 --> 00:05:08,550
+élément de la collection, le
+deuxième et caetera jusqu'à la fin.
+
+108
+00:05:08,920 --> 00:05:12,180
+Donc on va bien afficher sur le
+Transcript Calvin hates Suzie.
+
+109
+00:05:14,640 --> 00:05:15,400
+Donc on a les tableaux.
+
+110
+00:05:16,110 --> 00:05:18,190
+Donc les tableaux c'est des
+collections de taille fixe.
+
+111
+00:05:18,410 --> 00:05:21,820
+Donc on peut demander à un tableau sa
+taille, j'y envoie le message "size".
+
+112
+00:05:22,580 --> 00:05:25,160
+On peut accéder directement
+à un élément d'un tableau en
+
+113
+00:05:25,360 --> 00:05:28,050
+lui envoyant le message "at:", je
+veux l'élément 2 de la collection.
+
+114
+00:05:28,250 --> 00:05:31,080
+On peut modifier
+l'élément à l'indice 2 dans la
+
+115
+00:05:31,280 --> 00:05:35,030
+collection en
+envoyant at:1 put'Calvin'.
+
+116
+00:05:35,730 --> 00:05:38,240
+Donc je vais insérer la
+chaîne Calvin dans la case 1.
+
+117
+00:05:39,360 --> 00:05:40,630
+Et puis je peux demander la taille.
+
+118
+00:05:40,830 --> 00:05:45,040
+L'élément intéressant ici
+dans cet exemple c'est qu'on
+
+119
+00:05:45,240 --> 00:05:47,430
+voit qu'on a construit le
+même tableau de 2 manières
+
+120
+00:05:47,630 --> 00:05:50,580
+différentes: une première
+version littérale et une
+
+121
+00:05:50,780 --> 00:05:52,860
+deuxième version
+dynamique ici, où j'ai vraiment
+
+122
+00:05:53,060 --> 00:05:57,730
+instancié la classe Array à la
+main et rempli chacune des cases.
+
+123
+00:05:59,590 --> 00:06:02,250
+Donc on peut envoyer le
+message "size" à une collection
+
+124
+00:06:02,450 --> 00:06:05,240
+pour récupérer sa taille. On
+peut accéder à un élément d'une
+
+125
+00:06:05,440 --> 00:06:07,400
+collection en lui
+fournissant la méthode "at:".
+
+126
+00:06:07,800 --> 00:06:08,830
+Donc ça j'en ai déjà parlé.
+
+127
+00:06:10,590 --> 00:06:12,610
+Donc il faut faire
+attention il y a une subtilité.
+
+128
+00:06:12,810 --> 00:06:14,760
+Quand j'accède à un
+élément d'une collection en
+
+129
+00:06:14,960 --> 00:06:17,190
+fournissant un indice, il
+faut faire attention que cet
+
+130
+00:06:17,390 --> 00:06:21,660
+indice soit bien dans
+les bornes acceptées par la
+
+131
+00:06:21,860 --> 00:06:23,700
+collection, qu'il soit
+inférieur à la taille de la collection.
+
+132
+00:06:24,030 --> 00:06:26,950
+Si je demande à cette
+collection l'élément à l'indice 55
+
+133
+00:06:27,150 --> 00:06:28,790
+forcément il n'existe pas
+puisque cette collection a une
+
+134
+00:06:29,000 --> 00:06:30,330
+taille 3, donc ça va
+bien me rendre une erreur.
+
+135
+00:06:33,500 --> 00:06:36,020
+Donc pour modifier les
+éléments, j'en ai parlé, à l'indice
+
+136
+00:06:36,220 --> 00:06:39,820
+2 je veux modifier,
+insérer un nouvel élément dans la
+
+137
+00:06:40,020 --> 00:06:41,310
+collection, la chaine
+des caractères'loves'.
+
+138
+00:06:41,620 --> 00:06:44,890
+Donc ça bien
+remplacer'hates'par'loves', on le voit bien
+
+139
+00:06:45,530 --> 00:06:49,730
+ici dans le résultat.
+
+140
+00:06:49,950 --> 00:06:54,590
+Donc les tableaux littéraux,
+donc on a ici un exemple de
+
+141
+00:06:54,790 --> 00:06:57,770
+tableau littéral, ça commence
+par #( comme je vous l'avais
+
+142
+00:06:58,000 --> 00:07:00,330
+dit, on peut mettre
+n'importe quoi dedans donc un nom ou
+
+143
+00:07:00,530 --> 00:07:01,540
+une chaine de caractères et cetera.
+
+144
+00:07:02,280 --> 00:07:05,680
+Et puis tous les
+tableaux littéraux en Pharo sont
+
+145
+00:07:05,880 --> 00:07:07,350
+instance de la
+ classe Array par défaut.
+
+146
+00:07:08,100 --> 00:07:10,470
+Donc je peux envoyer le
+message "class" à un tableau
+
+147
+00:07:10,670 --> 00:07:12,290
+littéral et ça me rend bien Array.
+
+148
+00:07:12,490 --> 00:07:14,590
+Donc c'est bien une
+instance de la classe Array.
+
+149
+00:07:18,850 --> 00:07:21,000
+Alors les versions
+dynamiques et les versions littérales
+
+150
+00:07:21,200 --> 00:07:22,760
+sont exactement
+équivalentes en Pharo.
+
+151
+00:07:22,960 --> 00:07:26,000
+C'est juste une version plus concise,
+donc ça permet d'écrire ça plus vite.
+
+152
+00:07:26,630 --> 00:07:30,020
+Donc ici vous avez la
+version littérale d'une collection
+
+153
+00:07:30,220 --> 00:07:32,510
+et vous avez sa version
+dynamique où j'instancie vraiment
+
+154
+00:07:32,710 --> 00:07:33,470
+la classe Array à la main.
+
+155
+00:07:33,830 --> 00:07:35,440
+Mais c'est complètement
+équivalent puisque vous voyez
+
+156
+00:07:35,640 --> 00:07:36,830
+bien que les 2
+résultats sont les mêmes.
+
+157
+00:07:40,080 --> 00:07:43,100
+Donc la classe
+OrderedCollection définit une collection
+
+158
+00:07:43,300 --> 00:07:46,570
+particulière, qui est
+extensible, donc à chaque fois qu'on
+
+159
+00:07:46,770 --> 00:07:48,550
+va ajouter des
+éléments elle va s'agrandir.
+
+160
+00:07:49,290 --> 00:07:53,460
+Donc ici j'instancie la classe
+OrderedCollection en envoyant un message new.
+
+161
+00:07:53,660 --> 00:07:55,670
+J'utilise la méthode
+"add" pour ajouter différents
+
+162
+00:07:55,870 --> 00:07:58,510
+éléments dans cette
+collection. J'ai même des variations
+
+163
+00:07:58,710 --> 00:08:00,870
+je peux faire "addFirst"
+pour ajouter un élément au début
+
+164
+00:08:01,070 --> 00:08:02,610
+de la collection, par
+défaut il s'ajoute à la fin.
+
+165
+00:08:04,510 --> 00:08:07,890
+Donc vous voyez à chaque fois
+ce que nous rend la collection.
+
+166
+00:08:08,090 --> 00:08:11,450
+Donc là on a bien 3 éléments dans
+la collection: Pharo, Reef et Pharo.
+
+167
+00:08:11,720 --> 00:08:14,660
+Si je fais "add: Seaside",
+"Seaside" est bien ajouté à la
+
+168
+00:08:14,860 --> 00:08:15,620
+fin de la collection.
+
+169
+00:08:18,180 --> 00:08:21,300
+J'ai des méthodes de conversion
+entre un type de collection et un autre.
+
+170
+00:08:21,650 --> 00:08:24,840
+Donc par exemple ici
+j'utilise une collection littérale,
+
+171
+00:08:25,040 --> 00:08:27,070
+donc qui va être un
+Array et le message
+
+172
+00:08:27,270 --> 00:08:31,250
+asOrderedCollection qui va
+transformer ce tableau en
+
+173
+00:08:31,710 --> 00:08:32,470
+collection ordonnée.
+
+174
+00:08:33,750 --> 00:08:37,020
+Enfin les Set. Donc les Set sont
+un type de collection sans doublon.
+
+175
+00:08:37,450 --> 00:08:39,670
+Donc pareil de taille
+extensible, donc à chaque fois que
+
+176
+00:08:39,870 --> 00:08:41,490
+va ajouter un élément ça va grandir.
+
+177
+00:08:41,840 --> 00:08:44,800
+Je peux utiliser une
+collection littérale que je
+
+178
+00:08:45,000 --> 00:08:48,000
+transforme en Set et ça me
+donne bien un Set dans lequel
+
+179
+00:08:48,200 --> 00:08:49,000
+les doublons ont été retirés.
+
+180
+00:08:50,440 --> 00:08:52,140
+Ou alors je peux accéder à la
+version dynamique plutôt qu'une
+
+181
+00:08:52,340 --> 00:08:56,220
+collection littérale. Set
+with with qui permet de créer
+
+182
+00:08:56,420 --> 00:08:59,090
+un Set et de le remplir avec 2
+éléments, deux Set à chaque fois.
+
+183
+00:09:02,210 --> 00:09:03,800
+Donc les méthodes de
+conversion sont extrêmement
+
+184
+00:09:04,000 --> 00:09:06,760
+pratiques pour jongler, pour
+transformer une collection en un autre type.
+
+185
+00:09:07,000 --> 00:09:09,880
+Elles ont toujours la même
+forme c'est "as" + le nom de
+
+186
+00:09:10,080 --> 00:09:11,250
+la collection qu'on voudra avoir.
+
+187
+00:09:14,080 --> 00:09:16,610
+Les dictionnaires. Donc c'est un
+type de collection clés, valeurs.
+
+188
+00:09:16,810 --> 00:09:19,020
+À une clé donnée
+j'associe une valeur.
+
+189
+00:09:19,390 --> 00:09:21,180
+Elles sont aussi
+extensibles à chaque fois qu'on va
+
+190
+00:09:21,380 --> 00:09:23,640
+ajouter des éléments elles
+vont grandir, et puis on a une
+
+191
+00:09:23,840 --> 00:09:28,400
+API un peu
+particulière sur cette collection,
+
+192
+00:09:28,690 --> 00:09:31,820
+donc le message "at" qui lui
+est classique, at:ifAbsent:
+
+193
+00:09:32,320 --> 00:09:34,440
+c'est-à-dire si je veux
+accéder à un élément, à une clé
+
+194
+00:09:34,640 --> 00:09:37,890
+particulière mais qu'elle n'existe
+pas, qu'est-ce que je dois rendre?
+
+195
+00:09:38,090 --> 00:09:40,840
+"at: put: donc à une clé
+particulière je veux insérer une
+
+196
+00:09:41,040 --> 00:09:42,930
+nouvelle valeur et
+caetera. Et puis je vais pouvoir
+
+197
+00:09:43,130 --> 00:09:46,890
+itérer avec des messages
+tout à fait classiques "do", on
+
+198
+00:09:47,090 --> 00:09:49,080
+a déjà vu, mais on va
+avoir des nouveaux messages
+
+199
+00:09:49,280 --> 00:09:52,650
+"KeysDo" donc je parcours
+toutes les clés du dictionnaire
+
+200
+00:09:53,000 --> 00:09:54,060
+ou les clés et les valeurs.
+
+201
+00:09:54,520 --> 00:09:55,520
+Donc je vous donne un exemple.
+
+202
+00:09:55,720 --> 00:09:59,060
+Ici j'ai créé l'instance de
+la classe dictionnaire, et
+
+203
+00:09:59,260 --> 00:10:02,110
+puis dans ce
+dictionnaire, donc il faut voir un
+
+204
+00:10:02,310 --> 00:10:05,590
+dictionnaire un peu comme un
+tableau, à la clé janvier j'associe
+
+205
+00:10:05,790 --> 00:10:09,820
+le nombre 31, à la clé février le
+nombre 28 et à la clé mars le nombre 31.
+
+206
+00:10:13,020 --> 00:10:16,320
+Donc c'est complètement
+équivalent à une collection dynamique.
+
+207
+00:10:16,520 --> 00:10:21,060
+Donc une collection dynamique cette
+fois c'est créé avec une accolade.
+
+208
+00:10:21,260 --> 00:10:22,860
+Accolade ouvrante, accolade fermante.
+
+209
+00:10:23,840 --> 00:10:26,390
+Ici je vous rappelle la flèche
+c'est pour créer des associations.
+
+210
+00:10:27,060 --> 00:10:28,900
+Donc ici j'ai un symbole.
+
+211
+00:10:29,290 --> 00:10:33,000
+Donc au symbole janvier
+j'associe le nombre 31, donc ici
+
+212
+00:10:33,700 --> 00:10:36,610
+j'ai bien une collection
+d'associations que je transforme
+
+213
+00:10:36,810 --> 00:10:38,150
+en dictionnaire avec
+à le "Ad dictionary".
+
+214
+00:10:38,620 --> 00:10:42,760
+Donc ces 2 formes pour créer le
+dictionnaire sont complètement équivalentes.
+
+215
+00:10:45,680 --> 00:10:47,830
+Donc si je demande à une
+association, si je lui demande
+
+216
+00:10:48,030 --> 00:10:50,640
+sa clé ça va bien nous
+renvoyer la clé, donc le début.
+
+217
+00:10:50,840 --> 00:10:52,380
+On voit qu'ici c'est l'équivalent.
+
+218
+00:10:52,700 --> 00:10:54,640
+Et puis si je demande à une
+association de me retourner
+
+219
+00:10:54,840 --> 00:10:56,160
+sa valeur ça ne me
+retourne que la valeur.
+
+220
+00:10:56,510 --> 00:10:58,410
+Donc ça c'est une
+paire ou une association.
+
+221
+00:11:00,670 --> 00:11:01,620
+Donc les dictionnaires.
+
+222
+00:11:02,000 --> 00:11:05,630
+Si je veux dans un
+dictionnaire accéder à une valeur
+
+223
+00:11:05,830 --> 00:11:09,420
+particulière, il suffit que
+j'utilise "at" et la clé, je
+
+224
+00:11:09,620 --> 00:11:11,240
+spécifie la clé pour
+laquelle je veux la valeur.
+
+225
+00:11:11,880 --> 00:11:15,250
+Si c'est une clé qui est
+inexistante forcément je vais
+
+226
+00:11:15,560 --> 00:11:16,660
+récupérer une erreur en retour.
+
+227
+00:11:18,720 --> 00:11:21,310
+Et si je veux éviter ça
+ce que je peux faire c'est
+
+228
+00:11:21,510 --> 00:11:25,640
+utiliser "at: ifAbsent", donc
+je fais "at" une clé qui n'existe
+
+229
+00:11:25,840 --> 00:11:28,010
+pas dans le dictionnaire, et
+si c'est absent donc je vais
+
+230
+00:11:28,210 --> 00:11:30,590
+récupérer la valeur qui est ici le 0.
+
+231
+00:11:31,760 --> 00:11:33,020
+Donc on voit bien cette
+clé n'existe pas dans le
+
+232
+00:11:33,220 --> 00:11:34,000
+dictionnaire donc je
+récupère la valeur 0.
+
+233
+00:11:35,320 --> 00:11:37,730
+Je peux itérer sur un
+dictionnaire, donc si je fais un
+
+234
+00:11:37,930 --> 00:11:41,400
+"do" sur les éléments d'un
+dictionnaire je récupère en
+
+235
+00:11:41,600 --> 00:11:44,040
+fait ici que les
+valeurs du dictionnaire.
+
+236
+00:11:44,280 --> 00:11:45,040
+On ne voit pas les clés.
+
+237
+00:11:45,460 --> 00:11:46,950
+Alors pourquoi on
+peut se demander ça?
+
+238
+00:11:47,150 --> 00:11:48,950
+C'est un peu bizarre de ne
+récupérer que les valeurs.
+
+239
+00:11:49,150 --> 00:11:51,740
+En fait c'est complètement
+logique puisque si on regarde
+
+240
+00:11:51,940 --> 00:11:53,460
+dans la classe
+"dictionnaire" l'implémentation de la
+
+241
+00:11:53,660 --> 00:11:57,170
+méthode "do", qui prend un
+block, en fait elle fait à l'intérieur
+
+242
+00:11:57,370 --> 00:12:00,930
+selfvaluesDo. Donc par
+défaut quand en fait un "do" sur
+
+243
+00:12:01,130 --> 00:12:03,570
+un dictionnaire, on ne parcourt
+que ses valeurs et pas les clés.
+
+244
+00:12:05,520 --> 00:12:08,060
+Si je veux parcourir les
+2 en fait j'ai une méthode
+
+245
+00:12:08,260 --> 00:12:11,260
+particulière qui s'appelle
+"KeysAndValuesDo", qui prend
+
+246
+00:12:11,460 --> 00:12:14,720
+en paramètre un block
+avec 2 arguments: k et v.
+
+247
+00:12:15,340 --> 00:12:18,510
+Et donc k ça correspondra
+bien à une clé et v à la valeur.
+
+248
+00:12:19,350 --> 00:12:22,000
+Donc cette fois j'ai bien
+mon dictionnaire complet.
+
+249
+00:12:24,000 --> 00:12:27,090
+Donc en résumé dans cette
+séquence on a vu que Pharo
+
+250
+00:12:27,370 --> 00:12:30,170
+propose énormément de types
+de collections différents.
+
+251
+00:12:31,290 --> 00:12:33,300
+Que toutes les
+collections proposent un vocabulaire
+
+252
+00:12:33,500 --> 00:12:36,000
+commun, que ce soit pour
+créer des collections, pour
+
+253
+00:12:36,200 --> 00:12:38,610
+accéder aux éléments, pour accéder à
+la taille d'une collection et caetera.
+
+254
+00:12:39,000 --> 00:12:40,350
+Donc ça, ça facilite
+la vie du programmeur.
+
+255
+00:12:41,290 --> 00:12:44,370
+Et c'est simple aussi de convertir un
+type de collection en un autre type.
+
+256
+00:12:44,950 --> 00:12:46,840
+Et vous on a même vu quelque
+chose de supplémentaire, on
+
+257
+00:12:47,040 --> 00:12:49,080
+a vu que quand on se pose des
+questions il est facile d'aller
+
+258
+00:12:49,280 --> 00:12:51,760
+découvrir dans le système,
+dans Pharo, en allant lire le
+
+259
+00:12:52,000 --> 00:12:54,280
+code des classes, en allant découvrir
+de nouvelles classes de collections.
+

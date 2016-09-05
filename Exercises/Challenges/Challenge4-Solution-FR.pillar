@@ -1,0 +1,41 @@
+! Défi 4 - Solution
+
+Comment créer une fenêtre pour un simple jeu. Cette fenêtre doit être capable de contenir une image immense comme fond sur lequel on pourra déposer des pièces et que ce fond soit scrollable pour découvrir les parties non visibles directement. 
+Vous pouvez récupérer sur le site *http://imgur.com/* des images en utilisant l'url suivante: *http://i.imgur.com/*. Les images suivantes *http://imgur.com/gallery/OssbQN3.jpeg* et *http://i.imgur.com/XXxgr7x.jpeg* se prêtent particulièrement à des fonds de cartes.
+
+La solution peut ressembler à la figure ci-dessous.
+
+!!! Indices : 
+
+- Vous pouvez créer une morph à partir d'une image en utilisant ==AlphaImageMorph withForm:==
+- Vous pouvez obtenir la taille de l'image (pratique pour créer une PasteUpMorph de bonne taille) vous pouvez utiliser les messages ==width== et ==height==.
+- Vous pouvez downloader une image avec ==ZnEasy getJpeg: url==
+- Regardez ==PasteUpMorph==. Cette morph est une morph pour déposer des morphs dedans. Pour définir la taille d'une paste up morph, utiliser le message ==extent:==. Pour définir une morph dans le fond d'une pasteUp, utiliser le message ==backgroundMorph:==
+- Vous allez avoir besoin d'ajouter des scrollbars: Utilisez une ==ScrollPane== morph: Utiliser ==aScrollPane scroller addMorph: aPasteUp== pour mettre des scrollbars autour de ==aPasteUp==.
+
++Une superbe carte avec une morph orange. >file://figures/map.png|width=80+
+
+!! Solution
+
+[[[
+	| window pane board background |
+
+	background := AlphaImageMorph withForm: (ZnEasy getJpeg: 'http://i.imgur.com/XXxgr7x.jpg').
+	background lock.
+
+	board := PasteUpMorph new.
+	board 
+		color: Color gray;
+		borderWidth: 3;
+		borderColor: Color black;
+		extent: background width@ background height; 
+		backgroundMorph: background;
+		addMorph: (CircleMorph new color: Color cyan; position: 41@23; yourself);
+		addMorph: (Morph new color: Color orange; position: 1200@1200; yourself).
+
+	pane := ScrollPane new.
+	pane scroller addMorph: board.
+
+	window := pane openInWindow.
+	window position: 20@20; extent: 420@420.
+]]]

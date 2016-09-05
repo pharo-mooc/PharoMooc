@@ -1,0 +1,169 @@
+! Exercises
+
+
+
+!! Exercises
+
+
+
+- Name :  Three kinds of message
+- ID : ex-kind of message-0001
+- purpose :'To say if this message is an unary, binary or keywords message'
+- Expression : ==+==
+- Result: ==Unary message==
+- Expression : ==float==
+- Result: ==Binary message==
+- Expression : ==open==
+- Result: ==Binary message==
+- Expression : ==*==
+- Result: ==Unary message==
+- Expression : ==>==
+- Result: ==Unary message==
+- Expression : ==between and:==
+- Result: ==Binary message==
+- Expression : ==@==
+- Result: ==Unary message==
+- Expression : ==&==
+- Result: ==Unary message==
+- Expression : ==to:==
+- Result: ==Binary message==
+- Expression : ==cos==
+- Result: ==Binary message==
+- Expression : ==color:==
+- Result: ==Binary message==
+- Expression : ==at:==
+- Result: ==Keyword message==
+
+
+- Name : Workspace or browser
+- ID : ex-Workspace or browser-0001
+-purpose:Do you need to use a workspace or a class browser for :
+-to send a message
+-Result: ==Workspace==
+-to find a method
+-Result: ==Classe Browser==
+-to defind a class
+-Result: ==Classe Browser==
+-to use an inspector
+-Result: ==Workspace==
+-to find a protocol
+-Result: ==Classe Browser==
+-to use a transcript
+-Result: ==Workspace==
+
+
+- Name: Understanding message syntax : Summary
+- ID: ex-nderstanding message syntax-0001
+- Purpose: 'Choose the good sentence.'
+- Expression: ==A: A message is always sent to an object named the "receiver" which may be the result of other message sends==
+- Expression: ==B: A message is often sent to an object named the "receiver" which may be the result of other message sends==
+- Expression: ==C: A message is never sent to an object named the "receiver" which may be the result of other message sends==
+- Result: ==A==
+- Expression: ==A: Unary message are messages that do require an argument. They are of the form of recerver ""selector""==
+- Expression: ==B: Unary message are messages that do not require any argument. They are of the form of recerver ""selector""==
+- Result: ==A==
+- Expression: ==A:Unary messages are messages that involve two objects, the receiver "and" another object and whose selector is composed of one or more characters from the following list: \+, -,\*, /, |, &, =, >, <, ˜, and @. They are of the form: "receiver" ""selector"" "argument"==
+- Expression: ==B:Binary messages are messages that involve two objects, the receiver "and" another object and whose selector is composed of one or more characters from the following list: \+, -,\*, /, |, &, =, >, <, ˜, and @. They are of the form: "receiver" ""selector"" "argument"==
+- Expression: ==C:Keyword messages are messages that involve two objects, the receiver "and" another object and whose selector is composed of one or more characters from the following list: \+, -,\*, /, |, &, =, >, <, ˜, and @. They are of the form: "receiver" ""selector"" "argument"==
+- Result: ==B==
+- Expression: ==A:Unary messages are messages that involve more than one object and that contain at least one colon character (:). They are of the form: "receiver" ""selectorWordOne:"" argumentOne ""wordTwo:"" "argumentTwo"==
+- Expression: ==B:Binary messages are messages that involve more than one object and that contain at least one colon character (:). They are of the form: "receiver" ""selectorWordOne:"" argumentOne ""wordTwo:"" "argumentTwo"==
+- Expression: ==C:Keyword messages are messages that involve more than one object and that contain at least one colon character (:). They are of the form: "receiver" ""selectorWordOne:"" argumentOne ""wordTwo:"" "argumentTwo"==
+- Result: ==C==
+- Expression: ==A:Unary messages are sent first, then binary messages, and finally keyword messages.True.==
+- Expression: ==A:Unary messages are sent first, then binary messages, and finally keyword messages.False.==
+- Result: ==A==
+- Expression: ==Messages in parentheses are sent before any others.==
+- Expression: ==Messages in parentheses aren't sent before any others.==
+- Resut: ==A==
+- Expression: ==When the messages are of the same kind, the order of evaluation is from right to left.==
+- Expression: ==When the messages are of the same kind, the order of evaluation is from left to right.==
+- Result: ==B==
+
+- Name :simple object
+- ID : ex-simple object-0001
+- purpose : Please create the requested simple object'
+- Expression : ==boolean==
+- Result : ==true. or false.==
+- Expression : ==an interger constant==
+- Result : ==42.==
+- Expression : ==afloat constant==
+- Result : ==3.14.==
+- Expression : ==a fractional constant==
+- Result : ==1e-3.==
+- Expression : ==a negative constant==
+- Result : ==-42.==
+- Expression : ==a string constant==
+- Result : =='Hello world'==
+- Expression : ==a character constant==
+- Result : ==$A.==
+- Expression : ==an array constant==
+- Result : ==#(3 2 1)==
+
+- Name :Simple objects
+- ID : ex-simple object-0002
+- purpose : Please create the requested simple object'
+- Description : == 10 on hex==
+- Result : ==16r0A.==
+- Expression : ==this sentence : "I'm an informatician" ==
+- Result : =='I'\'m an informatician'==
+- Expression : ==a character constant (space)==
+- Result : ==$ .==
+- Expression : ==a mixing of types allowed==
+- Result : ==(3 $P 3.18 'winter is coming')==
+
+
+
+!! Corrected Exercises
+
+
+- Name :Simple aritmetic
+- ID : ex-simple object-0003
+- Purpose : Understanding the basic object
+- Expression : == 3 + 50 ==
+- Result : ==53==
+
+- Name : Booleans
+- ID : ex-Booleans-0001
+- purpose : 'Please create the requested boolean with x and y as variable when x = 1 and y = 2'
+- Description: what is the expression which tests if x is equal to y?
+- Result : ==(x=y).==
+- Description : What is the expression which tests if x not equal to y?
+- Result : ==(x~=y).==
+- Expression : What is the expression which tests if x identical to y?
+- Result : ==(x=\=y).==
+- Expression : What is the expression which tests if x is not identical to y?
+- Result : ==(x~~y).==
+- Expression : What is the expression which tests if x is greater than y?
+- Result : ==(x>y).==
+- Expression : What is the expression which tests if x is less than y?
+- Result : ==(x<y).==
+- Expression : What is the expression which tests if x is greater than or equal y?
+- Result : ==(x>=y).==
+- Expression : What is the expression which tests if x is less than or equal to y?
+- Result : ==(x<=y).==
+
+
+- Name: Select 
+- ID: ex-select-0001
+- Purpose: 'Filtering a collection with select:'
+- Expression: =='hello there' select: [ :each | each isVowel ]==
+- Result: =='eoee'==
+- Expression: ==#(1 3 4 5 6 11 17 12 2 3) select: [:each | each odd ]==
+- Result: ==#(1 3 5 11 17 3)==
+
+
+- Name: Precedence
+- ID: ex-precedence-0001
+- Purpose: 'To show that there is no precedence and that we should use parentheses to disambiguate'
+- Expression: ==5 \+ 2 \* 3==
+- Result: ==21==
+- Expression: ==5 \* 2 \+ 3==
+- Result: ==13==
+- Expression: ==5 \+ (2 \* 3)==
+- Result: ==11==
+
+- ID: ex-precedence-0002
+- Purpose: 'To show that there is no precedence and that we should use parentheses to disambiguate'
+- Expression ==3 \* 5 - 15 sign==
+- Result 14

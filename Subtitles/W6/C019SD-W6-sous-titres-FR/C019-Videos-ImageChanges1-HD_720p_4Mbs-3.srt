@@ -1,0 +1,733 @@
+1
+00:00:01,150 --> 00:00:03,440
+Dans cette vidéo, je
+voudrais vous expliquer un petit peu
+
+2
+00:00:03,607 --> 00:00:06,480
+les différentes façons dont
+Pharo est packagé, pour que
+
+3
+00:00:06,647 --> 00:00:08,640
+vous vous y retrouviez dans le futur.
+
+4
+00:00:09,000 --> 00:00:11,400
+Quand vous allez installer
+Pharo vous irez sur un lien
+
+5
+00:00:11,950 --> 00:00:14,370
+normalement qu'on vous aura
+donné, mais si vous allez sur
+
+6
+00:00:14,537 --> 00:00:17,280
+Pharo, la distribution au
+moment où je fais cette vidéo c'est
+
+7
+00:00:17,447 --> 00:00:21,060
+la version 4 mais la version 5
+sera rigoureusement identique.
+
+8
+00:00:21,410 --> 00:00:24,370
+Quand j'ai downloadé
+Mac OSX, j'obtiens ce Zip.
+
+9
+00:00:24,750 --> 00:00:29,090
+Si je dézippe ce Zip,
+j'obtiens ce que j'appelle Pharo4 app.
+
+10
+00:00:29,480 --> 00:00:32,460
+Quand je le lance
+Pharo 4 app, j'ai Pharo.
+
+11
+00:00:32,627 --> 00:00:36,410
+Imaginons qu'on va faire
+
+12
+00:00:42,690 --> 00:00:47,380
+"Hello". Quand je fais Sauve,
+ça va me sauver l'environnement.
+
+13
+00:00:48,730 --> 00:00:50,430
+Je vais faire Save.
+
+14
+00:00:51,490 --> 00:00:55,920
+Si je fais Quit maintenant,
+je vais le relancer après,
+
+15
+00:00:56,360 --> 00:01:00,100
+et j'aurai exactement
+"Hello", puisque sauvegarder l'image
+
+16
+00:01:00,267 --> 00:01:03,810
+Pharo c'est faire une
+copie de mémoire avec tous les
+
+17
+00:01:04,000 --> 00:01:07,780
+objets dont les objets
+Bytecode et les méthodes compilées.
+
+18
+00:01:07,947 --> 00:01:11,920
+Maintenant qu'est-ce qu'il y a dans
+
+19
+00:01:13,340 --> 00:01:14,400
+cette application ?
+
+20
+00:01:14,567 --> 00:01:16,750
+Sur Mac, on peut voir
+ce qu'il y a l'intérieur.
+
+21
+00:01:16,930 --> 00:01:20,620
+Si je fais Show Contents
+qu'est-ce que je vais voir?
+
+22
+00:01:20,930 --> 00:01:24,380
+Je vais trouver une machine
+virtuelle Pharo et des ressources.
+
+23
+00:01:24,810 --> 00:01:27,530
+Et là, je vais trouver un
+fichier changes et un fichier
+
+24
+00:01:31,280 --> 00:01:31,913
+image.
+
+25
+00:01:32,400 --> 00:01:35,880
+Le fichier image, c'est
+celui qui contient vraiment les
+
+26
+00:01:36,047 --> 00:01:39,840
+objets qui représentent la
+mémoire, et le fichier changes
+
+27
+00:01:40,070 --> 00:01:42,760
+c'est un fichier qui
+comprend tous les changements
+
+28
+00:01:42,927 --> 00:01:46,680
+incrémentaux que l'on a
+faits. Si je double-clique
+
+29
+00:01:48,580 --> 00:01:49,800
+sur le fichier image,
+
+30
+00:01:55,800 --> 00:02:00,000
+normalement suivant votre
+OS, je vais le lancer sur une
+
+31
+00:02:00,470 --> 00:02:03,960
+machine virtuelle Pharo
+que j'ai installée, ça va me
+
+32
+00:02:04,127 --> 00:02:05,900
+relancer mon fichier image.
+
+33
+00:02:07,020 --> 00:02:08,450
+Ce fichier image,
+qu'est-ce qui se passe?
+
+34
+00:02:08,617 --> 00:02:10,000
+Imaginons que je
+définisse une classe.
+
+35
+00:02:10,157 --> 00:02:12,050
+Je vais définir un package,
+
+36
+00:02:18,100 --> 00:02:18,733
+"Add package" "ATest".
+
+37
+00:02:18,900 --> 00:02:20,060
+Dans ce package,
+
+38
+00:02:23,470 --> 00:02:24,300
+je vais définir "MyStrangeClass".
+
+39
+00:02:28,600 --> 00:02:33,170
+Je la définis et puis là, je
+vais mettre "foooo" qui rend
+
+40
+00:02:33,430 --> 00:02:34,063
+42.
+
+41
+00:02:38,650 --> 00:02:42,750
+Si je sauve cette image
+avec un autre nom, je vais la
+
+42
+00:02:42,917 --> 00:02:44,270
+sauver avec le nom 
+
+43
+00:02:44,437 --> 00:02:45,070
+Pharo40Stef.
+
+44
+00:02:52,060 --> 00:02:53,930
+Qu'est-ce que ça va avoir fait ?
+
+45
+00:02:54,097 --> 00:02:58,580
+Je quitte. Ça m'a
+créé un autre couple
+
+46
+00:02:58,747 --> 00:03:01,570
+image et change. Dans ce
+fichier changes, on ne va pas l'ouvrir
+
+47
+00:03:01,737 --> 00:03:04,620
+parce que ce n'est pas
+lisible pour l'humain, il y a le
+
+48
+00:03:04,787 --> 00:03:07,110
+code des méthodes
+que je viens de créer.
+
+49
+00:03:07,277 --> 00:03:11,840
+Et là si je relance
+Pharo 4, je vais le
+
+50
+00:03:12,007 --> 00:03:16,300
+relancer en utilisant ma
+machine virtuelle, j'obtiens
+
+51
+00:03:17,940 --> 00:03:22,110
+de nouveau le snapshot, ce
+qu'on appelle la copie du
+
+52
+00:03:22,277 --> 00:03:27,200
+système que j'avais fait à un temps T
+
+53
+00:03:27,440 --> 00:03:28,073
+ultérieur.
+
+54
+00:03:28,240 --> 00:03:32,790
+Maintenant, si je réexécute
+l'image PharoStef, qu'est-ce
+
+55
+00:03:32,957 --> 00:03:33,590
+qu'elle va me faire ?
+
+56
+00:03:33,757 --> 00:03:37,180
+Elle va me montrer le
+système avec ma nouvelle classe.
+
+57
+00:03:39,740 --> 00:03:42,920
+L'application Pharo 4,
+c'est ce qu'on appelle un Bundle
+
+58
+00:03:43,087 --> 00:03:47,460
+Mac qui contient la VM Pharo
+plus une image plus un change.
+
+59
+00:03:47,627 --> 00:03:50,500
+Si je double-clique dessus,
+je n'ai pas le choix, il va
+
+60
+00:03:50,667 --> 00:03:52,950
+toujours choisir Pharo
+image parce que c'est un script
+
+61
+00:03:53,330 --> 00:03:55,660
+qui a codé en dur:
+"Voilà, c'est cette image-là.
+
+62
+00:03:55,827 --> 00:03:59,430
+" En général, c'est pratique
+au début de l'utilisation de
+
+63
+00:03:59,597 --> 00:04:02,600
+Pharo, mais nous on n'utilise pas ça.
+
+64
+00:04:02,767 --> 00:04:05,840
+En général, soit on utilise
+une instruction du command
+
+65
+00:04:06,007 --> 00:04:09,200
+line qui va être
+quelque chose du genre
+
+66
+00:04:10,290 --> 00:04:14,470
+Pharo-ui avec 
+MyPharoImage.image,
+
+67
+00:04:14,637 --> 00:04:19,250
+et qui va
+
+68
+00:04:19,417 --> 00:04:21,710
+envoyer le truc. Ou alors si
+on est en command line et qu'on
+
+69
+00:04:21,877 --> 00:04:24,010
+ne veut pas avoir le ui, on
+va faire ce genre de choses.
+
+70
+00:04:24,520 --> 00:04:26,450
+Ça veut dire que Pharo est
+installé quelque part dans
+
+71
+00:04:26,617 --> 00:04:30,130
+votre système comme sur une
+application Unix standard.
+
+72
+00:04:31,070 --> 00:04:34,400
+Maintenant, ce que vous voyez sur
+
+73
+00:04:36,150 --> 00:04:38,930
+cette page, c'est que vous
+pouvez télécharger un couple
+
+74
+00:04:39,097 --> 00:04:40,940
+Pharo, vous pouvez
+télécharger une machine virtuelle.
+
+75
+00:04:41,110 --> 00:04:43,560
+On va télécharger la
+machine virtuelle et on va
+
+76
+00:04:43,727 --> 00:04:48,220
+télécharger un couple
+image et aussi source.
+
+77
+00:04:48,690 --> 00:04:50,830
+Je vais vous expliquer ce
+que c'est comme ça on aura les
+
+78
+00:04:51,000 --> 00:04:54,460
+3 sous la main, on va
+pouvoir jouer ensemble.
+
+79
+00:05:02,630 --> 00:05:05,760
+Maintenant si je dézippe
+le fichier qui correspond à
+
+80
+00:05:06,570 --> 00:05:09,240
+Pharo Image et
+Changes, j'obtiens celui-là.
+
+81
+00:05:09,710 --> 00:05:12,260
+Quand je le dézippe qu'est-ce que
+j'obtiens dans Pharo dans ce fichier?
+
+82
+00:05:12,427 --> 00:05:13,680
+J'obtiens une image.
+
+83
+00:05:13,870 --> 00:05:15,950
+On va le faire
+plutôt en mode pour que
+
+84
+00:05:19,140 --> 00:05:20,070
+vous voyez ce qu'il y a dedans.
+
+85
+00:05:21,290 --> 00:05:24,010
+Ça veut dire que ce fichier,
+c'est encore un couple image
+
+86
+00:05:24,177 --> 00:05:27,660
+qui correspond à un certain
+état du snapshot ou de l'image
+
+87
+00:05:27,827 --> 00:05:32,630
+Pharo, du système virtualisé.
+Là, je vais pouvoir l'exécuter
+
+88
+00:05:32,797 --> 00:05:36,280
+sur l'image Pharo.
+
+89
+00:05:38,140 --> 00:05:42,120
+Il me donne un message et ce
+message qu'est-ce que c'est?
+
+90
+00:05:44,700 --> 00:05:49,270
+Le système peut fonctionner
+puisque je peux exécuter n'importe quoi.
+
+91
+00:05:49,890 --> 00:05:50,770
+Je peux le faire tourner.
+
+92
+00:05:50,937 --> 00:05:53,330
+Maintenant, je peux faire
+exactement ce que j'ai fait avant.
+
+93
+00:05:53,497 --> 00:05:58,360
+Je peux définir
+MyPackage, et dans MyPackage
+
+94
+00:05:58,770 --> 00:05:59,900
+je vais dire MyStrangeClass.
+
+95
+00:06:00,740 --> 00:06:02,220
+Donc on commence à avoir l'habitude.
+
+96
+00:06:04,180 --> 00:06:07,580
+Je vais définir une méthode :
+
+97
+00:06:09,010 --> 00:06:12,520
+fooo 42. Il me
+demande mon identifiant.
+
+98
+00:06:14,460 --> 00:06:17,510
+Je vais pouvoir faire comme
+d'habitude "MyStrangeClass
+
+99
+00:06:19,370 --> 00:06:23,050
+new fooo" et ça va me rendre 42.
+
+100
+00:06:23,420 --> 00:06:24,600
+Donc, très bien. Et
+là, je peux le sauver.
+
+101
+00:06:25,620 --> 00:06:27,360
+Je vais le sauver par
+exemple avec un autre nom, je vais
+
+102
+00:06:27,527 --> 00:06:32,240
+l'appeler Stef, là je
+vais l'appeler PharoStrange.
+
+103
+00:06:32,407 --> 00:06:33,040
+OK.
+
+104
+00:06:39,410 --> 00:06:40,200
+Qu'est-ce qu'il me dit ?
+
+105
+00:06:40,367 --> 00:06:44,530
+Il me dit "Je ne peux pas
+trouver le fichier source
+
+106
+00:06:45,310 --> 00:06:49,200
+Pharo 4. 0. " Pourquoi il me dit ça ?
+
+107
+00:06:50,240 --> 00:06:53,730
+Quand j'ouvre le browser si
+je veux voir par exemple le
+
+108
+00:06:53,897 --> 00:06:58,670
+code de AST, ce n'est pas votre
+code, donc on va aller tout en haut.
+
+109
+00:06:58,837 --> 00:07:03,000
+Le système, ce qu'il est en
+train de faire, c'est pour ça
+
+110
+00:07:03,167 --> 00:07:04,000
+qu'il ne trouve pas les commentaires,
+
+111
+00:07:08,120 --> 00:07:09,180
+en fait il est en
+train de décompiler.
+
+112
+00:07:09,750 --> 00:07:11,730
+Alors on ne le voit pas
+parce que les méthodes sont trop
+
+113
+00:07:11,897 --> 00:07:13,420
+simples mais il décompile le code.
+
+114
+00:07:13,587 --> 00:07:15,000
+On va aller sur quelque
+chose de plus concret.
+
+115
+00:07:15,147 --> 00:07:19,820
+Là, il a décompilé le
+code, le Bytecode représente un
+
+116
+00:07:20,000 --> 00:07:21,620
+argument et il sait très
+bien que c'est un argument.
+
+117
+00:07:22,040 --> 00:07:23,440
+Mais on a perdu le source.
+
+118
+00:07:24,050 --> 00:07:28,870
+Le source en général du
+système, quand Pharo est
+
+119
+00:07:29,037 --> 00:07:33,530
+déployé, est stocké dans un
+fichier qui s'appelle, et qu'on
+
+120
+00:07:33,697 --> 00:07:36,290
+trouve ici, qui est
+le fichier Pharo 4.
+
+121
+00:07:36,457 --> 00:07:38,920
+source. En général Pharo 4.
+
+122
+00:07:39,087 --> 00:07:41,420
+source, on va l'installer
+une fois sur le système parce
+
+123
+00:07:41,587 --> 00:07:44,040
+que ce fichier est en
+lecture seule, et que toutes vos
+
+124
+00:07:44,860 --> 00:07:46,030
+applications vont
+pouvoir s'en servir.
+
+125
+00:07:46,210 --> 00:07:47,180
+Là je l'ai ici, je vais le dézipper.
+
+126
+00:07:47,347 --> 00:07:50,670
+Là, j'ai Pharo 4. source.
+
+127
+00:07:51,270 --> 00:07:52,840
+Si je quitte ici sans sauver
+
+128
+00:07:56,690 --> 00:07:59,060
+et que je relance mon
+application, là de toute façon vous
+
+129
+00:07:59,227 --> 00:08:02,280
+voyez que ça a fait exactement
+comme précédemment, c'est-à-dire
+
+130
+00:08:02,470 --> 00:08:05,190
+que quand je sauve un
+snapshot en lui donnant un autre
+
+131
+00:08:05,357 --> 00:08:10,160
+nom, j'ai de nouveau un
+système avec 2 pendants:
+
+132
+00:08:10,420 --> 00:08:11,620
+l'image et ses changes.
+
+133
+00:08:12,520 --> 00:08:16,650
+Là si je reprends mon
+ancienne image, elle
+
+134
+00:08:17,670 --> 00:08:20,780
+ne fait plus d'erreurs parce
+qu'il a trouvé le code et il
+
+135
+00:08:20,947 --> 00:08:24,710
+sait très bien que ça
+correspond à l'état qu'on avait
+
+136
+00:08:24,880 --> 00:08:27,130
+quand on a lancé la première image.
+
+137
+00:08:27,297 --> 00:08:28,640
+Maintenant si j'utilise la deuxième,
+
+138
+00:08:34,500 --> 00:08:38,960
+là si je reprends le
+fichier AST-Core, déjà
+
+139
+00:08:39,127 --> 00:08:41,830
+mes classes ont des commentaires.
+
+140
+00:08:47,100 --> 00:08:51,000
+Là c'est vraiment les noms que les
+gens ont donné qui correspondent à ça.
+
+141
+00:08:51,830 --> 00:08:53,870
+Si on regarde cette
+architecture, qu'est-ce qu'on a?
+
+142
+00:08:54,950 --> 00:08:57,230
+On a le fichier source
+qui contient les sources du
+
+143
+00:08:57,397 --> 00:09:02,000
+système, en général le
+compilateur une fois que le
+
+144
+00:09:02,167 --> 00:09:04,610
+système est compilé il n'a
+pas besoin de ses sources, la
+
+145
+00:09:04,777 --> 00:09:08,330
+machine virtuelle et des
+paires image et change.
+
+146
+00:09:09,390 --> 00:09:12,180
+Image contient tous les
+objets que vous avez définis plus
+
+147
+00:09:12,347 --> 00:09:14,790
+les objets du système,
+avec le fichier changes qui
+
+148
+00:09:14,957 --> 00:09:18,520
+contient les deltas de ce que vous
+avez fait par rapport au fichier changes.
+
+149
+00:09:18,690 --> 00:09:22,430
+A chaque fois que vous allez
+sauver votre système, ça va
+
+150
+00:09:22,597 --> 00:09:25,260
+faire comme si vous sauviez une
+image virtualisée de votre OS.
+
+151
+00:09:25,427 --> 00:09:26,730
+C'est exactement le même principe.
+
+152
+00:09:27,480 --> 00:09:31,910
+Si on regarde à
+l'intérieur de l'application Pharo 4,
+
+153
+00:09:33,200 --> 00:09:35,200
+on va retrouver ces ressources.
+
+154
+00:09:36,430 --> 00:09:40,730
+J'ai le fichier Pharo 4
+sources et j'ai le fichier image,
+
+155
+00:09:40,897 --> 00:09:43,130
+le fichier changes et
+quelque part ici la machine
+
+156
+00:09:43,297 --> 00:09:44,540
+virtuelle avec ses plugins.
+

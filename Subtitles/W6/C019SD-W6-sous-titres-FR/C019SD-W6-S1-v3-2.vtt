@@ -1,0 +1,512 @@
+WEBVTT
+
+00:00:07.000 --> 00:00:11.880 align:middle
+Salut à tous. Dans ce
+cours, on va commencer à voir si
+
+00:00:12.080 --> 00:00:14.710 align:middle
+finalement vous avez bien compris
+ce qu'on a dit dans les autres cours.
+
+00:00:14.910 --> 00:00:18.250 align:middle
+En particulier sur super, là
+l'objectif est de vous faire
+
+00:00:18.450 --> 00:00:22.430 align:middle
+vraiment réfléchir et j'ai un petit
+test pour voir si vous avez compris.
+
+00:00:23.810 --> 00:00:24.830 align:middle
+Qu'est-ce que vous allez apprendre ?
+
+00:00:25.030 --> 00:00:26.750 align:middle
+Normalement, vous allez
+repenser à ce que c'est que
+
+00:00:26.950 --> 00:00:31.000 align:middle
+super, revoir la recherche
+des méthodes et réfléchir sur
+
+00:00:31.200 --> 00:00:32.450 align:middle
+ce que c'est qu'une
+méthode de classe.
+
+00:00:32.650 --> 00:00:34.020 align:middle
+Ça fait beaucoup pour un
+petit cours comme ça mais vous
+
+00:00:34.220 --> 00:00:35.000 align:middle
+allez voir, c'est assez sympa.
+
+00:00:36.950 --> 00:00:41.680 align:middle
+Imaginons que j'ai défini la
+méthode dans la classe Dice,
+
+00:00:42.280 --> 00:00:44.720 align:middle
+que j'ai redéfini la méthode
+new de la manière suivante.
+
+00:00:44.920 --> 00:00:48.510 align:middle
+J'ai écrit new et voilà le
+corps de la méthode, je fais
+
+00:00:48.710 --> 00:00:50.720 align:middle
+inst : = super new.
+
+00:00:50.920 --> 00:00:52.690 align:middle
+inst initialize return inst.
+
+00:00:53.080 --> 00:00:56.380 align:middle
+Et moi je vais exécuter
+l'expression Dice new.
+
+00:00:58.240 --> 00:01:00.930 align:middle
+Maintenant la question que
+je me pose et que je vous
+
+00:01:01.130 --> 00:01:04.600 align:middle
+pose, c'est que dans cette
+expression à quoi correspond
+
+00:01:04.800 --> 00:01:08.610 align:middle
+inst, à quoi correspond super
+et à quoi correspond super new?
+
+00:01:08.810 --> 00:01:13.590 align:middle
+Je vous laisse 5
+secondes pour y réfléchir
+
+00:01:16.730 --> 00:01:18.490 align:middle
+et je vais vous donner
+quelques petites indications.
+
+00:01:21.110 --> 00:01:22.920 align:middle
+C'est basé sur mon
+expérience d'enseignement.
+
+00:01:23.120 --> 00:01:27.250 align:middle
+Non super, ce n'est
+pas la super classe.
+
+00:01:28.430 --> 00:01:31.260 align:middle
+Il faut vous
+l'enlever de la tête celui-là.
+
+00:01:31.460 --> 00:01:33.630 align:middle
+Non, inst n'est pas une
+instance de la super classe,
+
+00:01:33.830 --> 00:01:35.130 align:middle
+parce que si c'était le cas
+on ne pourrait jamais créer
+
+00:01:35.330 --> 00:01:37.740 align:middle
+des instances des classes qui sont
+dessous, ça serait quand même dommage.
+
+00:01:38.830 --> 00:01:41.410 align:middle
+Qu'est-ce que c'est ?
+
+00:01:41.610 --> 00:01:45.020 align:middle
+Finalement, ce qu'on avait dit
+dans le cours sur super, c'est
+
+00:01:45.220 --> 00:01:46.500 align:middle
+que super c'est le
+receveur du message.
+
+00:01:47.540 --> 00:01:51.270 align:middle
+Super pointe comme self sur
+le receveur du message et ça
+
+00:01:51.470 --> 00:01:53.300 align:middle
+n'est pas spécifique à
+Pharo, c'est dans tous les
+
+00:01:53.500 --> 00:01:58.370 align:middle
+langages objet comme
+Java, Sea sharp, Small talk.
+
+00:02:00.270 --> 00:02:03.070 align:middle
+Le message qu'on avait
+dit, c'était Dice new.
+
+00:02:03.820 --> 00:02:05.040 align:middle
+Quel est le receveur ?
+
+00:02:05.240 --> 00:02:06.490 align:middle
+Syntaxiquement
+c'est clair c'est Dice.
+
+00:02:07.320 --> 00:02:09.510 align:middle
+C'est la classe Dice.
+
+00:02:10.140 --> 00:02:14.440 align:middle
+Normalement avec cette indication-là
+vous devriez comprendre un peu mieux.
+
+00:02:16.530 --> 00:02:20.620 align:middle
+On va voir. Vous vous
+rappelez la recherche de la méthode
+
+00:02:20.820 --> 00:02:21.580 align:middle
+comment ça fonctionne ?
+
+00:02:21.790 --> 00:02:25.240 align:middle
+J'envoie un message à une
+instance, là coloredrectangle.
+
+00:02:26.270 --> 00:02:28.850 align:middle
+Je cherche
+premièrement dans la classe de
+
+00:02:29.050 --> 00:02:31.830 align:middle
+coloredRectangle si la
+méthode en question est définie,
+
+00:02:32.030 --> 00:02:34.030 align:middle
+là elle ne l'est pas,
+aire n'est pas définie.
+
+00:02:34.230 --> 00:02:35.580 align:middle
+Je la trouve ici, OK, très bien.
+
+00:02:35.930 --> 00:02:40.800 align:middle
+J'applique la définition
+que j'ai trouvée sur qui
+
+00:02:41.000 --> 00:02:45.080 align:middle
+? Sur le receveur. Là
+maintenant vous devez avoir compris
+
+00:02:45.280 --> 00:02:49.620 align:middle
+ce que fait cette méthode.
+Je vais chercher new dans la
+
+00:02:49.820 --> 00:02:53.830 align:middle
+ classe de la classe Dice, je
+le cherche et je l'applique
+
+00:02:54.570 --> 00:02:56.250 align:middle
+sur la classe Dice.
+
+00:02:57.230 --> 00:02:59.000 align:middle
+On va voir ça de
+manière plus précise.
+
+00:03:00.280 --> 00:03:02.540 align:middle
+Ce que je vous disais,
+c'était que de toute façon dans
+
+00:03:02.740 --> 00:03:04.270 align:middle
+Pharo il n'y a qu'un seul
+envoi de messages et il n'y a
+
+00:03:04.470 --> 00:03:05.630 align:middle
+qu'une seule recherche de méthodes.
+
+00:03:05.830 --> 00:03:09.870 align:middle
+Quand j'envoie un message à
+quelque objet que ce soit, je
+
+00:03:10.070 --> 00:03:12.310 align:middle
+cherche toujours dans la
+ classe, je suis toujours ce
+
+00:03:12.830 --> 00:03:16.020 align:middle
+lien-là, puis ce lien-là.
+C'est toujours 2 étapes aussi.
+
+00:03:16.690 --> 00:03:19.140 align:middle
+Qu'est-ce que ça
+donne dans notre système?
+
+00:03:19.790 --> 00:03:21.080 align:middle
+Super c'est le receveur.
+
+00:03:23.500 --> 00:03:25.000 align:middle
+Le receveur c'était la classe Dice.
+
+00:03:26.320 --> 00:03:28.910 align:middle
+Je cherche new dans la
+super classe de la classe Dice
+
+00:03:31.310 --> 00:03:34.710 align:middle
+ class, là le point clé c'est
+que c'est Dice class et pas Dice.
+
+00:03:34.930 --> 00:03:36.350 align:middle
+On va le voir de
+manière graphique juste après.
+
+00:03:37.190 --> 00:03:40.730 align:middle
+Et une fois que j'ai trouvé ce
+nouveau new, je vais l'appliquer
+
+00:03:41.030 --> 00:03:42.440 align:middle
+sur le receveur qui
+était la classe Dice.
+
+00:03:42.640 --> 00:03:47.170 align:middle
+Ça va dire que new que j'ai
+trouvé quelque part je vais l'appliquer
+
+00:03:47.370 --> 00:03:49.110 align:middle
+sur Dice, donc ça va créer
+une nouvelle instance de la
+
+00:03:49.310 --> 00:03:50.580 align:middle
+ classe Dice et ça va l'initialiser.
+
+00:03:50.780 --> 00:03:55.440 align:middle
+Donc inst va être ma
+nouvelle instance, donc 1D,
+
+00:03:56.460 --> 00:03:58.630 align:middle
+et je vais
+l'initialiser et je le rends.
+
+00:03:59.120 --> 00:04:03.130 align:middle
+Si on regarde de manière
+graphique, quand j'envoie new à
+
+00:04:03.330 --> 00:04:05.270 align:middle
+la classe Dice, je cherche où ?
+
+00:04:05.470 --> 00:04:06.260 align:middle
+Dans la classe de la classe Dice.
+
+00:04:06.460 --> 00:04:11.300 align:middle
+Donc je cherche dans Dice
+ class, c'est là que j'ai
+
+00:04:11.510 --> 00:04:12.550 align:middle
+ma fameuse méthode.
+
+00:04:13.000 --> 00:04:14.460 align:middle
+Qu'est-ce que je dois faire ?
+
+00:04:14.660 --> 00:04:19.350 align:middle
+Super, c'est la classe
+
+00:04:19.550 --> 00:04:21.640 align:middle
+Dice, c'était le receveur
+la preuve, c'était écrit ici:
+
+00:04:21.840 --> 00:04:23.150 align:middle
+j'ai envoyé le
+message à cet objet-là.
+
+00:04:26.370 --> 00:04:30.810 align:middle
+Super me dit "Cherche
+au-dessus de la classe qui contient
+
+00:04:31.010 --> 00:04:34.960 align:middle
+l'expression", je
+cherche au-dessus de la classe
+
+00:04:35.880 --> 00:04:37.870 align:middle
+Dice class, donc je cherche ici.
+
+00:04:38.070 --> 00:04:41.800 align:middle
+Et quelque part ici
+au-dessus, on verra ça plus tard, new
+
+00:04:43.220 --> 00:04:44.000 align:middle
+est défini.
+
+00:04:44.180 --> 00:04:44.940 align:middle
+Qu'est-ce qu'on a dit sur le lookup ?
+
+00:04:45.140 --> 00:04:47.290 align:middle
+C'est qu'on trouve la
+méthode, elle est définie ici et on
+
+00:04:47.490 --> 00:04:51.780 align:middle
+l'applique sur le
+receveur. Je l'applique sur Dice,
+
+00:04:52.270 --> 00:04:54.030 align:middle
+ça va me rendre une
+nouvelle instance.
+
+00:04:54.230 --> 00:04:55.370 align:middle
+Là, je vais le faire graphiquement.
+
+00:04:55.570 --> 00:04:57.390 align:middle
+Ça me rend une
+petite instance: E dice.
+
+00:04:57.590 --> 00:05:01.680 align:middle
+Cette petite instance
+c'est inst qui pointe dessus.
+
+00:05:03.130 --> 00:05:05.150 align:middle
+Inst est un nouveau D.
+
+00:05:06.130 --> 00:05:10.070 align:middle
+Ensuite, je vais envoyer le
+message initialize à inst et
+
+00:05:10.270 --> 00:05:11.350 align:middle
+je le rends.
+
+00:05:11.550 --> 00:05:14.140 align:middle
+Souvent, vous avez des
+problèmes avec cet exemple parce
+
+00:05:14.340 --> 00:05:17.720 align:middle
+que cet exemple en
+particulier est assez retors, je le
+
+00:05:17.920 --> 00:05:19.730 align:middle
+fais exprès pour vraiment
+voir si vous avez compris.
+
+00:05:20.070 --> 00:05:24.470 align:middle
+Il va mélanger 2 choses, il
+va mélanger super qui est "Je
+
+00:05:24.670 --> 00:05:28.680 align:middle
+vais chercher au-dessus de la
+ classe qui contient l'expression super.
+
+00:05:29.310 --> 00:05:31.260 align:middle
+Mais sachant que
+super c'est le receveur.
+
+00:05:31.760 --> 00:05:35.190 align:middle
+Et en plus new, c'est une
+méthode qui va créer des objets
+
+00:05:35.390 --> 00:05:38.240 align:middle
+" Là on voit qu'on est à la
+confluence de ces 2 choses et
+
+00:05:38.440 --> 00:05:39.860 align:middle
+qu'en général vous avez
+un problème à comprendre.
+
+00:05:40.480 --> 00:05:44.160 align:middle
+Je vous suggère de vraiment
+revoir cette séance parce que
+
+00:05:44.360 --> 00:05:45.610 align:middle
+c'est vraiment
+important de le comprendre.
+
+00:05:46.110 --> 00:05:50.800 align:middle
+Si je répète, super est le
+receveur du message qui en
+
+00:05:51.000 --> 00:05:52.780 align:middle
+fait est la classe
+Dice dans ce cas-là.
+
+00:05:53.410 --> 00:05:57.210 align:middle
+Je vais chercher au-dessus
+de la classe Dice class la
+
+00:05:57.410 --> 00:05:59.720 align:middle
+méthode new que je vais
+appliquer sur la classe Dice, qui
+
+00:05:59.920 --> 00:06:01.950 align:middle
+était le receveur,pour me
+donner une instance terminale.
+
+00:06:07.040 --> 00:06:10.270 align:middle
+En résumé, envoyer un
+message c'est chercher la méthode
+
+00:06:10.470 --> 00:06:12.380 align:middle
+dans la classe du receveur, c'est
+ce qu'on a fait comme d'habitude,
+
+00:06:12.580 --> 00:06:14.510 align:middle
+comme toujours. On ne peut
+faire que ça en Pharo, donc c'est
+
+00:06:14.710 --> 00:06:17.460 align:middle
+relativement simple.
+Maintenant, vous devez comprendre
+
+00:06:17.660 --> 00:06:20.830 align:middle
+que super, c'est chercher
+au-dessus de la classe qui
+
+00:06:21.030 --> 00:06:24.110 align:middle
+contient l'expression
+super, et que super c'est le
+
+00:06:24.310 --> 00:06:26.000 align:middle
+receveur et que ça peut
+être une classe aussi.
+
+00:06:27.000 --> 00:06:29.230 align:middle
+Mais là on ne va pas finir,
+j'ai un autre petit défi pour
+
+00:06:29.430 --> 00:06:30.920 align:middle
+vous parce que je pense
+que si vous suivez le cours
+
+00:06:31.120 --> 00:06:33.100 align:middle
+Pharo, c'est que vous
+voulez un peu avoir des défis.
+
+00:06:34.470 --> 00:06:37.520 align:middle
+Imaginons que j'ai la
+définition suivante, j'ai une
+
+00:06:37.720 --> 00:06:41.730 align:middle
+petite méthode qui me dit
+"Rends super espace class égal
+
+00:06:41.930 --> 00:06:44.000 align:middle
+égal self class. " Qu'est-ce
+que ça veut dire égal égal?
+
+00:06:44.320 --> 00:06:45.940 align:middle
+C'est l'identité de pointeur.
+
+00:06:46.750 --> 00:06:50.140 align:middle
+En fait je demande "Est-ce
+que l'objet qui est rendu par
+
+00:06:50.340 --> 00:06:54.080 align:middle
+l'expression super espace
+ class est le même que l'objet
+
+00:06:54.280 --> 00:06:55.590 align:middle
+qui est rendu par self égal class ?"
+
+00:06:56.740 --> 00:06:59.210 align:middle
+Je définis cette méthode-là qui
+va me rendre soit vrai ou faux.
+
+00:07:00.010 --> 00:07:03.750 align:middle
+La question que je vous
+pose, c'est "Quel est le résultat
+
+00:07:03.950 --> 00:07:06.520 align:middle
+de A new foo"? Ça veut
+dire que je crée une nouvelle
+
+00:07:06.720 --> 00:07:09.260 align:middle
+instance de la classe A et
+je lui envoie le message foo
+
+00:07:09.460 --> 00:07:10.510 align:middle
+qui va exécuter ce message.
+
+00:07:11.650 --> 00:07:14.100 align:middle
+Quel est le résultat et pourquoi ?
+
+00:07:14.300 --> 00:07:15.450 align:middle
+Je vais vous laisser
+chercher parce que celui-là je ne
+
+00:07:15.650 --> 00:07:16.460 align:middle
+vous donnerai pas la réponse.
+

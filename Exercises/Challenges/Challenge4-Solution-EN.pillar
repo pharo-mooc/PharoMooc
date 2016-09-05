@@ -1,0 +1,41 @@
+! Challenge 4 - Solution
+
+How to set up a simple game window that uses a very large scrollable game board with a huge image as the background, so that game pieces placed on that background would scroll in and out of view? 
+You can get some nice maps on the web site *http://imgur.com/*. Use the following url to fetch them: *http://i.imgur.com/*. The following images *http://imgur.com/gallery/OssbQN3.jpeg* and *http://i.imgur.com/XXxgr7x.jpeg* are particularly nice map background. The solution may look like the figure below. 
+
+!!! Hints: 
+- You can create a morph from an image using ==AlphaImageMorph withForm:==.
+- You can obtain the size of an image (usefull to create a PasteUpMorph of the right size) with the following messages ==width== and ==height==.
+- You can download a picture using ==ZnEasy getJpeg: url==.
+- Have a look at ==PasteUpMorph== this is a morph to drop stuff in. 
+- To define the size  of a pasteUpMorph, use the message ==extent:==. To define the background morph of a pasteUpMorph use the message ==backgroundMorph:==.
+- You will need to add Scrollbars so use a ScrollPane: Use ==aScrollPane scroller addMorph: aPasteUp== to put the scrollbar around the pasteUp.  
+
+
++A nice map with an orange morph on it. >file://figures/map.png|width=80+
+
+!!! Solution
+
+[[[
+	| window pane board background |
+
+	background := AlphaImageMorph withForm: (ZnEasy getJpeg: 'http://i.imgur.com/XXxgr7x.jpeg').
+	background lock.
+
+	board := PasteUpMorph new.
+	board 
+		color: Color gray;
+		borderWidth: 3;
+		borderColor: Color black;
+		extent: background width@ background height; 
+		backgroundMorph: background;
+		addMorph: (CircleMorph new color: Color cyan; position: 41@23; yourself);
+		addMorph: (Morph new color: Color orange; position: 1200@1200; yourself).
+
+	pane := ScrollPane new.
+	pane scroller addMorph: board.
+
+	window := pane openInWindow.
+	window position: 20@20; extent: 420@420.
+]]]
+

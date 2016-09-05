@@ -1,0 +1,383 @@
+WEBVTT
+
+00:00:01.250 --> 00:00:03.460 align:middle
+In this video, 
+I’d like to show you that Nautilus
+
+00:00:03.870 --> 00:00:06.710 align:middle
+offers refactoring. What is 
+refactoring?
+
+00:00:07.050 --> 00:00:11.560 align:middle
+It’s an operation that transforms
+code while
+
+00:00:11.727 --> 00:00:13.000 align:middle
+preserving its behaviour.
+
+00:00:13.320 --> 00:00:15.850 align:middle
+You have to note that historically
+refactoring has been
+
+00:00:16.017 --> 00:00:18.700 align:middle
+been implemented for the first 
+time in Pharo’s ancestor,
+
+00:00:18.867 --> 00:00:21.840 align:middle
+and after that in all the 
+languages like Java.
+
+00:00:22.170 --> 00:00:26.470 align:middle
+As soon as 95, Smalltalk
+had a refactoring tool 
+
+00:00:26.637 --> 00:00:27.890 align:middle
+and Pharo’s one is inspired
+by this tool.
+
+00:00:28.540 --> 00:00:31.070 align:middle
+So let’s open Nautilus to look
+at the types
+
+00:00:31.237 --> 00:00:32.020 align:middle
+of refactoring proposed.
+
+00:00:33.320 --> 00:00:36.440 align:middle
+We will work on our class.
+
+00:00:38.000 --> 00:00:39.800 align:middle
+Refactoring is at several levels.
+
+00:00:39.967 --> 00:00:41.790 align:middle
+There is refactoring at the class
+level, at the
+
+00:00:41.957 --> 00:00:45.330 align:middle
+method level and at the code
+level, we’ve got
+
+00:00:48.710 --> 00:00:49.343 align:middle
+all those types of refactoring.
+
+00:00:51.270 --> 00:00:53.120 align:middle
+You can have refactoring at
+the instance
+
+00:00:53.287 --> 00:00:56.020 align:middle
+variables level and at the class
+variables level.
+
+00:00:57.550 --> 00:01:00.580 align:middle
+When a refactoring is very 
+useful it appears
+
+00:01:01.490 --> 00:01:05.320 align:middle
+at the highest level in the menus,
+for you to 
+
+00:01:05.487 --> 00:01:07.490 align:middle
+go faster, you don’t need to 
+click on class,
+
+00:01:07.960 --> 00:01:09.210 align:middle
+refactoring, Rename, it is here.
+
+00:01:10.140 --> 00:01:14.690 align:middle
+In the same way, for methods
+
+00:01:14.857 --> 00:01:17.310 align:middle
+refactoring, you will have all
+those methods there, 
+
+00:01:19.850 --> 00:01:22.470 align:middle
+with also Rename, as it is 
+an important refactoring 
+
+00:01:22.637 --> 00:01:25.310 align:middle
+at this level.
+Now if I choose another
+
+00:01:25.477 --> 00:01:28.750 align:middle
+piece of code, they are not
+very complicated 
+
+00:01:28.917 --> 00:01:33.820 align:middle
+in this class, we will have the
+following refactorings
+
+00:01:35.350 --> 00:01:38.040 align:middle
+working at the method code level.
+
+00:01:41.300 --> 00:01:45.450 align:middle
+If I rename, if I do Rename on 
+the Counter class,
+
+00:01:45.617 --> 00:01:50.020 align:middle
+I call it Counter Class2, the 
+system says ok. 
+
+00:01:50.187 --> 00:01:51.300 align:middle
+I do a Rename, all right.
+
+00:01:55.130 --> 00:01:56.710 align:middle
+It gives me feedback, I 
+don’t know exactly what this means
+
+00:01:56.877 --> 00:01:57.960 align:middle
+but no matter, I ignore it.
+
+00:01:58.870 --> 00:02:00.750 align:middle
+And here, I see that
+where the Counter 
+
+00:02:04.510 --> 00:02:08.710 align:middle
+Class was invoked it is
+now Counter 2 instead.
+
+00:02:10.000 --> 00:02:14.780 align:middle
+This is typically a class rename
+
+00:02:14.947 --> 00:02:15.580 align:middle
+refactoring.
+
+00:02:16.490 --> 00:02:18.830 align:middle
+SO now, if I want to rename,
+and this is a very
+
+00:02:19.000 --> 00:02:23.480 align:middle
+good example, let’s imagine I
+want to rename the increment method.
+
+00:02:24.450 --> 00:02:27.230 align:middle
+I do Rename, and as I lack inspiration,
+
+00:02:27.397 --> 00:02:28.520 align:middle
+I will call it Increment2.
+
+00:02:31.480 --> 00:02:33.670 align:middle
+Here the system tells me:
+“Be careful”
+
+00:02:33.837 --> 00:02:35.550 align:middle
+So I am careful.
+
+00:02:36.350 --> 00:02:40.520 align:middle
+“Be careful, you are about to rename
+
+00:02:41.740 --> 00:02:44.630 align:middle
+several (there are around 10
+implementors in the
+
+00:02:44.797 --> 00:02:48.750 align:middle
+system), you are about to rename
+them, do you really want to do this?
+
+00:02:48.917 --> 00:02:50.600 align:middle
+First, I don’t want to do it,
+second I don’t
+
+00:02:50.767 --> 00:02:52.730 align:middle
+want neither to select or unselect.
+
+00:02:53.470 --> 00:02:56.580 align:middle
+So we could do it, 
+it enables to show that,
+
+00:02:56.747 --> 00:02:58.700 align:middle
+at the end, the programmer 
+is still in charge to
+
+00:02:58.867 --> 00:03:00.490 align:middle
+choose. I don’t want to do it.
+
+00:03:01.000 --> 00:03:03.700 align:middle
+However what I can do is saying:
+
+00:03:03.867 --> 00:03:06.630 align:middle
+“I am only working on
+MyCounter package
+
+00:03:06.797 --> 00:03:09.450 align:middle
+and I don’t really the rest of
+the system
+
+00:03:09.617 --> 00:03:11.020 align:middle
+to be modify automatically.
+
+00:03:11.310 --> 00:03:13.680 align:middle
+So I say to Nautilus: “I’d like 
+you
+
+00:03:13.847 --> 00:03:17.280 align:middle
+to open a browser on my package 
+only and 
+
+00:03:17.447 --> 00:03:20.380 align:middle
+that all the operations refer
+to that selection.
+
+00:03:20.890 --> 00:03:23.770 align:middle
+That’s what I do with
+browse scoped.
+
+00:03:26.530 --> 00:03:28.710 align:middle
+That what you can also get
+by pressing
+
+00:03:28.877 --> 00:03:30.180 align:middle
+the Scoped button,
+that’s the same thing.
+
+00:03:30.570 --> 00:03:32.940 align:middle
+That’s a feature so interesting 
+that it has a
+
+00:03:33.107 --> 00:03:36.240 align:middle
+button. The difference between
+those 2 worlds,
+
+00:03:36.407 --> 00:03:40.780 align:middle
+if you look at them, is
+that here I have all my packages
+
+00:03:40.947 --> 00:03:41.890 align:middle
+and here I only have one package.
+
+00:03:42.057 --> 00:03:45.310 align:middle
+I could have several, I only 
+have one selection of these packages.
+
+00:03:45.477 --> 00:03:47.120 align:middle
+And now, if I want to modify
+increment
+
+00:03:47.287 --> 00:03:52.200 align:middle
+I can say: “Rename”
+
+00:03:52.460 --> 00:03:57.180 align:middle
+as increment2
+and it will do it only
+
+00:03:57.500 --> 00:04:01.510 align:middle
+locally on the package or on 
+the selection in the scoped browser.
+
+00:04:03.380 --> 00:04:05.590 align:middle
+I click on OK, and now we will
+look at the tests.
+
+00:04:05.757 --> 00:04:08.150 align:middle
+My tests still work,
+they are all green.
+
+00:04:08.480 --> 00:04:11.890 align:middle
+And I see that now all my
+
+00:04:12.057 --> 00:04:13.790 align:middle
+Increment have been renamed
+as Increment2.
+
+00:04:16.800 --> 00:04:18.890 align:middle
+In this video we have seen that
+Pharo
+
+00:04:19.057 --> 00:04:21.610 align:middle
+offers you a variety of operations,
+
+00:04:21.777 --> 00:04:25.080 align:middle
+selections and code manipulations,
+with extra
+
+00:04:25.247 --> 00:04:27.960 align:middle
+restrictions on packages subsets
+
+00:04:28.200 --> 00:04:30.630 align:middle
+to control where changes will
+be applied.
+
+00:04:31.110 --> 00:04:32.870 align:middle
+In Pharo, you also have
+
+00:04:33.037 --> 00:04:35.240 align:middle
+a tool that will enable to
+rewrite code
+
+00:04:35.407 --> 00:04:38.060 align:middle
+automatically, I won’t expand
+on it, I you really need it
+
+00:04:38.227 --> 00:04:40.650 align:middle
+you have to ask for it, there
+is a specific
+
+00:04:40.817 --> 00:04:42.310 align:middle
+tool to do this kind of actions.
+
+00:04:43.160 --> 00:04:45.480 align:middle
+Now the last point I wanted 
+to show you
+
+00:04:45.647 --> 00:04:50.410 align:middle
+is that often you have operations
+that are 
+
+00:04:50.577 --> 00:04:51.210 align:middle
+proposed, generated.
+
+00:04:51.470 --> 00:04:54.900 align:middle
+You will apply them, the system
+will propose to execute them
+
+00:04:55.067 --> 00:04:57.330 align:middle
+but it is not sure it will work,
+it will be really appropriate.
+
+00:04:57.890 --> 00:05:00.810 align:middle
+What Pharo proposes is the 
+same as what Nautilus proposes,
+
+00:05:01.000 --> 00:05:03.460 align:middle
+it is what we call smart suggestions.
+
+00:05:03.627 --> 00:05:08.090 align:middle
+Smart suggestions are a tool
+which knows 
+
+00:05:08.520 --> 00:05:12.530 align:middle
+and propose you operations
+based on the current selection.
+
+00:05:14.120 --> 00:05:18.590 align:middle
+For example, here it can propose
+me to do
+
+00:05:18.757 --> 00:05:22.510 align:middle
+Extract method. It is not
+very interesting in this
+
+00:05:22.677 --> 00:05:25.900 align:middle
+case, or an Inline method.
+But it means that if I
+
+00:05:26.067 --> 00:05:29.230 align:middle
+selection for example the allocation,
+I won’t have at all
+
+00:05:29.397 --> 00:05:32.490 align:middle
+the same operations available.
+
+00:05:33.400 --> 00:05:36.110 align:middle
+If I am on a class, it will
+ask me to 
+
+00:05:36.277 --> 00:05:37.710 align:middle
+browse the references,
+to rename the class.
+
+00:05:37.877 --> 00:05:41.000 align:middle
+And you see that depending on 
+where the cursor is
+
+00:05:41.710 --> 00:05:43.000 align:middle
+I don’t have the same operations.
+

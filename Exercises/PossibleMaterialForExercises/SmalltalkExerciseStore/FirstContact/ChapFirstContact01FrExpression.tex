@@ -1,0 +1,368 @@
+%\documentstyle[11pt,epsf,french]{article}
+%\topmargin -2.5cm
+%\addtolength{\oddsidemargin}{-1.5cm}
+%\addtolength{\evensidemargin}{-1.5cm}
+%\addtolength{\textheight}{7cm}
+%\addtolength{\textwidth}{4cm}
+
+
+
+% $Author: ducasse $
+% $Date: 2005/11/06 13:11:22 $
+% $Revision: 1.2 $
+
+\ifx\wholebook\relax\else
+\input{../Common.tex}
+\begin{document}
+\fi
+
+\chapter{Les objets de Smalltalk-80}
+
+%\newtheorem{exo}{Exercice}
+%\title{{\bf DEUG A MIAS/SM/TI, 2$^{\grave eme}$ ann\'{e}e}\\
+%TD-TP N$^0$ 1 : {\sc Les objets de Smalltalk-80}}
+%\author{}
+%\date{}
+%\begin{document}
+%\maketitle
+
+\mainauthor{to be fixed: \pottier }
+\metadata{VisualWorks}{?Squeak/VisualWorks?}{Universit\'e de Brest ---\pottier et al. }{?1.2?}{??}
+\sd{fixer la version... peut-etre avoir des tests.}
+
+
+
+%{\bf Points de rep\`ere sur le web}\\
+%\begin{verbatim}
+%http://penarvir.univ-brest.fr/deug98/
+%\end{verbatim}
+
+\section{Environnement Smalltalk-80}
+
+\subsection{Notion de machine virtuelle}
+Smalltalk est non seulement un langage de programmation mais aussi un syst\`eme d'exploitation, un environnement de d\'eveloppement et une biblioth\`eque de code tr\`es importante.\\
+Comme Smalltalk est un interpreteur, il a besoin de conserver le texte initial (fichier {\it source}) et sa forme interne (fichier {\it image} - format byte code). Les modifications effectu\'ees sont enregistr\'ees dans un fichier {\it change}. Le repr\'esentation interne g\'en\'er\'ee peut \^etre vue comme un langage d'assemblage pour une machine virtuelle.
+
+%\begin{figure}[h]
+%\begin{center}
+%\leavevmode
+%\epsfxsize=250pt
+%\epsfbox{../../cours97-98/DEUGOPT/virtuelST.eps}
+%%\caption{le titre}
+%\label{marge}
+%\end{center}
+%\end{figure}
+
+
+\subsection{Acc\`es \`a l'image et au binaire}
+
+L'image et le binaire se trouve~:
+\begin{verbatim}
+C:
+   vwnc30
+       vwnc30
+           bin
+           image
+\end{verbatim}
+
+
+Pour lancer une image, cliquer $2$ fois sur l'ic\^one de visualnc.im
+dans le repertoire \verb|image|
+
+
+
+\section{Organisation du travail}
+Utilisation des boutons de la souris~:
+\begin{description}
+\item [bouton de gauche]~: s\'election de zone, activation de fen\^etre
+\item [bouton de droite]~: pop-up menu (menu contextuel associ\'e \`a la fen\^etre
+\item [bouton de droite dans la barre de titre]:  menu d'\'edition de la fen\^etre
+\end{description}
+
+Vous utiliserez le {\it FileList} se trouvant dans l'ic\^one bleue
+repr\'esentant un tiroir pour cr\'eer des nouveaux fichiers
+(cr\'eer a:TP1.txt)  dans le r\'epertoire Smalltalk.\\
+
+Ecrire le texte du fichier (les exercices comment\'es) dans la fen\^etre du bas et sauvegarder en utilisant le menu contextuel (``Pop Up Menu''- bouton milieu de la souris- et {\it Save as}) de la fen\^etre.
+
+Toute sauvegarde doit \^etre faite sur votre disquette, soit sous $a:$
+
+\section{TP: Observation des objets et r\`egles de priorit\'e }
+Evaluer~: selectionner une zone et faire ``print it''
+
+
+Inspecter~: selectionner une zone et faire ``inspect''
+\begin{itemize}
+\item Inspecter les expressions suivantes~:
+\begin{scode}
+1
+2.0
+$a
+'une chaine'
+1@2
+1.0@2.0
+7/2
+\end{scode}
+\end{itemize}
+
+Parmi les messages, on distingue 
+
+\begin{description}
+\item [ les messages unaires ] comme \ct{new}, \ct{sin}, \ct{sqrt}, \ct{size}, \ct{first}, \ct{last}, \ct{negated})
+\item [ les messages binaires ] 
+\verb?+ - * / ** // \\ < <= >  >= =  ~= == ~~  &  | @ ,?
+\item [ les message \`a mot cl\'e ] comme \ct{at: put:}, \ct{x: y:}, \ct{bitOr:}, \ct{bitAnd:}
+\end{description}
+Dans une expression, on \'evalue en priorit\'e en respectant le parenth\'esage, les messages unaires puis binaires puis \`a mots cl\'es. Si l'expression ne comporte que des messages de m\^eme priorit\'e, l'\'evaluation se fait classiquement de la gauche vers la droite.
+
+\begin{itemize}
+\item Evaluer et inspecter les expressions suivantes~:
+\begin{scode}
+7.0/2.0
+1 + 1
+(1 + 1) printString
+(1/2) class
+\end{scode}
+Expliquer pourquoi le parenth\'esage est obligatoire.
+\item Pas de priorit\'e des op\'erateurs, l'\'evaluation suit l'ordre des messages. Evaluer~:
+\begin{scode}
+2 + 3*4
+2 + (3*4)
+2  + 1/2
+2 + (1/2)
+\end{scode}
+\item Uniformit\'e des messages. Un m\^eme message peut \^etre adress\'e
+\`a des objets de types diff\'erents. Evaluer et inspecter~:
+\begin{scode}
+2 sqrt
+2.0 sqrt
+(3/2) sqrt
+(3/5) + (6/7)
+\end{scode}
+\item Arithm\'etique exacte et conversion de type. Evaluer~:
+\begin{scode}
+(11111111111111111111/11111111111111111112) + (1/11111111111111111112)
+2r1000
+16rFF
+256 printStringRadix:2
+
+(8 bitOr: 1) printStringRadix:2
+(8 bitAnd: 9)
+2e10 asInteger
+\end{scode}
+Faire le ou bit \`a bit des nombres binaires \ct{1010} et \ct{0011} et donner le r\'esultat en binaire.
+\item Les variables. Evaluer~:
+\begin{scode}
+\stBar x \stBar
+x := 2.
+
+\stBar x \stBar
+x := 2 + 1/2.
+
+\stBar x \stBar
+x := 2 + 1/2.
+x := 2.
+\end{scode}
+Quelle est la valeur de \ct{x} apr\`es \'evaluation de la derni\`ere portion de code?
+\item Le tableau est aussi un objet. Evaluer~:
+\begin{scode}
+\stBar table  \stBar 
+table := #(1 2.0 'trois' 444444444444444444444444444444444444).
+table := #(1 3 6 9).
+table first.
+table last.
+table reverse.
+
+\stBar string \stBar 
+string := '#(1 3 6 9)'.
+string first.
+string last.
+string reverse.
+  
+#(10 20 30 40) at: 2
+
+\stBar table \stBar 
+table := #(1 3 6 9).
+table at:1 put: (3/4)
+
+\stBar string \stBar 
+string := '#(1 3 6 9)'.
+string at: 4 put: $r
+\end{scode}
+
+
+
+
+\item Donner la liste des objets et des messages d\'efinis dans les expressions ci-dessous. Expliquer le r\'esultat de l'\'evaluation.
+
+
+
+\begin{scode}
+\stBar aPoint \stBar
+aPoint:= Point x:2 y:1.
+aPoint x: aPoint x * 2
+
+\stBar x \stBar
+x:=1.5.
+x negated rounded.
+Fraction  numerator: x*2 denominator: 3 + x negated rounded.
+\end{scode}
+\end{itemize}
+
+
+\section{Exercices (A faire en TD)}
+\subsection{Tableaux}
+
+\begin{enumerate}
+
+\item Multiplier  par 2 le 2 \`eme \'el\'ement d'un tableau,
+\item Remplacer la valeur du 2 \`eme \'el\'ement d'un tableau par son oppos\'e.
+\item  Remplacer la valeur du 3 \`eme  \'el\'ement par la valeur du 2 \`eme
+\'el\'ement.
+\item  Remplacer la valeur du 3 \`eme  \'el\'ement par la somme des 2 \`eme
+et 3\`eme (ancienne valeur) \'el\'ements.
+\item Le 2 \`eme du tableau \'etant une fraction, remplacer cette fraction par la fraction inverse dans le tableau.
+\end{enumerate}
+
+\subsection{Nombres}
+
+\subsubsection{Maximum}
+
+La m\'ethode \verb|max: unAutreNombre| appliqu\'e \`a un nombre
+renvoie le plus grand des deux nombres.\\
+Exemple~: \ct{2 max: 6} renvoie \ct{6}.
+
+\begin{enumerate}
+\item Calculer le maximum de 3 variables \ct{a b c} contenant des valeurs
+quelconques.
+\item Calculer le maximum de 3 variables \ct{a b c} contenant des valeurs
+quelconques {\bf sans utiliser de variables interm\'ediaires}
+\end{enumerate}
+
+\subsubsection{Fonctions trigonom\'etriques}
+
+Un nombre (en radians) comprend les messages correspondant aux 
+fonctions trigonom\'etriques \ct{sin cos tan arcSin arcCos arcTan}.
+
+On convertit un nombre de Degr\'e \`a Radian en lui envoyant
+le message \ct{degreesToRadians}.
+
+\paragraph{}
+Calculer (\`a l'aide d'une fonction trigonom\'etrique) le c\^ot\'e
+d'un carr\'e dont la diagonale mesure 1.41421 m\`etres.
+
+\subsubsection{Conversion Celsius-Fahrenheit}
+
+La formule de conversion Celsius-Fahrenheit est :
+C = (5/9) (F - 32).\\
+Convertir une variable contenant un nombre (en degr\'es Fahrenheit),
+en degr\'es Celsius.
+
+\subsubsection{Conversion binaire-hexad\'ecimale}
+
+\verb|//| est l'op\'erateur de division enti\`ere.
+
+\verb|\\| est l'op\'erateur de modulo.\\
+Soit un nombre hexad\'ecimal (de 0 \`a 15 en base 10, de 0000 \`a 1111 en base 2),
+on d\'esire le convertir en binaire
+(sans utiliser \ct{printStringRadix:}).
+
+\paragraph{}
+En effectuant une s\'erie de divisions enti\`eres, les chiffres binaires
+sont obtenus {\bf de la droite vers la gauche} gr\^ace au reste de la division
+enti\`ere (le modulo).
+
+\begin{enumerate}
+\item Appliquer cet algorithme pour convertir le nombre hexa 15 en base 2.
+\item V\'erifier en utilisant \ct{printStringRadix:}
+\end{enumerate}
+ 
+\subsection{Dates}
+
+On obtient la date du jour gr\^ace au message \verb|today| envoy\'e
+\`a la classe \verb|Date|.
+\begin{scode}
+\stBar d \stBar
+d := Date today.
+\end{scode}
+
+On peut cr\'eer une date gr\^ace au message \ct{newDay:unNumeroJour monthNumber:unNumeroMois year:unNumeroAnnee} envoy\'e \`a la classe \ct{Date}.
+
+On peut aussi cr\'eer une date gr\^ace au message \ct{fromDays:nombreJours} envoy\'e \`a la classe \ct{Date}.
+
+La m\'ethode \ct{asDays} envoy\'e \`a une date renvoie le nombre de jours depuis le d\'ebut du si\`ecle (1/01/1901).
+
+\begin{scode}
+\stBar d \stBar
+d := Date newDay:12 monthNumber:10 year:1998.
+d asDays. "35713"
+\end{scode}
+
+\begin{enumerate}
+\item Calculer le nombre de jours que vous avez d\'eja v\'ecu.
+\item Calculer quelle serait la date, si vous aviez l'age que vous avez aujourd'hui
+et si vous \'etiez n\'e le 1 Janvier 1901.
+\end{enumerate}
+
+\subsection{Caract\`eres}
+
+On peut cr\'eer un caract\`ere \`a partir de son code ASCII en envoyant
+le message \verb|value: unCodeAscii| \`a la classe \verb|Character|
+
+On obtient le code ASCII d'un caract\`ere en lui envoyant le message
+\ct{asInteger}
+
+\begin{scode}
+\stBar c \stBar
+c := Character value: 65.
+c asInteger. "65"
+\end{scode}
+ 
+\begin{enumerate}
+\item Calculer le code ASCII de \verb|$a| et de \verb|$A|
+\item Convertir un caract\`ere de minuscule \`a majuscule
+\end{enumerate}
+
+\subsection{Cha\^{\i}nes}
+
+On obtient une cha\^{\i}ne \`a partir d'un caract\`ere en envoyant
+le message \ct{with: unCaractere} \`a la classe \ct{String}.
+
+Le caract\`ere "blanc" s'obtient en envoyant le message \ct{space} \`a la classe \ct{Character}.
+
+On concat\`ene des cha\^{\i}nes avec l'op\'erateur \ct{,}
+
+\begin{scode}
+\stBar s1 s2 \stBar
+s1 := String with: $1.
+s2 := String with: $2.
+s1, s2        "12"
+\end{scode}
+
+\begin{enumerate}
+\item Fabriquer une cha\^{\i}ne contenant le caract\`ere "blanc"
+\item Fabriquer une cha\^{\i}ne contenant votre pr\'enom, un caract\`ere
+"blanc", votre nom
+\end{enumerate}
+ 
+
+\subsection{La classe \ct{Point}}
+Dans la classe \ct{Point}, les messages unaires \ct{r} et \ct{theta} permettent de recup\'erer les coordonn\'ees polaires d'un point.
+
+\begin{enumerate}
+\item D\'efinir une translation de point par rapport \`a un vecteur donn\'e.
+\item D\'efinir une homoth\'etie. 
+\item Calculer l'angle form\'e par deux vecteurs.
+\end{enumerate}
+
+
+
+\ifx\wholebook\relax\else\end{document}\fi
+
+
+
+
+
+
+
+

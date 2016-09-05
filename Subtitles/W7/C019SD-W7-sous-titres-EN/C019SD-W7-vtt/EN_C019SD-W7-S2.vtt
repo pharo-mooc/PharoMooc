@@ -1,0 +1,377 @@
+﻿WEBVTT
+
+00:00:00.440 --> 00:00:05.120 align:middle
+In this video, we'll explain a point
+rarely covered in Pharo courses.
+
+00:00:05.320 --> 00:00:08.040 align:middle
+How to define variable size objects.
+
+00:00:09.360 --> 00:00:13.760 align:middle
+You'll notice that we already use
+objects of different sizes.
+
+00:00:13.920 --> 00:00:18.040 align:middle
+Here I'll create an array
+using this expression.
+
+00:00:18.240 --> 00:00:21.680 align:middle
+It contains ten elements,
+all set at nil.
+
+00:00:21.920 --> 00:00:25.480 align:middle
+Using the same expression,
+I now create an array
+
+00:00:26.040 --> 00:00:28.640 align:middle
+that contains five elements.
+
+00:00:29.160 --> 00:00:33.720 align:middle
+We see that the Array class
+creates instances of variable sizes.
+
+00:00:34.120 --> 00:00:38.480 align:middle
+But until now, we haven't explained
+how you can do this.
+
+00:00:39.040 --> 00:00:40.040 align:middle
+So,
+
+00:00:40.440 --> 00:00:45.720 align:middle
+here we'll show you how to define
+classes with variable size instances,
+
+00:00:46.040 --> 00:00:49.080 align:middle
+how to instantiate these objects,
+
+00:00:49.240 --> 00:00:52.280 align:middle
+and how to access these variable sizes.
+
+00:00:52.800 --> 00:00:54.360 align:middle
+Now for the first point.
+
+00:00:55.600 --> 00:00:56.800 align:middle
+It's very simple.
+
+00:00:57.600 --> 00:01:02.280 align:middle
+The definition uses the message
+variableSubclass: instead of subclass:.
+
+00:01:02.600 --> 00:01:05.040 align:middle
+We copy the Array class definition.
+
+00:01:05.280 --> 00:01:09.120 align:middle
+Note that we use variableSubclass,
+instanceVariableNames,
+
+00:01:09.600 --> 00:01:12.240 align:middle
+and so on, to create the class.
+
+00:01:12.400 --> 00:01:15.760 align:middle
+Whereas usually,
+when we define the Pointer class,
+
+00:01:15.920 --> 00:01:18.800 align:middle
+Counter class, or Dice class,
+
+00:01:19.280 --> 00:01:21.520 align:middle
+we would only use Subclass.
+
+00:01:21.960 --> 00:01:26.800 align:middle
+Using this definition, the instances
+we create have variable sizes.
+
+00:01:27.200 --> 00:01:31.320 align:middle
+Using this example,
+if we want to make a "strange" point,
+
+00:01:31.520 --> 00:01:34.640 align:middle
+using two instance variables, x and y,
+
+00:01:34.800 --> 00:01:38.600 align:middle
+as a point and a variable zone,
+we use this definition.
+
+00:01:40.000 --> 00:01:44.640 align:middle
+This creates objects that look like this,
+with a value for x,
+
+00:01:45.480 --> 00:01:49.600 align:middle
+a value for y,
+and one variable zone per instance.
+
+00:01:49.760 --> 00:01:52.160 align:middle
+We could also have another instance,
+
+00:01:52.320 --> 00:01:56.000 align:middle
+which also has x and y,
+with 10 here and 20 here,
+
+00:01:56.160 --> 00:01:59.080 align:middle
+and, for example, 100 here and 200 here,
+
+00:01:59.760 --> 00:02:03.800 align:middle
+with a variable zone
+that can contain different objects.
+
+00:02:04.800 --> 00:02:09.600 align:middle
+So, the instances of a class
+that can have variable size instances
+
+00:02:09.800 --> 00:02:15.400 align:middle
+have an indexed zone that is added
+after named variables, like x and y.
+
+00:02:15.680 --> 00:02:18.680 align:middle
+It's implicit
+and there's only one per class,
+
+00:02:18.880 --> 00:02:22.360 align:middle
+to avoid implementation problems
+when expanding it.
+
+00:02:22.520 --> 00:02:25.520 align:middle
+Now we've seen how to create classes
+
+00:02:25.680 --> 00:02:28.240 align:middle
+that have different sized instances.
+
+00:02:28.400 --> 00:02:32.120 align:middle
+Now we'll go back
+to how we can instantiate them
+
+00:02:32.320 --> 00:02:34.960 align:middle
+and how to access this variable size.
+
+00:02:36.120 --> 00:02:38.480 align:middle
+The way we instantiate them
+
+00:02:38.720 --> 00:02:42.880 align:middle
+is to use the message "new:"
+noting the use of the colon.
+
+00:02:43.080 --> 00:02:46.520 align:middle
+We discussed this
+in the course on collections.
+
+00:02:46.760 --> 00:02:49.920 align:middle
+Here we want to create
+a variable size object.
+
+00:02:50.080 --> 00:02:54.480 align:middle
+The variable size of the object
+is specified by its "max" value.
+
+00:02:54.680 --> 00:02:58.280 align:middle
+So, we create an object,
+an array with four elements.
+
+00:02:58.880 --> 00:03:01.320 align:middle
+This shows the four elements.
+
+00:03:01.960 --> 00:03:04.400 align:middle
+How do we access this variable size?
+
+00:03:04.760 --> 00:03:09.400 align:middle
+We use the messages at: and at:put:,
+which you saw in the arrays.
+
+00:03:09.680 --> 00:03:13.880 align:middle
+This works for all objects
+with a variable size.
+
+00:03:14.280 --> 00:03:18.400 align:middle
+So, if we write at: 2 here, we add 'lulu'.
+
+00:03:20.480 --> 00:03:25.240 align:middle
+Then if we access value 1,
+it will logically return nil.
+
+00:03:25.440 --> 00:03:29.680 align:middle
+And if we look at value 2,
+it will give us 'lulu.'
+
+00:03:30.080 --> 00:03:33.320 align:middle
+In fact, a mapping is applied here
+
+00:03:33.520 --> 00:03:38.000 align:middle
+between arrays and variable size objects
+using at:put: and 'lulu.'
+
+00:03:38.160 --> 00:03:41.440 align:middle
+This API protocol functions for arrays
+
+00:03:42.560 --> 00:03:47.320 align:middle
+and for all objects
+we want to have a variable size.
+
+00:03:49.680 --> 00:03:52.440 align:middle
+I haven't explained a great deal here,
+
+00:03:52.600 --> 00:03:56.840 align:middle
+only how to define Array class
+and extend it to other objects,
+
+00:03:57.000 --> 00:03:58.960 align:middle
+since you know the protocol.
+
+00:03:59.840 --> 00:04:03.480 align:middle
+So, in Pharo
+there are objects, or classes,
+
+00:04:03.760 --> 00:04:05.880 align:middle
+that take different forms.
+
+00:04:06.080 --> 00:04:10.320 align:middle
+There are classes
+that only have named instance variables,
+
+00:04:10.600 --> 00:04:15.160 align:middle
+like Counter class with count
+or Dice class with the number of sides.
+
+00:04:15.480 --> 00:04:18.880 align:middle
+Then we have classes that only have
+
+00:04:19.200 --> 00:04:22.640 align:middle
+a variable or indexed zone,
+like Array class.
+
+00:04:22.800 --> 00:04:26.240 align:middle
+Then we have other classes
+that are a mix of both.
+
+00:04:26.960 --> 00:04:32.000 align:middle
+However, there are some constraints,
+it's more subtle than it seems.
+
+00:04:32.160 --> 00:04:35.680 align:middle
+We can now decide
+on the type of class variable.
+
+00:04:35.840 --> 00:04:38.280 align:middle
+I'll just show you the intention.
+
+00:04:38.440 --> 00:04:42.400 align:middle
+This variable aspect we're talking about
+
+00:04:43.240 --> 00:04:47.840 align:middle
+can simply be object pointers,
+or perhaps Byte or Word variables.
+
+00:04:48.440 --> 00:04:51.520 align:middle
+It's used to interface
+with the outside world
+
+00:04:51.680 --> 00:04:54.160 align:middle
+when we need to specify a size,
+
+00:04:54.360 --> 00:04:58.840 align:middle
+and within it we put pointers
+to objects with a specific form.
+
+00:04:59.240 --> 00:05:03.480 align:middle
+This is an advanced feature,
+but I wanted to show it to you.
+
+00:05:03.680 --> 00:05:06.760 align:middle
+You'll usually only need
+to use "Subclass."
+
+00:05:06.920 --> 00:05:10.280 align:middle
+Sometimes you'll use "variableSubclass"
+
+00:05:10.680 --> 00:05:14.080 align:middle
+and "Bitmap,"
+which represents the screen.
+
+00:05:14.280 --> 00:05:17.280 align:middle
+Bitmap is an object
+
+00:05:17.840 --> 00:05:20.440 align:middle
+that has a variable zone, named Words.
+
+00:05:21.280 --> 00:05:23.280 align:middle
+Just so you know it exists.
+
+00:05:23.680 --> 00:05:27.600 align:middle
+Since Pharo is a reflective system,
+
+00:05:27.760 --> 00:05:29.800 align:middle
+we can ask it questions.
+
+00:05:29.960 --> 00:05:33.680 align:middle
+So, using these methods,
+we can make queries.
+
+00:05:33.840 --> 00:05:37.840 align:middle
+Such as whether the class size
+is fixed or variable.
+
+00:05:38.000 --> 00:05:41.560 align:middle
+Or whether it stores pointers or bytes,
+for example.
+
+00:05:41.760 --> 00:05:46.160 align:middle
+We have the entire API
+to enquire about the type of class.
+
+00:05:46.400 --> 00:05:50.120 align:middle
+This list was created
+by making queries to the system.
+
+00:05:51.240 --> 00:05:52.640 align:middle
+A constraint applies.
+
+00:05:53.640 --> 00:05:58.480 align:middle
+Classes that are defined using subclass
+
+00:05:58.880 --> 00:06:01.080 align:middle
+can have any type of subclass.
+
+00:06:01.280 --> 00:06:04.040 align:middle
+If we have points using x and y,
+
+00:06:04.280 --> 00:06:07.600 align:middle
+we'll be able to add a subclass named z
+
+00:06:07.840 --> 00:06:12.440 align:middle
+or a subclass named xy,
+plus a variable zone.
+
+00:06:14.520 --> 00:06:20.520 align:middle
+But if you want to create a subclass
+of a class that already has a variable,
+
+00:06:20.720 --> 00:06:25.560 align:middle
+you can only use variables
+from classes that are variable.
+
+00:06:25.760 --> 00:06:30.680 align:middle
+Otherwise, the system that constructs
+classes says it's incompatible.
+
+00:06:30.840 --> 00:06:35.800 align:middle
+It needs to know that there is one zone
+to handle the constraints.
+
+00:06:36.000 --> 00:06:40.280 align:middle
+In any case, the system will inform you
+if it's impossible.
+
+00:06:41.000 --> 00:06:43.200 align:middle
+So, what do you need to know?
+
+00:06:43.440 --> 00:06:46.920 align:middle
+You should now know
+how to define classes
+
+00:06:47.080 --> 00:06:50.520 align:middle
+that have instances of variable sizes
+
+00:06:50.680 --> 00:06:56.520 align:middle
+and how to instantiate them using "new:"
+
+00:06:56.840 --> 00:07:02.320 align:middle
+and how to access them
+using the protocol seen in the arrays.

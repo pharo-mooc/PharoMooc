@@ -1,0 +1,101 @@
+\ifx\wholebook\relax\else
+\input{Common.tex}
+\begin{document}
+\fi
+
+
+\chapter{SmallWiki Browsing Exercises}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Starting Smallwiki
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Start Smallwiki}
+\exercise Start the SmallWiki-Server on your machine (use the SmallWiki workspace) and explore
+all its possibilities from the user-point of view. If you are
+asked to login, give 'admin' as username and 'smallwiki' as
+password. Note: The authentication is still experimental and it is
+known not to work with the Mac OS-X Web browser \emph{Safari}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Play with Glossary
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Play with Glossary}
+
+\exercise Load the package \textit{SmallWiki Glossary} from Store.
+To do this, go to the \textbf{Store} menu in the
+\textbf{VisualWorks} main window. Choose the \textbf{Published
+Items} menu item. Once the window with all the published items in
+Store appears, look for the package \textbf{SmallWiki Glossary} in
+the left pane of the window (you might have to scroll past the \emph{bundles} that are listed first). Click in the package and now choose
+the last version of the package that appears in the right pane of
+the window. With the right-button of the mouse, choose the
+\textbf{Load} option. Once the process is
+completed, the package is loaded in your system.
+
+Then go back to your browser and add a new
+glossary-component to the root of your wiki. \comment {What is
+this? They have to add a new glossary component once the package
+is loaded}\\
+
+\textit{SmallWiki Glossary}is a small component to create
+keyword-indexes of a whole wiki. In that package there are only 3
+classes. Explore them and try to answer the following questions:
+
+\begin{enumerate}
+
+\item Glossary: What is the supper-class of Glossary. Why is the
+instance side empty? What is done on the class-side? What would
+you have to do to implement a caching mechanism?
+\comment{The
+caching mechanism is not obvious--ab}
+
+\item GlossaryView: What is the supper-class of GlossaryView? What is the responsiblity of GlossaryView? What piece of code would you have to change to reverse the sort-order of the keywords?
+
+\item VisitorGlossary: From where is this visitor called? Why does the visitor override the message \texttt{\#defaultCollection}. Why is the message \texttt{\#acceptCode:} empty? Should this message be removed? What would you have to change, if you wanted to filter-out common words as \texttt{the}, \texttt{and}, \texttt{or}, \texttt{not} ?
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SmallWiki Tests
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Diving into SmallWiki Tests}
+
+\exercise Go to the package \textit{SmallWiki Tests} in the
+\textit{SmallWiki} bundle. Select all the test-classes and hit on
+the run-button (assuming that \texttt{RBSUnitExtensions} has been
+loaded). Do you get errors?
+ \comment {It is supposed that they already load SmallWikiTest packages?}
+
+\begin{enumerate}
+\item Now have a look at \texttt{StructureTests}. First have a
+look at \texttt{StructureTests>>setUp}\footnote{the notation
+\texttt{AClass>>aMethodName} refers to the method named
+\texttt{aMethodName} defined in the class \texttt{AClass}. Method
+defined in a metaclass can be referenced such as \texttt{AClass
+class>>aMethodName}} and try to understand how a wiki is built
+from code.
+
+\item Now go to the 'testing-testing' protocol. By looking at those tests only, guess what the messages \texttt{Structure>>isEmtpy} and \texttt{Structure>>isRoot} are used for.
+
+\item Do the same in the 'testing-navigation' protocol for the
+messages \texttt{Structure>>next} and \\ \texttt{Structure>>first}.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Structure
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Understanding the Structure}
+\exercise Now change to the package \textit{SmallWiki Structure} and select the class \texttt{Structure}. What are its subclasses? Have you already seen those classes anywhere?
+\begin{enumerate}
+\item Have a look at the messages \texttt{Structure>>isEmpty},
+\texttt{Structure>>isRoot}, \texttt{Structure>>next} and
+\texttt{Structure>>first}. Do they do the same as you thought
+while studying the tests? \item Now go to the \textit{serving}
+protocol. Have a close look at all the messages defined in there.
+What are they used for? What is the starting point?. Why is
+\texttt{Structure>>processChild:} overridden by the Folder class?
+What is its default implementation?
+\end{enumerate}
+
+\ifx\wholebook\relax\else\end{document}\fi

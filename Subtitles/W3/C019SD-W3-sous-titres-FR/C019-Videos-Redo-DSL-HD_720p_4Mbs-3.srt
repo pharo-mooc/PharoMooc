@@ -1,0 +1,1986 @@
+1
+00:00:01,910 --> 00:00:04,410
+Donc cette vidéo est
+un Redo pour le MOOC.
+
+2
+00:00:04,577 --> 00:00:07,030
+Re-do dans le sens où on
+vous demande de le refaire, de
+
+3
+00:00:07,520 --> 00:00:09,540
+suivre la vidéo et
+pas à pas de le refaire.
+
+4
+00:00:10,060 --> 00:00:13,470
+C'est aussi une invitation
+à regarder comment on code.
+
+5
+00:00:13,720 --> 00:00:17,680
+Donc moi je ne vais pas
+suivre un script très précis, je
+
+6
+00:00:17,847 --> 00:00:20,060
+vais essayer de le faire
+mais si j'ai des bugs ou des
+
+7
+00:00:20,227 --> 00:00:23,090
+choses comme ça, je vais les
+traiter au fur et à mesure.
+
+8
+00:00:24,870 --> 00:00:29,130
+Donc l'idée de cette
+vidéo, c'est de faire un petit
+
+9
+00:00:29,297 --> 00:00:32,040
+langage qu'on retrouve
+dans les jeux de rôles comme
+
+10
+00:00:32,207 --> 00:00:35,930
+"Donjons et Dragons", qui
+nous disent par exemple, ceux
+
+11
+00:00:36,097 --> 00:00:38,800
+qui ont ce genre de petites
+expressions, qu'est-ce que
+
+12
+00:00:38,967 --> 00:00:40,010
+veut dire cette expression ?
+
+13
+00:00:40,420 --> 00:00:45,380
+Elle veut dire: tu dois lancer 2
+dés à 20 faces et 1 dé à 4 faces.
+
+14
+00:00:45,547 --> 00:00:47,420
+Et vous allez voir que ça
+peut être une expression Pharo.
+
+15
+00:00:48,000 --> 00:00:52,490
+Et donc, dans cette vidéo, on va
+
+16
+00:00:52,657 --> 00:00:55,170
+implémenter une classe qui
+représente un dé et une classe
+
+17
+00:00:55,337 --> 00:00:57,420
+qui représente une poignée de dés.
+
+18
+00:00:58,660 --> 00:00:59,770
+Donc, on va commencer.
+
+19
+00:01:00,870 --> 00:01:04,290
+Donc pour cela, on va
+commencer par définir un package.
+
+20
+00:01:05,710 --> 00:01:06,790
+Donc ce package, on
+va l'appeler "Dice".
+
+21
+00:01:06,957 --> 00:01:11,860
+Donc je n'ai pas trop envie de voir
+
+22
+00:01:12,027 --> 00:01:16,660
+d'autres choses. Alors cette
+
+23
+00:01:16,827 --> 00:01:19,450
+vidéo je ne vais pas la
+faire en mode codée dans le
+
+24
+00:01:19,617 --> 00:01:22,210
+débugger, vous l'avez vu
+dans une autre vidéo, je vais le
+
+25
+00:01:22,377 --> 00:01:24,410
+faire au cas par cas,
+de manière opportuniste.
+
+26
+00:01:25,490 --> 00:01:30,030
+Donc là, je vais définir
+la classe "Die", qui a un
+
+27
+00:01:30,197 --> 00:01:31,370
+certain nombre de faces.
+
+28
+00:01:32,100 --> 00:01:35,630
+Je la compile. Je vais
+rajouter un commentaire de classe.
+
+29
+00:01:43,380 --> 00:01:45,890
+Alors pour le moment, pas
+grand-chose parce que c'est très très simple.
+
+30
+00:01:47,550 --> 00:01:52,360
+Ce qu'on va commencer à
+faire, on va faire en sorte qu'on
+
+31
+00:01:52,527 --> 00:01:53,950
+puisse initialiser notre objet.
+
+32
+00:02:00,450 --> 00:02:02,260
+Donc, je vais le faire comme ça.
+
+33
+00:02:10,190 --> 00:02:13,560
+J'appelle une
+initialisation de la super classe, et je
+
+34
+00:02:13,727 --> 00:02:18,140
+vais mettre par défaut 6
+faces à mon dé, parce que ce
+
+35
+00:02:18,307 --> 00:02:19,140
+sont les dés les plus courants.
+
+36
+00:02:19,820 --> 00:02:22,530
+Maintenant je vais
+commencer aussi à développer une
+
+37
+00:02:22,697 --> 00:02:25,640
+ classe de tests, histoire
+d'être sûr que ce qu'on fait ne
+
+38
+00:02:25,807 --> 00:02:26,900
+casse pas ce qui a déjà été fait.
+
+39
+00:02:27,260 --> 00:02:30,450
+Donc les classes de tests, elles
+sont sous-classes de la classe TestCase.
+
+40
+00:02:30,617 --> 00:02:34,100
+Et on va l'appeler "DieTest".
+
+41
+00:02:34,370 --> 00:02:37,510
+Voilà, j'ai ma classe de tests.
+
+42
+00:02:37,790 --> 00:02:40,220
+Donc un des premiers tests
+qu'on va faire, alors il ne
+
+43
+00:02:40,387 --> 00:02:42,480
+faut pas les faire tout le
+temps comme ça, mais en tout
+
+44
+00:02:42,647 --> 00:02:46,650
+cas, celui-là, j'aimerais bien
+commencer par avoir un test qui fonctionne.
+
+45
+00:02:47,840 --> 00:02:52,120
+Comme là, on n'a pas grand-chose, je
+vais dire que l'initialisation est ok.
+
+46
+00:02:53,820 --> 00:02:56,160
+Donc c'est aussi une
+façon pour moi de vous montrer
+
+47
+00:02:56,327 --> 00:02:59,770
+comment on peut tester qu'on
+peut capturer des exceptions
+
+48
+00:02:59,937 --> 00:03:01,440
+ou que des exceptions
+ne doivent pas arriver.
+
+49
+00:03:02,180 --> 00:03:04,590
+Donc là, ce que je suis en
+train de dire, je veux dire:
+
+50
+00:03:04,757 --> 00:03:06,460
+Die new should not raise error.
+
+51
+00:03:18,120 --> 00:03:19,170
+Donc qu'est-ce que ça veut dire ?
+
+52
+00:03:19,337 --> 00:03:23,290
+Ça veut dire, quand
+j'exécute ce morceau de code "Die
+
+53
+00:03:23,457 --> 00:03:25,600
+new", il n'y a pas
+d'erreurs qui doivent arriver.
+
+54
+00:03:28,170 --> 00:03:32,560
+Donc je vais classifier mon
+test et je vais le faire tourner.
+
+55
+00:03:32,727 --> 00:03:35,550
+C'est vert. Très bien.
+
+56
+00:03:36,000 --> 00:03:40,020
+Donc maintenant ce que
+j'aimerais faire, c'est définir la
+
+57
+00:03:40,187 --> 00:03:44,540
+méthode qui fait tourner un
+dé, qui fait un lancé de dé.
+
+58
+00:03:44,707 --> 00:03:48,610
+Donc, je sais que dans
+Pharo, il doit y avoir une méthode
+
+59
+00:03:48,777 --> 00:03:49,720
+qui s'appelle "at Random".
+
+60
+00:03:49,887 --> 00:03:53,940
+At Random, qu'est-ce qu'elle fait ?
+
+61
+00:03:54,480 --> 00:03:57,780
+Elle me permet d'avoir… Ok.
+
+62
+00:03:58,310 --> 00:04:00,770
+Donc maintenant je vais regarder
+l'implémentation pour m'assurer
+
+63
+00:04:00,937 --> 00:04:03,620
+que c'est bon. AtRandom,
+voilà, qu'est-ce qu'il fait?
+
+64
+00:04:04,870 --> 00:04:09,070
+Rend un entier au hasard entre
+1 à self, donc c'est parfait.
+
+65
+00:04:10,910 --> 00:04:13,910
+Donc ce que je vais faire,
+je vais définir une nouvelle
+
+66
+00:04:15,290 --> 00:04:19,220
+méthode dans Operations.
+
+67
+00:04:21,160 --> 00:04:22,230
+Qu'est-ce qu'elle va faire ?
+
+68
+00:04:22,397 --> 00:04:26,640
+Roll. Je vais lui
+dire: tu me rends "faces
+
+69
+00:04:27,570 --> 00:04:28,203
+atRandom".
+
+70
+00:04:35,750 --> 00:04:37,400
+Donc on va écrire un test pour ça.
+
+71
+00:04:40,490 --> 00:04:43,590
+TestRolling. Donc
+qu'est-ce qu'on fait là?
+
+72
+00:04:44,120 --> 00:04:49,040
+On va créer un dé. d : = die
+
+73
+00:04:49,207 --> 00:04:49,840
+new.
+
+74
+00:04:51,210 --> 00:04:53,140
+Et maintenant, je vais
+faire "1000 timesRepeat".
+
+75
+00:04:54,420 --> 00:04:58,240
+Quoi ? "D Roll".
+
+76
+00:05:03,620 --> 00:05:07,580
+Donc ça, je veux que
+ce soit entre 1 et 6.
+
+77
+00:05:07,747 --> 00:05:12,640
+"Between: and:", c'est
+
+78
+00:05:12,807 --> 00:05:15,560
+bien. "Between 1 et 6".
+
+79
+00:05:15,820 --> 00:05:18,510
+Alors, ce n'est pas très
+bien parce que là, on a fait un
+
+80
+00:05:18,677 --> 00:05:22,470
+test que pour les dés à 6
+faces, on aurait pu dire que ça
+
+81
+00:05:22,637 --> 00:05:25,310
+fonctionne en fonction du
+nombre de faces de notre dé.
+
+82
+00:05:25,640 --> 00:05:26,580
+On le fera plus tard.
+
+83
+00:05:26,830 --> 00:05:27,463
+Donc je compile.
+
+84
+00:05:32,840 --> 00:05:35,620
+J'ai une erreur. Voilà.
+
+85
+00:05:37,910 --> 00:05:39,170
+Donc c'est bon, j'ai mon test.
+
+86
+00:05:39,337 --> 00:05:41,460
+Donc là, c'est l'occasion
+de sauver, donc là j'ai mon
+
+87
+00:05:41,627 --> 00:05:44,590
+package "Dice", je vais le
+sauver de manière locale, "Save".
+
+88
+00:05:44,757 --> 00:05:49,000
+J'en avais fait quelques-uns
+avant pour me chauffer donc
+
+89
+00:05:49,167 --> 00:05:51,710
+moi je vais en refaire un,
+qui est "New version with
+
+90
+00:05:56,530 --> 00:06:00,780
+rolling and test". Très bien.
+
+91
+00:06:01,030 --> 00:06:02,370
+Voilà, on a sauvé.
+
+92
+00:06:11,480 --> 00:06:14,610
+Donc maintenant ce que
+j'aimerais faire, c'est changer un
+
+93
+00:06:14,777 --> 00:06:18,890
+peu l'interface de
+création. Déjà on va
+
+94
+00:06:19,810 --> 00:06:22,200
+recatégoriser, si on veut
+ charger un peu l'interface de
+
+95
+00:06:22,367 --> 00:06:26,390
+création, on aimerait dire
+par exemple: "to create a die
+
+96
+00:06:26,557 --> 00:06:28,090
+use die faces".
+
+97
+00:06:39,290 --> 00:06:42,610
+Donc là ce qu'il faut voir
+sur cette expression, c'est
+
+98
+00:06:42,777 --> 00:06:46,030
+que faces c'est un message
+envoyé à la classe die et pas
+
+99
+00:06:46,197 --> 00:06:48,610
+à une instance de la classe
+die, comme c'est le cas dans
+
+100
+00:06:49,090 --> 00:06:51,880
+la méthode roll ou dans les autres
+méthodes qu'on a codées jusqu'à présent.
+
+101
+00:06:52,047 --> 00:06:55,040
+Donc on va faire ça pour
+que vous compreniez bien quand
+
+102
+00:06:55,207 --> 00:06:58,900
+est-ce qu'on doit utiliser et
+aller au niveau class ou pas.
+
+103
+00:06:59,350 --> 00:07:00,710
+Donc commençons par écrire un test.
+
+104
+00:07:03,050 --> 00:07:06,420
+Donc "betterInterface".
+
+105
+00:07:08,790 --> 00:07:10,200
+Donc si je reprends la même logique,
+
+106
+00:07:12,230 --> 00:07:18,080
+"TestbetterCreationInterface", ce
+
+107
+00:07:18,247 --> 00:07:20,950
+que j'aimerais faire ici c'est faire
+quelque chose comme ça, par exemple.
+
+108
+00:07:22,680 --> 00:07:23,640
+Et que ça, ça soit faces.
+
+109
+00:07:30,620 --> 00:07:32,420
+Ce que je vais faire je
+vais le faire lentement.
+
+110
+00:07:32,950 --> 00:07:36,840
+Là, je viens ici et je fais
+"instance creation" faces anInteger.
+
+111
+00:07:46,560 --> 00:07:49,000
+Donc je pourrais l'écrire
+de façon compacte mais là je
+
+112
+00:07:49,167 --> 00:07:50,530
+vais faire d'une manière calme.
+
+113
+00:07:51,000 --> 00:07:52,940
+Donc je crée un die.
+
+114
+00:07:53,890 --> 00:07:57,740
+Donc je fais "self new", puisque
+self là c'est la classe die elle-même.
+
+115
+00:07:58,220 --> 00:08:00,410
+Donc je lui demande:
+crée-moi une instance.
+
+116
+00:08:00,577 --> 00:08:03,620
+Et maintenant, à cette
+nouvelle instance je vais utiliser
+
+117
+00:08:03,787 --> 00:08:08,410
+un accesseur pour pouvoir lui mettre
+la valeur qui a été passée en argument.
+
+118
+00:08:08,577 --> 00:08:12,130
+Et bien sûr je vais rendre
+le dé que je viens de créer.
+
+119
+00:08:13,860 --> 00:08:16,920
+Donc quand je vais exécuter
+le code, ça va pas marcher parce
+
+120
+00:08:17,087 --> 00:08:19,950
+que faces n'existe pas, donc
+il ne faut pas s'inquiéter.
+
+121
+00:08:20,117 --> 00:08:22,760
+Ce qu'on voit, c'est que mon
+test ne passe pas, mais que
+
+122
+00:08:22,927 --> 00:08:27,720
+c'est normal, parce que
+si j'exécute même ça par
+
+123
+00:08:27,887 --> 00:08:29,520
+exemple, si je fais débug pour voir.
+
+124
+00:08:33,640 --> 00:08:38,360
+Donc si je fais Over, là il
+me dit: oui, je ne connais
+
+125
+00:08:38,527 --> 00:08:41,430
+pas le message faces.
+
+126
+00:08:41,910 --> 00:08:45,770
+Donc là on va le faire calmement, je
+ne vais pas le faire dans le débugger.
+
+127
+00:08:46,830 --> 00:08:49,600
+Je vais dire: oui c'est vrai
+qu'il fallait qu'ici j'ajoute
+
+128
+00:08:52,910 --> 00:08:57,390
+un accesseur. Donc je
+vais faire faces: anInteger.
+
+129
+00:08:57,557 --> 00:09:01,520
+Et là on va faire faces : anInteger.
+
+130
+00:09:05,020 --> 00:09:08,110
+Et tant qu'à faire, je vais
+faire l'accesseur en lecture.
+
+131
+00:09:09,330 --> 00:09:11,500
+Voilà, je rends celui-là.
+
+132
+00:09:13,250 --> 00:09:14,450
+Et là maintenant mon test est vert.
+
+133
+00:09:15,240 --> 00:09:19,180
+Donc on va sauver, on va en
+profiter pour sauver, "save
+
+134
+00:09:19,347 --> 00:09:22,250
+better die creation
+method with tests".
+
+135
+00:09:22,417 --> 00:09:23,050
+Très bien.
+
+136
+00:09:31,610 --> 00:09:33,670
+Donc maintenant ce qu'on va
+pouvoir commencer à faire, on
+
+137
+00:09:33,837 --> 00:09:37,650
+va pouvoir commencer à
+définir ce qu'on veut pour
+
+138
+00:09:38,690 --> 00:09:42,050
+diceHandle. Donc en gros,
+si on regarde, diceHandle,
+
+139
+00:09:42,217 --> 00:09:44,000
+comment on aimerait l'écrire ?
+
+140
+00:09:44,167 --> 00:09:45,450
+On aimerait écrire
+diceHandle new addDie.
+
+141
+00:09:49,300 --> 00:09:53,290
+Donc là on va créer un
+nouveau dé, "die faces 6, addDie".
+
+142
+00:09:55,210 --> 00:09:59,680
+"Die faces 10".
+
+143
+00:10:07,260 --> 00:10:12,040
+Donc ce qu'on va faire, on
+va commencer par écrire une
+
+144
+00:10:12,207 --> 00:10:13,580
+ classe de test, cette fois-ci.
+
+145
+00:10:15,250 --> 00:10:19,930
+Donc nouvelle classe
+qui hérite de TestCase,
+
+146
+00:10:20,290 --> 00:10:22,330
+très bien. Donc j'ai ma
+nouvelle classe de tests.
+
+147
+00:10:24,000 --> 00:10:26,730
+Et là, je vais définir un test.
+
+148
+00:10:30,220 --> 00:10:32,850
+L'idée c'est que je vais
+créer une poignée et puis je
+
+149
+00:10:33,017 --> 00:10:35,140
+vais vérifier que
+j'ai les bons dés dedans.
+
+150
+00:10:35,307 --> 00:10:39,380
+Donc je vais faire
+"testAdding", je veux réutiliser mon
+
+151
+00:10:39,547 --> 00:10:43,730
+code, il n'y a pas de raison.
+
+152
+00:10:45,530 --> 00:10:48,060
+Donc, j'ai mon
+
+153
+00:10:54,310 --> 00:10:58,940
+handle ; yourself parce que je veux
+
+154
+00:10:59,107 --> 00:11:01,960
+récupérer le receveur du
+message, c'est-à-dire la poignée
+
+155
+00:11:02,127 --> 00:11:03,690
+et pas l'argument qui est ici.
+
+156
+00:11:04,500 --> 00:11:08,260
+Et maintenant,
+qu'est-ce que je dois faire?
+
+157
+00:11:08,427 --> 00:11:12,520
+Je dois faire "self
+assert h diceNumber
+
+158
+00:11:13,960 --> 00:11:14,593
+equals 2".
+
+159
+00:11:20,700 --> 00:11:23,380
+Je compile. Alors bien
+sûr le système me dit: je ne
+
+160
+00:11:23,547 --> 00:11:25,930
+connais pas la variable
+DiceHandle, est-ce que tu veux
+
+161
+00:11:26,097 --> 00:11:26,730
+que ça soit une classe ?
+
+162
+00:11:26,897 --> 00:11:27,960
+Ben oui. Il faut que
+ça soit une classe.
+
+163
+00:11:28,560 --> 00:11:29,750
+Donc là, il va me la définir.
+
+164
+00:11:29,917 --> 00:11:31,340
+Comme je sais que de toute
+façon il va falloir que je
+
+165
+00:11:31,507 --> 00:11:36,440
+stoppe mes dés, je
+vais en profiter pour
+
+166
+00:11:36,870 --> 00:11:39,580
+mettre une variable d'instance.
+
+167
+00:11:39,747 --> 00:11:40,860
+Je compile tout ça.
+
+168
+00:11:41,790 --> 00:11:45,720
+Donc maintenant, c'est rouge parce
+que "Add die" n'a jamais été défini.
+
+169
+00:11:47,620 --> 00:11:48,570
+Donc on va le faire.
+
+170
+00:11:48,737 --> 00:11:51,620
+Avant de faire ça, ça
+serait bien qu'on initialise
+
+171
+00:11:54,240 --> 00:11:56,660
+la poignée, donc on va le
+faire comme ça, ça nous évitera
+
+172
+00:11:56,827 --> 00:11:57,890
+d'avoir un bug plus tard.
+
+173
+00:12:02,890 --> 00:12:04,560
+Donc dice : = OrdereCollection new.
+
+174
+00:12:04,727 --> 00:12:05,360
+Recategorize.
+
+175
+00:12:21,880 --> 00:12:24,760
+Et maintenant, je dois être
+capable de faire tourner mon
+
+176
+00:12:24,927 --> 00:12:27,730
+test, qui va
+planter. Voilà, très bien.
+
+177
+00:12:27,897 --> 00:12:30,200
+Et je vais créer Add die.
+
+178
+00:12:30,530 --> 00:12:31,163
+Adding.
+
+179
+00:12:35,330 --> 00:12:38,030
+Donc là, il me dit: oui, il
+faudrait que tu implémentes cette méthode.
+
+180
+00:12:38,197 --> 00:12:39,080
+Oui, ça fait du sens.
+
+181
+00:12:39,247 --> 00:12:42,430
+Donc là, je vais
+faire "Dice add adie".
+
+182
+00:12:43,590 --> 00:12:45,920
+Voilà, très bien. Donc
+mon test ne va pas toujours
+
+183
+00:12:46,087 --> 00:12:48,150
+marcher parce que je n'ai
+toujours pas défini la méthode
+
+184
+00:12:48,317 --> 00:12:52,120
+diceNumber mais
+faisons-le. Oui, diceNumber, on va la
+
+185
+00:12:52,287 --> 00:12:56,780
+créer, très bien, dans
+accessing cette fois-ci.
+
+186
+00:12:57,350 --> 00:12:58,800
+Et diceNumber,
+qu'est-ce que ça va faire?
+
+187
+00:12:58,967 --> 00:13:00,330
+Ça doit rendre finalement
+
+188
+00:13:06,290 --> 00:13:08,110
+dice size. Voilà, je
+recompile, proceed.
+
+189
+00:13:09,940 --> 00:13:12,510
+Et mon test doit être vert
+donc j'en profite pareil, mes
+
+190
+00:13:12,677 --> 00:13:14,860
+tests sont verts super,
+je prends et je sauve.
+
+191
+00:13:17,250 --> 00:13:18,580
+"With addDie and test".
+
+192
+00:13:24,560 --> 00:13:28,090
+Donc le test on pourrait
+l'améliorer parce que là,
+
+193
+00:13:28,257 --> 00:13:31,900
+finalement, il teste qu'on ajoute
+deux nombres, moi je voudrais
+
+194
+00:13:32,067 --> 00:13:35,180
+qu'on teste quand
+
+195
+00:13:35,347 --> 00:13:37,610
+on ajoute 2 fois le
+même dé, on ne le perd pas.
+
+196
+00:13:38,280 --> 00:13:39,340
+Donc je vais faire
+"TestAddingTwiceTheSame DieisOK".
+
+197
+00:13:49,040 --> 00:13:50,290
+Donc là, qu'est-ce
+que je vais faire?
+
+198
+00:13:50,457 --> 00:13:54,530
+J'ajoute 6 et 6 et je
+dois bien obtenir 2.
+
+199
+00:13:57,030 --> 00:13:59,940
+Donc je fais ça, je fais
+tourner mon test, c'est vert, super.
+
+200
+00:14:01,230 --> 00:14:04,700
+Donc maintenant, ce qui
+serait sympa, c'est que on puisse
+
+201
+00:14:05,880 --> 00:14:08,960
+définir ce que c'est que de faire
+
+202
+00:14:11,240 --> 00:14:14,900
+ajouter 2 dés. Mais avant
+ça, on va faire quelque chose.
+
+203
+00:14:15,067 --> 00:14:17,210
+Si vous regardez, moi ce que
+je n'aime pas trop c'est que
+
+204
+00:14:17,377 --> 00:14:19,030
+quand j'inspecte ça, par exemple,
+
+205
+00:14:23,950 --> 00:14:28,740
+si je fais" Inspect"
+là-dessus, je ne vois
+
+206
+00:14:28,907 --> 00:14:31,530
+pas les valeurs des dés et puis ce
+n'est pas pratique pour débugger.
+
+207
+00:14:31,697 --> 00:14:33,030
+Dans le débugger, on ne voit pas ça.
+
+208
+00:14:33,370 --> 00:14:36,090
+Donc d'abord, avant de
+continuer, je voudrais améliorer
+
+209
+00:14:36,257 --> 00:14:38,370
+ça donc ce que je vais faire
+je vais ajouter une méthode
+
+210
+00:14:38,660 --> 00:14:41,710
+dans le protocole Printing.
+Donc la méthode "PrintOn",
+
+211
+00:14:44,220 --> 00:14:46,840
+elle est définie sur tous
+les objets du système et elle
+
+212
+00:14:47,007 --> 00:14:50,380
+va permettre de
+convertir un objet dans une
+
+213
+00:14:50,547 --> 00:14:53,490
+représentation textuelle et
+
+214
+00:14:55,380 --> 00:14:58,780
+elle nous passe une stream
+et nous, on va mettre juste la
+
+215
+00:14:58,947 --> 00:15:00,420
+représentation qu'on veut dedans.
+
+216
+00:15:01,890 --> 00:15:03,500
+Donc si je fais ça, je
+n'ai rien fait en fait.
+
+217
+00:15:03,667 --> 00:15:07,630
+Si je fais super PrintOn
+en fait, je n'ai rien fait.
+
+218
+00:15:07,797 --> 00:15:09,230
+Maintenant ce que je
+vais faire, je vais faire
+
+219
+00:15:09,397 --> 00:15:13,220
+"aStreamnextPut", donc je
+vais mettre des caractères dans
+
+220
+00:15:13,387 --> 00:15:15,220
+la stream, mais qu'est-ce que
+je vais commencer par mettre?
+
+221
+00:15:16,090 --> 00:15:18,330
+Je vais mettre une
+parenthèse avec un espace, ça sera
+
+222
+00:15:18,497 --> 00:15:19,880
+peut-être plus joli, une parenthèse.
+
+223
+00:15:20,450 --> 00:15:23,550
+Après je vais prendre les
+faces et je vais les convertir
+
+224
+00:15:23,717 --> 00:15:27,780
+en nombres, en chaînes, et
+je vais concaténer tout ça,
+
+225
+00:15:28,360 --> 00:15:30,760
+avec une petite parenthèse fermante.
+
+226
+00:15:31,150 --> 00:15:34,930
+Donc si je fais ça, j'ai fermé le
+débugger, donc on va le rouvrir.
+
+227
+00:15:35,850 --> 00:15:38,630
+J'ai mon débugger. Voilà
+maintenant, j'ai un dé à 6 faces
+
+228
+00:15:38,797 --> 00:15:40,480
+et un dé à 10 faces. Donc
+c'est quand même beaucoup plus
+
+229
+00:15:40,647 --> 00:15:44,140
+sympa, vous allez voir, si
+jamais on a des bugs, ça nous aidera.
+
+230
+00:15:44,850 --> 00:15:48,140
+Donc là je n'ai rien fait de
+spécial, mes tests tournent.
+
+231
+00:15:49,450 --> 00:15:53,340
+Je resauve, ça ne coûte
+pas cher, "With printing".
+
+232
+00:15:55,220 --> 00:15:56,400
+On va marquer "with die printOn".
+
+233
+00:16:03,030 --> 00:16:08,000
+Très bien et maintenant on
+va faire le test, on ne va
+
+234
+00:16:08,167 --> 00:16:09,580
+pas le faire, on va
+y aller directement.
+
+235
+00:16:10,080 --> 00:16:12,490
+On va faire "add
+protocole roll operations".
+
+236
+00:16:13,600 --> 00:16:17,890
+Et là, donc
+
+237
+00:16:18,057 --> 00:16:22,530
+il y a plusieurs
+façons de définir ça.
+
+238
+00:16:22,820 --> 00:16:25,040
+Je vous en propose une, ce
+n'est pas la plus jolie mais
+
+239
+00:16:25,207 --> 00:16:27,160
+au moins c'est la plus
+claire probablement pour vous.
+
+240
+00:16:27,530 --> 00:16:29,130
+Donc il y a des façons
+très compactes, je pourrais le
+
+241
+00:16:29,297 --> 00:16:31,490
+faire en une ligne, mais
+en utilisant des itérateurs
+
+242
+00:16:31,657 --> 00:16:33,150
+comme "Injected to", là,
+je vais faire une boucle.
+
+243
+00:16:33,550 --> 00:16:34,210
+Donc qu'est-ce que je fais ?
+
+244
+00:16:34,377 --> 00:16:36,860
+Je prends une valeur
+que j'initialise à zéro.
+
+245
+00:16:37,390 --> 00:16:42,320
+Après je vais faire une
+boucle sur tous les dés, et pour
+
+246
+00:16:42,487 --> 00:16:47,120
+chaque pas de boucle je vais
+récupérer un dé et ce dé qu'est-ce
+
+247
+00:16:47,287 --> 00:16:47,920
+que je vais faire ?
+
+248
+00:16:48,120 --> 00:16:51,900
+Je vais lui demander de me
+tirer un tirage du dé et d'ajouter
+
+249
+00:16:52,067 --> 00:16:53,440
+le résultat dans ma variable.
+
+250
+00:16:55,640 --> 00:17:00,310
+Rien de bien fou mais au moins ça a
+le mérite d'être très très explicite.
+
+251
+00:17:02,000 --> 00:17:05,380
+Et donc maintenant, si je
+fais "Inspect" et que là je
+
+252
+00:17:05,547 --> 00:17:10,510
+fais "Roll", 5 ça ne me
+prouve pas que ça marche.
+
+253
+00:17:11,210 --> 00:17:12,140
+On va essayer encore.
+
+254
+00:17:12,307 --> 00:17:13,140
+11. Voilà, ça, ça marche.
+
+255
+00:17:13,950 --> 00:17:16,120
+Donc on va essayer
+d'écrire un test, il n'y a pas de
+
+256
+00:17:16,287 --> 00:17:19,920
+raison, donc on va faire
+"Test", je veux garder celui-là
+
+257
+00:17:21,590 --> 00:17:22,940
+et je vais l'appeler rolling.
+
+258
+00:17:26,960 --> 00:17:30,940
+Alors comment on
+devrait faire pour tester ça?
+
+259
+00:17:31,107 --> 00:17:35,760
+Il faut que ça soit entre 1
+et le maximum du nombre de dés.
+
+260
+00:17:38,000 --> 00:17:42,100
+Donc, on va faire ça.
+
+261
+00:17:42,267 --> 00:17:42,900
+On
+
+262
+00:17:48,280 --> 00:17:49,930
+pourrait définir une
+méthode qui fait ça.
+
+263
+00:17:50,240 --> 00:17:53,040
+Faisons une méthode
+qui définit le maximum.
+
+264
+00:17:56,720 --> 00:18:00,100
+"Operation maxValue".
+
+265
+00:18:02,480 --> 00:18:03,240
+Qu'est-ce que c'est que maxValue ?
+
+266
+00:18:03,407 --> 00:18:05,020
+Finalement, c'est très proche de ça.
+
+267
+00:18:05,780 --> 00:18:10,000
+C'est que là, au
+lieu de faire un roll,
+
+268
+00:18:11,440 --> 00:18:12,430
+je vais demander les faces.
+
+269
+00:18:16,560 --> 00:18:20,490
+Donc vérifions. Si
+je fais "Inspect", là
+
+270
+00:18:21,830 --> 00:18:24,820
+je vais faire "maxValue"16".
+
+271
+00:18:28,490 --> 00:18:30,480
+Oui c'est juste 10 et 6.
+
+272
+00:18:30,647 --> 00:18:33,090
+Donc, on va écrire un
+test tant qu'à faire pour
+
+273
+00:18:37,010 --> 00:18:41,600
+"maxValue". Donc j'ai ça,
+je vais faire "maxValue equal
+
+274
+00:18:41,767 --> 00:18:42,400
+16".
+
+275
+00:18:45,320 --> 00:18:48,150
+Alors là, vous avez vu,
+j'aurais pu coder un truc tout
+
+276
+00:18:48,317 --> 00:18:51,320
+sale dans mon test, mais
+finalement ça vaut plus la peine
+
+277
+00:18:51,487 --> 00:18:53,690
+de créer une méthode dans
+la classe et de l'utiliser.
+
+278
+00:18:54,080 --> 00:18:58,370
+Donc maintenant, on va
+pouvoir tester que la méthode roll
+
+279
+00:18:58,820 --> 00:19:02,340
+fonctionne bien. Donc
+je vais faire "roll",
+
+280
+00:19:05,900 --> 00:19:08,770
+et je vais lui dire qu'elle
+doit être absolument comprise
+
+281
+00:19:08,937 --> 00:19:11,000
+entre "Roll between 1 and
+
+282
+00:19:14,230 --> 00:19:15,690
+h maxValue. Voilà.
+
+283
+00:19:24,080 --> 00:19:26,000
+Donc si je fais ça, ok ça marche.
+
+284
+00:19:28,120 --> 00:19:30,870
+Ce n'est pas très
+statistique, donc là on pourrait faire
+
+285
+00:19:31,037 --> 00:19:35,800
+quelque chose du
+style: 1 000 timeRepeat.
+
+286
+00:19:36,000 --> 00:19:38,560
+Ok. Et là,
+
+287
+00:19:42,220 --> 00:19:46,680
+on a nos 1 000 tests.
+
+288
+00:19:47,740 --> 00:19:49,330
+Donc là, on va sauver
+maintenant, c'est très bien.
+
+289
+00:19:49,497 --> 00:19:52,440
+On va encore sauver,
+"save" added maxValue
+
+290
+00:19:54,610 --> 00:19:56,030
+and roll with tests.
+
+291
+00:20:03,940 --> 00:20:08,380
+Donc maintenant, ce qu'on
+va faire, on est presque au
+
+292
+00:20:08,547 --> 00:20:11,070
+bout de nos peines, nous ce
+qu'on voudrait exprimer c'est
+
+293
+00:20:11,237 --> 00:20:13,680
+qu'au lieu d'avoir "die faces 6",
+
+294
+00:20:16,290 --> 00:20:17,670
+moi j'aimerais avoir "1 D6".
+
+295
+00:20:17,837 --> 00:20:18,470
+Et
+
+296
+00:20:25,510 --> 00:20:27,630
+ce qu'on voit là finalement
+c'est que ça serait envoyer
+
+297
+00:20:27,797 --> 00:20:31,050
+le message dé 6 à un petit entier.
+
+298
+00:20:31,770 --> 00:20:34,540
+Donc on va aller
+regarder la classe Integer.
+
+299
+00:20:34,707 --> 00:20:39,620
+Et ce qu'on va faire, on
+
+300
+00:20:39,787 --> 00:20:43,660
+va définir une extension de classe.
+
+301
+00:20:43,827 --> 00:20:45,010
+Qu'est-ce que c'est
+qu'une extension de classe?
+
+302
+00:20:45,890 --> 00:20:50,350
+Je vais packager mes méthodes
+avec le même nom que le package.
+
+303
+00:20:50,800 --> 00:20:53,360
+Donc vous allez voir,
+qu'est-ce que je fais, j'ajoute un
+
+304
+00:20:53,527 --> 00:20:57,420
+protocole, je lui mets *, il
+doit commencer par *dice qui
+
+305
+00:20:57,587 --> 00:21:00,780
+est le nom de mon package,
+automatiquement c'est grisé et
+
+306
+00:21:00,947 --> 00:21:02,900
+là ça veut dire que cette
+méthode-là sera packagée en
+
+307
+00:21:03,067 --> 00:21:04,460
+même temps que ce
+package. Donc on va le faire.
+
+308
+00:21:04,900 --> 00:21:08,950
+Donc imaginons qu'on fasse
+qu'est-ce que c'est que D6?
+
+309
+00:21:10,000 --> 00:21:13,570
+Un D6. Il faut
+réfléchir un petit peu.
+
+310
+00:21:21,050 --> 00:21:24,250
+On va d'abord créer une
+poignée parce que ça pourrait
+
+311
+00:21:24,417 --> 00:21:25,510
+être deux D 6 finalement.
+
+312
+00:21:27,210 --> 00:21:31,930
+Donc "handle", on
+va faire "diceHandle
+
+313
+00:21:32,097 --> 00:21:32,730
+new",
+
+314
+00:21:37,120 --> 00:21:38,280
+très bien donc j'ai créé mon truc.
+
+315
+00:21:39,380 --> 00:21:42,110
+Maintenant pour chaque
+receveur, donc je vais faire
+
+316
+00:21:42,277 --> 00:21:45,430
+"self", ça c'est mon
+entier, "timesRepeat".
+
+317
+00:21:46,370 --> 00:21:50,140
+Décidément, on l'aura beaucoup
+utilisé le timesRepeat, c'est rare.
+
+318
+00:21:51,900 --> 00:21:54,120
+"TimesRepeat handle addDie", de quoi
+
+319
+00:21:56,790 --> 00:22:01,150
+? De "die faces". Et là,
+
+320
+00:22:02,000 --> 00:22:03,720
+on le sait, c'est 6.
+
+321
+00:22:05,890 --> 00:22:09,830
+Et bien sûr ce serait
+peut-être bien que je rende la poignée.
+
+322
+00:22:11,220 --> 00:22:12,330
+Donc est-ce que ça marche ?
+
+323
+00:22:12,497 --> 00:22:14,950
+Donc on va tester comme ça et
+puis après on va écrire un test.
+
+324
+00:22:15,470 --> 00:22:20,380
+Mais si je fais 2 D
+6 Inspect, voyez j'ai
+
+325
+00:22:20,547 --> 00:22:22,390
+bien 2 D 6. Donc, c'est sympa.
+
+326
+00:22:23,190 --> 00:22:24,290
+Donc écrivons un test.
+
+327
+00:22:25,640 --> 00:22:27,140
+On va les catégoriser
+ces tests quand même.
+
+328
+00:22:28,150 --> 00:22:29,330
+Donc on va faire "testNewSyntax".
+
+329
+00:22:33,950 --> 00:22:36,420
+Alors là, pour le moment, on n'a
+que D6, après on va généraliser.
+
+330
+00:22:38,010 --> 00:22:40,000
+Mais donc nous ce qu'on
+veut faire, c'est exactement la
+
+331
+00:22:40,167 --> 00:22:44,440
+même chose que ça, donc on va
+avoir une handle, on va dire 2 D 6.
+
+332
+00:22:47,020 --> 00:22:49,620
+Et là, ce qu'on va faire,
+on va faire "selfAssert".
+
+333
+00:22:53,310 --> 00:22:54,430
+Donc qu'est-ce
+qu'on pourrait tester?
+
+334
+00:22:54,597 --> 00:22:56,470
+Que diceNumber equals 2,
+
+335
+00:23:02,880 --> 00:23:05,420
+par exemple. Alors vous
+avez vu, des fois j'utilise
+
+336
+00:23:05,587 --> 00:23:09,160
+diceHandle, j'aurais pu
+aussi utiliser = 2 ici.
+
+337
+00:23:09,810 --> 00:23:12,080
+En général, c'est plus
+sympa d'utiliser assert equal
+
+338
+00:23:12,540 --> 00:23:14,310
+parce que comme ça, quand
+il y a une erreur, le système
+
+339
+00:23:14,477 --> 00:23:18,020
+me dit: j'ai reçu ça et j'ai
+eu cette valeur à la place.
+
+340
+00:23:18,630 --> 00:23:22,910
+Si je mets =, il va dire:
+j'ai eu une expression fausse.
+
+341
+00:23:23,680 --> 00:23:26,480
+Donc là, pour
+l'utilisateur terminal, qui est vous en
+
+342
+00:23:26,647 --> 00:23:28,850
+fait, en tant que
+développeur, c'est plus sympa d'utiliser
+
+343
+00:23:30,580 --> 00:23:33,340
+assert equals parce qu'il va
+dire: j'ai reçu 3 alors que
+
+344
+00:23:33,560 --> 00:23:34,680
+j'attendais 2, par exemple.
+
+345
+00:23:35,860 --> 00:23:37,060
+Donc là, si je fais ça.
+
+346
+00:23:37,510 --> 00:23:38,780
+Voilà, oui ça marche.
+
+347
+00:23:39,320 --> 00:23:41,940
+Alors est-ce qu'on pourrait
+avoir une version un peu plus
+
+348
+00:23:42,107 --> 00:23:43,090
+intelligente du test ?
+
+349
+00:23:43,257 --> 00:23:44,240
+Pour le moment, ça nous convient.
+
+350
+00:23:44,860 --> 00:23:46,640
+Ce qu'on va faire et donc
+là, vous voyez maintenant dans
+
+351
+00:23:46,807 --> 00:23:50,200
+le package, j'ai une
+extension qui est D6.
+
+352
+00:23:50,690 --> 00:23:55,480
+Donc on va généraliser ça
+avec "a number until", a
+
+353
+00:23:56,120 --> 00:23:57,550
+number of faces.
+
+354
+00:24:01,360 --> 00:24:03,870
+Et donc "a number of
+faces", on va le mettre ici.
+
+355
+00:24:05,200 --> 00:24:08,000
+Et donc on va récrire D6, parce que
+ce serait quand même plus sympa D6.
+
+356
+00:24:08,137 --> 00:24:12,580
+On va l'écrire comme ça D6, on va
+
+357
+00:24:12,747 --> 00:24:16,660
+faire "^ self D6".
+
+358
+00:24:19,050 --> 00:24:20,750
+Donc on va faire tous les
+autres, il n'y a pas de raison.
+
+359
+00:24:20,917 --> 00:24:24,370
+On va faire 4,
+
+360
+00:24:26,020 --> 00:24:30,870
+2. C'est plutôt une
+pièce qu'un dé mais 2,
+
+361
+00:24:31,220 --> 00:24:35,640
+10 et 20.
+
+362
+00:24:36,440 --> 00:24:37,570
+Vous avez compris le principe.
+
+363
+00:24:41,540 --> 00:24:45,930
+Donc faisons tourner nos tests,
+puisque on a changé d'implémentation
+
+364
+00:24:47,010 --> 00:24:49,370
+2 D6, donc ça veut
+dire que ça marche.
+
+365
+00:24:49,830 --> 00:24:50,690
+Donc, on va sauver.
+
+366
+00:24:59,670 --> 00:25:03,320
+Donc maintenant que
+nous reste-t-il à faire?
+
+367
+00:25:03,680 --> 00:25:08,030
+En fait, il nous reste à
+pouvoir additionner des poignées.
+
+368
+00:25:09,300 --> 00:25:11,600
+Donc qu'est-ce que j'ai
+envie d'avoir comme test?
+
+369
+00:25:11,767 --> 00:25:14,640
+J'ai envie de m'assurer
+que si je fais, par exemple,
+
+370
+00:25:18,710 --> 00:25:23,240
+"addingHandles", j'ai envie de m'
+
+371
+00:25:23,407 --> 00:25:25,590
+assurer que si, en plus je peux
+utiliser une nouvelle syntaxe.
+
+372
+00:25:25,757 --> 00:25:26,440
+Donc là, c'est sympa.
+
+373
+00:25:26,960 --> 00:25:28,940
+Ce que j'ai envie de faire,
+j'ai envie de faire que si je
+
+374
+00:25:29,107 --> 00:25:33,820
+fais 2 D 20 + 3 D5
+
+375
+00:25:34,000 --> 00:25:38,570
+D 6 tant qu'à faire, on ne
+va pas commencer à compliquer
+
+376
+00:25:38,737 --> 00:25:42,050
+les choses. Je dois avoir combien ?
+
+377
+00:25:43,160 --> 00:25:46,770
+diceNumber doit être égal à 5.
+
+378
+00:25:48,180 --> 00:25:52,270
+Donc là ce que vous voyez, c'est
+qu'on va devoir définir l'opérateur +.
+
+379
+00:25:52,870 --> 00:25:55,520
+Donc dans Pharo, + ce n'est pas
+un opérateur, c'est juste un message.
+
+380
+00:25:55,687 --> 00:25:59,230
+Donc on va définir un message
+sur la classe poignée de dé.
+
+381
+00:26:00,530 --> 00:26:02,850
+Donc on va mettre plus.
+
+382
+00:26:04,650 --> 00:26:05,520
+Alors "adiceHandle".
+
+383
+00:26:07,530 --> 00:26:09,410
+Donc maintenant la question
+qu'on peut se poser c'est:
+
+384
+00:26:09,577 --> 00:26:11,770
+est-ce qu'on modifie le
+receveur ou est-ce qu'on fait une
+
+385
+00:26:11,937 --> 00:26:12,840
+approche fonctionnelle ?
+
+386
+00:26:13,130 --> 00:26:14,740
+Moi je préfère faire une
+approche fonctionnelle dans
+
+387
+00:26:14,907 --> 00:26:17,470
+laquelle on recrée
+une nouvelle poignée.
+
+388
+00:26:20,180 --> 00:26:23,690
+Donc je vais créer une
+nouvelle poignée, je vais faire
+
+389
+00:26:26,060 --> 00:26:27,650
+"handle self class new".
+
+390
+00:26:29,540 --> 00:26:34,060
+Alors là, j'ai évité de
+mettre diceHandle et il y a une
+
+391
+00:26:34,227 --> 00:26:36,360
+leçon qui vous
+expliquera pourquoi plus tard.
+
+392
+00:26:36,527 --> 00:26:37,770
+Moi je préfère, c'est
+beaucoup plus proche.
+
+393
+00:26:37,937 --> 00:26:39,800
+En général, on ne code pas
+en dur le nom des classes.
+
+394
+00:26:40,430 --> 00:26:42,530
+Donc vous verrez dans la
+semaine 7, ou quelque chose
+
+395
+00:26:42,697 --> 00:26:44,040
+comme ça, il y a
+toute une explication.
+
+396
+00:26:44,740 --> 00:26:49,660
+Donc si je fais "self
+dice do", ce que je vais
+
+397
+00:26:49,827 --> 00:26:53,480
+faire je vais itérer sur mes dés
+et je vais les ajouter dans handle.
+
+398
+00:26:53,647 --> 00:26:55,610
+Donc, je vais faire
+"handle addDie each",
+
+399
+00:26:59,780 --> 00:27:03,660
+et je vais faire la même
+chose… Alors là, je n'ai pas
+
+400
+00:27:03,827 --> 00:27:05,720
+besoin de self et
+d'ailleurs, il ne connaît pas le
+
+401
+00:27:05,887 --> 00:27:07,420
+message, c'est ce qu'il
+était en train de me dire, et ça
+
+402
+00:27:07,587 --> 00:27:09,370
+me fait remarquer
+qu'effectivement je ne l'ai pas défini
+
+403
+00:27:09,820 --> 00:27:12,790
+et que ça n'a pas marché
+pour "diceHandle", mais ce
+
+404
+00:27:15,630 --> 00:27:20,480
+n'est pas grave, compilons
+d'abord et on fixera après.
+
+405
+00:27:21,230 --> 00:27:22,450
+Donc là, qu'est-ce que ça veut dire ?
+
+406
+00:27:22,617 --> 00:27:24,790
+Ça veut dire qu'il me
+manque un accesseur qui est dice.
+
+407
+00:27:25,280 --> 00:27:28,770
+Donc on va ajouter dice
+ici, dice qui me rend la
+
+408
+00:27:28,937 --> 00:27:32,060
+collection de mes dés.
+
+409
+00:27:32,227 --> 00:27:35,280
+Voilà. Donc maintenant je
+vais tester si mon test passe.
+
+410
+00:27:35,700 --> 00:27:38,690
+Mon test passe, donc c'est
+super, ça veut dire que j'ai
+
+411
+00:27:38,857 --> 00:27:43,610
+pratiquement fini, je
+vais sauver, "with handles
+
+412
+00:27:44,810 --> 00:27:46,690
+additions". Ok, très bien.
+
+413
+00:27:49,820 --> 00:27:53,770
+Donc voilà, ça veut dire
+que maintenant on peut écrire
+
+414
+00:27:57,300 --> 00:28:02,210
+2 D 4 et qu'on
+
+415
+00:28:02,377 --> 00:28:06,380
+puisse faire "Roll", et
+que ça nous rende un nombre.
+
+416
+00:28:08,000 --> 00:28:10,400
+Donc maintenant, vous êtes prêts
+à jouer à "Donjons et Dragons".
+
+417
+00:28:11,200 --> 00:28:15,870
+Donc ce qu'il faut voir,
+finalement c'est que on a défini
+
+418
+00:28:17,570 --> 00:28:19,480
+nos méthodes, on a défini
+nos tests, on les a fait
+
+419
+00:28:19,647 --> 00:28:23,010
+tourner, on a été étendre
+une classe du système, la
+
+420
+00:28:23,177 --> 00:28:27,000
+ classe "entiers", avec des
+extensions qui sont liées à
+
+421
+00:28:27,167 --> 00:28:30,590
+notre package, qui ne seront visibles
+que quand notre package sera chargé.
+
+422
+00:28:32,290 --> 00:28:34,580
+On a aussi fait de la
+surcharge d'opérateurs, mais en
+
+423
+00:28:34,747 --> 00:28:39,320
+fait on a défini juste un
+nouveau message plus, parce que
+
+424
+00:28:39,487 --> 00:28:43,600
+dans Pharo l'addition est
+juste un message comme les
+
+425
+00:28:43,767 --> 00:28:48,160
+autres, ce qui nous a permis
+d'exprimer relativement facilement un joli DSL.
+
+426
+00:28:49,900 --> 00:28:50,850
+Donc à vous de jouer !
+

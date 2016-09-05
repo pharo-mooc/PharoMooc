@@ -1,0 +1,90 @@
+\input{Common.tex}%%% for separate compilation
+\let\wholebook=\relax
+
+
+\setboolean{seevwspecific}{false}
+\setboolean{seesqspecific}{true}
+\setboolean{seecategoryspecific}{true}
+\setboolean{seeparcelspecific}{false}
+\setboolean{seestorespecific}{false}
+\setboolean{seesqueaksourcespecific}{false}
+\setboolean{seesqueakspecific}{true}
+
+
+
+
+\begin{document}
+\title{Smalltalk Exercises}
+\author{
+Alexandre Bergel, University of Berne\\
+Noury Bouraqadi, Ecole des Mines de Douai\\
+Marcus Denker, University of Berne \\
+Catherine Dezan, Universit\'e de Brest\\
+St\'ephane Ducasse, Universit\'e de Savoie\\
+Bernard Pottier, Universit\'e de Brest\\
+Roel Wuyts, Universit\'e Libre de Bruxelles \\
+And many others (please contact stef to update the list)
+Main Editor: S. Ducasse}
+
+%\begin{abstract}
+%This document is a collection of Smalltalk exercises that 
+%have been developed over the years and that we want to share
+%with others. Note that this document may contains some mistakes, if you find some errors please report them. All the sources will be collected and identified clearly. 
+%\end{abstract}
+\maketitle
+
+\tableofcontents
+
+\part{Robots and Fun}
+\input{BotsIncExos/ChapBot01}
+
+\part{Modeling on Paper}
+\input{Models/ChapMod01}
+
+\part{First Contact}
+\input{FirstContact/ChapFirstContact01}
+\input{FirstContact/ChapFirstContact02Expression}
+\input{FirstContact/ChapFirstContact01FrExpressionb}
+\input{FirstContact/ChapFirstContact02FrBlocksIterationsb}
+\input{FirstContact/ChapFirstContact03Counter}
+%\input{FirstContact/ChapFirstContact04BagSetc}
+%\input{FirstContact/ChapFirstContact06Stream}
+
+
+
+%\input{FirstContact/ChapFirstContact03FrCollections.tex}
+%\input{FirstContact/ChapFirstContactFrGateaux.tex} %add in cvs
+
+%\part{Environment}
+%\input{Environment/ChapEnvironmentSqueak}
+
+%\part{Seaside}
+%\input{Seaside/ChapSeasideExtendedCounter}
+%\input{Seaside/ChapSeasideConferenceRegistration}
+%\input{Seaside/ChapSeasideLukas1}
+
+%\part{Object-Oriented Design}
+\input{OODesignInST/ChapOOD01LanDefinition}
+\input{OODesignInST/ChapOOD02SelfSuper}
+\input{OODesignInST/ChapOOD03Encapsulation}
+\input{OODesignInST/ChapOOD04Hook}
+
+\input{FirstContact/ChapFirstContact05SUnit}
+
+\part{Seaside}
+\input{Seaside/ChapSeasideExtendedCounter}
+\input{Seaside/ChapSeasideConferenceRegistration}
+
+%\input{OODesignInST/ChapOOD05LanExtension}
+%\input{OODesignInST/ChapOOD06AddingUserInterfaceInVW}
+
+%\part{Advanced Smalltalking}
+%missing compiler td of bernard, actalk, objVlisp implementations
+%\input{AdvancedSmalltalking/ChapAdvSTMeasuring}
+%\input{AdvancedSmalltalking/ChapAdvSTScaffoldingPatterns}
+%\input{AdvancedSmalltalking/ChapAdvSTByteCodeGenerationInSqueak}
+
+%\part{SmallWiki}
+%\input{SmallWiki/ChapSmallWiki.tex}
+
+\end{document}

@@ -1,0 +1,408 @@
+﻿WEBVTT
+
+00:00:00.040 --> 00:00:00.880 align:middle
+Hello.
+
+00:00:01.040 --> 00:00:04.720 align:middle
+In this lecture I want to show you
+the vision behind Pharo.
+
+00:00:04.880 --> 00:00:07.760 align:middle
+Why are people taking part in Pharo?
+
+00:00:07.920 --> 00:00:11.480 align:middle
+This will help you to understand
+
+00:00:11.720 --> 00:00:14.720 align:middle
+where Pharo is going
+and why people use it.
+
+00:00:14.920 --> 00:00:17.240 align:middle
+The basic idea is to create
+
+00:00:17.400 --> 00:00:19.760 align:middle
+a tool, an infrastructure,
+
+00:00:19.920 --> 00:00:23.000 align:middle
+which will enable people
+to reinvent their future,
+
+00:00:23.160 --> 00:00:25.360 align:middle
+to use the web in new ways,
+
+00:00:25.520 --> 00:00:29.520 align:middle
+to create new tools,
+new forms of computation and so on...
+
+00:00:29.680 --> 00:00:33.880 align:middle
+For this, the notion of an engine
+is very important.
+
+00:00:34.040 --> 00:00:37.440 align:middle
+It means the infrastructure,
+the compiler, the services
+
+00:00:37.600 --> 00:00:38.960 align:middle
+and that sort of thing.
+
+00:00:39.360 --> 00:00:43.760 align:middle
+On a twin track, there's the idea
+of creating an ecosystem
+
+00:00:44.000 --> 00:00:46.400 align:middle
+in which innovation
+creates new things
+
+00:00:46.560 --> 00:00:49.560 align:middle
+to give us a competitive edge,
+
+00:00:49.720 --> 00:00:51.960 align:middle
+and in which business can bloom.
+
+00:00:52.120 --> 00:00:55.720 align:middle
+So how do we understand
+this metaphor of ecosystem?
+
+00:00:55.960 --> 00:01:00.320 align:middle
+Via the teachers. There are
+30 universities around the world
+
+00:01:00.480 --> 00:01:02.920 align:middle
+which teach Pharo.
+
+00:01:03.640 --> 00:01:05.600 align:middle
+Via the research groups.
+
+00:01:05.760 --> 00:01:07.960 align:middle
+There are 15 or so research groups
+
+00:01:08.120 --> 00:01:11.160 align:middle
+doing software engineering,
+but not only that,
+
+00:01:11.680 --> 00:01:12.960 align:middle
+around the world.
+
+00:01:13.120 --> 00:01:14.480 align:middle
+And via the companies.
+
+00:01:14.640 --> 00:01:16.400 align:middle
+The basic idea of Pharo
+
+00:01:16.560 --> 00:01:19.240 align:middle
+is not to be an academic language,
+
+00:01:19.400 --> 00:01:23.200 align:middle
+but to be a language used by people
+in order to make money
+
+00:01:23.360 --> 00:01:26.640 align:middle
+and live off their programming.
+
+00:01:27.760 --> 00:01:31.120 align:middle
+You can see some success stories
+on the website.
+
+00:01:31.280 --> 00:01:33.360 align:middle
+Here's the address.
+
+00:01:33.520 --> 00:01:36.360 align:middle
+You can really see
+what people do with it.
+
+00:01:36.520 --> 00:01:39.480 align:middle
+I'm often surprised
+at what people do with Pharo.
+
+00:01:39.640 --> 00:01:42.800 align:middle
+It's not just cool
+because we say it is.
+
+00:01:42.960 --> 00:01:45.120 align:middle
+People do real stuff with it.
+
+00:01:46.000 --> 00:01:49.840 align:middle
+You have to realise
+that for the development team
+
+00:01:50.000 --> 00:01:51.840 align:middle
+Pharo is a vehicle.
+
+00:01:52.000 --> 00:01:56.320 align:middle
+We're the guys in black
+around the Formula 1 car.
+
+00:01:56.480 --> 00:01:57.960 align:middle
+We improve it every day.
+
+00:01:58.120 --> 00:02:01.120 align:middle
+Pharo isn't something finished,
+
+00:02:01.280 --> 00:02:05.480 align:middle
+it's something
+that's constantly being improved.
+
+00:02:06.720 --> 00:02:09.440 align:middle
+It's quite young
+for a programming language.
+
+00:02:09.600 --> 00:02:11.600 align:middle
+It began in 2008.
+
+00:02:11.760 --> 00:02:15.880 align:middle
+The more it advances,
+the more exciting its future looks.
+
+00:02:16.040 --> 00:02:18.160 align:middle
+I'll say a bit about that.
+
+00:02:18.320 --> 00:02:21.800 align:middle
+Most companies
+do web content now with Pharo
+
+00:02:21.960 --> 00:02:24.760 align:middle
+because the web stack is excellent.
+
+00:02:24.920 --> 00:02:28.200 align:middle
+We're going to use Seaside
+
+00:02:28.360 --> 00:02:31.480 align:middle
+in this course,
+but we can also use REST.
+
+00:02:31.640 --> 00:02:36.200 align:middle
+There are several HTTP servers
+that are used.
+
+00:02:36.360 --> 00:02:40.720 align:middle
+It's a company that developed
+Pharo the HTTP server.
+
+00:02:40.880 --> 00:02:42.400 align:middle
+There's the micro server Teapot.
+
+00:02:42.560 --> 00:02:46.440 align:middle
+You have the WebSockets
+and identifications.
+
+00:02:46.760 --> 00:02:50.960 align:middle
+Metadescription of data to avoid
+generating automatic forms.
+
+00:02:51.120 --> 00:02:55.480 align:middle
+Connections to databases,
+whether SQL or relational.
+
+00:02:55.640 --> 00:02:58.600 align:middle
+And loads of protocols.
+Some come out every day.
+
+00:02:58.760 --> 00:03:03.720 align:middle
+People make packages
+which cover these functions.
+
+00:03:04.840 --> 00:03:06.200 align:middle
+Pharo is open.
+
+00:03:06.360 --> 00:03:11.600 align:middle
+What this means is that you can help
+and have an impact,
+
+00:03:11.760 --> 00:03:15.120 align:middle
+but at least read
+and have access to Pharo.
+
+00:03:15.360 --> 00:03:18.200 align:middle
+One important thing
+
+00:03:18.360 --> 00:03:22.280 align:middle
+which people have trouble
+putting into concrete terms
+
+00:03:22.440 --> 00:03:26.840 align:middle
+is that Pharo is a system
+which enables you.
+
+00:03:27.000 --> 00:03:30.800 align:middle
+Here I'm showing you
+a quotation from an American
+
+00:03:30.960 --> 00:03:34.240 align:middle
+who changed
+a very fundamental aspect of Pharo:
+
+00:03:34.400 --> 00:03:35.560 align:middle
+the delay.
+
+00:03:35.720 --> 00:03:39.480 align:middle
+It's a function for adjusting
+the concurrency in the system.
+
+00:03:39.640 --> 00:03:43.720 align:middle
+He found that it couldn't
+be tested in isolation.
+
+00:03:43.880 --> 00:03:47.680 align:middle
+He suggested changes in Pharo
+
+00:03:47.840 --> 00:03:50.960 align:middle
+so these functions
+could be tested individually.
+
+00:03:51.120 --> 00:03:55.280 align:middle
+And his changes
+were incorporated into Pharo.
+
+00:03:55.440 --> 00:03:59.360 align:middle
+What's really interesting
+- I'll let you read the quotation -
+
+00:03:59.520 --> 00:04:03.720 align:middle
+is that he says he was really amazed
+
+00:04:03.880 --> 00:04:06.800 align:middle
+that he could simply think of doing it
+and do it.
+
+00:04:06.960 --> 00:04:11.120 align:middle
+And similarly, with this slide,
+Turtles all the way down,
+
+00:04:11.280 --> 00:04:15.720 align:middle
+meaning there are objects
+all the way down,
+
+00:04:15.880 --> 00:04:20.800 align:middle
+the creator of Seaside, who knew
+ruby, python, scheme, objective-C,
+
+00:04:21.040 --> 00:04:23.120 align:middle
+developed Seaside
+in Pharo's ancestor.
+
+00:04:23.280 --> 00:04:26.920 align:middle
+I asked him why he used Pharo.
+He said, "Because I could."
+
+00:04:27.080 --> 00:04:30.400 align:middle
+"I can manipulate the stack
+behind the programmers' backs
+
+00:04:30.560 --> 00:04:33.920 align:middle
+"and suggest an abstraction
+I couldn't in another language."
+
+00:04:34.080 --> 00:04:37.920 align:middle
+This empowering
+is really very interesting.
+
+00:04:39.840 --> 00:04:42.960 align:middle
+I want to talk
+about the mid-term vision of Pharo.
+
+00:04:43.120 --> 00:04:46.000 align:middle
+What will Pharo be in about 5 years?
+
+00:04:46.160 --> 00:04:49.280 align:middle
+The core will be bootstrapped.
+
+00:04:49.440 --> 00:04:53.040 align:middle
+Meaning we'll be able
+to reconstruct it from itself.
+
+00:04:53.200 --> 00:04:55.440 align:middle
+Which isn't possible
+at the moment.
+
+00:04:55.600 --> 00:04:59.200 align:middle
+We'll have a better integration
+with OSes and C.
+
+00:04:59.360 --> 00:05:03.200 align:middle
+We can imagine launching a Pharo app
+in any C application.
+
+00:05:03.360 --> 00:05:07.680 align:middle
+It'll be a more modular system
+with validated distributions.
+
+00:05:07.840 --> 00:05:12.240 align:middle
+If someone writes
+an XML parser, for example,
+
+00:05:12.400 --> 00:05:15.360 align:middle
+you'll want to know
+if it's passed all the tests,
+
+00:05:15.520 --> 00:05:18.200 align:middle
+if it functions
+in whatever version of Pharo,
+
+00:05:18.360 --> 00:05:20.880 align:middle
+if the non-regression rules
+are satisfied...
+
+00:05:21.040 --> 00:05:24.440 align:middle
+So really using software engineering
+to validate
+
+00:05:24.600 --> 00:05:26.680 align:middle
+what is made around the world,
+
+00:05:26.840 --> 00:05:31.320 align:middle
+so the people using Pharo can be
+assured of the level of quality.
+
+00:05:32.640 --> 00:05:37.640 align:middle
+There's an effort now to make tools
+more powerful than they presently are.
+
+00:05:38.480 --> 00:05:40.360 align:middle
+The idea is to have a system
+
+00:05:40.520 --> 00:05:42.920 align:middle
+that can adapt
+as well to a coffee machine
+
+00:05:43.080 --> 00:05:44.840 align:middle
+as to the cloud.
+
+00:05:45.000 --> 00:05:48.960 align:middle
+The Pharo development team
+is working on this sort of thing.
+
+00:05:49.120 --> 00:05:51.280 align:middle
+It'll soon be available
+for everyone.
+
+00:05:52.240 --> 00:05:56.560 align:middle
+So Pharo, with its aim
+to have an impact on real life
+
+00:05:56.720 --> 00:05:58.520 align:middle
+and involve companies,
+
+00:05:58.680 --> 00:06:02.040 align:middle
+has created an industrial consortium.
+
+00:06:02.560 --> 00:06:05.200 align:middle
+The idea is to promote Pharo,
+
+00:06:05.360 --> 00:06:09.400 align:middle
+to sustain its constant development,
+
+00:06:09.840 --> 00:06:13.200 align:middle
+to improve its visibility
+and provide support.
+
+00:06:13.440 --> 00:06:17.080 align:middle
+Here are some members
+of the Pharo consortium.
+
+00:06:17.240 --> 00:06:21.720 align:middle
+There are small companies
+but big ones too, like Lam Research and Thales.
+
+00:06:22.160 --> 00:06:25.960 align:middle
+And a lot of universities
+and research groups.

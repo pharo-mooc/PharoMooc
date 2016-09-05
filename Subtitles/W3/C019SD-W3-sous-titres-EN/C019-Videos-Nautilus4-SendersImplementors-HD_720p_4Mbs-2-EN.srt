@@ -1,0 +1,447 @@
+1
+00:00:01,140 --> 00:00:05,200
+In this video, I’d like
+to show you more
+
+2
+00:00:05,560 --> 00:00:09,520
+advanced analysis you can do
+on code with Nautilus.
+
+3
+00:00:10,260 --> 00:00:13,220
+So let’s open Nautilus.
+We consider for instance
+
+4
+00:00:13,387 --> 00:00:14,670
+a simple class, NumberParser.
+
+5
+00:00:15,880 --> 00:00:19,090
+Now we look at what
+
+6
+00:00:19,257 --> 00:00:20,170
+we call Senders and 
+Implementors.
+
+7
+00:00:20,337 --> 00:00:24,640
+Often, we know someone
+is fluent in Pharo when
+
+8
+00:00:24,807 --> 00:00:27,350
+he has understood how to
+use Senders and Implementors
+
+9
+00:00:27,517 --> 00:00:29,790
+to find information.
+So let’s have a look:
+
+10
+00:00:29,957 --> 00:00:31,770
+I consider a method,
+I’d like to know what
+
+11
+00:00:31,937 --> 00:00:33,620
+calls this method: 
+what do I do?
+
+12
+00:00:34,080 --> 00:00:35,030
+I use Senders Of.
+
+13
+00:00:36,680 --> 00:00:41,260
+What will I get with Senders Of?
+
+14
+00:00:41,427 --> 00:00:43,230
+I get here only one method
+
+15
+00:00:43,397 --> 00:00:45,920
+which calls Senders Of,
+it is called 
+
+16
+00:00:46,270 --> 00:00:50,560
+ReadExponent and it calls
+ExponentLetters.
+
+17
+00:00:52,710 --> 00:00:54,310
+It is an interesting information.
+
+18
+00:00:54,610 --> 00:00:56,810
+Now let’s imagine I go
+in the public
+
+19
+00:00:57,000 --> 00:01:01,830
+protocol, I choose
+NextInteger. I ask the Senders.
+
+20
+00:01:03,140 --> 00:01:07,710
+I will get this potential
+
+21
+00:01:08,420 --> 00:01:09,740
+Senders list.
+
+22
+00:01:10,810 --> 00:01:14,910
+In fact, these are all the places
+that send the NextInteger message.
+
+23
+00:01:15,370 --> 00:01:17,310
+Here I see I am in the
+NumberParser
+
+24
+00:01:17,477 --> 00:01:20,590
+class, and I call
+Self.
+
+25
+00:01:21,600 --> 00:01:24,180
+As I use Self to do a call, it
+
+26
+00:01:24,347 --> 00:01:25,730
+will necessarily
+be the method I have here
+
+27
+00:01:26,740 --> 00:01:30,720
+Now on the packages or the XML
+class, it is not so
+
+28
+00:01:30,887 --> 00:01:33,360
+obvious because I don't necessarily 
+know, as Pharo
+
+29
+00:01:33,527 --> 00:01:36,370
+is a language with no types,
+I don't know for sure
+
+30
+00:01:36,537 --> 00:01:40,060
+if this is the method concerned.
+
+31
+00:01:40,227 --> 00:01:44,020
+In fact, the system shows
+that a message
+
+32
+00:01:44,187 --> 00:01:46,010
+with the same name has been sent.
+
+33
+00:01:46,720 --> 00:01:49,000
+In order to check this, 
+I can for instance
+
+34
+00:01:49,167 --> 00:01:51,520
+say that I'd like to know
+
+35
+00:01:51,950 --> 00:01:56,090
+what are the implementors,
+how many times is
+
+36
+00:01:56,257 --> 00:01:57,650
+the method implemented in the
+system.
+
+37
+00:01:57,817 --> 00:02:00,870
+To do this, I will select
+Implementors Of.
+
+38
+00:02:02,520 --> 00:02:05,930
+Implementors Of. Ah bah
+look, whereas in the other
+
+39
+00:02:06,097 --> 00:02:08,350
+case I only had one method, so it 
+was necessarily the one
+
+40
+00:02:08,517 --> 00:02:12,290
+that was called, here I have
+several ones.
+
+41
+00:02:12,457 --> 00:02:16,050
+This method, NextInteger, is 
+defined
+
+42
+00:02:16,217 --> 00:02:19,510
+on NumberParser, but it is
+also defined on XMLInteger.
+
+43
+00:02:20,900 --> 00:02:24,420
+XMLInteger is even defined on
+two different
+
+44
+00:02:24,587 --> 00:02:26,950
+classes. So I see that these
+
+45
+00:02:27,117 --> 00:02:30,000
+methods, these calls are 
+message sends
+
+46
+00:02:30,167 --> 00:02:34,030
+calls and they will be resolved
+and the methods selected.
+
+47
+00:02:34,420 --> 00:02:36,670
+You see that Sender and 
+Implementor are
+
+48
+00:02:36,837 --> 00:02:39,650
+very important.
+With Implementor you will
+
+49
+00:02:39,817 --> 00:02:41,710
+see all the system's classes 
+implementing a method.
+
+50
+00:02:41,877 --> 00:02:45,300
+With Sender you will see
+all the calls made to a method.
+
+51
+00:02:45,467 --> 00:02:47,840
+Senders are really very important
+because
+
+52
+00:02:48,007 --> 00:02:50,940
+they enable you to look at
+examples,
+
+53
+00:02:51,107 --> 00:02:54,050
+to find how a method is invoked.
+
+54
+00:02:54,520 --> 00:02:56,920
+Here I've selected a method 
+with no argument,
+
+55
+00:02:57,087 --> 00:02:58,590
+but if I had chosen a method with
+an argument,
+
+56
+00:02:58,757 --> 00:03:02,650
+for instance Number, 
+NextNumberBase and I click
+
+57
+00:03:02,817 --> 00:03:07,470
+on Sender: what will it
+
+58
+00:03:07,637 --> 00:03:12,480
+show me? I have an argument,
+and I see it is
+
+59
+00:03:12,647 --> 00:03:13,280
+the base.
+
+60
+00:03:13,447 --> 00:03:15,050
+Here it appears it is not 
+an argument,
+
+61
+00:03:15,217 --> 00:03:18,730
+it is just a call that has an
+argument.
+
+62
+00:03:18,897 --> 00:03:22,030
+But in this test here, 
+I see that
+
+63
+00:03:22,420 --> 00:03:27,340
+if I instantiate
+NumberParser on Stream,
+
+64
+00:03:28,340 --> 00:03:30,550
+and then I send it the message
+NextNumberBase
+
+65
+00:03:30,717 --> 00:03:32,930
+and the argument 10.
+
+66
+00:03:33,097 --> 00:03:35,030
+It makes me understand how
+
+67
+00:03:35,197 --> 00:03:36,200
+I have to use the API.
+
+68
+00:03:37,000 --> 00:03:41,210
+It is so much used that there
+are keyboard shortcuts.
+
+69
+00:03:42,390 --> 00:03:45,800
+Nautilus was first designed
+so that you can
+
+70
+00:03:46,000 --> 00:03:48,550
+do all these operations
+without touching the mouse.
+
+71
+00:03:49,000 --> 00:03:51,260
+Here notice that B means
+browse.
+
+72
+00:03:51,427 --> 00:03:55,890
+So we will do Browse Sender,
+N is for Sender's N.
+
+73
+00:03:56,057 --> 00:03:59,550
+Browse Implementor, M
+is for Implementor.
+
+74
+00:04:00,440 --> 00:04:05,260
+If I select only "NextNumber" 
+for instance,
+
+75
+00:04:05,570 --> 00:04:08,780
+and I do Browse N, I will
+get
+
+76
+00:04:11,110 --> 00:04:14,330
+NextNumber's Senders.
+
+77
+00:04:14,860 --> 00:04:17,740
+In the same way, if I select 
+I get them.
+
+78
+00:04:17,907 --> 00:04:19,610
+Now if I want to get the
+Implementors, Browse M,
+
+79
+00:04:20,890 --> 00:04:22,160
+I get the Implementors.
+
+80
+00:04:23,700 --> 00:04:25,650
+In the same way about classes,
+I'd like 
+
+81
+00:04:25,817 --> 00:04:28,030
+to know what are the other system
+classes using
+
+82
+00:04:28,197 --> 00:04:30,290
+NumberParser.
+To know this, 
+
+83
+00:04:30,457 --> 00:04:34,730
+I select Analyze,
+I have Class
+
+84
+00:04:34,897 --> 00:04:39,820
+references. And I get all
+
+85
+00:04:40,000 --> 00:04:43,380
+the classes. I get all the methods
+using...
+
+86
+00:04:47,300 --> 00:04:49,480
+Here I see they are mainly tests.
+
+87
+00:04:49,740 --> 00:04:53,000
+Look: in  ClassInteger, I call
+
+88
+00:05:00,130 --> 00:05:00,763
+the Parser.
+
+89
+00:05:00,930 --> 00:05:05,440
+Here, the tip to understand
+is to remember the
+
+90
+00:05:06,200 --> 00:05:09,300
+keyboard shortcut,
+
+91
+00:05:10,050 --> 00:05:14,550
+Browse shift N, with a 
+
+92
+00:05:16,070 --> 00:05:19,250
+capital letter because it is
+the same as to 
+
+93
+00:05:19,417 --> 00:05:21,700
+invoke a method, except here
+we want
+
+94
+00:05:21,867 --> 00:05:24,090
+to invoke a class and a class
+is bigger than
+
+95
+00:05:24,257 --> 00:05:25,310
+a method, so we have a capital
+letter.
