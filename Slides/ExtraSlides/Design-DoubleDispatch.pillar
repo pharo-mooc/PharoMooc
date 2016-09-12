@@ -1,0 +1,156 @@
+{
+    "title" : "Double Dispatch",
+    "slidesid" : "From the Design Corner",
+    "author" : "Stéphane Ducasse"
+}
+
+${slide:title=Outline}$
+- Some exercise
+- Thinking about them
+
+${slide:title=Given}$
+
+[[[
+primitive add(i,j) returns i + j
+primitive add(f1,f2) returns f1 + f2
+i.asFloat() returns a float
+]]]
+
+${slide:title=Exercise}$
+
+[[[
+	1 + 2
+	1.1 + 2
+	2 + 1.3
+	1.1 + 2.2 
+]]]
+
+Implement ==\+== 
+
+${slide:title=Hints}$
+
+- Two classes Integer and Float
+- Not a single explicit conditional
+- No static type support
+
+${slide:title=}$
+
+[[[
+Integer >> + aNumber
+
+
+
+
+
+Float >> + aNumber
+
+
+
+
+]]]
+
+
+${slide:title=More Hints}$
+
+When you execute a method you know that the receiver is from the class of the method!
+
+${slide:title=Even More Hints}$
+
+Sending a message to an object is a choice operator. 
+
+${slide:title=Let us get started}$
+
+[[[
+	Integer >> + aNumber
+
+
+	Integer >> sumWithInteger: anInteger
+
+
+
+
+
+	Float >> + aNumber
+
+
+	Float >> sumWithInteger: anInteger
+
+]]]
+
+
+${slide:title=Let us get started}$
+
+[[[
+	Integer >> + aNumber
+		^ aNumber sumWithInteger: self 
+
+	Integer >> sumWithInteger: anInteger
+
+
+
+	Float >> + aNumber
+
+
+	Float >> sumWithInteger: anInteger
+
+]]]
+
+
+
+
+[[[
+	Integer>>+ aNumber
+		^ aNumber sumWithInteger: self
+
+	Integer >> sumWithInteger: anInteger
+		^ addi(self , anInteger)
+
+	Integer>>sumWithFloat: aFloat
+
+
+	Float>>+ aNumber
+
+
+	Float>>sumWithInteger: anInteger
+
+
+	Float>>sumWithFloat: aFloat
+
+]]]
+
+
+${slide:title=Exercise Extension}$
+
+[[[
+Fraction num
+Fraction denum
+Fraction num: n denum: denum
+]]]
+
+[[[
+	1/2 + 3
+	3 + 3.3
+	1.3 + 2/5
+	1/3 + 4/3
+]]]
+
+${slide:title=Double Dispatch}$
+
+Three Kinds of Messages
+- Primary operations
+- Double dispatching methods
+- Forwarding operations
+
+${slide:title=When not using Double Dispatch}$
+
+- No class to dispatch on
+
+${slide:title=Do not ask tell}$
+
+- Double dispatch is a clear illustration of Do not ask, Tell
+
+${slide:title=Double Dispatch}$
+
+- Essence of Visitor Design Patterns
+- Sometimes three dispatch
+
