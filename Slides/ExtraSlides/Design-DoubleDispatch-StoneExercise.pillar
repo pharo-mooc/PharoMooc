@@ -1,0 +1,123 @@
+{
+    "title" : "Stone Paper Scissor",
+    "slidesid" : "From the Design Corner",
+    "author" : "Stéphane Ducasse"
+}
+
+${slide:title=Stone Paper Scissor via Tests}$
+
+[[[
+StonePaperScissorTest >> testPaperIsWinning
+	self assert: (Stone new play: Paper new) = #paper
+]]]
+
+[[[
+StonePaperScissorTest >> testStoneAgainsStone
+	self assert: (Stone new play: Stone new) = #draw
+]]]
+
+[[[
+StonePaperScissorTest >> testStoneIsWinning
+	self assert: (Stone new play: Scissor new) = #stone
+]]]
+
+...
+
+${slide:title=Let us start}$
+
+[[[
+StonePaperScissorTest >> testPaperIsWinning
+	self assert: (Stone new play: Paper new) = #paper
+]]]
+
+[[[
+Stone >> play: anotherTool
+	^ ...
+]]]
+
+
+${slide:title= Paper playAgainstStone: }$
+
+[[[
+StonePaperScissorTest >> testPaperIsWinning
+	self assert: (Stone new play: Paper new) = #paper
+]]]
+
+[[[
+Stone >> play: anotherTool
+	^ anotherTool playAgainstStone: self
+]]]
+
+[[[
+Paper >> playAgainstStone: aStone
+	^ #paper
+]]]
+
+
+${slide:title=Other playAgainstStone: }$
+
+[[[
+Scissor >> playAgainstStone: aStone
+	^ #scissor
+]]]
+
+[[[
+Stone >> playAgainstStone: aStone
+	^ #draw
+]]]
+
+
+${slide:title=Scissor now }$
+
+[[[
+StonePaperScissorTest >> testScissorIsWinning
+	self assert: (Scissor new play: Paper new) = #scissor
+]]]
+
+[[[
+Scissor >> play: anotherTool
+	^ anotherTool playAgainstScissor: self
+]]]
+
+[[[
+Scissor >> playAgainstScissor: aScissor
+	^ #draw
+]]]
+
+[[[
+Paper >> playAgainstScissor: aScissor
+	^ #scissor
+]]]
+
+[[[
+Stone >> playAgainstScissor: aScissor
+	^ #stone
+]]]
+
+${slide:title=Paper now }$
+[[[
+Paper >> play: anotherTool
+	^ anotherTool playAgainstPaper: self
+]]]
+
+[[[
+Scissor >> playAgainstPaper: aPaper
+	^ #scissor
+]]]
+
+[[[
+Paper >> playAgainstPaper: aPaper
+	^ #draw
+]]]
+
+[[[
+Stone >> playAgainstPaper: aPaper
+	^ #paper
+]]]
+
+
+${slide:title=Conclusion}$
+
+- Powerful
+- Modular
+- Just sending an extra message to an argument and using late binding
