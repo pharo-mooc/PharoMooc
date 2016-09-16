@@ -27,11 +27,11 @@ Deux petits défis:
 
 !!!! Get poster of The Terminator movie
 
-	[[[
-	(ZnEasy getJpeg: ((STON fromString:
-	    (ZnClient new
-	        url: 'http://www.omdbapi.com/';
-	        queryAt: 't' put: 'The Terminator';
-	        get;
-	        contents)) at: #Poster)) inspect
-	]]]
+[[[
+(ZnEasy getJpeg: ((STON fromString:
+    (ZnClient new
+        url: 'http://www.omdbapi.com/';
+        queryAt: 't' put: 'The Terminator';
+        get;
+        contents)) at: #Poster)) inspect
+]]]
