@@ -1,24 +1,24 @@
 {
-    "title" : "Stone Paper Scissor",
+    "title" : "Stone Paper Scissors",
     "slidesid" : "From the Design Corner",
     "author" : "Stéphane Ducasse"
 }
 
-${slide:title=Stone Paper Scissor via Tests}$
+${slide:title=Stone Paper Scissors via Tests}$
 
 [[[
-StonePaperScissorTest >> testPaperIsWinning
+StonePaperScissorsTest >> testPaperIsWinning
 	self assert: (Stone new play: Paper new) = #paper
 ]]]
 
 [[[
-StonePaperScissorTest >> testStoneAgainsStone
+StonePaperScissorsTest >> testStoneAgainsStone
 	self assert: (Stone new play: Stone new) = #draw
 ]]]
 
 [[[
-StonePaperScissorTest >> testStoneIsWinning
-	self assert: (Stone new play: Scissor new) = #stone
+StonePaperScissorsTest >> testStoneIsWinning
+	self assert: (Stone new play: Scissors new) = #stone
 ]]]
 
 ...
@@ -26,7 +26,7 @@ StonePaperScissorTest >> testStoneIsWinning
 ${slide:title=Let us start}$
 
 [[[
-StonePaperScissorTest >> testPaperIsWinning
+StonePaperScissorsTest >> testPaperIsWinning
 	self assert: (Stone new play: Paper new) = #paper
 ]]]
 
@@ -39,7 +39,7 @@ Stone >> play: anotherTool
 ${slide:title= Paper playAgainstStone: }$
 
 [[[
-StonePaperScissorTest >> testPaperIsWinning
+StonePaperScissorsTest >> testPaperIsWinning
 	self assert: (Stone new play: Paper new) = #paper
 ]]]
 
@@ -57,8 +57,8 @@ Paper >> playAgainstStone: aStone
 ${slide:title=Other playAgainstStone: }$
 
 [[[
-Scissor >> playAgainstStone: aStone
-	^ #scissor
+Scissors >> playAgainstStone: aStone
+	^ #stone
 ]]]
 
 [[[
@@ -67,30 +67,30 @@ Stone >> playAgainstStone: aStone
 ]]]
 
 
-${slide:title=Scissor now }$
+${slide:title=Scissors now }$
 
 [[[
-StonePaperScissorTest >> testScissorIsWinning
-	self assert: (Scissor new play: Paper new) = #scissor
+StonePaperScissorsTest >> testScissorsIsWinning
+	self assert: (Scissors new play: Paper new) = #scissors
 ]]]
 
 [[[
-Scissor >> play: anotherTool
-	^ anotherTool playAgainstScissor: self
+Scissors >> play: anotherTool
+	^ anotherTool playAgainstScissors: self
 ]]]
 
 [[[
-Scissor >> playAgainstScissor: aScissor
+Scissors >> playAganstScissors: aScissors
 	^ #draw
 ]]]
 
 [[[
-Paper >> playAgainstScissor: aScissor
-	^ #scissor
+Paper >> playAgainstScissors: aScissors
+	^ #scissors
 ]]]
 
 [[[
-Stone >> playAgainstScissor: aScissor
+Stone >> playAgainstScissors: aScissors
 	^ #stone
 ]]]
 
@@ -101,8 +101,8 @@ Paper >> play: anotherTool
 ]]]
 
 [[[
-Scissor >> playAgainstPaper: aPaper
-	^ #scissor
+Scissors >> playAgainstPaper: aPaper
+	^ #scissors
 ]]]
 
 [[[
@@ -115,6 +115,18 @@ Stone >> playAgainstPaper: aPaper
 	^ #paper
 ]]]
 
+${slide:title=Overview}$
+
++An overview of a possible solution using double dispatch.>file://figures/StonePaperScissors.pdf|width=80+
+
+${slide:title=Thinking more...}$
+
+[[[
+Paper new competeWith: Paper new
+	onDraw: [ Game incrementDraw ]
+	onReceiverWin: [ ]
+	onReceiverLose: [ ]
+]]]
 
 ${slide:title=Conclusion}$
 
