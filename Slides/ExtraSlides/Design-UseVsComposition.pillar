@@ -6,89 +6,146 @@
 
 ${slide:title=Outline}$
 
-- About accessors
-- About names
+- An exercise
+- Some criteria
+- Solutions
+- Comparing solutions
+ 
 
-${slide:title=Accessors}$
+${slide:title=Exercise Setting Up}$
 
-Some schools promote: "Access instance variables using methods"
-- Promote late bound structure
-- Subclasses may easily change structure
-- Good way to support lazy initialization (see after)
-- Be consistent: do not mix accessors and direct use inside the class
+Imagine ==TextEditor== and  several algorithms
+- ==formatWithTex (t)==
+- ==formatFastColoring (t)==
+- ==formatSlowButPreciseColoring (t)== 
+
+How can we create an editor that will format differently texts?
+
+${slide:title=Next step}$
+- Propose one solution
+- Propose different solutions
+- Define some criteria
+- Compare the approaches using such criteria
 
 
-${slide:title=Concerns}$
-
-- Protected accessors not private ones (think about class dual interfaces)
-- For simple classes, you may double the API
-- With current refactoring you can abstract an attribute really fast
-
-${slide:title=Lazy initialization}$
-
-[[[
-Scheduler >> tasks
-	^ tasks ifNil: [ task := OrderedCollection new ] 
-]]]
-
-${slide:title=Public accessor and copy}$
-
-- Using a public accessor may break encapsulation
-- What about returning a copy of the accessed object
+${slide:title=Inheritance}$
 
 [[[
-Scheduler >> tasks
-	^ tasks copy 
-]]]
+TextEditor subclass: #SlowFormatingTextEditor
 
-${slide:title=Clients can be confused}$
-
-- I can get access to the state but if I modify it nothing changes!
-- I can get access to the state but it can be desynchronised from the internal values
-
-${slide:title=Use vs. Composition}$
-
-[[[
-Scheduler >> copiedTasks
-	^ tasks copy 
-]]]
-
-This way the client knows that he gets a copy
-
-
-${slide:title=Reading code}$
-
-- You will read code others wrote
-- You will read code that your wrote and forgot
-- Use good names copiedTasks 
-
-${slide:title=About instance variable names}$
-
-Use role that they play to name your variables
-
-[[[
-RBValueNode subclass: #RBBlockNode
-	instanceVariableNames: 'left right colons arguments bar body scope'
+SlowFormatingTextEditor >> format
+	 self formatSlowButPreciseColoring: text 
 ]]]
 
 [[[
-RBValueNode subclass: #RBBlockNode
-	instanceVariableNames: 'leftPosition rightPosition colons arguments barPosition body scope'
+TextEditor subclass: #FastFormatingTextEditor
+
+SlowFormatingTextEditor >> format
+	 self formatFastColoring: text 
 ]]]
 
-${slide:title=About method argument names}$
-
-In dynamically typed language, use typing information
 
 [[[
-printOn: aStream
+TextEditor subclass: #NullFormatingTextEditor
+
+NullFormatingTextEditor >> format
+	^ self "do nothing" 
 ]]]
 
-vs. 
+
+${slide:title=Inheritance}$
+
++.>file://figures/textEditorHierarchy.pdf|width=100+
+
+
+${slide:title=With conditionals}$
+
++.>file://figures/textEditorSingle.pdf|width=60+
 
 [[[
-printOn: s
+TextEditor >> format
+	currentSelection = #slow
+		ifTrue: [ self formatSlowButPreciseColoring: text] 
+		ifFalse: [ currentSelection = #fast
+			ifTrue: [self formatFastColoring: text] 
+			....]
 ]]]
+
+
+${slide:title=Alternate with Registry and Meta Programmation}$
+
+[[[
+Object subclass: #TextEditor 
+	currentSelection formatters text
+]]]
+
+[[[
+TextEditor class >> initialize
+	self formatters 
+		at: #slow put: #slowFormat: ; 
+		at: #fast put: #fastFormat: ; 
+		at: #null put: #nullFormat: ;
+		at: #tex put: #texFormat:
+]]]
+
+[[[
+TextEditor >> format
+	self perform: (formatters at: currentSelection) with: text
+]]]
+
+${slide:title=Criteria}$
+
+- Yes what are they?
+
+${slide:title=Criteria}$
+
+- ""Adding a new formatting algo"" - what is the cost to define a new formatting algorithm
+- ""Dynamically use a formatter"" - can I switch dynamically to a new formatting algorithm
+- ""Packaging"" - can I deploy a new formatting algorithm separately from others
+
+
+${slide:title=Inheritance?}$
+
+""Addition:""
+- we can add a new formatter
+""Packaging: ""
+- we can package a new formatter
+
+""Not the best solution since:""
+- you have to create objects of the right class
+- it is difficult to change the policy at run-time.
+-- we do not want to have and reopen the texteditor
+
+${slide:title=Inheritance?}$
+
+You can get an explosion of classes bloated with the use of a functionality and the functionalities.
+-- we do not want a hierarchy for each text editor features to be ""multiplied"" with previous ones
+-- FastColoring
+- API of TextEditor can get large: no clear identification of responsibility
+
++.>file://figures/textEditorHierarchyBloated.pdf|width=60+
+
+${slide:title=Conditionals}$
+
+""Dynamic use:"" we can use a different formatter dynamically.
+
+But 
+""Addition:""
+- adding a version requires to edit and ""recompile"" the conditionals
+""Packaging: ""
+- we cannot package a new algorithm separately
+
+
+${slide:title=Delegating to a formatter}$
+
++.>file://figures/colorizer.pdf|width=100+
+
+[[[
+myEditor formatter: FastFormatter new. 
+myEditor format.
+myEditor formatter: SlowFormatter new.
+]]]
+
 
 ${slide:title=Conclusion}$
 
