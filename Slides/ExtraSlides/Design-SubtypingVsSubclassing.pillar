@@ -1,0 +1,141 @@
+{
+    "title":"Subclassing Vs. Subtyping",
+    "slidesid":"From the Design Corner"
+}
+
+
+${slide:title=Goal}$
+
+- What is the relation between the API of class and its subclasses?
+- What is subtyping? 
+- What is subclassing?
+- Which one should we favor for good OO design?
+
+${slide:title=Subtyping/Subclassing and Type systems}$
+
+- You can use subtyping and subclassing in dynamically typed languages!
+- You can use subtyping and subclassing in statically typed languages!
+
+The compiler type checker does not check 
+
+${slide:title=What do you think about?}$
+
+==Dictionary== subclass of ==Set==
+-- a ==Dictionary== is a set of bindings (association)
+
+==Dictionary== is a subclass of ==HashedCollection==
+
+
+${slide:title=What do you think about?}$
+
+""subclasssing"": ==Dictionary== subclass of ==Set==
+-- a ==Dictionary== is a set of bindings (association)
+
+""subtyping"": ==Dictionary== is a subclass of ==HashedCollection==
+
+
+${slide:title=Let us study a simple example}$
+
+How to implement Stack?
+
+[[[
+s push: 12.
+s push: 24.
+s top
+s pop
+s isEmpty
+]]]
+Using ==OrderedCollection== which is a ordered list of items
+
+${slide:title=Stack as subclass of OrderedCollection}$
+
+[[[
+OrderedCollection subclass: Stack
+]]]
+
+[[[
+Stack >> pop
+	^ self removeFirst
+
+Stack >> push: anObject
+	self addFirst: anObject
+
+Stack >> top
+	^ self first
+]]]
+
+We get Stack>>size, Stack>>includes:, Stack>>do:, Stack>>collect: for free. 
+
+
+${slide:title=Wait!}$
+
+- What do we do with the rest of the OrderedCollection API?
+- a Stack is not an OrderedCollection!
+- In a client program we cannot substitute an OrderedCollection by a Stack
+
+[[[
+Stack new addLast: anObject
+]]]
+
+Some messages do not make sense on Stack
+[[[
+Stack new last
+]]]
+
+
+${slide:title=We could cancel some operations}$
+
+[[[
+Stack >> removeFirst
+	self error
+]]]
+
+But how can we then implement pop
+
+[[[
+Stack >> pop
+	^ self removeFirst
+]]]
+
+[[[
+Stack >> pop
+	^ super removeFirst
+]]]
+- Ugly 
+- Complexify the solution 
+- Complexify the evolution
+
+${slide:title=Stepping back}$
+
+- There is not a simple relationship between Stack and OrderedCollection APIs.
+- Stack interface is not an extension or subset of OrderedCollection interface.
+- Compare with RestrictedStack a subclass of Stack RestrictedStack interface is an extension of Stack interface
+
+
+${slide:title=Compare the two uses}$
+
++.>file://figures/SubtypingSubclassing.pdf|width=70+
+
+${slide:title=Compare the two replacements}$
+
++.>file://figures/SubtypingSubclassing2.pdf|width=70+
+
+
+
+
+
+
+${slide:title=Conclusion}$
+
+Inheritance
+- is about incremental static definition
+- It can lead of static design
+- It can help 
+-- build dynamic solutions
+-- structure abstractions
+
+Delegation 
+- can bring runtime flexibility
+
+
+
