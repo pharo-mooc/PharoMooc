@@ -146,8 +146,41 @@ myEditor format.
 myEditor formatter: SlowFormatter new.
 ]]]
 
+${slide:title=Delegating to a formatter}$
+
+""Dynamic use:"" 
+- we can use a different formatter dynamically. Just create a new instance and set it.
+""Addition:""
+- adding a version is just adding a new class
+""Packaging: ""
+- we package a new algorithm separately 
+
+
+${slide:title=Strategy Design Pattern}$
+
+- Uniformize the communication (API) between the Editor and the Formatter
+-- all formatters should understand ==format:==
+- Modular
+- Incremental
+
+${slide:title=There is nothing like a free lunch}$
+
+- The formatter should access the state (i.e. the text, positions... contained in the text editor)
+- Information should flow between the textEditor and the formatter
+- API of textEditor should be opened to support it
+
 
 ${slide:title=Conclusion}$
 
-- Communication and names are key in good code
+Inheritance
+- is about incremental static definition
+- It can lead of static design
+- It can help 
+-- build dynamic solutions
+-- structure abstractions
+
+Delegation 
+- can bring runtime flexibility
+
+
 
