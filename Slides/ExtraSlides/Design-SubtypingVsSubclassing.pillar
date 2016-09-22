@@ -1,5 +1,5 @@
 {
-    "title":"Subclassing Vs. Subtyping",
+    "title":"Subclassing vs. Subtyping",
     "slidesid":"From the Design Corner"
 }
 
@@ -11,41 +11,47 @@ ${slide:title=Goal}$
 - What is subclassing?
 - Which one should we favor for good OO design?
 
-${slide:title=Subtyping/Subclassing and Type systems}$
+${slide:title=Subtyping/subclassing and type systems}$
 
 - You can use subtyping and subclassing in dynamically typed languages!
 - You can use subtyping and subclassing in statically typed languages!
 
-The compiler type checker does not check 
+The compiler type checker 
+- does not check such point 
+- just checks that we can put squares into square shapes
 
 ${slide:title=What do you think about?}$
 
-==Dictionary== subclass of ==Set==
--- a ==Dictionary== is a set of bindings (association)
+- ==Dictionary== subclass of ==Set==
+-- a ==Dictionary== is a set of bindings (associations Key->Value)
 
-==Dictionary== is a subclass of ==HashedCollection==
+- ==Dictionary== is a subclass of ==HashedCollection==
 
 
 ${slide:title=What do you think about?}$
 
-""subclasssing"": ==Dictionary== subclass of ==Set==
--- a ==Dictionary== is a set of bindings (association)
+""Subclasssing"": ==Dictionary== subclass of ==Set==
+-- a ==Dictionary== is a set of bindings (associations Key->Value)
+-- It reuses (abuse) the implementation of ==Set== and add extra messages (==at:put:==) to the default ==Set== API
 
-""subtyping"": ==Dictionary== is a subclass of ==HashedCollection==
-
+""Subtyping"": ==Dictionary== is a subclass of ==HashedCollection==
+-- It specializes ==HashedCollection== (a collection of objects with a hash)
+-- It adds messages related to ==Dictionary== (at:IfPresent:, )
 
 ${slide:title=Let us study a simple example}$
 
-How to implement Stack?
+How to implement a Stack?
 
 [[[
 s push: 12.
 s push: 24.
 s top
 s pop
+> 24
 s isEmpty
+> false
 ]]]
-Using ==OrderedCollection== which is a ordered list of items
+Using ==OrderedCollection== (an ordered list of items)
 
 ${slide:title=Stack as subclass of OrderedCollection}$
 
@@ -90,13 +96,15 @@ Stack >> removeFirst
 	self error
 ]]]
 
-But how can we then implement pop
+But how can we then implement ==pop==?
 
+Remember:
 [[[
 Stack >> pop
 	^ self removeFirst
 ]]]
 
+Jumping over cancelled operation :(
 [[[
 Stack >> pop
 	^ super removeFirst
@@ -114,28 +122,67 @@ ${slide:title=Stepping back}$
 
 ${slide:title=Compare the two uses}$
 
-+.>file://figures/SubtypingSubclassing.pdf|width=70+
++.>file://figures/SubtypingSubclassing.pdf|width=60+
 
 ${slide:title=Compare the two replacements}$
 
-+.>file://figures/SubtypingSubclassing2.pdf|width=70+
++.>file://figures/SubtypingSubclassing2.pdf|width=60+
 
 
+${slide:title=Back to Stack}$
 
+[[[
+Object subclass: Stack
+	instVarNames: 'elements'
+]]]
 
+[[[
+Stack >> push: anElement 
+	elements addFirst: anElement
+]]]
 
+[[[
+Stack >> pop
+	^ element ifNotEmpty: [ element removeFirst ]
+]]]
+  
+
+${slide:title=Subclassing Inheritance}$
+
+- Inheritance for code reuse
+- Subclass reuses code from superclass, but has a different specification. 
+- It cannot be used everywhere its superclass is used. Usually overrides a lot of code.
+
+Bad for
+- understanding 
+- future evolution
+
+${slide:title=Subtyping Inheritance}$
+
+- Reuse of specifications
+- A subclass refines superclass specifications
+- A program that works with Numbers will work with Fractions.
+- A program that works with Collections will work with Arrays.
+
+${slide:title= Inheritance and Polymorphism}$
+
+- Polymorphism works best with conforming/substituable interfaces
+- Subtyping Inheritance creates families of classes with similar interfaces
+- An abstract class describes an interface fulfilled by its subclasses
+- Inheritance helps software reuse by making polymorphism easier
+
+${slide:title= Subtyping Support}$
+
+- We only extend or subclass constructs in programming languages
+- Still you can express a subtype or subclass relationships between a class and its subclass.
+- Subclassing/Subtyping has nothing to do with the fact that the language supports static typing or not
 
 ${slide:title=Conclusion}$
 
-Inheritance
-- is about incremental static definition
-- It can lead of static design
-- It can help 
--- build dynamic solutions
--- structure abstractions
+- Subtyping is about  program specification reuse
+- Subtyping is about to create family of classes sharing common API
+- Avoid subclassing
 
-Delegation 
-- can bring runtime flexibility
 
 
 
