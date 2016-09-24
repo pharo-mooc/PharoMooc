@@ -1,186 +1,170 @@
 {
-    "title":"Use vs. Inheritance",
+    "title":"Learning From Real Examples",
     "slidesid":"From the Design Corner"
 }
 
 
-${slide:title=Outline}$
+${slide:title=Studying a Sokoban Implementation}$
 
-- An exercise
-- Some criteria
-- Solutions
-- Comparing solutions
++.>file://figures/LearnFEx-Sokoban1.png|width=100+
  
 
-${slide:title=Exercise Setting Up}$
+${slide:title=Good decomposition}$
 
-Imagine ==TextEditor== and  several algorithms
-- ==formatWithTex (t)==
-- ==formatFastColoring (t)==
-- ==formatSlowButPreciseColoring (t)== 
+- Model 
+- Views
+- Controllers
 
-How can we create an editor that will format differently texts?
+${slide:title=Model}$
 
-${slide:title=Next step}$
-- Propose one solution
-- Propose different solutions
-- Define some criteria
-- Compare the approaches using such criteria
+%+.>file://figures/LearnFEx-Model.png|width=50+
 
+- Block
+-- EmptyBlock
+-- Wall
+- GameModel
+- GameState
+- Maze
+- MazeTemplate
+- MoveResult
+-- Move
+--- Push
+-- NoMOve
 
-${slide:title=Inheritance}$
+We will come back later...
 
-[[[
-TextEditor subclass: #SlowFormatingTextEditor
+${slide:title=Views}$
 
-SlowFormatingTextEditor >> format
-	 self formatSlowButPreciseColoring: text 
-]]]
++.>file://figures/LearnFEx-View.png|width=50+
 
-[[[
-TextEditor subclass: #FastFormatingTextEditor
+${slide:title=Controllers}$
 
-SlowFormatingTextEditor >> format
-	 self formatFastColoring: text 
-]]]
++.>file://figures/LearnFEx-Controllers.png|width=50+
 
+${slide:title=Let us guess about the model}$
 
-[[[
-TextEditor subclass: #NullFormatingTextEditor
+${columns}$
 
-NullFormatingTextEditor >> format
-	^ self "do nothing" 
-]]]
+${column:width=60}$
 
+- Wall
+- Floor
+- Box
+- Robot
+- Target
+- Board
 
-${slide:title=Inheritance}$
+${column:width=40}$
 
-+.>file://figures/textEditorHierarchy.pdf|width=100+
++.>file://figures/LearnFEx-Sokoban1.png|width=120+
 
-
-${slide:title=With conditionals}$
-
-+.>file://figures/textEditorSingle.pdf|width=60+
-
-[[[
-TextEditor >> format
-	currentSelection = #slow
-		ifTrue: [ self formatSlowButPreciseColoring: text] 
-		ifFalse: [ currentSelection = #fast
-			ifTrue: [self formatFastColoring: text] 
-			....]
-]]]
+${endColumns}$
 
 
-${slide:title=Alternate with Registry and Meta Programmation}$
+${slide:title=Let us guess about the model}$
 
-[[[
-Object subclass: #TextEditor 
-	currentSelection formatters text
-]]]
+${columns}$
 
-[[[
-TextEditor class >> initialize
-	self formatters 
-		at: #slow put: #slowFormat: ; 
-		at: #fast put: #fastFormat: ; 
-		at: #null put: #nullFormat: ;
-		at: #tex put: #texFormat:
-]]]
+${column:width=60}$
 
-[[[
-TextEditor >> format
-	self perform: (formatters at: currentSelection) with: text
-]]]
+- Wall
+- Floor
+- Box
+- Robot
+- Target
+- Board
+Instead we got 
+- Block
+-- EmptyBlock
+-- Wall
 
-${slide:title=Criteria}$
+Let us study that...
 
-- Yes what are they?
+${column:width=40}$
 
-${slide:title=Criteria}$
++.>file://figures/LearnFEx-Sokoban1.png|width=120+
 
-- ""Adding a new formatting algo"" - what is the cost to define a new formatting algorithm
-- ""Dynamically use a formatter"" - can I switch dynamically to a new formatting algorithm
-- ""Packaging"" - can I deploy a new formatting algorithm separately from others
+${endColumns}$
 
 
-${slide:title=Inheritance?}$
+${slide:title=Let us check the class API}$
 
-""Addition:""
-- we can add a new formatter
-""Packaging: ""
-- we can package a new formatter
+- isEmptyBlock
+- isWall
+Let us check the way this API is used
 
-""Not the best solution since:""
-- you have to create objects of the right class
-- it is difficult to change the policy at run-time.
--- we do not want to have and reopen the texteditor
-
-${slide:title=Inheritance?}$
-
-You can get an explosion of classes bloated with the use of a functionality and the functionalities.
--- we do not want a hierarchy for each text editor features to be ""multiplied"" with previous ones
--- FastColoring
-- API of TextEditor can get large: no clear identification of responsibility
-
-+.>file://figures/textEditorHierarchyBloated.pdf|width=60+
-
-${slide:title=Conditionals}$
-
-""Dynamic use:"" we can use a different formatter dynamically.
-
-But 
-""Addition:""
-- adding a version requires to edit and ""recompile"" the conditionals
-""Packaging: ""
-- we cannot package a new algorithm separately
-
-
-${slide:title=Delegating to a formatter}$
-
-+.>file://figures/colorizer.pdf|width=90+
+${slide:title=Too many ifs....}$
 
 [[[
-myEditor formatter: FastFormatter new. 
-myEditor format.
-myEditor formatter: SlowFormatter new.
+GameView >> drawBlock: aBlock on: aCanvas
+	(aBlock isWall) ifTrue: [ self drawWall: aCanvas ].
+	(aBlock isEmptyBlock) ifTrue: [ 
+		(aBlock hasPlayer) ifTrue: [ 
+			(aBlock hasTarget) ifTrue: [ self drawTargetAndPlayer: aCanvas ].
+			(aBlock hasTarget) ifFalse: [ self drawPlayer: aCanvas ]].
+		(aBlock hasPlayer) ifFalse: [ 
+			(aBlock hasBox) ifTrue: [ 
+				(aBlock hasTarget) ifTrue: [ self drawTargetAndBox: aCanvas ].
+				(aBlock hasTarget) ifFalse: [ self drawBox: aCanvas ] ].
+			(aBlock hasBox) ifFalse: [ 
+					(aBlock hasTarget) ifTrue: [ self drawTarget: aCanvas ].
+					(aBlock hasTarget) ifFalse: [ self drawEmptyBlock: aCanvas ] ].
+	]
 ]]]
 
-${slide:title=Delegating to a formatter}$
+${slide:title=Why?}$
 
-""Dynamic use:"" 
-- we can use a different formatter dynamically. Just create a new instance and set it.
-""Addition:""
-- adding a version is just adding a new class
-""Packaging: ""
-- we package a new algorithm separately 
+Because the model only defines
+- EmptyBlock and 
+- Wall
+
+No Player, no target, no box.
+
+Too much logic is put in EmptyBlock
+
+${slide:title=Better Model}$	
+
+%+.>file://figures/LearnFEx-Model2.png|width=100+
+
+- Block
+-- Box
+-- BoxOnTarget
+-- EmptyBlock
+-- Player
+-- PlayerOnTarget
+-- Wall
 
 
-${slide:title=Strategy Design Pattern}$
+${slide:title=A Possible Solution}$	
 
-- Uniformize the communication (API) between the Editor and the Formatter
--- all formatters should understand ==format:==
-- Modular
-- Incremental
+[[[
+GameView >> drawBlock: aBlock on: aCanvas
+	(aBlock isWall) ifTrue: [ self drawWall: aCanvas ].
+	(aBlock isEmptyBlock) ifTrue: [ 
+	...
+]]]
 
-${slide:title=There is nothing like a free lunch}$
+Becomes
 
-- The formatter should access the state (i.e. the text, positions... contained in the text editor)
-- Information should flow between the textEditor and the formatter
-- API of textEditor should be opened to support it
+[[[
+GameView >> drawBlock: aBlock on: aCanvas
+	aBlock drawOn: aCanvas view: self
+
+Wall >> drawOn: aCanvas view: aView
+	aView drawWall: aCanvas
+
+EmptyBlock >> drawOn: aCanvas view: aView
+	aView drawEmptyBlock: aCanvas
+]]]
+
+
+
+
 
 
 ${slide:title=Conclusion}$
 
-Inheritance
-- is about incremental static definition
-- It can lead of static design
-- It can help 
--- build dynamic solutions
--- structure abstractions
-
-Delegation 
-- can bring runtime flexibility
-
+- Messages act as a dispatcher
+- Avoid conditional when possible
 
 
