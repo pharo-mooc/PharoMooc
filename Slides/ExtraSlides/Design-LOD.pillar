@@ -1,0 +1,108 @@
+{
+    "title":"Thinking about Coupling",
+    "slidesid":"From the Design Corner"
+}
+
+
+${slide:title=Outline}$
+
+- Coupling
+- Law of Demeter 
+- Better seen as a Heuristic
+
+${slide:title=Coupling}$
+
+- ""Reuse:"" I cannot reuse this component in another application
+- ""Substition:"" I cannot easily substitute this part for another one
+- ""Encapsulation:"" when a change far away happens, I get impacted
+
+
+
+${slide:title=Core of the Problem}$
+
++.>file://figures/LODCoreProblem.png|width=100+
+
+${slide:title=Law of Demeter}$
+
+You should only send messages to: 
+- an argument passed to you
+- instance variables
+- an object you create
+- self, super your class
+
+You should avoid
+- global variables
+- objects returned from message sends other than self
+
+${slide:title=Correct Messages}$
+
+[[[
+someMethod: aParameter 
+	self foo.
+	super someMethod: aParameter. 
+	self class foo.
+	self instVarOne foo.
+	instVarOne foo.
+	aParameter foo. 
+	thing := Thing new. 
+	thing foo
+]]]
+
+${slide:title=Correct Messages}$
+
+Only talk to your immediate friends. 
+
+In other words:
+- You can play with yourself: ==this.method()==
+- You can play with your own toys (but you can't take them apart): ==field.method()==, ==field.getX()==
+- You can play with toys that were given to you: ==arg.method()==
+- And you can play with toys you've made yourself. ==A a = new A(); a.method()==
+
+${slide:title=Don't skip your intermediates}$
+
++.>file://figures/LODSkip.png|width=80+
+
+
+${slide:title=Solution: Respect encapsulation}$
+
++.>file://figures/LODSkipSol.png|width=80+
+
+
+${slide:title=Transformation}$
+
++.>file://figures/LODtransformation.pdf|width=80+
+
+
+
+${slide:title=Better seen as a heuristic}$
+
+Pay attention too strict application of the LOD can lead to over engineered design.
+
+- Encapsulating collections may produce large interfaces so not applying the LoD may help.
+
+${slide:title=LOD can produce bloat API}$
+[[[
+Object subclass: #A 
+	instVar: 'myCollection'
+]]]
+
+[[[
+A >>do: aBlock
+	myCollection do: aBlock
+A >>collect: aBlock
+	^ myCollection collect: aBlock
+A >>select: aBlock
+	^ myCollection select: aBlock
+A >>detect: aBlock
+	^ myCollection detect: aBlock
+A >>isEmpty
+	^ myCollection isEmpty
+]]]
+
+
+${slide:title=Conclusion}$
+
+- Think about impact of changes
+- Avoid chaining messages
+- Law of Demeter is an heuristic
+

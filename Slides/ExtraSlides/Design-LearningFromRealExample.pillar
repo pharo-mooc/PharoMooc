@@ -29,7 +29,7 @@ ${slide:title=Model}$
 - MoveResult
 -- Move
 --- Push
--- NoMOve
+-- NoMove
 
 We will come back later...
 
@@ -122,7 +122,7 @@ No Player, no target, no box.
 
 Too much logic is put in EmptyBlock
 
-${slide:title=Better Model}$	
+${slide:title=A better model}$	
 
 %+.>file://figures/LearnFEx-Model2.png|width=100+
 
@@ -135,7 +135,7 @@ ${slide:title=Better Model}$
 -- Wall
 
 
-${slide:title=A Possible Solution}$	
+${slide:title=A possible solution}$	
 
 [[[
 GameView >> drawBlock: aBlock on: aCanvas
@@ -158,9 +158,57 @@ EmptyBlock >> drawOn: aCanvas view: aView
 ]]]
 
 
+${slide:title=Back to the model}$
 
+What are:
+- MoveResult
+-- Move
+--- Push
+-- NoMove
 
+Kind of Command objects
+Good to support Undo
 
+${slide:title=Let us study the API}$
+
+[[[
+MoveResult >> isMove
+	^ false
+MoveResult >> isPush
+	^ false
+MoveResult >> isNoMove
+]]]
+
+[[[
+GameState >> moveBy: aDirection
+	| moveResult |
+	moveResult := maze moveBy: aDirection.
+	(moveResult isMove) ifTrue: [ moves := moves + 1 ].
+	(moveResult isPush) ifTrue: [ 
+		pushes := pushes + 1.
+		moves := moves + 1 ].
+	self addMoveResult: moveResult.
+]]]
+
+${slide:title=Do not ask tell}$
+
+[[[
+GameState >> moveBy: aDirection
+	| moveResult |
+	moveResult := maze moveBy: aDirection.
+	moveResult doWithGameState: self.	
+	self addMoveResult: moveResult.
+
+Move >> doWithGameState: aGameState
+	aGameState incrementMoves
+
+Push >> doWithGameState: aGameState
+	super doWithGameState: aGameState.
+	aGameState increasePushes
+
+NoMove >> doWithGameState: aGameState 
+	self 
+]]]
 
 ${slide:title=Conclusion}$
 
