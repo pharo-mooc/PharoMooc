@@ -1,130 +1,241 @@
 {
-    "title":"Singleton",
+    "title":"Visitor",
     "slidesid":"From the Design Corner"
 }
 
 
 ${slide:title=Outline}$
 
-- Singleton
-- Singleton discussions
-- Singleton misunderstanding
+- Visitor
+- Visitor discussions
+- Visitor variations
 
 
-${slide:title=Singleton intent}$
+${slide:title=Visitor intent}$
 
-From the book: 'Ensure that a class has only one instance, and provide a global point of access to it'
+Represent an operation to be performed on the elements of an object structure in a class separate from the elements themselves. 
 
-Better: Ensure that a class has only one instance available at the same time
+Visitor lets you define a new operation without changing the classes of the elements on which it operates.
 
-${slide:title=Problem/Solution}$
 
-- ""Problem:"" We want a class with a unique instance.
-- ""Solution:""  Store the first time an instance is created and return it each time a new instance is requested. 
+${slide:title=Visitor Design}$
 
-${slide:title=Example}$
++.>file://figures/Visitor-Design.png|width=50+
 
+${slide:title=Little arithmetic expressions}$
+
+- Supports one kind of number, and has +, *, (, )
+- We want to evaluate expressions, and print them
+
+Evaluating
 [[[
-db := DBConnect default.
-db2 := DBConnect default.
-
-db2 == db2
-> true
+1 + (3 * 2)
+gives 7
 ]]]
 
-Yes we get only one instance of the database connection
+Printing
+[[[
++1*32
+]]]
 
-${slide:title=Possible implementation}$
+${slide:title=Expression hierarchy}$
+
++.>file://figures/Visitor-SimpleExpressionHierarchy.png|width=50+
+
+${slide:title=Some expressions}$
+
+1
+[[[
+ENumber value: 1
+]]]
+
+(3 \* 2)
+[[[
+Times left: (ENumber value: 3) right: (ENumber value: 2)
+]]]
+
+1 \+ (3 \* 2)
+[[[
+Plus
+	left: (ENumber value: 1)
+	right: (Times left: (ENumber value: 3) right: (ENumber value: 2))
+]]]
+
+Of course in Pharo we can just extend Number so no need of ENumber value: but this is a detail
+
+${slide:title=Operation implementation}$
+
+Two solutions:
+- add methods for evaluating, printing, ... on Expression and its subclasses
+- create a Visitor, add the visit methods on Expression and its subclasses, and implement visitors for evaluation, printing, ...
+
+${slide:title=Expression first design}$
+
++.>file://figures/Visitor-ExpressionTree.png|width=50+
+
+
+${slide:title=First design analysis}$
+
+- What if we need a stack to print well the expressions?
+-- Should we put it in the expressions even if this is related only to print?
+
+- What if we need a table for mathematical expression only for the LaTeX exporter?
+Why should we mix the information about the treatment of items and items themselves?
+
+${slide:title=Expression Visitor}$
+
++.>file://figures/Visitor-ExpressionsVisitor.png|width=90+
+
+${slide:title=Expression Visitor analysis}$
+
+Each visitor knows what to do for a number, a plus and times operation
+
+${slide:title=Evaluator Visitor}$
 
 [[[
-Object subclass: #BDConnect
-	instanceVariableNames: ''
-	classVariableNames: 'UniqueInstance'
+Evaluator >> visitNumber: aNumber
+     ^ aNumber value
 ]]]
 
 [[[
-BDConnect class >> uniqueInstance 
-	UniqueInstance isNil 
-	      ifTrue: [ UniqueInstance := self basicNew initialize].
-	^ UniqueInstance
+Evaluator >> visitPlus: anExpression
+     |l r|
+     l := anExpression left acceptVisitor: self.
+     r := anExpression right acceptVisitor: self.
+     ^ l + r
 ]]]
-
-${slide:title=Kinds of Singleton}$
-
-- ""Persistent Singleton"": only one instance exists and its identity does not change 
-
-- ""Transient Singleton"": only one instance exists at any time, but that instance changes  
-
-- ""Single Active Instance Singleton"": a single instance is active at any point in time, but other dormant instances may also exist. 
-
-${slide:title=Implementation discussion}$
-
-- Even if the language supports global variables avoid to store a Singleton in a global.
-
-- A class is already acting as a global and it can manages the Singleton (one single entry point)
-
-${slide:title=Implementation discussion}$
-
-- Even if the language supports global variables avoid to store a Singleton in a global.
-
-- A class is already acting as a global and it can manages the Singleton (one single entry point)
-
-${slide:title=Class Variable vs Class instance variable}$
-
-When language offers class as objects.
-
-Static / classVariable (shared variable)
-- One singleton for a complete hierarchy
-
-Class instance variable
-- One singleton per class
-- Each subclass has its own singleton
-
-
-${slide:title=About name}$
 
 [[[
-DBConnect class >> new
-	^ self uniqueInstance
+Evaluator >> visitTimes: anExpression
+     |l r|
+     l := anExpression left acceptVisitor: self.
+     r := anExpression right acceptVisitor: self.
+     ^ l * r 
 ]]]
 
-- The intent (uniqueness) is not clear anymore! 
-- new is normally used to return newly created instances.
-- Not intention revealing
-- new potentially means to 
--- (re)initialize the object
--- get a new object
-- uniqueInstance don't
-
-${slide:title=About name 2}$
-
-""uniqueInstance""
-- Pure singleton ensuring a single global instance.
-- When implementing this variation, #new should be blocked.
+${slide:title=Invoking the Visitor}$
 
 [[[
-Author class>>uniqueInstance
-	^ uniqueInstance ifNil: [ uniqueInstance := self basicNew initialize ]
-Author class>>new
-	self error: 'Author is a singleton -- send uniqueInstance instead'
+Evaluator new evaluate: 
+	(Plus 
+		left: (ENumber value: 1) 
+		right: (Times left: (ENumber value: 3) right: (ENumber value: 2)))
+> 7 
 ]]]
 
-""default""
-- some meaningful default instance, but there is no reason to bar the user from creating more instances.
+[[[
+Evaluator >> evaluate: anExpression
+   ^ anExpression acceptVisitor: self
+]]]	
 
-""current""
-- to keep the same instance system-wide, but we also want to change it under some circumstances.
+${slide:title=Printer}$
 
-${slide:title=Singleton misunderstanding}$
+[[[
+Visitor subclass: #Printer
+   iv: 'stream level'
+]]]
+[[[
+Printer >> visitNumber: aNumber
+     stream nextPutAll: aNumber value asString
+]]]
 
-- Singleton is about time: one instance available at the same time
+[[[
+Printer >> visitPlus: anExpression
+    stream nextPutAll: '+'.
+    anExpression left acceptVisitor: self.
+    anExpression right acceptVisitor: self.
+]]]
+[[[
+Printer >> visitPlus: anExpression
+    stream nextPutAll: '*'.
+    anExpression left acceptVisitor: self.
+    anExpression right acceptVisitor: self.
+]]]
 
-- Singleton is not about access: don't use a singleton because it is easier to access one instance!
 
-${slide:title=Singleton misunderstanding}$
+${slide:title=Visitor study}$
 
-If you can add one instance variable to your object and suddenly you do not need a singleton then it was not a singleton but an ugly disguised global variable!
+Check the double dispatch
+- The Visitor knows the elementary operation. 
+- The items declare how they want to be visited. 
 
++.>file://figures/Visitor-ExpressionsVisitor.png|width=60+
+
+${slide:title=Controlling the traversal}$
+
+Somewhere in the visitor, items are traversed.
+Different places where the traversal can be implemented:
+in the visitor
+on the items hierarchy
+
+${slide:title=Visitor Controlling}$
+
++.>file://figures/Visitor-ItemControl.png|width=90+
+
+${slide:title=Visitor Example}$
+
++.>file://figures/colorizer.pdf|width=90+
+
+
+
+${slide:title=Misopportunities}$
+
++.>file://figures/Visitor-donodeStupid.png|width=90+
+
+${slide:title=Using messages as cases (again) }$
+
++.>file://figures/Visitor-DonodeClever.png|width=90+
+
+
+
+
+
+${slide:title=Visitor Reflective}$
+
++.>file://figures/VisitorReflectiveImplementation.png|width=90+
+
+
+
+
+
+
+${slide:title=When to use a Visitor}$
+
+- Whenever you have a number of items on which you have to perform a number of actions
+- When you ‘decouple’ the actions from the items.
+
+Examples:
+- Parse tree (ProgramNode) uses a visitor for the compilation (emitting code on CodeStream)
+- Rendering documents (Document) in different formats
+
+
+${slide:title=Some concerns}$
+So all our problems are solved, no?
+- how to define it
+- when to use a visitor
+- control over item traversal
+- choosing the granularity of visitor methods
+- implementation tricks
+
+
+
+
+
+
+
+
+${slide:title=Visitor is not OOP controversy}$
+
+Yes operations applied on objects are defined outside the objects.
+But
+- May be the operations require a complex state that has nothing to do with the structure (RTF/PDF stack)
+- Each Visitor encapsulates a complex operation
+
+${slide:title=Class extension}$
+
+Even if a language supports class extension (defining methods on a class from another package than the class package), using a visitor is better because
+- Each Visitor encapsulates a complex operation
+- Each Visitor has its own state
 
 ${slide:title=Conclusion}$
 
