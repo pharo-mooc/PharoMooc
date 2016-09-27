@@ -1,0 +1,137 @@
+{
+    "title":"About type and method lookup in Java",
+    "slidesid":"From the Design Corner"
+}
+
+
+${slide:title=Outline}$
+
+- Visitor
+- Visitor discussions
+- Visitor variations
+
+
+${slide:title=Static type}$
+
+Consider: 
+[[[
+A a = new B(); 
+]]]
+
+- The static type of variable ==a== is ==A== i.e., the statically declared class to which it refers.
+- The static type never changes.
+
+${slide:title=Dynamic type}$
+
+Consider: 
+[[[
+A a = new B(); 
+]]]
+
+- The dynamic type of ==a== is ==B==  i.e., the class of the object currently bound to a. 
+- The dynamic type may change throughout the program. 
+
+[[[
+a = new A(); 
+]]]
+Now the dynamic type is also ==A==!
+
+${slide:title=Static type}$
+
+[[[
+	foo (A a)
+		
+	foo(new B());
+]]]
+
+static type of a is A, dynamic type of a is B
+
+
+${slide:title=Overloading}$
+How are overloaded method calls resolved?
+
+[[[
+class A { }
+class B extends A { }
+void m(A a1, A a2) { println("m(A,A)"); };
+void m(A a1, B b1) { println("m(A,B)"); };
+void m(B b1, A a1) { println("m(B,A)"); };
+void m(B b1, B b2) { println("m(B,B)"); };
+]]]
+[[[
+B b = new B(); 
+A a = b;
+]]]
+
+==a== and ==b== have a dynamic type ==B== 
+
+${slide:title=Overloading}$
+How are overloaded method calls resolved?
+
+[[[
+class A { }
+class B extends A { }
+void m(A a1, A a2) { println("m(A,A)"); };
+void m(A a1, B b1) { println("m(A,B)"); };
+void m(B b1, A a1) { println("m(B,A)"); };
+void m(B b1, B b2) { println("m(B,B)"); };
+]]]
+[[[
+B b = new B(); 
+A a = b;
+]]]
+Which is considered: the static or dynamic argument type?
+
+[[[
+m(a, a);
+m(a, b);
+m(b, a);
+m(b, b);
+]]]
+
+
+${slide:title=Overloading}$
+How are overloaded method calls resolved?
+
+[[[
+class A { }
+class B extends A { }
+void m(A a1, A a2) { println("m(A,A)"); };
+void m(A a1, B b1) { println("m(A,B)"); };
+void m(B b1, A a1) { println("m(B,A)"); };
+void m(B b1, B b2) { println("m(B,B)"); };
+]]]
+[[[
+B b = new B(); 
+A a = b;
+]]]
+Which is considered: the static or dynamic argument type?
+
+[[[
+m(a, a);		m(A,A)
+m(a, b);		m(A,B)
+m(b, a);		m(B,A)
+m(b, b);		m(B,B)
+]]]
+
+The static type of arguments is always used to resolve overloaded method calls.
+
+
+
+
+
+
+
+${slide:title=Visitor design}$
+
++.>file://figures/Visitor-Design.png|width=50+
+
+
+
+${slide:title=Conclusion}$
+
+- Visitor can be tricky to master
+-- use accept/visit vocabulary to really help you
+- Visitor is nice for complex structure operations
+
+

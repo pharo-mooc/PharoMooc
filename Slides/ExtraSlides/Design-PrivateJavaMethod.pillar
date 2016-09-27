@@ -1,0 +1,88 @@
+{
+    "title":"Private Methods in Java",
+    "slidesid":"From the Design Corner"
+}
+
+
+${slide:title=Private Methods}$
+
+Are private methods inherited? 
+
+[[[
+class A {
+	public void m() { this.p(); }
+	private void p() { println("A.p()"); }
+}
+class B extends A {
+	private void p() { println("B.p()"); }
+}
+]]]
+
+Which is called? A.p() or B.p()?
+[[[
+A b = new B();
+b.m();
+]]]
+
+${slide:title=Private Methods}$
+
+Are private methods inherited? 
+
+[[[
+class A {
+	public void m() { this.p(); }
+	private void p() { println("A.p()"); }
+}
+class B extends A {
+	private void p() { println("B.p()"); }
+}
+]]]
+
+Which is called? A.p() or B.p()?
+[[[
+A b = new B();
+b.m();
+]]]
+
+[[[
+A.p()
+]]]
+
+Because private methods are statically bound in Java
+
+${slide:title=Private Methods in C++}$
+
+- In C++ private can also be virtual
+
+${slide:title=Private Methods in Ruby}$
+
+In Ruby private methods are dynamically bound :)
+
+[[[
+class C
+	def zork(arg) ; return arg.x ; end def foo ; self.x end
+	deffoo2; x; end
+	private
+	defx;return1; end
+end
+class D < C
+	public
+	defx; return2; end
+end
+]]]
+Results:
+[[[
+C.new.foo ==> failed 
+C.new.foo2 ==> 1 
+D.new.foo ==> 2
+]]]
+
+${slide:title=Conclusion}$
+
+Pay attention when using a private method 
+- You do not create a hook creation 
+-- Remember sending a message is a plan for reuse
+- You break the extender interface (See Dual Interface Lecture)
+
+
+
