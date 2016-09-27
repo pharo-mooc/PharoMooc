@@ -1,137 +1,132 @@
 {
-    "title":"About type and method lookup in Java",
+    "title":"Notes for me",
     "slidesid":"From the Design Corner"
 }
 
 
-${slide:title=Outline}$
-
-- Visitor
-- Visitor discussions
-- Visitor variations
-
-
-${slide:title=Static type}$
-
-Consider: 
-[[[
-A a = new B(); 
-]]]
-
-- The static type of variable ==a== is ==A== i.e., the statically declared class to which it refers.
-- The static type never changes.
-
-${slide:title=Dynamic type}$
-
-Consider: 
-[[[
-A a = new B(); 
-]]]
-
-- The dynamic type of ==a== is ==B==  i.e., the class of the object currently bound to a. 
-- The dynamic type may change throughout the program. 
+${slide:title=More natural case}$
 
 [[[
-a = new A(); 
+class A {void m(A a) { println("A.m(A)"); }}
+class B extends A {
+	void m(B b) { println("B.m(B)"); } 
+	void m(A a) { println("B.m(A)"); }}
+B b = new B(); A a = b;
 ]]]
-Now the dynamic type is also ==A==!
 
-${slide:title=Static type}$
+In which cases will B.m(B) be called?
+[[[
+a.m(a);
+a.m(b);
+b.m(a);
+b.m(b);
+]]]
+
+${slide:title=More natural case}$
 
 [[[
-	foo (A a)
-		
-	foo(new B());
+class A {void m(A a) { println("A.m(A)"); }}
+class B extends A {
+	void m(B b) { println("B.m(B)"); } 
+	void m(A a) { println("B.m(A)"); }}
+B b = new B(); A a = b;
 ]]]
 
-static type of a is A, dynamic type of a is B
+In which cases will B.m(B) be called?
+[[[
+a.m(a);       B.m(A)
+a.m(b);       B.m(A)
+b.m(a);       B.m(A)
+b.m(b);       B.m(B)
+]]]
 
-
-${slide:title=Overloading}$
-How are overloaded method calls resolved?
+${slide:title=More natural case: a.m(a)}$
 
 [[[
-class A { }
-class B extends A { }
-void m(A a1, A a2) { println("m(A,A)"); };
-void m(A a1, B b1) { println("m(A,B)"); };
-void m(B b1, A a1) { println("m(B,A)"); };
-void m(B b1, B b2) { println("m(B,B)"); };
-]]]
-[[[
-B b = new B(); 
-A a = b;
+class A {void m(A a) { println("A.m(A)"); }}
+class B extends A {
+	void m(B b) { println("B.m(B)"); } 
+	void m(A a) { println("B.m(A)"); }}
+B b = new B(); A a = b;
 ]]]
 
-==a== and ==b== have a dynamic type ==B== 
+- Step 1: we only look in A
+- Step 2: there is a method m
+- Step 3: static type of a matches A: we will be looking for m(A a)
 
-${slide:title=Overloading}$
-How are overloaded method calls resolved?
+The dynamic type of a is B
+- the lookup starts in class B and looks for “m(A a)”
+> B.m(A)
 
-[[[
-class A { }
-class B extends A { }
-void m(A a1, A a2) { println("m(A,A)"); };
-void m(A a1, B b1) { println("m(A,B)"); };
-void m(B b1, A a1) { println("m(B,A)"); };
-void m(B b1, B b2) { println("m(B,B)"); };
-]]]
-[[[
-B b = new B(); 
-A a = b;
-]]]
-Which is considered: the static or dynamic argument type?
+${slide:title=More natural case: a.m(b)}$
 
 [[[
-m(a, a);
-m(a, b);
-m(b, a);
-m(b, b);
+class A {void m(A a) { println("A.m(A)"); }}
+class B extends A {
+	void m(B b) { println("B.m(B)"); } 
+	void m(A a) { println("B.m(A)"); }}
+B b = new B(); A a = b;
 ]]]
 
+- Step 1: We look only in A
+- Step 2: there is a method m
+- Step 3: static type of b matches A since B is a subtype of A: We will be looking for “m(A a)”
 
-${slide:title=Overloading}$
-How are overloaded method calls resolved?
+The dynamic type of a is B
+- the lookup starts in class B and looks for “m(A a)”
+> B.m(A)
+
+${slide:title=More natural case: b.m(a)}$
 
 [[[
-class A { }
-class B extends A { }
-void m(A a1, A a2) { println("m(A,A)"); };
-void m(A a1, B b1) { println("m(A,B)"); };
-void m(B b1, A a1) { println("m(B,A)"); };
-void m(B b1, B b2) { println("m(B,B)"); };
+class A {void m(A a) { println("A.m(A)"); }}
+class B extends A {
+	void m(B b) { println("B.m(B)"); } 
+	void m(A a) { println("B.m(A)"); }}
+B b = new B(); A a = b;
 ]]]
+
+- Step 1: We look in B and its superclass A
+- Step 2: there are two methods mA and mB
+- Step 3: static type of a is A: We will be looking for “m(A a)”
+
+The dynamic type of b is B
+- the lookup starts in class B and looks for “m(A a)”
+“B.m(A)”
+
+${slide:title=More natural case: b.m(a)}$
+
 [[[
-B b = new B(); 
-A a = b;
+class A {void m(A a) { println("A.m(A)"); }}
+class B extends A {
+	void m(B b) { println("B.m(B)"); } 
+	void m(A a) { println("B.m(A)"); }}
+B b = new B(); A a = b;
 ]]]
-Which is considered: the static or dynamic argument type?
+
+- Step 1: We look in B and its superclass A
+- Step 2: there are two methods mA and mB
+- Step 3: static type of a is A: We will be looking for “m(A a)”
+
+The dynamic type of b is B
+- the lookup starts in class B and looks for “m(A a)”
+“B.m(A)”
+
+
+${slide:title=More natural case: b.m(b)}$
 
 [[[
-m(a, a);		m(A,A)
-m(a, b);		m(A,B)
-m(b, a);		m(B,A)
-m(b, b);		m(B,B)
+class A {void m(A a) { println("A.m(A)"); }}
+class B extends A {
+	void m(B b) { println("B.m(B)"); } 
+	void m(A a) { println("B.m(A)"); }}
+B b = new B(); A a = b;
 ]]]
 
-The static type of arguments is always used to resolve overloaded method calls.
+- Step 1: We look in B and its superclass A
+- Step 2: there are two methods mA and mB
+- Step 3: The static type of b is B: We will be looking for “m(B b)”
 
-
-
-
-
-
-
-${slide:title=Visitor design}$
-
-+.>file://figures/Visitor-Design.png|width=50+
-
-
-
-${slide:title=Conclusion}$
-
-- Visitor can be tricky to master
--- use accept/visit vocabulary to really help you
-- Visitor is nice for complex structure operations
-
-
+The dynamic type of b is B
+- the lookup starts in class B and looks for “m(B b)”
+>B.m(B)

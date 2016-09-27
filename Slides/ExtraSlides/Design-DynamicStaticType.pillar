@@ -1,254 +1,338 @@
 {
-    "title":"Visitor",
+    "title":"About type and method lookup",
     "slidesid":"From the Design Corner"
 }
 
 
 ${slide:title=Outline}$
 
-- Visitor
-- Visitor discussions
-- Visitor variations
+- Lookup (remember)
+- Static type vs Dynamic type
+- Overloading and types
+- Method lookup
 
 
-${slide:title=Visitor intent}$
+${slide:title=Message Sending}$
 
-Represent an operation to be performed on the elements of an object structure in a class separate from the elements themselves. 
+${columns}$
 
-Visitor lets you define a new operation without changing the classes of the elements on which it operates.
+${column:width=38}$
+
+""Sending"" a ""message"" is a two-step process:
+# ""look up"" the ""method"" matching the message
+# execute this method on the ""receiver""
+
+${column:width=62}$
+
++>file://figures/InheritanceDiagram-sendingMessage.png|width=75+
+
+${endColumns}$
 
 
-${slide:title=Visitor design}$
+${slide:title=Method lookup}$
 
-+.>file://figures/Visitor-Design.png|width=50+
+${columns}$
 
-${slide:title=Little arithmetic expressions}$
+${column:width=38}$
 
-- Supports one kind of number, and has +, *, (, )
-- We want to evaluate expressions, and print them
+The lookup starts in the ""class"" of the ""receiver"" then:
+- if the method is defined in the class, it is returned
+- otherwise the search continues in the superclass
 
-Evaluating
+${column:width=62}$
+
++>file://figures/InheritanceDiagram-lookupTwoStages.png|width=75+
+
+${endColumns}$
+
+
+${slide:title=self/this always represents the receiver}$
+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=51+
+
 [[[
-1 + (3 * 2)
-gives 7
+A new foo
+> ...
+B new foo
+> ...
 ]]]
 
-Printing
+${slide:title=self/this always represents the receiver}$
+
++>file://figures/LookupWithSelfInSuperclassMethod.png|width=51+
+
 [[[
-+1*32
+A new foo
+> 10
+B new foo
+> 50
 ]]]
 
-${slide:title=Expression hierarchy}$
+${slide:title=It was the essence}$
 
-+.>file://figures/Visitor-SimpleExpressionHierarchy.png|width=50+
+Questions:
+- How types influence (polute) this beautiful model?
+- Static types, dynamic types, overloading
 
-${slide:title=Some expressions}$
 
-1
+${slide:title=Static type}$
+
+Consider: 
 [[[
-ENumber value: 1
+A a = new B(); 
 ]]]
 
-(3 \* 2)
+- The static type of variable ==a== is ==A== i.e., the statically declared class to which it refers.
+- The static type never changes.
+
+${slide:title=Dynamic type}$
+
+Consider: 
 [[[
-Times left: (ENumber value: 3) right: (ENumber value: 2)
+A a = new B(); 
 ]]]
 
-1 \+ (3 \* 2)
+- The dynamic type of ==a== is ==B==  i.e., the class of the object currently bound to a. 
+- The dynamic type may change throughout the program. 
+
 [[[
-Plus
-	left: (ENumber value: 1)
-	right: (Times left: (ENumber value: 3) right: (ENumber value: 2))
+a = new A(); 
+]]]
+Now the dynamic type is also ==A==!
+
+${slide:title=Static type}$
+
+Pay attention method signatures also define static types
+
+[[[
+	foo (A a){
+	
+	}
+		
+	foo(new B());
 ]]]
 
-Of course in Pharo we can just extend ==Number== so no need of ==ENumber== ==value:== but this is a detail
-
-${slide:title=Operation implementation}$
-
-Two solutions:
-- add methods for evaluating, printing, ... on ==Expression== and its subclasses
-- create a Visitor, add the visit methods on ==Expression== and its subclasses, and implement visitors for evaluation, printing, ...
-
-${slide:title=Expression first design}$
-
-+.>file://figures/Visitor-ExpressionTree.png|width=50+
+static type of a is A, dynamic type of a is B
 
 
-${slide:title=First design analysis}$
+${slide:title=Overloading}$
 
-- What if we need a stack to print well the expressions?
--- Should we put it in the expressions even if this is related only to print?
-
-- What if we need a table for mathematical expression only for the LaTeX exporter?
-Why should we mix the information about the treatment of items and items themselves?
-
-${slide:title=Expression Visitor}$
-
-+.>file://figures/Visitor-ExpressionsVisitor.png|width=90+
-
-${slide:title=Expression Visitor analysis}$
-
-Each visitor knows what to do for a number, a plus and times operation
-
-${slide:title=Evaluator Visitor}$
+How are overloaded method calls resolved?
 
 [[[
-Evaluator >> visitNumber: aNumber
-   ^ aNumber value
-]]]
-
-[[[
-Evaluator >> visitPlus: anExpression
-   | l r |
-   l := anExpression left acceptVisitor: self.
-   r := anExpression right acceptVisitor: self.
-   ^ l + r
-]]]
-
-[[[
-Evaluator >> visitTimes: anExpression
-   | l r |
-   l := anExpression left acceptVisitor: self.
-   r := anExpression right acceptVisitor: self.
-   ^ l * r 
-]]]
-
-${slide:title=Invoking the Visitor}$
-
-[[[
-Evaluator new evaluate: 
-	(Plus 
-		left: (ENumber value: 1) 
-		right: (Times left: (ENumber value: 3) right: (ENumber value: 2)))
-> 7 
-]]]
-
-[[[
-Evaluator >> evaluate: anExpression
-   ^ anExpression acceptVisitor: self
-]]]	
-
-${slide:title=Printer}$
-
-[[[
-Visitor subclass: #Printer
-   iv: 'stream level'
+class A { }
+class B extends A { }
+void m(A a1, A a2) { println("m(A,A)"); };
+void m(A a1, B b1) { println("m(A,B)"); };
+void m(B b1, A a1) { println("m(B,A)"); };
+void m(B b1, B b2) { println("m(B,B)"); };
 ]]]
 [[[
-Printer >> visitNumber: aNumber
-     stream nextPutAll: aNumber value asString
+B b = new B(); 
+A a = b;
 ]]]
 
+==a== and ==b== have a dynamic type ==B== 
+
+${slide:title=How are overloaded method calls resolved?}$
+
 [[[
-Printer >> visitPlus: anExpression
-    stream nextPutAll: '+'.
-    anExpression left acceptVisitor: self.
-    anExpression right acceptVisitor: self.
+class A { }
+class B extends A { }
+void m(A a1, A a2) { println("m(A,A)"); };
+void m(A a1, B b1) { println("m(A,B)"); };
+void m(B b1, A a1) { println("m(B,A)"); };
+void m(B b1, B b2) { println("m(B,B)"); };
 ]]]
 [[[
-Printer >> visitPlus: anExpression
-    stream nextPutAll: '*'.
-    anExpression left acceptVisitor: self.
-    anExpression right acceptVisitor: self.
+B b = new B(); 
+A a = b;
+]]]
+Which is considered: the static or dynamic argument type?
+
+[[[
+m(a, a);
+m(a, b);
+m(b, a);
+m(b, b);
 ]]]
 
 
-${slide:title=Visitor study}$
+${slide:title=How are overloaded method calls resolved?}$
 
-Check the double dispatch
-- The Visitor knows the elementary operations 
-- The items declare how they want to be visited
+[[[
+class A { }
+class B extends A { }
+void m(A a1, A a2) { println("m(A,A)"); };
+void m(A a1, B b1) { println("m(A,B)"); };
+void m(B b1, A a1) { println("m(B,A)"); };
+void m(B b1, B b2) { println("m(B,B)"); };
+]]]
+[[[
+B b = new B(); 
+A a = b;
+]]]
+Which is considered: the static or dynamic argument type?
 
-+.>file://figures/Visitor-ExpressionsVisitor.png|width=60+
+[[[
+m(a, a);		m(A,A)
+m(a, b);		m(A,B)
+m(b, a);		m(B,A)
+m(b, b);		m(B,B)
+]]]
 
-${slide:title=Controlling the traversal}$
+The static type of arguments is always used to resolve overloaded method calls.
 
-A visitor embeds a structure traversal
-- Be default all the items should be reached
-- There are different places where the traversal can be implemented:
--- in the visitors
--- in the items themselves
+${slide:title=Overloaded method calls}$
 
-Usually the visitor is under control but may be the domain logic is more important. 
+The static type of argument is always used
+- no dynamic dispatch
+- force you to cast
+- force you to use ==getClass==
 
-${slide:title=Visitor in control}$
+Avoid overloading (See the Lecture on Overloading)
 
-+.>file://figures/Visitor-VisitorControl.png|width=80+
+${slide:title=How do static and dynamic types interact?}$
+
+[[[
+class A {
+	void m(A a) { println("A.m(A)"); }}
+class B extends A {
+	void m(B b) { println("B.m(B)"); }}
+]]]
+
+[[[
+B b = new B(); A a = b;
+]]]
+
+What are the results of the invocations?
+[[[
+a.m(a);
+a.m(b);
+b.m(a);
+b.m(b);
+]]]
+
+${slide:title=How do static and dynamic types interact?}$
+
+[[[
+class A {
+	void m(A a) { println("A.m(A)"); }}
+class B extends A {
+	void m(B b) { println("B.m(B)"); }}
+]]]
+
+[[[
+B b = new B(); A a = b;
+]]]
+
+What are the results of the invocations?
+[[[
+a.m(a);	A.m(A)
+a.m(b);	A.m(A)
+b.m(a);	A.m(A)
+b.m(b);	B.m(B)
+]]]
+
+- Static types determine which message is sent.
+- Dynamic types determine which method is called.
+
+${slide:title=Compilation vs. execution}$
+
+At compilation:
+- First, the static type of the receiver determines which class we consider
+- Second, does the class “define” the method?
+- Third, does the static type of the arguments “fit” the static type of the parameter?
+- Fourth, find the best fit
+At execution: 
+-the lookup starts in the class of the receiver
+
+${slide:title=a.m(a)}$
+
+[[[
+class A {void m(A a) { println("A.m(A)"); }}
+class B extends A {void m(B b) { println("B.m(B)"); }}
+B b = new B(); A a = b;
+]]]
+
+-Step 1: receiver static type is A: we look in A
+-Step 2: there is a method m
+-Step 3: static type of a matches A a we will be looking for "m(A a)"
+
+The dynamic type of a is B. 
+The lookup starts in class B but looks for "m(A a)"
+> A.m(A)
 
 
-${slide:title=Items in control}$
+${slide:title=b.m(a)}$
+[[[
+class A {void m(A a) { println("A.m(A)"); }}
+class B extends A {void m(B b) { println("B.m(B)"); }}
+B b = new B(); A a = b;
+]]]
 
-+.>file://figures/Visitor-ItemControl.png|width=80+
+- Step 1: the static type of b is B, so we look in B and its superclass A
+- Step 2: There is a method m (in fact two “m(A a)” and “m(B b)”
+- Step 3: the static type of a is A we will be looking for “m(A a)”
 
-${slide:title=Subtle points}$
-
-Because a hook is associated with a template 
--- when subclassing a hook the user can 'know' more
-
-Now the visit method name can also encode context
-- visit methods can be used to let user extend functionality at fine granularity
-- the granularity of visit methods has an impact on the hooks they offer
-
-${slide:title=Misopportunities}$
-
-+.>file://figures/Visitor-donodeStupid.png|width=90+
-
-${slide:title=Using messages as cases (again) }$
-
-+.>file://figures/Visitor-DonodeClever.png|width=90+
-
-${slide:title=Using messages as cases (again) }$
-
-In this case using ==doTemporaryVariable:== tell the extender that such method is not for all the variables but only for temporaries.
-- No need to test
-- No need to get a state
-- just subclass ==doTemporaryVariable:==
-
-${slide:title=Visitor with reflection}$
-
-+.>file://figures/VisitorReflectiveImplementation.png|width=90+
+The dynamic type of b is B.
+- The lookup starts in class B and looks for “m(A a)”
+> A.m(A)
 
 
-${slide:title=When to use a Visitor}$
 
-- Whenever you have a number of items on which you have to perform a number of actions
-- When you ‘decouple’ the actions from the items.
+${slide:title=b.m(b)}$
+[[[
+class A {void m(A a) { println("A.m(A)"); }}
+class B extends A {void m(B b) { println("B.m(B)"); }}
+B b = new B(); A a = b;
+]]]
 
-Examples:
-- Parse tree (ProgramNode) uses a visitor for the compilation (emitting code on CodeStream)
-- Rendering documents (Document) in different formats
+-Step 1: b static type is B, so we look in B and its superclass A
+-Step 2: There is a method m (in fact two “m(A a)” and “m(B b)”
+-Step 3: the static type of b is B we will be looking for “m(B b)""
 
-${slide:title=If your domain is not stable}$
+the lookup starts in class B and looks for “m(B b)”
+> B.m(B)
 
-You may end up having to change multiple visitors each time and it can be tedious. 
+${slide:title=a.m(b)}$
 
-${slide:title=Visitor is not OOP controversy}$
+[[[
+class A {void m(A a) { println("A.m(A)"); }}
+class B extends A {void m(B b) { println("B.m(B)"); }}
+B b = new B(); A a = b;
+]]]
 
-Yes operations applied on objects are defined outside the objects.
-But
-- May be the operations require a complex state that has nothing to do with the structure (RTF/PDF stack)
-- Each Visitor encapsulates a complex operation
+- Step 1: receiver static type is A: we only look in A
+- Step 2: there is a method m
+- Step 3: the static type of b is B but since A is a supertype of B this is ok we will be looking for “m(A a)”
 
-${slide:title=Class extension}$
+The dynamic type of a is B
+- The lookup starts in class B and looks for “m(A a)” 
+> A.m(A)
 
-Even if a language supports class extension (defining methods on a class from another package than the class package), using a visitor is better because
-- Each Visitor encapsulates a complex operation
-- Each Visitor has its own state
 
-${slide:title=Do not use overloading for visit method}$
 
-As a summary, overloading does not really work in Java and you will have to explicitly cast your visitor or use getClass everywhere.
+${slide:title=a.m(c)}$
+[[[
+class A {void m(A a) { println("A.m(A)"); }}
+class B extends A {void m(B b) { println("B.m(B)"); }}
+B b = new B(); A a = b; C c = new C;
+]]]
 
-- Better define method visitNumber(), visitPlus(), visitTimes()
-- than visit()
-Trust an expert :)
+- Step 1: We look only in A
+- Step 2: there is a method m
+- Step 3: C the static type of c does not match A there is no subtype relations
+Does not compile!
 
-Check overloading lecture. 
+
 
 ${slide:title=Conclusion}$
 
-- Visitor can be tricky to master
--- use accept/visit vocabulary to really help you
-- Visitor is nice for complex structure operations
+
+- Avoid overloading as much as possible (it is cool 2min and painful all the rest of the time)
+- Avoid direct class in fields and signature
+-- Better use interfaces
+
 
 
