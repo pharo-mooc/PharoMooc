@@ -14,8 +14,8 @@ ${slide:title=Exercise 1}$
 
 Given
 [[[
-primitive add(i,j) returns i + j
-primitive add(f1,f2) returns f1 + f2
+primitive addi(i,j) returns i + j
+primitive addf(f1,f2) returns f1 + f2
 i.asFloat() returns a float
 ]]]
 
@@ -23,9 +23,14 @@ ${slide:title=Adding Integer and Float}$
 
 [[[
 	1 + 2
+	> 3
 	1.1 + 2
+	> 3.1
 	2 + 1.3
+	> 
+	3.3
 	1.1 + 2.2 
+	> 3.3
 ]]]
 
 Implement ==\+== 
@@ -168,7 +173,7 @@ ${slide:title=Supporting 1.2 \+ 2}$
 
 
 	Float >> + aNumber
-		^ aNumber sumWithFloat: aFloat
+		^ aNumber sumWithFloat: self
 
 	Float >> sumWithInteger: anInteger
 		^ addf(self, asFloat(anInteger))
@@ -184,7 +189,7 @@ ${slide:title=Supporting 1.2 \+ 2}$
 		^ addi(self , anInteger)
 
 >	Integer >> sumWithFloat: aFloat
->		^ addf(aFloat, asFlot(self))
+>		^ addf(aFloat, asFloat(self))
 
 	Float >> + aNumber
 		^ aNumber sumWithFloat: self 
