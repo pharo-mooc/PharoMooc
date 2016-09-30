@@ -1,5 +1,5 @@
 {
-    "title":"Introduction to Design Patterns",
+    "title":"An Introduction to Design Patterns",
     "slidesid":"From the Design Corner"
 }
 
@@ -7,23 +7,26 @@
 ${slide:title=Goal}$
 
 
-- What are patterns?
+- What are design patterns?
 - Why?
 - Patterns are not panacea 
 - Example
 
-${slide:title=From architectural 'failure'}$
+${slide:title=From an architectural 'failure'}$
 
-- Christoffer Alexander, 'The Timeless Way of Building', Oxford University Press, 1979
--- tried to let people capture and use patterns how to build 
--- basically failed in architecture but the idea is good in computer science
+Christoffer Alexander, 'The Timeless Way of Building', Oxford University Press, 1979
+- tried to let people capture and use patterns how to build houses and other
+- developed patterns and pattern languages
+- basically failed in architecture but the idea is successful for software engineering
 
 
 ${slide:title=Design Patterns}$
 
+- Identification of similar problems at design level
 - Experts solved recurring problems in similar ways
 - Design patterns are recurrent solutions to design problems
 - There are pros and cons
+- Design Patterns are literature: ""Read"" them 
 
 ${slide:title=What are design patterns?}$
 
@@ -37,77 +40,103 @@ ${slide:title=What are design patterns?}$
 
 ${slide:title=Watchout!}$
 
-There are really stupid patterns (supersuper) in some books so watch out!!!
+There are really stupid patterns (e.g., supersuper) in some books
 
 ${slide:title=Most important point}$
 
-- Design Patterns are names
-- They create a design vocabulary
+- Design Patterns are ""names""
+- They create a design ""vocabulary""
 -- Hook and Template, Factory, Composite, Visitor, Observer, Decorator...
-- You can talk at lunch about your design in a compact way
+- You can talk at lunch/blackboard about your design in an ""abstract but precise"" way
 
-${slide:title=What they are not}$
+${slide:title=What Design Patterns are not}$
 
-- A design pattern is not one implementation
-- A design pattern is illustrated using one implementation 
+- A design pattern is not ""one"" implementation
+- A design pattern is ""illustrated"" using one possible implementation 
 - But may be alternate implementations are better
 
 ${slide:title=Elements of a pattern}$
 
-- Pattern name Increase of design vocabulary
-- Problem description When to apply it, in what context to use it
-- Solution description (generic !)
+- ""Pattern name"": Increase of design vocabulary
+- ""Pattern intent"": Describe the goal
+- ""Problem description"": When to apply it, in what context to use it
+- ""Solution description"" (generic !):
 -- The elements that make up the design, 
 -- their relationships, responsibilities, and collaborations
-- Consequences Results and trade-offs of applying the pattern
+- ""Consequences"": Results and trade-offs of applying the pattern
 
 
+${slide:title=Example: Strategy}$
 
+""Intent:"" 
+- Define a family of algorithms, 
+- encapsulate each in a separate class and 
+- define each class with the ""same"" interface so that they can be interchangeable.
 
+${slide:title=Essence of Strategy possible implementation}$
+
++.>file://figures/DP-Strategy.pdf|width=80+
+
+- Variation: Do we pass the user to the strategy?
+
+${slide:title=Strategy application}$
+
++.>file://figures/DP-StrategyExample.pdf|width=80+
 
 ${slide:title=Some pattern categories}$
 
 - Creational Patterns
 --Instantiation and configuration of classes and objects
 - Structural Patterns
---Usage of classes and objects in larger structures, separation of interfaces and implementation
--Behavioral Patterns
---Algorithms and division of responsibility
--Concurrency
--Distribution
--Security
+-- Usage of classes and objects in larger structures, separation of interfaces and implementation
+- Behavioral Patterns
+-- Algorithms and division of responsibility
+- Concurrency
+- Distribution
+- Security
+
+${slide:title=Some Books}$
+
+- GoF (Gang of Four) Design Patterns (Gamma et al)
+- Refactorings to Patterns
+- Smalltalk Design Pattern Companion  (excellent)
+
+${slide:title=Some Books}$
+
++.>file://figures/DP-books.png|width=100+
+
 
 ${slide:title=Some creational patterns}$
 
-- "Abstract factory"
+- ""Abstract factory""
 - Builder
 - Factory Method
 - Prototype
-- "Singleton"
+- ""Singleton"" (Watch out most people get it wrong)
 
 ${slide:title=Some structural patterns}$
 
 - Adapter
 - Bridge
-- Composite
+- ""Composite""
 - Decorator
-- Façade (arghhhhhhh it is a hell from procedural thinking)
-- Flyweight
+- Façade (arghhhhhhh it is a plague from procedural thinking)
+- ""Flyweight""
 - Proxy
 
 ${slide:title=Some structural patterns}$
 
 - Chain of responsibility
-- "Command"
+- """Command"""
 - Interpreter
 - Iterator
 - Mediator
 - Memento
 - Observer
 - State
-- "Strategy"
-- "Template Method"
-- "Visitor"
+- ""Strategy""
+- ""Template Method""
+- ""Visitor""
 
 
 ${slide:title=Alert!!!}$
@@ -118,7 +147,6 @@ ${slide:title=Alert!!!}$
 - More classes
 - More indirections, more messages
 - Try to understand when NOT applying them!
-
 
 ${slide:title=Alert2 !!!}$
 
@@ -132,208 +160,3 @@ ${slide:title=Conclusion}$
 - Can handle functional and non-functional aspects
 -- separating interfaces/implementation, loose coupling between parts, …
 - A basis for frameworks and toolkits basic elements to improve reuse
-
-
-
-
-${slide:title=Model}$
-
-%+.>file://figures/LearnFEx-Model.png|width=50+
-
-- Block
--- EmptyBlock
--- Wall
-- GameModel
-- GameState
-- Maze
-- MazeTemplate
-- MoveResult
--- Move
---- Push
--- NoMove
-
-We will come back later...
-
-${slide:title=Views}$
-
-+.>file://figures/LearnFEx-View.png|width=50+
-
-${slide:title=Controllers}$
-
-+.>file://figures/LearnFEx-Controllers.png|width=50+
-
-${slide:title=Let us guess about the model}$
-
-${columns}$
-
-${column:width=60}$
-
-- Wall
-- Floor
-- Box
-- Robot
-- Target
-- Board
-
-${column:width=40}$
-
-+.>file://figures/LearnFEx-Sokoban1.png|width=120+
-
-${endColumns}$
-
-
-${slide:title=Let us guess about the model}$
-
-${columns}$
-
-${column:width=60}$
-
-- Wall
-- Floor
-- Box
-- Robot
-- Target
-- Board
-Instead we got 
-- Block
--- EmptyBlock
--- Wall
-
-Let us study that...
-
-${column:width=40}$
-
-+.>file://figures/LearnFEx-Sokoban1.png|width=120+
-
-${endColumns}$
-
-
-${slide:title=Let us check the class API}$
-
-- isEmptyBlock
-- isWall
-Let us check the way this API is used
-
-${slide:title=Too many ifs....}$
-
-[[[
-GameView >> drawBlock: aBlock on: aCanvas
-	(aBlock isWall) ifTrue: [ self drawWall: aCanvas ].
-	(aBlock isEmptyBlock) ifTrue: [ 
-		(aBlock hasPlayer) ifTrue: [ 
-			(aBlock hasTarget) ifTrue: [ self drawTargetAndPlayer: aCanvas ].
-			(aBlock hasTarget) ifFalse: [ self drawPlayer: aCanvas ]].
-		(aBlock hasPlayer) ifFalse: [ 
-			(aBlock hasBox) ifTrue: [ 
-				(aBlock hasTarget) ifTrue: [ self drawTargetAndBox: aCanvas ].
-				(aBlock hasTarget) ifFalse: [ self drawBox: aCanvas ] ].
-			(aBlock hasBox) ifFalse: [ 
-					(aBlock hasTarget) ifTrue: [ self drawTarget: aCanvas ].
-					(aBlock hasTarget) ifFalse: [ self drawEmptyBlock: aCanvas ] ].
-	]
-]]]
-
-${slide:title=Why?}$
-
-Because the model only defines
-- EmptyBlock and 
-- Wall
-
-No Player, no target, no box.
-
-Too much logic is put in EmptyBlock
-
-${slide:title=A better model}$	
-
-%+.>file://figures/LearnFEx-Model2.png|width=100+
-
-- Block
--- Box
--- BoxOnTarget
--- EmptyBlock
--- Player
--- PlayerOnTarget
--- Wall
-
-
-${slide:title=A possible solution}$	
-
-[[[
-GameView >> drawBlock: aBlock on: aCanvas
-	(aBlock isWall) ifTrue: [ self drawWall: aCanvas ].
-	(aBlock isEmptyBlock) ifTrue: [ 
-	...
-]]]
-
-Becomes
-
-[[[
-GameView >> drawBlock: aBlock on: aCanvas
-	aBlock drawOn: aCanvas view: self
-
-Wall >> drawOn: aCanvas view: aView
-	aView drawWall: aCanvas
-
-EmptyBlock >> drawOn: aCanvas view: aView
-	aView drawEmptyBlock: aCanvas
-]]]
-
-
-${slide:title=Back to the model}$
-
-What are:
-- MoveResult
--- Move
---- Push
--- NoMove
-
-Kind of Command objects
-Good to support Undo
-
-${slide:title=Let us study the API}$
-
-[[[
-MoveResult >> isMove
-	^ false
-MoveResult >> isPush
-	^ false
-MoveResult >> isNoMove
-]]]
-
-[[[
-GameState >> moveBy: aDirection
-	| moveResult |
-	moveResult := maze moveBy: aDirection.
-	(moveResult isMove) ifTrue: [ moves := moves + 1 ].
-	(moveResult isPush) ifTrue: [ 
-		pushes := pushes + 1.
-		moves := moves + 1 ].
-	self addMoveResult: moveResult.
-]]]
-
-${slide:title=Do not ask tell}$
-
-[[[
-GameState >> moveBy: aDirection
-	| moveResult |
-	moveResult := maze moveBy: aDirection.
-	moveResult doWithGameState: self.	
-	self addMoveResult: moveResult.
-
-Move >> doWithGameState: aGameState
-	aGameState incrementMoves
-
-Push >> doWithGameState: aGameState
-	super doWithGameState: aGameState.
-	aGameState increasePushes
-
-NoMove >> doWithGameState: aGameState 
-	self 
-]]]
-
-${slide:title=Conclusion}$
-
-- Messages act as a dispatcher
-- Avoid conditional when possible
-
-
