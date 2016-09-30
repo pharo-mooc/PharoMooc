@@ -119,7 +119,24 @@ ${slide:title=Overview}$
 
 +An overview of a possible solution using double dispatch.>file://figures/StonePaperScissors.pdf|width=80+
 
+${slide:title=Remark}$
+
+In this example we do not need to pass the argument during the double dispatch
+
+[[[
+Scissors >> playAgainstPaper: aPaper
+	^ #scissors
+]]]
+
+[[[
+Scissors >> playAgainstPaper
+	^ #scissors
+]]]
+
 ${slide:title=Thinking more...}$
+
+When we return a token or a number we should check to do something after.
+So passing blocks may be better.
 
 [[[
 Paper new competeWith: Paper new
