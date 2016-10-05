@@ -3,204 +3,262 @@
 }
 
 
-${slide:title=Numbers}$
+${slide:title=Outline}$
 
-- SmallInteger, Integer,
--- 4, 2r100 (4 in base 2), 3r11 (4 in base 3)
-- Automatic coercion
--- ==1 + 2.3== -> 3.3
--- ==1 class== -> SmallInteger
--- ==1 class maxVal class== -> SmallInteger
--- ==(1 class maxVal + 1) class== -> LargePositiveInteger
-- Fraction, Float
--- 3/4, 2.4e7 
--- ==(1/3) + (2/3)== -> 1 
--- ==1000 factorial / 999 factorial== -> 1000
--- ==2/3 + 1== -> (5/3)
+- Object-oriented programming 
+- Objects and classes
+
++ >file://figures/LogoPharo.png|width=30+
 
 
-${slide:title=Numbers|label=Outline}$
+${slide:title=Programming is modelling}$
 
-+.>file://figures/NumberHierarchy.png|width=80+
+- There is not one single model of the world
+- There are multiple ways to capture a model of the world
 
+${slide:title=Object-Orientation}$
 
-${slide:title=Small Integers are Real Objects|label=funsmallint}$
+- Is a paradigm, not a technology
+- Reflects, simulates the real world
+- Thinks in terms of organization
+- Tries to
+-- handle complexity
+-- enhance reusability
+-- minimize maintenance cost
 
-- Small ints are real objects: instance of class ==SmallInteger==
-- No need for boxing or unboxing
+${slide:title=Evolution}$
 
-[[[
-	1 class
-	> SmallInteger
-]]]
+- Procedures
+- Structured Programming
+- Fourth Generation Languages
+- Object-Oriented-Programming
+- (Aspect-Oriented Programming) is more a variation of OOP
 
-- Operations on small integers are plain messages (no exception to the rule)
+${slide:title=Traditional Point of View}$
 
-${slide:title=Small integers are optimized}$
+- Focuses upon procedures
+- Functionality is vested in procedures
+- Data exists solely to be operated upon by procedures
+- Procedures know about the structure of data
+- Requires large number of procedures and procedure names
 
-But small integers are heavily optimized
-- Small integers encoded on 30 bits
-- The pointer itself is the small integer
+${slide:title=Data and Procedures}$
 
-[[[
-    2 raisedTo: 30  
-    > 1073741823
-]]]
-[[[	
-    SmallInteger maxVal
-    > 1073741823
-]]]
++>file://figures/DataAndProcedures.png|width=83+
 
+${slide:title=Let us compare}$
 
-${slide:title=Automatic Coercion}$
-
-What is the largest small integer?
+Problem: compute the total area of a set of geometric shapes
 
 [[[
-	1 class maxVal
-	> 1073741823
+myPicture := Picture new.
+myPicture add: (Square x: 3 y: 3 width: 3).
+myPicture add: (Rectangle x: 5 y: with:5 height: 3)
+myPicture add: (Circle x: 12 y: 3 radius: 3).
+
+myPicture area
 ]]]
 
-What is the smallest large integer?
-[[[
-	1 class maxVal +1
-	> 1073741824
-
-	(1 class maxVal + 1) class
-	> LargePositiveInteger
-]]]
-
-
-${slide:title=Fun With Numbers|label=funsmallint}$
-
-${slide:title=Fun With Large Numbers}$
-
-==factorial== is not optimized
-
-[[[[
-1000 factorial numberOfDigits
-> 2568 
-]]]
-
-[[[[
-100000 factorial numberOfDigits
-> 456574 
-]]]
-
-- Takes some seconds :)
-
-
-${slide:title=Fraction}$
-
-==Fraction==
-- ==denominator==, ==numerator==, ....
-- Can handle large numbers
+${slide:title=Produral way: centralize way (in Java)}$
 
 [[[
-1000 factorial / 999 factorial
-> 1000
+double area() {
+	double total = 0;
+	    for (Shape shape : shapes) {
+	       switch (shape.kind()) {
+	       case SQUARE:
+	           Square square = (Square) shape;
+	           total += square.width * square.width; break;
+	       case RECTANGLE:
+	           Rectangle rectangle = (Rectangle) shape;
+	           total += rectangle.width * rectangle.height; break;
+	       case CIRCLE:
+	           Circle circle = (Circle) shape;
+	           total += java.lang.Math.PI * circle.radius * circle.radius / 2; break; 
+			   } }
+	    return total; }
 ]]]
 
-
-${slide:title=Messages Sent to Objects}$
-
--Operations on numbers are plain messages 
-- No exceptions
+${slide:title=Produral way: centralize way (in Java)}$
 
 [[[
-	(1 / 3) + (2 / 3)
-	>1
+Picture >> area 
+	| total |
+	total := 0.
+	self shapes do [:aShape |
+	   aShape kind == #SQUARE
+	   		 ifTrue: [ total := total + aShape width * aShape width ]
+	        ifFalse: [
+				aShape kind == #RECTANGLE
+	           	ifTrue: [
+						total := aShape width * aShape height ]
+					ifFalse: [
+	       		 	total := total + (Float pi * shape radius squared / 2) ]
+   ^ total 
+]]]
+
+${slide:title=OO way}$
+
+[[[
+Picture >> area 
+	| total |
+	total := 0.
+	self shapes do [:aShape |
+	   total := total + aShape area ].
+	^ total	
 ]]]
 
 [[[
-	2 / 3 + 1
-	> 5 / 3
+Square >> area
+ ^ aShape width * aShape width
+
+Rectangle >> area
+	^ aShape width * aShape height 
+
+Circle >> area
+ ^  (Float pi * shape radius squared / 2)
 ]]]
 
-- Numbers are objects
-- Mathematical operations are messages sent to objects
+${slide:title=What is OOP?}$
+
+- An application is a collection of interacting entities (objects)
+- Objects are characterized by behavior and state
+- Inter-object behavior needs to be coordinated
+- Inter-object communication is the key to coordination
+
+${slide:title=What is OOP?: Encapsulation/Composition}$
+
+- ""Encapsulation"" 
+Hide and control the internal representation of an object. This will ease further evolution. 
+
+- ""Composition"" 
+An object can be composed of several simpler other objects. 
+
+${slide:title=What is OOP?: Message passing}$
+
+- ""Distribution of responsibility and delegation"" 
+Computing a problem is the results of many objects performing (sub) tasks.
+
+- ""Late binding and message passing"" 
+The receiver of a message determines which method will be executed on it. 
+-- what? the message 
+-- how? the method 
+
+- ""Inheritance"" 
+We define abstractions as conceptual hierarchies and reuse implementation in subclasses 
+
+- ""Polymorphism"" 
+Objects exhibiting the same interface can be substitued and class hierarchy defines families of polymorphic objects
+
+%${slide:title=Vocabulary point}$
+%- Encapsulation means that related entities are bundled together, for example, a Shape object encapsulates data and related operations for shapes.
+%- Abstraction means that we ignore irrelevant details, for example, we abstract from the details of a Shape object and just use its interface (i.e., its operations).
+%- Information hiding means that we hide (forbid access to) the representation behind an abstraction, for example, you may not directly access the state of a Shape but must access it only through its interface.
 
 
-${slide:title=Message Limits}$
-
-- There is no notion of precedence
-
-[[[
-2 * 3 + 5
-> 11
-]]]
-
-[[[
-2 + 3 * 5 
-> 25 !!!
-]]]
-
-- Use parenthesis to enforce precedence
-
-[[[
-2 + (3 * 5)
-> 11
-]]]
 
 
-${slide:title=Points}$
+${slide:title=Object-Oriented Viewpoint}$
 
-- A point has an x and y
-- Points are created using the message ==@== or ==x:y:==
-
-[[[
-10 @ 100
-(10 @ 100) x
-> 10
-(10 @ 100) y
->100
-]]]
-
-Alternative
-[[[
-Point new x: 100 y: 100
-]]]
-
-Class written in a functional way: Most ==Point== methods are returning new points
+- An application is a set of objects interacting by sending messages
+- The functionality of an object is described by its methods, its data are stored in private variables
+- An object’s functionality can be invoked by sending a message
+- Everything is an object
 
 
-${slide:title=Rectangles}$
+${slide:title=Responsibility-Driven Design}$
 
-- Geometric and expected operations
-- ==areasOutside:==, ==expandBy:==, ==insetBy:==, ==intersect:==
-
-[[[
-Rectangle left: 10 right: 100 top: 20  bottom: 40
-> (10@20) corner: (100@40)
-]]]
-
-[[[
-Rectangle origin: 20@20	corner: 100@200
-]]]
+- Objects are responsible to maintain information and provide services
+- A good design exhibits:
+-- high cohesion of operations and data within classes 
+-- low coupling between classes and subsystems
+Every method should perform one, well-defined task:
+-- High level of abstraction
+-- Write to an interface, not an implementation
 
 
-${slide:title=Margins}$
 
-${columns}$
 
-${column:width=60}$
 
-- Delta to apply to a rectangle
-- Useful for GUI
-- Encodes 4 numbers, expressed in 3 different ways
--- a number (same space all around)
--- two numbers (same left/right and top/bottom)
--- four numbers
-- Used to compute the extended (or inner) rectangle
 
-${column:width=40}$
 
-+.>file://figures/Margin.png|width=100+
+${slide:title=State \+ Behavior \+ Identity}$
 
-${endColumns}$
++>file://figures/StateBehaviorIdentity.jpg|width=80+
 
-${slide:title=Summary|label=points}$
-- Numbers are real objects
-- Automatic coercion
-- Number can be infinitely large
-- Abstractions are built on top: ==Point==, ==Rectangle==, ==Margin==
+${slide:title=State \+ Behavior \+ Identity}$
+
+;State
+:Objects it contains or refers to (ex: point location)
+;Behavior
+:an object understands a given set of messages
+;Identity
+:an object can be the same (of the same class) than another one but it has still a different identity (location in memory)
+
+${slide:title=Equality and Identity}$
+
+I want to eat the pizza that you are eating
+;Equality
+:I want to eat the ""same"" kind of pizza
+;Identity
+:I eat your pizza
+
+${slide:title=Data/Messages/Methods}$
+
++>file://figures/EncapsulationWithMessages.png|width=52+
+
+${slide:title=What vs. How}$
+
+;What: Messages
+:Specify what behavior objects are to perform
+:Details of how are left up to the receiver
+:State information only accessed via messages
+;How: Methods
+:Specify how operation is to be performed
+:Must have access to (contain or be passed) data
+:Need detailed knowledge of data
+:Can manipulate data directly
+
++>file://figures/EncapsulationWithMessages.png|width=30+
+
+${slide:title=Message}$
+
+-Sent to receiver object: receiver-object message
+-A message may include parameters necessary for performing the action
+-In Smalltalk, a message-send always returns a result (an object)
+-Only way to communicate with an object and have it perform actions
+
++>file://figures/EncapsulationWithMessages-message.png|width=75+
+
+${slide:title=Method}$
+
+-Defines how to respond to a message
+-Selected via method lookup technique
+-Has name that is the same as message name
+-Is a sequence of executable statements
+-Returns an object as result of execution
+
++>file://figures/EncapsulationWithMessages-method.png|width=100+
+
+${slide:title=Object Encapsulation}$
+
+-Technique for
+--Creating objects with encapsulated state/behaviour
+--Hiding implementation details
+--Protecting the state information of objects
+--Communicating/accessing via a uniform interface
+-Puts objects in control
+-Facilitates modularity, code reuse and maintenance
+--External perspective  vs. Internal perspective
+--What vs. How
+--Message vs. Method
+
+${slide:title=Encapsulation at Work}$
+
++>file://figures/EncapsulationWithMessages-method.png|width=90+
++>file://figures/EncapsulationWithMessages-methodV2.png|width=90+
+
+${slide:title=Objects}$
+
+-Unique identify
+-Private state
