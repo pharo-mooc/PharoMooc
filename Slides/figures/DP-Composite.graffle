@@ -14,7 +14,7 @@
 	<key>BackgroundGraphic</key>
 	<dict>
 		<key>Bounds</key>
-		<string>{{0, 0}, {559, 783}}</string>
+		<string>{{0, 0}, {570.96002197265625, 817.44000244140625}}</string>
 		<key>Class</key>
 		<string>SolidGraphic</string>
 		<key>ID</key>
@@ -48,39 +48,8 @@
 	<key>GraphicsList</key>
 	<array>
 		<dict>
-			<key>AllowConnections</key>
-			<string>NO</string>
-			<key>AllowLabelDrop</key>
-			<false/>
-			<key>AllowToConnect</key>
-			<false/>
-			<key>Class</key>
-			<string>LineGraphic</string>
-			<key>ID</key>
-			<integer>17</integer>
-			<key>Points</key>
-			<array>
-				<string>{399.346, 314.346}</string>
-				<string>{356, 339}</string>
-			</array>
-			<key>Style</key>
-			<dict>
-				<key>stroke</key>
-				<dict>
-					<key>HeadArrow</key>
-					<string>0</string>
-					<key>Legacy</key>
-					<true/>
-					<key>LineType</key>
-					<integer>1</integer>
-					<key>TailArrow</key>
-					<string>0</string>
-				</dict>
-			</dict>
-		</dict>
-		<dict>
 			<key>Bounds</key>
-			<string>{{302.75999999999999, 338.64499999999998}, {213.47999999999999, 56}}</string>
+			<string>{{306.75999999999999, 321}, {225.24000549316406, 56}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -115,49 +84,18 @@
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
 
 \f0\fs24 \cf0 \
-^ (self right holdOn: anElement) \
+^ (self right holdsOn: anElement) \
       
 \i\b or:
-\i0\b0  [(self left holdOn: anElement)]\
+\i0\b0  [(self left holdsOn: anElement)]\
 }</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
 			</dict>
 		</dict>
 		<dict>
-			<key>AllowConnections</key>
-			<string>NO</string>
-			<key>AllowLabelDrop</key>
-			<false/>
-			<key>AllowToConnect</key>
-			<false/>
-			<key>Class</key>
-			<string>LineGraphic</string>
-			<key>ID</key>
-			<integer>15</integer>
-			<key>Points</key>
-			<array>
-				<string>{218.173, 307.173}</string>
-				<string>{173, 339}</string>
-			</array>
-			<key>Style</key>
-			<dict>
-				<key>stroke</key>
-				<dict>
-					<key>HeadArrow</key>
-					<string>0</string>
-					<key>Legacy</key>
-					<true/>
-					<key>LineType</key>
-					<integer>1</integer>
-					<key>TailArrow</key>
-					<string>0</string>
-				</dict>
-			</dict>
-		</dict>
-		<dict>
 			<key>Bounds</key>
-			<string>{{52.346400000000003, 338.64499999999998}, {218.654, 56}}</string>
+			<string>{{56.346400000000017, 321}, {234.65359999999998, 56}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -192,10 +130,10 @@
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
 
 \f0\fs24 \cf0 \
-^ (self right holdOn: anElement) \
+^ (self right holdsOn: anElement) \
       
 \i\b and:
-\i0\b0  [(self left holdOn: anElement)]\
+\i0\b0  [(self left holdsOn: anElement)]\
 }</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
@@ -211,11 +149,73 @@
 			<key>Class</key>
 			<string>LineGraphic</string>
 			<key>ID</key>
+			<integer>17</integer>
+			<key>Points</key>
+			<array>
+				<string>{382, 297.29801098632811}</string>
+				<string>{382, 321.29801177978516}</string>
+			</array>
+			<key>Style</key>
+			<dict>
+				<key>stroke</key>
+				<dict>
+					<key>HeadArrow</key>
+					<string>0</string>
+					<key>Legacy</key>
+					<true/>
+					<key>LineType</key>
+					<integer>1</integer>
+					<key>TailArrow</key>
+					<string>0</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>AllowConnections</key>
+			<string>NO</string>
+			<key>AllowLabelDrop</key>
+			<false/>
+			<key>AllowToConnect</key>
+			<false/>
+			<key>Class</key>
+			<string>LineGraphic</string>
+			<key>ID</key>
+			<integer>15</integer>
+			<key>Points</key>
+			<array>
+				<string>{225, 297}</string>
+				<string>{225, 321}</string>
+			</array>
+			<key>Style</key>
+			<dict>
+				<key>stroke</key>
+				<dict>
+					<key>HeadArrow</key>
+					<string>0</string>
+					<key>Legacy</key>
+					<true/>
+					<key>LineType</key>
+					<integer>1</integer>
+					<key>TailArrow</key>
+					<string>0</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>AllowConnections</key>
+			<string>NO</string>
+			<key>AllowLabelDrop</key>
+			<false/>
+			<key>AllowToConnect</key>
+			<false/>
+			<key>Class</key>
+			<string>LineGraphic</string>
+			<key>ID</key>
 			<integer>13</integer>
 			<key>Points</key>
 			<array>
-				<string>{74, 226}</string>
-				<string>{33, 263}</string>
+				<string>{89, 215.14901318359375}</string>
+				<string>{88, 255.298}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -234,7 +234,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{4.1732199999999997, 262.298}, {181.827, 42}}</string>
+			<string>{{18.346208891601563, 255.298}, {181.827, 42}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -343,8 +343,8 @@
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
 
 \f0\fs24 \cf0 \
-^ aCollection collect: [: each | \
-                            self holdsOn: anElement]\
+^ aCollection collect: [ :each | \
+            self holdsOn: anElement]\
 }</string>
 				<key>VerticalPad</key>
 				<integer>0</integer>
@@ -364,8 +364,8 @@
 			<integer>9</integer>
 			<key>Points</key>
 			<array>
-				<string>{406.11755647155229, 286.69299999999998}</string>
-				<string>{328.959150887443, 237.75999999999999}</string>
+				<string>{396.95152159045455, 269.29801098632811}</string>
+				<string>{344.10256138689567, 229.14901138305666}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -401,8 +401,8 @@
 			<integer>8</integer>
 			<key>Points</key>
 			<array>
-				<string>{283.49808203194056, 286.51999999999998}</string>
-				<string>{292.12888773747085, 237.75999999999999}</string>
+				<string>{278.6553079837505, 269.29801513671873}</string>
+				<string>{303.47686926597646, 229.14901138305663}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -438,8 +438,8 @@
 			<integer>7</integer>
 			<key>Points</key>
 			<array>
-				<string>{275.63592756071364, 195.75999999999999}</string>
-				<string>{228.71006412549445, 147}</string>
+				<string>{288.88537521433096, 187.14901138305663}</string>
+				<string>{236.09011471297629, 147}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -468,7 +468,7 @@
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{364.69299999999998, 286.69299999999998}, {127, 14}}</string>
+					<string>{{351.88001171874998, 269.29801098632811}, {127, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -509,7 +509,7 @@
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{364.69299999999998, 300.69299999999998}, {127, 14}}</string>
+					<string>{{351.88001171874998, 283.29801098632811}, {127, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -569,7 +569,7 @@
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{217.51999999999998, 286.51999999999998}, {127, 14}}</string>
+					<string>{{206.50001098632811, 269.29801513671873}, {126.99998474121094, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -610,7 +610,7 @@
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{217.51999999999998, 300.51999999999998}, {127, 14}}</string>
+					<string>{{206.50001098632811, 283.29801513671873}, {126.99998474121094, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -670,7 +670,7 @@
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{232.346, 195.75999999999999}, {127, 14}}</string>
+					<string>{{253.00000695800782, 187.14901138305663}, {127.00001525878906, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -711,7 +711,7 @@
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{232.346, 209.75999999999999}, {127, 28}}</string>
+					<string>{{253.00000695800782, 201.14901138305663}, {127.00001525878906, 28}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -772,7 +772,7 @@ remove: aQuery}</string>
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{73.173200000000008, 203.173}, {127, 14}}</string>
+					<string>{{73.173200000000008, 187.14901318359375}, {127, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -813,7 +813,7 @@ remove: aQuery}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{73.173200000000008, 217.173}, {127, 14}}</string>
+					<string>{{73.173200000000008, 201.14901318359375}, {127, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -880,8 +880,8 @@ remove: aQuery}</string>
 			<integer>26</integer>
 			<key>Points</key>
 			<array>
-				<string>{147.7025087221833, 203.173}</string>
-				<string>{191.95603435441203, 147}</string>
+				<string>{150.07891786960516, 187.14901318359375}</string>
+				<string>{188.52365668977055, 147}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1058,7 +1058,7 @@ holdsOn: anElement}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2016-10-10 14:06:38 +0000</string>
+	<string>2016-10-10 15:09:39 +0000</string>
 	<key>Modifier</key>
 	<string>ducasse</string>
 	<key>NotesVisible</key>
@@ -1074,7 +1074,7 @@ holdsOn: anElement}</string>
 		<key>NSBottomMargin</key>
 		<array>
 			<string>float</string>
-			<string>18</string>
+			<string>12.56</string>
 		</array>
 		<key>NSHorizonalPagination</key>
 		<array>
@@ -1089,7 +1089,7 @@ holdsOn: anElement}</string>
 		<key>NSLeftMargin</key>
 		<array>
 			<string>float</string>
-			<string>18</string>
+			<string>12</string>
 		</array>
 		<key>NSPagesPerSheet</key>
 		<array>
@@ -1119,12 +1119,12 @@ holdsOn: anElement}</string>
 		<key>NSRightMargin</key>
 		<array>
 			<string>float</string>
-			<string>18</string>
+			<string>12.04</string>
 		</array>
 		<key>NSTopMargin</key>
 		<array>
 			<string>float</string>
-			<string>41</string>
+			<string>12</string>
 		</array>
 	</dict>
 	<key>PrintOnePage</key>
@@ -1166,7 +1166,7 @@ holdsOn: anElement}</string>
 		<key>SidebarWidth</key>
 		<integer>138</integer>
 		<key>VisibleRegion</key>
-		<string>{{-27, 1}, {614, 670}}</string>
+		<string>{{-21, 1}, {614, 670}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>
