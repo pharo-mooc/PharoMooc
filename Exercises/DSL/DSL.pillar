@@ -262,6 +262,14 @@ handle := DiceHandle new
 handle roll
 ]]]
 
+Define a test to cover such behavior. 
+
+[[[
+DiceHandleTest >> testRoll
+	...
+]]]
+
+
 !! Role playing syntax
 
 Now we are ready to offer a syntax following practice of role playing game, i.e., using ==2 D20== to create a handle of two 20 faces dice.  For this purpose we will define class extensions: we will define methods in the class ==Integer== but these methods will be only available when the package Dice will be loaded. 
@@ -329,7 +337,8 @@ We have now a compact form to create dice and we are ready for the last part: th
 
 !!! Handle's addition
 
-Now we can simply support the addition of handles. But of course let's write a test first.
+Now what is missing is that possibility to add several handles as follows: ==2 D20 + 3 D10==. Of course let's write a test first to be clear on what we mean.
+
 
 [[[
 DiceHandleTest >> testSumming
