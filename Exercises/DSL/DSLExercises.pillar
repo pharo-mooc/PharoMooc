@@ -187,21 +187,29 @@ Now your tests should pass and this is good moment to save your code.
 
 !! Improving Programmer Experience
 
-When you open an inspector on a dice handle (such as the one in Figure *@diceHandleNoDetail*) you cannot see the details of the dices that compose the dice handle. Click on the ==dice== instance variable and you only get a list of =="a Die"== without further information as you can see in Figure *@diceHandleNoDetail*.
-
-Enhance the ==printOn:== method of the ==Die== class to provide more information: simply add the number of faces surrounded by parenthesis to make the result look like the one in Figure *@diceHandleDetail*.
-
-@@note You may want to have a look at all the implementors of ==printOn:== (contextual menu of the ==printOn:== method, ==Implementors of==) to get examples.
+Now when you open an inspector you cannot see well the dice that compose the dice handle. Click on the ==dice== instance variable and you will only get a list of ==a Dice== without further information. What we would like to get is something like ==a Die (6)== or ==a Die (10)== so that in a glance we know the faces a die has. 
 
 [[[
-Your code here
+DiceHandle new 
+	addDie: (Die faces: 6);
+	addDie: (Die faces: 10);
+	yourself
 ]]]
 
-Now in your inspector you can see the number of faces a dice has as shown by Figure *@diceDetail* and it is now easier to check the dice contained inside a handle (see Figure *@diceHandleDetail*).
+This is the  message ==printOn:== that is responsible to provide a textual representation of the message receiver. By default, it just prints the name of the class prefixed with =='a'== or =='an'==. So we will enhance the ==printOn:== method of the ==Die== class to provide more information. Here we simply add the number of faces surrounded by parenthesis. The ==printOn:== message is sent with a stream as argument. This is in such stream that we should add information. We use the message ==nextPutAll:== to add a number of characters to the stream. We concatenate the characters to compose ==()== using the message ==,== comma defined on collections (and that concatenate collections and strings).
 
-+Die details.>file://figures/DiceDetail.png|width=50|label=diceDetail+
+[[[
+Die >> printOn: aStream
 
-+Dice Handle with more information.>file://figures/DiceHandleDetail.png|width=50|label=diceHandleDetail+
+	super printOn: aStream.
+	aStream nextPutAll: ' (', faces printString, ')'
+]]]
+
+Now in your inspector you can see effectively the number of faces a dice handle has as shown by Figure *@diceDetail* and it is now easier to check the dice contained inside a handle (See Figure *@diceHandleDetail*).
+
++Die details.>file://figures/DiceDetail.png|width=60|label=diceDetail+ 
+
++Dice Handle with more information.>file://figures/DiceHandleDetail.png|width=100|label=diceHandleDetail+ 
 
 !! Rolling a Dice Handle
 

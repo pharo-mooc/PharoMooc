@@ -105,7 +105,6 @@ If you execute it will not work since we did not create yet the method ==faces:=
 
 [[[
 Die >> faces: aNumber
-
 	faces := aNumber
 ]]]
 
@@ -207,7 +206,6 @@ Finally we should add the method ==diceNumber== to the ==DiceHandle== class to b
 
 [[[
 DiceHandle >> diceNumber  
-
 	^ dice size
 ]]]
 
@@ -216,7 +214,7 @@ Now your tests should run and this is good moment to save and publish your code.
 
 !! Improving programmer experience
 
-Now when you open an inspector you cannot see well the dice that compose the dice handle. Click on the ==dice== instance variable and you will only get a list of ==a Dice== without further information. 
+Now when you open an inspector you cannot see well the dice that compose the dice handle. Click on the ==dice== instance variable and you will only get a list of ==a Dice== without further information. What we would like to get is something like ==a Die (6)== or ==a Die (10)== so that in a glance we know the faces a die has. 
 
 [[[
 DiceHandle new 
@@ -225,8 +223,7 @@ DiceHandle new
 	yourself
 ]]]
 
-So we will enhance the ==printOn:== method of the ==Die== class to provide more information. Here we simply add the number of faces surrounded by parenthesis.
-
+This is the  message ==printOn:== that is responsible to provide a textual representation of the message receiver. By default, it just prints the name of the class prefixed with =='a'== or =='an'==. So we will enhance the ==printOn:== method of the ==Die== class to provide more information. Here we simply add the number of faces surrounded by parenthesis. The ==printOn:== message is sent with a stream as argument. This is in such stream that we should add information. We use the message ==nextPutAll:== to add a number of characters to the stream. We concatenate the characters to compose ==()== using the message ==,== comma defined on collections (and that concatenate collections and strings).
 
 [[[
 Die >> printOn: aStream
@@ -237,9 +234,10 @@ Die >> printOn: aStream
 
 Now in your inspector you can see effectively the number of faces a dice handle has as shown by Figure *@diceDetail* and it is now easier to check the dice contained inside a handle (See Figure *@diceHandleDetail*).
 
-+Die details>file://figures/DiceDetail.png|width=60|label=diceDetail+ 
++Die details.>file://figures/DiceDetail.png|width=60|label=diceDetail+ 
 
-+Dice Handle with more information>file://figures/DiceHandleDetail.png|width=100|label=diceHandleDetail+ 
++Dice Handle with more information.>file://figures/DiceHandleDetail.png|width=100|label=diceHandleDetail+ 
+
 
 !! Rolling a dice handle
 
