@@ -101,14 +101,6 @@ Die class >> faces: aNumber
 	^ instance
 ]]]
 
-This method is strictly equivalent to the one below. The trick is that ==yourself== is a simple method defined on ==Object== class. ==yourself== returns the receiver of a message and the use of ==;== sends the message to the receiver of the previous message (here ==faces:==), therefore ==yourself== is sent to the object resulting from the execution of the expression ==self new== (which returns a new instance of the class ==Die==). 
-
-[[[
-Die class >> faces: aNumber
-	
-	^ self new faces: aNumber; yourself
-]]]
-
 If you execute it will not work since we did not create yet the method ==faces:== this is now the time to define it.
 
 [[[

@@ -89,8 +89,6 @@ Die class >> your code here
 
 To implement this method, you will have to send the message ==new== to the class: ==self== is the current class when implementing a class method.
 
-@@note If your implementation of the method uses a temporary variable, you may want to simplify it by using the cascade operator ==;== and the ==yourself== message. Look at the implementation of ==Object >> yourself== and its senders (contextual menu, ==Senders of==) to get examples on how to do this.
-
 This method can not yet be executed because you first have to implement the instance-side method ==faces:== (the setter for the variable) that configure a new die with a number of faces passed as an argument. In Java, you would not have to do that because constructors can access instance variables. In Pharo, a class method only knows about the class variables not the instance variables. You can keep on using the debugger to do that or you can go back to the code browser.
 
 [[[
