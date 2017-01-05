@@ -89,8 +89,6 @@ Die class >> your code here
 
 To implement this method, you will have to send the message ==new== to the class: ==self== is the current class when implementing a class method.
 
-@@note If your implementation of the method uses a temporary variable, you may want to simplify it by using the cascade operator ==;== and the ==yourself== message. Look at the implementation of ==Object >> yourself== and its senders (contextual menu, ==Senders of==) to get examples on how to do this.
-
 This method can not yet be executed because you first have to implement the instance-side method ==faces:== (the setter for the variable) that configure a new die with a number of faces passed as an argument. In Java, you would not have to do that because constructors can access instance variables. In Pharo, a class method only knows about the class variables not the instance variables. You can keep on using the debugger to do that or you can go back to the code browser.
 
 [[[
@@ -189,21 +187,29 @@ Now your tests should pass and this is good moment to save your code.
 
 !! Improving Programmer Experience
 
-When you open an inspector on a dice handle (such as the one in Figure *@diceHandleNoDetail*) you cannot see the details of the dices that compose the dice handle. Click on the ==dice== instance variable and you only get a list of =="a Die"== without further information as you can see in Figure *@diceHandleNoDetail*.
-
-Enhance the ==printOn:== method of the ==Die== class to provide more information: simply add the number of faces surrounded by parenthesis to make the result look like the one in Figure *@diceHandleDetail*.
-
-@@note You may want to have a look at all the implementors of ==printOn:== (contextual menu of the ==printOn:== method, ==Implementors of==) to get examples.
+Now when you open an inspector you cannot see well the dice that compose the dice handle. Click on the ==dice== instance variable and you will only get a list of ==a Dice== without further information. What we would like to get is something like ==a Die (6)== or ==a Die (10)== so that in a glance we know the faces a die has. 
 
 [[[
-Your code here
+DiceHandle new 
+	addDie: (Die faces: 6);
+	addDie: (Die faces: 10);
+	yourself
 ]]]
 
-Now in your inspector you can see the number of faces a dice has as shown by Figure *@diceDetail* and it is now easier to check the dice contained inside a handle (see Figure *@diceHandleDetail*).
+This is the  message ==printOn:== that is responsible to provide a textual representation of the message receiver. By default, it just prints the name of the class prefixed with =='a'== or =='an'==. So we will enhance the ==printOn:== method of the ==Die== class to provide more information. Here we simply add the number of faces surrounded by parenthesis. The ==printOn:== message is sent with a stream as argument. This is in such stream that we should add information. We use the message ==nextPutAll:== to add a number of characters to the stream. We concatenate the characters to compose ==()== using the message ==,== comma defined on collections (and that concatenate collections and strings).
 
-+Die details.>file://figures/DiceDetail.png|width=50|label=diceDetail+
+[[[
+Die >> printOn: aStream
 
-+Dice Handle with more information.>file://figures/DiceHandleDetail.png|width=50|label=diceHandleDetail+
+	super printOn: aStream.
+	aStream nextPutAll: ' (', faces printString, ')'
+]]]
+
+Now in your inspector you can see effectively the number of faces a dice handle has as shown by Figure *@diceDetail* and it is now easier to check the dice contained inside a handle (See Figure *@diceHandleDetail*).
+
++Die details.>file://figures/DiceDetail.png|width=60|label=diceDetail+ 
+
++Dice Handle with more information.>file://figures/DiceHandleDetail.png|width=100|label=diceHandleDetail+ 
 
 !! Rolling a Dice Handle
 
@@ -225,6 +231,15 @@ handle := DiceHandle new
 handle roll
 ]]]
 
+Define a test to cover such behavior. 
+
+[[[
+DiceHandleTest >> testRoll
+	Your code here
+]]]
+
+
+
 !! Role Playing Syntax
 
 We are ready to offer a syntax following practice of role playing game, i.e., using ==2 D20== to create a handle of two 20-faces dice.  For this purpose we use class extensions: we define methods in the class ==Integer==. We want these methods to only be available when the package ==Dice== is loaded.
@@ -238,15 +253,32 @@ DiceHandleTest >> testSimpleHandle
 
 Verify that the test is not passing! It is much more satisfactory to get a test running when it was not working before. Now define the method ==D20== with a protocol name ==\*Dice==. The ==\*== (star) prefixing the protocol name indicates that the protocol belongs to another package. You can define this method either from the debugger resulting from the execution of the failed test or in the code browser.
 
+
+
+
+
+
 The method ==D20== simply creates a new dice handle, adds the correct number of dice to this handle, and returns the handle.
 
 [[[
 Your code here
 ]]]
 
+
+!!!! About class extensions
+
+We asked you to place the method ==D20== in a protocol starting with a star and having the name of the package (=='*Dice'==) because we want this method to be saved (and packaged) together with the code of the classes we already created (==Die==, ==DiceHandle==,...) 
+Indeed in Pharo we can define methods in classes that are not defined in our package. Pharoers call this action a class extension: we add method to a class that is not ours. For example ==D20== is defined on the class ==Integer==. Now such methods only make sense when the package Dice is loaded. This is why we want to save and load such methods with the package we created and using the =='*Dice'==
+notation is way for the system to know that it should save the methods with the package and not with the package of the class ==Integer==. 
+
+
+
 Your test should pass and this is probably a good moment to save your work.
 
-We could do the same for  different face numbers: 4, 6 and 10. But we should avoid duplicating logic and code. We first introduce a new method ==D:== in the ==Integer== class and, based on it, we define all the others.
+Now we can do the same for the default dice with different faces number: 4, 6, 10, and 20. But we should avoid duplicating logic and code. So first we will introduce a new method ==D:== and based on it we will define all the others.
+
+Make sure that all the new methods are placed in the protocol =='*Dice'==. To verify you can press the button Browse of the Monticello package browser and you should see the methods defined in the class ==Integer==. 
+
 
 [[[
 Your code here
@@ -263,7 +295,8 @@ We have a compact form to create dice and we are ready for the last part: the ad
 
 !!! Adding Handles
 
-Now we can simply support the addition of handles. Let us write a test first.
+Now what is missing is that possibility to add several handles as follows: ==2 D20 + 3 D10==. Of course let's write a test first to be clear on what we mean.
+
 
 [[[
 DiceHandleTest >> testSumming
