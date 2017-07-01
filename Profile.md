@@ -5,7 +5,7 @@ in a first place because they are on specific topics such as files, exceptions o
 
 We propose five profiles to follow this mooc at different speed and levels. The profiles are not exclusive: to become a pharo expert you need to start as a newbie and grow up. 
 
-* Total newbies [newbies]
+*  *Total newbies [newbies]*
 Focus on the beginning of the lectures, you can skip the Seaside/Mongo and tinyBlog exercises. 
 Follow the end of the Mooc but without trying to understand everything. Take it easy and spend time understanding that the system is written in itself. Focus on the navigation tools (senders and implementors).
 
