@@ -15,7 +15,7 @@ For those that focus on the web, we suggest to get started with the syntax (sinc
 From the exercise stand point, focus on tinychat and tinyblog.
 
 * **Refresh your OO perspective [oo]**
-If you want to rethink your OO perspective, pay attention that even Pharo simple libraries such as collections are immersive. Yes you send a message to a collection to perform a loop. Yes you send a message to a Boolean to perform a conditional.
+If you want to rethink your OO perspective, pay attention that even Pharo essential libraries such as Booleans or collections are plain objects. Yes you send a message to a collection to perform a loop. Yes you send a message to a Boolean to perform a conditional.
 
 * **Looking for Black Magic [magic]**
 If you are interesting in black magic it probably means that you get fast in learning a new language or that you already some Pharo. Still do not miss the OO perspective.
