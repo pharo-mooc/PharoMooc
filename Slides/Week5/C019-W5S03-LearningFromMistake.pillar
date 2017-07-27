@@ -111,7 +111,7 @@ Dice class >> new
 ${slide:title=A Problem}$
 
 [[[
-Book>>borrow
+Book >> borrow
    inLibrary ifFalse: [ ... ].
    ...
 ]]]
@@ -121,10 +121,10 @@ Book>>borrow
 ${slide:title=A Problem}$
 
 [[[
-Book>>initialize
+Book >> initialize
    inLibrary := True
 
-Book>>borrow
+Book >> borrow
    inLibrary ifFalse: [ ... ].
   ...
 ]]]
@@ -135,7 +135,7 @@ ${slide:title=True vs. true}$
 
 Solution
 [[[
-Book>>initialize
+Book >> initialize
    inLibrary := true
 ]]]
 
