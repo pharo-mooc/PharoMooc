@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VM_INSTALL_URL="http://get.pharo.org/vm"
+VM_INSTALL_URL="http://get.pharo.org/vm40"
 IMAGE_URL="https://ci.inria.fr/pharo-contribution/job/Pillar/PHARO=40,VERSION=stable,VM=vm/lastSuccessfulBuild/artifact/Pillar-deployment.zip"
 PHARO_VM=${PHARO_VM:-./pharo}
 
