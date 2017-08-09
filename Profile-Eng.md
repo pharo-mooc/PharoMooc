@@ -20,7 +20,7 @@ If you want to rethink your OO perspective, pay attention that even Pharo essent
 * **Looking for Black Magic [magic]**
 If you are interesting in black magic it probably means that you get fast in learning a new language or that you already some Pharo. Still do not miss the OO perspective.
 
-* **Wanna be a Pharo expert [Xpert]**
+* **Wanna be a Pharo expert [Expert]**
 Well it means that you should have a look at everything and that you may drop the web part if you are in a hurry.
 
 # Schedule
@@ -41,7 +41,7 @@ Download the slides, videos and exercises.
 * [Newbie] [Redo] Coding a Counter
 * [Newbie] [Exercise] Expressions and Messages
 * [Newbie] [Exercise] TinyBlog: Presentation and Model
-* [Newbie] [Challenge] Challenge 0
+* [Expert] [Challenge] Challenge 0
 
 ## Week 2: Pharo Syntax, Blocks and Inspector
 Download the slides, videos and exercises.
@@ -65,8 +65,8 @@ Download the slides, videos and exercises.
 * [Newbie] [Exercise] Solution: Expressions and Messages
 * [Newbie] [Exercise] Expression Results
 * [Newbie] [Exercise] TinyBlog: Extending and Testing the Model
-* [Challenge] Solution: Challenge 0
-* [Challenge] Challenge 1
+* [Expert][Challenge] Solution: Challenge 0
+* [Expert][Challenge] Challenge 1
 
 ## Week 3: Design, Class Methods and Collections
 Download the slides, videos and exercises.
@@ -88,8 +88,8 @@ Download the slides, videos and exercises.
 * [Newbie]  [Exercise] Solution: Expression Results
 * [Newbie] [Exercise] Rewriting Expressions
 * [Newbie]  [Exercise] TinyBlog: A Simple Teapot Web Interface
-* [Challenge] Solution: Challenge 1
-* [Challenge] Challenge 2
+* [Expert][Challenge] Solution: Challenge 1
+* [Expert][Challenge] Challenge 2
 
 ## Week 4: Inheritance & Lookup and Web Development
 Download the slides, videos and exercises.
@@ -98,7 +98,7 @@ Download the slides, videos and exercises.
 * [Newbie]  [Lecture] Inheritance & Lookup: Lookup
 * [Newbie]  [Lecture] Inheritance & Lookup: Super
 * [Newbie]  [Lecture] Inheritance & Lookup: DoesNotUnderstand:
-* [Xpert] [Lecture] Inheritance & Lookup: Lookup in Metaclasses
+* [Expert] [Lecture] Inheritance & Lookup: Lookup in Metaclasses
 * [OO] [Lecture] Class Methods at Work
 * [Web] [Lecture] Overview of Pharo Web Stack
 * [Web] [Lecture] Seaside: an Innovative Web Application Framework
@@ -113,8 +113,8 @@ Download the slides, videos and exercises.
 * [Web] [Exercise] TinyBlog: Data Persitency using Voyage and Mongo
 * [Web] [Exercise] TinyBlog: Building a Web Interface with Seaside
 * [Web] [Exercise] Building a Simple Contact Book Application
-* [Newbie] [Challenge] Solution: Challenge 2
-* [Newbie] [Challenge] Challenge 3
+* [Expert] [Challenge] Solution: Challenge 2
+* [Expert] [Challenge] Challenge 3
 
 ## Week 5: Exception, Debugging and Reflection
 Download the slides, videos and exercises.
@@ -122,12 +122,12 @@ Download the slides, videos and exercises.
 * [Web] [Lecture] Seaside: Composing Components
 * [OO] [Lecture] Really Understanding Class Methods
 * [Newbie] [Lecture] Common Errors
-* [Xpert] [Lecture] Powerful Exceptions: an Overview
+* [Expert] [Lecture] Powerful Exceptions: an Overview
 * [Newbie] [Lecture] Debugging in Pharo
 * [Newbie] [Lecture] SUnit: Unit Tests in Pharo
-* [Xpert] [Lecture] Files in Pharo
+* [Expert] [Lecture] Files in Pharo
 * [Magic] [Lecture] Reflection: Basic Introspection
-* [Xpert] [Lecture] Benchmarking in Pharo
+* [Expert] [Lecture] Benchmarking in Pharo
 * [Newbie] [Live] Spotter 3: Scoping and Reducing Search
 * [Newbie] [Live] Spotter 6: Search, Navigate and Preview Files
 * [Newbie] [Live] Learning the Debugger
@@ -135,8 +135,8 @@ Download the slides, videos and exercises.
 * [Newbie] [Live] GTInspector 2: Inspect Files and Directories
 * [Web] [Exercise] TinyBlog: Building an Admin Seaside Web Interface with Magritte
 * [Newbie] [Exercise] TinyChat
-* [Newbie] [Challenge] Solution: Challenge 3
-* [Newbie] [Challenge] Challenge 4
+* [Expert] [Challenge] Solution: Challenge 3
+* [Expert] [Challenge] Challenge 4
 
 ## Week 6: Rethink Lookup and Advanced Object-Oriented Design
 Download the slides, videos and exercises.
@@ -151,25 +151,25 @@ Download the slides, videos and exercises.
 * [Newbie] [Lecture] Dynamic Vs. Literal Arrays
 * [Newbie] [Live] Understanding Images and Changes Files
 * [Newbie] [Live] Using the Pharo Launcher to manage your Pharo images
-* [Xpert] [Live] Diffing and Merging in Pharo
+* [Expert] [Live] Diffing and Merging in Pharo
 * [Newbie] [Live] GTInspector 4: Build Custom Tab Views for your Objects
 * [Web] [Exercise] TinyBlog: Deployment ( Download PharoWeb image for deployment which uses Pharo 4)
-* [Newbie] [Challenge] Solution: Challenge 4
-* [Newbie] [Challenge] Challenge 5
+* [Expert] [Challenge] Solution: Challenge 4
+* [Expert] [Challenge] Challenge 5
 
 ## Week 7: More on Object-Oriented Design and Testing
 Download the slides, videos and exercises.
 
-* [Xpert] [Lecture] Advanced Points on Classes
+* [Expert] [Lecture] Advanced Points on Classes
 * [Newbie] [Lecture] Variable Size Objects
 * [Magic] [Lecture] Understanding Metaclasses
 * [Magic] [Lecture] Reflective Operations for Live Programming
 * [Magic] [Lecture] DoesNotUnderstand: a Precious Hook
 * [Magic] [Lecture] Reflection: Stack as an Object
 * [OO] [Lecture] Avoid Null Checks
-* [All] [Lecture] A Journey in Pharo: A Bright Future
-* [Xpert] [Live] Spotter 4: The Preview pane
-* [Xpert] [Live] Spotter 5: Search in Playground History
-* [Xpert] [Live] GTInspector 3: Understand Pharo Internals by Inspection
-* [Newbie] [Challenge] Solution: Challenge 5
+* [Newbie] [Lecture] A Journey in Pharo: A Bright Future
+* [Expert] [Live] Spotter 4: The Preview pane
+* [Expert] [Live] Spotter 5: Search in Playground History
+* [Expert] [Live] GTInspector 3: Understand Pharo Internals by Inspection
+* [Expert] [Challenge] Solution: Challenge 5
 	
