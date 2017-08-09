@@ -51,13 +51,13 @@ Set-up your PharoCloud account:
 
 !!!Preparing Pharo image to Deploy on PharoCloud
 
-Currently, PharoCloud only supports Pharo 4 images.
+You need to prepare and configure a Pharo image that contains your application before uploading it to PharoCloud.
 
-So, download a *Pharo Web 4 image>https://ci.inria.fr/pharo-contribution/job/PharoWeb/PHARO=40,VERSION=stable,VM=vm/lastSuccessfulBuild/artifact/PharoWeb.zip*.
-You should also download a *virtual machine for Pharo 4 images>http://get.pharo.org/vm40*.
-Then, launch this image using this VM and we will configure it.
+You can either directly use the Pharo 5 image of the MOOC in which you have developed your TinyBlog application or use re-download a the fresh image of this MOOC (*https://ci.inria.fr/pharo-contribution/job/PharoWeb/PHARO=50,VERSION=stable,VM=vm/lastSuccessfulBuild/artifact/PharoWeb.zip*).
 
-Let's strat by configuring Seaside by removing all demo applications and all development tools:
+However, be aware that the Pharo image used in this MOOC is a development image and as such, it contains many development tools, libraries, unit tests and examples that will be useless and will consume memory unnecessarily.
+
+Let's start by configuring Seaside and hiding demo applications and development tools:
 
 [[[
 "Seaside Deployment configuration"
@@ -72,7 +72,7 @@ WAAdmin defaultDispatcher
     at: 'files'.
 ]]]
 
-Now, you can load the TinyBlog application:
+Now, if you used a fresh image, you can load the TinyBlog application:
 
 [[[
 "Load TinyBlog"
