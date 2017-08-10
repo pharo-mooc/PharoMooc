@@ -263,7 +263,7 @@ Figure *@authentification* shows what is displayed when the user click on the 'S
 
 !!!Administration of Posts
 
-We will create two components. The first one will be a report that contains all posts and the second one will contain this report. The report will be automatically generated with Magritte as a Seaside component and we could have only one component. However, we believe that sperating the administration component from the report is a good pratice regarding for evolution.  Let's start by the administration component.
+We will create two components. The first one will be a report that contains all posts and the second one will contain this report. The report will be automatically generated with Magritte as a Seaside component and we could have only one component. However, we believe that separating the administration component from the report is a good pratice regarding for evolution.  Let's start by the administration component.
 
 !!!!Creating the Administration Component
 
@@ -307,7 +307,7 @@ Figure *@adminSimple* illustrates what you obtain after logging in into your app
 
 !!!!The Report Component
 
-The list of posts is displayed by a dynamically generated report with Magritte. We use Magritte here to create the fonctionnalities of the administration part of TinyBlog (list, create, edit and remove posts). For modularity purpose, we create a Seaside component for the report.
+The list of posts is displayed by a dynamically generated report with Magritte. We use Magritte here to create the fonctionalities of the administration part of TinyBlog (list, create, edit and remove posts). For modularity purpose, we create a Seaside component for the report.
 
 [[[
 TBSMagritteReport subclass: #TBPostsReport
