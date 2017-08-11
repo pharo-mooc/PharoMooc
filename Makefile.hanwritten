@@ -1,0 +1,58 @@
+
+OUTPUT_DIRECTORY = book-result
+
+# TEXT_LATEX_TEMPLATE = support/templates/chapter.html.template
+# TEXT_FILES :=  $(shell grep \.pillar pillar.conf | grep -e Roadmap -e Exercises | tr "\t" " " | tr "\"" " " | tr " ," " " | tr -s " " | xargs)
+# TEXT_FILES_DIRS := $(shell echo $(TEXT_FILES) | xargs dirname | uniq)
+
+SLIDES_HTML_TEMPLATE = support/templates/presentation.deckjs.template
+SLIDES_TEMPLATE = support/templates/slides.pharobeamer.template
+SLIDES_SOURCE_DIRECTORY = Slides
+SLIDES_PILLAR_FILES    := $(shell grep \.pillar pillar.conf | grep $(SLIDES_SOURCE_DIRECTORY)\/ | tr "\t" " " | tr "\"" " " | tr " ," " " | tr -s " " | xargs)
+SLIDES_PILLAR_FILES_DIRS := $(shell echo $(SLIDES_PILLAR_FILES) | xargs dirname | uniq)
+SLIDES_PDF_FILES := $(addprefix $(OUTPUT_DIRECTORY)/,$(SLIDES_PILLAR_FILES:%.pillar=%.pdf))
+SLIDES_PDF_FILES_DIRS := $(addprefix $(OUTPUT_DIRECTORY)/,$(SLIDES_PILLAR_FILES_DIRS))
+
+NO_COLOR=\033[0m
+# OK_COLOR=\033[32;01m
+# ERROR_COLOR=\033[31;01m
+YELLOW_COLOR=\033[33;01m
+ 
+MSG=$(YELLOW_COLOR)++ Compile $(@:%.tex.json=%.pdf)$(NO_COLOR)
+PRINT_MSG = printf "$(MSG)\n"
+	
+all: initDir $(SLIDES_PDF_FILES) $(TEXT_PDF_FILES)
+
+test: initDir book-result/Slides/Week1/C019-W1S04-PharoModelInaNushell.pdf
+	open book-result/Slides/Week1/C019-W1S04-PharoModelInaNushell.pdf
+
+initDir:
+	@mkdir -p $(OUTPUT_DIRECTORY)
+	@cp -r support ${OUTPUT_DIRECTORY}
+	@mkdir -p ${SLIDES_PDF_FILES_DIRS}
+	@test -h ${OUTPUT_DIRECTORY}/figures || ln -s ../${SLIDES_SOURCE_DIRECTORY}/figures ${OUTPUT_DIRECTORY}/figures
+	
+$(OUTPUT_DIRECTORY)/%.tex.json: %.pillar
+	@$(PRINT_MSG)
+	./pillar export --to="Beamer" --OUTPUT_DIRECTORY=${OUTPUT_DIRECTORY} --outputFile=$(<:%.pillar=%.tex.json) $<
+
+$(OUTPUT_DIRECTORY)/%.tex: $(OUTPUT_DIRECTORY)/%.tex.json
+	./mustache --data=$< --template=${SLIDES_TEMPLATE} > $@ 
+
+$(OUTPUT_DIRECTORY)/%.pdf: $(OUTPUT_DIRECTORY)/%.tex $(SLIDES_TEMPLATE)
+	# latexmk -silent -outdir=`dirname $@` -aux-directory=`dirname $@` -pdf $<
+	latexmk -silent -cd -pdf $< 
+	@rm -f `dirname $@`/*.aux `dirname $@`/*.fls `dirname $@`/*.log `dirname $@`/*.fdb_latexmk `dirname $@`/*.listing `dirname $@`/*.nav `dirname $@`/*.out `dirname $@`/*.snm `dirname $@`/*.toc `dirname $@`/*.vrb `dirname $@`/*.json `dirname $@`/*.tex 
+
+$(OUTPUT_DIRECTORY)/%.html.json: %.pillar copySupport
+	./pillar export --to="DeckJS" --OUTPUT_DIRECTORY=$(OUTPUT_DIRECTORY) $<
+
+$(OUTPUT_DIRECTORY)/%.html: $(OUTPUT_DIRECTORY)/%.html.json
+	./mustache --data=$< --template=${SLIDES_HTML_TEMPLATE} > $@
+
+clean:
+	rm -fr ${OUTPUT_DIRECTORY}
+
+# .PRECIOUS: %.tex
+
+.SECONDARY:

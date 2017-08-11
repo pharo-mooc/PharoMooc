@@ -1,15 +1,12 @@
 {
 	"title":"To the Roots of Objects",
 	"subtitle":"Learning from beauty",
-	"author":"Stephane Ducasse",
-	"complement":"http://stephane.ducasse.free.fr/ \\\\ stephane.ducasse@inria.fr"
+	"renderStructureAsSlide": false
 }
 
+${toc:depthLevel=2|level=0|highlight=false}$
 
-${toc:depthLevel=2|level=0|highlight=0}$
-
-%Les sections ne sont pas des titres de slide mais définnissent la structure du doucment. Il est possible de rajouter "renderStructureAsSlide":false dans pillar.conf pour ne pas créer de slide à partir d'un titre.
-
+%Les sections ne sont pas des titres de slide mais définnissent la structure du document. Il est possible de rajouter "renderStructureAsSlide":false dans pillar.conf pour ne pas créer de slide à partir d'un titre.
 
 ${slide:title=License}$
 
@@ -19,7 +16,7 @@ ${slide:title=License}$
 ! Introduction
 
 %
-${toc:depthLevel=1|level=0|highlight=1}$
+${toc:depthLevel=1|level=0|highlight=true}$
 
 
 ${slide:title=Really?!|label=really}$
@@ -85,7 +82,7 @@ In Pharo booleans have nothing special
 
 ${slide:title=Lazy Logical Operators}$
 
-	*LINK>@frm:really*
+	*LINK>@really*
 
 [[[language=smalltalk 
 	false and: [1 error: 'crazy']
@@ -93,7 +90,7 @@ ${slide:title=Lazy Logical Operators}$
 ]]]
 
 ! Exercices
-${toc:depthLevel=1|level=0|highlight=1}$
+${toc:depthLevel=1|level=0|highlight=true}$
 
 !! Exercise 1: Implement not
 
@@ -111,7 +108,7 @@ true not
 
 !!Exercise 2: Implement | (Or) ifTrue: ifFalse:
 
-${toc:depthLevel=2|level=0|highlight=1}$
+${toc:depthLevel=2|level=0|highlight=true}$
 
 ${slide:title=Exercise 2\: Implement \| (Or)}$
 
@@ -142,7 +139,7 @@ true ifTrue: [ 3 ] ifFalse: [ 5 ]
 
 ! Boolean Implementation
 
-${toc:depthLevel=1|level=0|highlight=1}$
+${toc:depthLevel=1|level=0|highlight=true}$
 
 ${slide:title=Booleans Implementation Hint One}$
 
@@ -282,7 +279,7 @@ ${slide:title=Implementation Note}$
 
 ! So what ?
 
-${toc:depthLevel=1|level=0|highlight=1}$
+${toc:depthLevel=1|level=0|highlight=true}$
 
 ${slide:title=Ok so what?}$
 
@@ -325,7 +322,7 @@ ${slide:title=Follow-up: Implement ternary logic}$
 
 ! Summary
 
-${toc:depthLevel=1|level=0|highlight=1}$
+${toc:depthLevel=1|level=0|highlight=true}$
 
 ${slide:title=Summary}$
 - Tell, do not ask
