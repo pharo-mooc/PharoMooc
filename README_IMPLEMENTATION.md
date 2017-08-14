@@ -30,3 +30,8 @@ This is super slow since it recompiles everything stupidly.
 The folder ForPharo40 (which could be in a separate branch) contains the latest green Pillar40 build 
 
 ## Pillar 50
+
+- Checkout branch migrateToPharo5 of https://github.com/SquareBracketAssociates/PharoMooc.git
+- ./download.sh
+- ./pillar makefile
+- make
