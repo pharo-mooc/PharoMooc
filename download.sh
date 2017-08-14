@@ -108,4 +108,4 @@ if [[ $should_prepare_image -eq 1 ]]; then
 fi
 
 # Load independant project to generate Makefile 
-${PHARO_VM} Pharo.image eval --save "Gofer new smalltalkhub: 'metacello'; package: 'ConfigurationOfMetacello'; load."
+${PHARO_VM} Pharo.image eval --save "Gofer new smalltalkhubUser: 'Pier' project: 'Pillar'; package: 'Pillar-MakefileGeneration'; load."
