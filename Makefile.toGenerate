@@ -1,40 +1,75 @@
-OUTPUT_DIRECTORY = book-result
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Variables
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TEXT_LATEX_TEMPLATE = support/templates/chapter.latex.template
-SLIDES_TEMPLATE = support/templates/slides.pharobeamer.template
+outputDirectory = book-result
 
-NO_COLOR=\033[0m
-YELLOW_COLOR=\033[33;01m
- 
-MSG=$(YELLOW_COLOR)++ Compile $@$(NO_COLOR)
+NO_COLOR = \033[0m
+YELLOW_COLOR = \033[33;01m
+MSG = $(YELLOW_COLOR)++ Compile $@$(NO_COLOR)
 PRINT_MSG = printf "$(MSG)\n"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Rules
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+all: $(outputDirectory) slides
 	
-all: initDir book-result/Slides/Week1/C019-W1S04-PharoModelInaNushell.pdf book-result/Roadmap/MoocRoadmap-FR.pdf
+$(outputDirectory): 
+	mkdir -p $(outputDirectory)
 
-initDir:
-	@mkdir -p $(OUTPUT_DIRECTORY)
-	@cp -r support ${OUTPUT_DIRECTORY}
-	# test -h ${OUTPUT_DIRECTORY}/figures || ln -s ../${SLIDES_SOURCE_DIRECTORY}/figures ${OUTPUT_DIRECTORY}/figures
+.phony: all clean slides slidesbeamer
+	
+clean:
+	rm -fr $(outputDirectory)
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Slides
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+slides: slidesbeamer
+
+slidesbeamer: slidesbeamersupportcommands book-result/Slides/Week1/C019-W1S00-Schedule.pdf book-result/Slides/Week1/C019-W1S04-PharoModelInaNushell.pdf book-result/Slides/Week4/C019-W4S03-InheritanceAndLookup-3-Super.pdf
+
+slidesbeamersupportcommands:
+	@mkdir -p $(outputDirectory)/figures
+	@cp Slides/figures/* $(outputDirectory)/figures
+	@mkdir -p $(outputDirectory)/Slides/Week1
+	@cp Slides/Week1/*.pdf $(outputDirectory)/Slides/Week1/
+	@mkdir -p $(outputDirectory)/Slides/ExtraSlides
+	@cp Slides/ExtraSlides/*.pdf $(outputDirectory)/Slides/ExtraSlides/
+	
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Slides - Beamer exporter
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+slidesbeamertemplate = support/templates/slides.pharobeamer.template
+
+book-result/Slides/Week1/C019-W1S00-Schedule.pdf: Slides/Week1/C019-W1S00-Schedule.pillar
+	@$(PRINT_MSG)
+	@mkdir -p `dirname $@`
+	./pillar export --to="Beamer" --outputFile=$(<:%.pillar=%.tex.json) $<
+	./mustache --data=$(@:%.pdf=%.tex.json) --template=$(slidesbeamertemplate) > $(@:%.pdf=%.tex)
+	latexmk -silent -quiet -cd -pdf -f $(@:%.pdf=%.tex) 
+	@rm -f $(@:%.pdf=%).{aux,fls,log,fdb_latexmk,listing,nav,out,snm,toc,vrb,json,tex,tex.json}
+	
 book-result/Slides/Week1/C019-W1S04-PharoModelInaNushell.pdf: Slides/Week1/C019-W1S04-PharoModelInaNushell.pillar
 	@$(PRINT_MSG)
 	@mkdir -p `dirname $@`
-	./pillar export --to="Beamer" --OUTPUT_DIRECTORY=${OUTPUT_DIRECTORY} --outputFile=$(<:%.pillar=%.tex.json) $<
-	./mustache --data=$(@:%.pdf=%.tex.json) --template=${SLIDES_TEMPLATE} > $(@:%.pdf=%.tex) 
-	latexmk -silent -quiet -cd -pdf $(@:%.pdf=%.tex) 
-	@rm -f $(@:%.pdf=%).{aux,fls,log,fdb_latexmk,listing,nav,out,snm,toc,vrb,json,tex,tex.json}
-
-book-result/Roadmap/MoocRoadmap-FR.pdf: Roadmap/MoocRoadmap-FR.pillar
-	@$(PRINT_MSG)
-	@mkdir -p `dirname $@`
-	./pillar export --to="latex" --OUTPUT_DIRECTORY=${OUTPUT_DIRECTORY} --outputFile=$(<:%.pillar=%.tex.json) $<
-	./mustache --data=$(@:%.pdf=%.tex.json) --template=${TEXT_LATEX_TEMPLATE} > $(@:%.pdf=%.tex)
-	latexmk -silent -quiet -cd -pdflua $(@:%.pdf=%.tex)
+	./pillar export --to="Beamer" --outputFile=$(<:%.pillar=%.tex.json) $<
+	./mustache --data=$(@:%.pdf=%.tex.json) --template=$(slidesbeamertemplate) > $(@:%.pdf=%.tex)
+	latexmk -silent -quiet -cd -pdf -f $(@:%.pdf=%.tex)
 	@rm -f $(@:%.pdf=%).{aux,fls,log,fdb_latexmk,listing,nav,out,snm,toc,vrb,json,tex,tex.json}
 	
-clean:
-	rm -fr ${OUTPUT_DIRECTORY}
-
-# .PRECIOUS: %.tex
-
-.SECONDARY:
+book-result/Slides/Week4/C019-W4S03-InheritanceAndLookup-3-Super.pdf: Slides/Week4/C019-W4S03-InheritanceAndLookup-3-Super.pillar
+	@$(PRINT_MSG)
+	@mkdir -p `dirname $@`
+	./pillar export --to="Beamer" --outputFile=$(<:%.pillar=%.tex.json) $<
+	./mustache --data=$(@:%.pdf=%.tex.json) --template=$(slidesbeamertemplate) > $(@:%.pdf=%.tex)
+	latexmk -silent -quiet -cd -pdf -f $(@:%.pdf=%.tex)
+	@rm -f $(@:%.pdf=%).{aux,fls,log,fdb_latexmk,listing,nav,out,snm,toc,vrb,json,tex,tex.json}
+	
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Slides - html exporter
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

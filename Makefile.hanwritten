@@ -34,7 +34,7 @@ initDir:
 	
 $(OUTPUT_DIRECTORY)/%.tex.json: %.pillar
 	@$(PRINT_MSG)
-	./pillar export --to="Beamer" --OUTPUT_DIRECTORY=${OUTPUT_DIRECTORY} --outputFile=$(<:%.pillar=%.tex.json) $<
+	./pillar export --to="Beamer" --outputFile=$(<:%.pillar=%.tex.json) $<
 
 $(OUTPUT_DIRECTORY)/%.tex: $(OUTPUT_DIRECTORY)/%.tex.json
 	./mustache --data=$< --template=${SLIDES_TEMPLATE} > $@ 

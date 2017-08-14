@@ -3,7 +3,7 @@
 CPMV=cp
 # CPMV=mv
 
-SRC=book-result
+SRC=build
 DEST=PharoMooc
 
 rm -fr $DEST
