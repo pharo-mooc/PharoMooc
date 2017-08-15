@@ -1,4 +1,4 @@
-#Pharo MOOC
+# Pharo MOOC
 
 Official page: [Pharo MOOC](http://mooc.pharo.org)
 
@@ -12,7 +12,7 @@ Outline of the MOOC is in Roadmap/Roadmap.pillar.
 
 *Slides/* contains all slides of the MOOC based on week decomposition. It also contains other slides that we are revisiting in the other subfolders. 
 
-#Installation and Compilation
+# Installation and Compilation
 
 	git clone git@github.com:SquareBracketAssociates/PharoMooc.git
 	cd PharoMooc
