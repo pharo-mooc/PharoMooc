@@ -1,8 +1,12 @@
 ! Challenge 2
 
-Extraire des sprites d'un grand png tel que ceux que l'on trouve sur 
- *http://gaurav.munjal.us/Universal-LPC-Spritesheet-Character-Generator/*. L'image ci-dessous montre un sprite une fois habillé. 
+La figure *@spritesWebSite* montre une capture d'écran indiquant comment télécharger un fichier image (nommez-le ==sprites.png== par exemple) contenant des sprites personnalisées à partir du site web :
 
+*http://gaurav.munjal.us/Universal-LPC-Spritesheet-Character-Generator/*.
+
+Utiliser Pharo pour lire le fichier image ==sprites.png== et le découper en un tableau d'éléments graphiques (instances de la classe ==Form==). 
+La capture d'écran *@spritesAsForms* montre le résultat attendu à travers un inspecteur sur un tableau d'objets ==Form== chacun représentant une seule sprite.
+ 
 !!! Indices :
 - Vous pouvez lire et convertir un PNG en une Form (un élément graphique de base de Pharo) en utilisant ==PNGReadWriter==.
 - Regardez le message ==binaryReadStreamDo:==.
@@ -13,4 +17,6 @@ Extraire des sprites d'un grand png tel que ceux que l'on trouve sur
 - Vous pouvez copier une partie d'une form en utilisant le message ==form copy: aRectangle==.
 - Regardez les résultats d'expressions avec un inspecteur est une super idée. 
 
-+>file://figures/sprites.png|width=80+
++Téléchargement de sprites personnalisées.>file://figures/spritesWebSite.png|width=60|label=spritesWebSite+
+
++Inspecteur sur une collection de Sprites (objets ==Form==)>file://figures/spritesAsForms.png|width=50|label=spritesAsForms+
