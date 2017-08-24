@@ -42,7 +42,6 @@ $CPMV $SRC/Exercises/Challenge1-EN.pdf $DEST
 DEST=PharoMooc/Week3
 mkdir -p $DEST
 $CPMV $SRC/Slides/Week3/*.pdf $DEST
-$CPMV $SRC/Slides/Week3/*.erratum $DEST
 $CPMV $SRC/Exercises/Exo-ObjectsExpressions-Solution.pdf $DEST
 $CPMV $SRC/Exercises/Exo-ObjectsExpressions-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-Expressions-Rewriting.pdf $DEST
@@ -57,7 +56,6 @@ $CPMV $SRC/Exercises/Exo-W3-TinyBlog-Teapot-EN.pdf $DEST
 DEST=PharoMooc/Week4
 mkdir -p $DEST
 $CPMV $SRC/Slides/Week4/*.pdf $DEST
-$CPMV $SRC/Slides/Week4/*.erratum $DEST
 $CPMV $SRC/Exercises/Challenge2-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge2-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-Expressions-Rewriting-Solution.pdf $DEST
@@ -73,7 +71,6 @@ $CPMV $SRC/Exercises/Exo-W4-TinyBlog-VoyageMongo-EN.pdf  $DEST
 DEST=PharoMooc/Week5
 mkdir -p $DEST
 $CPMV $SRC/Slides/Week5/*.pdf $DEST
-$CPMV $SRC/Slides/Week5/*.erratum $DEST
 $CPMV $SRC/Exercises/Challenge3-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge3-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge4-EN.pdf $DEST
