@@ -1,0 +1,26 @@
+{
+    "package": {
+        "name": "PharoMooc",
+        "repo": "wip",
+        "subject": "squarebracketassociates",
+        "desc": "PharoMooc",
+        "licenses": ["MIT"],
+        "website_url": "https://github.com/SquareBracketAssociates/PharoMooc",
+        "issue_tracker_url": "https://github.com/SquareBracketAssociates/PharoMooc/issues",
+        "vcs_url": "https://github.com/SquareBracketAssociates/PharoMooc.git",
+        "labels": ["work-in-progress"]
+    },
+
+    "version": {
+        "name": "latest",
+        "desc": "Latest successful build"
+    },
+
+    "files": [
+        {
+            "includePattern": "book-result/.*",
+            "matrixParams": { "override": 1 }
+        }
+    ],
+    "publish": true
+}

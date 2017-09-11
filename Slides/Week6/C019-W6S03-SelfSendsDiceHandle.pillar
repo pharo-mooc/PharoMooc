@@ -1,26 +1,24 @@
 {
-    "title":"Dice new vs. self class new",
+    "title":"DieHandle new vs. self class new",
 	"slidesid" : "W6S03"
-	
-	
 }
 
 ${slide:title=From the Exercise}$
 
 To support 
 [[[
-(DiceHandle new add: (Dice faces: 4); yourself) 
-	+ (DiceHandle new add: (Dice faces: 6); yourself)
+(DieHandle new add: (Die faces: 4); yourself) 
+	+ (DieHandle new add: (Die faces: 6); yourself)
 ]]]
 
 We defined ==\+== as 
 
 [[[
-DiceHandle >> + aDiceHandle
+DieHandle >> + aDieHandle
   | handle |
-  handle := DiceHandle new.
-  self dice do: [ :each | handle addDice: each ]. 
-  aDiceHandle dice do: [ :each | handle addDice: each ]. 
+  handle := DieHandle new.
+  self dice do: [ :each | handle addDie: each ]. 
+  aDieHandle dice do: [ :each | handle addDie: each ]. 
   ^ handle
 ]]]
 
@@ -28,14 +26,14 @@ ${slide:title=What Is The Difference...}$
 
 Between 
 [[[
-DiceHandle >> + aDiceHandle
+DieHandle >> + aDieHandle
   | handle |
-  handle := DiceHandle new.
+  handle := DieHandle new.
 ]]]
 
 And 
 [[[
-DiceHandle >> + aDiceHandle
+DieHandle >> + aDieHandle
   | handle |
   handle := self class new.
 ]]]
@@ -44,47 +42,47 @@ Let us see....
 
 ${slide:title=What If We Create A New Subclass}$
 [[[
-DiceHandle subclass: MemoDiceHandle
+DieHandle subclass: MemoDieHandle
   ....
 ]]]
 
 [[[
-(MemoDiceHandle new add: (Dice faces: 4); yourself) 
-   + (MemoDiceHandle new add: (Dice faces: 6); yourself)
-> aDiceHandle
+(MemoDieHandle new add: (Die faces: 4); yourself) 
+   + (MemoDieHandle new add: (Die faces: 6); yourself)
+> aDieHandle
 ]]]
 
-We get a ==DiceHandle== instance back and not a ==MemoDiceHandle== instance!!!
+We get a ==DieHandle== instance back and not a ==MemoDieHandle== instance!!!
 
 ${slide:title=Solution 1: Creating a Hook}$
 
 [[[
-DiceHandle >> + aDiceHandle
+DieHandle >> + aDieHandle
   | handle |
   handle := self handleClass new.
-  self dice do: [ :each | handle addDice: each ]. 
-  aDiceHandle dice do: [ :each | handle addDice: each ]. 
+  self dice do: [ :each | handle addDie: each ]. 
+  aDieHandle dice do: [ :each | handle addDie: each ]. 
   ^ handle
 ]]]
 
 [[[
-DiceHandle >> handleClass
-  ^ DiceHandle
+DieHandle >> handleClass
+  ^ DieHandle
 ]]] 
 
 A subclass may redefine ==handleClass== 
 
 [[[
-MemoDiceHandle >> handleClass
-  ^ MemoDiceHandle
+MemoDieHandle >> handleClass
+  ^ MemoDieHandle
 ]]] 
 
 ${slide:title=Solution 1: Creating a Hook}$
 
 [[[
-(MemoDiceHandle new add: (Dice faces: 4); yourself) 
-   + (MemoDiceHandle new add: (Dice faces: 6); yourself)
-> aMemoDiceHandle
+(MemoDieHandle new add: (Die faces: 4); yourself) 
+   + (MemoDieHandle new add: (Die faces: 6); yourself)
+> aMemoDieHandle
 ]]]
 
 We get an instance of the subclass!
@@ -98,11 +96,11 @@ Let us see
 ${slide:title=Solution 2}$
 
 [[[
-DiceHandle >> + aDiceHandle
+DieHandle >> + aDieHandle
   | handle |
   handle := self class new.
-  self dice do: [ :each | handle addDice: each ]. 
-  aDiceHandle dice do: [ :each | handle addDice: each ]. 
+  self dice do: [ :each | handle addDie: each ]. 
+  aDieHandle dice do: [ :each | handle addDie: each ]. 
   ^ handle
 ]]]
 
@@ -111,10 +109,10 @@ DiceHandle >> + aDiceHandle
 
 ${slide:title=Conclusion}$
 
-If we define a subclass of ==DiceHandle==, 
+If we define a subclass of ==DieHandle==, 
 and send the message ==\+== to an instance
 
-- With ==DiceHandle new==, ==\+== does not return an instance of the subclass but of ==DiceHandle==
+- With ==DieHandle new==, ==\+== does not return an instance of the subclass but of ==DieHandle==
 
 - With ==self class new==, ==\+== returns an instance of the receiver: an instance of a potential subclass
 
