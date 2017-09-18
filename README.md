@@ -16,9 +16,9 @@ Outline of the MOOC is in Roadmap/Roadmap.pillar.
 
 	git clone git@github.com:SquareBracketAssociates/PharoMooc.git
 	cd PharoMooc
-	git checkout migrateToPharo5
 	./download.sh
 	./pillar makefile
 	make
+	./deploy.sh
 
-all results should be in *build* subdirectory 
+all results should be in *pharoMooc* subdirectory 
