@@ -1,7 +1,11 @@
 ! Challenge 2
 
-Extract sprites from a larger png file such as the one we can find at *http://gaurav.munjal.us/Universal-LPC-Spritesheet-Character-Generator/*.
-The picture below is showing one of the sprite collection. 
+Figure *@spritesWebSite* shows a screenshot explaining how to download an image file (name it ==sprites.png== for example) that contains customized sprites from:
+
+*http://gaurav.munjal.us/Universal-LPC-Spritesheet-Character-Generator/*.
+
+Then, use Pharo to read this image file ==sprites.png== and split it in graphical elements instances of the ==Form== class.
+Figure *@spritesAsForms* shows a screenshot of the expected result in a Pharo inspector which is a collection of ==Form== objects, each one representing one sprite.
 
 !!!Hints:
 - You can read and convert a PNG into a form (a graphics pharo basic element) using ==PNGReadWriter==.
@@ -13,4 +17,6 @@ The picture below is showing one of the sprite collection.
 - You can copy a part of a form using the message ==form copy: aRectangle==.
 - Looking at the results of expressions with the inspector is a great idea.
 
-+>file://figures/sprites.png|width=80+
++Downloading customized sprites.>file://figures/spritesWebSite.png|width=60|label=spritesWebSite+
+
++Inspector on a collection of Sprites (==Form== objects)>file://figures/spritesAsForms.png|width=50|label=spritesAsForms+
