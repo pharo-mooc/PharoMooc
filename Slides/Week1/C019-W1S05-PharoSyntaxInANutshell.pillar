@@ -61,7 +61,7 @@ ${slide:title=Getting the Pharo Logo from the Web}$
 - Message ==getPng:== is sent to the ==ZnEasy== class with a string as argument
 -- ==getPng:== is a keyword message 
 - =='http://pharo.org/web/files/pharo.png'== is a string
-- Messages ==asMorph== and ==openInWindow== are from left to right
+- Messages ==asMorph== and ==openInWindow== are executed from left to right
 
 ${slide:title=Syntactic Elements}$
 
@@ -177,7 +177,7 @@ ZnClient new
 ]]]
 
 - ==new== is a unary message sent to a class
-- ==queryAt:put:== is a keyword message
+- ==url:==, ==queryAt:put:== are keyword messages
 - ==get== is a unary message
 - ==;== (called a cascade) sends all messages to the same receiver
 
@@ -193,10 +193,10 @@ ${slide:title=Conditionals are also Message Sends}$
 
 [[[
 factorial
-  "Answer the factorial of the receiver."
-  self = 0 ifTrue: [ ^ 1 ].
-  self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
-  self error: 'Not valid for negative integers'
+   "Answer the factorial of the receiver."
+   self = 0 ifTrue: [ ^ 1 ].
+   self > 0 ifTrue: [ ^ self * (self - 1) factorial ].
+   self error: 'Not valid for negative integers'
 ]]]
 
 - ==ifTrue:== is sent to an object, a boolean!
@@ -207,7 +207,7 @@ You can read their implementation, this is not magic!
 ${slide:title=Loops are also Message Sends}$
 
 [[[
-1 to: 4 do: [ :i| Transcript << i ]
+1 to: 4 do: [ :i | Transcript << i ]
 > 1
 > 2
 > 3

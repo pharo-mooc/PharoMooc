@@ -1,0 +1,29 @@
+sudo: required
+services:
+- docker
+
+before_install:
+- docker pull dpollet/texlive:pillar
+
+script: |
+  docker run --tty --rm --volume $PWD:/work dpollet/texlive:pillar bash -c "\
+    wget --quiet --output-document=- 'https://raw.githubusercontent.com/pillar-markup/pillar/master/download.sh' | bash \
+    && ./compile.sh "
+
+deploy:
+- provider: bintray
+  file: .bintray.json
+  on:
+    repo: SquareBracketAssociates/PharoMooc
+  skip_cleanup: true
+  user: ducasse
+  key:
+    secure: P+8c/3wheWPWVuXe0LIrtdmM+x+ama7sFgKLSSvYHd7xnmAzk9KHa2G7xKVHBZJYMo3UgrnGhhvlzBKrT9l2gE0mE1jBmtmpPUv4xR6YmOs+PLJWyinahW3wIaVwHk7TPxnb3hl2xr8LGV+R6lt4vHIYliVq2gVFhOzA7vhpfHQ7vXtc7A2crEX3nUYMQ8G7YubF3cosHCxhOUC2ttVKyT/Eo/s7Tx64Qs2Kon8c99Y7k7+srsWgb0B6XEXbuCS9wo9aTcTjSjGgbqDFo57S4BlDSj4FuVp20I8QLPWRWocRGbB09FMxMHIQJBXVy4dF96uVb5kEHBa8BUIq94ruf+TDjMxOBMI2omO3mC+6WhdfOUCaF+7vbvGiyO/1rcTGaeYHxfmS65LzsDA+KC/T/DBRBZ7XicTtexbsoFli8dZVteRF4psWC6NU7IRrG+8752kEsDQQUFF1RqxovOCGtBvg1vmhFR7b/Wx1L820D6/h33WBlV2rn5bBXH4t6IqhB4345YaBsPxJVkxxzs7vcdBB5q/jgO7unIZO5Skbu8fu1DsfvPC0jVb+g5+eYorrbm7VRLNbsTvaHbJiegHMfrQyVnWfc3x/kITeUOr4xaQzdoZLx5UCzRjFTpmR5m+/N/Dvr75CGJpH6ukV5Q1pmd3BAb3hqGGlqe2qLxcqJDA=
+- provider: releases
+  file_glob: true
+  file: book-result/*
+  on:
+    tags: true
+  skip_cleanup: true
+  api_key:
+    secure: pRfu3fr35BzqQDi1ul0SubPSwO8zcyIidqLRZPz3XIrH4qoy1Zgnq785dmB7ziNQqH+VJyh7askSFY3JLxL0d4P0eUgj2ZDIOhJsUQQ/ihevOBWbxlMOoEPjQfzA11l8WrNCQ566KrcYiISRi7bCg698kPTWSRwOmmvqXOJe5zGkuUbVmMNUV2oxaNV4JC8kVyVWHYy0nNMLEX/hzRZRh1+8K34/ds+fZ7irLrbDWMbKGHCyuLCSqv+zJJdu99nWLTclrCxFzK4DEHaMlFiO7wkUpyQLwZ38EDnb3E7iv045jSqCx3XB+DMRG1Da2/9BIXl0mho5ELdEvfGVAbjI2no5FWd0H1cs4/banAePCFnM7ZscJBaPWgVajB7EzrcADJUoxpmU6+6n1aIC3CnjscfAHqSAKGv8CO/Jh+Uirc8ATRpSqa73f2Nnj9tRCqwCOnFOCEzu0w5l3Ppz2Qpif04P+QbebZehSVaBJ4W01R2i8Rac3IuZDhZVaek1X24HFxUOd/rvHpbhz8eeANdnsWCTkAm+0sD+iKsWKICRMxFZfCK/SPldAcjXZsOsEMTqfx7ZWyCc7GeesQWcmW+z3shziyQd9tdeArJWLwacly3hH3WeyuUD5JyPF9klvDBtHgTVajdU4yp+3oXsrtTmetnBz+RESxQGdLgZRlQBQog=

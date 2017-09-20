@@ -1,34 +1,24 @@
 # Pharo MOOC
 
+Official page: [Pharo MOOC](http://mooc.pharo.org)
+
 Outline of the MOOC is in Roadmap/Roadmap.pillar.
 
 [HTML outline](https://ci.inria.fr/pharo-contribution/job/PharoMooc/lastSuccessfulBuild/artifact/book-result/Roadmap/Roadmap.html)
 
+## Key folders
 
-Key folders
+*Roadmap/Roadmap.pillar* describes the week organisation including lectures, exercises for the seven week of the mooc
 
-Roadmap/Roadmap.pillar describes the week organisation
-	which lectures, exercises for the seven week of the mooc
+*Slides/* contains all slides of the MOOC based on week decomposition. It also contains other slides that we are revisiting in the other subfolders. 
 
-Slides/ represents the folder based on week decomposition
-	Week1
-	...
-	Week7
-It also contains the current slides that we are revisiting in the other subfolders. 
+# Installation and Compilation
 
-
-### To install once you clone
-
+	git clone git@github.com:SquareBracketAssociates/PharoMooc.git
+	cd PharoMooc
 	./download.sh
+	./pillar makefile
+	make
+	./deploy.sh
 
-### To generate the slides
-
-	./compile.sh
-
-It will generate all the slides in html and pdf in the book-result folder
-
-You can compile one slide
-	./compile1Slide.sh
-
-The results are always put in the book-result. 
-
+all results should be in *pharoMooc* subdirectory 
