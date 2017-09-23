@@ -1,0 +1,887 @@
+﻿1
+00:00:01,190 --> 00:00:05,220
+Neste video, vamos mostrar como
+criar pacotes, classes, e descrever testes.
+
+2
+00:00:05,770 --> 00:00:09,100
+A primeira coisa a se fazer
+é abrir o "System Browser".
+
+3
+00:00:09,530 --> 00:00:12,590
+O System Browser permite navegar pacotes.
+Aqui estão os pacotes.
+
+4
+00:00:14,260 --> 00:00:21,790
+Para criar um pacote, vamos clicar
+em "Add Package", digitar "MyCounter".
+
+5
+00:00:22,280 --> 00:00:27,050
+Como temos muitos pacotes e não
+queremos ver todos, seria bom filtrá-los.
+
+6
+00:00:27,950 --> 00:00:30,000
+Temos nosso pacote "MyCounter".
+
+7
+00:00:30,150 --> 00:00:33,200
+E aqui, vamos definir uma classe
+vamos chamá-la "Counter"
+
+8
+00:00:33,420 --> 00:00:37,550
+e ela tem uma variável de instância, "count".
+
+9
+00:00:38,140 --> 00:00:42,290
+O pequeno ícone laranja ali
+indica que o código não foi salvo.
+
+10
+00:00:42,610 --> 00:00:45,690
+Vamos compilar o código,
+com a função "Accept".
+
+11
+00:00:46,290 --> 00:00:49,570
+E agora, vemos a classe
+"Counter" que foi compilada.
+
+12
+00:00:49,830 --> 00:00:56,290
+O sistema investiga a classe e mostra dicas
+de qualidade de código. Veremos isso depois.
+
+13
+00:01:00,790 --> 00:01:03,580
+Tem uma exclamação em vermelho
+porque não escrevemos comentários.
+
+14
+00:01:03,720 --> 00:01:13,880
+Então vamos escrever um primeiro
+comentário: "Sou um contador simples".
+
+15
+00:01:45,790 --> 00:01:49,230
+Vamos escrever um pequeno exemplo
+para que o leitor entenda
+
+16
+00:01:49,397 --> 00:01:53,050
+como esta classe funciona:
+"Counter new"...
+
+17
+00:01:55,750 --> 00:02:04,280
+"Counter increment increment"
+
+18
+00:02:04,420 --> 00:02:08,900
+"Counter count".
+Aqui, deve ser igual a dois.
+
+19
+00:02:09,880 --> 00:02:14,180
+De novo, o código não foi salvo,
+então vamos compilá-lo.
+
+20
+00:02:14,347 --> 00:02:16,540
+Foi salvo.
+Não temos mais um contador.
+
+21
+00:02:16,850 --> 00:02:20,050
+Agora, vamos definir métodos de acesso.
+
+22
+00:02:21,940 --> 00:02:24,770
+Colocamos métodos de acesso
+sob o protocolo "accessing"
+
+23
+00:02:26,640 --> 00:02:31,540
+Digitamos: "count",
+retornando a variável "count".
+
+24
+00:02:33,160 --> 00:02:40,740
+Da mesma forma, digitamos ": aNumber"
+para fazer um método "setter"
+
+25
+00:02:46,190 --> 00:02:48,380
+Veja que eu modifiquei o método "count".
+
+26
+00:02:48,547 --> 00:02:50,770
+Você pode pensar que ele
+foi descartado, mas não, porque
+
+27
+00:02:50,937 --> 00:02:54,120
+toda vez que modifico um método
+com um nome diferente
+
+28
+00:02:54,287 --> 00:02:55,320
+ele cria um novo método.
+
+29
+00:02:55,487 --> 00:02:58,530
+Eu compilo o novo método,
+e tenho “count”.
+
+30
+00:03:01,160 --> 00:03:05,190
+Agora, podemos de fato testar
+nosso pequeno programa.
+
+31
+00:03:07,360 --> 00:03:14,700
+Eu abro o Playground,
+eu quero criar um contador
+
+32
+00:03:14,860 --> 00:03:23,020
+Quero criar um contador, adiciono
+um valor: "C count: 7"
+
+33
+00:03:23,200 --> 00:03:29,860
+Se eu perguntar qual seu valor,
+ele me mostra... 7
+
+34
+00:03:32,400 --> 00:03:37,140
+Agora, queremos escrever
+isso na forma de um teste
+
+35
+00:03:37,280 --> 00:03:40,440
+para que assim possamos
+executar isso automaticamente.
+
+36
+00:03:40,630 --> 00:03:42,910
+Vamos criar uma classe de teste.
+
+37
+00:03:43,077 --> 00:03:44,820
+Como criar uma classe
+de teste em Pharo?
+
+38
+00:03:45,000 --> 00:03:48,450
+Mudamos a superclasse,
+dizemos que ela herda "TestCase"
+
+39
+00:03:50,220 --> 00:03:56,140
+e vamos definir uma classe
+chamada "CounterTest".
+
+40
+00:03:56,910 --> 00:03:59,860
+Agora, vamos compilá-la.
+
+41
+00:04:00,660 --> 00:04:03,700
+Eu tenho uma classe
+"CounterTest" no meu sistema.
+
+42
+00:04:04,570 --> 00:04:10,030
+Vamos definir um novo método,
+eu vou adicioná-lo ao protocolo "tests".
+
+43
+00:04:11,620 --> 00:04:14,300
+Aqui eu posso definir
+um novo método.
+
+44
+00:04:14,467 --> 00:04:17,940
+Métodos de teste devem
+sempre começar com "test"
+
+45
+00:04:18,107 --> 00:04:21,690
+e estar em uma classe
+que herda "TestCase"
+
+46
+00:04:22,380 --> 00:04:30,620
+Vamos chamá-lo
+"testCounterisSetAndRead"
+
+47
+00:04:31,740 --> 00:04:36,540
+Temos praticamente nosso teste,
+já escrevemos quase tudo.
+
+48
+00:04:37,620 --> 00:04:40,330
+Vamos indentar um pouco melhor.
+
+49
+00:04:40,497 --> 00:04:51,180
+Criei meu contador, e aqui digito
+"self assert: ... equals: 7"
+
+50
+00:04:52,920 --> 00:05:01,040
+Esta expressão é equivalente a
+"self assert: c count = 7"
+
+51
+00:05:01,720 --> 00:05:04,640
+o que é mais prático.
+Quando você faz algo errado,
+
+52
+00:05:04,807 --> 00:05:08,470
+o resultado é mais elegante
+nesta primeira forma.
+
+53
+00:05:09,020 --> 00:05:10,910
+Vamos compilar.
+
+54
+00:05:12,790 --> 00:05:17,740
+Agora, posso executar meu teste.
+e <i>voilà</i>, meu teste está verde.
+
+55
+00:05:19,790 --> 00:05:26,180
+Quando você tem testes verdes,
+é uma boa hora para salvar seu código.
+
+56
+00:05:26,370 --> 00:05:27,930
+Em Pharo, você pode
+salvar sua imagem.
+
+57
+00:05:28,090 --> 00:05:29,600
+É o que vou fazer,
+vou salvar a imagem
+
+58
+00:05:29,740 --> 00:05:31,320
+Mas só a imagem não é o suficiente.
+
+59
+00:05:31,560 --> 00:05:36,820
+Vou mostrar como salvar o código
+em um sistema de versionamento.
+
+60
+00:05:37,070 --> 00:05:40,460
+Como eu não sei se
+você terá acesso à Internet,
+
+61
+00:05:40,560 --> 00:05:44,610
+Eu vou salvar o código
+em um repositório local.
+
+62
+00:05:44,770 --> 00:05:51,440
+Veja, existe esse diretório
+que aponta todos os pacotes
+
+63
+00:05:51,520 --> 00:05:55,360
+os quais eu posso trabalhar,
+e que eu ou o sistema instalamos.
+
+64
+00:05:55,770 --> 00:06:02,870
+Aqui, o sistema mostra pacotes com
+modificações que não foram salvas
+
+65
+00:06:03,070 --> 00:06:07,360
+Ignorando os dois primeiros, vemos que
+"MyPackage" tem um asterisco.
+
+66
+00:06:07,460 --> 00:06:10,760
+Isto significa que tenho código
+na imagem que não foi salvo.
+
+67
+00:06:12,130 --> 00:06:14,020
+O que eu vou fazer:
+vou clicar em "Save"
+
+68
+00:06:14,187 --> 00:06:17,320
+Escolho primeiro o repositório,
+e clico em "Save".
+
+69
+00:06:18,920 --> 00:06:29,600
+E digito "first version with
+accessors and a green test"
+
+70
+00:06:32,240 --> 00:06:36,530
+E "Accept". Agora, um pacote
+foi salvo. Vamos verificar.
+
+71
+00:06:36,697 --> 00:06:41,370
+Quando eu abrir este
+diretório, ele vai conter
+
+72
+00:06:42,410 --> 00:06:44,460
+vários pacotes instalados pelo sistema.
+
+73
+00:06:44,627 --> 00:06:48,470
+Mas em particular,
+se eu filtrar, irei achar
+
+74
+00:06:48,637 --> 00:06:51,130
+meu pacote e suas versões.
+
+75
+00:06:57,620 --> 00:07:00,740
+Aconselho que, toda vez que
+adicionar uma funcionalidade,
+
+76
+00:07:00,907 --> 00:07:03,460
+você automaticamente
+salve o código.
+
+77
+00:07:06,770 --> 00:07:12,130
+Agora, vamos definir um teste antes
+de implementar uma funcionalidade.
+
+78
+00:07:12,410 --> 00:07:15,560
+Vamos escrever um teste do que
+seria incrementar um contador.
+
+79
+00:07:19,020 --> 00:07:21,200
+"testIncrement"
+O que queremos obter?
+
+80
+00:07:26,330 --> 00:07:27,430
+Queremos criar um contador,
+
+81
+00:07:33,510 --> 00:07:38,400
+atribuir um valor inicial,
+
+82
+00:07:38,840 --> 00:07:43,410
+depois, incrementá-lo duas vezes.
+
+83
+00:07:44,100 --> 00:07:45,310
+E o que devo checar?
+
+84
+00:07:45,477 --> 00:07:51,870
+Que este contador
+tenha o valor correto.
+
+85
+00:07:57,900 --> 00:07:59,720
+Eu compilo.
+
+86
+00:08:03,000 --> 00:08:06,880
+Meu teste está vermelho porque
+eu não implementei, no contador,
+
+87
+00:08:07,510 --> 00:08:10,390
+as operações "increment" e "decrement".
+
+88
+00:08:11,520 --> 00:08:21,460
+E aqui, vou adicionar:
+"operations"... "increment".
+
+89
+00:08:22,550 --> 00:08:27,840
+Vamos escrever "self
+count 2: self count + 1"
+
+90
+00:08:27,920 --> 00:08:30,820
+Se usamos métodos de acesso
+internamente ou não,
+
+91
+00:08:30,920 --> 00:08:32,080
+é uma questão de estilo.
+
+92
+00:08:34,510 --> 00:08:40,780
+Similarmente, vamos definir "decrement".
+
+93
+00:08:42,380 --> 00:08:48,190
+Veja que há um teste em "increment",
+posso executá-lo e ele está verde.
+
+94
+00:08:48,357 --> 00:08:50,370
+Então tenho dois
+testes funcionando.
+
+95
+00:08:50,710 --> 00:08:53,520
+Se eu for pra classe de teste,
+todos meus testes estão verdes.
+
+96
+00:08:53,670 --> 00:08:56,790
+O que posso fazer?
+Vou salvar novamente.
+
+97
+00:08:56,950 --> 00:09:03,000
+Vou digitar "Adding
+increment and decrement".
+
+98
+00:09:13,110 --> 00:09:23,883
+Quando eu inspecionar, terei
+duas versões do meu pacote.
+
+99
+00:09:24,090 --> 00:09:29,020
+Vamos escrever um
+teste para "decrement"
+
+100
+00:09:29,100 --> 00:09:30,860
+porque não há razão
+para não fazê-lo.
+
+101
+00:09:31,700 --> 00:09:40,320
+"Decrement", por exemplo
+posso atribuir valor "2"
+
+102
+00:09:40,487 --> 00:09:43,890
+e decrementar duas vezes.
+Devo obter zero.
+
+103
+00:09:44,057 --> 00:09:50,203
+Meu teste está verde,
+então vou salvar.
+
+104
+00:10:06,490 --> 00:10:14,300
+Agora, o que queremos é,
+quando executarmos "Counter new"
+
+105
+00:10:14,460 --> 00:10:17,340
+usando "Print it", ele mostra um
+contador cujo valor eu não sei.
+
+106
+00:10:17,420 --> 00:10:19,000
+O que não é muito prático.
+
+107
+00:10:19,360 --> 00:10:22,260
+Gostaríamos de modificar
+este comportamento.
+
+108
+00:10:24,130 --> 00:10:26,630
+Para fazer isso,vamos
+adicionar um método
+
+109
+00:10:26,797 --> 00:10:29,840
+chamado ”printOn:",
+sob o protocolo "printing".
+
+110
+00:10:31,340 --> 00:10:34,920
+"printOn:" é chamado pelo sistema
+toda vez que fizermos "printStream".
+
+111
+00:10:35,760 --> 00:10:37,620
+Ele tem "aStream" como argumento.
+
+112
+00:10:38,690 --> 00:10:39,440
+O que vamos fazer?
+
+113
+00:10:40,200 --> 00:10:43,170
+Dizemos que queremos
+ter um contador, então
+
+114
+00:10:43,337 --> 00:10:47,460
+tipicamente usaremos a
+funcionalidade da superclasse.
+
+115
+00:10:51,740 --> 00:11:05,560
+E gostaria de adicionar
+um pequeno texto
+
+116
+00:11:17,370 --> 00:11:21,480
+por exemplo, "with value"
+e depois, "self count".
+
+117
+00:11:24,150 --> 00:11:27,740
+Faço isso porque
+o contador é um número
+
+118
+00:11:27,907 --> 00:11:32,180
+então quero obter
+sua representação textual.
+
+119
+00:11:34,260 --> 00:11:36,980
+Eu digito "cr".
+Eu compilo.
+
+120
+00:11:42,900 --> 00:11:45,000
+O sistema diz que posso
+expressar melhor esse método,
+
+121
+00:11:45,060 --> 00:11:47,270
+mas não tem problema.
+No momento, não importa.
+
+122
+00:11:48,590 --> 00:11:50,120
+Posso digitar "Counter new".
+
+123
+00:11:51,000 --> 00:11:54,360
+Eu inspeciono, e tenho um
+contador com valor "nil".
+
+124
+00:11:54,907 --> 00:11:58,020
+É normal porque ainda
+não inicializei o contador.
+
+125
+00:12:01,260 --> 00:12:04,960
+Agora, vamor adicionar
+suporte à inicialização.
+
+126
+00:12:07,590 --> 00:12:09,780
+Pra fazer isso, começaremos
+escrevendo um teste.
+
+127
+00:12:14,050 --> 00:12:23,180
+Eu digo que o valor na criação
+de um contador deve ser zero.
+
+128
+00:12:24,950 --> 00:12:36,210
+Vou digitar "self assert:
+Counter new count = 0"
+
+129
+00:12:38,020 --> 00:12:41,090
+Vamos notar que meu
+teste falhou. Por quê?
+
+130
+00:12:41,257 --> 00:12:45,140
+Porque se eu executar
+isso,  vou obter "nil"
+
+131
+00:12:47,140 --> 00:12:49,820
+Como não temos acesso
+às variáveis de instância
+
+132
+00:12:50,000 --> 00:12:53,560
+da classe "CounterTest",
+eu posso selecionar
+
+133
+00:12:53,727 --> 00:12:57,110
+esta expressão e
+executá-la diretamente.
+
+134
+00:13:00,280 --> 00:13:04,420
+Uma vez que este teste falhou,
+o que posso fazer?
+
+135
+00:13:04,580 --> 00:13:10,120
+Vou adicionar um método "initialize"
+sob o protocolo "initialization".
+
+136
+00:13:16,900 --> 00:13:27,940
+E daí, eu digito "super initialize"
+e vou dizer "count := 0"
+
+137
+00:13:28,020 --> 00:13:31,550
+Este método é invocado toda vez
+que executo o método "new".
+
+138
+00:13:32,330 --> 00:13:35,700
+Agora posso ver meus testes,
+eles estão verdes.
+
+139
+00:13:35,867 --> 00:13:40,070
+Similarmente, se eu executar
+"count", obterei zero.
+
+140
+00:13:41,010 --> 00:13:46,280
+Mais uma vez,
+vamos salvar o código.
+
+141
+00:14:04,000 --> 00:14:09,300
+O interessante é que posso
+ver todo meu histórico.
+
+142
+00:14:09,467 --> 00:14:12,310
+Também posso inspecionar
+e navegar nesse histórico.
+
+143
+00:14:12,520 --> 00:14:16,180
+Se eu clicar em "version", posso ver
+o diff entre esses dois sistemas.
+
+144
+00:14:17,960 --> 00:14:21,900
+As mudanças entre as versões 3 e 4
+são ”initialize", "printOn", e o teste.
+
+145
+00:14:22,000 --> 00:14:31,860
+Se eu quiser ver a diferença
+entre as versões 2 e 4,
+
+146
+00:14:31,960 --> 00:14:34,160
+eu tenho todas essas mudanças.
+
+147
+00:14:35,870 --> 00:14:39,620
+Resta uma coisa a se fazer,
+eu gostaria de mudar um pouco
+
+148
+00:14:39,720 --> 00:14:43,100
+a maneira que
+os objetos são criados.
+
+149
+00:14:43,820 --> 00:14:49,040
+Eu começo por criar um teste
+para esclarecer o que quero obter.
+
+150
+00:14:49,160 --> 00:14:58,460
+Vou definir um teste chamado
+"AlternateClassCreation"
+
+151
+00:14:59,780 --> 00:15:11,000
+Digamos, eu quero garantir que
+um contador com valor 19,
+
+152
+00:15:11,500 --> 00:15:20,000
+incrementá-lo, e depois
+pedir seu valor, obterei 20.
+
+153
+00:15:21,000 --> 00:15:23,000
+Ok?
+
+154
+00:15:30,000 --> 00:15:34,000
+Vamos adicionar parênteses
+aqui, fica melhor.
+
+155
+00:15:38,000 --> 00:15:42,000
+Mais uma vez, o teste não passa
+
+156
+00:15:44,000 --> 00:15:48,960
+e o assistente aqui diz:
+"esta mensagem não existe".
+
+157
+00:15:49,000 --> 00:15:52,000
+Então, note que a mensagem "withValue:"
+
+158
+00:15:52,200 --> 00:15:55,000
+não é mandada para um
+objeto, e sim para uma classe.
+
+159
+00:15:55,500 --> 00:15:59,000
+Isso significa que devo definir
+essa mensagem numa classe.
+
+160
+00:15:59,080 --> 00:16:01,720
+Seleciono "Class", então
+passo pro nível de classe.
+
+161
+00:16:01,840 --> 00:16:10,000
+e vou adicionar um protocolo
+chamado "instance creation"
+
+162
+00:16:12,500 --> 00:16:16,400
+"withValue: aNumber"...
+E o que devo fazer?
+
+163
+00:16:17,500 --> 00:16:21,260
+A primeira coisa a fazer é
+criar um contador,
+
+164
+00:16:21,320 --> 00:16:24,500
+uma variável pro contador,
+farei lentamente.
+
+165
+00:16:24,600 --> 00:16:26,840
+"self new" para
+criar um contafor
+
+166
+00:16:26,900 --> 00:16:30,480
+e eu digito
+"self count: aNumber"
+
+167
+00:16:31,160 --> 00:16:34,000
+e vou retornar este contador.
+
+168
+00:16:34,100 --> 00:16:35,900
+Posso fazer isso
+de forma mais compacta.
+
+169
+00:16:35,940 --> 00:16:38,000
+mas, no momento,
+faremos mais simples.
+
+170
+00:16:38,100 --> 00:16:40,000
+Eu compilo meu método.
+
+171
+00:16:40,100 --> 00:16:43,720
+O que significa que agora
+posso mandar mensagens.
+
+172
+00:16:44,960 --> 00:16:49,120
+E você viu, quando
+eu clico neste botão,
+
+173
+00:16:49,460 --> 00:16:53,000
+eu passo do nível de classe
+pro nível de instância.
+
+174
+00:16:53,100 --> 00:16:55,540
+Aqui eu estava no nível
+de classe, e agora volto
+
+175
+00:16:55,620 --> 00:16:57,500
+para as mensagens
+enviadas às instâncias.
+
+176
+00:16:58,100 --> 00:17:01,200
+O que isso significa?
+Significa que se executo
+
+177
+00:17:01,500 --> 00:17:09,020
+"Counter withValue: 18"
+O que obterei?
+
+178
+00:17:09,100 --> 00:17:11,000
+Obterei uma instância
+da classe "Counter".
+
+179
+00:17:12,500 --> 00:17:15,000
+Obtenho um contador
+com valor igual a 18,
+
+180
+00:17:15,100 --> 00:17:18,520
+E aqui posso executar "decrement"
+
+181
+00:17:21,100 --> 00:17:23,340
+E se atualizo o objeto,
+eu obtenho 17.
+
+182
+00:17:26,100 --> 00:17:30,120
+Agora, se inspeciono meus testes,
+todos eles passam
+
+183
+00:17:30,220 --> 00:17:35,000
+Então, vou mais uma vez
+salvar o código e pronto.
+
+184
+00:17:45,000 --> 00:17:48,000
+Terminado por enquanto.
+
