@@ -1,0 +1,382 @@
+﻿1
+00:00:07,880 --> 00:00:11,480
+Hola y bienvenido a este Mooc
+sobre Pharo:
+
+2
+00:00:11,640 --> 00:00:14,200
+Programación de objetos en vivo con Pharo.
+
+3
+00:00:14,360 --> 00:00:18,240
+Para esta primera sesión
+Presentaré los objetivos del mooc.
+
+4
+00:00:18,760 --> 00:00:20,520
+Entonces, ¿cuáles son?
+
+5
+00:00:20,680 --> 00:00:23,920
+Aprenderá a programar en Pharo,
+obviamente.
+
+6
+00:00:24,080 --> 00:00:27,640
+Es importante entender
+y dominar toda la sintaxis,
+
+7
+00:00:27,800 --> 00:00:29,640
+la sintaxis completa y el modelo,
+
+8
+00:00:29,800 --> 00:00:31,880
+y el entorno de Pharo.
+
+9
+00:00:32,040 --> 00:00:33,760
+No es solo un lenguaje,
+
+10
+00:00:33,920 --> 00:00:37,680
+es un entorno de programación
+con muchas herramientas
+
+11
+00:00:37,840 --> 00:00:40,520
+Le mostraremos
+algunas de las más útiles.
+
+12
+00:00:40,680 --> 00:00:43,960
+El mooc no se limitará
+solo a presentar Pharo.
+
+13
+00:00:44,120 --> 00:00:45,680
+Entenderemos profundamente
+
+14
+00:00:45,840 --> 00:00:48,640
+los mecanismos fundamentales de la
+programación orientada a objetos.
+
+15
+00:00:48,800 --> 00:00:50,240
+Eso es muy interesante.
+
+16
+00:00:50,400 --> 00:00:53,480
+Ilustraremos estos mecanismos
+con aspectos de Pharo en sí.
+
+17
+00:00:53,640 --> 00:00:55,600
+También, de vez en cuando,
+
+18
+00:00:55,760 --> 00:00:58,640
+mostrarle alguna heurística de diseño,
+
+19
+00:00:58,800 --> 00:01:02,400
+heurística que le permitirá,
+en su vida como programador,
+
+20
+00:01:02,560 --> 00:01:04,040
+diseñar aplicaciones
+
+21
+00:01:04,200 --> 00:01:07,000
+en una forma más elegante,
+más extensible.
+
+22
+00:01:07,160 --> 00:01:10,080
+Trabajarás en ejemplos reales.
+en este mooc,
+
+23
+00:01:10,240 --> 00:01:13,600
+Y al final
+desplegarás su propia aplicación web
+
+24
+00:01:13,760 --> 00:01:16,520
+que habrás desarrollado
+de principio a fin.
+
+25
+00:01:17,400 --> 00:01:21,120
+El mooc está estructurado
+en 7 semanas
+
+26
+00:01:22,000 --> 00:01:26,160
+Comenzaremos con aspectos sintácticos
+de Pharo
+
+27
+00:01:26,320 --> 00:01:28,880
+para que puedas comenzar rápidamente
+haciendo ejercicios.
+
+28
+00:01:29,040 --> 00:01:34,680
+Pero también vamos a mezclar los puntos
+vinculado al diseño del objeto,
+
+29
+00:01:34,840 --> 00:01:39,120
+para que comprenda rápidamente
+ciertos aspectos.
+
+30
+00:01:39,280 --> 00:01:43,280
+Luego veremos aspectos vinculado
+a las funciones centrales de Pharo,
+
+31
+00:01:43,440 --> 00:01:45,440
+como el sistemas de archivos y demás.
+
+32
+00:01:45,600 --> 00:01:48,520
+El curso no siempre es lineal.
+
+33
+00:01:48,680 --> 00:01:52,000
+En las sesiones finales
+volveremos sobre los conceptos,
+
+34
+00:01:52,160 --> 00:01:54,440
+para estar seguro de que realmente
+comprendió
+
+35
+00:01:54,600 --> 00:01:57,240
+lo que discutimos
+en las primeras sesiones
+
+36
+00:01:57,400 --> 00:02:00,120
+Tendrá muchos ejercicios
+y mini proyectos.
+
+37
+00:02:00,280 --> 00:02:02,840
+Como motivación, después de dos semanas
+
+38
+00:02:03,000 --> 00:02:06,280
+habrás visto la sintaxis completa
+y el modelo,
+
+39
+00:02:06,440 --> 00:02:09,880
+y estarás listo
+Para hacer algunos mini proyectos.
+
+40
+00:02:10,840 --> 00:02:12,440
+Una palabra rápida sobre nosotros.
+
+41
+00:02:12,600 --> 00:02:15,400
+Hay tres de nosotros,
+tres colegas
+
+42
+00:02:15,560 --> 00:02:18,080
+todos los expertos
+en programación orientada a objetos.
+
+43
+00:02:18,240 --> 00:02:21,200
+He trabajado en rasgos
+
+44
+00:02:21,360 --> 00:02:23,960
+que influyeron en Perl,
+Php y Scala.
+
+45
+00:02:24,120 --> 00:02:26,560
+Somos expertos
+en diseño orientado a objetos.
+
+46
+00:02:26,720 --> 00:02:29,600
+Somos parte
+del grupo de desarrollo principal de Pharo.
+
+47
+00:02:29,760 --> 00:02:33,600
+Y somos autores de varios
+libros de código abierto en la web.
+
+48
+00:02:33,760 --> 00:02:35,560
+Se los recomiendo.
+
+49
+00:02:35,840 --> 00:02:36,960
+Entonces, ¿por qué Pharo?
+
+50
+00:02:37,120 --> 00:02:41,520
+Dejando de lado que lo desarrollamos
+y creemos que es un gran lenguaje,
+
+51
+00:02:41,760 --> 00:02:45,480
+es muy interesante
+desde un punto de vista educativo
+
+52
+00:02:45,640 --> 00:02:48,640
+porque estará inmerso
+en un mundo de objetos,
+
+53
+00:02:48,800 --> 00:02:52,480
+interactuando con
+y manipulando objetos.
+
+54
+00:02:52,640 --> 00:02:53,880
+Como ejemplo,
+
+55
+00:02:54,040 --> 00:02:56,960
+los ciclos no existen
+como constructores en Pharo.
+
+56
+00:02:57,120 --> 00:03:00,080
+Son mensajes enviados a objetos.
+que son colecciones.
+
+57
+00:03:00,240 --> 00:03:03,600
+Las condiciones son mensajes
+enviado a objetos que son booleanos.
+
+58
+00:03:03,760 --> 00:03:08,640
+Entonces estará constantemente
+interactuando con objetos vivos
+
+59
+00:03:08,920 --> 00:03:12,160
+y sus programas se transformarán
+debajo de sus dedos
+
+60
+00:03:12,320 --> 00:03:15,080
+El hecho de que Pharo
+está completamente escrito en sí mismo
+
+61
+00:03:15,240 --> 00:03:18,480
+significa que tienes una amplia posibilidad
+de descubrimientos
+
+62
+00:03:18,640 --> 00:03:23,160
+Una vez que hayas entendido
+los aspectos sintácticos de Pharo,
+
+63
+00:03:23,320 --> 00:03:25,320
+el mundo entero
+se abrirá a usted,
+
+64
+00:03:25,480 --> 00:03:28,040
+porque está completamente escrito en sí mismo.
+
+65
+00:03:28,720 --> 00:03:32,720
+Entonces, para resumir este viaje
+al que le estoy invitando ...
+
+66
+00:03:32,960 --> 00:03:34,840
+Pharo es puro y elegante.
+
+67
+00:03:35,000 --> 00:03:38,520
+Hay muy pocos conceptos utilizados.
+
+68
+00:03:38,680 --> 00:03:43,200
+Es divertido programar porque
+de la interacción con los objetos.
+
+69
+00:03:43,360 --> 00:03:45,880
+Es altamente productivo
+
+70
+00:03:46,040 --> 00:03:49,440
+Pharo se usa en muchas universidades.
+
+71
+00:03:49,720 --> 00:03:52,920
+debido a sus propiedades de enseñanza
+y los aspectos positivos
+
+72
+00:03:53,160 --> 00:03:54,520
+que enseña
+
+73
+00:03:54,680 --> 00:03:57,280
+Un punto que a menudo se pasa por alto
+
+74
+00:03:57,440 --> 00:04:00,720
+es que Pharo
+es un sistema de empoderamiento.
+
+75
+00:04:00,880 --> 00:04:03,640
+Pharo no es una caja negra.
+
+76
+00:04:03,800 --> 00:04:08,400
+Podrá ver
+cómo se implementa el sistema
+
+77
+00:04:08,560 --> 00:04:10,520
+y modificar cosas.
+
+78
+00:04:10,680 --> 00:04:14,800
+La metáfora que uso a menudo
+es que Pharo es un tanque de peces,
+
+79
+00:04:14,960 --> 00:04:18,120
+y puede saltar al tanque
+y nadar con los peces!
+
+80
+00:04:18,280 --> 00:04:20,240
+Eso es muy especial
+
+81
+00:04:20,400 --> 00:04:25,080
+Le mostraremos algunos videos
+que explicarán esos aspectos.
+
+82
+00:04:25,240 --> 00:04:27,680
+Tendrás acceso
+a todo el sistema.
+
