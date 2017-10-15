@@ -1,0 +1,514 @@
+﻿1
+00:00:00,160 --> 00:00:03,400
+En esta sesión veremos
+el modelo de objeto Pharo.
+
+2
+00:00:03,560 --> 00:00:08,600
+Haremos un resumen para mostrarle
+su elegancia y sencillez.
+
+3
+00:00:08,760 --> 00:00:11,280
+No necesita
+entender todo ahora
+
+4
+00:00:11,440 --> 00:00:15,840
+porque repasaremos estas nociones
+en las próximas semanas.
+
+5
+00:00:17,120 --> 00:00:20,400
+En Pharo
+solo hay objetos y mensajes.
+
+6
+00:00:20,560 --> 00:00:22,360
+Hay muchos objetos,
+
+7
+00:00:22,520 --> 00:00:27,240
+para representar el puntero del mouse,
+booleanos, arreglos,
+
+8
+00:00:27,400 --> 00:00:31,520
+números, cadenas, ventanas,
+barras de desplazamiento y demás ...
+
+9
+00:00:31,680 --> 00:00:33,160
+Incluso compiladores,
+
+10
+00:00:33,320 --> 00:00:38,360
+objetos del sistema tales como sockets,
+fuentes, colecciones y demás.
+
+11
+00:00:38,520 --> 00:00:40,360
+Todos estos son objetos
+
+12
+00:00:40,520 --> 00:00:42,720
+a los que podemos enviarles mensajes.
+
+13
+00:00:42,880 --> 00:00:45,240
+Hay muchos mensajes diferentes.
+
+14
+00:00:45,400 --> 00:00:49,240
+Puede enviar el size a una colección
+para obtener su tamaño.
+
+15
+00:00:49,400 --> 00:00:52,560
+Hay los mensajes
+plus, at:put:, do: y así sucesivamente.
+
+16
+00:00:52,720 --> 00:00:55,280
+Objetos y mensajes.
+
+17
+00:00:55,760 --> 00:00:58,920
+Los mensajes indican
+la intención del programador
+
+18
+00:00:59,080 --> 00:01:02,840
+Cuando envío un mensaje a un objeto,
+Le pido que haga algo.
+
+19
+00:01:03,000 --> 00:01:06,720
+Es realmente una solicitud
+hecha al objeto
+
+20
+00:01:06,880 --> 00:01:10,440
+Y el objeto decide
+que método usar
+
+21
+00:01:10,600 --> 00:01:14,440
+Este es el cómo. Cómo lograr
+la intención del programador
+
+22
+00:01:14,600 --> 00:01:17,200
+al decidir qué método emplear.
+
+23
+00:01:17,880 --> 00:01:22,480
+Luego tenemos otro concepto,
+que es el de "closure".
+
+24
+00:01:22,720 --> 00:01:25,440
+Estos son cierres léxicos,
+bloques,
+
+25
+00:01:25,600 --> 00:01:29,240
+un tipo de métodos anónimos en Pharo.
+
+26
+00:01:29,400 --> 00:01:32,720
+Los llamamos bloques.
+Este es un vocabulario importante.
+
+27
+00:01:33,400 --> 00:01:37,960
+Los bloques están delimitados.
+por corchetes, como ve aquí.
+
+28
+00:01:38,120 --> 00:01:40,280
+Entonces, todo esto es un bloque.
+
+29
+00:01:40,440 --> 00:01:44,720
+Entonces realmente debería mirar esto
+como un método anónimo.
+
+30
+00:01:46,200 --> 00:01:50,200
+En Pharo tenemos
+Un modelo muy simple y uniforme.
+
+31
+00:01:50,520 --> 00:01:53,400
+Todo es un objeto,
+una instancia de una clase
+
+32
+00:01:53,560 --> 00:01:56,760
+Incluso clases y mensajes
+también son objetos.
+
+33
+00:01:57,160 --> 00:02:01,440
+Y todos los cálculos entre objetos
+se hacen a través del mensaje que pasa.
+
+34
+00:02:01,600 --> 00:02:04,440
+Realmente hablamos
+sobre el envío de un mensaje,
+
+35
+00:02:04,600 --> 00:02:08,000
+ese es el termino,
+y no sobre la ejecución de un método,
+
+36
+00:02:08,160 --> 00:02:11,120
+porque cuando envías un mensaje
+a un objeto,
+
+37
+00:02:11,280 --> 00:02:15,240
+hay un algoritmo particular
+llamado el método de búsqueda,
+
+38
+00:02:15,400 --> 00:02:17,120
+solo un algoritmo,
+
+39
+00:02:17,280 --> 00:02:19,760
+que selecciona el método correcto a usar.
+
+40
+00:02:19,920 --> 00:02:24,880
+Los métodos están virtualmente enlazados.
+
+41
+00:02:25,200 --> 00:02:28,280
+Aceptan enlace tardío.
+
+42
+00:02:28,560 --> 00:02:31,200
+Envío un mensaje a un objeto,
+
+43
+00:02:31,360 --> 00:02:34,360
+y la búsqueda de métodos
+selecciona el método correcto.
+
+44
+00:02:34,520 --> 00:02:37,880
+Volveremos a eso
+en una sesión dedicada.
+
+45
+00:02:40,160 --> 00:02:42,960
+El modelo de objeto Pharo es el siguiente.
+
+46
+00:02:43,120 --> 00:02:45,360
+Las variables de instancia están protegidas
+
+47
+00:02:45,520 --> 00:02:48,520
+Todos los objetos tienen instancia variable
+y están protegidos
+
+48
+00:02:48,680 --> 00:02:50,880
+Son privados para el objeto.
+
+49
+00:02:51,040 --> 00:02:55,080
+o son accesibles desde subclases.
+
+50
+00:02:56,240 --> 00:02:59,000
+Los métodos son públicos
+y virtualmente atados.
+
+51
+00:02:59,160 --> 00:03:02,280
+Todos los métodos son públicos en Pharo.
+
+52
+00:03:02,720 --> 00:03:05,560
+Y Pharo aceptó
+herencia única entre clases
+
+53
+00:03:05,720 --> 00:03:08,120
+Una clase solo puede tener
+una superclase
+
+54
+00:03:09,560 --> 00:03:14,280
+Aquí hay un ejemplo de código,
+el producto cruzado de dos puntos.
+
+55
+00:03:14,440 --> 00:03:16,480
+Tenemos point1 y point2.
+
+56
+00:03:16,640 --> 00:03:21,600
+Multiplico el campo x de point1
+por el campo y de point2,
+
+57
+00:03:21,760 --> 00:03:23,960
+y resto la multiplicación
+
+58
+00:03:24,120 --> 00:03:27,760
+del campo y de point1
+y el campo x de point2.
+
+59
+00:03:28,120 --> 00:03:32,600
+Es un ejemplo de computación
+que puede hacer en Pharo.
+
+60
+00:03:34,560 --> 00:03:38,080
+Para crear objetos
+Tenemos mensajes especiales.
+
+61
+00:03:38,240 --> 00:03:39,480
+Aquí, por ejemplo,
+
+62
+00:03:39,640 --> 00:03:44,160
+si envío el mensaje @
+al entero 10
+
+63
+00:03:44,320 --> 00:03:46,680
+con el argumento 20,
+
+64
+00:03:46,840 --> 00:03:50,240
+creará un punto,
+una instancia de la clase Point.
+
+65
+00:03:50,400 --> 00:03:53,320
+El nombre del mensaje es @,
+
+66
+00:03:53,480 --> 00:03:57,640
+el entero
+que recibió el mensaje es 10,
+
+67
+00:03:57,800 --> 00:04:00,200
+el anterior al nombre
+del mensaje,
+
+68
+00:04:00,360 --> 00:04:03,840
+y el argumento, después del nombre
+del mensaje, es 20.
+
+69
+00:04:04,000 --> 00:04:06,040
+Aquí hay otro ejemplo.
+
+70
+00:04:06,200 --> 00:04:10,880
+Quiero crear una cadena
+de caracteres como esta aquí.
+
+71
+00:04:11,040 --> 00:04:13,200
+¿Cómo se obtiene esta cadena?
+
+72
+00:04:13,360 --> 00:04:16,480
+Aquí hemos usado una primera cadena,
+Pharo
+
+73
+00:04:16,640 --> 00:04:19,800
+le hemos enviado el mensaje coma,
+
+74
+00:04:19,960 --> 00:04:24,120
+como argumento
+tenemos la cadena es genial ...
+
+75
+00:04:24,360 --> 00:04:26,280
+Que está aquí, correcto?
+
+76
+00:04:28,160 --> 00:04:31,880
+El significado del mensaje coma
+es la concatenación de cadenas.
+
+77
+00:04:32,040 --> 00:04:35,640
+Las dos  cadenas son pegadas
+para producir una sola secuencia.
+
+78
+00:04:37,000 --> 00:04:40,560
+Podemos crear objetos directamente
+
+79
+00:04:40,720 --> 00:04:42,240
+con el mensaje new
+
+80
+00:04:42,400 --> 00:04:47,200
+Envio new a la clase Monster
+y obtendré una instancia de la clase:
+
+81
+00:04:47,360 --> 00:04:49,000
+aMonster.
+
+82
+00:04:49,160 --> 00:04:52,640
+Puedo crear una instancia
+de la clase Array,
+
+83
+00:04:52,840 --> 00:04:54,360
+especificando new
+
+84
+00:04:54,520 --> 00:04:57,400
+y asignando un parámetro,
+lo cual hago con dos puntos,
+
+85
+00:04:57,560 --> 00:04:59,520
+y luego aquí el número entero 6.
+
+86
+00:04:59,680 --> 00:05:02,400
+Y obtengo una arreglo de tamaño 6.
+
+87
+00:05:03,000 --> 00:05:05,960
+Podemos tener mensajes dedicados
+para crear objetos,
+
+88
+00:05:06,120 --> 00:05:09,040
+y puedo definir
+mis propios mensajes a una clase.
+
+89
+00:05:09,200 --> 00:05:11,360
+Podría crear una clase Tomagoshi,
+
+90
+00:05:11,520 --> 00:05:14,080
+con un método withHunger (con hambre)
+
+91
+00:05:14,240 --> 00:05:17,800
+y para este método
+le daré el número entero 10.
+
+92
+00:05:17,960 --> 00:05:20,880
+Esto crea una instancia
+de la clase Tomagoshi
+
+93
+00:05:21,040 --> 00:05:22,800
+asignandole un parámetro.
+
+94
+00:05:23,320 --> 00:05:27,520
+Entonces estos son mensajes especializados
+para la creación de objetos.
+
+95
+00:05:28,880 --> 00:05:33,880
+En esta sesión, hemos visto una descripción
+genearal del modelo de objeto Pharo.
+
+96
+00:05:34,040 --> 00:05:37,880
+No tienes que entenderlo todo,
+Volveremos a estas nociones.
+
+97
+00:05:38,040 --> 00:05:41,760
+Pero es importante recordar eso
+no hay constructores en Pharo,
+
+98
+00:05:41,920 --> 00:05:45,320
+sin métodos estáticos,
+declaraciones de tipo, interfaces,
+
+99
+00:05:45,480 --> 00:05:48,040
+modificadores de tipo package/private/protected ...
+
+100
+00:05:48,200 --> 00:05:51,600
+Todos esos modificadores clásicos se
+encuentran en objetos de lenguajes.
+
+101
+00:05:51,760 --> 00:05:56,040
+No hay tipos parametrizados,
+no boxing/unboxing y así sucesivamente.
+
+102
+00:05:56,200 --> 00:05:59,280
+Y vera
+que es un lenguaje realmente poderoso
+
+103
+00:06:00,720 --> 00:06:04,120
+Entonces, en Pharo,
+todo es un objeto
+
+104
+00:06:04,280 --> 00:06:07,200
+El cómputo está hecho a través
+de mensajes enviados a los objetos.
+
+105
+00:06:07,360 --> 00:06:12,080
+Los métodos están limitados tarde.
+
+106
+00:06:12,240 --> 00:06:14,640
+Hay un algoritmo,
+la búsqueda de métodos,
+
+107
+00:06:14,800 --> 00:06:18,680
+que selecciona el método correcto
+cuando un objeto recibe un mensaje
+
+108
+00:06:18,960 --> 00:06:22,640
+Está la noción de bloques,
+que son métodos anónimos.
+
+109
+00:06:22,800 --> 00:06:25,000
+Muy importante en Pharo.
+
+110
+00:06:25,160 --> 00:06:30,040
+Y podemos enviar mensajes particulares
+a las clases
+
+111
+00:06:30,200 --> 00:06:31,800
+para crear objetos
+
