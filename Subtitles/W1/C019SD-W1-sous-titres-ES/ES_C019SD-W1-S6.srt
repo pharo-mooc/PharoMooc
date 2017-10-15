@@ -1,0 +1,433 @@
+﻿1
+00:00:00,400 --> 00:00:01,800
+Hola a todos.
+
+2
+00:00:01,960 --> 00:00:06,120
+En esta conferencia presentaremos
+definiciones de clase y método
+
+3
+00:00:06,280 --> 00:00:07,560
+en Pharo
+
+4
+00:00:08,400 --> 00:00:10,920
+Lo específico de Pharo es que
+
+5
+00:00:11,080 --> 00:00:15,360
+no hay una sintaxis dedicada
+para definir métodos y clases.
+
+6
+00:00:15,760 --> 00:00:17,840
+Se definen dentro de las herramientas.
+
+7
+00:00:18,000 --> 00:00:22,200
+Las herramientas dan el contexto
+a la creación de una clase o método.
+
+8
+00:00:23,760 --> 00:00:27,640
+Aquí está el buscador de códigos principal 
+en Pharo:
+
+9
+00:00:27,800 --> 00:00:29,200
+Nautilus.
+
+10
+00:00:29,360 --> 00:00:32,720
+Puede ver en la parte inferior
+
+11
+00:00:32,880 --> 00:00:35,280
+la definición de la clase Point.
+
+12
+00:00:35,440 --> 00:00:40,880
+Puede ver que la clase Point
+tiene la clase Objeto como superclase
+
+13
+00:00:41,040 --> 00:00:44,080
+y dos variables de instancia, x e y.
+
+14
+00:00:44,480 --> 00:00:49,480
+La superclase y
+las dos variables de instancia, x e y.
+
+15
+00:00:51,240 --> 00:00:53,960
+Y vemos en la parte inferior
+el nombre del paquete
+
+16
+00:00:54,120 --> 00:00:56,560
+en el que se agrega esta clase.
+
+17
+00:00:56,840 --> 00:01:02,240
+En las diapositivas tenemos un código como
+éste para crear una nueva subclase.
+
+18
+00:01:02,680 --> 00:01:05,200
+Podemos ver que
+para crear una clase en Pharo
+
+19
+00:01:05,360 --> 00:01:08,200
+enviamos un mensaje dedicado
+a la superclase
+
+20
+00:01:08,360 --> 00:01:11,160
+con el nombre de la subclase
+como parámetro
+
+21
+00:01:12,960 --> 00:01:15,600
+El mensaje
+subclass:instanceVariableNames:
+
+22
+00:01:15,760 --> 00:01:17,560
+classVariableNames:package:
+
+23
+00:01:17,720 --> 00:01:20,440
+es un mensaje enviado al objeto clase
+
+24
+00:01:20,600 --> 00:01:23,480
+con el nombre de la subclase
+como parámetro
+
+25
+00:01:23,640 --> 00:01:26,480
+la lista de nombres de las variable
+de instancia como parámetro
+
+26
+00:01:26,640 --> 00:01:29,000
+y el nombre del paquete
+como parámetro
+
+27
+00:01:30,160 --> 00:01:31,800
+En cuanto a la definición del método,
+
+28
+00:01:32,080 --> 00:01:35,240
+Tenemos, aún en la parte inferior ...
+
+29
+00:01:35,760 --> 00:01:37,520
+el nombre del método,
+
+30
+00:01:37,960 --> 00:01:39,600
+un comentario
+
+31
+00:01:40,400 --> 00:01:42,320
+y el código del método.
+
+32
+00:01:42,480 --> 00:01:44,560
+Y el método pertenece a una clase.
+
+33
+00:01:44,720 --> 00:01:47,360
+En la sintaxis
+para definir el método
+
+34
+00:01:47,520 --> 00:01:51,960
+no tenemos información sobre la clase
+a la que debe pertenecer el método.
+
+35
+00:01:52,120 --> 00:01:56,840
+De hecho, es la selección
+de la clase en el navegador de códigos
+
+36
+00:01:57,840 --> 00:02:01,720
+que nos dice la clase
+a la que pertenece el método.
+
+37
+00:02:04,440 --> 00:02:07,840
+En las diapositivas
+También necesitamos esta información.
+
+38
+00:02:08,000 --> 00:02:12,520
+Entonces, no podemos simplemente copiar 
+el contenido de la definición de un método.
+
+39
+00:02:12,680 --> 00:02:15,360
+Tenemos que agregar un prefijo
+al nombre del método
+
+40
+00:02:15,520 --> 00:02:19,320
+para indicar la clase
+a la que pertenece este método.
+
+41
+00:02:20,280 --> 00:02:21,960
+Entonces agregamos ...
+
+42
+00:02:23,960 --> 00:02:27,240
+Antes del nombre del método
+agregamos el nombre de la clase
+
+43
+00:02:27,400 --> 00:02:31,280
+a lo que vamos a agregar
+el método que estamos definiendo
+
+44
+00:02:31,520 --> 00:02:33,960
+Entonces, en el buscador de códigos,
+
+45
+00:02:34,200 --> 00:02:37,000
+esta clase solo aparece como una selección
+
+46
+00:02:37,160 --> 00:02:39,160
+en el navegador.
+
+47
+00:02:40,000 --> 00:02:44,080
+Aquí definimos el método factorial
+de la clase entero.
+
+48
+00:02:44,920 --> 00:02:47,760
+Un pequeño recordatorio sobre los mensajes.
+
+49
+00:02:48,000 --> 00:02:51,760
+Aquí estamos definiendo
+el método factorial
+
+50
+00:02:53,080 --> 00:02:55,840
+Tenemos todos estos mensajes binarios ...
+
+51
+00:02:56,000 --> 00:03:01,800
+igual a, superior a,
+multiplicar por y menos ...
+
+52
+00:03:01,960 --> 00:03:04,040
+Mensajes binarios
+
+53
+00:03:04,200 --> 00:03:09,040
+Tenemos una llamada recursiva
+al método factorial.
+
+54
+00:03:09,200 --> 00:03:12,280
+Factorial, aquí, es un mensaje unario
+
+55
+00:03:12,440 --> 00:03:15,040
+enviado a un objeto de un tipo de número.
+
+56
+00:03:16,240 --> 00:03:18,600
+Y tenemos dos mensajes de palabras clave...
+
+57
+00:03:19,680 --> 00:03:23,560
+IfTrue:, dos veces y error:.
+
+58
+00:03:24,640 --> 00:03:27,120
+Y finalmente tenemos el sombrero o caret,
+
+59
+00:03:27,280 --> 00:03:29,560
+usado para devolver un valor
+
+60
+00:03:29,720 --> 00:03:31,520
+y finalizar el método.
+
+61
+00:03:33,000 --> 00:03:35,360
+Con respecto a la devolución,
+
+62
+00:03:35,520 --> 00:03:37,640
+por defecto en Pharo
+
+63
+00:03:37,800 --> 00:03:39,560
+todos los métodos devuelven self,
+
+64
+00:03:39,720 --> 00:03:41,480
+el objeto actual
+
+65
+00:03:42,080 --> 00:03:43,880
+El codigo de arriba
+
+66
+00:03:44,040 --> 00:03:47,080
+es exactamente el mismo
+que el código a continuación.
+
+67
+00:03:47,240 --> 00:03:51,960
+Entonces, la parte de retornar self
+al final del método es opcional.
+
+68
+00:03:52,920 --> 00:03:56,720
+Los métodos de clase le permiten enviar
+mensajes a las clases
+
+69
+00:03:56,880 --> 00:03:58,520
+Las clases también son objetos,
+
+70
+00:03:58,680 --> 00:04:01,280
+para que pueda enviar mensajes a las clases
+
+71
+00:04:01,440 --> 00:04:03,840
+Y para definir un método de clase
+
+72
+00:04:04,000 --> 00:04:07,000
+presione el botón de clase
+en Nautilus ...
+
+73
+00:04:09,040 --> 00:04:11,920
+y defina el método de clase.
+
+74
+00:04:12,160 --> 00:04:16,320
+En las diapositivas agregamos
+sistemáticamente la palabra class,
+
+75
+00:04:17,880 --> 00:04:22,040
+distinguir un método
+que se ejecutará en una clase
+
+76
+00:04:22,200 --> 00:04:25,320
+en lugar de en una instancia
+de la clase.
+
+77
+00:04:25,760 --> 00:04:30,440
+Entonces aquí el método x: y:
+se ejecutará en la clase Point,
+
+78
+00:04:30,600 --> 00:04:33,040
+no en una instancia de la clase Point.
+
+79
+00:04:33,960 --> 00:04:35,960
+Lo que debes recordar
+
+80
+00:04:36,200 --> 00:04:37,840
+de esta sesión ...
+
+81
+00:04:38,640 --> 00:04:41,520
+Una clase no está definida
+por una sintaxis particular
+
+82
+00:04:41,680 --> 00:04:45,480
+sino por enviar un mensaje
+a su superclase
+
+83
+00:04:46,960 --> 00:04:49,560
+Las clases se definen dentro de paquetes,
+
+84
+00:04:49,720 --> 00:04:53,600
+los nombres de los cuales son aprobados
+como parámetros del mensaje.
+
+85
+00:04:54,880 --> 00:04:56,720
+Todos los métodos son públicos.
+
+86
+00:04:56,880 --> 00:05:01,480
+No hay palabra clave para indicar que
+un método es público. Todos lo son.
+
+87
+00:05:01,640 --> 00:05:05,120
+No hay ninguna noción de que sea
+protegido o privado
+
+88
+00:05:07,240 --> 00:05:10,880
+Por defecto devuelve un método
+el receptor, que es self.
+
+89
+00:05:11,040 --> 00:05:14,520
+Puede usar el caret para devolver
+algo que no sea self.
+
+90
+00:05:17,160 --> 00:05:19,880
+Y los métodos de clase
+son métodos como cualquier otro.
+
+91
+00:05:20,040 --> 00:05:22,320
+Para agregarlos,
+presione el botón clase
+
+92
+00:05:22,480 --> 00:05:24,440
+antes de crear el método.
+
+93
+00:05:24,840 --> 00:05:27,840
+Esto concluye
+esta primera semana de sesiones.
+
+94
+00:05:28,000 --> 00:05:29,400
+En las proximas semanas
+
+95
+00:05:29,560 --> 00:05:32,800
+miraremos con más detalle
+en la sintaxis de Pharo,
+
+96
+00:05:32,960 --> 00:05:37,480
+bloques y una herramienta
+que eso es un inspector de objetos.
+
