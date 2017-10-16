@@ -1,0 +1,745 @@
+﻿1
+00:00:00,560 --> 00:00:01,360
+Hola.
+
+2
+00:00:01,600 --> 00:00:04,880
+Esta secuencia cubre
+el marco web de Seaside,
+
+3
+00:00:05,160 --> 00:00:08,240
+una forma innovadora
+de la construcción de aplicaciones web en Pharo.
+
+4
+00:00:08,480 --> 00:00:12,200
+Seaside es potente y flexible.
+
+5
+00:00:12,480 --> 00:00:17,240
+Se basa en el concepto
+de componentes reutilizables y con estado,
+
+6
+00:00:17,600 --> 00:00:21,520
+Además de un protocolo sin estado,
+HTTP, en aplicaciones web.
+
+7
+00:00:22,600 --> 00:00:26,040
+El mar está seguro por defecto,
+por supuesto.
+
+8
+00:00:26,200 --> 00:00:29,200
+Se integra
+todas las últimas técnicas de Web 2.0,
+
+9
+00:00:29,360 --> 00:00:31,760
+como Ajax, etc.,
+y arquitecturas REST.
+
+10
+00:00:33,040 --> 00:00:36,200
+Esta es la URL Seaside.
+
+11
+00:00:36,920 --> 00:00:42,120
+Puede consultarla para obtener documentación
+como el libro gratuito en línea Seaside.
+
+12
+00:00:42,400 --> 00:00:45,560
+También ofrece un set
+de tutoriales Seaside.
+
+13
+00:00:45,880 --> 00:00:49,520
+Por último, puede hacer preguntas
+en la lista de correo de Seaside.
+
+14
+00:00:49,800 --> 00:00:54,800
+Una comunidad activa responderá
+a cualquier pregunta que pueda tener.
+
+15
+00:00:56,320 --> 00:00:59,920
+Un poco de historia:el mar
+ha estado en producción desde 2002.
+
+dieciséis
+00:01:00,080 --> 00:01:01,640
+Se mantiene activamente.
+
+17
+00:01:01,920 --> 00:01:04,520
+El marco de Seaside es la base
+
+18
+00:01:05,080 --> 00:01:07,800
+para muchas historias de éxito de Pharo.
+
+19
+00:01:07,960 --> 00:01:11,200
+Esas historias están en línea
+en el sitio Pharo, pharo.org.
+
+20
+00:01:11,640 --> 00:01:15,640
+Como verás,
+hay muchos proyectos web,
+
+21
+00:01:16,040 --> 00:01:18,520
+y la mayoría usa el marco Seaside.
+
+22
+00:01:18,960 --> 00:01:23,960
+Como decía,
+Seaside es un marco web
+
+23
+00:01:24,200 --> 00:01:26,680
+centrado en el concepto de componente.
+
+24
+00:01:26,840 --> 00:01:30,400
+Estos componentes
+son reutilizables y con estado.
+
+25
+00:01:30,640 --> 00:01:35,880
+Tiene un lenguaje específico de dominio
+para representar los componentes en HTML.
+
+26
+00:01:36,560 --> 00:01:39,160
+Las reglas para componer
+estos componentes
+
+27
+00:01:39,440 --> 00:01:43,160
+será cubierto en una secuencia posterior.
+
+28
+00:01:43,800 --> 00:01:46,760
+Una aplicación web
+es solo un componente raíz.
+
+29
+00:01:46,920 --> 00:01:51,160
+El mar lo hace posible
+para depurar aplicaciones sobre la marcha,
+
+30
+00:01:51,640 --> 00:01:53,360
+en el depurador Pharo.
+
+31
+00:01:53,720 --> 00:01:56,840
+En una secuencia posterior de este curso,
+aprenderás
+
+32
+00:01:57,120 --> 00:02:01,080
+cómo usar metadatos
+para generar formularios automáticamente.
+
+33
+00:02:02,680 --> 00:02:05,280
+Estos son algunos de los ejemplos.
+
+34
+00:02:05,440 --> 00:02:10,080
+de aplicaciones web construidas con Seaside,
+en producción desde 2002
+
+35
+00:02:10,640 --> 00:02:12,560
+Ampliaré algunos de ellos.
+
+36
+00:02:12,720 --> 00:02:16,200
+Esta aplicación hace un uso extenso
+de gráficos,
+
+37
+00:02:16,360 --> 00:02:20,320
+y otros componentes entrelazados
+que hacen una aplicación compleja.
+
+38
+00:02:20,920 --> 00:02:25,680
+Aquí hay otro ejemplo de una aplicación
+Puedes encontrarlo en el sitio web de Pharo.
+
+39
+00:02:26,040 --> 00:02:28,840
+Cuenta con tablas de informes
+
+40
+00:02:29,000 --> 00:02:32,440
+que son bastante complejos,
+entrelazados entre sí.
+
+41
+00:02:32,880 --> 00:02:36,440
+Eso se puede construir de forma muy simple
+con el marco Seaside.
+
+42
+00:02:38,120 --> 00:02:41,360
+El concepto principal en Seaside
+es el componente
+
+43
+00:02:41,680 --> 00:02:44,800
+Un componente es una subclase
+de WAComponent
+
+44
+00:02:44,960 --> 00:02:47,120
+suministrado por el marco Seaside.
+
+45
+00:02:47,720 --> 00:02:50,520
+Un componente es reutilizable
+y estado.
+
+46
+00:02:50,680 --> 00:02:55,040
+Se puede renderizar en HTML
+en la forma de <div>, etc.
+
+47
+00:02:55,960 --> 00:03:00,440
+En Seaside, una aplicación web
+tiene un componente raíz
+
+48
+00:03:00,760 --> 00:03:02,720
+en este caso, WACounter,
+
+49
+00:03:02,920 --> 00:03:06,080
+guardado en el sistema
+como una aplicación web.
+
+50
+00:03:06,240 --> 00:03:10,400
+Se llamará "Contador" y
+accesible como tal, desde la URL.
+
+51
+00:03:11,040 --> 00:03:14,560
+Aquí hay un ejemplo de
+mi aplicación de contador, en la URL.
+
+52
+00:03:14,760 --> 00:03:17,840
+Es un componente
+traducido en HTML, aquí.
+
+53
+00:03:18,200 --> 00:03:21,840
+El valor del contador es cero.
+Tenemos dos enlaces, aquí.
+
+54
+00:03:22,160 --> 00:03:25,240
+Haces clic en ++
+para aumentar el valor del contador,
+
+55
+00:03:25,480 --> 00:03:28,200
+y en --
+para disminuir el valor
+
+56
+00:03:29,160 --> 00:03:32,720
+El código para implementar
+esta aplicación es muy simple
+
+57
+00:03:33,000 --> 00:03:36,520
+Creo una subclase
+de WAComponent:WACounter.
+
+58
+00:03:36,680 --> 00:03:39,160
+Tiene una variable de instancia
+nombrado conde
+
+59
+00:03:39,760 --> 00:03:43,480
+El método de inicialización
+establece el contador en 0.
+
+60
+00:03:44,040 --> 00:03:47,800
+Un método aumenta el valor,
+el otro lo disminuye.
+
+61
+00:03:48,640 --> 00:03:51,720
+Ahora necesitamos la parte HTML,
+
+62
+00:03:52,000 --> 00:03:54,520
+por lo que el contador se representa en HTML.
+
+63
+00:03:54,680 --> 00:03:57,520
+Todo lo que tenemos que hacer
+es dotarlo con un método,
+
+64
+00:03:57,680 --> 00:03:59,800
+renderContentOn,
+un parámetro
+
+sesenta y cinco
+00:04:00,360 --> 00:04:03,160
+El parámetro nos ayudará.
+generar el código HTML
+
+66
+00:04:04,520 --> 00:04:08,280
+Este es el ejemplo, con la suma
+de "renderContentOn"
+
+67
+00:04:08,520 --> 00:04:09,880
+a la clase de contador.
+
+68
+00:04:10,040 --> 00:04:14,280
+Yo uso este parámetro,
+un objeto Pharo convencional.
+
+69
+00:04:15,360 --> 00:04:19,080
+Es una instancia de la clase.
+WAHtmlCanvas, suministrado por Seaside.
+
+70
+00:04:19,400 --> 00:04:23,520
+Envío mensajes a este objeto
+para generar el código HTML,
+
+71
+00:04:23,680 --> 00:04:25,920
+y un encabezado
+y un ancla o enlace.
+
+72
+00:04:26,360 --> 00:04:29,160
+El mensaje de "devolución de llamada"
+me permite especificar
+
+73
+00:04:29,320 --> 00:04:32,560
+un bloque de código para ejecutar
+cuando hago clic en el enlace.
+
+74
+00:04:32,720 --> 00:04:35,520
+Aquí, cuando hago clic en el enlace
+llamado ++,
+
+75
+00:04:35,680 --> 00:04:38,320
+el método de "auto aumento"
+es ejecutado.
+
+76
+00:04:38,560 --> 00:04:43,920
+Al hacer clic, se solicita la ejecución.
+del método de "auto disminución".
+
+77
+00:04:44,440 --> 00:04:45,400
+Es tan simple.
+
+78
+00:04:46,880 --> 00:04:51,840
+Si ocurre un error cuando hago clic
+en un enlace; es decir, en una devolución de llamada,
+
+79
+00:04:52,000 --> 00:04:56,600
+A sabiendas he insertado
+un punto de "alto" Podría ser un error.
+
+80
+00:04:57,040 --> 00:05:00,240
+He insertado un punto de detención
+en el método de disminución.
+
+81
+00:05:00,600 --> 00:05:05,120
+"Self" se detendrá si el contador
+se reduce por debajo de cero.
+
+82
+00:05:05,520 --> 00:05:08,240
+Eso hará que aparezca el depurador.
+
+83
+00:05:09,040 --> 00:05:12,440
+Como ves,
+Si hago esto en mi aplicación web,
+
+84
+00:05:12,600 --> 00:05:14,480
+el depurador se muestra aquí.
+
+85
+00:05:14,640 --> 00:05:19,440
+Aquí está la pila de aplicaciones del programa,
+con el método "RenderContentOn"
+
+86
+00:05:20,120 --> 00:05:22,720
+y la disminución, aquí.
+
+87
+00:05:23,600 --> 00:05:25,480
+Nos detuvimos en alto.
+
+88
+00:05:25,800 --> 00:05:28,680
+Puedo modificar el código aquí mismo,
+
+89
+00:05:29,000 --> 00:05:30,560
+presione "Continuar"
+
+90
+00:05:30,960 --> 00:05:34,040
+y mi solicitud
+recibirá la respuesta HTML
+
+91
+00:05:34,200 --> 00:05:36,080
+como si nada hubiera pasado
+
+92
+00:05:39,080 --> 00:05:42,800
+Otro problema en las aplicaciones web.
+es el botón "atrás".
+
+93
+00:05:43,240 --> 00:05:45,480
+Cuando el usuario hace clic en "atrás"
+
+94
+00:05:45,640 --> 00:05:48,600
+desincroniza
+el servidor y el cliente.
+
+95
+00:05:48,960 --> 00:05:53,640
+Imagina que aumento el contador 5 veces.
+Ahora lee "5" en mi pantalla.
+
+96
+00:05:53,880 --> 00:05:57,600
+Luego hago clic en el botón Atrás
+en mi navegador
+
+97
+00:05:57,920 --> 00:05:59,840
+El contador ahora lee 4.
+
+98
+00:06:00,000 --> 00:06:03,520
+Pero el servidor no se actualiza
+Acerca de mi botón de retroceso.
+
+99
+00:06:03,680 --> 00:06:08,640
+Entonces, si vuelvo a hacer clic en ++,
+La pantalla mostrará 6.
+
+100
+00:06:09,280 --> 00:06:13,320
+El problema es que el lado del servidor
+Pensamos que todavía estábamos en 5.
+
+101
+00:06:13,640 --> 00:06:14,800
+5 + 1 = 6.
+
+102
+00:06:15,320 --> 00:06:18,520
+El mar lo hace muy fácil
+Para manejar el botón Atrás.
+
+103
+00:06:18,680 --> 00:06:22,160
+Definimos un nuevo método
+En la clase de contador:"estados".
+
+104
+00:06:22,600 --> 00:06:26,560
+Devolverá la matriz
+para el cual se debe preservar el estado
+
+105
+00:06:26,720 --> 00:06:28,520
+cuando se presiona el botón de retroceso.
+
+106
+00:06:28,680 --> 00:06:32,360
+En este caso, es solo
+el objeto self:el contador.
+
+107
+00:06:33,200 --> 00:06:36,640
+Ahora, si presiono "atrás"
+y luego haga clic en ++,
+
+108
+00:06:36,880 --> 00:06:38,680
+Debería ver 5 nuevamente.
+
+109
+00:06:41,640 --> 00:06:46,280
+Las devoluciones de llamada son en realidad
+bloques de codigo
+
+110
+00:06:46,520 --> 00:06:49,040
+que contienen todo el poder de Pharo.
+
+111
+00:06:49,360 --> 00:06:53,440
+Puedo escribir cualquier código de Pharo
+en esta devolución de llamada.
+
+112
+00:06:54,040 --> 00:06:56,960
+Tomé un ejemplo más complejo
+aquí.
+
+113
+00:06:57,240 --> 00:07:01,160
+Puedo usar una alternativa "si"
+para decir si aumento el contador + 1
+
+114
+00:07:01,320 --> 00:07:05,200
+o + 2, dependiendo de si
+el recuento es raro o parejo.
+
+115
+00:07:05,760 --> 00:07:11,720
+Para números pares, el contador
+aumentará más rápido que para impar.
+
+116
+00:07:12,560 --> 00:07:17,000
+Como ves, Pharo
+es realmente un lenguaje poderoso
+
+117
+00:07:17,160 --> 00:07:18,920
+en estos bloques de devolución de llamada.
+
+118
+00:07:21,560 --> 00:07:25,840
+Para volver al ejemplo anterior,
+si hago clic en ++ aquí,
+
+119
+00:07:26,240 --> 00:07:30,720
+me lleva a una nueva ventana,
+
+120
+00:07:31,920 --> 00:07:35,600
+diciéndome que es un número par.
+
+121
+00:07:36,800 --> 00:07:40,560
+Siguiente, te mostraré
+Cómo escribir una aplicación de bienvenida.
+
+122
+00:07:40,720 --> 00:07:43,160
+El usuario ingresa su primer nombre.
+
+123
+00:07:43,400 --> 00:07:47,720
+Lo escribe aquí,
+y cuando hace clic en "decir hola"
+
+124
+00:07:48,640 --> 00:07:52,680
+queremos mostrar una cadena
+de caracteres:"Hola" y el nombre de usuario
+
+125
+00:07:53,040 --> 00:07:55,160
+Entró al principio, aquí.
+
+126
+00:07:56,760 --> 00:08:01,600
+Es muy fácil codificar para eso
+en el mar
+
+127
+00:08:01,960 --> 00:08:05,160
+Creo un componente de subclase
+de la clase Greeter.
+
+128
+00:08:05,360 --> 00:08:07,240
+La variable de instancia
+es el nombre de usuario
+
+129
+00:08:07,400 --> 00:08:10,240
+El método renderContentOn
+Te estoy mostrando aquí
+
+130
+00:08:10,880 --> 00:08:14,080
+muestra el campo "Nombre de usuario".
+
+131
+00:08:14,240 --> 00:08:15,920
+La siguiente línea es textinput.
+
+132
+00:08:16,120 --> 00:08:20,680
+Ese es el campo de texto que viste antes,
+donde el usuario escribe "Bob".
+
+133
+00:08:20,840 --> 00:08:22,520
+Voy a tener una devolución de llamada.
+
+134
+00:08:22,760 --> 00:08:26,240
+Esta vez, es un bloque
+con un parámetro, "valor".
+
+135
+00:08:26,760 --> 00:08:30,840
+El parámetro de valor de este bloque
+Será la cadena de caracteres.
+
+136
+00:08:31,360 --> 00:08:33,480
+el usuario ingresó
+
+137
+00:08:33,800 --> 00:08:36,280
+Podemos almacenarlo
+en la variable de instancia
+
+138
+00:08:36,440 --> 00:08:39,000
+del componente Greeter
+Nombre de usuario
+
+139
+00:08:39,520 --> 00:08:42,960
+Luego, cuando el botón "enviar"
+se hace clic,
+
+140
+00:08:43,320 --> 00:08:48,040
+Voy a llamar a un nuevo componente,
+usando el comando de autoinformar.
+
+141
+00:08:48,200 --> 00:08:51,520
+Le digo que muestre la cadena
+"Hola Bob."
+
+142
+00:08:51,920 --> 00:08:56,480
+Concatené la cadena de caracteres "Hola"
+con el texto ingresado como UserName.
+
+143
+00:09:00,040 --> 00:09:03,760
+Espero que aquellos de ustedes que se utilizan
+a las aplicaciones web de codificación
+
+144
+00:09:03,920 --> 00:09:06,320
+noté que Seaside
+no requiere
+
+145
+00:09:06,760 --> 00:09:11,800
+solicitud manual para encontrar
+parámetros en solicitudes o URL.
+
+146
+00:09:11,960 --> 00:09:16,520
+No requiere configuración XML.
+archivos o, de hecho, archivos o páginas.
+
+147
+00:09:16,920 --> 00:09:20,240
+yo no dije nada
+sobre los enlaces a la página siguiente.
+
+148
+00:09:20,640 --> 00:09:23,480
+De lo único que hablé
+fueron componentes:
+
+149
+00:09:23,640 --> 00:09:25,320
+objetos y mensajes
+
+150
+00:09:25,640 --> 00:09:27,160
+Hablé de devoluciones de llamada
+
+151
+00:09:27,320 --> 00:09:32,160
+y la capacidad de depurar en vivo,
+usando el depurador Pharo.
+
+152
+00:09:33,360 --> 00:09:36,960
+En resumen, es fácil de construir
+aplicaciones web en Seaside.
+
+153
+00:09:37,200 --> 00:09:41,960
+Hay un componente raíz.
+Los componentes se pueden combinar
+
+154
+00:09:42,240 --> 00:09:44,400
+para construir aplicaciones más complejas.
+
+155
+00:09:44,600 --> 00:09:48,000
+Un componente se renderiza
+en HTML con renderContentOn.
+
+156
+00:09:48,680 --> 00:09:51,960
+Tenemos una extensible
+lenguaje específico de dominio
+
+157
+00:09:52,240 --> 00:09:55,240
+que genera código HTML
+para cada componente
+
+158
+00:09:55,400 --> 00:09:58,680
+Cubriremos eso en mayor detalle.
+en el siguiente video.

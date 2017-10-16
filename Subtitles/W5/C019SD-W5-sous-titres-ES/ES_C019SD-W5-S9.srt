@@ -1,0 +1,394 @@
+﻿1
+00:00:00,720 --> 00:00:05,440
+Hola, en este curso te mostraré
+Cómo perfilar una aplicación en Pharo.
+
+2
+00:00:05,600 --> 00:00:08,640
+Eso significa medir
+la ejecución de expresiones
+
+3
+00:00:08,800 --> 00:00:11,320
+para ver si podemos reemplazar
+ellos con otros para ganar tiempo,
+
+4
+00:00:11,480 --> 00:00:13,520
+durante la ejecución de un programa.
+
+5
+00:00:14,560 --> 00:00:18,360
+Básicamente, lo que dice la gente es,
+si nunca has perfilado
+
+6
+00:00:18,520 --> 00:00:22,920
+una aplicación que podrías
+aumentar las velocidades en un 40-50%.
+
+7
+00:00:23,080 --> 00:00:26,240
+No estoy convencido.
+No lo sé, no tengo pruebas.
+
+8
+00:00:26,400 --> 00:00:29,160
+Pero puedo mostrarte las herramientas en Pharo
+
+9
+00:00:29,320 --> 00:00:32,160
+por hacer este perfil.
+
+10
+00:00:32,320 --> 00:00:35,800
+La primera expresión en Pharo
+es "timeToRun".
+
+11
+00:00:35,960 --> 00:00:38,320
+Es un mensaje que enviamos a un bloque,
+
+12
+00:00:38,480 --> 00:00:40,720
+que nos dará el tiempo de ejecución
+de una expresion
+
+13
+00:00:40,880 --> 00:00:43,680
+Entonces, aquí en "1000 factorial",
+
+14
+00:00:43,840 --> 00:00:48,120
+Quiero medir el tiempo de ejecución.
+de "1000 factorial", lo puse en un bloque
+
+15
+00:00:48,280 --> 00:00:50,600
+y envío el mensaje,
+"Hora de correr".
+
+dieciséis
+00:00:50,760 --> 00:00:55,120
+Ahora que tenemos 'timeToRun'
+es fácil comparar 2 ejecuciones.
+
+17
+00:00:55,280 --> 00:00:57,520
+Aquí hay un pequeño ejercicio:
+
+18
+00:00:57,680 --> 00:01:00,720
+Si hago "select" seguido de "collect",
+
+19
+00:01:00,880 --> 00:01:05,280
+¿Es más lento que "select:thenCollect",
+
+20
+00:01:05,440 --> 00:01:08,400
+sabiendo que esto implica dos pases
+
+21
+00:01:08,560 --> 00:01:10,600
+en el primer caso
+y uno en el segundo.
+
+22
+00:01:10,760 --> 00:01:14,120
+Entonces, creo que llevará más tiempo,
+pero vamos a verificar.
+
+23
+00:01:14,840 --> 00:01:17,560
+¿Qué debo hacer?
+Yo creo mi colección en ambos casos,
+
+24
+00:01:17,720 --> 00:01:21,920
+Estoy buscando, creo mi colección
+con 10 elementos, una pequeña colección,
+
+25
+00:01:22,080 --> 00:01:26,200
+y lo que haré es crear
+un cierto número de veces,
+
+26
+00:01:27,360 --> 00:01:31,000
+Voy a hacer un bucle para que pueda correr
+Las expresiones varias veces.
+
+27
+00:01:31,160 --> 00:01:32,960
+Puedes ver, en la primera parte,
+
+28
+00:01:33,120 --> 00:01:38,000
+Tengo mi colección,
+Selecciono cada elemento mayor de 5,
+
+29
+00:01:38,160 --> 00:01:41,920
+y luego cuadraré
+los elementos que he seleccionado,
+
+30
+00:01:42,080 --> 00:01:45,960
+y en la segunda expresión, diré,
+¿Qué quiero seleccionar?
+
+31
+00:01:46,120 --> 00:01:49,840
+Todo más grande que 5,
+y los cuadraré.
+
+32
+00:01:50,000 --> 00:01:53,360
+Vemos que el sistema me dice
+eso es 500 milisegundos,
+
+33
+00:01:53,520 --> 00:01:57,320
+y eso es 300 milisegundos.
+La segunda expresión es mejor.
+
+34
+00:01:57,480 --> 00:01:59,960
+Ves cómo funciona,
+Depende de ti hacerlo.
+
+35
+00:02:00,120 --> 00:02:05,800
+Tenga en cuenta que a veces estamos obligados
+para poner bucles muy grandes dentro,
+
+36
+00:02:06,560 --> 00:02:11,600
+para amplificar la medición,
+para ambos casos, por supuesto.
+
+37
+00:02:12,080 --> 00:02:16,800
+De lo contrario, hay otra operación,
+otro mensaje llamado "banco".
+
+38
+00:02:16,960 --> 00:02:20,520
+"Bench" nos dirá
+¿Cuántas veces el código,
+
+39
+00:02:20,680 --> 00:02:26,240
+que se está estudiando,
+se ejecuta durante 5 segundos.
+
+40
+00:02:27,560 --> 00:02:31,560
+Tomo mi "banco factorial 1000"
+ejemplo de nuevo, y puedo ejecutarlo
+
+41
+00:02:31,720 --> 00:02:33,840
+610,000 veces por segundo.
+
+42
+00:02:34,000 --> 00:02:37,000
+En este caso, si así lo deseamos,
+también podemos hacerlo
+
+43
+00:02:37,160 --> 00:02:39,320
+que la cifra sea lo más alta posible.
+
+44
+00:02:39,480 --> 00:02:42,680
+También hay una variante
+de banco, "benchFor"
+
+45
+00:02:42,840 --> 00:02:46,800
+donde puede especificar el tamaño.
+Lo que es interesante ver
+
+46
+00:02:46,960 --> 00:02:50,000
+es que "2 segundos",
+es realmente el "segundo" mensaje,
+
+47
+00:02:50,160 --> 00:02:54,920
+que se envía al mensaje 2,
+que nos dará una duración,
+
+48
+00:02:55,080 --> 00:02:57,480
+una instancia de la clase Duración
+
+49
+00:02:58,120 --> 00:03:01,080
+y que controlará
+cuánto tiempo funciona el sistema
+
+50
+00:03:01,240 --> 00:03:04,960
+Esto te muestra una vez más
+que todo es un objeto en Pharo.
+
+51
+00:03:05,120 --> 00:03:09,240
+Configuré los segundos en 2 segundos.
+Envío el mensaje "segundo" al objeto 2.
+
+52
+00:03:10,600 --> 00:03:15,080
+Lo que tienes a continuación,
+También hay lo que llamamos un "perfilador",
+
+53
+00:03:15,240 --> 00:03:16,880
+que se basa en el muestreo.
+
+54
+00:03:17,040 --> 00:03:20,520
+Lo que sucederá es,
+ejecutarás tu programa,
+
+55
+00:03:20,680 --> 00:03:23,880
+y se realizará a intervalos regulares
+
+56
+00:03:24,040 --> 00:03:26,400
+para inspeccionar la pila de ejecución,
+
+57
+00:03:26,560 --> 00:03:29,040
+mira lo que hay en la pila
+y recopilar información.
+
+58
+00:03:29,200 --> 00:03:33,760
+Entonces, ¿cómo lo mencionamos?
+Hacemos "timeProfiler, spyOn"
+
+59
+00:03:33,920 --> 00:03:37,800
+y lo pasaremos un bloque.
+Quiero repetir 20 veces
+
+60
+00:03:37,960 --> 00:03:39,680
+que mostraré en la transcripción,
+
+61
+00:03:39,840 --> 00:03:42,000
+"1000 factorial",
+
+62
+00:03:42,160 --> 00:03:45,920
+que convierto en una cuerda,
+que generalmente cuesta más.
+
+63
+00:03:46,080 --> 00:03:50,480
+Después de eso, el profiler nos dará
+este tipo de resultado,
+
+64
+00:03:50,640 --> 00:03:55,080
+con un árbol que nos muestra las ramas
+entre los cuales hemos pasado la mayor parte del tiempo.
+
+sesenta y cinco
+00:03:55,240 --> 00:04:00,000
+Nos muestra que pasamos el 63% de las veces.
+en el método "printOn:base".
+
+66
+00:04:01,040 --> 00:04:03,240
+Es solo para mostrarte que está ahí.
+
+67
+00:04:03,400 --> 00:04:06,960
+Hay un perfilador con el que puedes jugar
+si te interesa
+
+68
+00:04:07,960 --> 00:04:09,240
+Entonces, para resumir,
+
+69
+00:04:09,480 --> 00:04:10,640
+para empezar,
+
+70
+00:04:10,800 --> 00:04:14,600
+Puedes usar "timeToRun",
+"banco" y el perfilador.
+
+71
+00:04:14,760 --> 00:04:19,280
+Hay un capítulo en el libro
+"En lo profundo de Pharo" mostrando este tipo
+
+72
+00:04:19,440 --> 00:04:22,560
+de la técnica de optimización.
+
+73
+00:04:22,720 --> 00:04:26,240
+Solo quería señalar,
+como ves en estos 3 ejemplos,
+
+74
+00:04:26,400 --> 00:04:30,440
+siempre usamos bloques.
+Este es un bloque ...
+
+75
+00:04:30,600 --> 00:04:33,400
+Este es un bloque también ... ¿Por qué?
+
+76
+00:04:33,560 --> 00:04:36,680
+Lo viste en el curso
+en bloques que te permiten
+
+77
+00:04:36,840 --> 00:04:39,520
+para congelar la expresión,
+la definición del bloque
+
+78
+00:04:39,680 --> 00:04:42,560
+no ejecuta y da "banco"
+la posibilidad
+
+79
+00:04:42,720 --> 00:04:44,920
+de controlar
+la cantidad de ejecuciones
+
+80
+00:04:45,080 --> 00:04:48,080
+o decidir cuándo se ejecuta
+del programa comenzará.
+
+81
+00:04:48,240 --> 00:04:50,080
+La otra cosa que diría es:
+
+82
+00:04:50,240 --> 00:04:54,680
+descubra cómo "timeToRun"
+y "banco" están implementados.
+
+83
+00:04:54,840 --> 00:04:57,520
+Para hacer eso, haz clic en Expresión
+
+84
+00:04:57,680 --> 00:05:00,840
+y hacer "navegar" o "implementar"
+y verás el código.

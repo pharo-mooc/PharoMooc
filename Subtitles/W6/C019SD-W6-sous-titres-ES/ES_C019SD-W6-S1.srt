@@ -1,0 +1,591 @@
+﻿1
+00:00:07,280 --> 00:00:11,520
+Hola todos.
+En la clase de hoy, vamos a ver
+
+2
+00:00:11,680 --> 00:00:14,520
+si has entendido
+nuestras clases anteriores
+
+3
+00:00:14,680 --> 00:00:16,440
+a saber, en lo que se refiere a super.
+
+4
+00:00:16,680 --> 00:00:19,440
+La idea es hacerte pensar mucho.
+
+5
+00:00:19,600 --> 00:00:22,480
+Tengo una prueba para ver
+si lo has entendido
+
+6
+00:00:23,360 --> 00:00:25,080
+¿Que aprenderás?
+
+7
+00:00:25,240 --> 00:00:27,520
+Pensarás en lo super súper,
+
+8
+00:00:27,680 --> 00:00:29,960
+revisar la búsqueda de mensajes,
+
+9
+00:00:30,120 --> 00:00:32,240
+y piensa en los métodos de clase.
+
+10
+00:00:32,400 --> 00:00:35,520
+Es mucho material para una clase,
+pero es divertido.
+
+11
+00:00:36,360 --> 00:00:42,040
+Imagine que definí un método
+en la clase de dados,
+
+12
+00:00:42,200 --> 00:00:44,560
+y redefinido
+el método "nuevo" de la siguiente manera:
+
+13
+00:00:44,720 --> 00:00:47,800
+Aquí hay "nuevo" y aquí está el código.
+
+14
+00:00:47,960 --> 00:00:50,960
+inst:= super nuevo
+
+15
+00:00:51,120 --> 00:00:52,840
+inst inicializar Devolver inst.
+
+dieciséis
+00:00:53,000 --> 00:00:56,920
+Ahora ejecuto
+la expresión dados nueva
+
+17
+00:00:57,960 --> 00:01:01,560
+Ahora mi pregunta para ti es:
+
+18
+00:01:01,720 --> 00:01:05,320
+En esta expresión, ¿qué es inst?
+
+19
+00:01:05,480 --> 00:01:07,120
+¿Qué es súper?
+
+20
+00:01:07,280 --> 00:01:09,280
+¿Y qué es súper nuevo?
+
+21
+00:01:09,720 --> 00:01:14,120
+Te daré unos segundos
+Pensarlo más.
+
+22
+00:01:16,600 --> 00:01:19,000
+Te daré algunas pistas.
+
+23
+00:01:20,040 --> 00:01:23,560
+Se basan en mi experiencia docente.
+
+24
+00:01:24,400 --> 00:01:28,200
+No, super no es la superclase.
+
+25
+00:01:28,360 --> 00:01:30,360
+Quita eso de tu cabeza
+
+26
+00:01:30,520 --> 00:01:33,560
+No, inst no
+una instancia de la superclase.
+
+27
+00:01:33,720 --> 00:01:38,200
+Si lo fuera, nunca podríamos
+escribe instancias para las clases a continuación.
+
+28
+00:01:38,760 --> 00:01:40,440
+¿Así que qué es lo?
+
+29
+00:01:41,120 --> 00:01:42,120
+Vamos a ver.
+
+30
+00:01:42,280 --> 00:01:44,200
+Dijimos en el video sobre super
+
+31
+00:01:44,360 --> 00:01:47,000
+ese super fue el receptor
+del mensaje
+
+32
+00:01:47,440 --> 00:01:50,800
+Al igual que yo, súper puntos
+el receptor del mensaje
+
+33
+00:01:50,960 --> 00:01:52,840
+Esto no es específico de Pharo.
+
+34
+00:01:53,000 --> 00:01:56,920
+Es cierto en todos los objetos orientados
+lenguajes como Java, C #,
+
+35
+00:01:57,760 --> 00:01:59,040
+y Smalltalk.
+
+36
+00:01:59,840 --> 00:02:03,400
+Aquí el mensaje es nuevo para los dados.
+
+37
+00:02:03,560 --> 00:02:07,040
+Entonces, ¿cuál es el receptor?
+Sintácticamente hablando, son los dados.
+
+38
+00:02:07,200 --> 00:02:09,880
+La clase es dados.
+
+39
+00:02:10,040 --> 00:02:14,720
+Con estas pistas,
+deberías entender mejor
+
+40
+00:02:16,160 --> 00:02:17,280
+Veamos.
+
+41
+00:02:18,160 --> 00:02:21,560
+¿Recuerdas cómo funciona el mensaje de búsqueda?
+
+42
+00:02:21,720 --> 00:02:24,000
+Envío un mensaje a una instancia,
+
+43
+00:02:24,160 --> 00:02:26,000
+por ejemplo,
+ColoredRectangle.
+
+44
+00:02:26,160 --> 00:02:29,480
+Miro dentro
+la clase ColorRectangle
+
+45
+00:02:29,640 --> 00:02:32,880
+para ver si el método en cuestión
+se define. No es.
+
+46
+00:02:33,040 --> 00:02:35,680
+"Área" no está definida.
+Lo encuentro aquí.
+
+47
+00:02:35,840 --> 00:02:40,120
+Aplico la definición que encontré.
+
+48
+00:02:40,280 --> 00:02:42,600
+¿En que? En el receptor
+
+49
+00:02:43,280 --> 00:02:46,320
+Ahora debes entender
+lo que hace este método
+
+50
+00:02:46,480 --> 00:02:51,560
+Busco "nuevo" en la clase de dados.
+
+51
+00:02:51,720 --> 00:02:56,760
+Lo busco y lo aplico a los dados.
+
+52
+00:02:56,920 --> 00:02:59,480
+Miremos más de cerca.
+
+53
+00:02:59,640 --> 00:03:01,440
+Como expliqué anteriormente,
+
+54
+00:03:01,600 --> 00:03:05,600
+en Pharo, solo se envía un mensaje
+con una búsqueda de método.
+
+55
+00:03:05,760 --> 00:03:09,560
+Entonces, cuando envío un mensaje
+a cualquier objeto que sea,
+
+56
+00:03:09,720 --> 00:03:12,600
+Siempre miro en la clase.
+Sigo este enlace
+
+57
+00:03:12,760 --> 00:03:14,160
+Entonces esta aquí.
+
+58
+00:03:14,320 --> 00:03:16,320
+Siempre son estos dos pasos.
+
+59
+00:03:16,480 --> 00:03:18,720
+¿Qué dice esto sobre nuestro sistema?
+
+60
+00:03:18,880 --> 00:03:21,640
+Te lo dije, super es el receptor.
+
+61
+00:03:22,920 --> 00:03:25,320
+El receptor era dados.
+
+62
+00:03:26,000 --> 00:03:31,000
+Entonces busco nuevos
+en la superclase de la clase de dados.
+
+63
+00:03:31,160 --> 00:03:34,680
+La clave aquí es que es clase de dados
+y no dados
+
+64
+00:03:34,840 --> 00:03:36,960
+Lo veremos gráficamente después.
+
+sesenta y cinco
+00:03:37,120 --> 00:03:39,520
+Una vez que encuentre el nuevo "nuevo"
+
+66
+00:03:39,680 --> 00:03:42,640
+Lo aplico al receptor,
+que es dados
+
+67
+00:03:42,800 --> 00:03:44,680
+¿Qué hace esto?
+
+68
+00:03:44,840 --> 00:03:47,200
+Aplico nuevo en dados,
+
+69
+00:03:47,360 --> 00:03:51,800
+que creará e inicializará
+Una nueva instancia de dados.
+
+70
+00:03:51,960 --> 00:03:54,240
+Inst será mi nueva instancia.
+
+71
+00:03:54,400 --> 00:03:55,920
+Un dado
+
+72
+00:03:56,360 --> 00:03:58,760
+Y lo inicializaré y lo devolveré.
+
+73
+00:03:58,920 --> 00:04:01,640
+Echemos un vistazo a un diagrama.
+
+74
+00:04:01,800 --> 00:04:04,240
+Cuando envío nuevo a dados,
+
+75
+00:04:04,400 --> 00:04:07,960
+donde me veo
+¿En qué clase miro?
+
+76
+00:04:08,120 --> 00:04:09,760
+Me veo en la clase de dados.
+
+77
+00:04:10,440 --> 00:04:12,720
+Aquí es donde uso mi famoso método.
+
+78
+00:04:12,880 --> 00:04:16,920
+¿Qué hago ahora?
+¿Qué dijimos sobre super?
+
+79
+00:04:18,720 --> 00:04:21,800
+Super es la clase de dados.
+Es el receptor
+
+80
+00:04:21,960 --> 00:04:23,840
+Envié el mensaje a este objeto.
+
+81
+00:04:25,400 --> 00:04:27,680
+Super me dice que mire adentro
+
+82
+00:04:27,840 --> 00:04:31,440
+la superclase
+de la clase que contiene la expresión.
+
+83
+00:04:31,600 --> 00:04:36,720
+Entonces miro en la superclase
+de la clase de dados.
+
+84
+00:04:36,880 --> 00:04:39,760
+Yo busco aqui
+Y en algún lugar aquí arriba,
+
+85
+00:04:39,920 --> 00:04:41,200
+Veremos más adelante,
+
+86
+00:04:41,360 --> 00:04:42,920
+nuevo se define
+
+87
+00:04:43,080 --> 00:04:44,360
+¿Qué pasa con la búsqueda?
+
+88
+00:04:44,520 --> 00:04:46,920
+Dijimos que el método
+se define aquí,
+
+89
+00:04:47,080 --> 00:04:51,960
+y lo aplicamos al receptor.
+Lo aplico a los dados.
+
+90
+00:04:52,120 --> 00:04:55,480
+Y esto me da una nueva instancia.
+Lo dibujaré
+
+91
+00:04:55,640 --> 00:04:58,120
+Devuelve una instancia:un dado.
+
+92
+00:04:58,280 --> 00:05:02,000
+Y inst es apuntado a
+esta nueva instancia
+
+93
+00:05:03,000 --> 00:05:05,400
+Entonces, inst es un nuevo dado.
+
+94
+00:05:06,040 --> 00:05:10,680
+Envío el mensaje de inicialización a inst,
+y luego lo devuelvo
+
+95
+00:05:10,840 --> 00:05:15,760
+A menudo luchas con este ejemplo.
+porque es muy retórico
+
+96
+00:05:15,920 --> 00:05:19,840
+Lo hago a proposito
+para ver si lo has entendido
+
+97
+00:05:20,000 --> 00:05:21,920
+Mezcla dos cosas.
+
+98
+00:05:22,080 --> 00:05:23,880
+Uno, súper
+
+99
+00:05:24,040 --> 00:05:29,040
+Miro en la superclase de la clase
+que contiene la expresión súper,
+
+100
+00:05:29,200 --> 00:05:31,440
+sabiendo que super es el receptor.
+
+101
+00:05:31,600 --> 00:05:35,240
+Y dos nuevas.
+Es un método que crea objetos.
+
+102
+00:05:35,400 --> 00:05:37,120
+Aquí es donde los dos se encuentran,
+
+103
+00:05:37,280 --> 00:05:40,080
+y tu tienes
+Me cuesta entender esto.
+
+104
+00:05:40,240 --> 00:05:43,520
+Sugiero que realmente revises
+Esta lección,
+
+105
+00:05:43,680 --> 00:05:45,640
+porque es muy importante
+
+106
+00:05:45,800 --> 00:05:46,920
+Lo repetiré
+
+107
+00:05:47,080 --> 00:05:50,240
+Super es el receptor del mensaje,
+
+108
+00:05:50,400 --> 00:05:53,160
+que en este caso es dados.
+
+109
+00:05:53,320 --> 00:05:57,560
+Miro en la superclase
+de la clase de dados para el nuevo método
+
+110
+00:05:57,720 --> 00:06:02,320
+que voy a aplicar a los dados, el receptor,
+para encontrar mi instancia de terminal.
+
+111
+00:06:03,120 --> 00:06:04,280
+¿Bueno?
+
+112
+00:06:05,760 --> 00:06:11,080
+En resumen:enviar un mensaje está buscando
+un método en la clase de receptor.
+
+113
+00:06:11,240 --> 00:06:13,080
+Eso es lo que hacemos cada vez.
+
+114
+00:06:13,240 --> 00:06:15,960
+Eso es todo lo que puedes hacer en Pharo,
+por lo que es fácil
+
+115
+00:06:16,160 --> 00:06:20,400
+Ya sabes que súper significa buscar
+en la superclase de la clase
+
+116
+00:06:20,560 --> 00:06:22,680
+que contiene la expresión super.
+
+117
+00:06:22,880 --> 00:06:26,440
+Y ese súper es el receptor,
+pero también puede ser una clase.
+
+118
+00:06:26,880 --> 00:06:30,160
+Aún no hemos terminado.
+Tengo otro problema para ti.
+
+119
+00:06:30,320 --> 00:06:33,520
+Si estás estudiando Pharo,
+debe gustarte los desafíos.
+
+120
+00:06:33,680 --> 00:06:37,520
+Aquí vamos. Imagine que tengo
+el siguiente problema:
+
+121
+00:06:37,680 --> 00:06:41,120
+El método dice:
+"Hacer súper-espacio-clase
+
+122
+00:06:41,280 --> 00:06:42,880
+"Igual igual clase propia".
+
+123
+00:06:43,040 --> 00:06:46,520
+¿Qué significa "igual igual"?
+Es la identidad del puntero.
+
+124
+00:06:46,680 --> 00:06:49,800
+De hecho, estoy preguntando:
+Es el objeto obtenido
+
+125
+00:06:49,960 --> 00:06:53,200
+con super-space-class iguales
+
+126
+00:06:53,360 --> 00:06:56,160
+como el objeto obtenido
+con auto-igual-clase?
+
+127
+00:06:56,360 --> 00:06:59,760
+Definí este método,
+que devolverá verdadero o falso.
+
+128
+00:06:59,920 --> 00:07:01,280
+Mi pregunta para ti es:
+
+129
+00:07:01,440 --> 00:07:05,200
+¿Cuál es el resultado de un nuevo foo?
+
+130
+00:07:05,360 --> 00:07:07,600
+Creo una nueva instancia de A
+
+131
+00:07:07,760 --> 00:07:11,360
+y le envío el mensaje foo,
+que editará este mensaje.
+
+132
+00:07:11,520 --> 00:07:13,600
+¿Cuál es el resultado y por qué?
+
+133
+00:07:13,760 --> 00:07:17,120
+Tendrás que pensar
+porque no te daré esta respuesta.

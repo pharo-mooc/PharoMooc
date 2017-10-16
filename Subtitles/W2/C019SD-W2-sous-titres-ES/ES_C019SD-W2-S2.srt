@@ -1,0 +1,654 @@
+﻿1
+00:00:00,440 --> 00:00:01,520
+Hola a todos.
+
+2
+00:00:01,680 --> 00:00:06,040
+En esta clase, ilustraré Pharo
+
+3
+00:00:06,200 --> 00:00:11,880
+comparándolo
+a otro lenguaje OOP, Java.
+
+4
+00:00:12,520 --> 00:00:16,040
+En Pharo, solo manipulas objetos.
+
+5
+00:00:16,200 --> 00:00:20,200
+Haces cosas
+gracias a los mensajes solamente
+
+6
+00:00:20,360 --> 00:00:22,640
+y al asignar valores a las variables.
+
+7
+00:00:23,280 --> 00:00:27,440
+Las siguientes diapositivas mostrarán algunas
+equivalencias entre Java y Pharo
+
+8
+00:00:27,600 --> 00:00:30,720
+entender sus diferencias
+y similitudes.
+
+9
+00:00:30,880 --> 00:00:32,360
+Por ahí,
+
+10
+00:00:33,080 --> 00:00:35,840
+Java se usa para crear una nueva colección
+
+11
+00:00:36,000 --> 00:00:38,840
+que contiene cadenas.
+
+12
+00:00:39,000 --> 00:00:43,560
+Esta colección se ve afectada.
+a una variable llamada cadenas.
+
+13
+00:00:44,920 --> 00:00:46,560
+En Pharo, es lo mismo.
+
+14
+00:00:46,720 --> 00:00:49,240
+La clase que maneja colecciones
+
+15
+00:00:49,400 --> 00:00:52,120
+se llama OrderedCollection,
+no ArrayList,
+
+dieciséis
+00:00:52,280 --> 00:00:54,240
+pero el comportamiento es el mismo.
+
+17
+00:00:54,400 --> 00:00:56,640
+Tienes que ser consciente de varias cosas:
+
+18
+00:00:57,560 --> 00:01:02,960
+primero, en Pharo,
+nuevo es un mensaje enviado a una clase.
+
+19
+00:01:03,120 --> 00:01:06,280
+Se envía el mensaje nuevo
+a la clase OrderedCollection
+
+20
+00:01:06,440 --> 00:01:09,000
+para crear una nueva instancia
+de la colección
+
+21
+00:01:09,160 --> 00:01:11,440
+En Java, lo primero es lo nuevo.
+
+22
+00:01:11,600 --> 00:01:14,320
+Esta colección sintáctica es específica
+
+23
+00:01:15,280 --> 00:01:18,360
+para objetivar la creación de instancias en Java,
+
+24
+00:01:18,520 --> 00:01:21,640
+mientras que en Pharo
+es el envío de mensajes estándar.
+
+25
+00:01:22,920 --> 00:01:26,960
+No hay tipeo estático en Pharo.
+
+26
+00:01:27,120 --> 00:01:31,840
+Muchas cosas que se necesitan en Java
+No se usan en Pharo.
+
+27
+00:01:32,000 --> 00:01:36,280
+No necesita especificar
+que la colección contiene cadenas.
+
+28
+00:01:36,440 --> 00:01:40,360
+Y las cadenas no son una colección.
+
+29
+00:01:41,120 --> 00:01:46,480
+Hay otra equivalencia cuando
+Se trata de crear un proceso secundario.
+
+30
+00:01:47,080 --> 00:01:50,960
+Nos gustaría ejecutar este bit de código
+
+31
+00:01:51,120 --> 00:01:52,720
+en otro proceso
+
+32
+00:01:52,880 --> 00:01:56,000
+En Java, debe crear
+
+33
+00:01:56,160 --> 00:01:59,400
+una nueva instancia de la clase Thread
+
+34
+00:01:59,560 --> 00:02:01,920
+dándole Runnable () como un parámetro.
+
+35
+00:02:02,760 --> 00:02:04,680
+Escribes nuevo Runnable ().
+
+36
+00:02:04,840 --> 00:02:09,960
+Runnable () es una clase abstracta,
+Tienes que definir el método que falta.
+
+37
+00:02:10,800 --> 00:02:13,160
+Este método se llama run ().
+
+38
+00:02:13,320 --> 00:02:17,440
+Contiene el codigo
+desea ejecutar en un proceso secundario:
+
+39
+00:02:17,600 --> 00:02:19,640
+this.doSomething ().
+
+40
+00:02:20,960 --> 00:02:25,520
+El método doAlgo
+pertenece a la misma clase
+
+41
+00:02:25,680 --> 00:02:27,680
+como aquel donde se encuentra el código.
+
+42
+00:02:28,400 --> 00:02:31,520
+En Pharo, la sintaxis es mucho más simple.
+
+43
+00:02:32,680 --> 00:02:37,720
+Lo que es equivalente a toda esa parte
+es esta parte
+
+44
+00:02:39,160 --> 00:02:41,440
+En el final,
+
+45
+00:02:42,360 --> 00:02:46,880
+este inicio ayuda a lanzar
+el proceso hijo
+
+46
+00:02:47,040 --> 00:02:50,680
+Puedes hacerlo gracias a la horquilla,
+
+47
+00:02:50,840 --> 00:02:53,440
+Un mensaje que se envía al bloque.
+
+48
+00:02:54,320 --> 00:02:58,760
+Desde Java 8,
+la última versión de Java
+
+49
+00:02:58,920 --> 00:03:02,080
+La sintaxis de Java ha mejorado mucho.
+
+50
+00:03:02,240 --> 00:03:05,480
+Como puedes ver,
+El código en Java es mucho más claro.
+
+51
+00:03:06,280 --> 00:03:10,200
+El equivalente de este bloque
+
+52
+00:03:10,360 --> 00:03:14,280
+Es el cierre léxico ubicado aquí.
+
+53
+00:03:15,200 --> 00:03:19,080
+El resto es el mismo
+como en la diapositiva anterior.
+
+54
+00:03:19,240 --> 00:03:22,080
+En Pharo,
+hay tres tipos de mensajes:
+
+55
+00:03:22,240 --> 00:03:23,760
+mensajes unarios,
+
+56
+00:03:23,920 --> 00:03:27,840
+que son mensajes sin argumentos
+aplicado a un receptor,
+
+57
+00:03:28,000 --> 00:03:32,040
+como el método factorial
+nosotros ya estudiamos
+
+58
+00:03:32,800 --> 00:03:35,880
+o como el método cr
+
+59
+00:03:36,040 --> 00:03:40,160
+que muestra una línea vacía
+en la consola
+
+60
+00:03:41,120 --> 00:03:45,400
+Mensajes binarios
+se aplican a un receptor
+
+61
+00:03:45,560 --> 00:03:48,240
+y toma un valor como argumento.
+
+62
+00:03:48,400 --> 00:03:51,600
+Por ejemplo, los operadores
+
+63
+00:03:51,760 --> 00:03:54,320
+tal como + que agrega tres y cuatro.
+
+64
+00:03:54,480 --> 00:03:58,560
+-> se usa para crear un par
+con una clave y un valor
+
+sesenta y cinco
+00:03:58,720 --> 00:04:02,560
+5-> 10 crea el par 5 10.
+
+66
+00:04:04,200 --> 00:04:06,840
+El tercer tipo de mensajes
+está basado en palabras clave.
+
+67
+00:04:07,000 --> 00:04:10,520
+Pueden tomar uno, dos, tres,
+o más parámetros.
+
+68
+00:04:11,160 --> 00:04:13,320
+Están separados por dos puntos.
+
+69
+00:04:14,600 --> 00:04:18,920
+Aquí se muestra el mensaje de palabra clave.
+Se envía al objeto Transcripción
+
+70
+00:04:19,080 --> 00:04:22,240
+y toma la cadena en la consola
+como un parámetro
+
+71
+00:04:22,800 --> 00:04:26,240
+En el segundo ejemplo,
+el mensaje está entre:y :.
+
+72
+00:04:26,400 --> 00:04:29,360
+Es un mensaje
+separados en dos palabras clave.
+
+73
+00:04:29,520 --> 00:04:34,000
+Se necesitan dos argumentos
+y se aplica a un receptor.
+
+74
+00:04:34,160 --> 00:04:38,520
+El mensaje entre:y:
+se aplica al objeto 2
+
+75
+00:04:38,680 --> 00:04:40,920
+y toma 0 y 5 como argumentos.
+
+76
+00:04:41,960 --> 00:04:44,320
+Para comparar con Java,
+
+77
+00:04:44,480 --> 00:04:48,120
+especialmente cuando se trata
+a los mensajes basados ​​en palabras clave,
+
+78
+00:04:48,280 --> 00:04:51,840
+ya que son muy diferentes
+comparado con Java:
+
+79
+00:04:52,800 --> 00:04:56,960
+En Java, tienes un receptor,
+un punto,
+
+80
+00:04:57,720 --> 00:05:00,560
+el nombre del mensaje
+enviado al objeto,
+
+81
+00:05:00,720 --> 00:05:04,200
+y los argumentos entre paréntesis
+separado por comas.
+
+82
+00:05:05,440 --> 00:05:07,800
+En Pharo, expresas lo mismo
+
+83
+00:05:09,560 --> 00:05:14,120
+separando las palabras clave
+desde el nombre del método
+
+84
+00:05:14,280 --> 00:05:16,720
+y al poner los argumentos
+en el medio.
+
+85
+00:05:16,880 --> 00:05:18,520
+Por ejemplo:
+
+86
+00:05:19,600 --> 00:05:24,040
+Envío el mensaje de envío a un cartero
+
+87
+00:05:24,200 --> 00:05:27,840
+para enviar correo a un destinatario.
+
+88
+00:05:28,000 --> 00:05:30,200
+Esta es la sintaxis de Java.
+
+89
+00:05:30,360 --> 00:05:34,040
+Lo descompondré gradualmente
+para terminar con la sintaxis Pharo.
+
+90
+00:05:34,200 --> 00:05:35,640
+Primer paso:
+
+91
+00:05:35,800 --> 00:05:40,320
+extraer las partes que pertenecen
+a la sintaxis de Java:
+
+92
+00:05:41,120 --> 00:05:45,320
+el período, los paréntesis,
+la coma y el punto y coma.
+
+93
+00:05:46,680 --> 00:05:48,000
+Vamos a eliminarlos
+
+94
+00:05:48,160 --> 00:05:51,360
+Terminas con:
+destinatario de correo electrónico de envío de correos.
+
+95
+00:05:51,520 --> 00:05:54,600
+Si conviertes esto en una oración
+para facilitar la lectura,
+
+96
+00:05:54,760 --> 00:05:59,120
+obtienes:correo electrónico de envío del destinatario al destinatario.
+Es más fácil de leer.
+
+97
+00:05:59,280 --> 00:06:02,440
+Para obtener la sintaxis correcta de Pharo,
+agrega dos puntos.
+
+98
+00:06:04,640 --> 00:06:08,680
+Hay un mensaje, el mensaje
+enviar:a:aplicado al cartero.
+
+99
+00:06:08,840 --> 00:06:14,320
+Se necesitan dos argumentos,
+el correo y el destinatario.
+
+100
+00:06:14,480 --> 00:06:18,560
+Condicionales
+tal como si y de lo contrario,
+
+101
+00:06:18,720 --> 00:06:22,280
+y bucles como hacer, para, etc.
+
+102
+00:06:22,440 --> 00:06:26,560
+Son palabras clave en Java.
+En Pharo, no lo son.
+
+103
+00:06:26,720 --> 00:06:31,800
+No son palabras específicas definidas
+por el idioma y el compilador.
+
+104
+00:06:31,960 --> 00:06:36,760
+Son solo métodos y mensajes.
+enviado a algunos tipos de objetos.
+
+105
+00:06:36,920 --> 00:06:41,240
+En Pharo, por ejemplo, para ejecutar si,
+
+106
+00:06:41,880 --> 00:06:44,160
+envías el mensaje ifTrue:if False :.
+
+107
+00:06:44,320 --> 00:06:47,600
+Es un mensaje que le envías a un booleano.
+
+108
+00:06:47,760 --> 00:06:51,840
+Se necesitan dos bloques como parámetros:
+uno se ejecuta si el booleano es verdadero,
+
+109
+00:06:52,000 --> 00:06:54,320
+uno si el booleano es falso.
+
+110
+00:06:54,920 --> 00:06:58,800
+Del mismo modo, los bucles son solo métodos.
+enviado a algunos tipos de objetos.
+
+111
+00:06:58,960 --> 00:07:00,640
+En el primer ejemplo,
+
+112
+00:07:02,080 --> 00:07:03,560
+el objeto 4 es un número.
+
+113
+00:07:03,720 --> 00:07:07,320
+Puedo enviar el mensaje TimesRepeat:
+con un bloque como parámetro.
+
+114
+00:07:08,040 --> 00:07:12,520
+El método subyacente ejecuta el bloque
+
+115
+00:07:13,920 --> 00:07:17,280
+tantas veces
+como lo indica el receptor.
+
+116
+00:07:17,840 --> 00:07:22,200
+4timesRepeat:
+ejecuta algo cuatro veces.
+
+117
+00:07:23,320 --> 00:07:27,280
+Del mismo modo, el mensaje para:hacer:
+se envía a un número.
+
+118
+00:07:27,440 --> 00:07:29,960
+Toma un número y un bloque
+como parámetros
+
+119
+00:07:30,120 --> 00:07:34,760
+El valor i
+que es el parámetro del bloque
+
+120
+00:07:34,920 --> 00:07:37,440
+toma cada valor entre 0 y 100.
+
+121
+00:07:38,840 --> 00:07:40,080
+Igualmente,
+
+122
+00:07:41,120 --> 00:07:43,000
+el mensaje a:por:hacer:
+
+123
+00:07:44,320 --> 00:07:49,120
+selecciona los valores comprendidos
+entre 0 y 100
+
+124
+00:07:49,280 --> 00:07:53,080
+que son múltiplos de 3:
+0, 3, 6, 9, etc.
+
+125
+00:07:55,480 --> 00:07:58,600
+Finalmente, el mensaje dice:
+enviado a una colección
+
+126
+00:07:58,760 --> 00:08:02,160
+es lo mismo que un bucle foreach en Java.
+
+127
+00:08:02,320 --> 00:08:06,760
+Ejecuta el bloque
+para cada elemento de la colección.
+
+128
+00:08:07,680 --> 00:08:10,920
+La variable:cada uno
+
+129
+00:08:11,080 --> 00:08:14,480
+primero toma el primer valor
+de la colección,
+
+130
+00:08:14,640 --> 00:08:16,320
+su primer elemento
+
+131
+00:08:16,480 --> 00:08:19,640
+El bloque se ejecuta usando
+este valor de:cada uno.
+
+132
+00:08:19,800 --> 00:08:23,360
+Entonces:cada toma
+El segundo elemento de la colección.
+
+133
+00:08:23,520 --> 00:08:27,880
+El bloque se ejecuta usando este valor
+hasta el final de la colección.
+
+134
+00:08:28,480 --> 00:08:31,560
+Para resumir,
+hay tres tipos de mensajes:
+
+135
+00:08:31,720 --> 00:08:34,600
+mensajes unarios, mensajes binarios,
+y palabras clave.
+
+136
+00:08:35,160 --> 00:08:37,400
+El orden de precedencia:
+
+137
+00:08:37,560 --> 00:08:40,280
+primero ejecuta
+¿Qué hay entre paréntesis,
+
+138
+00:08:40,440 --> 00:08:44,800
+luego mensajes unarios,
+luego mensajes binarios, luego palabras clave.
+
+139
+00:08:45,840 --> 00:08:47,600
+Condicionales y bucles
+
+140
+00:08:47,760 --> 00:08:51,200
+son mensajes enviados
+a algunos tipos de objetos,
+
+141
+00:08:51,360 --> 00:08:54,240
+a diferencia de en otros idiomas
+como Java,
+
+142
+00:08:54,400 --> 00:08:56,800
+donde palabras clave específicas del idioma
+
+143
+00:08:56,960 --> 00:09:00,480
+tener instrucciones especificas
+con respecto al compilador.
+
+144
+00:09:00,640 --> 00:09:03,760
+En Pharo, son mensajes
+enviados a objetos específicos

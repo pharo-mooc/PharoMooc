@@ -1,0 +1,645 @@
+﻿1
+00:00:00,560 --> 00:00:04,040
+Este curso explora
+Otra característica avanzada.
+
+2
+00:00:04,200 --> 00:00:07,080
+Quiero mostrarte cómo podemos transformar
+
+3
+00:00:07,280 --> 00:00:10,560
+la pila de ejecución en un objeto,
+Bajo demanda.
+
+4
+00:00:11,200 --> 00:00:15,600
+El objetivo es darte herramientas intuitivas.
+sin entrar en detalles.
+
+5
+00:00:17,080 --> 00:00:19,840
+Podemos manipular
+y navega por la pila,
+
+6
+00:00:20,040 --> 00:00:23,160
+y lo modifico,
+pero nos centraremos en navegar.
+
+7
+00:00:23,600 --> 00:00:28,400
+Hay dos capítulos
+Puedes leer sobre este tema.
+
+8
+00:00:28,640 --> 00:00:31,640
+Son los capítulos en bloques
+
+9
+00:00:31,840 --> 00:00:35,080
+y excepciones
+en el libro <i> Deep into Pharo </ i>.
+
+10
+00:00:35,280 --> 00:00:39,280
+Vale la pena leer
+ya que dan explicaciones claras.
+
+11
+00:00:39,520 --> 00:00:43,400
+En Pharo, la clase de contexto
+también representa la pila.
+
+12
+00:00:44,600 --> 00:00:45,600
+Asi que,
+
+13
+00:00:46,280 --> 00:00:50,160
+usaremos un escenario
+eso ya está en tu depurador.
+
+14
+00:00:50,400 --> 00:00:55,000
+Aquí, no se encuentra un mensaje que envió.
+porque no lo definiste,
+
+15
+00:00:55,200 --> 00:00:57,520
+mientras ejecuta una prueba unitaria.
+
+dieciséis
+00:00:57,840 --> 00:01:02,720
+En el depurador, respondes
+que desea crear un método.
+
+17
+00:01:02,920 --> 00:01:06,040
+Lo compila y lo instala
+en la clase.
+
+18
+00:01:06,200 --> 00:01:07,920
+Luego lo vuelve a ejecutar.
+
+19
+00:01:08,080 --> 00:01:12,560
+Este método genera una excepción.
+¡ya que el sistema no es mágico!
+
+20
+00:01:12,720 --> 00:01:16,200
+Te envía
+el mensaje shouldBeImplemented
+
+21
+00:01:16,360 --> 00:01:19,440
+diciéndote que edites
+el método en el depurador.
+
+22
+00:01:19,640 --> 00:01:21,440
+Usted implementa el método,
+
+23
+00:01:21,840 --> 00:01:26,000
+usted vuelve a compilar el método en el lugar,
+luego seleccione "continuar"
+
+24
+00:01:26,600 --> 00:01:28,080
+para reanudar el programa
+
+25
+00:01:28,920 --> 00:01:32,360
+Hay dos puntos clave
+en este escenario.
+
+26
+00:01:32,920 --> 00:01:36,280
+En primer lugar, recompilamos
+El método sobre la marcha.
+
+27
+00:01:36,640 --> 00:01:40,080
+Varias veces,
+pero ese es el trabajo del compilador.
+
+28
+00:01:40,920 --> 00:01:44,920
+En segundo lugar, y lo más importante,
+modificamos la pila de ejecución
+
+29
+00:01:45,080 --> 00:01:48,840
+para inyectar nuevos trozos de pila,
+
+30
+00:01:49,040 --> 00:01:53,200
+que nos permiten continuar el programa
+después de un error
+
+31
+00:01:53,440 --> 00:01:58,600
+No es solo una cuestión de reificación
+la pila o convertirla en un objeto.
+
+32
+00:01:58,760 --> 00:02:03,640
+No es solo un ejercicio formal,
+puede mejorar la experiencia del usuario
+
+33
+00:02:03,920 --> 00:02:05,560
+y crear nuevas herramientas.
+
+34
+00:02:05,720 --> 00:02:10,640
+También se usa en Seaside
+para utilizar aplicaciones web.
+
+35
+00:02:11,080 --> 00:02:15,720
+Pharo generalmente tiene una pila C,
+la propia pila de la máquina virtual.
+
+36
+00:02:16,040 --> 00:02:19,360
+Bajo demanda, podemos convertir esto
+en un objeto vivo.
+
+37
+00:02:19,520 --> 00:02:25,440
+Lo que es interesante es que podemos
+Navega y modifica este objeto.
+
+38
+00:02:25,760 --> 00:02:30,200
+Al modificar, quiero decir que
+cuando cambiamos este objeto Pharo,
+
+39
+00:02:30,400 --> 00:02:34,400
+cambiará la pila C implícita,
+por lo que es muy poderoso
+
+40
+00:02:35,800 --> 00:02:41,280
+También es compatible con todas las excepciones,
+así que recomiendo leer esos capítulos.
+
+41
+00:02:41,560 --> 00:02:44,080
+Navegamos por las excepciones
+
+42
+00:02:44,440 --> 00:02:47,920
+para buscar capturas de bloques,
+
+43
+00:02:49,920 --> 00:02:51,800
+conocidos como manipuladores de excepciones.
+
+44
+00:02:52,000 --> 00:02:57,200
+Además, esta habilidad
+transformar la pila en un objeto
+
+45
+00:02:57,400 --> 00:02:59,840
+nos permite crear continuaciones
+
+46
+00:03:00,040 --> 00:03:04,400
+y servidores web, como por ejemplo
+Idiomas funcionales como Scheme.
+
+47
+00:03:05,320 --> 00:03:09,080
+Para explicar cómo funciona esto,
+podemos ver la variable
+
+48
+00:03:09,200 --> 00:03:13,640
+llamado thisContext,
+una de las tres pseudovariables de Pharo.
+
+49
+00:03:14,160 --> 00:03:17,360
+Estos son self, super y thisContext.
+
+50
+00:03:17,920 --> 00:03:22,600
+Cuando pides el valor de esteContext,
+Devuelve la pila de ejecución.
+
+51
+00:03:22,920 --> 00:03:27,400
+Eso es lo que ves
+cuando abres el depurador.
+
+52
+00:03:27,640 --> 00:03:31,840
+Se muestra la pila de ejecución,
+basado en esteContext.
+
+53
+00:03:32,200 --> 00:03:36,280
+Como ejercicio, puede definir un método
+
+54
+00:03:36,400 --> 00:03:39,360
+en el que inserta "detener".
+
+55
+00:03:39,520 --> 00:03:44,400
+El depurador aparecerá,
+pero también puede escribir "thisContext"
+
+56
+00:03:45,440 --> 00:03:50,040
+y un inspector abrirá
+en la pila de ejecución en sí.
+
+57
+00:03:50,600 --> 00:03:53,800
+Ahora les mostraré dos ejemplos
+
+58
+00:03:53,920 --> 00:03:56,400
+de cómo usamos esteContext.
+
+59
+00:03:56,680 --> 00:04:02,360
+El primero es la desaprobación,
+Se usa cuando queremos cambiar la API.
+
+60
+00:04:02,640 --> 00:04:08,560
+Como programador, editamos el método
+y use el mensaje "obsoleto"
+
+61
+00:04:08,720 --> 00:04:13,640
+con "en" y "en", como expliqué
+en el curso de las excepciones.
+
+62
+00:04:14,680 --> 00:04:19,760
+Aquí queremos expresar
+el mensaje "Usar barra".
+
+63
+00:04:20,080 --> 00:04:23,840
+¿Y qué mostrará la desaprobación?
+
+64
+00:04:24,000 --> 00:04:26,840
+Se mostrará al usuario el mensaje
+
+sesenta y cinco
+00:04:27,040 --> 00:04:30,200
+"Mensaje foo está en desuso en Pharo".
+
+66
+00:04:30,360 --> 00:04:33,920
+Es importante tener en cuenta que, como usuario,
+
+67
+00:04:34,200 --> 00:04:36,600
+No declaré el método utilizado,
+
+68
+00:04:36,840 --> 00:04:40,920
+pero el sistema identificó a foo
+como el método que llama.
+
+69
+00:04:42,080 --> 00:04:46,640
+Como puede ver, no usamos foo
+en los argumentos de desaprobado
+
+70
+00:04:47,320 --> 00:04:48,920
+o en el método de llamada.
+
+71
+00:04:49,080 --> 00:04:51,840
+Entonces, ¿cómo se implementa esto?
+
+72
+00:04:52,600 --> 00:04:54,280
+El mensaje "en desuso"
+
+73
+00:04:55,920 --> 00:04:58,040
+es una excepción, "Deprecación".
+
+74
+00:04:58,200 --> 00:05:03,160
+El sistema toma los argumentos,
+anExplanationString, y así sucesivamente,
+
+75
+00:05:03,320 --> 00:05:07,800
+y agrega la expresión
+"Método de remitente de thisContext".
+
+76
+00:05:08,160 --> 00:05:13,920
+ThisContext es la pila en el momento
+de ejecución del método en desuso.
+
+77
+00:05:15,720 --> 00:05:19,320
+Ahora, usando el emisor
+podemos acceder al método que llama.
+
+78
+00:05:20,000 --> 00:05:23,200
+Eso nos dará foo,
+que fue nuestro ejemplo
+
+79
+00:05:23,600 --> 00:05:25,560
+Luego le pedimos el método.
+
+80
+00:05:25,720 --> 00:05:29,800
+Método de envío de esteContext
+devuelve el método compilado,
+
+81
+00:05:29,920 --> 00:05:31,640
+que es un objeto,
+
+82
+00:05:31,800 --> 00:05:35,080
+llamado A >> foo.
+
+83
+00:05:35,280 --> 00:05:39,720
+Entonces, la excepción usa lo que necesita.
+para poder extraer
+
+84
+00:05:39,920 --> 00:05:43,840
+el selector de metodos
+y cree un mensaje más claro.
+
+85
+00:05:44,280 --> 00:05:49,600
+Se usa para hacer mensajes
+más fácil para que los usuarios entiendan,
+
+86
+00:05:49,800 --> 00:05:54,040
+sin forzar al programador
+para codificar en profundidad la fuente del mensaje.
+
+87
+00:05:54,320 --> 00:05:59,040
+Ahora te voy a mostrar
+otra función muy poderosa.
+
+88
+00:06:01,640 --> 00:06:05,280
+Frecuentemente cuando se depura,
+queremos insertar un punto de interrupción
+
+89
+00:06:05,400 --> 00:06:08,760
+en un método que es muy usado.
+
+90
+00:06:09,360 --> 00:06:13,320
+Es posible que simplemente desee depurar
+tu versión del programa
+
+91
+00:06:13,440 --> 00:06:15,720
+sin detener todo el sistema.
+
+92
+00:06:15,920 --> 00:06:21,040
+Condiciones como "detener una vez"
+interrumpirá el sistema una vez,
+
+93
+00:06:21,200 --> 00:06:25,680
+pero lo que quieres
+es detener la ejecución solo si el método
+
+94
+00:06:25,920 --> 00:06:29,000
+ha sido llamado por otro método.
+
+95
+00:06:29,640 --> 00:06:32,840
+¿Cómo lo expresa un programador?
+
+96
+00:06:33,040 --> 00:06:37,400
+Expresamos que solo queremos detener
+si foo ha sido llamado
+
+97
+00:06:37,600 --> 00:06:40,520
+por el método testSetInitialized.
+
+98
+00:06:41,520 --> 00:06:44,280
+¿Cómo implementamos esto?
+
+99
+00:06:44,440 --> 00:06:47,200
+Por lo general, este método no debe detenerse.
+
+100
+00:06:47,760 --> 00:06:52,760
+Puedes abrir el código en Pharo
+para ver cómo se implementa.
+
+101
+00:06:52,920 --> 00:06:54,840
+Entonces, detener lanza una excepción.
+
+102
+00:06:55,400 --> 00:06:57,640
+mostrando el mensaje "Si:".
+
+103
+00:06:57,840 --> 00:07:00,160
+Tenemos varias opciones de argumento.
+
+104
+00:07:00,320 --> 00:07:05,080
+En un caso que involucra un símbolo,
+Planteamos una consulta para confirmar que es verdad.
+
+105
+00:07:05,320 --> 00:07:10,200
+Miramos para ver si la cadena de llamadas
+contiene el simbolo
+
+106
+00:07:10,400 --> 00:07:11,400
+Vamos a revisar.
+
+107
+00:07:12,360 --> 00:07:15,360
+Veamos el método que surge.
+
+108
+00:07:16,000 --> 00:07:19,800
+Supongamos que tenemos una prueba
+que se llama
+
+109
+00:07:20,840 --> 00:07:22,200
+testSetInicializado
+
+110
+00:07:23,800 --> 00:07:25,280
+Es una discusión aquí.
+
+111
+00:07:26,200 --> 00:07:31,400
+Primero, el método recuperará
+la pila de ejecución o el contexto,
+
+112
+00:07:32,720 --> 00:07:35,560
+que es sinónimo de pila de ejecución.
+
+113
+00:07:35,760 --> 00:07:41,080
+Entonces usamos Context para acceder a la pila,
+luego agregamos whileFalse.
+
+114
+00:07:41,200 --> 00:07:44,920
+Tenga en cuenta que no estamos en la parte superior
+de la pila de ejecución,
+
+115
+00:07:45,160 --> 00:07:48,080
+donde no hay remitente invocándonos.
+
+116
+00:07:48,440 --> 00:07:52,280
+En la parte superior de la pila,
+el remitente es nulo
+
+117
+00:07:52,600 --> 00:07:56,160
+En un caso donde el remitente no es nulo,
+
+118
+00:07:56,520 --> 00:07:59,400
+nos movemos entre secciones de la pila.
+
+119
+00:07:59,560 --> 00:08:02,920
+Podemos imaginar
+las áreas de pila como esta,
+
+120
+00:08:03,200 --> 00:08:06,040
+y viajamos hacia arriba usando el remitente,
+
+121
+00:08:06,840 --> 00:08:07,920
+cada vez.
+
+122
+00:08:09,080 --> 00:08:12,080
+Ahora tenemos que ver si el selector ...
+
+123
+00:08:12,200 --> 00:08:15,520
+En algún lugar de esta área,
+deberíamos ver la prueba
+
+124
+00:08:16,680 --> 00:08:18,320
+haciendo la pregunta
+
+125
+00:08:18,840 --> 00:08:23,080
+si el símbolo de la llamada de esta pila
+Partidas en las que pretendemos detenernos.
+
+126
+00:08:23,200 --> 00:08:26,400
+Le preguntamos si nos han llamado
+por prueba conjunto.
+
+127
+00:08:26,640 --> 00:08:31,200
+Si es así, paramos y marcamos una señal
+porque la clase es una excepción.
+
+128
+00:08:32,000 --> 00:08:36,320
+Es importante entender
+que esto es difícil de implementar
+
+129
+00:08:36,440 --> 00:08:39,760
+en un idioma
+eso no significa la pila.
+
+130
+00:08:40,080 --> 00:08:44,640
+Aquí lo ves en cinco líneas,
+incluso si parece difícil de entender.
+
+131
+00:08:44,840 --> 00:08:49,560
+Es compacto y potente,
+y solo es posible a través de la reificación.
+
+132
+00:08:50,160 --> 00:08:55,640
+ThisContext raramente se usa
+ya que es una función avanzada.
+
+133
+00:08:55,920 --> 00:08:59,160
+Pero es muy importante
+para nuevas innovaciones,
+
+134
+00:08:59,320 --> 00:09:02,080
+tales como herramientas, como lo demuestran estas pruebas,
+
+135
+00:09:02,840 --> 00:09:05,560
+que son facilitados por este idioma.
+
+136
+00:09:05,720 --> 00:09:09,080
+También se usa
+para representar continuaciones
+
+137
+00:09:09,400 --> 00:09:12,600
+El creador de Seaside lo usó
+en el antepasado de Pharo
+
+138
+00:09:12,760 --> 00:09:16,280
+manipular la pila
+para representar continuaciones
+
+139
+00:09:16,400 --> 00:09:21,840
+Esta es la base de la llamada y respuesta
+mecanismo en el mar.
+
+140
+00:09:22,280 --> 00:09:27,280
+Aquí tienes una función avanzada
+de Pharo para jugar.
