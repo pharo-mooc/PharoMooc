@@ -1,0 +1,611 @@
+﻿1
+00:00:00,480 --> 00:00:01,440
+Hola a todos.
+
+2
+00:00:01,600 --> 00:00:06,240
+En esta secuencia veremos
+La API para manipular archivos.
+
+3
+00:00:06,680 --> 00:00:09,280
+Lo que miraremos particularmente
+
+4
+00:00:09,480 --> 00:00:12,760
+es cómo navegar entre archivos,
+
+5
+00:00:12,920 --> 00:00:15,640
+cómo crear y eliminar archivos,
+
+6
+00:00:16,520 --> 00:00:19,400
+cómo enumerar archivos en los directorios,
+
+7
+00:00:20,280 --> 00:00:24,120
+y como leer de
+y escribir en archivos.
+
+8
+00:00:24,320 --> 00:00:25,720
+Para empezar,
+
+9
+00:00:25,920 --> 00:00:28,240
+necesitamos un punto de entrada
+en el sistema de archivos,
+
+10
+00:00:28,400 --> 00:00:30,440
+Hay muchos.
+
+11
+00:00:30,600 --> 00:00:34,840
+Con "FileLocator home"
+tienes el directorio de usuario,
+
+12
+00:00:35,560 --> 00:00:38,880
+"Raíz FileLocator" tienes la raíz
+
+13
+00:00:39,040 --> 00:00:42,840
+del sistema de directorio.
+
+14
+00:00:43,000 --> 00:00:47,120
+Con "FileLocatorC" en Windows
+tienes el disco C:
+
+15
+00:00:47,480 --> 00:00:50,160
+Una vez que tenga un directorio,
+
+dieciséis
+00:00:50,440 --> 00:00:53,120
+estos 3 elementos son directorios,
+
+17
+00:00:53,280 --> 00:00:56,680
+Tomo uno, "FileLocator home"
+
+18
+00:00:56,840 --> 00:01:00,040
+en el que tengo
+el directorio de inicio de usuario.
+
+19
+00:01:01,240 --> 00:01:03,160
+Desde allí puedo decir,
+
+20
+00:01:03,920 --> 00:01:06,000
+"Dame tu ruta de acceso".
+
+21
+00:01:06,160 --> 00:01:10,480
+Entonces "casa" no es una cadena,
+es un objeto que representa
+
+22
+00:01:10,640 --> 00:01:12,960
+un directorio y puedo decir,
+
+23
+00:01:13,120 --> 00:01:17,600
+"Dame la cuerda
+ubicarlo en el sistema ".
+
+24
+00:01:17,800 --> 00:01:20,120
+Entonces eso es "home / cassou".
+
+25
+00:01:21,000 --> 00:01:23,800
+Puedo pedir un directorio
+donde están sus hijos
+
+26
+00:01:23,960 --> 00:01:27,880
+"¿Qué son todos los archivos?
+y directorios que contiene? "
+
+27
+00:01:28,040 --> 00:01:30,960
+Aquí me dice, en "casa".
+
+28
+00:01:31,120 --> 00:01:33,640
+Tengo un archivo llamado .bashrc,
+
+29
+00:01:33,800 --> 00:01:36,040
+y tengo un directorio de música.
+
+30
+00:01:36,960 --> 00:01:39,080
+Entonces esto, "hijos"
+
+31
+00:01:39,240 --> 00:01:41,280
+devuelve un paquete de objetos,
+
+32
+00:01:41,440 --> 00:01:45,080
+que son archivos y directorios.
+
+33
+00:01:45,680 --> 00:01:49,080
+Si jugamos un poco más con esta API,
+
+34
+00:01:49,800 --> 00:01:53,160
+veremos el método "/",
+
+35
+00:01:53,320 --> 00:01:55,000
+Cuando enviamos el mensaje /
+
+36
+00:01:55,840 --> 00:02:01,400
+a un directorio podemos indicar
+un niño en particular que nos interesa.
+
+37
+00:02:02,320 --> 00:02:06,800
+Entonces "home / 'Music'"
+Me da el directorio de música.
+
+38
+00:02:08,080 --> 00:02:11,880
+Enviando el mensaje
+"directorios" en un archivo,
+
+39
+00:02:12,040 --> 00:02:14,480
+Obtengo todos los subarchivos.
+
+40
+00:02:14,640 --> 00:02:18,080
+Aquí veo eso, en mi biblioteca de música,
+
+41
+00:02:18,240 --> 00:02:20,400
+Tengo un archivo Anouar_Brahem.
+
+42
+00:02:22,080 --> 00:02:25,360
+El mensaje principal me permite
+para subir un peldaño,
+
+43
+00:02:25,520 --> 00:02:28,320
+así que si estoy en el archivo de música,
+
+44
+00:02:28,480 --> 00:02:31,840
+Envío "padre" pero regreso
+a mi archivo "hogar"
+
+45
+00:02:32,160 --> 00:02:34,120
+Dejando mi directorio
+
+46
+00:02:34,400 --> 00:02:38,440
+"Música", como vimos antes,
+Intentaré crear un directorio.
+
+47
+00:02:39,520 --> 00:02:43,000
+Para hacer esto, verifico
+si el directorio existe
+
+48
+00:02:43,160 --> 00:02:46,400
+Al enviar un mensaje "isDirectory"
+
+49
+00:02:46,560 --> 00:02:48,480
+Veo si existe o no.
+
+50
+00:02:48,640 --> 00:02:51,000
+Esto dice que no existe.
+
+51
+00:02:51,160 --> 00:02:54,560
+De acuerdo, lo creo con
+"ensureCreateDirectory".
+
+52
+00:02:55,320 --> 00:02:59,840
+Luego lo pruebo, "¿existes?"
+En este caso existe,
+
+53
+00:03:00,000 --> 00:03:03,520
+con "borrar" puedo borrarlo,
+y verifico que se borre
+
+54
+00:03:03,680 --> 00:03:05,360
+enviando "" isDirectory ".
+
+55
+00:03:06,200 --> 00:03:07,280
+Encontrar
+
+56
+00:03:07,480 --> 00:03:10,120
+todos los niños en un directorio,
+
+57
+00:03:10,280 --> 00:03:14,280
+hay varios métodos
+Te mostraré dos.
+
+58
+00:03:14,440 --> 00:03:17,320
+Enviamos un mensaje,
+"allChildrenMatching" a un directorio,
+
+59
+00:03:17,480 --> 00:03:21,120
+y al pasarle una expresión
+
+60
+00:03:21,280 --> 00:03:25,120
+eso es típico de la escalera
+y que representa
+
+61
+00:03:26,720 --> 00:03:30,640
+el nombre del directorio que esperamos,
+así que con "* .org"
+
+62
+00:03:30,800 --> 00:03:33,520
+Quiero que todos los archivos tengan
+la extensión ".ogg".
+
+63
+00:03:34,840 --> 00:03:39,280
+Eso devolverá todos mis archivos de música.
+a .ogg en mi directorio de Pink Floyd.
+
+64
+00:03:40,520 --> 00:03:43,680
+Puedo hacer lo mismo
+de una manera más lenta.
+
+sesenta y cinco
+00:03:43,840 --> 00:03:46,640
+Enviando el mensaje
+"allChildren" recibo a todos los niños
+
+66
+00:03:46,800 --> 00:03:50,960
+todos los archivos y directorios,
+en un directorio particular,
+
+67
+00:03:51,800 --> 00:03:54,680
+y filtro con el mensaje "seleccionar"
+
+68
+00:03:54,840 --> 00:03:57,880
+todos aquellos cuyo nombre termina en ".ogg".
+
+69
+00:03:58,040 --> 00:04:02,080
+"Nombre de base" devuelve la cadena
+que representa el nombre del archivo
+
+70
+00:04:02,240 --> 00:04:05,360
+y quiero el nombre del archivo
+terminar en .ogg
+
+71
+00:04:05,560 --> 00:04:08,080
+Estos dos bits de código
+son casi lo mismo
+
+72
+00:04:08,680 --> 00:04:12,520
+¿Cómo obtenemos información sobre un archivo?
+
+73
+00:04:12,680 --> 00:04:16,280
+¿Cómo creamos un archivo de una cadena?
+
+74
+00:04:16,440 --> 00:04:20,040
+Tengo un nombre de archivo, "asFileReference",
+
+75
+00:04:20,200 --> 00:04:24,000
+que convierte mi nombre de archivo
+En una referencia hacia un archivo.
+
+76
+00:04:24,160 --> 00:04:29,000
+Puede ser un
+o un archivo inexistente, no lo sé.
+
+77
+00:04:29,160 --> 00:04:32,760
+Echemos un vistazo al mensaje
+"isFile" en esta referencia.
+
+78
+00:04:32,920 --> 00:04:36,600
+Obtendré "verdadero" si existe
+y "falso" si no es así.
+
+79
+00:04:37,560 --> 00:04:41,720
+Al enviar el mensaje "nombre base",
+Obtengo el nombre del archivo.
+
+80
+00:04:41,880 --> 00:04:45,080
+Al enviar "extensión"
+Obtengo la extensión del archivo,
+
+81
+00:04:45,920 --> 00:04:48,720
+con "tamaño" obtengo el tamaño,
+
+82
+00:04:49,640 --> 00:04:52,000
+y con "PathString",
+como vimos antes,
+
+83
+00:04:52,160 --> 00:04:55,160
+Obtengo la ruta de acceso
+en la forma de una cuerda.
+
+84
+00:04:55,920 --> 00:04:59,680
+Ahora veamos cómo escribir para
+y leer de un archivo. Escribir,
+
+85
+00:05:00,160 --> 00:05:04,240
+antes que nada, tomo
+una referencia hacia un archivo
+
+86
+00:05:05,160 --> 00:05:07,160
+Aquí, verifico que no exista.
+
+87
+00:05:07,320 --> 00:05:11,720
+Podemos escribir en un archivo que existe,
+Estoy comprobando que no existe.
+
+88
+00:05:11,880 --> 00:05:16,400
+Le escribo
+Para escribir, creo una secuencia.
+
+89
+00:05:17,360 --> 00:05:18,920
+Con "nextPutAll"
+
+90
+00:05:19,080 --> 00:05:22,520
+Pido escribir cada personaje
+de la secuencia en el archivo.
+
+91
+00:05:23,480 --> 00:05:26,680
+Al final cierro mi transmisión
+para asegurar que el sistema
+
+92
+00:05:26,840 --> 00:05:28,720
+ha escrito todo en el disco.
+
+93
+00:05:29,200 --> 00:05:30,640
+Por el contrario, puedo leer
+
+94
+00:05:30,840 --> 00:05:34,680
+desde un archivo,
+así que tomo el mismo archivo y .txt.
+
+95
+00:05:34,840 --> 00:05:38,400
+Comprobo que existe, y lo hace,
+porque puedo escribirle.
+
+96
+00:05:39,560 --> 00:05:42,920
+Yo creo un "ReadStream"
+
+97
+00:05:43,080 --> 00:05:46,880
+y yo miro, cualquiera de los personajes
+por personaje enviando "próximo".
+
+98
+00:05:47,040 --> 00:05:51,480
+Con el mensaje "próximo" obtendré,
+"h" luego "e" luego "l", etc ...
+
+99
+00:05:51,640 --> 00:05:54,240
+Hago "next" una vez, obtengo "h".
+
+100
+00:05:54,400 --> 00:05:56,120
+Luego recogeré todo,
+
+101
+00:05:56,280 --> 00:05:59,200
+desde la primera "h" que acabo de leer
+al final del archivo.
+
+102
+00:05:59,360 --> 00:06:01,840
+Aquí obtengo "ello World"
+sin la "h"
+
+103
+00:06:02,000 --> 00:06:05,120
+Al final, envío "stream close"
+al objeto de secuencia,
+
+104
+00:06:05,280 --> 00:06:08,440
+para garantizar que la referencia del archivo esté cerrada.
+
+105
+00:06:09,160 --> 00:06:12,440
+Podemos escribir estos códigos de manera más simple,
+
+106
+00:06:13,000 --> 00:06:16,400
+sin tener la necesidad
+
+107
+00:06:16,560 --> 00:06:18,720
+para enviar el mensaje "cerrar".
+
+108
+00:06:18,880 --> 00:06:22,240
+Podríamos olvidar enviar
+el mensaje "cerrado"
+
+109
+00:06:22,400 --> 00:06:26,200
+Puede haber una excepción
+eso significa que "cerrar" nunca se envía.
+
+110
+00:06:26,360 --> 00:06:30,720
+En general, intentamos evitar
+tener que escribirlo nosotros mismos
+
+111
+00:06:30,880 --> 00:06:33,360
+Para hacer esto, para escribir,
+
+112
+00:06:33,520 --> 00:06:36,640
+Tomo mi referencia de archivo,
+
+113
+00:06:36,800 --> 00:06:39,520
+Envío el mensaje "writeStreamDo",
+
+114
+00:06:39,680 --> 00:06:41,400
+que toma un bloque entre paréntesis,
+
+115
+00:06:41,560 --> 00:06:45,400
+el bloque toma una secuencia
+entre paréntesis.
+
+116
+00:06:45,560 --> 00:06:49,280
+Esta transmisión será automática.
+proporcionado por "writeStreamDo"
+
+117
+00:06:49,440 --> 00:06:54,040
+que creará un
+"writeStream" en el archivo.
+
+118
+00:06:54,200 --> 00:06:56,840
+Lo único que tengo que hacer es,
+Al usar esta transmisión,
+
+119
+00:06:57,000 --> 00:06:59,960
+manipular la corriente
+Para hacer lo que quiero con el archivo.
+
+120
+00:07:00,120 --> 00:07:04,560
+Escribiré "Hello World" en el archivo,
+"transmitir nextPutAll:Hello World".
+
+121
+00:07:04,720 --> 00:07:06,080
+Cuando el bloque termina,
+
+122
+00:07:06,240 --> 00:07:09,800
+el flujo se cierra automáticamente,
+y el archivo se escribe en el disco.
+
+123
+00:07:11,240 --> 00:07:15,040
+El mismo principio para la lectura,
+Puse "readStreamDo".
+
+124
+00:07:16,200 --> 00:07:18,480
+Aquí tengo una transmisión,
+Puedo hacer lo que quiera con eso.
+
+125
+00:07:18,640 --> 00:07:23,000
+Decido recuperar
+el contenido de la secuencia
+
+126
+00:07:24,080 --> 00:07:25,920
+Lo que deberías saber,
+
+127
+00:07:26,480 --> 00:07:30,120
+es que los archivos y directorios
+son referencias,
+
+128
+00:07:30,320 --> 00:07:34,200
+son referencias hacia
+archivos y directorios en el disco
+
+129
+00:07:34,360 --> 00:07:38,880
+que puede o no existir.
+Compruebe con "isFile", "isDirectory"
+
+130
+00:07:39,040 --> 00:07:41,560
+si los archivos existen en el disco.
+
+131
+00:07:41,720 --> 00:07:43,040
+La API es simple,
+
+132
+00:07:43,200 --> 00:07:48,120
+y facilita la navegación
+y manipulación de los archivos.
+
+133
+00:07:49,040 --> 00:07:54,120
+Podemos leer y escribir en archivos
+a través de corrientes,
+
+134
+00:07:54,480 --> 00:07:57,480
+y con una API
+
+135
+00:07:57,640 --> 00:08:02,320
+que cerrará la corriente
+automáticamente al final.

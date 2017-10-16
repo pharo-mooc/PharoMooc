@@ -1,0 +1,630 @@
+﻿1
+00:00:00,480 --> 00:00:03,080
+Hola y bienvenido
+al curso de Pharo.
+
+2
+00:00:03,240 --> 00:00:05,600
+Este segmento
+cubre dos aspectos más.
+
+3
+00:00:05,760 --> 00:00:07,360
+Los cubriré en profundidad.
+
+4
+00:00:07,520 --> 00:00:11,280
+Los usarás tú mismo
+en los ejercicios de TinyBlog.
+
+5
+00:00:11,520 --> 00:00:16,160
+Primero, ¿qué desarrollo web podemos hacer?
+Una vez que hemos descrito los datos?
+
+6
+00:00:16,320 --> 00:00:18,360
+Segundo, ¿cómo usa Seaside el REST?
+
+7
+00:00:18,520 --> 00:00:22,080
+Seaside es uno de los marcos
+para REST en Pharo.
+
+8
+00:00:22,280 --> 00:00:24,520
+Comencemos con el primer tema.
+
+9
+00:00:24,680 --> 00:00:27,640
+Magritte es un marco
+basado en la hipótesis
+
+10
+00:00:27,800 --> 00:00:30,320
+que si usted describe sus datos una vez,
+
+11
+00:00:30,480 --> 00:00:33,680
+puede generar varios objetos
+basado en estos datos.
+
+12
+00:00:33,880 --> 00:00:36,760
+Formas web e interfaces gráficas,
+por ejemplo.
+
+13
+00:00:36,920 --> 00:00:39,360
+En este curso, me centraré en
+
+14
+00:00:39,520 --> 00:00:42,800
+mostrándole cómo generar
+Los componentes del mar.
+
+15
+00:00:43,000 --> 00:00:46,160
+para que puedas codificar
+aplicaciones web más rápido.
+
+dieciséis
+00:00:46,360 --> 00:00:49,160
+Tomaremos la clase "Dirección"
+como ejemplo.
+
+17
+00:00:49,320 --> 00:00:51,480
+Estas son direcciones suizas.
+
+18
+00:00:51,920 --> 00:00:55,000
+Se define una dirección
+como una calle, un lugar,
+
+19
+00:00:56,680 --> 00:00:58,960
+un código postal y un cantón.
+
+20
+00:00:59,320 --> 00:01:03,560
+Tengo una instancia que describe
+una calle en particular
+
+21
+00:01:04,040 --> 00:01:07,000
+Hasta ahora, esto es solo
+programación estándar
+
+22
+00:01:07,400 --> 00:01:09,000
+Ahora, ¿qué hace Magritte?
+
+23
+00:01:09,200 --> 00:01:11,720
+es describir los campos
+en la clase.
+
+24
+00:01:11,880 --> 00:01:16,240
+Describirá una cadena de tal manera
+como para definirlo como un nombre de calle.
+
+25
+00:01:16,560 --> 00:01:19,640
+La descripción del código postal
+es más interesante
+
+26
+00:01:19,800 --> 00:01:21,920
+En primer lugar, vamos a decir
+
+27
+00:01:22,080 --> 00:01:25,240
+una dirección no es válida
+sin un código postal
+
+28
+00:01:25,400 --> 00:01:28,080
+Direcciones que carecen de códigos postales
+son inválidos
+
+29
+00:01:28,480 --> 00:01:33,800
+Y todos los códigos postales suizos.
+Son figuras entre 1000 y 9999.
+
+30
+00:01:33,960 --> 00:01:37,160
+Esto se especifica
+en la descripción del número.
+
+31
+00:01:37,400 --> 00:01:39,960
+Esta información se puede tomar
+en cuenta
+
+32
+00:01:40,120 --> 00:01:41,840
+para la validación automática de formularios.
+
+33
+00:01:42,000 --> 00:01:46,840
+Para lugar, también describimos
+como se requiere, y como lugar.
+
+34
+00:01:47,000 --> 00:01:50,640
+Además, en Suiza,
+Hay 26 cantones.
+
+35
+00:01:50,880 --> 00:01:54,800
+El cantón es parte de una lista,
+entonces tenemos SingleOptionDescription.
+
+36
+00:01:55,080 --> 00:01:58,960
+Es requerido. Queremos que se clasifique,
+y las opciones enumeradas.
+
+37
+00:01:59,120 --> 00:02:03,120
+Entonces la lista de opciones
+está limitado a estos 26.
+
+38
+00:02:03,800 --> 00:02:04,920
+Una vez hecho esto,
+
+39
+00:02:05,240 --> 00:02:07,200
+¿Qué podemos hacer con Magritte?
+
+40
+00:02:07,400 --> 00:02:10,880
+Así es como la dirección
+se describe en Pharo.
+
+41
+00:02:11,240 --> 00:02:16,320
+Definiremos una descripciónStreet
+como un StringDescription,
+
+42
+00:02:17,800 --> 00:02:20,200
+con tal y tal etiqueta
+y prioridad
+
+43
+00:02:20,360 --> 00:02:23,880
+Para números de calles,
+Defino una NumberDescription:
+
+44
+00:02:24,960 --> 00:02:27,640
+Asigno una prioridad diferente
+y etiqueta
+
+45
+00:02:27,800 --> 00:02:32,200
+Especifico "Obligatorio"
+y doy mis valores mínimos y máximos.
+
+46
+00:02:32,520 --> 00:02:36,080
+La primera cosa
+Puedo hacer con esta descripcion
+
+47
+00:02:36,240 --> 00:02:39,640
+es escribir un pequeño programa
+para interpretar la dirección
+
+48
+00:02:39,920 --> 00:02:41,200
+y generar informes.
+
+49
+00:02:41,560 --> 00:02:44,480
+Tomo una dirección,
+
+50
+00:02:44,800 --> 00:02:47,080
+y ejecutarlo a través de este programa,
+
+51
+00:02:47,480 --> 00:02:49,480
+que genera un pequeño informe:
+
+52
+00:02:50,160 --> 00:02:52,520
+El nombre de la calle,
+
+53
+00:02:55,400 --> 00:02:58,040
+El lugar - Berna,
+y el cantón, Berna.
+
+54
+00:02:58,200 --> 00:02:59,440
+Código postal 3012.
+
+55
+00:02:59,640 --> 00:03:03,800
+Puedo usar el hecho
+que mis datos han sido descritos
+
+56
+00:03:04,440 --> 00:03:06,440
+para generar informes
+
+57
+00:03:06,920 --> 00:03:09,080
+Ese fue el tipo más simple.
+
+58
+00:03:09,240 --> 00:03:12,480
+Pero ahora haremos más complejos.
+cosas con Seaside,
+
+59
+00:03:12,880 --> 00:03:15,160
+Como crear un componente visual.
+
+60
+00:03:15,400 --> 00:03:16,640
+Aquí estoy diciendo:
+
+61
+00:03:17,240 --> 00:03:20,400
+"Objeto de dirección, quiero verte
+como un componente ".
+
+62
+00:03:20,560 --> 00:03:22,600
+Eso genera esta parte.
+
+63
+00:03:24,760 --> 00:03:29,600
+Agregaré un formulario de validación,
+que me da "Guardar" y "Cancelar".
+
+64
+00:03:30,200 --> 00:03:33,160
+Y escribiré un comando de "llamada"
+por lo que se muestra.
+
+sesenta y cinco
+00:03:33,320 --> 00:03:37,960
+Como puedes ver, logré todo eso
+sin usar el Seaside DSL.
+
+66
+00:03:38,320 --> 00:03:41,880
+Descrito, mis componentes web
+se generan automáticamente.
+
+67
+00:03:42,200 --> 00:03:43,600
+¡Eso es poderoso!
+
+68
+00:03:43,880 --> 00:03:46,560
+Esto es lo que la compañía Quuve hace
+
+69
+00:03:46,840 --> 00:03:50,400
+Quuve es un americano
+plataforma de gestión de cartera
+
+70
+00:03:50,600 --> 00:03:54,080
+Toda la pantalla
+Se hizo con Seaside y Magritte.
+
+71
+00:03:54,400 --> 00:03:57,160
+Todos los informes
+se generan automáticamente.
+
+72
+00:03:58,280 --> 00:04:01,320
+Esa es una ganancia seria.
+en productividad!
+
+73
+00:04:01,560 --> 00:04:05,800
+La idea de este curso
+es para darte algo de intuicion
+
+74
+00:04:05,960 --> 00:04:08,960
+de lo que se puede hacer
+Cuando describes sus datos,
+
+75
+00:04:09,960 --> 00:04:13,280
+especialmente
+con generación de componentes web.
+
+76
+00:04:13,840 --> 00:04:15,560
+Harás eso en TinyBlog.
+
+77
+00:04:15,760 --> 00:04:20,680
+Ahora, te mostraré el potencial
+en la capa REST de Seaside.
+
+78
+00:04:21,080 --> 00:04:25,920
+Permite la comunicación cliente-servidor.
+en ausencia de componentes visuales.
+
+79
+00:04:26,280 --> 00:04:29,760
+REST está integrado en el mar
+suavemente.
+
+80
+00:04:30,080 --> 00:04:32,440
+Los objetos de dominio serán anotados.
+
+81
+00:04:32,600 --> 00:04:36,040
+Tendrás una conversión natural
+entre parámetros de URL
+
+82
+00:04:36,280 --> 00:04:38,720
+y los métodos SmallTalk o Pharo.
+
+83
+00:04:39,800 --> 00:04:43,760
+Para darle una idea de la complejidad,
+
+84
+00:04:44,040 --> 00:04:47,880
+definiremos lo que llamamos un "filtro":
+
+85
+00:04:48,120 --> 00:04:51,240
+Filtro Restful TinyBlog.
+
+86
+00:04:51,400 --> 00:04:54,800
+es una subclase de WARestful -
+No importa.
+
+87
+00:04:55,160 --> 00:05:00,040
+La parte importante es el filtro que agrego
+Aquí abajo cuando creo mi aplicación.
+
+88
+00:05:00,480 --> 00:05:02,360
+Lo verás en el ejercicio.
+
+89
+00:05:02,960 --> 00:05:06,560
+Ahora, imaginemos
+que quiero obtener todos los blogs
+
+90
+00:05:06,880 --> 00:05:09,840
+que tengo en mi servidor TinyBlog.
+
+91
+00:05:11,120 --> 00:05:11,960
+Así es cómo:
+
+92
+00:05:12,160 --> 00:05:15,680
+Primero, defino un método
+
+93
+00:05:17,040 --> 00:05:20,320
+en la clase RestfulFilter,
+un método llamado listAll.
+
+94
+00:05:21,520 --> 00:05:25,280
+Corresponde al ancla
+Voy a usar:
+
+95
+00:05:26,280 --> 00:05:30,720
+Le digo que use su "obtener"
+desde el protocolo REST
+
+96
+00:05:31,160 --> 00:05:33,200
+para generar texto en formato json.
+
+97
+00:05:33,360 --> 00:05:37,760
+Yo creo una cadena de Pharo
+
+98
+00:05:38,080 --> 00:05:41,600
+Quiero que la transmisión contenga
+todos los blogs disponibles
+
+99
+00:05:42,000 --> 00:05:45,280
+Tomaré cada blog:
+y ves otro iterador -
+
+100
+00:05:45,640 --> 00:05:48,400
+Tomar cada blog
+y convertirlo a Javascript,
+
+101
+00:05:48,800 --> 00:05:50,400
+separado por comas.
+
+102
+00:05:51,360 --> 00:05:53,040
+Eso me da lo que quiero.
+
+103
+00:05:53,200 --> 00:05:57,200
+Ahora queremos hacer algo
+un poco más avanzado
+
+104
+00:05:58,000 --> 00:06:03,280
+Digamos que quiero encontrar un blog
+mediante la búsqueda de una coincidencia de título.
+
+105
+00:06:04,440 --> 00:06:06,760
+Aquí, puedo usar "publicación", por ejemplo.
+
+106
+00:06:07,080 --> 00:06:11,560
+Diré que quiero esta publicación de blog,
+dando el título al lado.
+
+107
+00:06:11,760 --> 00:06:16,160
+Lo hago definiendo un método de "publicación"
+que toma un título como un parámetro
+
+108
+00:06:16,720 --> 00:06:18,640
+junto con el concepto de "camino".
+
+109
+00:06:18,880 --> 00:06:24,360
+Lo digo cuando la URL
+contiene http ..., publicación /
+
+110
+00:06:25,200 --> 00:06:28,880
+y algo aquí,
+esos personajes son el título.
+
+111
+00:06:29,200 --> 00:06:33,280
+Eso es lo que vemos aquí,
+dentro de los soportes ondulados.
+
+112
+00:06:35,520 --> 00:06:39,720
+Del mismo modo, lo digo,
+eso generará texto en forma json.
+
+113
+00:06:40,080 --> 00:06:44,080
+Entonces, lo que hago es invocar
+Funcionalidades TinyBlog
+
+114
+00:06:44,240 --> 00:06:48,520
+Pregunto, ¿tienes una publicación?
+¿Con un título especificado como un parámetro?
+
+115
+00:06:49,200 --> 00:06:51,640
+¿Sí? Si está vacío, devuelvo un error.
+
+116
+00:06:51,800 --> 00:06:55,200
+De lo contrario, lo pongo en mi flujo
+y renderiza mi transmisión.
+
+117
+00:06:55,640 --> 00:06:57,800
+Hay montones de cosas
+podemos hacer.
+
+118
+00:06:58,120 --> 00:07:01,120
+Si quiero hacer una búsqueda,
+es lo mismo.
+
+119
+00:07:05,000 --> 00:07:06,640
+En mi línea de URL, escribo
+
+120
+00:07:06,920 --> 00:07:10,760
+"search:title" con un valor,
+será emparejado automáticamente.
+
+121
+00:07:10,920 --> 00:07:13,880
+Mi título aparecerá aquí.
+
+122
+00:07:16,520 --> 00:07:20,160
+Así es como trabajas con REST
+en el mar
+
+123
+00:07:20,560 --> 00:07:24,560
+Puedes tener tus componentes gráficos
+en el mar
+
+124
+00:07:24,720 --> 00:07:27,680
+y una forma de exponer
+tus funcionalidades de dominio
+
+125
+00:07:27,840 --> 00:07:28,880
+con una API REST.
+
+126
+00:07:29,560 --> 00:07:32,440
+Solo te he mostrado "consigue".
+
+127
+00:07:32,760 --> 00:07:36,840
+Pero todas las demás funcionalidades REST
+están disponibles:
+
+128
+00:07:37,240 --> 00:07:39,160
+Eliminar, publicar, obtener, etc.
+
+129
+00:07:40,440 --> 00:07:43,720
+También te mostré cómo Seaside,
+emparejado con Magritte,
+
+130
+00:07:43,880 --> 00:07:46,600
+genera formas poderosas,
+automáticamente.
+
+131
+00:07:47,040 --> 00:07:48,840
+Y REST está bien integrado.
+
+132
+00:07:49,080 --> 00:07:53,000
+A menudo, las personas usan la tetera
+como una solución REST, también.
+
+133
+00:07:53,160 --> 00:07:56,440
+Es una capa de cinc
+para hacer prototipos REST.
+
+134
+00:07:56,960 --> 00:08:01,200
+Es una manera rápida de descubrir
+si su API REST está funcionando.
+
+135
+00:08:01,680 --> 00:08:02,760
+Diviértete con eso.
+
+136
+00:08:02,920 --> 00:08:06,640
+Hay documentación
+en el Libro de empresas web.

@@ -1,0 +1,595 @@
+﻿1
+00:00:00,680 --> 00:00:03,920
+¡Hola! En esta secuencia,
+Aprenderemos más sobre Seaside,
+
+2
+00:00:04,080 --> 00:00:06,400
+especialmente la parte
+que genera HTML
+
+3
+00:00:07,560 --> 00:00:10,680
+Recuerda que todos los componentes Seaside
+
+4
+00:00:10,840 --> 00:00:13,640
+responder
+a los mensajes "renderContentOn".
+
+5
+00:00:14,120 --> 00:00:18,640
+Este mensaje es lo que nos permite
+para generar el código HTML apropiado.
+
+6
+00:00:19,000 --> 00:00:22,360
+Este método tiene un parámetro
+llamado HTML
+
+7
+00:00:23,120 --> 00:00:27,000
+Es una instancia de objeto
+de la clase o subclase WAHtmlCanvas.
+
+8
+00:00:27,240 --> 00:00:31,760
+Está dedicado, ofrece al programador
+una API para generar HTML válido.
+
+9
+00:00:32,120 --> 00:00:34,720
+Nuestro código de contador está aquí.
+
+10
+00:00:34,880 --> 00:00:39,880
+El objeto html aquí se usa para generar
+encabezados, anclajes, espacios, etc.
+
+11
+00:00:40,920 --> 00:00:44,400
+Secuencia de hoy
+va más allá en este lenguaje.
+
+12
+00:00:46,160 --> 00:00:50,400
+El lenguaje dedicado
+Está compuesto por "pinceles".
+
+13
+00:00:50,880 --> 00:00:55,720
+Cada cepillo está dedicado a generar
+una etiqueta HTML en particular.
+
+14
+00:00:56,120 --> 00:00:59,280
+La API está orientada a objetos.
+
+15
+00:01:01,240 --> 00:01:05,080
+Es muy construcción,
+usando el envío de mensajes a objetos,
+
+dieciséis
+00:01:05,400 --> 00:01:09,080
+garantiza la validez
+del código HTML,
+
+17
+00:01:09,320 --> 00:01:12,600
+a menos que hayamos hecho
+un error de mensajería
+
+18
+00:01:15,000 --> 00:01:18,520
+Aquí hay un ejemplo,
+usando el lenguaje dedicado.
+
+19
+00:01:19,160 --> 00:01:22,120
+Envío el objeto html
+el mensaje "div"
+
+20
+00:01:22,360 --> 00:01:24,160
+que representará un objeto.
+
+21
+00:01:24,880 --> 00:01:28,280
+Este objeto es un pincel
+dedicado a generar
+
+22
+00:01:29,520 --> 00:01:31,480
+html códigos div.
+
+23
+00:01:31,640 --> 00:01:34,120
+Incluye el mensaje "id"
+
+24
+00:01:34,640 --> 00:01:36,520
+y el mensaje "con".
+
+25
+00:01:37,040 --> 00:01:41,720
+Esto genera un div con el atributo
+id = título
+
+26
+00:01:41,920 --> 00:01:47,720
+La cadena de caracteres identificada
+como título será parte del div.
+
+27
+00:01:49,320 --> 00:01:53,240
+Puedo generar
+cosas más complejas
+
+28
+00:01:54,200 --> 00:01:56,800
+El comienzo es el mismo:
+html div id list
+
+29
+00:01:57,080 --> 00:01:59,040
+Esta es mi línea div.
+
+30
+00:01:59,760 --> 00:02:02,560
+Pero puedo poner muchas otras etiquetas
+dentro del div.
+
+31
+00:02:02,880 --> 00:02:07,400
+En lugar de enviar una cadena de caracteres
+a "con", envío un guion.
+
+32
+00:02:07,920 --> 00:02:11,080
+Dentro de ese guion,
+Puedo reutilizar mi objeto html
+
+33
+00:02:11,320 --> 00:02:13,800
+y otros cepillos
+para generar otras etiquetas.
+
+34
+00:02:13,960 --> 00:02:16,360
+Con "elemento de clase span html"
+
+35
+00:02:16,520 --> 00:02:21,080
+Genero un tramo
+con un atributo de clase y contenido.
+
+36
+00:02:24,360 --> 00:02:26,600
+Ahora puedo usar bucles.
+
+37
+00:02:26,960 --> 00:02:29,800
+Este DSL es tan poderoso como Pharo.
+
+38
+00:02:29,960 --> 00:02:34,120
+Aquí, genero una lista desordenada.
+
+39
+00:02:35,240 --> 00:02:37,160
+Es abreviado "ul".
+
+40
+00:02:38,040 --> 00:02:40,360
+Tiene un atributo de lista de id.
+
+41
+00:02:40,520 --> 00:02:43,880
+Tengo artículos de la lista
+dentro de la lista desordenada
+
+42
+00:02:44,120 --> 00:02:45,720
+Ellos están aquí.
+
+43
+00:02:46,080 --> 00:02:49,000
+Solo los generé
+usando un bucle
+
+44
+00:02:49,480 --> 00:02:52,360
+Tengo un ciclo "para hacer de 1 a 5".
+
+45
+00:02:53,200 --> 00:02:56,600
+Un clásico bucle Pharo.
+Genero 5 elementos de la lista
+
+46
+00:02:57,000 --> 00:03:00,640
+con un atributo
+clase ... artículo ...
+
+47
+00:03:00,800 --> 00:03:03,640
+seguido del nombre
+de cada elemento de la lista.
+
+48
+00:03:03,920 --> 00:03:06,680
+He concatenado el cursor de bucle.
+
+49
+00:03:08,040 --> 00:03:10,080
+Artículo 1, artículo 2, artículo 3, etc.
+
+50
+00:03:12,600 --> 00:03:14,680
+Podemos ir un paso más allá,
+
+51
+00:03:14,840 --> 00:03:17,760
+y codigo
+para un selector de clase diferente CSS
+
+52
+00:03:18,480 --> 00:03:20,440
+para cada elemento de la lista,
+
+53
+00:03:20,880 --> 00:03:23,600
+dependiendo de un cursor de bucle impar o par.
+
+54
+00:03:24,400 --> 00:03:28,480
+Típicamente, aquí, por ejemplo,
+Utilizo el mensaje .class:si:
+
+55
+00:03:28,960 --> 00:03:33,120
+Eso significa "agregar esta clase
+si la siguiente condición es verdadera ".
+
+56
+00:03:33,320 --> 00:03:36,960
+Aquí está el de "incluso".
+
+57
+00:03:37,320 --> 00:03:41,040
+Puedes ver que en el código generado,
+el primer elemento de la lista
+
+58
+00:03:41,480 --> 00:03:43,400
+tiene esta clase particular CSS.
+
+59
+00:03:43,800 --> 00:03:44,880
+"itemodd".
+
+60
+00:03:45,040 --> 00:03:48,720
+El segundo elemento tiene esta clase de CSS:
+incluso.
+
+61
+00:03:49,040 --> 00:03:52,080
+Este es par, este es extraño,
+etcétera etcétera.
+
+62
+00:03:52,800 --> 00:03:54,880
+La sintaxis es concisa.
+
+63
+00:03:55,200 --> 00:03:59,200
+Empaca todo el poder de Pharo
+para generar HTML usando un DSL.
+
+64
+00:04:00,720 --> 00:04:03,360
+Otra característica
+de este lenguaje dedicado
+
+sesenta y cinco
+00:04:03,520 --> 00:04:04,640
+es extensibilidad
+
+66
+00:04:04,800 --> 00:04:07,720
+Es fácil hacer que sea compatible
+modernos marcos CSS
+
+67
+00:04:07,880 --> 00:04:10,240
+como Bootstrap, por ejemplo.
+
+68
+00:04:10,760 --> 00:04:12,920
+Este marco CSS
+usa clases de CSS
+
+69
+00:04:13,160 --> 00:04:16,680
+para generar atractivos elementos HTML,
+
+70
+00:04:16,840 --> 00:04:19,440
+como fondos verdes o azules, etc.
+
+71
+00:04:20,080 --> 00:04:23,200
+Como hacemos
+Extender el lenguaje dedicado?
+
+72
+00:04:23,360 --> 00:04:26,680
+Tenemos pinceles especiales
+como el aquí.
+
+73
+00:04:27,000 --> 00:04:30,880
+Todos tienen un prefijo "tbs"
+que significa "bootstrap de Twitter".
+
+74
+00:04:31,160 --> 00:04:34,560
+Envío el mensaje "tbsAlert"
+a mi objeto HTML
+
+75
+00:04:34,880 --> 00:04:38,440
+Eso significa "generar un div HTML
+o elemento
+
+76
+00:04:38,600 --> 00:04:41,680
+"Quejarse con
+el marco Twitter Bootstrap ".
+
+77
+00:04:43,440 --> 00:04:48,840
+Muchos cepillos se referirán
+al marco de TBS.
+
+78
+00:04:49,000 --> 00:04:52,720
+Puedo mostrar botones de Twitter
+con "tbsButton"
+
+79
+00:04:52,880 --> 00:04:55,320
+Y grupos de botones de TBS, de esta manera.
+
+80
+00:04:55,480 --> 00:05:00,960
+Puedes ver que estos tres botones
+todos pertenecen a un grupo.
+
+81
+00:05:02,480 --> 00:05:06,840
+Para volver al ejemplo
+del contador, de la última sesión:
+
+82
+00:05:07,200 --> 00:05:08,960
+Definimos un contador simple.
+
+83
+00:05:09,240 --> 00:05:12,400
+Ahora voy a hacer
+una versión de Twitter Bootstrap.
+
+84
+00:05:12,600 --> 00:05:16,760
+Es muy fácil. Hago una subclase
+de mi contador anterior,
+
+85
+00:05:16,920 --> 00:05:18,840
+llamado "WATwitterCounter".
+
+86
+00:05:19,560 --> 00:05:22,320
+Voy al lado de la "clase"
+
+87
+00:05:24,400 --> 00:05:25,760
+de esta clase
+
+88
+00:05:26,120 --> 00:05:29,520
+y definir el método
+"inicializar", que especifica:
+
+89
+00:05:29,680 --> 00:05:34,280
+"este componente usará
+la biblioteca de desarrollo de TBS ".
+
+90
+00:05:34,600 --> 00:05:39,320
+Aquí está TBSDevelopmentLibrary
+y JQDevelopmentLibrary.
+
+91
+00:05:39,800 --> 00:05:42,600
+Esos son Javascript
+y marcos CSS.
+
+92
+00:05:45,960 --> 00:05:49,880
+A continuación, volveré al lado de la instancia
+de esta clase
+
+93
+00:05:50,040 --> 00:05:52,600
+Definiré un nuevo
+renderContentOn método,
+
+94
+00:05:52,760 --> 00:05:54,960
+redefiniendo el anterior.
+
+95
+00:05:55,240 --> 00:05:58,040
+Todos mis cepillos comenzarán con tbs.
+
+96
+00:05:58,680 --> 00:06:02,080
+"tbsButtonGroup", "tbsButton"
+etcétera etcétera.
+
+97
+00:06:02,440 --> 00:06:05,000
+Pero esto no cambia
+mi código normal,
+
+98
+00:06:05,160 --> 00:06:08,560
+aún consistente en callbacks
+con "self increase"
+
+99
+00:06:09,320 --> 00:06:11,080
+y "auto disminución".
+
+100
+00:06:11,360 --> 00:06:13,000
+No cambia nada
+
+101
+00:06:14,080 --> 00:06:18,280
+Las únicas partes que usan TBS
+Son los pinceles de renderizado HTML.
+
+102
+00:06:19,640 --> 00:06:22,440
+Ahora ya veremos
+cómo se ve mi nuevo contador
+
+103
+00:06:22,600 --> 00:06:26,520
+Los botones más y menos
+están juntos en mi grupo de botones.
+
+104
+00:06:26,680 --> 00:06:29,160
+Y se muestra el valor del contador.
+en una placa,
+
+105
+00:06:29,400 --> 00:06:31,440
+en esta versión de Bootstrap.
+
+106
+00:06:34,560 --> 00:06:37,680
+Puedes ir incluso más lejos,
+más allá de Bootstrap.
+
+107
+00:06:37,840 --> 00:06:40,920
+Puedes definir tus propias reglas de estilo.
+
+108
+00:06:41,080 --> 00:06:44,240
+Por ejemplo, aquí, decidí decir
+
+109
+00:06:44,840 --> 00:06:48,200
+que quiero todos los elementos "extraños"
+
+110
+00:06:48,720 --> 00:06:50,800
+Estar en la clase "extraña".
+
+111
+00:06:51,640 --> 00:06:56,400
+Cada vez que represento el valor del contador
+aquí, como insignia de TBS ...
+
+112
+00:06:56,880 --> 00:07:00,920
+Es decir, el valor del contador
+será mostrado...
+
+113
+00:07:01,480 --> 00:07:05,120
+Pero estoy agregando la clase CSS "extraña"
+
+114
+00:07:05,640 --> 00:07:07,840
+solo si el valor es impar.
+
+115
+00:07:10,760 --> 00:07:14,600
+Se agrega la clase CSS
+solo si esta condición es verdadera.
+
+116
+00:07:16,200 --> 00:07:18,600
+Definí la clase de CSS "impar"
+
+117
+00:07:18,760 --> 00:07:21,800
+Al definir el método "estilo"
+en mi mostrador
+
+118
+00:07:21,960 --> 00:07:25,800
+Representará una cadena de caracteres
+de acuerdo con las reglas de estilo CSS.
+
+119
+00:07:25,960 --> 00:07:29,080
+".odd color:rojo"
+hará que el contador rojo
+
+120
+00:07:29,440 --> 00:07:30,480
+para números impares
+
+121
+00:07:31,360 --> 00:07:32,360
+Para resumir:
+
+122
+00:07:32,920 --> 00:07:37,200
+Una aplicación web es un componente raíz.
+Seaside es un componente de raíz.
+
+123
+00:07:37,760 --> 00:07:42,200
+Todos los componentes se pueden representar.
+en HTML usando renderContentOn.
+
+124
+00:07:42,440 --> 00:07:47,280
+Y tenemos un lenguaje dedicado
+eso es poderoso y extensible.
+
+125
+00:07:47,800 --> 00:07:52,120
+Nos permite generar HTML
+fácilmente, usando pinceles,
+
+126
+00:07:52,680 --> 00:07:57,280
+y una extensibilidad que admite
+marcos CSS existentes
+
+127
+00:07:57,440 --> 00:07:59,520
+como Bootstrap, JQuery, UI, etc.
+
+128
+00:08:00,800 --> 00:08:04,720
+Puedes aprovechar
+de los poderes de scripting de Pharo como loops,
+
+129
+00:08:05,200 --> 00:08:07,840
+para generar matrices de elementos
+fácilmente.

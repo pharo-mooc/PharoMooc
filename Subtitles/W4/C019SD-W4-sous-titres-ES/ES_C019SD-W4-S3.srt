@@ -1,0 +1,631 @@
+﻿1
+00:00:00,440 --> 00:00:01,480
+Hola a todos.
+
+2
+00:00:01,640 --> 00:00:03,400
+Bienvenido a la secuencia 3.
+
+3
+00:00:03,560 --> 00:00:06,040
+Ahora que hemos examinado la herencia,
+
+4
+00:00:07,400 --> 00:00:10,400
+auto y búsqueda,
+examinaremos "super".
+
+5
+00:00:10,840 --> 00:00:14,280
+Empezaremos enfocándonos en
+enviando un mensaje
+
+6
+00:00:14,880 --> 00:00:17,840
+en casos donde "súper"
+es el receptor
+
+7
+00:00:18,360 --> 00:00:19,840
+¿Qué es "súper"?
+
+8
+00:00:20,120 --> 00:00:25,360
+Tómese unos minutos para pensar
+una definición que cubre estos dos puntos:
+
+9
+00:00:26,040 --> 00:00:28,200
+¿Qué representa "super"?
+
+10
+00:00:30,400 --> 00:00:32,200
+¿Cómo se busca un método?
+
+11
+00:00:32,360 --> 00:00:34,240
+cuando se envía un mensaje a "super"?
+
+12
+00:00:35,160 --> 00:00:36,560
+El siguiente principio
+
+13
+00:00:36,920 --> 00:00:39,200
+es el mismo tanto en Pharo como en Java.
+
+14
+00:00:39,560 --> 00:00:41,640
+El ejemplo que ves aquí
+
+15
+00:00:42,800 --> 00:00:46,240
+es similar a los que vimos
+en secuencias anteriores.
+
+dieciséis
+00:00:46,680 --> 00:00:49,360
+"Super" se usa en un método.
+
+17
+00:00:52,320 --> 00:00:55,600
+Pensemos en lo que sucede.
+
+18
+00:00:56,440 --> 00:00:57,920
+Para un bar nuevo,
+
+19
+00:00:59,560 --> 00:01:00,920
+no hay problema.
+
+20
+00:01:01,080 --> 00:01:03,120
+Es el mismo proceso que antes.
+
+21
+00:01:03,320 --> 00:01:05,600
+El método se ejecuta,
+
+22
+00:01:06,160 --> 00:01:08,080
+y foo regresa 10.
+
+23
+00:01:10,320 --> 00:01:13,440
+En el caso de la barra nueva B,
+veamos cada paso.
+
+24
+00:01:15,560 --> 00:01:17,960
+Enviamos el mensaje "barra"
+
+25
+00:01:18,360 --> 00:01:20,720
+al nuevo objeto B.
+
+26
+00:01:22,080 --> 00:01:24,840
+El algoritmo de búsqueda
+busca el método "bar"
+
+27
+00:01:25,160 --> 00:01:27,160
+comenzando con la clase de objeto.
+
+28
+00:01:27,320 --> 00:01:29,800
+Encuentra el método "bar".
+
+29
+00:01:30,880 --> 00:01:33,320
+Se ejecuta en el receptor.
+
+30
+00:01:34,000 --> 00:01:38,680
+Este método de "barra" es el
+ejecutado en el receptor
+
+31
+00:01:40,040 --> 00:01:43,440
+Ahora tengo que calcular
+"super bar"
+
+32
+00:01:44,200 --> 00:01:46,640
+y "self foo", y agréguelos.
+
+33
+00:01:46,880 --> 00:01:48,600
+Podemos hacer "self foo"
+
+34
+00:01:48,760 --> 00:01:53,400
+"self foo" envía el mensaje
+"foo" al objeto "self".
+
+35
+00:01:53,800 --> 00:01:55,600
+"Yo" es mi nuevo B.
+
+36
+00:01:56,640 --> 00:02:00,080
+El único "foo" posible
+es el de la clase A.
+
+37
+00:02:01,280 --> 00:02:03,160
+Entonces, "self foo" regresa 10.
+
+38
+00:02:04,840 --> 00:02:06,920
+En "súper bar"
+
+39
+00:02:08,000 --> 00:02:09,720
+"super" es el receptor.
+
+40
+00:02:10,440 --> 00:02:12,920
+Pero el algoritmo de búsqueda cambia
+
+41
+00:02:13,120 --> 00:02:15,720
+en presencia del receptor "super".
+
+42
+00:02:16,680 --> 00:02:19,840
+Buscará el método "bar"
+
+43
+00:02:20,320 --> 00:02:24,160
+comenzando con la súper clase
+que contiene la palabra clave "super".
+
+44
+00:02:25,080 --> 00:02:29,200
+"Super" se encuentra en la "barra"
+método de clase B.
+
+45
+00:02:29,640 --> 00:02:32,960
+Buscaremos el método "bar"
+
+46
+00:02:33,120 --> 00:02:35,680
+comenzando en la superclase de B, que es A.
+
+47
+00:02:36,240 --> 00:02:40,720
+Entonces encontramos este método
+y ese es el ejecutado.
+
+48
+00:02:41,000 --> 00:02:43,200
+Foo se envía a sí mismo.
+
+49
+00:02:43,360 --> 00:02:46,480
+"Ser" es siempre el objeto receptor.
+
+50
+00:02:46,880 --> 00:02:47,880
+Es B nuevo
+
+51
+00:02:48,120 --> 00:02:51,200
+Entonces, foo se envía al objeto inicial.
+
+52
+00:02:51,560 --> 00:02:54,640
+Este es el "foo" que se ejecuta,
+volviendo 10
+
+53
+00:02:56,800 --> 00:02:58,400
+10 + 10 = 20.
+
+54
+00:03:00,320 --> 00:03:02,480
+En el caso de la nueva barra C,
+
+55
+00:03:02,920 --> 00:03:04,800
+notamos C nuevo, aquí.
+
+56
+00:03:05,120 --> 00:03:09,120
+Es una instancia de clase C.
+Le enviamos el mensaje "bar".
+
+57
+00:03:09,800 --> 00:03:14,320
+"Bar" se busca en la clase C nueva.
+
+58
+00:03:14,640 --> 00:03:17,080
+Extraviado.
+Se busca la clase anterior.
+
+59
+00:03:17,480 --> 00:03:18,640
+Está ahí, en B.
+
+60
+00:03:18,800 --> 00:03:22,400
+Entonces se ejecutará la nueva barra B.
+
+61
+00:03:23,480 --> 00:03:27,960
+Esta barra es la suma
+de dos mensajes de envío.
+
+62
+00:03:28,640 --> 00:03:31,480
+Podemos comenzar con el segundo.
+
+63
+00:03:31,640 --> 00:03:34,640
+Enviamos el mensaje "foo"
+al objeto "yo".
+
+64
+00:03:34,880 --> 00:03:39,200
+El yo sigue siendo mi C Nuevo, aquí.
+Envío el mensaje "foo".
+
+sesenta y cinco
+00:03:40,120 --> 00:03:42,760
+Se encuentra el método y se devuelve 50.
+
+66
+00:03:44,280 --> 00:03:45,880
+Puse el valor 50 allí.
+
+67
+00:03:46,440 --> 00:03:50,960
+Ahora necesitamos la primera parte
+de la suma, "súper bar".
+
+68
+00:03:51,240 --> 00:03:55,200
+Envío el mensaje "barra"
+a "super", siempre al receptor.
+
+69
+00:03:55,360 --> 00:03:58,280
+Pero el algoritmo de búsqueda cambia.
+
+70
+00:03:59,000 --> 00:04:04,240
+Busca "barra" en la superclase
+para la clase que contiene "súper".
+
+71
+00:04:05,320 --> 00:04:08,720
+Es decir, el método "bar" en la clase B.
+
+72
+00:04:09,000 --> 00:04:13,240
+El algoritmo comienza a buscar "barra"
+en la superclase de B, que es A.
+
+73
+00:04:13,880 --> 00:04:15,440
+Bar se encuentra aquí.
+
+74
+00:04:15,880 --> 00:04:17,360
+Esta "barra" se ejecuta.
+
+75
+00:04:17,640 --> 00:04:20,920
+"Sí" sigue siendo C nuevo. Todavía esta.
+
+76
+00:04:21,080 --> 00:04:22,440
+Siempre el receptor.
+
+77
+00:04:22,760 --> 00:04:24,440
+Le enviamos el mensaje "foo".
+
+78
+00:04:24,600 --> 00:04:27,960
+El resultado es 50, y tengo 50 aquí.
+
+79
+00:04:28,280 --> 00:04:30,960
+50 + 50 = 100.
+
+80
+00:04:31,680 --> 00:04:32,920
+La siguiente diapositiva
+
+81
+00:04:33,360 --> 00:04:36,640
+revisa los detalles
+del proceso del algoritmo de búsqueda,
+
+82
+00:04:36,800 --> 00:04:38,680
+para más estudio
+
+83
+00:04:39,680 --> 00:04:42,880
+"Super" siempre se refiere al receptor.
+
+84
+00:04:43,040 --> 00:04:45,120
+Es exactamente como "yo",
+
+85
+00:04:45,320 --> 00:04:47,200
+o "esto" en Java.
+
+86
+00:04:47,480 --> 00:04:52,440
+Del mismo modo, "super" en Java es como "esto"
+y siempre se refiere al receptor.
+
+87
+00:04:53,160 --> 00:04:57,520
+Sin embargo, cuando se envía un mensaje
+a "super", el algoritmo de búsqueda cambia
+
+88
+00:04:57,680 --> 00:05:01,360
+y comienza a buscar un método
+en la superclase
+
+89
+00:05:01,800 --> 00:05:05,680
+de la clase que contiene el método
+siendo ejecutado
+
+90
+00:05:06,040 --> 00:05:09,880
+"Self" y "super" son por lo tanto
+fundamentalmente diferente.
+
+91
+00:05:10,320 --> 00:05:13,640
+"Ser" es dinámico,
+mientras que "super" es estático.
+
+92
+00:05:13,880 --> 00:05:15,520
+Lo explicaré más adelante.
+
+93
+00:05:17,080 --> 00:05:19,760
+Cuando "foo" se envía a "self"
+
+94
+00:05:20,360 --> 00:05:24,240
+el desarrollador no tiene idea
+que se ejecutará el método "foo".
+
+95
+00:05:24,880 --> 00:05:28,480
+Podría ser el "foo"
+ubicado en la misma clase,
+
+96
+00:05:29,120 --> 00:05:31,840
+o un "foo" en una subclase existente,
+
+97
+00:05:32,200 --> 00:05:35,640
+o un "foo" en una subclase
+creado por otro desarrollador
+
+98
+00:05:35,920 --> 00:05:38,040
+antes de ejecutar el programa.
+
+99
+00:05:38,720 --> 00:05:42,240
+Cuando el desarrollador de métodos de "barra"
+escribe "self foo"
+
+100
+00:05:42,480 --> 00:05:45,640
+él no tiene idea de qué "foo"
+será ejecutado.
+
+101
+00:05:46,080 --> 00:05:48,160
+Esa es una característica conveniente.
+
+102
+00:05:48,480 --> 00:05:51,280
+Significa desarrolladores
+puede crear una nueva subclase
+
+103
+00:05:51,440 --> 00:05:54,320
+para cambiar el comportamiento de la clase A.
+
+104
+00:05:55,440 --> 00:05:58,120
+Por el contrario, "súper" es estático.
+
+105
+00:05:58,880 --> 00:06:03,400
+Cuando el desarrollador escribe "super foo"
+
+106
+00:06:04,000 --> 00:06:06,920
+él sabe qué método "foo"
+será ejecutado
+
+107
+00:06:07,080 --> 00:06:09,560
+cuando se ejecuta el programa.
+
+108
+00:06:09,840 --> 00:06:13,440
+Cuando escribe "super foo" aquí,
+el sabe que se esta refiriendo
+
+109
+00:06:14,280 --> 00:06:16,360
+a "foo" en la superclase A.
+
+110
+00:06:16,880 --> 00:06:18,680
+Invariablemente. Super es estático.
+
+111
+00:06:18,880 --> 00:06:21,640
+Sabemos cómo el programa
+será compilado
+
+112
+00:06:22,080 --> 00:06:25,360
+Desafortunadamente, ciertos libros
+
+113
+00:06:25,720 --> 00:06:28,160
+define "super" mal.
+
+114
+00:06:28,320 --> 00:06:30,560
+Las definiciones no tienen sentido.
+
+115
+00:06:30,920 --> 00:06:33,800
+Aquí hay una definición que encontramos en un libro.
+
+116
+00:06:34,320 --> 00:06:37,480
+Dice que "súper"
+busca el método ...
+
+117
+00:06:37,920 --> 00:06:42,280
+En otras palabras,
+"super" solicita el algoritmo de búsqueda
+
+118
+00:06:42,440 --> 00:06:47,240
+para buscar el método en
+la superclase de la clase del receptor.
+
+119
+00:06:48,000 --> 00:06:50,480
+La superclase de la clase del receptor.
+
+120
+00:06:50,640 --> 00:06:54,360
+En realidad, esto está mal,
+como lo demuestra el ejemplo que se muestra.
+
+121
+00:06:54,800 --> 00:06:58,920
+Si toma aC como receptor,
+su clase es C.
+
+122
+00:06:59,720 --> 00:07:03,120
+La superclase del receptor
+es por lo tanto B.
+
+123
+00:07:04,040 --> 00:07:08,560
+Si vengo aqui
+y ejecute el comando "super foo"
+
+124
+00:07:08,960 --> 00:07:12,960
+si la definición dada por el libro
+aplicado,
+
+125
+00:07:13,640 --> 00:07:16,360
+le enviamos el mensaje "foo"
+
+126
+00:07:17,640 --> 00:07:20,520
+a "súper" y al "foo"
+método ejecutado
+
+127
+00:07:20,680 --> 00:07:24,320
+sería el de la superclase
+de la clase del receptor.
+
+128
+00:07:24,480 --> 00:07:27,480
+En otras palabras, esta.
+
+129
+00:07:27,840 --> 00:07:30,520
+Enviaría "foo" a "super"
+
+130
+00:07:30,800 --> 00:07:34,480
+una y otra vez,
+en un ciclo infinito
+
+131
+00:07:35,680 --> 00:07:38,280
+Entonces la definición es incorrecta.
+
+132
+00:07:38,440 --> 00:07:43,760
+En la práctica, este ejemplo funciona
+perfectamente.
+
+133
+00:07:44,240 --> 00:07:46,640
+Es solo que esta definición es incorrecta.
+
+134
+00:07:47,280 --> 00:07:49,480
+Esto es lo que hay que recordar:
+
+135
+00:07:50,040 --> 00:07:52,440
+"Ser" siempre representa al receptor.
+
+136
+00:07:52,680 --> 00:07:53,840
+Lo mismo hace "súper".
+
+137
+00:07:54,000 --> 00:07:58,040
+Es lo mismo en Java,
+con "esto" y "súper".
+
+138
+00:07:58,880 --> 00:08:01,160
+Sin embargo, "super" cambia la búsqueda.
+
+139
+00:08:01,600 --> 00:08:05,000
+Comenzará a buscar un fósforo
+
+140
+00:08:05,240 --> 00:08:07,320
+en la superclase
+
+141
+00:08:07,560 --> 00:08:12,160
+de la clase que contiene el método
+que contiene la palabra clave "super".
+
+142
+00:08:12,720 --> 00:08:15,240
+Los "auto" enviados son dinámicos.
+
+143
+00:08:15,640 --> 00:08:20,240
+El desarrollador puede usarlos para extender
+el comportamiento de una clase existente,
+
+144
+00:08:20,440 --> 00:08:23,440
+creando una subclase
+eso redefine el método.
