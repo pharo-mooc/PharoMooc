@@ -40,31 +40,31 @@ un flujo de red, un archivo, etc.
 
 10
 00:00:36,120 --> 00:00:39,320
-Una transmisión mantiene la posición actual
+Un stream mantiene la posición actual
 en memoria.
 
 11
 00:00:40,000 --> 00:00:44,200
-Mientras usa la transmisión,
-puedes avanzar o retroceder
+Mientras usa el stream,
+puede avanzar o retroceder,
 
 12
 00:00:44,360 --> 00:00:46,920
 leer o escribir elementos
-a la corriente
+en el stream
 
 13
 00:00:47,600 --> 00:00:50,760
-Una descripción general de la API de las transmisiones.
+Una descripción general de la API de los streams.
 
 14
 00:00:50,920 --> 00:00:54,680
-Para crear una transmisión,
+Para crear un stream,
 hay algunos objetos
 
 15
 00:00:55,520 --> 00:01:00,200
-sobre los cuales puedes usar los mensajes
+sobre los cuales puede usar los mensajes
 readStream y writeStream
 
 16
@@ -133,7 +133,7 @@ Estos dos elementos
 
 30
 00:01:56,440 --> 00:02:00,640
-escribe un elemento o una colección
+escriben un elemento o una colección
 de elementos en la secuencia (stream).
 
 31
@@ -176,7 +176,7 @@ enviando el mensaje next
 
 39
 00:02:31,200 --> 00:02:34,720
-que devolverá al elemento
+que devolverá el elemento
 situado justo después de la posición actual
 
 40
@@ -297,7 +297,7 @@ gracias a algunos métodos.
 
 66
 00:04:09,520 --> 00:04:11,680
-También puedes escribir en un stream.
+También puede escribir en un stream.
 
 67
 00:04:11,840 --> 00:04:14,240
