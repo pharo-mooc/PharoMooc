@@ -1,16 +1,16 @@
 ﻿1
 00:00:07,120 --> 00:00:12,760
 Hola. Durante este curso, principalmente
-hablar sobre programación orientada a objetos,
+hablaremos sobre concepción orientada a objetos,
 
 2
 00:00:13,480 --> 00:00:17,320
 y aprenderemos sobre
-la esencia del despacho
+la esencia del (dispatch)
 
 3
 00:00:17,480 --> 00:00:20,560
-y enlace tardío
+y (late binding)
 en lenguajes orientados a objetos.
 
 4
@@ -25,7 +25,7 @@ bien implementado
 6
 00:00:28,040 --> 00:00:32,040
 En la próxima clase, hablaremos
-sobre su gran potencial de generalización.
+sobre su muchas posibilidades de generalización.
 
 7
 00:00:32,200 --> 00:00:33,960
@@ -45,40 +45,40 @@ son las cosas más básicas de hecho.
 
 11
 00:00:43,080 --> 00:00:47,720
-Hay ansiosos operadores booleanos
-como &, |, no,
+operadores 
+como &, |, not (eager)
 
 12
 00:00:47,880 --> 00:00:52,040
-operadores perezosos como o :, y :,
+operadores como o :, y : (lazy)
 con evaluación de argumentos cuando sea necesario;
 
 13
 00:00:52,200 --> 00:00:57,320
-también hay condicionales
+también los condicionales
 que veremos en otro curso.
 
 14
 00:00:57,480 --> 00:01:02,600
-Entonces está bien implementado pero hay
-nada sorprendente o específico
+Entonces está bien implementado pero no hay
+nada fantastico o específico
 
 15
 00:01:02,760 --> 00:01:05,920
-La semana pasada, te pregunté
-hacer algunos ejercicios
+La semana pasada, les pedí
+de hacer algunos ejercicios
 
-dieciséis
+16
 00:01:06,080 --> 00:01:07,920
 Hubo tres preguntas.
 
 17
 00:01:08,080 --> 00:01:10,400
-Cómo implementar No,
+Cómo implementar Not,
 
 18
 00:01:10,560 --> 00:01:12,000
-cómo implementar o,
+cómo implementar Or,
 
 19
 00:01:12,160 --> 00:01:15,760
@@ -88,7 +88,7 @@ y lo mas importante:
 20
 00:01:16,560 --> 00:01:20,400
 Responderé las dos primeras preguntas;
-luego en el próximo curso,
+y en el próximo curso,
 
 21
 00:01:20,560 --> 00:01:24,000
@@ -100,12 +100,12 @@ El ejercicio fue realmente ...
 
 23
 00:01:28,240 --> 00:01:32,560
-Si envía el mensaje no a falso,
-volverá a ser cierto
+Si envía el mensaje not a false,
+volverá a ser true
 
 24
 00:01:32,720 --> 00:01:35,240
-Si no es cierto, devolverá falso.
+Si envia el mensaje not a true, devolverá false.
 
 25
 00:01:35,400 --> 00:01:38,600
@@ -121,13 +121,13 @@ La solución no usa condicionales.
 
 28
 00:01:44,280 --> 00:01:46,960
-Mayormente encuentras
+En general encuentras
 una solución con una condición
 
 29
 00:01:47,120 --> 00:01:50,960
 Pero te digo que mi solución,
-implementado por Pharo,
+implementada por Pharo,
 
 30
 00:01:51,120 --> 00:01:53,440
@@ -139,7 +139,7 @@ Ni condicionales
 
 32
 00:01:56,120 --> 00:01:58,640
-Entonces no tienes si en la solución.
+Entonces no tienes if en la solución.
 
 33
 00:02:00,600 --> 00:02:04,800
@@ -158,20 +158,20 @@ La solución usa tres clases.
 
 36
 00:02:14,360 --> 00:02:17,240
-Tiene la clase booleana
+Tiene la clase Boolean
 
 37
 00:02:17,400 --> 00:02:19,440
-que es abstracto
+que es abstracta
 
 38
 00:02:19,600 --> 00:02:22,760
-Tiene la clase verdadera
+Tiene la clase True
 y la clase False.
 
 39
 00:02:22,920 --> 00:02:28,400
-El objeto booleano verdadero
+El objeto booleano true
 es la única instancia de True.
 
 40
@@ -180,18 +180,18 @@ es la única instancia de True.
 
 41
 00:02:31,040 --> 00:02:35,200
-La instancia verdadera
+La instancia true
 comienza con una minúscula
 
 42
 00:02:35,360 --> 00:02:40,920
-y la clase falsa
+y la clase False
 comienza con una mayúscula F.
 
 43
 00:02:41,080 --> 00:02:44,000
-Y falso es la instancia singleton
-de falso
+Y false es la instancia singleton
+de False
 
 44
 00:02:44,160 --> 00:02:46,200
@@ -199,8 +199,8 @@ Si lo visualizamos en un diagrama,
 
 45
 00:02:46,360 --> 00:02:50,160
-podemos ver verdadero es instancia de Verdadero,
-y falso de falso.
+podemos ver true es instancia de True,
+y false de False.
 
 46
 00:02:50,320 --> 00:02:55,000
@@ -226,7 +226,7 @@ Vamos a pensarlo.
 
 51
 00:03:07,760 --> 00:03:11,320
-¿Cómo expresas una elección?
+¿Cómo expresamos una elección?
 en lenguajes orientados a objetos?
 
 52
@@ -279,18 +279,18 @@ Lo implementaremos así.
 62
 00:03:51,400 --> 00:03:56,320
 Significa que implemento
-el método no está en la clase Falso;
+el método not en la clase False;
 
 63
 00:03:56,480 --> 00:03:58,560
-en este caso, devolverá verdadero.
+en este caso, devolverá true.
 
 64
 00:03:58,720 --> 00:04:03,480
-Implemento el método no
-en la clase verdadero; devolverá falso
+Implemento el método not
+en la clase True; devolverá false
 
-sesenta y cinco
+65
 00:04:04,440 --> 00:04:06,440
 En un diagrama, se ve así.
 
@@ -301,7 +301,7 @@ no tiene condiciones explícitas
 
 67
 00:04:12,000 --> 00:04:14,760
-No uso ninguno si en este caso.
+No uso ningun if en este caso.
 
 68
 00:04:14,920 --> 00:04:16,200
@@ -310,16 +310,16 @@ No uso ninguno si en este caso.
 69
 00:04:17,040 --> 00:04:20,160
 Funciona así.
-Cuando envío el mensaje no,
+Cuando envío el mensaje not,
 
 70
 00:04:21,520 --> 00:04:25,600
 ¿Dónde busco el método?
-En la clase receptora.
+Lo busco en la clase receptora.
 
 71
 00:04:25,760 --> 00:04:27,640
-true es instancia de Verdadero.
+true es instancia de True.
 
 72
 00:04:27,800 --> 00:04:30,640
@@ -327,22 +327,22 @@ Entonces este método se ejecutará aquí,
 
 73
 00:04:30,800 --> 00:04:33,400
-y el resultado será falso.
+y el resultado será false.
 Funciona.
 
 74
 00:04:33,560 --> 00:04:37,640
 Ahora envío un mensaje
-a la instancia falsa
+a la instancia false
 
 75
 00:04:37,800 --> 00:04:40,040
-¿Dónde me veo? En la clase Falso.
+¿Dónde me veo? En la clase False.
 
 76
 00:04:40,200 --> 00:04:42,760
 Esto no se ejecuta,
-y vuelve verdadero.
+y vuelve true.
 
 77
 00:04:42,920 --> 00:04:46,760
@@ -381,12 +381,12 @@ como un método abstracto en booleano
 
 85
 00:05:10,240 --> 00:05:13,040
-mediante el uso de la subclaseResponsabilidad propia.
+mediante el uso de self subclassResponsibility.
 
 86
 00:05:13,200 --> 00:05:17,440
 Solo quería contarte sobre Pharo
-para ser integral
+para ser completo
 
 87
 00:05:18,400 --> 00:05:21,000
@@ -441,7 +441,7 @@ Se suponía que debiste haber preparado esto.
 
 99
 00:05:55,720 --> 00:05:58,960
-Definiré o
+Definiré or
 en la clase booleana abstracta
 
 100
@@ -451,7 +451,7 @@ Muy bien.
 
 101
 00:06:02,800 --> 00:06:06,800
-Luego en la clase Falso:
+Luego en la clase False:
 está escrito aquí
 
 102
@@ -470,8 +470,8 @@ Entonces, significa que devuelvo el argumento.
 
 105
 00:06:18,600 --> 00:06:22,840
-Entonces, aquí, la implementación de O
-en la clase falsa
+Entonces, aquí, la implementación de Or
+en la clase False
 
 106
 00:06:23,000 --> 00:06:25,400
@@ -487,7 +487,7 @@ Igualmente,
 
 109
 00:06:31,960 --> 00:06:34,720
-si miramos la clase Verdadero,
+si miramos la clase True,
 se explica
 
 110
@@ -496,7 +496,7 @@ Se explica aquí.
 
 111
 00:06:38,960 --> 00:06:43,640
-Cuando envío o al receptor verdadero,
+Cuando envío o al receptor true,
 
 112
 00:06:43,800 --> 00:06:45,360
@@ -504,7 +504,7 @@ Devuelvo el receptor.
 
 113
 00:06:45,520 --> 00:06:46,840
-Entonces vuelvo cierto.
+Entonces vuelvo true.
 
 114
 00:06:48,360 --> 00:06:51,440
@@ -522,23 +522,23 @@ Entonces, de una manera más limpia,
 
 117
 00:06:59,400 --> 00:07:03,480
-Sabemos que verdad
+Sabemos que true
 es el receptor del mensaje;
 
 118
 00:07:03,640 --> 00:07:06,200
-así que en lugar de escribir verdad,
-podemos escribir uno mismo.
+así que en lugar de escribir true,
+podemos escribir self.
 
 119
 00:07:06,360 --> 00:07:09,680
 Si lees la definición,
-puedes verte a ti mismo y decir:
+puedes ver self y decir:
 
 120
 00:07:09,840 --> 00:07:12,480
 "Que tiene sentido.
-Como el receptor es verdadero,
+Como el receptor es true,
 
 121
 00:07:12,640 --> 00:07:15,800
@@ -550,30 +550,30 @@ Una vez más, vamos a visualizarlo.
 
 123
 00:07:21,720 --> 00:07:26,960
-Cuando envío el mensaje o
+Cuando envío el mensaje or
 con algo
 
 124
 00:07:27,120 --> 00:07:29,400
-al objeto verdadero,
+al objeto true,
 
 125
 00:07:29,560 --> 00:07:33,080
-Busco esta definición de o aquí,
+Busco esta definición de or aquí,
 
 126
 00:07:33,240 --> 00:07:35,680
-y volverá a ser, por lo tanto, verdadero.
+y volverá a self, por lo tanto, true.
 
 127
 00:07:35,840 --> 00:07:39,720
-Cuando envío el mensaje o
+Cuando envío el mensaje or
 con algo,
 
 128
 00:07:39,880 --> 00:07:42,640
-Busco en la clase Falso
-que es falso
+Busco en la clase False
+que es false
 
 129
 00:07:42,800 --> 00:07:47,280
@@ -582,12 +582,12 @@ y regreso alpha.
 
 130
 00:07:47,440 --> 00:07:51,040
-<i> Esta es la tabla booleana </ i>
-<i> Estaba intentando implementar. </ i>
+Es la tabla booleana
+que estaba intentando implementar.
 
 131
 00:07:53,440 --> 00:07:55,360
-Lo que tienes que recordar es:
+Lo que tiene que recordar es:
 
 132
 00:07:55,520 --> 00:07:59,480
@@ -635,7 +635,7 @@ Al comienzo de esta lección:
 
 142
 00:08:28,720 --> 00:08:30,160
-No preguntes, cuéntales.
+No preguntar, contar.
 
 143
 00:08:30,320 --> 00:08:33,400
@@ -652,13 +652,13 @@ Esa es una de las claves importantes de OOP.
 
 146
 00:08:39,840 --> 00:08:42,640
-El otro es sobre
-dejando que el receptor decida.
+La otro es sobre
+dejar que el receptor decida.
 
 147
 00:08:42,800 --> 00:08:46,760
 Le doy una orden al receptor:
-debe encapsular su conocimiento
+quien debe encapsular su conocimiento
 
 148
 00:08:46,920 --> 00:08:48,840
