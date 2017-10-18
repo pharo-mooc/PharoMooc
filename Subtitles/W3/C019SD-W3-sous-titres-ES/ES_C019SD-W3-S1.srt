@@ -1,7 +1,7 @@
 ﻿1
 00:00:07,120 --> 00:00:12,760
 Hola. Durante este curso, principalmente
-hablaremos sobre concepción orientada a objetos,
+hablaremos de concepción orientada a objetos,
 
 2
 00:00:13,480 --> 00:00:17,320
@@ -10,7 +10,7 @@ la esencia del (dispatch)
 
 3
 00:00:17,480 --> 00:00:20,560
-y (late binding)
+y evaluación perezosa (late binding)
 en lenguajes orientados a objetos.
 
 4
@@ -41,16 +41,16 @@ Booleanos en Pharo
 
 10
 00:00:38,840 --> 00:00:42,920
-son las cosas más básicas de hecho.
+de hecho son las cosas más básicas.
 
 11
 00:00:43,080 --> 00:00:47,720
 operadores 
-como &, |, not (eager)
+como &, |, not, (eager)
 
 12
 00:00:47,880 --> 00:00:52,040
-operadores como o :, y : (lazy)
+operadores como or:, and:, (lazy)
 con evaluación de argumentos cuando sea necesario;
 
 13
@@ -65,8 +65,8 @@ nada fantastico o específico
 
 15
 00:01:02,760 --> 00:01:05,920
-La semana pasada, les pedí
-de hacer algunos ejercicios
+La semana pasada, te pedí
+hacer algunos ejercicios
 
 16
 00:01:06,080 --> 00:01:07,920
@@ -82,21 +82,21 @@ cómo implementar Or,
 
 19
 00:01:12,160 --> 00:01:15,760
-y lo mas importante:
+y la mas importante:
 ¿Cuál es el objetivo de estos ejercicios?
 
 20
 00:01:16,560 --> 00:01:20,400
-Responderé las dos primeras preguntas;
+Responderé a las dos primeras preguntas;
 y en el próximo curso,
 
 21
 00:01:20,560 --> 00:01:24,000
-Responderé a la última pregunta.
+Responderé la última pregunta.
 
 22
 00:01:25,880 --> 00:01:28,080
-El ejercicio fue realmente ...
+El ejercicio realmente fue ...
 
 23
 00:01:28,240 --> 00:01:32,560
@@ -109,7 +109,7 @@ Si envia el mensaje not a true, devolverá false.
 
 25
 00:01:35,400 --> 00:01:38,600
-Tienes objetos ¿Cómo implementar esto?
+Con objetos ¿Cómo se implementa esto?
 
 26
 00:01:38,760 --> 00:01:41,000
@@ -135,21 +135,21 @@ no contiene ninguna condición
 
 31
 00:01:54,600 --> 00:01:55,960
-Ni condicionales
+ni condicionales
 
 32
 00:01:56,120 --> 00:01:58,640
-Entonces no tienes if en la solución.
+Entonces no utilizas if en la solución.
 
 33
 00:02:00,600 --> 00:02:04,800
 Piensa un poco
-para ver si tienes una idea
+para ver si tienes alguna idea
 
 34
 00:02:04,960 --> 00:02:09,960
 Normalmente, este tipo de sugerencia
-realmente no funciona
+realmente no funcionan
 
 35
 00:02:10,120 --> 00:02:13,840
@@ -205,7 +205,7 @@ y false de False.
 46
 00:02:50,320 --> 00:02:55,000
 En teoría, con esta pista,
-la solución debería ser obvia para usted.
+la solución debería ser obvia.
 
 47
 00:02:55,160 --> 00:02:57,520
@@ -217,7 +217,7 @@ Te dejaré pensar más al respecto.
 
 49
 00:03:00,680 --> 00:03:03,520
-La solución es al final ...
+La solución al final ...
 
 50
 00:03:04,720 --> 00:03:07,600
@@ -376,8 +376,8 @@ En Pharo,
 
 84
 00:05:06,760 --> 00:05:10,080
-no expresas
-como un método abstracto en booleano
+not expresas
+un método abstracto en Boolean
 
 85
 00:05:10,240 --> 00:05:13,040
@@ -442,7 +442,7 @@ Se suponía que debiste haber preparado esto.
 99
 00:05:55,720 --> 00:05:58,960
 Definiré or
-en la clase booleana abstracta
+en la clase Boolean abstracta
 
 100
 00:05:59,120 --> 00:06:01,640
@@ -452,17 +452,17 @@ Muy bien.
 101
 00:06:02,800 --> 00:06:06,800
 Luego en la clase False:
-está escrito aquí
+lo puedes ver
 
 102
 00:06:06,960 --> 00:06:10,280
 El receptor pertenece a False.
-Que regreso
+Que devuelvo
 
 103
 00:06:11,240 --> 00:06:15,600
-Cuando es cierto, devuelve verdadero:cuando
-falso cuando nada, cualquier cosa
+Cuando es true devuelve true, cuando es false devuelve false,
+cuando és cualquiera devuelve cualquiera.
 
 104
 00:06:15,760 --> 00:06:17,880
