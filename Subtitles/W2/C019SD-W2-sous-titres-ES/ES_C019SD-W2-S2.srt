@@ -8,16 +8,16 @@ En esta clase, ilustraré Pharo
 
 3
 00:00:06,200 --> 00:00:11,880
-comparándolo
-a otro lenguaje OOP, Java.
+comparándolo con
+otro lenguaje OOP, Java.
 
 4
 00:00:12,520 --> 00:00:16,040
-En Pharo, solo manipulas objetos.
+En Pharo, solo manipula objetos.
 
 5
 00:00:16,200 --> 00:00:20,200
-Haces cosas
+Hace cosas
 gracias a los mensajes solamente
 
 6
@@ -31,7 +31,7 @@ equivalencias entre Java y Pharo
 
 8
 00:00:27,600 --> 00:00:30,720
-entender sus diferencias
+para entender sus diferencias
 y similitudes.
 
 9
@@ -48,8 +48,8 @@ que contiene cadenas.
 
 12
 00:00:39,000 --> 00:00:43,560
-Esta colección se ve afectada.
-a una variable llamada cadenas.
+Esta colección es asociada
+a variables llamadas cadenas.
 
 13
 00:00:44,920 --> 00:00:46,560
@@ -64,18 +64,18 @@ La clase que maneja colecciones
 se llama OrderedCollection,
 no ArrayList,
 
-dieciséis
+16
 00:00:52,280 --> 00:00:54,240
 pero el comportamiento es el mismo.
 
 17
 00:00:54,400 --> 00:00:56,640
-Tienes que ser consciente de varias cosas:
+Tiene que ser consciente de varias cosas:
 
 18
 00:00:57,560 --> 00:01:02,960
 primero, en Pharo,
-nuevo es un mensaje enviado a una clase.
+new es un mensaje enviado a una clase.
 
 19
 00:01:03,120 --> 00:01:06,280
@@ -89,7 +89,7 @@ de la colección
 
 21
 00:01:09,160 --> 00:01:11,440
-En Java, lo primero es lo nuevo.
+En Java, new viene primero.
 
 22
 00:01:11,600 --> 00:01:14,320
@@ -97,16 +97,16 @@ Esta colección sintáctica es específica
 
 23
 00:01:15,280 --> 00:01:18,360
-para objetivar la creación de instancias en Java,
+para la creacion de instancias en Java,
 
 24
 00:01:18,520 --> 00:01:21,640
 mientras que en Pharo
-es el envío de mensajes estándar.
+es un envío de mensaje estándar.
 
 25
 00:01:22,920 --> 00:01:26,960
-No hay tipeo estático en Pharo.
+No hay tipos estáticos en Pharo.
 
 26
 00:01:27,120 --> 00:01:31,840
@@ -149,7 +149,7 @@ dándole Runnable () como un parámetro.
 
 35
 00:02:02,760 --> 00:02:04,680
-Escribes nuevo Runnable ().
+Escribe new Runnable().
 
 36
 00:02:04,840 --> 00:02:09,960
@@ -198,7 +198,7 @@ el proceso hijo
 
 46
 00:02:47,040 --> 00:02:50,680
-Puedes hacerlo gracias a la horquilla,
+Puedes hacerlo gracias a "fork",
 
 47
 00:02:50,840 --> 00:02:53,440
@@ -215,7 +215,7 @@ La sintaxis de Java ha mejorado mucho.
 
 50
 00:03:02,240 --> 00:03:05,480
-Como puedes ver,
+Como puede ver,
 El código en Java es mucho más claro.
 
 51
@@ -248,7 +248,7 @@ aplicado a un receptor,
 57
 00:03:28,000 --> 00:03:32,040
 como el método factorial
-nosotros ya estudiamos
+nosotros ya los estudiamos,
 
 58
 00:03:32,800 --> 00:03:35,880
@@ -257,7 +257,7 @@ o como el método cr
 59
 00:03:36,040 --> 00:03:40,160
 que muestra una línea vacía
-en la consola
+en la consola.
 
 60
 00:03:41,120 --> 00:03:45,400
@@ -266,7 +266,7 @@ se aplican a un receptor
 
 61
 00:03:45,560 --> 00:03:48,240
-y toma un valor como argumento.
+y toman un valor como argumento.
 
 62
 00:03:48,400 --> 00:03:51,600
@@ -274,16 +274,16 @@ Por ejemplo, los operadores
 
 63
 00:03:51,760 --> 00:03:54,320
-tal como + que agrega tres y cuatro.
+tales como + que agrega tres y cuatro.
 
 64
 00:03:54,480 --> 00:03:58,560
 -> se usa para crear un par
 con una clave y un valor
 
-sesenta y cinco
+65
 00:03:58,720 --> 00:04:02,560
-5-> 10 crea el par 5 10.
+5->10 crea el par 5 10.
 
 66
 00:04:04,200 --> 00:04:06,840
@@ -302,7 +302,7 @@ Están separados por dos puntos.
 69
 00:04:14,600 --> 00:04:18,920
 Aquí se muestra el mensaje de palabra clave.
-Se envía al objeto Transcripción
+Se envía al objeto Transcript.
 
 70
 00:04:19,080 --> 00:04:22,240
@@ -312,7 +312,7 @@ como un parámetro
 71
 00:04:22,800 --> 00:04:26,240
 En el segundo ejemplo,
-el mensaje está entre:y :.
+el mensaje es between:and:
 
 72
 00:04:26,400 --> 00:04:29,360
@@ -326,7 +326,7 @@ y se aplica a un receptor.
 
 74
 00:04:34,160 --> 00:04:38,520
-El mensaje entre:y:
+El mensaje between:and:
 se aplica al objeto 2
 
 75
@@ -364,7 +364,7 @@ separado por comas.
 
 82
 00:05:05,440 --> 00:05:07,800
-En Pharo, expresas lo mismo
+En Pharo, expresa lo mismo
 
 83
 00:05:09,560 --> 00:05:14,120
@@ -382,7 +382,7 @@ Por ejemplo:
 
 86
 00:05:19,600 --> 00:05:24,040
-Envío el mensaje de envío a un cartero
+Envío el mensaje send a postman
 
 87
 00:05:24,200 --> 00:05:27,840
@@ -418,16 +418,16 @@ Vamos a eliminarlos
 94
 00:05:48,160 --> 00:05:51,360
 Terminas con:
-destinatario de correo electrónico de envío de correos.
+postman send mail recipient.
 
 95
 00:05:51,520 --> 00:05:54,600
-Si conviertes esto en una oración
+Si convierte esto en una oración
 para facilitar la lectura,
 
 96
 00:05:54,760 --> 00:05:59,120
-obtienes:correo electrónico de envío del destinatario al destinatario.
+obtiene: postman envia un correo al destinatario.
 Es más fácil de leer.
 
 97
@@ -438,7 +438,7 @@ agrega dos puntos.
 98
 00:06:04,640 --> 00:06:08,680
 Hay un mensaje, el mensaje
-enviar:a:aplicado al cartero.
+send: to: aplicado a postman.
 
 99
 00:06:08,840 --> 00:06:14,320
@@ -448,11 +448,11 @@ el correo y el destinatario.
 100
 00:06:14,480 --> 00:06:18,560
 Condicionales
-tal como si y de lo contrario,
+tal como if y else,
 
 101
 00:06:18,720 --> 00:06:22,280
-y bucles como hacer, para, etc.
+y ciclos comodo, for, etc.
 
 102
 00:06:22,440 --> 00:06:26,560
@@ -471,28 +471,28 @@ enviado a algunos tipos de objetos.
 
 105
 00:06:36,920 --> 00:06:41,240
-En Pharo, por ejemplo, para ejecutar si,
+En Pharo, por ejemplo, para ejecutar if,
 
 106
 00:06:41,880 --> 00:06:44,160
-envías el mensaje ifTrue:if False :.
+envía el mensaje ifTrue: ifFalse:.
 
 107
 00:06:44,320 --> 00:06:47,600
-Es un mensaje que le envías a un booleano.
+Es un mensaje que le envía a un booleano.
 
 108
 00:06:47,760 --> 00:06:51,840
-Se necesitan dos bloques como parámetros:
+Toma dos bloques como parámetros:
 uno se ejecuta si el booleano es verdadero,
 
 109
 00:06:52,000 --> 00:06:54,320
-uno si el booleano es falso.
+el otro si el booleano es falso.
 
 110
 00:06:54,920 --> 00:06:58,800
-Del mismo modo, los bucles son solo métodos.
+Del mismo modo, los ciclos son solo métodos.
 enviado a algunos tipos de objetos.
 
 111
@@ -524,7 +524,7 @@ ejecuta algo cuatro veces.
 
 117
 00:07:23,320 --> 00:07:27,280
-Del mismo modo, el mensaje para:hacer:
+Del mismo modo, el mensaje to: do:
 se envía a un número.
 
 118
@@ -547,7 +547,7 @@ Igualmente,
 
 122
 00:07:41,120 --> 00:07:43,000
-el mensaje a:por:hacer:
+el mensaje to: by: do:
 
 123
 00:07:44,320 --> 00:07:49,120
@@ -566,7 +566,7 @@ enviado a una colección
 
 126
 00:07:58,760 --> 00:08:02,160
-es lo mismo que un bucle foreach en Java.
+es lo mismo que un ciclo foreach en Java.
 
 127
 00:08:02,320 --> 00:08:06,760
@@ -575,7 +575,7 @@ para cada elemento de la colección.
 
 128
 00:08:07,680 --> 00:08:10,920
-La variable:cada uno
+La variable :each
 
 129
 00:08:11,080 --> 00:08:14,480
@@ -589,11 +589,11 @@ su primer elemento
 131
 00:08:16,480 --> 00:08:19,640
 El bloque se ejecuta usando
-este valor de:cada uno.
+este valor de :each.
 
 132
 00:08:19,800 --> 00:08:23,360
-Entonces:cada toma
+Entonces :each toma
 El segundo elemento de la colección.
 
 133
@@ -627,7 +627,7 @@ luego mensajes binarios, luego palabras clave.
 
 139
 00:08:45,840 --> 00:08:47,600
-Condicionales y bucles
+Condicionales y cicloa
 
 140
 00:08:47,760 --> 00:08:51,200
@@ -636,7 +636,7 @@ a algunos tipos de objetos,
 
 141
 00:08:51,360 --> 00:08:54,240
-a diferencia de en otros idiomas
+a diferencia de en otros lenguajes
 como Java,
 
 142
@@ -645,7 +645,7 @@ donde palabras clave específicas del idioma
 
 143
 00:08:56,960 --> 00:09:00,480
-tener instrucciones especificas
+tienen instrucciones especificas
 con respecto al compilador.
 
 144

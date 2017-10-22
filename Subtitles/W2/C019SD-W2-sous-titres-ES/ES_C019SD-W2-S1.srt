@@ -9,7 +9,7 @@ Sobre la sintaxis especialmente.
 
 3
 00:00:12,320 --> 00:00:17,560
-Esta clase será sobre todo tratar
+Esta clase será principalmente, acerca de tratar
 con los mensajes de la sintaxis de Pharo,
 
 4
@@ -31,13 +31,13 @@ Habrá un curso sobre bloques.
 
 8
 00:00:30,360 --> 00:00:33,640
-Puedes cubrir casi
-Toda la sintaxis de Pharo con esto.
+Puede cubrir casi toda
+la sintaxis de Pharo con esto.
 
 9
 00:00:33,800 --> 00:00:37,360
-Los tallos de sintaxis de Pharo
-desde el de Smalltalk
+La sintaxis de Pharo fue heredada
+de la de Smalltalk,
 
 10
 00:00:37,520 --> 00:00:40,760
@@ -51,7 +51,7 @@ que son como oraciones cortas
 
 12
 00:00:44,560 --> 00:00:46,040
-un niño puede escribir.
+que un niño puede escribir.
 
 13
 00:00:46,200 --> 00:00:49,320
@@ -65,11 +65,11 @@ Veremos cómo funciona.
 15
 00:00:52,040 --> 00:00:56,320
 Por ejemplo,
-Tomemos una baldosa en openstreetmap.
+Tomemos un recuadro en openstreetmap.
 
-dieciséis
+16
 00:00:56,480 --> 00:00:59,520
-Quiero abrirlo en una ventana gráfica.
+Quiero abrirla en una ventana gráfica.
 
 17
 00:00:59,680 --> 00:01:02,400
@@ -82,18 +82,18 @@ porque primero quiero obtener un archivo png.
 
 19
 00:01:06,160 --> 00:01:09,520
-Yo convierto el archivo png
+Convierto el archivo png
 en un objeto gráfico Pharo
 
 20
 00:01:09,680 --> 00:01:14,920
-antes de abrirlo en una ventana:hazlo
+antes de abrirlo en una ventana: hagalo
 con Pharo y obtendrás el resultado.
 
 21
 00:01:15,080 --> 00:01:18,200
 Probablemente sea agua
-ya que hay muchas baldosas de agua.
+ya que hay muchos recuadros de agua.
 
 22
 00:01:19,120 --> 00:01:23,040
@@ -115,7 +115,7 @@ Veamos sobre ellos.
 
 26
 00:01:32,520 --> 00:01:37,040
-Con mensajes únicos, tienes
+Con mensajes unarios, tienen
 un receptor, luego el nombre del método.
 
 27
@@ -130,7 +130,7 @@ luego un argumento o argumentos.
 
 29
 00:01:47,040 --> 00:01:51,000
-Puedes distinguirlos
+Puede distinguirlos
 gracias a los dos puntos aquí.
 
 30
@@ -144,27 +144,27 @@ de estos tres tipos de mensajes?
 
 32
 00:01:58,120 --> 00:01:59,840
-Puedes diferenciarlos.
+Puede diferenciarlos.
 
 33
 00:02:00,000 --> 00:02:02,480
-Cambia el camino
-Los programas se ejecutan.
+Cambia la manera en que 
+los programas se ejecutan.
 
 34
 00:02:02,640 --> 00:02:06,800
-Siempre ejecutas
+Siempre ejecuta
 lo que está entre paréntesis primero;
 
 35
 00:02:06,960 --> 00:02:09,880
-luego mensajes únicos;
+luego mensajes unarios;
 luego binario; luego palabras clave
 
 36
 00:02:10,040 --> 00:02:13,760
 Cuando en el mismo nivel,
-usas el mismo orden,
+use el mismo orden,
 
 37
 00:02:13,920 --> 00:02:15,480
@@ -181,22 +181,22 @@ su clase es, devolverá SmallInteger.
 
 40
 00:02:25,680 --> 00:02:29,040
-Esta será tu tarea
+Esta será su tarea
 para la próxima semana:
 
 41
 00:02:29,200 --> 00:02:33,160
 si envío el mensaje no al booleano
-Falso, obtengo el valor Booleano.
+Falso, obtengo el Booleano true.
 
 42
 00:02:33,720 --> 00:02:36,520
-Si busco la clase Fecha
-para la fecha de hoy,
+Si pregunto a la clase Date
+por la fecha de hoy,
 
 43
 00:02:36,680 --> 00:02:40,480
-Volverá el 24 de mayo de 2009, por ejemplo,
+devolverá el 24 de mayo de 2009, por ejemplo,
 que es un objeto de fecha.
 
 44
@@ -211,7 +211,7 @@ del objeto pi.
 
 46
 00:02:47,640 --> 00:02:49,720
-No sé si te diste cuenta,
+No sé si ya lo notó,
 
 47
 00:02:49,880 --> 00:02:54,040
@@ -229,13 +229,13 @@ Cuidado, tienes que hacer algo ".
 
 50
 00:03:01,840 --> 00:03:06,560
-Envío la clase de mensaje a la pequeña
-entero, devuelve la clase.
+Envío el mensaje class a SmallInteger,
+devuelve la clase.
 
 51
 00:03:06,720 --> 00:03:10,880
-Envío el mensaje hoy
-a la clase fecha, devuelve una fecha.
+Envío el mensaje today
+a la clase Date, devuelve una fecha.
 
 52
 00:03:11,040 --> 00:03:12,240
@@ -252,11 +252,11 @@ como mensajes a instancias
 
 55
 00:03:19,560 --> 00:03:21,320
-Lo que tiene sentido completo.
+Lo que tiene total sentido.
 
 56
 00:03:22,600 --> 00:03:24,360
-Tengo un ejemplo para ti.
+Tengo un ejemplo para usted.
 
 57
 00:03:24,520 --> 00:03:28,000
@@ -270,7 +270,7 @@ cuales son todos los metodos
 
 59
 00:03:34,040 --> 00:03:37,640
-implementado en el punto de clase.
+implementado en la clase Point.
 Es un mensaje único. Puedo decir:
 
 60
@@ -285,7 +285,8 @@ con todos los mensajes
 
 62
 00:03:45,880 --> 00:03:48,560
-¿Ves con qué facilidad puedes construir herramientas?
+¿Ve con qué facilidad puede
+construir herramientas?
 
 63
 00:03:48,720 --> 00:03:50,840
@@ -296,7 +297,7 @@ Si pongo esto en una lista,
 Obtendré una lista
 con todos los mensajes que regresa la clase.
 
-sesenta y cinco
+65
 00:03:55,080 --> 00:03:57,400
 Así funciona el navegador que usará.
 
@@ -308,16 +309,16 @@ Me gustaría consultar el sistema
 67
 00:04:02,320 --> 00:04:05,520
 para todos los selectores unarios
-del punto de clase.
+de la clase Punto.
 
 68
 00:04:05,680 --> 00:04:09,240
 Lo escribo así:
-"Class Point, enumere todos sus selectores".
+""Class Point, list all your selectors".
 
 69
 00:04:09,400 --> 00:04:12,560
-Devolverá una matriz, una colección.
+Devolverá un arreglo, una colección.
 
 70
 00:04:12,720 --> 00:04:15,120
@@ -347,8 +348,8 @@ Esta es una pequeña nota al pie en la sintaxis.
 
 76
 00:04:33,440 --> 00:04:37,520
-Lo aprenderás en el curso
-Acerca de los iteradores, seleccione:siendo uno.
+Aprenderá en el curso acerca de los
+iteradores, siendo select: uno de ellos.
 
 77
 00:04:37,680 --> 00:04:40,920
@@ -425,8 +426,8 @@ La gente a menudo los encuentra frustrantes
 
 93
 00:05:34,120 --> 00:05:37,800
-cuando se usan
-a una sintaxis similar a Java o similar a C,
+cuando estan acostumbrados a
+a una sintaxis similar a Java o C,
 
 94
 00:05:37,960 --> 00:05:42,240
@@ -439,12 +440,12 @@ Pero lo hacemos así:en el medio.
 
 96
 00:05:46,640 --> 00:05:50,040
-Lo que tienes que ver en este ejemplo
+Lo que tiene que ver en este ejemplo
 es que el mensaje es:
 
 97
 00:05:50,200 --> 00:05:55,360
-kayword1keyword2.
+keyword1, keyword2.
 
 98
 00:05:58,440 --> 00:06:02,760
@@ -453,8 +454,8 @@ Se compone de dos partes.
 
 99
 00:06:05,840 --> 00:06:09,440
-Es hora de probarte a ti mismo.
-Te daré un par de segundos.
+Es hora de probarlo usted mismo.
+Le daré un par de segundos.
 
 100
 00:06:09,600 --> 00:06:15,480
@@ -464,7 +465,7 @@ Te daré un par de segundos.
 101
 00:06:15,640 --> 00:06:18,320
 El primero no tiene argumento:
-debe ser único.
+debe ser unario.
 
 102
 00:06:18,480 --> 00:06:20,360
@@ -472,21 +473,21 @@ El segundo tambien
 
 103
 00:06:20,520 --> 00:06:22,960
-Hay dos puntos:debe ser una palabra clave.
+Hay dos puntos: debe ser una palabra clave.
 
 104
 00:06:23,120 --> 00:06:26,840
 Hay algo con una coma
-No lo entiendo:es binario.
+No lo entiendo: es binario.
 
 105
 00:06:27,000 --> 00:06:31,080
 Es raro:es binario.
-No hay argumento:es unary.
+No hay argumento:es unario.
 
 106
 00:06:31,240 --> 00:06:33,720
-Hay dos puntos:es una palabra clave.
+Hay dos puntos: es una palabra clave.
 
 107
 00:06:33,880 --> 00:06:36,160
@@ -507,11 +508,11 @@ el valor x de un punto.
 
 111
 00:06:43,760 --> 00:06:47,320
-Este es un punto Es un mensaje binario.
+Este es un punto. Es un mensaje binario.
 
 112
 00:06:48,000 --> 00:06:50,400
-Escribo setX:con un argumento.
+Escribo setX: con un argumento.
 
 113
 00:06:50,560 --> 00:06:53,360
@@ -520,17 +521,17 @@ en el que 2 ha sido cambiado.
 
 114
 00:06:53,920 --> 00:06:55,880
-No se ve tan duro, ¿verdad?
+No se ve tan difícil, ¿verdad?
 
 115
 00:06:56,960 --> 00:07:00,800
-Ahora con el mensaje en:put :.
-Tengo una matriz
+Ahora con el mensaje at:put:
+tengo un arreglo.
 
 116
 00:07:04,040 --> 00:07:08,200
-Contiene cadenas:
-'Calvin' odia '' Suzie ''.
+Contiene las cadenas:
+'Calvin' 'hates' 'Suzie'.
 
 117
 00:07:08,840 --> 00:07:12,120
@@ -538,7 +539,7 @@ Quiero cambiar el segundo elemento.
 
 118
 00:07:12,280 --> 00:07:15,960
-Escribo a:2 puesto:'ama'.
+Escribo at: 2 put: 'loves'.
 
 119
 00:07:16,120 --> 00:07:18,760
@@ -546,11 +547,11 @@ Esto es 2. Entonces 'ama' viene aquí.
 
 120
 00:07:18,920 --> 00:07:21,120
-Acerca de las matrices, puede ver
+Acerca de los arreglos, puede ver
 
 121
 00:07:21,280 --> 00:07:24,600
-el método se llama en:put :.
+el método se llama at:put:.
 
 122
 00:07:24,760 --> 00:07:28,240
@@ -559,8 +560,8 @@ de una colección en un índice dado.
 
 123
 00:07:28,400 --> 00:07:33,160
-Como puede ver, colecciones
-Comience en 1 en Pharo, no en 0.
+Como puede ver, las colecciones
+inician en 1 en Pharo, no en 0.
 
 124
 00:07:33,320 --> 00:07:35,920
@@ -587,16 +588,16 @@ está entre 10 y 20,
 
 129
 00:07:52,960 --> 00:07:57,680
-Es el mensaje entre:y :.
+Es el mensaje between: and:.
 
 130
 00:07:58,840 --> 00:08:03,520
 En la sintaxis, sería lo mismo que:
-12.entre
+12 between
 
 131
 00:08:05,280 --> 00:08:08,520
-Y (10,20).
+And(10,20).
 
 132
 00:08:10,400 --> 00:08:13,680
