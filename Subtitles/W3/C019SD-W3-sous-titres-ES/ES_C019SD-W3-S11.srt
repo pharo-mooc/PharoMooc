@@ -21,19 +21,19 @@ Hay cuatro casos para estudiar:
 
 6
 00:00:16,000 --> 00:00:20,640
-un método que usa el acento circunflejo para return (devolver el cursor),
+un método que usa el acento circunflejo para el retorno,
 
 7
 00:00:20,800 --> 00:00:23,080
-un método sin el acento circunflejo para return,
+un método sin el acento circunflejo para el retorno,
 
 8
 00:00:23,240 --> 00:00:25,720
-un bloque con acento circunflejo para return,
+un bloque con acento circunflejo para el retorno,
 
 9
 00:00:25,880 --> 00:00:28,000
-y un bloque sin acento circunflejo para return.
+y un bloque sin acento circunflejo para el retorno.
 
 10
 00:00:29,000 --> 00:00:31,040
@@ -45,7 +45,7 @@ Si utiliza el acento circunflejo para devolver un valor,
 
 12
 00:00:36,280 --> 00:00:39,120
-este self devolverá
+aqui este retorno devolvera
 
 13
 00:00:39,280 --> 00:00:42,160
@@ -71,7 +71,7 @@ Normalmente no lo escribes.
 18
 00:00:56,880 --> 00:01:01,640
 El valor de retorno de un bloque
-es su ultima expresion
+es el valor de su ultima expresion
 
 19
 00:01:01,800 --> 00:01:03,720
@@ -109,7 +109,7 @@ Como es la última expresión del bloque,
 
 27
 00:01:28,200 --> 00:01:30,720
-es valioso
+su valor
 
 28
 00:01:30,880 --> 00:01:33,960
@@ -156,8 +156,8 @@ Si uso el acento circunflejo en un bloque,
 
 38
 00:02:05,800 --> 00:02:09,400
-el comportamiento es totalmente diferente
-desde un método
+el comportamiento de un metodo
+es completamente diferente
 
 39
 00:02:10,320 --> 00:02:14,320
@@ -179,7 +179,7 @@ en la clase Integer.
 
 43
 00:02:24,200 --> 00:02:27,800
-El acento circunfleo que esta aqui y el de alla.
+El acento circunfleo de aqui y este otro.
 
 44
 00:02:27,960 --> 00:02:31,040
@@ -188,7 +188,7 @@ terminan la ejecución del método.
 
 45
 00:02:32,680 --> 00:02:35,920
-Entonces, si self si el receptor del metodo és igual a cero
+Entonces, si self, si el receptor del metodo és igual a cero
 
 46
 00:02:36,080 --> 00:02:38,480
@@ -201,7 +201,7 @@ el bloque se ejecuta,
 48
 00:02:40,840 --> 00:02:44,160
 1 és devuelto inmediatamente,
-y el método termina.
+y el método se termina.
 
 49
 00:02:44,320 --> 00:02:46,080
@@ -209,8 +209,8 @@ Entonces, el método devuelve 1.
 
 50
 00:02:47,000 --> 00:02:51,360
-el retorno no se usa para finalizar el bloque
-sino para terminar el metodo que se encuentra en el bloque.
+El retorno no se usa para finalizar el bloque
+sino para terminar el metodo que abraza el bloque.
 
 51
 00:02:52,680 --> 00:02:55,720
@@ -251,7 +251,7 @@ Deberías recordar
 59
 00:03:18,440 --> 00:03:23,560
 que el acento circunflejo te permite
-terminar el método
+salir del método
 
 60
 00:03:23,720 --> 00:03:27,760
