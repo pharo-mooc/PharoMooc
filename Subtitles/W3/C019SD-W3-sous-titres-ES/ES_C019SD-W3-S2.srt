@@ -10,7 +10,7 @@ los booleanos: not y or
 3
 00:00:07,040 --> 00:00:11,960
 La tercera pregunta sigue siendo:
-¿Por qué diablos hicimos estas preguntas?
+¿Para qué diablos hicimos estas preguntas?
 
 4
 00:00:12,120 --> 00:00:13,880
@@ -18,16 +18,16 @@ Eso es lo que vamos a estudiar.
 
 5
 00:00:14,760 --> 00:00:20,120
-Repasemos la implementación.
-Para not, había dos objetos.
+Repasemos la implementación
+para not, había dos objetos.
 
 6
 00:00:20,280 --> 00:00:22,400
-Tuvimos true y false.
+Teniamos true y false.
 
 7
 00:00:22,560 --> 00:00:25,440
-Fueron instancias
+Eran instancias
 de las clases True y False.
 
 8
@@ -41,7 +41,7 @@ y ejecutamos los métodos.
 
 10
 00:00:32,560 --> 00:00:34,080
-Entonces, no hay problemas aquí.
+Entonces, no tenemos problema aquí.
 
 11
 00:00:35,120 --> 00:00:37,240
@@ -49,7 +49,7 @@ Como ya he dicho,
 
 12
 00:00:37,400 --> 00:00:39,720
-si miras lo que estás haciendo:
+si mira lo que está haciendo:
 
 13
 00:00:39,880 --> 00:00:42,920
@@ -57,21 +57,21 @@ Primero, deja que el receptor decida.
 
 14
 00:00:43,080 --> 00:00:46,080
-Significa que no tomas ninguna decisión,
+Significa que no toma ninguna decisión,
 
 15
 00:00:46,240 --> 00:00:49,320
-pero usted envía un mensaje
+usted envía un mensaje
 que se resolverá por sí mismo.
 
 16
 00:00:49,480 --> 00:00:53,840
-Entonces, estas dos funciones heurísticas fueron:
-deja que el receptor decida;
+Entonces, estas dos funciones heurísticas eran:
+deje que decida el receptor;
 
 17
 00:00:54,000 --> 00:00:57,320
-y no preguntes sino di de hacer las cosas.
+y no pregunte sino diga que hacer.
 
 18
 00:00:57,480 --> 00:00:58,960
@@ -96,7 +96,7 @@ por lo menos eso espero.
 
 23
 00:01:10,240 --> 00:01:13,000
-¿Es realmente totalmente inútil?
+¿Es realmente inútil?
 
 24
 00:01:13,160 --> 00:01:15,920
@@ -120,7 +120,7 @@ que cada vez que envio un mensaje,
 28
 00:01:29,520 --> 00:01:33,640
 cada vez que envío un mensaje,
-Tengo algún tipo de case estatement.
+Tengo algún tipo de sentencia case.
 
 29
 00:01:35,000 --> 00:01:38,800
@@ -130,7 +130,7 @@ en programación C, etc.
 30
 00:01:39,880 --> 00:01:42,840
 Enviando un mensaje
-Se trata de una eleccion multiple.
+Realiza una eleccion multiple.
 
 31
 00:01:44,160 --> 00:01:46,880
@@ -139,7 +139,7 @@ cuando envía un mensaje,
 
 32
 00:01:47,040 --> 00:01:50,720
-Al final, es más que un case
+al final, es más que un case
 porque es un case dinámico.
 
 33
@@ -161,7 +161,7 @@ para invocar al método f.
 
 37
 00:02:04,240 --> 00:02:07,240
-Lo que te estoy explicando ahora es:
+Lo que estoy explicando ahora es:
 el punto, este,
 
 38
@@ -178,7 +178,7 @@ que esta elección es dinámica.
 
 41
 00:02:15,520 --> 00:02:17,800
-A menudo no te ha sido presentado así,
+A menudo no le ha sido presentado así,
 
 42
 00:02:17,960 --> 00:02:22,960
@@ -315,7 +315,7 @@ de ramas o elecciones.
 
 71
 00:03:56,720 --> 00:03:59,080
-Entonces si tienes una opción
+Entonces si tiene una opción
 para elegir yogur,
 
 72
@@ -329,11 +329,11 @@ Es lo mismo.
 
 74
 00:04:04,560 --> 00:04:06,520
-Significa que tu clase representa
+Significa que su clase representa
 
 75
 00:04:07,520 --> 00:04:09,440
-una elección en tu árbol de herencia.
+una elección en su árbol de herencia.
 
 76
 00:04:09,600 --> 00:04:10,880
@@ -345,7 +345,7 @@ Esto implica que cuando miro un diseño
 
 78
 00:04:14,200 --> 00:04:17,160
-con una gran clase muy gorda llena de métodos,
+con una clase muy gorda llena de métodos,
 
 79
 00:04:17,320 --> 00:04:20,920
@@ -360,7 +360,7 @@ porque es más modular.
 81
 00:04:25,440 --> 00:04:29,680
 Puede fácilmente
-Agregar otra opción si lo desea.
+agregar otra opción si lo desea.
 
 82
 00:04:29,840 --> 00:04:32,760
@@ -401,18 +401,18 @@ Lo que es mejor
 
 90
 00:05:00,200 --> 00:05:03,520
-es que cuando te ves
+es que cuando se ve
 en la solución con jerarquías,
 
 91
 00:05:03,680 --> 00:05:07,120
 se vuelve aún mejor
-porque puedo empaquetar las soluciones.
+porque puede empaquetar las soluciones.
 
 92
 00:05:07,280 --> 00:05:11,480
-Significa que puedo empaquetar esto como core,
-y este como plugin.
+Significa que puedo empaquetar esto como core (cuerpo),
+y este como plugin (complemento).
 
 93
 00:05:11,640 --> 00:05:14,640
@@ -422,7 +422,7 @@ Le diré a mi cliente,
 94
 00:05:14,800 --> 00:05:17,720
 "solo necesita descargar este complemento
-y por supuesto pagarlo".
+por supuesto pagandolo".
 
 95
 00:05:17,880 --> 00:05:20,360
@@ -430,7 +430,7 @@ Cargaré este código dinámicamente.
 
 96
 00:05:20,520 --> 00:05:23,760
-Cuando creare una instancia de esta clase,
+Cuando cree una instancia de esta clase,
 
 97
 00:05:25,400 --> 00:05:27,840
@@ -438,7 +438,7 @@ cuando envíe mi mensaje operation aquí,
 
 98
 00:05:28,520 --> 00:05:31,840
-el código del plugin (complemento) se ejecutará
+el código del complemento se ejecutará
 en el sistema.
 
 99
@@ -453,12 +453,12 @@ y seleccionare el método correcto.
 101
 00:05:40,960 --> 00:05:45,040
 Y usaré el hecho de que conozco
-el sistema selecciona el método correcto
+que el sistema selecciona el método correcto
 
 102
 00:05:45,200 --> 00:05:47,960
 para ser aún más elegante
-implementaciones
+en mis implementaciones
 
 103
 00:05:48,120 --> 00:05:50,320
@@ -500,7 +500,7 @@ pero está implicito
 111
 00:06:16,560 --> 00:06:20,240
 Así que la mayoría de las veces,
-Intenta evitar escribir ifs.
+Intente evitar escribir ifs.
 
 112
 00:06:21,240 --> 00:06:23,560
@@ -523,17 +523,17 @@ cada vez que envíe un mensaje
 
 116
 00:06:37,680 --> 00:06:39,000
-Entonces utilízalo.
+Entonces utilízelo.
 
 117
 00:06:39,160 --> 00:06:41,960
-También puedes divertirte
+También puede divertirte
 escribiendo el AntiIfCampaign.
 
 118
 00:06:42,120 --> 00:06:46,800
 Los programadores lanzaron esta campaña
-hacer que la gente deje de escribir ifs.
+para conseguir que la gente deje de escribir ifs.
 
 119
 00:06:48,760 --> 00:06:50,960
@@ -564,12 +564,12 @@ Entonces tengo este operador de elección
 125
 00:07:08,800 --> 00:07:12,000
 y una jerarquia
-que representa elecciones potenciales.
+que representa diferentes elecciones potenciales.
 
 126
 00:07:12,160 --> 00:07:16,560
 Entonces, realmente es un esqueleto.
-gracias al que la eleccion se pueden apoyar.
+en el que la eleccion se puede apoyar.
 
 127
 00:07:16,720 --> 00:07:20,800
@@ -582,7 +582,7 @@ Este es el final de la primera sesión
 
 129
 00:07:24,640 --> 00:07:27,160
-sobre diseños de objetos en Pharo.
+sobre diseño de objetos en Pharo.
 
 130
 00:07:28,160 --> 00:07:30,520
