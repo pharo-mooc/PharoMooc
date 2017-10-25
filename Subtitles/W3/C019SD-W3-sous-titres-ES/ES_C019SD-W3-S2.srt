@@ -5,7 +5,7 @@ Hola. En la sesión anterior,
 2
 00:00:02,760 --> 00:00:06,880
 vimos cómo implementar
-los booleanos:no y o
+los booleanos: not y or
 
 3
 00:00:07,040 --> 00:00:11,960
@@ -19,20 +19,20 @@ Eso es lo que vamos a estudiar.
 5
 00:00:14,760 --> 00:00:20,120
 Repasemos la implementación.
-Para no, había dos objetos.
+Para not, había dos objetos.
 
 6
 00:00:20,280 --> 00:00:22,400
-Tuvimos verdadero y falso.
+Tuvimos true y false.
 
 7
 00:00:22,560 --> 00:00:25,440
 Fueron instancias
-de las clases Verdadero y Falso.
+de las clases True y False.
 
 8
 00:00:25,600 --> 00:00:27,200
-Cuando enviamos un mensaje no,
+Cuando enviamos un mensaje not,
 
 9
 00:00:27,360 --> 00:00:31,640
@@ -64,14 +64,14 @@ Significa que no tomas ninguna decisión,
 pero usted envía un mensaje
 que se resolverá por sí mismo.
 
-dieciséis
+16
 00:00:49,480 --> 00:00:53,840
 Entonces, estas dos funciones heurísticas fueron:
 deja que el receptor decida;
 
 17
 00:00:54,000 --> 00:00:57,320
-y no preguntes sino dijes hacer cosas.
+y no preguntes sino di que cosas hacer.
 
 18
 00:00:57,480 --> 00:00:58,960
@@ -153,7 +153,7 @@ En realidad, cuando programa en Java,
 
 35
 00:01:58,800 --> 00:02:02,040
-a menudo escribes x.f ()
+a menudo escribes x.f()
 
 36
 00:02:02,200 --> 00:02:04,080
@@ -217,7 +217,7 @@ a la maquina virtual
 49
 00:02:44,080 --> 00:02:47,400
 - ya que Pharo tiene una
-como Java o C #
+como Java o C#
 
 50
 00:02:47,560 --> 00:02:50,520
@@ -261,12 +261,12 @@ para implementar programas
 
 59
 00:03:17,400 --> 00:03:19,720
-No necesita usar ningún ifs.
+No necesita usar ningún if.
 
 60
 00:03:19,880 --> 00:03:24,240
 porque enviar un mensaje significa
-un si o una condición
+un if o una condición
 
 61
 00:03:24,400 --> 00:03:26,920
@@ -274,19 +274,19 @@ La pregunta que puede hacer ahora:
 
 62
 00:03:27,080 --> 00:03:31,160
-¿Qué sucedería si hubiera expresado la inicial?
+¿Qué sucedería si hubiera expresado el primer
 ejercicio de una manera totalmente diferente?
 
 63
 00:03:31,320 --> 00:03:35,160
 ¿Qué sucedería si hubiera dicho:"¿Puedes implementar
-No en la clase booleana,
+Not en la clase booleana,
 
 64
 00:03:35,320 --> 00:03:37,000
-O en la clase booleana? "
+Or en la clase booleana? "
 
-sesenta y cinco
+65
 00:03:37,160 --> 00:03:39,400
 Esta solución no habría funcionado.
 
@@ -422,7 +422,7 @@ Le diré a mi cliente,
 94
 00:05:14,800 --> 00:05:17,720
 "solo necesita descargar este complemento
-y pagame ".
+y page".
 
 95
 00:05:17,880 --> 00:05:20,360
@@ -484,7 +484,7 @@ haz esto, hazlo, abre, cierra;
 
 108
 00:06:04,960 --> 00:06:09,280
-No, "¿Perteneces a esta clase?
+Not, "¿Perteneces a esta clase?
 ¿Estás listo para estar cerrado?
 
 109
@@ -528,7 +528,7 @@ Entonces utilízalo.
 117
 00:06:39,160 --> 00:06:41,960
 También puedes divertirte
-escribiendo el AntiifCampaign.
+escribiendo el AntiIfCampaign.
 
 118
 00:06:42,120 --> 00:06:46,800
@@ -541,7 +541,7 @@ Entonces, ¿qué hemos aprendido en esta sesión?
 
 120
 00:06:51,120 --> 00:06:53,280
-Dos cosas:cuando escribo x.f (),
+Dos cosas: cuando escribo x.f(),
 
 121
 00:06:53,440 --> 00:06:57,720
