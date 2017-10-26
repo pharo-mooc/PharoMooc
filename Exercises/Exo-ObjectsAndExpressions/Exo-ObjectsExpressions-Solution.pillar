@@ -412,10 +412,11 @@ Examine each of the following expression and write down the sequence of steps of
   					'/tmp/foo.txt' asFileReference contents lines 
     						select: [ :line | regex matches: line ] ]
    asRegex
-	in:
-	asFileReference
-	contents
-	line 
-	matches:
+   in:
+   asFileReference
+   contents
+   line 
+   select:
+   matches:
 ]]]
 
