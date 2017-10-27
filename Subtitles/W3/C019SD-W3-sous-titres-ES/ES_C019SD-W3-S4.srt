@@ -30,16 +30,16 @@ que muestra información sobre libros.
 7
 00:00:23,320 --> 00:00:26,840
 Le daré el primer ejemplo.
-Usaré el framework Zinc,
+Utilizaré el framework Zinc,
 
 8
 00:00:27,000 --> 00:00:30,440
 un framework HTTP
-Estudiaremos en otro curso.
+que estudiaremos en otro curso.
 
 9
 00:00:30,600 --> 00:00:34,080
-Que tiene dos partes:
+Tiene dos partes:
 cliente y servidor
 
 10
@@ -52,12 +52,12 @@ Primero, podemos ver que ZnClient es una clase.
 
 12
 00:00:42,040 --> 00:00:45,280
-Pues comienza con mayúscula Z
+Pues comienza con la mayúscula Z
 como vimos anteriormente.
 
 13
 00:00:45,440 --> 00:00:48,920
-Nombres de clases y variables globales.
+Nombres de clase y variables globales.
 Comienzan con mayúsculas.
 
 14
@@ -66,10 +66,10 @@ ZnClient es una clase.
 
 15
 00:00:50,520 --> 00:00:53,680
-Le envias el mensaje new
+Si envia el mensaje new
 a esta clase;
 
-dieciséis
+16
 00:00:53,840 --> 00:00:56,800
 creará
 una nueva instancia de ZnClient.
@@ -94,13 +94,13 @@ ese ";" al final significa:
 
 21
 00:01:09,840 --> 00:01:13,520
-envías un nuevo mensaje
+envía un nuevo mensaje
 al mismo receptor
 
 22
 00:01:15,040 --> 00:01:20,000
-Esta pieza de código simula
-¿Qué haria su navegador?
+Este trozo de código simula
+¿Lo qué haria su navegador?
 
 23
 00:01:20,160 --> 00:01:23,040
@@ -146,7 +146,7 @@ le envia mensajes mediante cascada.
 32
 00:01:50,720 --> 00:01:54,320
 Y luego, puede ver algo
-que ya haviamos estudiado:
+que ya hemos estudiado
 
 33
 00:01:54,480 --> 00:01:56,920
@@ -155,21 +155,21 @@ en Pharo, los mensajes de palabras clave,
 34
 00:01:57,080 --> 00:02:01,800
 que significa que el nombre del método
-es formAt:put:.
+es formAt:put: 
 
 35
 00:02:01,960 --> 00:02:05,800
-Esto es el equivalente
+Es el equivalente
 en la sintaxis típica de Java
 
 36
 00:02:05,960 --> 00:02:08,960
 formAtPut
-el nombre del metodo esta todo pegado.
+el nombre del metodo todo pegado.
 
 37
 00:02:09,120 --> 00:02:12,600
-Y pongo todos los argumentos
+Y todos los argumentos
 entre paréntesis.
 
 38
@@ -188,7 +188,7 @@ construida con zinc.
 41
 00:02:25,480 --> 00:02:29,200
 Le mostraré algunas partes
-de este código, un elemento cada vez.
+de este código, punto a punto.
 
 42
 00:02:29,360 --> 00:02:33,400
@@ -209,25 +209,25 @@ Recuerde que comienzan con minúsculas.
 
 46
 00:02:43,240 --> 00:02:47,880
-Los books y teapot son dos variables locales.
-entre barras verticales.
+books y teapot son dos variables locales.
+situadas entre barras verticales.
 
 47
 00:02:48,040 --> 00:02:52,520
-Luego, hay asignaciones:
-Aquí está el primero.
+Luego, hay asignaciones
+Aquí está la primera.
 
 48
 00:02:52,680 --> 00:02:54,600
-Es:= en Pharo.
+Es := en Pharo.
 
 49
 00:02:55,640 --> 00:02:57,480
-Puedes tener símbolos.
+Puede tener símbolos.
 
 50
 00:02:57,640 --> 00:03:00,320
-El punto numero tres hay #port
+En el punto numero tres hay #port
 
 51
 00:03:00,480 --> 00:03:03,320
@@ -254,20 +254,20 @@ Por ejemplo, la clase Teapot está aquí.
 56
 00:03:15,560 --> 00:03:17,960
 Y puedo enviar
-el mensaje configure: .
+el mensaje configure:
 
 57
 00:03:18,120 --> 00:03:19,320
-Mira configure:.
+Mira configure:
 
 58
 00:03:19,480 --> 00:03:23,160
-Déjame recordarte que ":"
+Déjame recordarle que ":"
 marca la presencia de un argumento
 
 59
 00:03:23,320 --> 00:03:26,520
-que envías a este método.
+que envía a este método.
 
 60
 00:03:26,680 --> 00:03:31,240
@@ -279,7 +279,7 @@ y termina con otra llave.
 
 62
 00:03:33,560 --> 00:03:37,960
-Entonces, ¿qué hay entre llaves?
+Entonces, ¿qué se encuentra entre llaves?
 es una tabla dinamica
 
 63
@@ -289,9 +289,9 @@ Todo esto entre llaves.
 64
 00:03:40,360 --> 00:03:44,640
 Cada expresión separada por "."
-será evaluado
+será evaluada
 
-sesenta y cinco
+65
 00:03:44,800 --> 00:03:48,400
 y construiremos una tabla
 con los resultados de cada expresión.
@@ -299,7 +299,7 @@ con los resultados de cada expresión.
 66
 00:03:49,000 --> 00:03:51,880
 Solo hay un argumento
-en el método configure.
+en el método configure:
 
 67
 00:03:52,040 --> 00:03:57,600
@@ -309,7 +309,7 @@ entre llaves,
 68
 00:03:57,760 --> 00:04:03,720
 usará una flecha
-para construir objetos de Association.
+para construir objetos Association.
 
 69
 00:04:03,880 --> 00:04:05,800
@@ -321,26 +321,26 @@ Entonces, para que el servidor funcione,
 
 71
 00:04:13,320 --> 00:04:16,120
-no solo definirás
+no solo definira
 la configuración del servidor
 
 72
 00:04:16,280 --> 00:04:18,920
-pero también rutas.
+sino también rutas.
 
 73
 00:04:19,080 --> 00:04:23,800
-Explicaré usando un ejemplo más pequeño:
-Este es un extracto del código completo.
+Lo explicaré usando un ejemplo más pequeño:
+Este es un trozo del código completo.
 
 74
 00:04:23,960 --> 00:04:27,600
 Si quiero que mi solicitud procese
-URL como esta,
+una URL como esta,
 
 75
 00:04:28,960 --> 00:04:31,400
-que termina con libros / 1,
+que termina con libros/1,
 
 76
 00:04:31,560 --> 00:04:34,600
@@ -364,7 +364,7 @@ y alguna cosa que és un entero,
 
 80
 00:04:47,840 --> 00:04:52,400
-puedes verlo
+puede verlo
 Entonces ejecuta este bloque de código.
 
 81
@@ -380,7 +380,7 @@ que puede tomar un parámetro:
 83
 00:05:01,000 --> 00:05:05,080
 en este caso,
-el parámetro se llama :request
+el parámetro se llama ":request"
 
 84
 00:05:05,240 --> 00:05:08,280
@@ -393,7 +393,7 @@ Luego, el cuerpo del bloque se encuentra aquí.
 86
 00:05:12,400 --> 00:05:15,040
 Solo hay una expresión aquí,
-éste.
+ésta.
 
 87
 00:05:15,200 --> 00:05:19,480
@@ -407,7 +407,7 @@ en la colección de libros?
 
 89
 00:05:28,000 --> 00:05:31,640
-Queremos el libro cuyo id.
+Queremos el libro cuya id.
 se pasó como parámetro en la url.
 
 90
@@ -426,8 +426,8 @@ en esta solicitud
 
 93
 00:05:42,600 --> 00:05:45,480
-Convierto este elemento.
-Recuerde que es un entero.
+Convierto este elemento
+(recuerde que es un entero).
 
 94
 00:05:45,640 --> 00:05:47,360
@@ -449,7 +449,7 @@ en esta clase.
 98
 00:05:58,480 --> 00:06:01,040
 El objetivo era interesarse
-en sintaxis,
+en la sintaxis,
 
 99
 00:06:01,200 --> 00:06:04,840
@@ -459,11 +459,11 @@ la sintaxis a través de un paquete
 100
 00:06:05,000 --> 00:06:08,960
 que es bastante interesante
-y divertido para programar con, Teapot.
+y divertido para programar, Teapot.
 
 101
 00:06:09,120 --> 00:06:12,920
-Ve a descubrir por ti mismo.
+Descubrelo por ti mismo.
 Puede descargarlo desde SmalltalkHub.
 
 102
