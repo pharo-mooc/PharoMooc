@@ -1,7 +1,7 @@
 ﻿1
 00:00:00,480 --> 00:00:03,680
 En esta sesión, revisaremos
-Sintaxis Pharo.
+la sintaxis Pharo.
 
 2
 00:00:03,840 --> 00:00:07,000
@@ -11,12 +11,12 @@ usando un ejemplo concreto,
 3
 00:00:07,160 --> 00:00:11,480
 el ejemplo de un simple
-Aplicación HTTP desde el mundo real.
+aplicación HTTP desde el mundo real.
 
 4
 00:00:11,640 --> 00:00:15,960
-Analizaremos el código y la revisión
-Sintaxis de Pharo a través de él.
+Analizaremos el código y revisaremos
+la sintaxis de Pharo a través de él.
 
 5
 00:00:16,720 --> 00:00:20,240
@@ -29,17 +29,17 @@ que muestra información sobre libros.
 
 7
 00:00:23,320 --> 00:00:26,840
-Te daré el primer ejemplo:
+Le daré el primer ejemplo.
 Usaré el framework Zinc,
 
 8
 00:00:27,000 --> 00:00:30,440
-un marco HTTP
+un framework HTTP
 Estudiaremos en otro curso.
 
 9
 00:00:30,600 --> 00:00:34,080
-Viene en dos partes:
+Que tiene dos partes:
 cliente y servidor
 
 10
@@ -52,13 +52,13 @@ Primero, podemos ver que ZnClient es una clase.
 
 12
 00:00:42,040 --> 00:00:45,280
-Entonces comienza con mayúscula Z
+Pues comienza con mayúscula Z
 como vimos anteriormente.
 
 13
 00:00:45,440 --> 00:00:48,920
 Nombres de clases y variables globales.
-Comience con mayúsculas.
+Comienzan con mayúsculas.
 
 14
 00:00:49,080 --> 00:00:50,360
@@ -66,22 +66,22 @@ ZnClient es una clase.
 
 15
 00:00:50,520 --> 00:00:53,680
-Envias el mensaje nuevo
+Envias el mensaje new
 a esta clase;
 
 dieciséis
 00:00:53,840 --> 00:00:56,800
 creará
-Una nueva instancia de ZnClient.
+una nueva instancia de ZnClient.
 
 17
 00:00:56,960 --> 00:01:01,880
 A esta nueva instancia, usted envía
-un url de primer mensaje:con un parámetro,
+un primer mensaje url: que tiene un parámetro,
 
 18
 00:01:02,040 --> 00:01:03,880
-que es una cuerda.
+aqui una cadena de caracteres.
 
 19
 00:01:04,040 --> 00:01:06,760
@@ -89,22 +89,22 @@ Luego usaremos la cascada.
 
 20
 00:01:06,920 --> 00:01:09,680
-Déjame recordarte
+Déjame recordarle
 ese ";" Al final significa:
 
 21
 00:01:09,840 --> 00:01:13,520
-envías un mensaje nuevo, obtienes,
+envías un nuevo mensaje, 
 al mismo receptor
 
 22
 00:01:15,040 --> 00:01:20,000
-Este bit de código simula
-¿Qué hará tu navegador?
+Este trozo de código simula
+¿Qué haria su navegador?
 
 23
 00:01:20,160 --> 00:01:23,040
-cuando escribes la url
+cuando escribe la url
 y presiona enter.
 
 24
@@ -113,7 +113,7 @@ Si escribo una url y presiono enter,
 
 25
 00:01:25,920 --> 00:01:28,600
-contacta con el servidor
+contacto con el servidor
 de esta aplicación web
 
 26
@@ -122,31 +122,31 @@ y devuelve una respuesta HTTP:
 
 27
 00:01:31,560 --> 00:01:36,160
-en este caso, la información
+en este caso, la información.
 En un libro, el libro número 1.
 
 28
 00:01:38,240 --> 00:01:40,200
-Te daré otro ejemplo,
+Le daré otro ejemplo,
 
 29
 00:01:40,360 --> 00:01:43,480
-otra solicitud
-construido con Pharo y ZnClient.
+una segunda solicitud
+construida con Pharo y ZnClient.
 
 30
 00:01:43,640 --> 00:01:47,360
-Entonces es lo mismo:
-instancies un objeto Znclient.
+siempre igual:
+instancia un objeto Znclient.
 
 31
 00:01:47,520 --> 00:01:50,560
-Envía mensajes usando cascadas.
+le envia mensajes mediante cascada.
 
 32
 00:01:50,720 --> 00:01:54,320
-Y luego, puedes ver algo
-Ya hemos estudiado:
+Y luego, puede ver algo
+que ya hemos estudiado:
 
 33
 00:01:54,480 --> 00:01:56,920
@@ -155,7 +155,7 @@ en Pharo, tenemos mensajes de palabras clave,
 34
 00:01:57,080 --> 00:02:01,800
 lo que significa que el nombre del método
-es formAt:poner :.
+es formAt:put:.
 
 35
 00:02:01,960 --> 00:02:05,800
