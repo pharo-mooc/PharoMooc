@@ -18,7 +18,7 @@ Hacen la vida de un programador más fácil
 
 5
 00:00:15,120 --> 00:00:17,360
-ya que todos comparten la misma API.
+ya que todas comparten la misma API.
 
 6
 00:00:17,520 --> 00:00:22,720
@@ -33,11 +33,11 @@ Hay muchos tipos de colecciones.
 8
 00:00:28,880 --> 00:00:32,360
 Todos comparten una API común
-que está bien organizado
+que está bien organizada
 
 9
 00:00:32,520 --> 00:00:34,880
-y hacen la vida de un programador más fácil.
+y hacen la vida del programador más fácil.
 
 10
 00:00:35,440 --> 00:00:37,880
@@ -45,7 +45,7 @@ y hacen la vida de un programador más fácil.
 
 11
 00:00:38,040 --> 00:00:41,000
-Que el primer elemento está en el índice 1
+Que el primer elemento se situa en el índice 1
 
 12
 00:00:41,160 --> 00:00:43,560
@@ -63,8 +63,8 @@ en otros idiomas
 
 15
 00:00:51,440 --> 00:00:55,240
-Algunos de las mas notables
-y ampliamente utilizadas colecciones
+Algunas de las mas notables
+y ampliamente utilizadas colecciones.
 
 16
 00:00:55,400 --> 00:00:57,960
@@ -74,7 +74,7 @@ es una colección dinámica
 17
 00:00:58,120 --> 00:01:02,160
 que crece
-cada vez que agregue elementos en él.
+cada vez que agregua elementos en ella.
 
 18
 00:01:02,320 --> 00:01:05,560
@@ -82,8 +82,8 @@ Array es una colección de tamaño fijo.
 
 19
 00:01:05,720 --> 00:01:09,200
-Puedes acceder a los elementos
-de acuerdo con un índice,
+Puede acceder a los elementos
+mediante un índice,
 
 20
 00:01:09,360 --> 00:01:13,280
@@ -97,7 +97,7 @@ No puede insertar el mismo elemento dos veces.
 22
 00:01:16,360 --> 00:01:21,160
 Los Dictionary son tablas hash:
-a una llave se asocia un valor.
+a una llave se le asocia un valor.
 
 23
 00:01:22,040 --> 00:01:24,840
@@ -106,8 +106,8 @@ de la jerarquía de Collection.
 
 24
 00:01:25,000 --> 00:01:28,160
-Es solo un extracto
-en Pharo, es más grande.
+Es solo un extracto,
+Pharo, es más grande.
 
 25
 00:01:28,320 --> 00:01:31,240
@@ -141,11 +141,11 @@ para acceder a sus propiedades
 
 31
 00:01:52,280 --> 00:01:54,840
-(el tamaño de las colecciones
+el tamaño de las colecciones
 
 32
 00:01:55,000 --> 00:01:57,840
-o incluso los elementos que contienen);
+o incluso los elementos que contienen
 
 33
 00:01:58,000 --> 00:02:00,920
@@ -155,7 +155,7 @@ métodos de prueba
 34
 00:02:01,080 --> 00:02:05,320
 elementos que agregan y quitan métodos,
-recuento de elementos de colección
+recuento de elementos de la colección
 
 35
 00:02:05,480 --> 00:02:11,400
@@ -169,7 +169,7 @@ de un tipo a otro
 
 37
 00:02:16,760 --> 00:02:20,640
-Comencemos con un ejemplo:
+Comencemos con un ejemplo
 Quiero crear una colección en Pharo.
 
 38
@@ -184,11 +184,11 @@ para instanciar esta clase.
 
 40
 00:02:28,200 --> 00:02:30,360
-Primera opción: uso "new".
+Primera opción, uso "new".
 
 41
 00:02:30,520 --> 00:02:33,720
-Segunda opción: no puedo usar "new" directamente.
+Segunda opción, no puedo usar "new" directamente.
 
 42
 00:02:33,880 --> 00:02:36,360
@@ -216,7 +216,7 @@ para crear colecciones pre-inicializadas
 
 47
 00:02:53,680 --> 00:02:58,360
-le pasaré una colección literal.
+Le pasaré una colección literal.
 Una colección literal comienza con "#(".
 
 48
@@ -288,16 +288,16 @@ será este.
 
 63
 00:03:53,600 --> 00:03:56,000
-Esto es 1; esto es 2; esto es 3
+Esto es 1, esto es 2, esto es 3
 
 64
 00:03:56,760 --> 00:03:58,960
-Es lo mismo con OrderedCollection:
+Lo mismo con OrderedCollection:
 
 65
 00:03:59,120 --> 00:04:02,480
 Si convierto esta colección
-y pedirle que devuelva su índice 2,
+y le pido que devuelva su índice 2,
 
 66
 00:04:02,640 --> 00:04:04,560
@@ -320,7 +320,7 @@ contiene la secuencia calvin
 70
 00:04:17,080 --> 00:04:22,000
 y una coleccion
-que contiene los números 1 2 3.
+que contiene los números 1, 2, 3.
 
 71
 00:04:22,160 --> 00:04:23,960
@@ -329,7 +329,7 @@ Puedo crear una tabla.
 72
 00:04:24,120 --> 00:04:28,360
 Esta tabla está compuesta
-de los elementos 1 2
+de los elementos 1, 2
 
 73
 00:04:29,360 --> 00:04:32,600
@@ -342,7 +342,7 @@ luego el elemento 2, luego el Set.
 
 75
 00:04:37,920 --> 00:04:41,160
-Puede recorrer
+Puedo recorrer
 los elementos de una colección
 
 76
@@ -370,7 +370,7 @@ El parámetro del bloque se llama ":each".
 81
 00:05:00,880 --> 00:05:03,240
 Se separa
-del cuerpo del bloque por |.
+del cuerpo del bloque mediante |.
 
 82
 00:05:03,400 --> 00:05:07,200
@@ -383,7 +383,7 @@ luego el segundo, etc.
 
 84
 00:05:08,960 --> 00:05:12,440
-Y en el Transcript, usted tiene
+Y en el Transcript, usted puede ver
 Calvin hates Suzie.
 
 85
@@ -392,7 +392,7 @@ Los Array son colecciones de tamaño fijo.
 
 86
 00:05:18,280 --> 00:05:22,280
-Puedo pedir a un Array su tamaño:
+Puedo preguntar a un Array su tamaño:
 Enviando el mensaje "size".
 
 87
@@ -429,7 +429,7 @@ Lo interesante de este ejemplo
 94
 00:05:44,760 --> 00:05:47,800
 es que la misma matriz
-se ha construido de dos maneras:
+se ha construido de dos maneras
 
 95
 00:05:47,960 --> 00:05:51,720
@@ -461,11 +461,11 @@ Ya lo mencioné.
 
 101
 00:06:10,480 --> 00:06:12,480
-Ten cuidado
+Tenga cuidado
 
 102
 00:06:12,640 --> 00:06:16,000
-cuando accedo a un elemento
+cuando acceda a un elemento
 proporcionando un índice,
 
 103
@@ -518,7 +518,7 @@ Comienza con #(
 
 114
 00:06:58,000 --> 00:07:01,520
-Puedes poner algo dentro:
+Puede poner algo dentro
 un número, una cadena, etc.
 
 115
@@ -548,11 +548,11 @@ Son equivalentes en Pharo.
 120
 00:07:22,560 --> 00:07:26,440
 Las matrices literales son simplemente más cortas
-puedes escribirlos más rápido.
+puede escribirlas más rápido.
 
 121
 00:07:26,600 --> 00:07:29,760
-Aquí tienes la version literal
+Aquí tiene la version literal
 de una coleccion
 
 122
@@ -608,7 +608,7 @@ Pharo, Reef, Pharo.
 
 133
 00:08:11,600 --> 00:08:15,400
-Con agregar:'Seaside',
+agregando 'Seaside',
 'Seaside' se agrega al final.
 
 134
@@ -782,7 +782,7 @@ con asDictionary
 
 171
 00:10:38,600 --> 00:10:42,840
-Estas dos formas de crear un diccionario
+Estas dos formas para crear un diccionario
 son equivalentes
 
 172
@@ -851,7 +851,7 @@ así que obtengo el valor 0.
 
 186
 00:11:35,200 --> 00:11:40,480
-Puedo repetir sobre un diccionario
+Puedo iterar sobre un diccionario
 utilizando "do:" sobre sus elementos
 
 187
@@ -870,7 +870,7 @@ Es muy lógico, de hecho.
 
 190
 00:11:50,880 --> 00:11:55,560
-Si miras como se implementa "do:" en Dictionary
+Si mira como se implementa "do:"
 en Dictionary, toma un bloque
 
 191
@@ -947,10 +947,10 @@ Incluso aprendimos algo más
 
 207
 00:12:46,760 --> 00:12:50,800
-cuando tienes preguntas, es fácil
-mirar el sistema, hacia Pharo,
+cuando tiene preguntas, es fácil
+mirar en el sistema, hacia Pharo,
 
 208
 00:12:50,960 --> 00:12:54,960
-al leer el código de las clases
+leer el código de las clases
 para aprender nuevas clases de colecciones.
