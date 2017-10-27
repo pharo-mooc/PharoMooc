@@ -5,7 +5,7 @@ la sintaxis Pharo.
 
 2
 00:00:03,840 --> 00:00:07,000
-Lo revisaremos por completo
+La revisaremos por completo
 usando un ejemplo concreto,
 
 3
@@ -66,7 +66,7 @@ ZnClient es una clase.
 
 15
 00:00:50,520 --> 00:00:53,680
-Envias el mensaje new
+Le envias el mensaje new
 a esta clase;
 
 dieciséis
@@ -76,7 +76,7 @@ una nueva instancia de ZnClient.
 
 17
 00:00:56,960 --> 00:01:01,880
-A esta nueva instancia, usted envía
+A esta nueva instancia, le enviaremos
 un primer mensaje url: que tiene un parámetro,
 
 18
@@ -89,22 +89,22 @@ Luego usaremos la cascada.
 
 20
 00:01:06,920 --> 00:01:09,680
-Déjame recordarle
-ese ";" Al final significa:
+Le recuerdo
+ese ";" al final significa:
 
 21
 00:01:09,840 --> 00:01:13,520
-envías un nuevo mensaje, 
+envías un nuevo mensaje
 al mismo receptor
 
 22
 00:01:15,040 --> 00:01:20,000
-Este trozo de código simula
+Esta pieza de código simula
 ¿Qué haria su navegador?
 
 23
 00:01:20,160 --> 00:01:23,040
-cuando escribe la url
+cuando escribe una url
 y presiona enter.
 
 24
@@ -118,12 +118,12 @@ de esta aplicación web
 
 26
 00:01:28,760 --> 00:01:31,400
-y devuelve una respuesta HTTP:
+que devuelve una respuesta HTTP:
 
 27
 00:01:31,560 --> 00:01:36,160
 en este caso, la información.
-En un libro, el libro número 1.
+De un libro, el libro número 1.
 
 28
 00:01:38,240 --> 00:01:40,200
@@ -137,7 +137,7 @@ construida con Pharo y ZnClient.
 30
 00:01:43,640 --> 00:01:47,360
 siempre igual:
-instancia un objeto Znclient.
+instanciamos un objeto Znclient.
 
 31
 00:01:47,520 --> 00:01:50,560
@@ -146,35 +146,35 @@ le envia mensajes mediante cascada.
 32
 00:01:50,720 --> 00:01:54,320
 Y luego, puede ver algo
-que ya hemos estudiado:
+que ya haviamos estudiado:
 
 33
 00:01:54,480 --> 00:01:56,920
-en Pharo, tenemos mensajes de palabras clave,
+en Pharo, los mensajes de palabras clave,
 
 34
 00:01:57,080 --> 00:02:01,800
-lo que significa que el nombre del método
+que significa que el nombre del método
 es formAt:put:.
 
 35
 00:02:01,960 --> 00:02:05,800
-Esto es equivalente
+Esto es el equivalente
 en la sintaxis típica de Java
 
 36
 00:02:05,960 --> 00:02:08,960
-para formar salida
-(el nombre del método está adjunto).
+formAtPut
+el nombre del metodo esta todo pegado.
 
 37
 00:02:09,120 --> 00:02:12,600
 Y pongo todos los argumentos
-entre paréntesis
+entre paréntesis.
 
 38
 00:02:15,720 --> 00:02:17,880
-En esta diapositiva, me gustaría mostrarte
+En esta diapositiva, me gustaría mostrarle
 
 39
 00:02:18,040 --> 00:02:21,160
@@ -183,12 +183,12 @@ de esta aplicación web
 
 40
 00:02:21,320 --> 00:02:23,200
-construido con zinc.
+construida con zinc.
 
 41
 00:02:25,480 --> 00:02:29,200
-Te mostraré algunas partes
-de este código, un elemento a la vez.
+Le mostraré algunas partes
+de este código, un elemento cada vez.
 
 42
 00:02:29,360 --> 00:02:33,400
@@ -209,7 +209,7 @@ Recuerde que comienzan con minúsculas.
 
 46
 00:02:43,240 --> 00:02:47,880
-Los libros y la tetera son dos variables locales.
+Los books y teapot son dos variables locales.
 entre barras verticales.
 
 47
@@ -227,7 +227,7 @@ Puedes tener símbolos.
 
 50
 00:02:57,640 --> 00:03:00,320
-Tercero:hay #port
+El punto numero tres hay #port
 
 51
 00:03:00,480 --> 00:03:03,320
@@ -245,7 +245,7 @@ Se creó solo una vez.
 54
 00:03:09,120 --> 00:03:12,560
 Hay mensajes enviados
-a la tetera de la clase.
+a la clase Teapot.
 
 55
 00:03:12,720 --> 00:03:15,400
@@ -254,11 +254,11 @@ Por ejemplo, la clase Teapot está aquí.
 56
 00:03:15,560 --> 00:03:17,960
 Y puedo enviar
-el mensaje lo configuró.
+el mensaje configure: .
 
 57
 00:03:18,120 --> 00:03:19,320
-Mira configure :.
+Mira configure:.
 
 58
 00:03:19,480 --> 00:03:23,160
@@ -271,16 +271,16 @@ que envías a este método.
 
 60
 00:03:26,680 --> 00:03:31,240
-El argumento comienza con un refuerzo
+Aqui el argumento enpieza con una llave
 
 61
 00:03:31,400 --> 00:03:33,400
-y termina con un corsé.
+y termina con otra llave.
 
 62
 00:03:33,560 --> 00:03:37,960
-Entonces, ¿qué hay entre los aparatos?
-es una matriz dinámica:
+Entonces, ¿qué hay entre llaves?
+es una tabla dinamica
 
 63
 00:03:38,120 --> 00:03:40,200
@@ -293,7 +293,7 @@ será evaluado
 
 sesenta y cinco
 00:03:44,800 --> 00:03:48,400
-y construiremos una matriz
+y construiremos una tabla
 con los resultados de cada expresión.
 
 66
@@ -303,17 +303,17 @@ en el método configure.
 
 67
 00:03:52,040 --> 00:03:57,600
-Y dentro de esta matriz dinámica
+Y dentro de esta tabla dinámica
 entre llaves,
 
 68
 00:03:57,760 --> 00:04:03,720
-usarás una flecha
-para construir objetos de asociación.
+usará una flecha
+para construir objetos de Association.
 
 69
 00:04:03,880 --> 00:04:05,800
-Entonces, es una clave, un valor.
+Esto es, una clave, un valor.
 
 70
 00:04:10,440 --> 00:04:13,160
@@ -359,28 +359,28 @@ del tipo GET,
 
 79
 00:04:42,760 --> 00:04:47,680
-que comienza con / libros /
-y un entero,
+que comienza con / books /
+y alguna cosa que és un entero,
 
 80
 00:04:47,840 --> 00:04:52,400
-- puedes ver esto ? -
-Ejecuta este bloque de código.
+puedes verlo
+Entonces ejecuta este bloque de código.
 
 81
 00:04:52,560 --> 00:04:57,600
 Recuerda que un bloque
-comienza y termina con paréntesis.
+comienza y termina en corchetes.
 
 82
 00:04:57,760 --> 00:05:00,840
-Entonces es un método anónimo.
+Es un método anónimo.
 que puede tomar un parámetro:
 
 83
 00:05:01,000 --> 00:05:05,080
 en este caso,
-el parámetro se llama:solicitud
+el parámetro se llama :request
 
 84
 00:05:05,240 --> 00:05:08,280
@@ -388,7 +388,7 @@ y está separado por una barra vertical.
 
 85
 00:05:09,000 --> 00:05:12,240
-Luego, el cuerpo del bloque está todo aquí.
+Luego, el cuerpo del bloque se encuentra aquí.
 
 86
 00:05:12,400 --> 00:05:15,040
@@ -397,8 +397,8 @@ Solo hay una expresión aquí,
 
 87
 00:05:15,200 --> 00:05:19,480
-Entonces, envía el mensaje a:
-a los libros de objetos.
+Entonces, se envía el mensaje at:
+al objeto books.
 
 88
 00:05:23,600 --> 00:05:27,840
@@ -407,17 +407,17 @@ en la colección de libros?
 
 89
 00:05:28,000 --> 00:05:31,640
-Quieres el libro cuyo id.
+Queremos el libro cuyo id.
 se pasó como parámetro en la url.
 
 90
 00:05:31,800 --> 00:05:33,520
-Yo busco la solicitud.
+Pediré la solicitud.
 
 91
 00:05:33,680 --> 00:05:38,440
 La variable aquí es el parámetro
-del bloque definido al principio.
+del bloque definido al inicio.
 
 92
 00:05:38,600 --> 00:05:42,440
@@ -426,8 +426,8 @@ en esta solicitud
 
 93
 00:05:42,600 --> 00:05:45,480
-Yo convierto este elemento.
-Recuerda que es un entero.
+Convierto este elemento.
+Recuerde que es un entero.
 
 94
 00:05:45,640 --> 00:05:47,360
@@ -459,27 +459,27 @@ la sintaxis a través de un paquete
 100
 00:06:05,000 --> 00:06:08,960
 que es bastante interesante
-y divertido para programar con, Tetera.
+y divertido para programar con, Teapot.
 
 101
 00:06:09,120 --> 00:06:12,920
 Ve a descubrir por ti mismo.
-Puede descargarlo desde smalltalk.
+Puede descargarlo desde SmalltalkHub.
 
 102
 00:06:13,080 --> 00:06:17,400
-Puedes construir
+Puede construir
 Aplicaciones HTTP muy fácilmente.
 
 103
 00:06:17,560 --> 00:06:21,920
 Además, es un paquete
-construido a base de zinc.
+construido a base de Zinc.
 
 104
 00:06:22,080 --> 00:06:26,720
-El zinc es uno de los muy fuertes
-bibliotecas en Pharo
+Zinc es una de las bibliotecas
+solidas en Pharo
 
 105
 00:06:26,880 --> 00:06:29,240
