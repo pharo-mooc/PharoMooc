@@ -27,12 +27,12 @@ De ahí los mensajes a las clases.
 
 7
 00:00:21,120 --> 00:00:22,800
-Te daré dos ejemplos.
+Le daré dos ejemplos.
 
 8
 00:00:22,960 --> 00:00:27,480
-Tiempo ahora:envías el mensaje ahora
-al objeto Tiempo que es una clase.
+Time now envía el mensaje "now"
+al objeto "Time" que es una clase.
 
 9
 00:00:27,640 --> 00:00:29,800
@@ -40,11 +40,11 @@ Y devuelve la hora actual.
 
 10
 00:00:31,160 --> 00:00:32,680
-Entonces le envío el mensaje ahora
+Entonces le envío el mensaje "now"
 
 11
 00:00:33,680 --> 00:00:37,320
-al objeto tiempo
+al objeto Time
 que es un nombre de clase.
 
 12
@@ -53,30 +53,30 @@ Me devuelve la hora actual.
 
 13
 00:00:40,480 --> 00:00:45,440
-Del mismo modo, envío el mensaje hoy
-al objeto Fecha que es una clase;
+Del mismo modo, envío el mensaje "today"
+al objeto Date que es una clase
 
 14
 00:00:45,600 --> 00:00:47,400
-Devuelve la fecha.
+devuelve la fecha.
 
 15
 00:00:47,560 --> 00:00:49,480
 Daré tres ejemplos más.
 
-dieciséis
+16
 00:00:50,200 --> 00:00:54,440
 Envío el mensaje workingDirectory
-a la clase FileLocator;
+a la clase FileLocator
 
 17
 00:00:54,600 --> 00:00:58,040
-devuelve la ruta actual,
+devuelve la ruta actual
 
 18
 00:00:58,200 --> 00:01:02,520
-el archivo donde se ejecuta
-se lleva a cabo
+el archivo donde se lleva a cabo
+la ejecucion
 
 19
 00:01:03,720 --> 00:01:05,080
@@ -84,13 +84,13 @@ En el segundo ejemplo,
 
 20
 00:01:05,240 --> 00:01:08,760
-Envío el mensaje getPng
+Envío el mensaje "getPng:"
 al objeto ZnEasy
 
 21
 00:01:08,920 --> 00:01:13,000
 con la URL de un archivo png
-como el argumento
+como argumento
 
 22
 00:01:13,160 --> 00:01:17,160
@@ -103,7 +103,7 @@ En el tercer ejemplo,
 
 24
 00:01:20,080 --> 00:01:24,000
-Envío el mensaje startDefaultOn
+Envío el mensaje "startDefaultOn:"
 a ZnServer que es una clase de nuevo,
 
 25
@@ -143,45 +143,45 @@ Y implementas un método como de costumbre.
 
 33
 00:01:54,800 --> 00:01:58,880
-Entonces, el método actual se implementa
+Entonces, el método "today" se implementa
 en el lado de la clase,
 
 34
 00:01:59,040 --> 00:02:00,880
-en la clase Fecha.
+en la clase "Date".
 
 35
 00:02:03,440 --> 00:02:07,080
 En esta diapositiva,
-puedes ver un error común.
+puede ver un error común.
 
 36
 00:02:07,240 --> 00:02:12,760
 Aquí, desea enviar
-el mensaje con valor
+el mensaje "withValue:"
 
 37
 00:02:12,920 --> 00:02:14,920
-al contador de clase;
+a la clase "Counter"
 
 38
 00:02:15,080 --> 00:02:19,040
 para devolver un nuevo contador
-con un valor configurado como un parámetro.
+con un valor determinado como parámetro.
 
 39
 00:02:19,200 --> 00:02:20,800
-Entonces quieres
+Entonces quiere
 
 40
 00:02:22,520 --> 00:02:26,840
-Counter withValue:10 para devolver un nuevo
-Contador que comienza con el valor 10.
+"Counter withValue:10" para devolver un nuevo
+contador que comienze con el valor 10.
 
 41
 00:02:28,280 --> 00:02:32,560
 Si evalúo esta expresión,
-Obtengo el contador de valores,
+Obtengo el valor "Counter",
 
 42
 00:02:32,720 --> 00:02:34,240
@@ -190,7 +190,7 @@ no un nuevo contador.
 43
 00:02:34,400 --> 00:02:38,240
 De hecho, obtengo la clase,
-No es una nueva instancia de esta clase.
+No una nueva instancia de esta clase.
 
 44
 00:02:38,400 --> 00:02:41,320
@@ -199,21 +199,21 @@ No es una nueva instancia de esta clase.
 45
 00:02:41,480 --> 00:02:46,320
 El problema es que, de forma predeterminada,
-todos los métodos se vuelven uno mismo.
+todos los métodos devuelven "self".
 
 46
 00:02:47,280 --> 00:02:51,560
 Entonces, si no especifica el valor
-para regresar, el método volverá a ser uno mismo.
+a regresar, el método volverá "self"
 
 47
 00:02:51,720 --> 00:02:56,160
-Entonces, el código aquí es equivalente.
-al código allá abajo.
+Entonces, este codigo es equivalente
+a este otro.
 
 48
 00:02:56,320 --> 00:02:59,320
-En este caso, self es el contador de clase.
+En este caso, self es "Counter"
 
 49
 00:03:00,640 --> 00:03:05,640
@@ -226,11 +226,11 @@ Para corregir este problema,
 
 51
 00:03:07,800 --> 00:03:11,680
-simplemente agregue un cursor
+simplemente agregue un acento circunflejo
 
 52
 00:03:11,840 --> 00:03:13,320
-delante de uno mismo nuevo.
+delante de "self"
 
 53
 00:03:14,240 --> 00:03:16,880
@@ -239,7 +239,7 @@ En resumen, las clases son objetos.
 54
 00:03:17,040 --> 00:03:21,560
 Puede enviar mensajes a cualquier objeto,
-así que también puedes enviarlos a cualquier clase.
+así que también puede enviarlos a cualquier clase.
 
 55
 00:03:21,720 --> 00:03:24,360
@@ -257,21 +257,21 @@ no solo nuevas instancias
 
 58
 00:03:33,320 --> 00:03:36,000
-pero también otras cosas.
+sino también otras cosas.
 
 59
 00:03:36,160 --> 00:03:40,480
-Verás muchos otros usos.
+Verá muchos otros usos
 de los métodos de clase en Pharo.
 
 60
 00:03:40,640 --> 00:03:44,800
 Los métodos de clase son simplemente
-como otros métodos;
+como otros métodos,
 
 61
 00:03:44,960 --> 00:03:46,800
-no hay reglas particulares
+no hay reglas particulares.
 
 62
 00:03:46,960 --> 00:03:49,960
