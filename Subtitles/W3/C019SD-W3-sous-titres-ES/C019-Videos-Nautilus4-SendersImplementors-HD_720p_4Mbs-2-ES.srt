@@ -1,12 +1,12 @@
 1
 00:00:01,140 --> 00:00:05,200
 En este video, me gustaría
-mostrarte los
+mostrarle los
 
 2
 00:00:05,560 --> 00:00:09,520
-análisis mas avanzados que puedes hacer
-del código con Nautilus.
+análisis mas avanzados del codigo
+que puede hacer con Nautilus.
 
 3
 00:00:10,260 --> 00:00:13,220
@@ -28,17 +28,17 @@ los Implementers
 
 7
 00:00:20,337 --> 00:00:24,640
-A menudo, conocemos si alguien
+A menudo, comprobamos si alguien
 habla con fluidez en Pharo cuando
 
 8
 00:00:24,807 --> 00:00:27,350
-él ha entendido cómo
+ha entendido cómo
 usar Senders y Implementers
 
 9
 00:00:27,517 --> 00:00:29,790
-para encontrar información
+para encontrar información.
 Echemos un vistazo: cuando
 
 10
@@ -108,7 +108,7 @@ la classe
 24
 00:01:17,477 --> 00:01:20,590
 NumberParser y que llamo
-a self.
+a Self.
 
 25
 00:01:21,600 --> 00:01:24,180
@@ -122,11 +122,11 @@ necesariamente el método que tengo aquí
 27
 00:01:26,740 --> 00:01:30,720
 Ahora, en los paquetes
-o en la classe XML, no es mostrado
+o en la classe XML, no se muestra
 
 28
 00:01:30,887 --> 00:01:33,360
-porque necesariamente no conoce,
+porque necesariamente no lo conoce,
 al ser Pharo
 
 29
@@ -170,11 +170,11 @@ sistema.
 37
 00:01:57,817 --> 00:02:00,870
 Para hacer esto, seleccionaré
-Implementadors Of.
+Implementors Of.
 
 38
 00:02:02,520 --> 00:02:05,930
-Implementadors Of. Ah bah
+Implementors Of. Ah bah
 mira, mientras en el otro
 
 39
@@ -193,8 +193,8 @@ definido
 
 42
 00:02:16,217 --> 00:02:19,510
-en NumberParser, pero esta
-también definido en XMLInteger.
+en NumberParser, pero tanbien
+esta definido en XMLInteger.
 
 43
 00:02:20,900 --> 00:02:24,420
@@ -217,7 +217,7 @@ segurament sobre estos metodos.
 
 47
 00:02:34,420 --> 00:02:36,670
-Ve que
+Puede ver que
 Sender y Implementor son
 
 48
@@ -262,7 +262,7 @@ un argumento,
 56
 00:02:58,757 --> 00:03:02,650
 por ejemplo Number,
-NextNumberBase y que hago
+NextNumberBase y entonces hago
 
 57
 00:03:02,817 --> 00:03:07,470
@@ -301,6 +301,7 @@ NumberParser en Stream,
 00:03:28,340 --> 00:03:30,550
 y que luego envío el mensaje
 NextNumberBase
+
 65
 00:03:30,717 --> 00:03:32,930
 y el argumento 10.
@@ -308,7 +309,7 @@ y el argumento 10.
 66
 00:03:33,097 --> 00:03:35,030
 Esto me permite comprender,
-ah si es asi como
+ah si, es asi como
 
 67
 00:03:35,197 --> 00:03:36,200
@@ -316,7 +317,7 @@ debo usar la API.
 
 68
 00:03:37,000 --> 00:03:41,210
-Se usa tanto tiene
+Se usa tanto dispone de
 atajos de teclado.
 
 69
@@ -336,7 +337,7 @@ browse.
 
 72
 00:03:51,427 --> 00:03:55,890
-Entonces haremos busco (browse) Sender,
+Entonces haremos browse Sender,
 N es para el sender.
 
 73
