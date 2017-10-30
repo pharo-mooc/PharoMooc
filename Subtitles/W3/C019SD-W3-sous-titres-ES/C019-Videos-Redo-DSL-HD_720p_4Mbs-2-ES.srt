@@ -1,15 +1,16 @@
 1
 00:00:01,910 --> 00:00:04,410
-Este video es un REDO para el MOOC.
+Este video es un Redo para el MOOC.
 
 2
 00:00:04,577 --> 00:00:07,030
-REDO significa hacerlo tú mismo,
+Re-do en el sentido que
+le pedimos de rehacerlo, de
 
 3
 00:00:07,520 --> 00:00:09,540
-mira el video y haz lo que
-Se muestra paso a paso.
+seguir el video y
+paso a paso repetirlo.
 
 4
 00:00:10,060 --> 00:00:13,470
@@ -37,32 +38,32 @@ es programar un pequeño
 
 9
 00:00:29,297 --> 00:00:32,040
-idioma que puedes encontrar
+idioma que puede encontrar
 en juegos de rol como
 
 10
 00:00:32,207 --> 00:00:35,930
-"Calabozos y Dragones".
-Por ejemplo,
+"Calabozos y Dragones",
+que nos dicen por ejemplo,
 
 11
 00:00:36,097 --> 00:00:38,800
-para los que tienen esto
-expresión, qué
+los que tienen esta 
+expresión
 
 12
 00:00:38,967 --> 00:00:40,010
-Qué significa esta expresión?
+¿Qué significa esta expresión?
 
 13
 00:00:40,420 --> 00:00:45,380
-Significa: debes lanzar 2
+Significa: debe lanzar 2
 Dados de 20 lados y 1 de 4 lados.
 
 14
 00:00:45,547 --> 00:00:47,420
-Verás que puede ser un Pharo
-expresión.
+Verá que puede ser una
+expresion en Pharo.
 
 15
 00:00:48,000 --> 00:00:52,490
@@ -70,7 +71,7 @@ Entonces en este video vamos
 
 16
 00:00:52,657 --> 00:00:55,170
-implementar una clase que represente
+implementar una clase que representa
 un dado y una clase
 
 17
@@ -79,63 +80,64 @@ que representa un puñado de dados.
 
 18
 00:00:58,660 --> 00:00:59,770
-Vamos a empezar.
+Enpezemos.
 
 19
 00:01:00,870 --> 00:01:04,290
-Comenzamos con la definición de un paquete.
+Comenzamos definiendo un paquete.
 
 20
 00:01:05,710 --> 00:01:06,790
-Llamamos a este paquete "Dados".
+A este paquete lo llamamos "Dice" (dados).
 
 21
 00:01:06,957 --> 00:01:11,860
-Realmente no quiero ver
+No tengo ganas de ver
 
 22
 00:01:12,027 --> 00:01:16,660
-otras cosas. Entonces en esto
+otras cosas. Entonces este
 
 23
 00:01:16,827 --> 00:01:19,450
-video que no codificaré en el
+video no lo codificaré en el
 
 24
 00:01:19,617 --> 00:01:22,210
-depurador, lo has visto en otro
+depurador, como has visto en otro
 video, lo haré
 
 25
 00:01:22,377 --> 00:01:24,410
-hazlo caso por caso
-base, de manera oportunista.
+caso a caso
+de manera oportunista.
 
 26
 00:01:25,490 --> 00:01:30,030
-Aquí defino la clase "Die"
-cual
+Aquí defino la clase "Die" (dado),
+que tiene
+
 
 27
 00:01:30,197 --> 00:01:31,370
-Tiene una cierta cantidad de "caras".
+una cierta cantidad de "faces" (caras).
 
 28
 00:01:32,100 --> 00:01:35,630
-Compilo Agrego un comentario de clase.
+Compilo y agrego un comentario de clase.
 
 29
 00:01:43,380 --> 00:01:45,890
-Por el momento, no mucho
-porque es muy, muy simple
+Por el momento, poca cosa,
+porque es muy muy simple.
 
 30
 00:01:47,550 --> 00:01:52,360
-Estamos comenzando a habilitar nuestro
+Enpezaremos de manera que podamos
 
 31
 00:01:52,527 --> 00:01:53,950
-objeto a inicializar
+inicializar nuestro objeto
 
 32
 00:02:00,450 --> 00:02:02,260
@@ -143,13 +145,13 @@ Lo haré así.
 
 33
 00:02:10,190 --> 00:02:13,560
-Solicito una inicialización de
-la superclase,
+Llamo una inicialización de
+la superclase, y
 
 34
 00:02:13,727 --> 00:02:18,140
 por defecto asigno 6 caras
-a mi morir porque es
+a mi dado, porque es
 
 35
 00:02:18,307 --> 00:02:19,140
@@ -158,22 +160,22 @@ el dado más común.
 36
 00:02:19,820 --> 00:02:22,530
 Ahora estoy empezando a
-desarrollar un
+desarrollar una
 
 37
 00:02:22,697 --> 00:02:25,640
-clase de prueba, para asegurarse de que
-hacemos
+clase de prueba, para asegurarnos de que
+lo que hagamos
 
 38
 00:02:25,807 --> 00:02:26,900
 no rompe lo que ya ha
-ha hecho.
+esta hecho.
 
 39
 00:02:27,260 --> 00:02:30,450
 Las clases de prueba son subclases del
-Clase TestCase
+clase TestCase
 
 40
 00:02:30,617 --> 00:02:34,100
@@ -181,36 +183,37 @@ Lo llamamos "DieTest".
 
 41
 00:02:34,370 --> 00:02:37,510
-Tengo mi clase de exámenes.
+Tengo mi clase de test (prueba).
 
 42
 00:02:37,790 --> 00:02:40,220
-Una de las primeras pruebas a hacer,
-tú
+Una de las primeras pruebas que haremos,
+
 
 43
 00:02:40,387 --> 00:02:42,480
-no siempre tengo que hacerlo
+no siempre tenemos que hacerlo
 así, pero
 
 44
 00:02:42,647 --> 00:02:46,650
-En cualquier caso, quiero comenzar con
-Una prueba que funciona bien.
+en este caso me gustaria comenzar con
+una prueba que funcione correctament.
 
 45
 00:02:47,840 --> 00:02:52,120
-En cuanto al momento no tenemos muchos
-cosas, digo que la inicialización está bien.
+Como aqui, no tenemos mucha cosa,
+dire que la inicialización está ok.
 
 46
 00:02:53,820 --> 00:02:56,160
-Esta es también una manera de mostrarte
+Esta es también 
+una manera de mostrarte
 
 47
 00:02:56,327 --> 00:02:59,770
-cómo puedes probar que puedes
-coger excepciones
+cómo probar que puedes
+capturar excepciones
 
 48
 00:02:59,937 --> 00:03:01,440
@@ -223,7 +226,7 @@ Aquí estoy diciendo:
 
 50
 00:03:04,757 --> 00:03:06,460
-"Die new no debería generar error".
+Die new should not raise error.
 
 51
 00:03:18,120 --> 00:03:19,170
@@ -231,16 +234,17 @@ Qué significa eso?
 
 52
 00:03:19,337 --> 00:03:23,290
-Significa que cuando ejecuto esto
-poco de código "morir
+Significa que cuando ejecuto este
+trozo de código "Die
 
 53
 00:03:23,457 --> 00:03:25,600
-nuevo ", no debe producirse ningún error.
+new" (dado nuevo), no debe 
+producirse ningún error.
 
 54
 00:03:28,170 --> 00:03:32,560
-Voy a clasificar mi prueba
+Voy a clasificar mi test
 y ejecutarlo.
 
 55
@@ -253,47 +257,46 @@ Ahora, me gustaría definir el
 
 57
 00:03:40,187 --> 00:03:44,540
-método que hace una tirada de dado.
+método que imita una tirada de dado.
 
 58
 00:03:44,707 --> 00:03:48,610
-Sé que en Pharo debe
-ser un método
+Me parece que en Pharo debe
+haber un método
 
 59
 00:03:48,777 --> 00:03:49,720
-llamado "al azar".
+llamado "atRandom".
 
 60
 00:03:49,887 --> 00:03:53,940
-Al azar, ¿qué hace?
+atRandom, ¿qué hace?
 
 61
 00:03:54,480 --> 00:03:57,780
-Permite tener ... Ok ...
+Me permite tener ... Ok ...
 
 62
 00:03:58,310 --> 00:04:00,770
-Entonces ahora miro la implementación
-para estar seguro
+Entonces ahora voy a mirar
+la inplementacion para assegurarme
 
 63
 00:04:00,937 --> 00:04:03,620
 está bien. AtRandom, ¿qué hace?
-¿hacer?
 
 64
 00:04:04,870 --> 00:04:09,070
 Devuelve un número entero al azar
-De 1 a sí mismo, por lo que es perfecto.
+De 1 a sí mismo, bien.
 
-sesenta y cinco
+65
 00:04:10,910 --> 00:04:13,910
 Entonces voy a definir un nuevo
 
 66
 00:04:15,290 --> 00:04:19,220
-método en operaciones.
+método en Operations.
 
 67
 00:04:21,160 --> 00:04:22,230
@@ -301,15 +304,16 @@ Que va a hacer
 
 68
 00:04:22,397 --> 00:04:26,640
-Rodar. Yo digo:"vuelves caras"
+Roll. Le diré
+me devuelves "faces
 
 69
 00:04:27,570 --> 00:04:28,203
-al azar".
+atRandom" (caras al azar).
 
 70
 00:04:35,750 --> 00:04:37,400
-Entonces escribo una prueba para esto.
+Entonces escribo un test para esto.
 
 71
 00:04:40,490 --> 00:04:43,590
@@ -318,33 +322,33 @@ TestRolling ¿Que hacemos ahora?
 72
 00:04:44,120 --> 00:04:49,040
 Creamos un dado.
-d:= morir
+d:= die
 
 73
 00:04:49,207 --> 00:04:49,840
-nuevo
+new
 
 74
 00:04:51,210 --> 00:04:53,140
 Y ahora escribo
-"1000 veces Repetir".
+"1000 timesRepeat".
 
 75
 00:04:54,420 --> 00:04:58,240
-¿Qué? "d roll".
+¿Qué? "D roll".
 
 76
 00:05:03,620 --> 00:05:07,580
-Y quiero que esto sea
+Y quiero que sea
 entre 1 y 6
 
 77
 00:05:07,747 --> 00:05:12,640
-"Entre:y:", es
+"Between: and:", esta
 
 78
 00:05:12,807 --> 00:05:15,560
-De acuerdo. "Entre 1 y 6".
+bieno. "Entre 1 y 6".
 
 79
 00:05:15,820 --> 00:05:18,510
@@ -354,11 +358,11 @@ porque aquí creamos
 80
 00:05:18,677 --> 00:05:22,470
 una prueba solo para dados de 6 lados,
-podríamos haber dicho
+podríamos haber dicho que
 
 81
 00:05:22,637 --> 00:05:25,310
-funciona dependiendo de la
+funciona dependiendo del
 número de lados del dado
 
 82
@@ -371,7 +375,7 @@ Entonces compilo
 
 84
 00:05:32,840 --> 00:05:35,620
-Me sale un error Aquí está...
+Me sale un error Aquí está ...
 
 85
 00:05:37,910 --> 00:05:39,170
@@ -379,27 +383,27 @@ Está bien, tengo mi prueba.
 
 86
 00:05:39,337 --> 00:05:41,460
-Ahora es el momento de ahorrar.
-Aquí tengo mis "dados"
+Ahora es el momento de guardar.
+Aquí tengo mi
 
 87
 00:05:41,627 --> 00:05:44,590
-paquete, lo guardo localmente,
-"Salvar".
+paquete "Dice", lo
+guardo localmente, "Save".
 
 88
 00:05:44,757 --> 00:05:49,000
-Yo había creado otros antes
-entrenar un poco para que yo
+Había creado unos cuantos antes
+para entrenar asi que
 
 89
 00:05:49,167 --> 00:05:51,710
-crea una nueva
-"Nueva versión con
+volvere a crear uno
+"New version with
 
 90
 00:05:56,530 --> 00:06:00,780
-rodando y probando ". Muy bien.
+rolling and test". Muy bien.
 
 91
 00:06:01,030 --> 00:06:02,370
@@ -412,58 +416,58 @@ Ahora me gustaría cambiar
 93
 00:06:14,777 --> 00:06:18,890
 la interfaz de creación
-Primero reorganizamos
+Primero recategorizamos
 
 94
 00:06:19,810 --> 00:06:22,200
-categorías Si queremos cambiar
-un poco la creación
+Si queremos cambiar
+un poco la interfaz de creación
 
 95
 00:06:22,367 --> 00:06:26,390
-interfaz. Decimos:
-"para crear un dado
+Nos gustaria decir:
+"to create a die
 
 96
 00:06:26,557 --> 00:06:28,090
-usar muecas ".
+use die faces".
 
 97
 00:06:39,290 --> 00:06:42,610
-En esta expresión debes ver
+En esta expresión debe ver
 
 98
 00:06:42,777 --> 00:06:46,030
-esa cara es un mensaje enviado a
+faces és un mensaje enviado a
 la clase die y no
 
 99
 00:06:46,197 --> 00:06:48,610
 a una instancia de la clase die,
-como es el caso
+como en el caso
 
 100
 00:06:49,090 --> 00:06:51,880
-en el método roll o en otros
-métodos codificados hasta ahora.
+del método roll o de otros
+métodos codificados anteriormente.
 
 101
 00:06:52,047 --> 00:06:55,040
-Haré esto para que entiendas
-cuando tú
+Haré esto para que entienda
+cuando
 
 102
 00:06:55,207 --> 00:06:58,900
-tienes que usar e ir a la clase
-nivel o no.
+tiene ir o no al nivle
+class.
 
 103
 00:06:59,350 --> 00:07:00,710
-Comencemos por escribir una prueba.
+Enpezemos por escribir un test.
 
 104
 00:07:03,050 --> 00:07:06,420
-"mejorinterface".
+Asi "betterInterface".
 
 105
 00:07:08,790 --> 00:07:10,200
@@ -475,12 +479,12 @@ Si continúo con la misma lógica,
 
 107
 00:07:18,247 --> 00:07:20,950
-Aquí me gustaría hacer algo como
+Me gustaría hacer algo como
 esto por ejemplo,
 
 108
 00:07:22,680 --> 00:07:23,640
-y esto para ser caras.
+y que esto, sea caras.
 
 109
 00:07:30,620 --> 00:07:32,420
@@ -488,40 +492,41 @@ Lo haré lentamente.
 
 110
 00:07:32,950 --> 00:07:36,840
-Voy allí y escribo
-"creación de instancia", se enfrenta a:, unInteger.
+Vengo aqui y escribo
+"instance creation" faces anInteger.
 
 111
 00:07:46,560 --> 00:07:49,000
-Podría escribirlo de una manera corta
+Podría escribirlo de una manera compacta
 pero aquí
 
 112
 00:07:49,167 --> 00:07:50,530
-Lo hago de manera tranquila.
+lo hare de manera tranquila.
 
 113
 00:07:51,000 --> 00:07:52,940
-Yo creo un dado.
+Asi creo un dado.
 
 114
 00:07:53,890 --> 00:07:57,740
-Escribo "auto nuevo", como
-Yo mismo es la clase de morir en sí.
+Escribo "self new", como
+self es la clase Die en sí.
 
 115
 00:07:58,220 --> 00:08:00,410
-Le digo:"crea una instancia".
+Le pido:
+crea una instancia.
 
 116
 00:08:00,577 --> 00:08:03,620
-Y ahora con esta instancia I
-utilizar
+Y ahora a esta nueva instancia le
+proporciono
 
 117
 00:08:03,787 --> 00:08:08,410
-un acceso para asignarle el valor
-pasado como un argumento
+un acceso para facilitar el valor
+pasado como argumento
 
 118
 00:08:08,577 --> 00:08:12,130
@@ -530,55 +535,56 @@ que acaba de ser creado.
 
 119
 00:08:13,860 --> 00:08:16,920
-Cuando se ejecute el código,
+Cuando ejecute el código,
 no funcionará porque
 
 120
 00:08:17,087 --> 00:08:19,950
-caras no existen, entonces no
-preocupación.
+faces (caras) no existe, 
+no se preocupe.
 
 121
 00:08:20,117 --> 00:08:22,760
-Verá que la prueba no está bien,
-pero
+Vemos que mi test no pasa,
+en todo caso
 
 122
 00:08:22,927 --> 00:08:27,720
 es normal si yo
-ejecute esto
+ejecuto esto,
 
 123
 00:08:27,887 --> 00:08:29,520
-Por ejemplo, si hago depuración para ver ...
+por ejemplo, si hago 
+debug (depuracion) para ver ...
 
 124
 00:08:33,640 --> 00:08:38,360
-Y hago clic en Sobre, aquí
-dice:"no lo sé
+Y hago clic en Over, aquí
+dice: "no conozo
 
 125
 00:08:38,527 --> 00:08:41,430
-el mensaje de caras ".
+el mensaje faces".
 
 126
 00:08:41,910 --> 00:08:45,770
 Aquí lo haremos con calma, no lo haré
-Hazlo en el depurador.
+en el débugger (depurador).
 
 127
 00:08:46,830 --> 00:08:49,600
-Yo digo:"eso es verdad, tengo
-agregar un accesorio
+Yo digo: es verdad, tengo que
+agregar un descriptor de acceso
 
 128
 00:08:52,910 --> 00:08:57,390
-aquí. Entonces escribo
-faces:anintegre
+Entonces escribo
+"faces: anInteger"
 
 129
 00:08:57,557 --> 00:09:01,520
-Y allí escribo:faces:= anInteger.
+Y allí escribo: "faces: anInteger"
 
 130
 00:09:05,020 --> 00:09:08,110
@@ -591,16 +597,16 @@ Devuelvo esta.
 
 132
 00:09:13,250 --> 00:09:14,450
-Y aquí mi prueba es verde.
+Y aquí mi test es verde.
 
 133
 00:09:15,240 --> 00:09:19,180
-Entonces guardamos, "guardamos"
+Entonces guardamos, "save"
 
 134
 00:09:19,347 --> 00:09:22,250
-"mejor morir creación
-método con pruebas ".
+mejor die creacion
+metodo con test.
 
 135
 00:09:22,417 --> 00:09:23,050
@@ -608,7 +614,7 @@ Todo bien.
 
 136
 00:09:31,610 --> 00:09:33,670
-Ahora podemos comenzar
+Ahora podemos comenzar a
 
 137
 00:09:33,837 --> 00:09:37,650
@@ -616,8 +622,8 @@ definir lo que queremos para
 
 138
 00:09:38,690 --> 00:09:42,050
-dice Handle Básicamente si nosotros
-mira, dice Handle,
+diceHandle. Básicamente si
+miramos, diceHandle,
 
 139
 00:09:42,217 --> 00:09:44,000
@@ -626,24 +632,24 @@ mira, dice Handle,
 140
 00:09:44,167 --> 00:09:45,450
 Nos gustaría escribir
-diceHandle new addDie.
+"diceHandle new addDie"
 
 141
 00:09:49,300 --> 00:09:53,290
-Entonces ahora vamos a crear
-un nuevo dado, "die faces 6, addDie".
+Aqui crearemos un nuevo
+dado, "die faces 6, addDie".
 
 142
 00:09:55,210 --> 00:09:59,680
-"Muere caras 10".
+"die faces 10".
 
 143
 00:10:07,260 --> 00:10:12,040
-Comenzamos a escribir un
+Comenzamos escribiendo
 
 144
 00:10:12,207 --> 00:10:13,580
-clase de prueba, esta vez.
+una classe de test, esta vez.
 
 145
 00:10:15,250 --> 00:10:19,930
@@ -652,31 +658,31 @@ hereda de TestCase.
 
 146
 00:10:20,290 --> 00:10:22,330
-Todo bien. Tengo mi nuevo
-clase de pruebas
+Todo bien. Tengo mi nueva
+clase de test
 
 147
 00:10:24,000 --> 00:10:26,730
-Y defino una prueba.
+Y defino un test.
 
 148
 00:10:30,220 --> 00:10:32,850
 La idea es crear un
-puñado y para
+puñado de dados y luego
 
 149
 00:10:33,017 --> 00:10:35,140
-Verifique que haya los dados correctos.
-en eso.
+verificar que tengo los buenos.
+dentro.
 
 150
 00:10:35,307 --> 00:10:39,380
 Escribo "testAdding",
-Quiero reutilizar mi
+quiero reutilizar mi
 
 151
 00:10:39,547 --> 00:10:43,730
-código, no hay ninguna otra razón.
+código, no hay otra razón.
 
 152
 00:10:45,530 --> 00:10:48,060
@@ -684,13 +690,13 @@ Entonces tengo mi
 
 153
 00:10:54,310 --> 00:10:58,940
-encargarse de; tu mismo porque yo
-querer
+handle; yourself porque
+quiero
 
 154
 00:10:59,107 --> 00:11:01,960
 obtener el receptor del mensaje,
-es decir el mango
+es decir el puñado de dados
 
 155
 00:11:02,127 --> 00:11:03,690
@@ -702,26 +708,25 @@ Ahora, ¿qué debo hacer?
 
 157
 00:11:08,427 --> 00:11:12,520
-Yo escribo "yo"
-afirme h dice número
+Escribo "self
+assert h diceNumber
 
 158
 00:11:13,960 --> 00:11:14,593
-es igual a 2 ".
+equals 2".
 
 159
 00:11:20,700 --> 00:11:23,380
-Compilo Obviamente el sistema
-dice:"yo no
+Compilo. Obviamente el sistema
+me dice: "No
 
 160
 00:11:23,547 --> 00:11:25,930
-Conozca la variable DiceHandle. Hacer
-lo quieres
+conozco la variable DiceHandle, quieres
 
 161
 00:11:26,097 --> 00:11:26,730
-para ser una clase? "
+que sea una clase"
 
 162
 00:11:26,897 --> 00:11:27,960
@@ -729,16 +734,16 @@ Sí. Debe ser una clase.
 
 163
 00:11:28,560 --> 00:11:29,750
-Aquí lo definirá.
+Aquí la definirá.
 
 164
 00:11:29,917 --> 00:11:31,340
-Como se que tengo
-parar los dados de todos modos
+Como se que de todos modos
+tengo que parar mis dados,
 
 165
 00:11:31,507 --> 00:11:36,440
-Aprovecho esta oportunidad para
+aprovechare para
 
 166
 00:11:36,870 --> 00:11:39,580
@@ -751,7 +756,7 @@ Compilo todo esto
 168
 00:11:41,790 --> 00:11:45,720
 Ahora es rojo porque "Add die"
-no se ha definido
+no se ha definido nunca.
 
 169
 00:11:47,620 --> 00:11:48,570
@@ -759,13 +764,13 @@ Entonces lo haremos.
 
 170
 00:11:48,737 --> 00:11:51,620
-Antes de hacer esto, lo hará
-ser amable de inicializar
+Antes de hacer esto, estaria bien
+de inicializar el mango,
 
 171
 00:11:54,240 --> 00:11:56,660
-el mango, entonces lo hacemos así,
-evitará
+lo hacemos así,
+nos evitará
 
 172
 00:11:56,827 --> 00:11:57,890
@@ -773,7 +778,7 @@ tener un error más tarde
 
 173
 00:12:02,890 --> 00:12:04,560
-dados:= ordenadoCollection nuevo.
+"dice : = OrdereCollection new"
 
 174
 00:12:04,727 --> 00:12:05,360
@@ -786,12 +791,12 @@ ejecutar mi
 
 176
 00:12:24,927 --> 00:12:27,730
-prueba, que se bloqueará.
+test, que se bloqueará.
 OK muy bien.
 
 177
 00:12:27,897 --> 00:12:30,200
-Yo creo Add die.
+Crearé Add die.
 
 178
 00:12:30,530 --> 00:12:31,163
@@ -799,7 +804,7 @@ Agregando
 
 179
 00:12:35,330 --> 00:12:38,030
-Dice:"Debes implementar
+Aqui, me dice: "Debes implementar
 este método."
 
 180
@@ -813,27 +818,27 @@ Escribo "Dice add aDie".
 182
 00:12:43,590 --> 00:12:45,920
 Ok muy bien.
-Mi prueba no seguirá
+Mi prueba continua sin funcionar
 
 183
 00:12:46,087 --> 00:12:48,150
-trabajo porque todavía no lo hago
-han definido el número de dado
+porque aun no he definido
+el metodo
 
 184
 00:12:48,317 --> 00:12:52,120
-método, hagámoslo.
-Sí, dice número,
+diceNumber.
+Sí, diceNumber,
 
 185
 00:12:52,287 --> 00:12:56,780
-Lo crearemos, en
-accediendo a esta vez
+lo crearemos, en
+accessing esta vez
 
 186
 00:12:57,350 --> 00:12:58,800
-Y dice número,
-que va a hacer
+Y diceNumber,
+¿que va a hacer?
 
 187
 00:12:58,967 --> 00:13:00,330
@@ -841,7 +846,7 @@ Debe devolver
 
 188
 00:13:06,290 --> 00:13:08,110
-tamaño de dados Compilo de nuevo
+dice size. Compilo de nuevo
 proceder.
 
 189
@@ -851,15 +856,15 @@ Entonces, las pruebas
 
 190
 00:13:12,677 --> 00:13:14,860
-son verdes y ahorro.
+son verdes y guardo.
 
 191
 00:13:17,250 --> 00:13:18,580
-"Con addDie y prueba".
+"With addDie and test".
 
 192
 00:13:24,560 --> 00:13:28,090
-Podríamos mejorar la prueba porque
+Podríamos mejorar el test porque
 aquí
 
 193
@@ -869,43 +874,43 @@ me gustaría
 
 194
 00:13:32,067 --> 00:13:35,180
-para verificar que cuando
+verificar que cuando
 
 195
 00:13:35,347 --> 00:13:37,610
 agregamos dos veces el mismo dado
-no lo perdemos
+no lo perdemos.
 
 196
 00:13:38,280 --> 00:13:39,340
-yo escribo
+Escribo
 "TestAddingTwiceTheSame DieisOK".
 
 197
 00:13:49,040 --> 00:13:50,290
-Aquí que hago
+Aquí que hare
 
 198
 00:13:50,457 --> 00:13:54,530
-Agrego 6 y 6 y quiero
+Agrego 6 y 6 y debo
 obtener 2
 
 199
 00:13:57,030 --> 00:13:59,940
-Hago esto corro mi prueba,
+Hago esto, corro mi prueba,
 es verde, súper
 
 200
 00:14:01,230 --> 00:14:04,700
-Ahora, será lindo poder
+Ahora, seria lindo poder
 
 201
 00:14:05,880 --> 00:14:08,960
-para definir qué es hacer
+definir como
 
 202
 00:14:11,240 --> 00:14:14,900
-agregar 2 dados Pero antes de esto,
+agregar 2 dados. Pero antes,
 hagamos algo.
 
 203
@@ -914,12 +919,13 @@ Si miras, lo que no me gusta,
 
 204
 00:14:17,377 --> 00:14:19,030
-cuando inspecciono esto, por ejemplo,
+és que uando inspecciono esto,
+por ejemplo,
 
 205
 00:14:23,950 --> 00:14:28,740
-si hago "inspeccionar"
-aqui no veo
+si hago "Inspect"
+aqui, no veo
 
 206
 00:14:28,907 --> 00:14:31,530
@@ -937,22 +943,22 @@ mejorar
 
 209
 00:14:36,257 --> 00:14:38,370
-esta. Voy a agregar
+esto. Voy a agregar
 un método
 
 210
 00:14:38,660 --> 00:14:41,710
-en el protocolo de impresión.
+en el protocolo printing.
 El método "PrintOn"
 
 211
 00:14:44,220 --> 00:14:46,840
-se define en todos los objetos de
-el sistema y
+esta definido en todos los objetos del
+sistema y
 
 212
 00:14:47,007 --> 00:14:50,380
-convertirá un objeto en un
+convertirá un objeto en una
 
 213
 00:14:50,547 --> 00:14:53,490
@@ -960,22 +966,20 @@ representación textual y
 
 214
 00:14:55,380 --> 00:14:58,780
-pasar una corriente Solo precisaremos
+pasa un stream al que incorporaremos
 
 215
 00:14:58,947 --> 00:15:00,420
-la representación que queremos
-dentro de eso.
+la representación que queramos dentro.
 
 216
 00:15:01,890 --> 00:15:03,500
-Si hago esto, no he hecho nada
-de hecho.
+Si hago esto, no he hecho nada.
 
 217
 00:15:03,667 --> 00:15:07,630
-Si hago super PrintOn, de hecho tengo
-no hice nada
+Si hago super PrintOn,
+de hecho tengo, no he hecho nada.
 
 218
 00:15:07,797 --> 00:15:09,230
@@ -983,12 +987,12 @@ Ahora voy a hacer
 
 219
 00:15:09,397 --> 00:15:13,220
-"aStreamnextPut", entonces lo haré
-poner los personajes en el
+"aStreamNextPut", entonces pondre
+caracteres en el
 
 220
 00:15:13,387 --> 00:15:15,220
-corriente, pero ¿qué voy a hacer
+stream, pero ¿qué voy a
 poner primero?
 
 221
@@ -998,17 +1002,17 @@ espacio tal vez
 
 222
 00:15:18,497 --> 00:15:19,880
-Será mejor, un paréntesis.
+sera mas bonito, un paréntesis.
 
 223
 00:15:20,450 --> 00:15:23,550
 Entonces consideraré caras
-y convertirlos
+y las convertire
 
 224
 00:15:23,717 --> 00:15:27,780
 en números, en cadenas y
-concatenar todo esto
+concatenare todo esto
 
 225
 00:15:28,360 --> 00:15:30,760
@@ -1031,7 +1035,7 @@ mucho
 
 229
 00:15:40,647 --> 00:15:44,140
-Más bonito, verás, si
+más bonito, verás, si
 encuentro errores, te ayudará.
 
 230
