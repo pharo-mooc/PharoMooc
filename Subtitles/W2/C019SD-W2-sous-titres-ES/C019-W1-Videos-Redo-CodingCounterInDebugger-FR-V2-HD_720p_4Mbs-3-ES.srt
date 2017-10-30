@@ -1,7 +1,7 @@
 1
 00:00:01,220 --> 00:00:02,580
 En esta sesión,
-Me gustaría mostrarte cómo
+Me gustaría mostrarle cómo
 
 2
 00:00:02,747 --> 00:00:05,220
@@ -35,7 +35,7 @@ menos elementos
 8
 00:00:29,270 --> 00:00:33,240
 En MyCounter, primero
-definir
+defino
 
 9
 00:00:34,960 --> 00:00:37,100
@@ -47,11 +47,11 @@ Las clases de prueba heredan de TestCase.
 
 11
 00:00:40,260 --> 00:00:41,650
-Lo llamaré Counter Test.
+Lo llamaré CounterTest.
 
 12
 00:00:42,790 --> 00:00:44,870
-Compilaré Lo hago una vez
+Compilaré. Lo hago una vez
 más en el menú y luego
 
 13
@@ -69,7 +69,7 @@ un método de prueba
 
 16
 00:00:53,260 --> 00:00:56,150
-Los métodos de prueba comienzan con la prueba.
+Los métodos de prueba comienzan con la prueba test.
 
 17
 00:01:02,260 --> 00:01:04,160
@@ -77,17 +77,17 @@ Los métodos de prueba comienzan con la prueba.
 
 18
 00:01:04,520 --> 00:01:07,820
-Como anteriormente, defino un local
-variable. En
+Como anteriormente, defino una
+variable local. En
 
 19
 00:01:08,000 --> 00:01:12,570
-esta variable local
+esa variable local
 Puse un
 
 20
 00:01:12,737 --> 00:01:15,150
-objeto de la clase Contador.
+objeto de la clase contador.
 
 21
 00:01:16,770 --> 00:01:21,130
@@ -110,7 +110,7 @@ Ahora el sistema me dice:
 
 25
 00:01:36,237 --> 00:01:38,250
-qué contador es ". Ya era
+qué es un contador". Ya estaba
 indicado
 
 26
@@ -128,7 +128,7 @@ una nueva clase
 
 29
 00:01:44,207 --> 00:01:45,000
-Aquí es una nueva clase.
+En éste caso es una nueva clase.
 
 30
 00:01:45,137 --> 00:01:48,260
@@ -141,7 +141,7 @@ en el paquete correcto, hereda
 
 32
 00:01:50,957 --> 00:01:51,590
-desde el objeto, de acuerdo, hazlo ".
+desde el objeto, de acuerdo, hazlo".
 
 33
 00:01:51,757 --> 00:01:55,160
@@ -154,15 +154,15 @@ Ahora vamos a arreglar esto.
 35
 00:02:00,520 --> 00:02:04,260
 Puedo ver que mi clase de contador
-esta vacio.
+esta vacia.
 
 36
 00:02:04,610 --> 00:02:07,130
-Si ejecuto mi prueba, es roja.
+Si ejecuto mi prueba, esta en rojo.
 
 37
 00:02:07,297 --> 00:02:08,820
-¿Por qué es rojo?
+¿Por qué esta en rojo?
 
 38
 00:02:09,000 --> 00:02:09,860
@@ -178,12 +178,12 @@ Tomemos 2 minutos para hacerlo.
 
 41
 00:02:14,630 --> 00:02:19,590
-El sistema dice:"un mensaje de recuento
+El sistema dice:"el mensaje Count
 ha sido enviado a
 
 42
 00:02:19,757 --> 00:02:23,440
-una instancia de la clase de contador
+una instancia de la clase Counter
 y el correspondiente
 
 43
@@ -197,8 +197,8 @@ Abro el depurador
 
 45
 00:02:32,760 --> 00:02:36,050
-El depurador muestra la ejecución
-pila, para que pueda
+El depurador muestra la pila de
+ejecución, para que pueda
 
 46
 00:02:36,217 --> 00:02:39,760
@@ -208,17 +208,17 @@ entendido.
 47
 00:02:39,927 --> 00:02:42,960
 Y allí muestra dónde
-mensaje ha sido invocado
+ha sido invocado el mensaje.
 
 48
 00:02:43,760 --> 00:02:46,020
 Veo que si voy allí,
-Puedo ver el
+Puedo ver las
 
 49
 00:02:46,187 --> 00:02:50,770
-variables del sistema Si miro a C,
-Puedo acceder
+variables del sistema Si miro en C,
+puedo acceder
 
 50
 00:02:50,937 --> 00:02:55,010
@@ -232,22 +232,22 @@ por ejemplo,
 
 52
 00:02:57,830 --> 00:03:00,730
-clase propia, dice que es
+self class, dice que es
 la clase Contador
 
 53
 00:03:03,790 --> 00:03:08,230
-Esto es obvio Por el momento,
-en mi clase, no tengo ninguna
+Esto es obvio. Por el momento,
+en mi clase, no tengo ningún
 
 54
 00:03:08,397 --> 00:03:12,620
-método. Preguntaré al sistema
-para crear uno para mi
+método. Pediré al sistema
+que cree uno por mi
 
 55
 00:03:12,787 --> 00:03:13,590
-Hago crea
+Hago Create
 
 56
 00:03:14,290 --> 00:03:15,630
@@ -255,11 +255,11 @@ Propone las clases.
 
 57
 00:03:15,797 --> 00:03:17,370
-Yo elijo Counter class.
+Yo elijo la class Counter.
 
 58
 00:03:17,537 --> 00:03:18,670
-¿Puedes crear esto?
+¿Puede crear esto?
 
 59
 00:03:18,837 --> 00:03:20,330
@@ -282,11 +282,11 @@ saber qué hacer,
 63
 00:03:32,017 --> 00:03:36,010
 por lo que usa
-Debería implementarse. ¿Qué hace?
+ShouldBeImplemented. ¿Qué hace eso?
 
 64
 00:03:36,177 --> 00:03:40,360
-Plantea una excepción en
+Lanza una excepción en
 la ejecución y el sistema
 
 65
@@ -304,21 +304,21 @@ implementar el cuerpo del método.
 
 68
 00:03:48,090 --> 00:03:49,950
-Conozco al conde
+Conozco Count
 ¿Que voy a hacer?
 
 69
 00:03:50,117 --> 00:03:53,020
 Quiero asignar este valor a
-un
+una
 
 70
 00:03:53,187 --> 00:03:55,450
-Instancia variable. Asi aqui
+variable de instancia. Asi aqui
 
 71
 00:03:58,180 --> 00:04:02,600
-es rojo, porque por el momento
+está en rojo, porque por el momento
 mi clase no tiene esta instancia.
 
 72
@@ -340,17 +340,17 @@ Quiero una variable de instancia.
 
 76
 00:04:14,330 --> 00:04:19,040
-Entonces hago esto Si miro en mi
+Entonces hago esto. Si miro en mi
 clase, tengo
 
 77
 00:04:19,207 --> 00:04:21,640
-una variable de instancia de conteo que
-fue creado y
+una variable de instancia que
+fue creada y
 
 78
 00:04:21,807 --> 00:04:26,650
-el método, el Setter, que
+el método que
 
 79
 00:04:26,817 --> 00:04:27,450
@@ -359,12 +359,12 @@ establecerá el valor.
 80
 00:04:29,790 --> 00:04:31,390
 Una vez que hice esto, puedo decir
-el depurador
+al depurador
 
 81
 00:04:31,557 --> 00:04:34,550
-para continuar, continuar significa continuar
-La ejecución
+que continue, continuar significa
+continuar la ejecución
 
 82
 00:04:34,717 --> 00:04:37,610
@@ -372,7 +372,7 @@ como si nada hubiera pasado
 
 83
 00:04:38,470 --> 00:04:39,103
-¿Lo que pasa?
+¿Qué pasa?
 
 84
 00:04:39,270 --> 00:04:40,020
@@ -386,12 +386,12 @@ hay una instancia
 86
 00:04:44,767 --> 00:04:47,000
 de la clase Counter que recibió
-el mensaje de conteo y eso
+el mensaje count y que
 
 87
 00:04:47,167 --> 00:04:50,360
-no ha encontrado el apropiado
-método. Esto es normal porque
+no ha encontrado el método apropiado.
+Esto es normal porque
 
 88
 00:04:50,527 --> 00:04:54,250
@@ -404,7 +404,7 @@ sin embargo
 
 90
 00:05:00,587 --> 00:05:01,850
-el método de recuento no existe.
+el método count no existe.
 
 91
 00:05:02,250 --> 00:05:03,080
@@ -412,21 +412,21 @@ Lo voy a crear.
 
 92
 00:05:03,247 --> 00:05:05,360
-Haré crear ¿En que clase?
+Haré Create. ¿En que clase?
 
 93
 00:05:05,527 --> 00:05:09,000
-Aún la clase Counter, en
+En la clase Counter, en
 el protocolo de acceso,
 
 94
 00:05:09,460 --> 00:05:14,310
-porque es un acceso.
-Y aqui tu
+porque es un método de acceso.
+Y aqui usted puede
 
 95
 00:05:14,477 --> 00:05:18,260
-Ver que el sistema es más inteligente.
+ver que el sistema es más inteligente.
 
 96
 00:05:18,427 --> 00:05:21,680
@@ -435,12 +435,13 @@ variable de instancia nombrada
 
 97
 00:05:21,847 --> 00:05:26,000
-contar y quiere definir un
-método nombrado conteo,
+count y quiere definir un
+método nombrado count,
 
 98
 00:05:27,120 --> 00:05:29,240
-así que vamos a proponerte un acceso.
+así que vamos a proponerle un 
+método de acceso.
 
 99
 00:05:29,410 --> 00:05:30,140
@@ -456,67 +457,67 @@ Entonces ahora puedo proceder.
 
 102
 00:05:33,517 --> 00:05:37,750
-Mi prueba es verde. Tengo un examen
-verde y
+Mi prueba está en verde.
+Tengo una prueba en verde y
 
 103
 00:05:37,917 --> 00:05:42,050
-Se han creado 2 métodos.
+se han creado 2 métodos.
 en mi clase.
 
 104
 00:05:44,240 --> 00:05:45,470
 Ahora haré lo mismo
-para incremento
+para el incremento
 
 105
 00:05:49,640 --> 00:05:51,100
-De hecho, soy
+De hecho, estoy
 
 106
 00:05:51,267 --> 00:05:54,490
-especificando cual es el metodo
-Tiene qué hacerlo
+especificando qué es lo que el método
+tiene qué hacer
 
 107
 00:05:54,657 --> 00:05:56,240
-y comprobando que lo hace.
+y verificando que lo hace.
 
 108
 00:05:58,360 --> 00:06:03,090
 Entonces, debo tener 9,
-Compilo, ejecuto
+Compilo, ejecuto.
 
 109
 00:06:03,300 --> 00:06:07,730
 Y el sistema me dice que
-no conoce el método de incremento.
+no conoce el método increment.
 
 110
 00:06:07,897 --> 00:06:12,490
-Sí, es normal. Hago crea,
+Sí, es normal. Hago Create,
 aquí en funcionamiento
 
 111
 00:06:15,960 --> 00:06:19,950
 Si miro el incremento,
-Puedo contar
+Puedo poner: count
 
 112
 00:06:20,750 --> 00:06:25,230
-= contar + 1. compilo
+= count + 1. compilo
 
 113
 00:06:27,080 --> 00:06:29,570
-Proceder. Tengo mi prueba
+Procedeo. Tengo mi prueba
 
 114
 00:06:30,370 --> 00:06:31,760
-Mientras estoy en eso, creo decremento.
+Mientras estoy en eso, creo decrement.
 
 115
 00:06:31,927 --> 00:06:36,050
-La idea es que lo hagas,
+La idea es que lo haga,
 para practicarlo
 
 116
@@ -530,7 +531,7 @@ Yo creo mi método.
 
 118
 00:06:51,480 --> 00:06:55,000
-DE ACUERDO. Entonces, ya sabes,
+De acuerdo. Entonces, ya sabe,
 contar:= contar,
 
 119
@@ -539,27 +540,27 @@ Compilo en el depurador.
 
 120
 00:07:01,827 --> 00:07:05,640
-Hago clic en Continuar. Y mi
-Las pruebas son verdes.
+Hago clic en Proceed. Y mis
+pruebas están en verde.
 
 121
 00:07:05,807 --> 00:07:10,060
 Ahora mi clase tiene 2 operaciones:
-Incremento y decremento.
+increment y decrement.
 
 122
 00:07:10,420 --> 00:07:11,770
-Es hora de ahorrar,
+Es hora de guardar,
 por ejemplo.
 
 123
 00:07:12,010 --> 00:07:14,500
-Voy a guardar como si hubiera
-Te mostré antes.
+Voy a guardar como se
+lo mostré antes.
 
 124
 00:07:15,280 --> 00:07:19,180
-Hago clic en Guardar, guardo y
+Hago clic en Save, guardo y
 
 125
 00:07:20,040 --> 00:07:20,760
@@ -567,12 +568,12 @@ aquí escribo "con
 
 126
 00:07:25,740 --> 00:07:29,430
-accesores y decremento
-incremento cubierto por pruebas ecológicas ".
+accesores y decremento,
+incremento cubierto por pruebas en verde ".
 
 127
 00:07:29,597 --> 00:07:34,000
-¡Asi que aqui esta! He salvado eso
+¡Asi que aqui esta! He guardado eso
 
 128
 00:07:47,250 --> 00:07:47,883
@@ -585,23 +586,22 @@ en esta sesión es eso
 
 130
 00:07:53,390 --> 00:07:58,250
-el depurador da acceso a
-los objetos
+el depurador da acceso al
+estado de los objetos,
 
 131
 00:07:58,417 --> 00:08:02,340
-estado, te ubica en el
+lo ubica en el
 contexto de llamada correcta y
 
 132
 00:08:02,507 --> 00:08:04,460
 le permite usar el contexto de llamada
-tener todo lo necesario
+para tener toda la información
 
 133
 00:08:04,627 --> 00:08:07,390
-informacion para escribir
-tu codigo.
+necesaria para escribir su codigo.
 
 134
 00:08:07,557 --> 00:08:08,690
