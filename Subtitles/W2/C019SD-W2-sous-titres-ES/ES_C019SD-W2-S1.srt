@@ -56,7 +56,7 @@ que un niño puede escribir.
 13
 00:00:46,200 --> 00:00:49,320
 También se trata de minimizar
-El número de paréntesis.
+el número de paréntesis.
 
 14
 00:00:49,480 --> 00:00:50,960
@@ -65,7 +65,7 @@ Veremos cómo funciona.
 15
 00:00:52,040 --> 00:00:56,320
 Por ejemplo,
-Tomemos un recuadro en openstreetmap.
+tomemos un recuadro en openstreetmap.
 
 16
 00:00:56,480 --> 00:00:59,520
@@ -87,7 +87,7 @@ en un objeto gráfico Pharo
 
 20
 00:01:09,680 --> 00:01:14,920
-antes de abrirlo en una ventana: hagalo
+antes de abrirlo en una ventana hagalo
 con Pharo y obtendrás el resultado.
 
 21
@@ -106,7 +106,7 @@ para minimizar el número de paréntesis.
 
 24
 00:01:26,400 --> 00:01:30,480
-Hay unarios, binarios,
+Son: unarios, binarios,
 y mensajes de palabras clave.
 
 25
@@ -176,8 +176,8 @@ Veamos sobre mensajes unarios:
 
 39
 00:02:20,960 --> 00:02:25,000
-Si le pido a un pequeño número entero 1, ¿qué
-su clase es, devolverá SmallInteger.
+Si le pido a un SmallInteger 1, ¿qué
+clase es, devolverá SmallInteger.
 
 40
 00:02:25,680 --> 00:02:29,040
@@ -186,8 +186,8 @@ para la próxima semana:
 
 41
 00:02:29,200 --> 00:02:33,160
-si envío el mensaje no al booleano
-Falso, obtengo el Booleano true.
+si envío el mensaje not al booleano
+false, obtengo el booleano true.
 
 42
 00:02:33,720 --> 00:02:36,520
@@ -202,7 +202,7 @@ que es un objeto de fecha.
 44
 00:02:40,640 --> 00:02:43,320
 Si envío el mensaje pi
-a la clase Flotador,
+a la clase Flot,
 
 45
 00:02:43,480 --> 00:02:46,240
@@ -271,11 +271,11 @@ cuales son todos los metodos
 59
 00:03:34,040 --> 00:03:37,640
 implementado en la clase Point.
-Es un mensaje único. Puedo decir:
+Es un mensaje unario. Puedo decir:
 
 60
 00:03:37,800 --> 00:03:42,280
-"Class Point, devuelve todos tus métodos
+"Clase Point, devuelve todos tus métodos
 y los nombres de mensaje que entiendes ".
 
 61
@@ -295,7 +295,7 @@ Si pongo esto en una lista,
 64
 00:03:51,400 --> 00:03:54,920
 Obtendré una lista
-con todos los mensajes que regresa la clase.
+con todos los mensajes que la clase regresa.
 
 65
 00:03:55,080 --> 00:03:57,400
@@ -314,7 +314,7 @@ de la clase Punto.
 68
 00:04:05,680 --> 00:04:09,240
 Lo escribo así:
-""Class Point, list all your selectors".
+"Clase Point, lista todos tus selectores".
 
 69
 00:04:09,400 --> 00:04:12,560
@@ -322,7 +322,7 @@ Devolverá un arreglo, una colección.
 
 70
 00:04:12,720 --> 00:04:15,120
-Escribo que quiero seleccionar ...
+Escribo qué quiero seleccionar ...
 
 71
 00:04:15,960 --> 00:04:18,080
@@ -331,7 +331,7 @@ Este es un mensaje de palabras clave.
 72
 00:04:18,240 --> 00:04:21,960
 Quiero seleccionar entre los selectores.
-los que son únicos.
+los que son unarios.
 
 73
 00:04:22,120 --> 00:04:24,560
@@ -353,8 +353,8 @@ iteradores, siendo select: uno de ellos.
 
 77
 00:04:37,680 --> 00:04:40,920
-Es muy elegante
-Puedo consultar el sistema en una línea.
+Es muy elegante,
+puedo consultar el sistema en una línea.
 
 78
 00:04:41,800 --> 00:04:43,480
@@ -367,7 +367,7 @@ Están compuestos por un objeto,
 
 80
 00:04:48,280 --> 00:04:50,280
-aBinarySelector, anArgument.
+un selector binario y un argumento.
 
 81
 00:04:50,440 --> 00:04:55,560
@@ -399,12 +399,12 @@ Devuelve 3, lo cual es genial.
 
 87
 00:05:14,240 --> 00:05:17,880
-@ es también un mensaje binario
-(crea puntos).
+@ es también un mensaje binario;
+crea puntos.
 
 88
 00:05:18,040 --> 00:05:21,200
-Cadena de concatenación con una coma
+concatenación de cadenas con una coma
 es un mensaje binario
 
 89
@@ -413,8 +413,8 @@ Escribo:'chocolate negro', 'es bueno'
 
 90
 00:05:23,920 --> 00:05:27,360
-Me sale la cadena 'chocolate negro
-es bueno'. Cual es verdad.
+Obtengo la cadena 'chocolate negro
+es bueno', lo cual es verdad.
 
 91
 00:05:27,520 --> 00:05:30,480
@@ -422,7 +422,7 @@ Acerca de los mensajes de palabras clave ...
 
 92
 00:05:30,640 --> 00:05:33,520
-La gente a menudo los encuentra frustrantes
+la gente a menudo los encuentra frustrantes
 
 93
 00:05:34,120 --> 00:05:37,800
@@ -436,7 +436,7 @@ y una coma en el medio.
 
 95
 00:05:42,400 --> 00:05:44,520
-Pero lo hacemos así:en el medio.
+Pero nosotros lo hacemos así:en el medio.
 
 96
 00:05:46,640 --> 00:05:50,040
@@ -445,7 +445,7 @@ es que el mensaje es:
 
 97
 00:05:50,200 --> 00:05:55,360
-keyword1, keyword2.
+keyword1:, keyword2:.
 
 98
 00:05:58,440 --> 00:06:02,760
@@ -464,30 +464,30 @@ Le daré un par de segundos.
 
 101
 00:06:15,640 --> 00:06:18,320
-El primero no tiene argumento:
+El primero no tiene argumento
 debe ser unario.
 
 102
 00:06:18,480 --> 00:06:20,360
-El segundo tambien
+El segundo también.
 
 103
 00:06:20,520 --> 00:06:22,960
-Hay dos puntos: debe ser una palabra clave.
+Hay dos puntos debe ser una palabra clave.
 
 104
 00:06:23,120 --> 00:06:26,840
-Hay algo con una coma
-No lo entiendo: es binario.
+Hay algo con una coma,
+no lo entiendo, es binario.
 
 105
 00:06:27,000 --> 00:06:31,080
-Es raro:es binario.
-No hay argumento:es unario.
+Es raro, es binario.
+No hay argumento, es unario.
 
 106
 00:06:31,240 --> 00:06:33,720
-Hay dos puntos: es una palabra clave.
+Hay dos puntos, es una palabra clave.
 
 107
 00:06:33,880 --> 00:06:36,160
@@ -543,7 +543,7 @@ Escribo at: 2 put: 'loves'.
 
 119
 00:07:16,120 --> 00:07:18,760
-Esto es 2. Entonces 'ama' viene aquí.
+Esto es 2. Entonces 'loves' va aquí.
 
 120
 00:07:18,920 --> 00:07:21,120
@@ -593,11 +593,11 @@ Es el mensaje between: and:.
 130
 00:07:58,840 --> 00:08:03,520
 En la sintaxis, sería lo mismo que:
-12 between
+12 entre
 
 131
 00:08:05,280 --> 00:08:08,520
-And(10,20).
+y 10,20.
 
 132
 00:08:10,400 --> 00:08:13,680

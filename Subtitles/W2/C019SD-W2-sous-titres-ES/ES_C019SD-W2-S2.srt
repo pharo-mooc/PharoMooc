@@ -79,7 +79,7 @@ new es un mensaje enviado a una clase.
 
 19
 00:01:03,120 --> 00:01:06,280
-Se envía el mensaje nuevo
+Se envía el mensaje new
 a la clase OrderedCollection
 
 20
@@ -125,11 +125,11 @@ Y las cadenas no son una colección.
 29
 00:01:41,120 --> 00:01:46,480
 Hay otra equivalencia cuando
-Se trata de crear un proceso secundario.
+se trata de crear un proceso secundario.
 
 30
 00:01:47,080 --> 00:01:50,960
-Nos gustaría ejecutar este bit de código
+Nos gustaría ejecutar este segmento de código
 
 31
 00:01:51,120 --> 00:01:52,720
@@ -145,7 +145,7 @@ una nueva instancia de la clase Thread
 
 34
 00:01:59,560 --> 00:02:01,920
-dándole Runnable () como un parámetro.
+dándole Runnable como un parámetro.
 
 35
 00:02:02,760 --> 00:02:04,680
@@ -153,12 +153,12 @@ Escribe new Runnable().
 
 36
 00:02:04,840 --> 00:02:09,960
-Runnable () es una clase abstracta,
-Tienes que definir el método que falta.
+Runnable es una clase abstracta,
+tienes que definir el método que falta.
 
 37
 00:02:10,800 --> 00:02:13,160
-Este método se llama run ().
+Este método se llama run.
 
 38
 00:02:13,320 --> 00:02:17,440
@@ -167,11 +167,11 @@ desea ejecutar en un proceso secundario:
 
 39
 00:02:17,600 --> 00:02:19,640
-this.doSomething ().
+this.doSomething().
 
 40
 00:02:20,960 --> 00:02:25,520
-El método doAlgo
+El método doSomething
 pertenece a la misma clase
 
 41
@@ -202,7 +202,7 @@ Puedes hacerlo gracias a "fork",
 
 47
 00:02:50,840 --> 00:02:53,440
-Un mensaje que se envía al bloque.
+un mensaje que se envía al bloque.
 
 48
 00:02:54,320 --> 00:02:58,760
@@ -216,7 +216,7 @@ La sintaxis de Java ha mejorado mucho.
 50
 00:03:02,240 --> 00:03:05,480
 Como puede ver,
-El código en Java es mucho más claro.
+el código en Java es mucho más claro.
 
 51
 00:03:06,280 --> 00:03:10,200
@@ -224,12 +224,12 @@ El equivalente de este bloque
 
 52
 00:03:10,360 --> 00:03:14,280
-Es el cierre léxico ubicado aquí.
+es el cierre léxico ubicado aquí.
 
 53
 00:03:15,200 --> 00:03:19,080
 El resto es el mismo
-como en la diapositiva anterior.
+que en la diapositiva anterior.
 
 54
 00:03:19,240 --> 00:03:22,080
@@ -248,7 +248,7 @@ aplicado a un receptor,
 57
 00:03:28,000 --> 00:03:32,040
 como el método factorial
-nosotros ya los estudiamos,
+que ya los estudiamos,
 
 58
 00:03:32,800 --> 00:03:35,880
@@ -261,7 +261,7 @@ en la consola.
 
 60
 00:03:41,120 --> 00:03:45,400
-Mensajes binarios
+Los mensajes binarios
 se aplican a un receptor
 
 61
@@ -301,7 +301,7 @@ Están separados por dos puntos.
 
 69
 00:04:14,600 --> 00:04:18,920
-Aquí se muestra el mensaje de palabra clave.
+Aquí se muestra el mensaje de palabra clave show:
 Se envía al objeto Transcript.
 
 70
@@ -321,7 +321,7 @@ separados en dos palabras clave.
 
 73
 00:04:29,520 --> 00:04:34,000
-Se necesitan dos argumentos
+Toma dos argumentos
 y se aplica a un receptor.
 
 74
@@ -423,11 +423,11 @@ postman send mail recipient.
 95
 00:05:51,520 --> 00:05:54,600
 Si convierte esto en una oración
-para facilitar la lectura,
+para facilitar la lectura, en inglés,
 
 96
 00:05:54,760 --> 00:05:59,120
-obtiene: postman envia un correo al destinatario.
+obtiene: postman send mail to recipient.
 Es más fácil de leer.
 
 97
@@ -438,7 +438,7 @@ agrega dos puntos.
 98
 00:06:04,640 --> 00:06:08,680
 Hay un mensaje, el mensaje
-send: to: aplicado a postman.
+postman send: mail to: recipient.
 
 99
 00:06:08,840 --> 00:06:14,320
@@ -452,7 +452,7 @@ tal como if y else,
 
 101
 00:06:18,720 --> 00:06:22,280
-y ciclos comodo, for, etc.
+y ciclos como do, for, etc.
 
 102
 00:06:22,440 --> 00:06:26,560
@@ -519,7 +519,7 @@ como lo indica el receptor.
 
 116
 00:07:17,840 --> 00:07:22,200
-4timesRepeat:
+4 timesRepeat:
 ejecuta algo cuatro veces.
 
 117
@@ -618,7 +618,7 @@ El orden de precedencia:
 137
 00:08:37,560 --> 00:08:40,280
 primero ejecuta
-¿Qué hay entre paréntesis,
+lo que esté entre paréntesis,
 
 138
 00:08:40,440 --> 00:08:44,800
@@ -627,7 +627,7 @@ luego mensajes binarios, luego palabras clave.
 
 139
 00:08:45,840 --> 00:08:47,600
-Condicionales y cicloa
+Condicionales y ciclos
 
 140
 00:08:47,760 --> 00:08:51,200

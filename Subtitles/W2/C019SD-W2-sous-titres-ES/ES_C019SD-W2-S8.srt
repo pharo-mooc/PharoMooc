@@ -11,11 +11,11 @@ verdadero y falso.
 3
 00:00:09,320 --> 00:00:12,480
 true es la única instancia
-de la clase verdadero.
+de la clase Verdadero.
 
 4
 00:00:12,640 --> 00:00:15,440
-falso es la única instancia
+false es la única instancia
 de la clase Falso.
 
 5
@@ -26,7 +26,7 @@ para establecer operaciones booleanas
 6
 00:00:20,800 --> 00:00:24,160
 o estructuras alternativas
-como ifTrue:IfFalse :, etc.
+como ifTrue:IfFalse:, etc.
 
 7
 00:00:24,320 --> 00:00:26,280
@@ -38,7 +38,7 @@ En el primer ejemplo de esta diapositiva,
 
 9
 00:00:30,040 --> 00:00:34,240
-envias el mensaje y,
+envias el mensaje &
 un operador binario,
 
 10
@@ -47,13 +47,13 @@ al objeto falso
 
 11
 00:00:35,880 --> 00:00:38,520
-Le pasas un parámetro,
+Le pasa un parámetro,
 que es todo esto
 
 12
 00:00:38,680 --> 00:00:42,320
 Es una expresión entre paréntesis,
-(1 error:'loco').
+(1 error:'crazy').
 
 13
 00:00:42,480 --> 00:00:45,480
@@ -61,7 +61,7 @@ Esta expresión desencadena un error.
 
 14
 00:00:45,640 --> 00:00:50,280
-Puedes ver la evaluación de esto
+Puede ver la evaluación de esto
 Toda la expresión desencadena un error.
 
 15
@@ -69,23 +69,23 @@ Toda la expresión desencadena un error.
 ¿Por qué? Porque el operando
 también ha sido evaluado
 
-dieciséis
+16
 00:00:53,760 --> 00:00:56,280
 en esta expresión booleana.
 
 17
 00:00:57,560 --> 00:01:01,000
 El operando ha sido evaluado,
-De ahí el error.
+de ahí el error.
 
 18
 00:01:01,160 --> 00:01:05,640
-Si quieres obtener la versión perezosa
+Si quiere obtener la versión perezosa
 de los operadores booleanos,
 
 19
 00:01:05,800 --> 00:01:10,960
-debe usar el método y:
+debe usar el método and:
 de la clase booleana.
 
 20
@@ -95,7 +95,7 @@ como un parámetro
 
 21
 00:01:13,600 --> 00:01:18,000
-Los bloques comienzan con [y terminan con].
+Los bloques comienzan con [ y terminan con ].
 
 22
 00:01:18,160 --> 00:01:21,320
@@ -104,12 +104,12 @@ pero la definición de un bloque
 
 23
 00:01:21,480 --> 00:01:24,800
-no se dispara
-La ejecución de sus expresiones.
+no dispara
+la ejecución de sus expresiones.
 
 24
 00:01:24,960 --> 00:01:28,640
-Por ahora, estas expresiones
+Por ahora, éstas expresiones
 no se evalúan
 
 25
@@ -119,18 +119,18 @@ es verdadero o falso
 
 26
 00:01:32,320 --> 00:01:35,600
-que el bloque pasó como un parámetro
+que el bloque pasado como un parámetro
 es evaluado
 
 27
 00:01:35,760 --> 00:01:39,880
 En el segundo ejemplo,
-Tienes falso y:un bloque.
+Tiene false and: un bloque.
 
 28
 00:01:40,040 --> 00:01:45,440
 Devuelve falso sin evaluar
-El bloque pasó como un parámetro.
+el bloque pasado como un parámetro.
 
 29
 00:01:45,960 --> 00:01:49,360
@@ -140,12 +140,12 @@ pero construido usando bloques.
 30
 00:01:51,400 --> 00:01:55,160
 En Pharo, los condicionales
-(si, falso, mientras, etc.)
+(if, false, while, etc.)
 
 31
 00:01:55,320 --> 00:01:59,160
 son siempre mensajes
-enviado a booleanos o bloques.
+enviados a booleanos o bloques.
 
 32
 00:02:00,080 --> 00:02:01,800
@@ -153,7 +153,7 @@ Tomemos otro ejemplo:
 
 33
 00:02:01,960 --> 00:02:06,960
-el mensaje ifTrue:ifFalse :, el típico
+el mensaje ifTrue:ifFalse:, la típica
 alternativa de cualquier lenguaje de programación.
 
 34
@@ -185,7 +185,7 @@ el otro si el receptor es falso.
 
 40
 00:02:30,560 --> 00:02:33,200
-Cuidado:el mensaje si es cierto:ifFalse:
+Cuidado: el mensaje si es ifTrue:ifFalse:
 
 41
 00:02:33,360 --> 00:02:37,000
@@ -194,12 +194,12 @@ está en el corazón del sistema.
 
 42
 00:02:37,160 --> 00:02:42,320
-Es muy importante
+Es tan importante
 que ha sido muy optimizado
 
 43
 00:02:42,480 --> 00:02:46,480
-ser eficiente sin ralentizar
+para ser eficiente sin hacer lento a
 todo el sistema
 
 44
@@ -213,17 +213,17 @@ es extremadamente elegante
 
 46
 00:02:53,520 --> 00:02:59,000
-los objetos verdaderos y falsos son ambos
-instancias de las clases verdadero y falso
+los objetos true y false son ambos
+instancias de las clases True y False
 
 47
 00:02:59,160 --> 00:03:01,400
-que heredan la clase booleana.
+que heredan de la clase Boolean.
 
 48
 00:03:01,560 --> 00:03:04,760
 Cada una de estas clases
-definir un conjunto de métodos
+define un conjunto de métodos
 
 49
 00:03:04,920 --> 00:03:07,640
@@ -231,7 +231,7 @@ para devolver el comportamiento esperado.
 
 50
 00:03:07,800 --> 00:03:13,080
-Te daremos más información
+Le daremos más información
 sobre esta elegante implementación
 
 51
@@ -240,11 +240,11 @@ en una lección adicional.
 
 52
 00:03:16,640 --> 00:03:19,560
-Volver al mensaje ifTrue:ifFalse :.
+Regresando al mensaje ifTrue:ifFalse:
 
 53
 00:03:19,720 --> 00:03:23,200
-Hay diferentes versiones
+hay diferentes versiones
 de estos mensajes
 
 54
@@ -260,7 +260,7 @@ de la alternativa
 56
 00:03:31,920 --> 00:03:34,960
 El mensaje ifTrue:ifFalse
-toma dos cuadras
+toma dos bloques
 
 57
 00:03:35,120 --> 00:03:39,480
@@ -273,7 +273,7 @@ Hay varios ejemplos aquí.
 
 59
 00:03:43,880 --> 00:03:46,480
-Esto solo envía el mensaje ifTrue:
+Este solo envía el mensaje ifTrue:
 
 60
 00:03:46,640 --> 00:03:49,960
@@ -288,7 +288,7 @@ hay un bloque para ejecutar:
 62
 00:03:53,240 --> 00:03:55,920
 este si el receptor booleano
-es verdad,
+es verdadero,
 
 63
 00:03:56,080 --> 00:03:58,320
@@ -298,7 +298,7 @@ esa si es falso
 00:04:00,960 --> 00:04:02,960
 Hay dos mensajes diferentes.
 
-sesenta y cinco
+65
 00:04:03,120 --> 00:04:05,120
 Es lo mismo con ifFalse:
 
@@ -323,7 +323,7 @@ que puedo enviar a una colección.
 
 70
 00:04:20,760 --> 00:04:23,920
-Con ifEmpty :, paso un bloque.
+Con ifEmpty : paso un bloque.
 
 71
 00:04:24,920 --> 00:04:29,200
@@ -355,17 +355,17 @@ que es la colección no vacía.
 77
 00:04:47,840 --> 00:04:51,880
 La colección podría ser el resultado
-de una computación compleja.
+de un cálculo muy complejo.
 
 78
 00:04:52,040 --> 00:04:54,520
-Puedes consultar una vez más
-para la coleccion
+Puede consultar una vez más
+la coleccion
 
 79
 00:04:54,680 --> 00:04:58,600
 Si la colección no está vacía,
-se pasa como el parámetro del bloque.
+se pasa como parámetro del bloque.
 
 80
 00:04:58,760 --> 00:05:01,320
@@ -378,13 +378,13 @@ En esta sesión,
 
 82
 00:05:04,080 --> 00:05:06,800
-vimos booleanos
+vimos que los booleanos
 son objetos normales en Pharo
 
 83
 00:05:06,960 --> 00:05:10,800
-y las instancias de las clases verdaderas
-y falso que heredan los booleanos.
+y las instancias de las clases True
+y False que heredan de la clase Booleans.
 
 84
 00:05:10,960 --> 00:05:12,560

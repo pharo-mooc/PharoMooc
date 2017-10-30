@@ -1,6 +1,6 @@
 ﻿1
 00:00:00,000 --> 00:00:02,160
-En esta sesión, presentaré bloques.
+En esta sesión, le presentaré los bloques.
 
 2
 00:00:02,320 --> 00:00:06,640
@@ -13,7 +13,7 @@ Están en todas partes en Pharo.
 
 4
 00:00:08,880 --> 00:00:12,160
-Son la base de los bucles,
+Son la base de los ciclos,
 condicionales, iteradores,
 
 5
@@ -26,7 +26,7 @@ Están en el corazón del sistema.
 
 7
 00:00:17,280 --> 00:00:21,280
-Han sido presentados solo
+Han sido introducidos sólo
 en la última versión de Java.
 
 8
@@ -59,9 +59,9 @@ Devuelve un error cuando se ejecuta.
 
 15
 00:00:47,760 --> 00:00:50,600
-Vamos a encapsularlo en un bloque
+Vamos a encapsularla en un bloque
 
-dieciséis
+16
 00:00:50,760 --> 00:00:54,920
 definiendo un bloque que contiene
 la expresión 1/0.
@@ -69,7 +69,7 @@ la expresión 1/0.
 17
 00:00:55,080 --> 00:01:00,040
 Si evalúo la definición de este bloque,
-no pasa nada:no hay error
+no pasa nada; no hay error
 
 18
 00:01:00,200 --> 00:01:02,400
@@ -77,13 +77,13 @@ Devuelve el bloque
 
 19
 00:01:02,560 --> 00:01:06,160
-como una definición de bloque
-no ejecuta su cuerpo
+debido a que una definición de bloque
+no ejecuta su cuerpo.
 
 20
 00:01:07,720 --> 00:01:11,480
-Puedes definir tantos bloques
-como desées:
+Puede definir tantos bloques
+como desée:
 
 21
 00:01:11,640 --> 00:01:14,240
@@ -96,8 +96,8 @@ y las expresiones en su cuerpo,
 
 23
 00:01:18,720 --> 00:01:21,760
-debes hacerlo explícitamente
-a través del valor del mensaje.
+debe hacerlo explícitamente
+a través del mensaje value:
 
 24
 00:01:21,920 --> 00:01:24,520
@@ -106,7 +106,7 @@ Por ejemplo, este es un bloque:
 
 25
 00:01:24,680 --> 00:01:26,640
-Le envías el valor del mensaje.
+Le envía el mensaje value:
 
 26
 00:01:26,800 --> 00:01:29,760
@@ -133,7 +133,7 @@ como en el ejemplo 2.
 
 31
 00:01:42,880 --> 00:01:46,560
-[1/0]:envío el valor del mensaje
+[1/0] envío el mensaje value
 al bloque
 
 32
@@ -151,33 +151,33 @@ Es como los métodos.
 
 35
 00:01:56,400 --> 00:02:01,400
-Un bloque siempre se abre por [
+Un bloque siempre se abre con [
 
 36
 00:02:01,560 --> 00:02:03,120
-y cerrado por].
+y cerrado con ].
 
 37
 00:02:03,280 --> 00:02:08,360
-Todos los argumentos tienen un prefijo
-por dos puntos
+Todos los argumentos tienen por prefijo
+los dos puntos
 
 38
 00:02:08,520 --> 00:02:11,760
-Luego hay |, una pipa.
+Luego hay |, una barra vertical
 
 39
 00:02:11,920 --> 00:02:16,240
-Se separa la declaración de argumento
-desde el cuerpo del bloque,
+que separa la declaración de argumentos
+del cuerpo del bloque,
 
 40
 00:02:16,400 --> 00:02:18,200
-las expresiones que contiene
+la expresion que contiene
 
 41
 00:02:18,360 --> 00:02:21,560
-El argumento en este ejemplo es x.
+el argumento en este ejemplo es x.
 
 42
 00:02:21,720 --> 00:02:24,360
@@ -186,17 +186,17 @@ en el bloque
 
 43
 00:02:24,520 --> 00:02:27,120
-Si envío el valor del mensaje
+Si envío el mensaje value
 al bloque,
 
 44
 00:02:27,280 --> 00:02:31,040
-Tienes que usar un mensaje específico,
-valor:con un parámetro.
+tiene que usar un mensaje específico,
+value: con un parámetro.
 
 45
 00:02:31,200 --> 00:02:35,600
-Al mismo tiempo, pasas el valor 5
+Al mismo tiempo, pasa value: 5
 que reemplaza el argumento x
 
 46
@@ -206,7 +206,7 @@ son evaluados
 
 47
 00:02:38,720 --> 00:02:42,880
-Si envío el valor del mensaje:5
+Si envío el mensaje value: 5
 a este bloque,
 
 48
@@ -233,7 +233,7 @@ Tengo dos aquí:x + 33 y x + 2.
 
 53
 00:02:58,880 --> 00:03:01,400
-Cuando envío valor:5
+Cuando envío value: 5
 
 54
 00:03:01,560 --> 00:03:04,680
@@ -273,7 +273,7 @@ como los objetos normales
 
 62
 00:03:28,320 --> 00:03:31,120
-Este es el ejemplo que tengo para ti aquí.
+Este es el ejemplo que tengo para usted aquí.
 
 63
 00:03:31,280 --> 00:03:35,160
@@ -284,23 +284,23 @@ de este bloque, x + 2,
 00:03:35,320 --> 00:03:37,080
 en una variable llamada add2.
 
-sesenta y cinco
+65
 00:03:37,240 --> 00:03:40,680
 Luego envias mensajes
 para evaluar el bloque varias veces.
 
 66
 00:03:40,840 --> 00:03:43,000
-Envío el valor del mensaje:una vez
+Envío el mensaje value: una vez
 
 67
 00:03:43,160 --> 00:03:46,640
 diciéndole que se evalúe a sí mismo
-con el valor 5:regresa 7.
+con value: 5 regresa 7.
 
 68
 00:03:46,800 --> 00:03:49,720
-Luego el valor del mensaje:33.
+Luego el mensaje value: 33.
 
 69
 00:03:49,880 --> 00:03:51,920
@@ -308,7 +308,7 @@ Regresa 35
 
 70
 00:03:52,080 --> 00:03:55,800
-También puedes definir bloques
+También puede definir bloques
 con varios argumentos
 
 71
@@ -318,11 +318,11 @@ Este bloque tiene dos argumentos.
 
 72
 00:04:00,880 --> 00:04:05,160
-¿Pero cómo evaluarías este bloqueo?
+¿Pero cómo evaluarías este bloque?
 
 73
 00:04:05,320 --> 00:04:09,840
-ya que necesita pasar dos valores
+Ya que necesita pasar dos valores
 para activar su evaluación,
 
 74
@@ -331,12 +331,12 @@ para activar su evaluación,
 
 75
 00:04:13,840 --> 00:04:19,040
-La respuesta es que usas
-el valor del mensaje:valor :,
+La respuesta es que usa
+el mensaje value: vale:,
 
 76
 00:04:19,760 --> 00:04:22,760
-un método del bloque de clases.
+un método del la clase bloque.
 
 77
 00:04:22,920 --> 00:04:28,080
@@ -348,8 +348,8 @@ Regresa 12
 
 79
 00:04:32,880 --> 00:04:36,960
-Como métodos, bloques
-También puede definir variables temporales.
+Como los métodos, los bloques
+también puede definir variables temporales.
 
 80
 00:04:37,120 --> 00:04:40,680
@@ -366,12 +366,12 @@ Termina ahí
 
 83
 00:04:48,880 --> 00:04:52,800
-Se necesita un argumento llamado:índice.
+Se necesita un argumento llamado :index.
 
 84
 00:04:53,800 --> 00:04:57,520
 Se necesita una variable temporal
-definido aquí entre dos |.
+definida aquí entre dos |.
 
 85
 00:04:57,680 --> 00:04:58,960
@@ -379,7 +379,7 @@ Se llama args.
 
 86
 00:04:59,760 --> 00:05:02,200
-Estos argumentos variables temporales
+Esta variable temporal args
 
 87
 00:05:02,360 --> 00:05:07,160
@@ -427,7 +427,7 @@ Devuelve la respuesta 1.
 
 97
 00:05:41,800 --> 00:05:46,880
-Obtengo esta respuesta gracias a esto ^,
+Obtengo esta respuesta gracias a este ^,
 el primero en el bloque,
 
 98
@@ -437,7 +437,7 @@ para salir del método factorial.
 
 99
 00:05:49,800 --> 00:05:52,920
-Un retorno en un bloque ayuda
+Un retorno en un bloque ayuda a
 salir del método
 
 100
@@ -447,7 +447,7 @@ que define el bloque.
 101
 00:05:56,680 --> 00:05:59,360
 Un pequeño consejo
-para cuando usas bloques:
+para cuando use bloques:
 
 102
 00:05:59,520 --> 00:06:02,400
@@ -455,16 +455,16 @@ Los bloques son elementos extremadamente potentes.
 
 103
 00:06:02,560 --> 00:06:04,480
-Debes usarlos con cuidado.
+Debe usarlos con cuidado.
 
 104
 00:06:04,640 --> 00:06:08,440
 No vayas más allá de dos o tres argumentos.
-por un bloque
+para un bloque
 
 105
 00:06:08,600 --> 00:06:11,320
-Si tienes más,
+Si tiene más,
 se vuelve incomprensible
 
 106
@@ -483,7 +483,7 @@ su sintaxis,
 
 109
 00:06:22,320 --> 00:06:25,600
-el hecho de que eran de alguna clase
+el hecho de que son una especie
 de métodos anónimos,
 
 110
@@ -502,4 +502,4 @@ son la base de muchas construcciones
 
 113
 00:06:37,560 --> 00:06:40,440
-como bucles, iteraciones, etc.
+como ciclos, iteraciones, etc.
