@@ -5,7 +5,7 @@ Este video es un Redo para el MOOC.
 2
 00:00:04,577 --> 00:00:07,030
 Re-do en el sentido que
-le pedimos de rehacerlo, de
+le pedimos de rehacer, de
 
 3
 00:00:07,520 --> 00:00:09,540
@@ -38,13 +38,13 @@ es programar un pequeño
 
 9
 00:00:29,297 --> 00:00:32,040
-idioma que puede encontrar
+lenguaje que puede encontrar
 en juegos de rol como
 
 10
 00:00:32,207 --> 00:00:35,930
 "Calabozos y Dragones",
-que nos dicen por ejemplo,
+que nos dice por ejemplo,
 
 11
 00:00:36,097 --> 00:00:38,800
@@ -58,16 +58,16 @@ expresión
 13
 00:00:40,420 --> 00:00:45,380
 Significa: debe lanzar 2
-Dados de 20 lados y 1 de 4 lados.
+dados de 20 lados y 1 dado de 4 lados.
 
 14
 00:00:45,547 --> 00:00:47,420
-Verá que puede ser una
+Verá que com és una
 expresion en Pharo.
 
 15
 00:00:48,000 --> 00:00:52,490
-Entonces en este video vamos
+Entonces en este video vamos a
 
 16
 00:00:52,657 --> 00:00:55,170
@@ -76,7 +76,7 @@ un dado y una clase
 
 17
 00:00:55,337 --> 00:00:57,420
-que representa un puñado de dados.
+que representa una mano.
 
 18
 00:00:58,660 --> 00:00:59,770
@@ -84,11 +84,11 @@ Enpezemos.
 
 19
 00:01:00,870 --> 00:01:04,290
-Comenzamos definiendo un paquete.
+Comenzemos definiendo un paquete.
 
 20
 00:01:05,710 --> 00:01:06,790
-A este paquete lo llamamos "Dice" (dados).
+A este paquete lo llamamos "Dice" (dado).
 
 21
 00:01:06,957 --> 00:01:11,860
@@ -96,7 +96,7 @@ No tengo ganas de ver
 
 22
 00:01:12,027 --> 00:01:16,660
-otras cosas. Entonces este
+mas cosas. Entonces este
 
 23
 00:01:16,827 --> 00:01:19,450
@@ -104,7 +104,7 @@ video no lo codificaré en el
 
 24
 00:01:19,617 --> 00:01:22,210
-depurador, como has visto en otro
+depurador, como ha visto en otro
 video, lo haré
 
 25
@@ -114,7 +114,7 @@ de manera oportunista.
 
 26
 00:01:25,490 --> 00:01:30,030
-Aquí defino la clase "Die" (dado),
+Aquí defino la clase "Die",
 que tiene
 
 
@@ -249,7 +249,7 @@ y ejecutarlo.
 
 55
 00:03:32,727 --> 00:03:35,550
-Es verde. Todo bien.
+Verde. Todo bien.
 
 56
 00:03:36,000 --> 00:03:40,020
@@ -257,7 +257,7 @@ Ahora, me gustaría definir el
 
 57
 00:03:40,187 --> 00:03:44,540
-método que imita una tirada de dado.
+método que imita una tirada de dados.
 
 58
 00:03:44,707 --> 00:03:48,610
@@ -266,7 +266,7 @@ haber un método
 
 59
 00:03:48,777 --> 00:03:49,720
-llamado "atRandom".
+llamado "atRandom" (al azar).
 
 60
 00:03:49,887 --> 00:03:53,940
@@ -283,7 +283,7 @@ la inplementacion para assegurarme
 
 63
 00:04:00,937 --> 00:04:03,620
-está bien. AtRandom, ¿qué hace?
+que és correcto. AtRandom, ¿qué hace?
 
 64
 00:04:04,870 --> 00:04:09,070
@@ -296,7 +296,7 @@ Entonces voy a definir un nuevo
 
 66
 00:04:15,290 --> 00:04:19,220
-método en Operations.
+método en Operations (operaciones).
 
 67
 00:04:21,160 --> 00:04:22,230
@@ -304,7 +304,7 @@ Que va a hacer
 
 68
 00:04:22,397 --> 00:04:26,640
-Roll. Le diré
+Roll (rueda). Le diré
 me devuelves "faces
 
 69
@@ -348,7 +348,7 @@ entre 1 y 6
 
 78
 00:05:12,807 --> 00:05:15,560
-bieno. "Entre 1 y 6".
+bieno. (Entre 1 y 6).
 
 79
 00:05:15,820 --> 00:05:18,510
@@ -358,11 +358,11 @@ porque aquí creamos
 80
 00:05:18,677 --> 00:05:22,470
 una prueba solo para dados de 6 lados,
-podríamos haber dicho que
+podríamos haber hecho que
 
 81
 00:05:22,637 --> 00:05:25,310
-funciona dependiendo del
+funcione segun el
 número de lados del dado
 
 82
@@ -379,7 +379,7 @@ Me sale un error Aquí está ...
 
 85
 00:05:37,910 --> 00:05:39,170
-Está bien, tengo mi prueba.
+Está bien, tengo mi test.
 
 86
 00:05:39,337 --> 00:05:41,460
@@ -394,7 +394,7 @@ guardo localmente, "Save".
 88
 00:05:44,757 --> 00:05:49,000
 Había creado unos cuantos antes
-para entrenar asi que
+para entrenar, asi que
 
 89
 00:05:49,167 --> 00:05:51,710
@@ -434,22 +434,22 @@ use die faces".
 
 97
 00:06:39,290 --> 00:06:42,610
-En esta expresión debe ver
+En esta expresión debe ver que
 
 98
 00:06:42,777 --> 00:06:46,030
 faces és un mensaje enviado a
-la clase die y no
+la clase Die y no
 
 99
 00:06:46,197 --> 00:06:48,610
-a una instancia de la clase die,
-como en el caso
+a una instancia de la clase Die,
+como en el
 
 100
 00:06:49,090 --> 00:06:51,880
-del método roll o de otros
-métodos codificados anteriormente.
+método roll o otros metodos
+codificados con anterioridad.
 
 101
 00:06:52,047 --> 00:06:55,040
@@ -458,12 +458,12 @@ cuando
 
 102
 00:06:55,207 --> 00:06:58,900
-tiene ir o no al nivle
+tiene ir o no al nivel
 class.
 
 103
 00:06:59,350 --> 00:07:00,710
-Enpezemos por escribir un test.
+Enpezemos escribiendo un test.
 
 104
 00:07:03,050 --> 00:07:06,420
@@ -480,7 +480,7 @@ Si continúo con la misma lógica,
 107
 00:07:18,247 --> 00:07:20,950
 Me gustaría hacer algo como
-esto por ejemplo,
+esto,
 
 108
 00:07:22,680 --> 00:07:23,640
@@ -493,7 +493,7 @@ Lo haré lentamente.
 110
 00:07:32,950 --> 00:07:36,840
 Vengo aqui y escribo
-"instance creation" faces anInteger.
+"instance creation" faces: anInteger.
 
 111
 00:07:46,560 --> 00:07:49,000
@@ -510,7 +510,7 @@ Asi creo un dado.
 
 114
 00:07:53,890 --> 00:07:57,740
-Escribo "self new", como
+Escribo "self new",
 self es la clase Die en sí.
 
 115
@@ -667,13 +667,13 @@ Y defino un test.
 
 148
 00:10:30,220 --> 00:10:32,850
-La idea es crear un
-puñado de dados y luego
+La idea es crear una
+mano y luego
 
 149
 00:10:33,017 --> 00:10:35,140
-verificar que tengo los buenos.
-dentro.
+verificar que tengo los.
+dados buenos dentro.
 
 150
 00:10:35,307 --> 00:10:39,380
@@ -682,7 +682,7 @@ quiero reutilizar mi
 
 151
 00:10:39,547 --> 00:10:43,730
-código, no hay otra razón.
+código, no hay otro motivo.
 
 152
 00:10:45,530 --> 00:10:48,060
@@ -696,7 +696,7 @@ quiero
 154
 00:10:59,107 --> 00:11:01,960
 obtener el receptor del mensaje,
-es decir el puñado de dados
+es decir la mano
 
 155
 00:11:02,127 --> 00:11:03,690
@@ -734,7 +734,7 @@ Sí. Debe ser una clase.
 
 163
 00:11:28,560 --> 00:11:29,750
-Aquí la definirá.
+Aquí la definira.
 
 164
 00:11:29,917 --> 00:11:31,340
@@ -765,7 +765,7 @@ Entonces lo haremos.
 170
 00:11:48,737 --> 00:11:51,620
 Antes de hacer esto, estaria bien
-de inicializar el mango,
+de inicializar la mano,
 
 171
 00:11:54,240 --> 00:11:56,660
@@ -852,11 +852,11 @@ proceder.
 189
 00:13:09,940 --> 00:13:12,510
 Y mi prueba debe ser verde
-Entonces, las pruebas
+Entonces, la prueba
 
 190
 00:13:12,677 --> 00:13:14,860
-son verdes y guardo.
+es verde y guardo.
 
 191
 00:13:17,250 --> 00:13:18,580
@@ -884,7 +884,7 @@ no lo perdemos.
 196
 00:13:38,280 --> 00:13:39,340
 Escribo
-"TestAddingTwiceTheSame DieisOK".
+"TestAddingTwiceTheSameDieIsOK".
 
 197
 00:13:49,040 --> 00:13:50,290
@@ -919,7 +919,7 @@ Si miras, lo que no me gusta,
 
 204
 00:14:17,377 --> 00:14:19,030
-és que uando inspecciono esto,
+és que cuando inspecciono esto,
 por ejemplo,
 
 205
@@ -1041,7 +1041,7 @@ encuentro errores, nos ayudará.
 230
 00:15:44,850 --> 00:15:48,140
 Entonces, no hice nada especial,
-mis test funcionan
+mis test funcionan.
 
 231
 00:15:49,450 --> 00:15:53,340
@@ -1157,7 +1157,7 @@ Intentémoslo una vez más.
 255
 00:17:13,950 --> 00:17:16,120
 Intentaremos escribir
-un test, no hay motivo
+un test, no hay motivo,
 
 256
 00:17:16,287 --> 00:17:19,920
@@ -1219,7 +1219,7 @@ voy a pedir las caras (faces).
 269
 00:18:16,560 --> 00:18:20,490
 Comprobemos. Si hago
-"Inspectr", aqui
+"Inspect", aqui
 
 270
 00:18:21,830 --> 00:18:24,820
@@ -1402,7 +1402,7 @@ un poco sobre eso ...
 
 310
 00:21:21,050 --> 00:21:24,250
-Primero creamos un puño porque
+Primero creamos una mano porque
 esto podria
 
 311
@@ -1580,11 +1580,11 @@ mas inteligente para este test?
 
 349
 00:23:43,257 --> 00:23:44,240
-Por el momento, este nos conviene.
+De momento, este nos conviene.
 
 350
 00:23:44,860 --> 00:23:46,640
-Ahora puedes ver que
+Ahora puede ver que
 
 351
 00:23:46,807 --> 00:23:50,200
@@ -1637,7 +1637,7 @@ pero 2,
 
 362
 00:24:36,440 --> 00:24:37,570
-Has entendido el principio.
+¿Ha entendido el principio?.
 
 363
 00:24:41,540 --> 00:24:45,930
@@ -1690,15 +1690,15 @@ Me gustaria que si
 
 374
 00:25:29,107 --> 00:25:33,820
-Escribo 2 D 20 + 3 D5
+Escribo 2 D20 + 3 D5
 
 375
 00:25:34,000 --> 00:25:38,570
-D 6 (no vamos a complicar las cosas
+no vamos a complicar las cosas
 
 376
 00:25:38,737 --> 00:25:42,050
-cosas). ¿Cuánto debo obtener?
+cosas. ¿Cuánto debo obtener?
 
 377
 00:25:43,160 --> 00:25:46,770
@@ -1769,7 +1769,7 @@ hay una lección que le explicara porque.
 
 392
 00:26:36,527 --> 00:26:37,770
-Yo prefiero, es mucho mas cercano.
+Lo prefiero, es mucho mas cercano.
 
 393
 00:26:37,937 --> 00:26:39,800
@@ -1778,8 +1778,7 @@ el nombre de las clases.
 
 394
 00:26:40,430 --> 00:26:42,530
-Lo verás en la semana 7 o
-una cosa así,
+Lo verá en la semana 7,
 
 395
 00:26:42,697 --> 00:26:44,040
@@ -1787,7 +1786,7 @@ hay toda una explicacion.
 
 396
 00:26:44,740 --> 00:26:49,660
-Si yo hago "self
+Si hago "self
 dice do", lo que hare
 
 397
@@ -1812,7 +1811,7 @@ conoce
 
 401
 00:27:05,887 --> 00:27:07,420
-el mensaje, eso es lo que me
+el mensaje, eso es lo que
 queria decir y
 
 402
@@ -1850,7 +1849,7 @@ la coleccion de mis dados
 
 409
 00:27:32,227 --> 00:27:35,280
-Ahora voy a probar, ver si
+Ahora voy a probar, a ver si
 mi test funciona.
 
 410
@@ -1873,7 +1872,7 @@ Significa que ahora podemos escribir
 
 414
 00:27:57,300 --> 00:28:02,210
-2 D 4 y luego
+2 D4 y luego
 
 415
 00:28:02,377 --> 00:28:06,380
@@ -1882,7 +1881,7 @@ un número.
 
 416
 00:28:08,000 --> 00:28:10,400
-Ahora ya está listo para jugar
+Ahora está listo para jugar
 a "Calabozos y Dragones".
 
 417
