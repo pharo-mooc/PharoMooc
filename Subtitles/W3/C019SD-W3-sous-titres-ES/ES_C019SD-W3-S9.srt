@@ -1,4 +1,4 @@
-﻿1
+1
 00:00:00,440 --> 00:00:04,440
 En esta sesión, hablaremos
 sobre iteradores y colecciones.
@@ -10,7 +10,7 @@ Gracias a los iteradores en Pharo.
 
 3
 00:00:09,160 --> 00:00:13,000
-Entendera
+Entenderá
 El poder de los iteradores en Pharo.
 
 4
@@ -24,7 +24,7 @@ Un primer ejemplo
 
 6
 00:00:19,520 --> 00:00:22,680
-este es el codigo
+este es el código
 que debería escribir en Java
 
 7
@@ -96,7 +96,7 @@ de "collect:" cuando se envía a una colección?
 
 22
 00:01:16,560 --> 00:01:20,240
-Esta es una coleccion
+Esta es una colección
 de números positivos y negativos.
 
 23
@@ -191,7 +191,7 @@ Este es otro ejemplo de "collect:"
 
 42
 00:02:23,440 --> 00:02:27,000
-Esta es una coleccion
+Esta es una colección
 a la que envío el mensaje "collect:"
 
 43
@@ -243,7 +243,7 @@ Usaré do
 54
 00:03:05,120 --> 00:03:08,920
 Recorro la colección
-y cada vez lo agrego a la coleccion de resultados.
+y cada vez lo agrego a la colección de resultados.
 
 55
 00:03:09,080 --> 00:03:12,400
@@ -266,7 +266,7 @@ Prefiero la primera solución.
 
 59
 00:03:24,200 --> 00:03:27,120
-En la jerarquia
+En la jerarquía
 de las colecciones Pharo,
 
 60
@@ -475,7 +475,7 @@ Por ejemplo, "anySatisfy:"
 
 105
 00:06:06,960 --> 00:06:10,600
-conprueba si un objeto
+comprueba si un objeto
 cumple un criterio
 
 106
@@ -485,7 +485,7 @@ cumple con el criterio
 
 107
 00:06:13,480 --> 00:06:17,320
-Puede navegar por la colección al reves,
+Puede navegar por la colección al revés,
 desde el final.
 
 108
@@ -551,7 +551,7 @@ aquí utilizo "do: separatedBy:"
 
 122
 00:07:08,280 --> 00:07:11,280
-Tengo una coleccion
+Tengo una colección
 Examino cada elemento.
 
 123
@@ -569,7 +569,8 @@ Entonces puedo navegar a,
 
 126
 00:07:20,640 --> 00:07:23,320
-mostrar una coma, luego b,
+mostrar una
+ coma, luego b,
 una coma, luego c.
 
 127
@@ -588,7 +589,7 @@ los elementos de una colección
 
 130
 00:07:36,200 --> 00:07:37,720
-en funcion de un criterio.
+en función de un criterio.
 
 131
 00:07:37,880 --> 00:07:42,040
@@ -682,7 +683,7 @@ Puede definir su propio.
 
 151
 00:08:54,440 --> 00:08:57,760
-Al leer los metodos en la clase Collection
+Al leer los métodos en la clase Collection
 
 152
 00:08:57,920 --> 00:08:59,560
@@ -690,7 +691,7 @@ averigua sobre ellos.
 
 153
 00:08:59,720 --> 00:09:02,960
-Por ejemplo, enpieze
+Por ejemplo, empiece
 por los iteradores que ya conoce.
 
 154
@@ -727,7 +728,7 @@ utilizado como parámetro
 
 161
 00:09:26,760 --> 00:09:29,840
-pasandole el elemento en el indice i.
+pasándole el elemento en el indice i.
 
 162
 00:09:30,000 --> 00:09:31,160
@@ -754,7 +755,7 @@ en clases de Collection
 
 167
 00:09:49,000 --> 00:09:51,720
-de acuerdo con la coleccion
+de acuerdo con la colección
 ellos representan.
 
 168
@@ -775,7 +776,7 @@ quiénes conocen el patrón de diseño del iterador
 171
 00:10:05,160 --> 00:10:10,480
 un desarrollador no puede elegir
-cuándo pasa al elemento siguient.
+cuándo pasa al elemento siguiente.
 
 172
 00:10:10,640 --> 00:10:14,120
@@ -783,7 +784,7 @@ La colección lo decide internamente.
 
 173
 00:10:14,280 --> 00:10:17,160
-no se envía explicitamente el mensaje next
+no se envía explícitamente el mensaje next
 al iterador
 
 174
@@ -805,7 +806,7 @@ Facilitan la escritura de programas
 
 178
 00:10:31,280 --> 00:10:34,280
-Puede escribir codigo breve, simple,
+Puede escribir código breve, simple,
 y elegante.
 
 179
