@@ -62,8 +62,8 @@ dados de 20 lados y 1 dado de 4 lados.
 
 14
 00:00:45,547 --> 00:00:47,420
-Verá que com és una
-expresion en Pharo.
+Verá que como és una
+expresión en Pharo.
 
 15
 00:00:48,000 --> 00:00:52,490
@@ -80,11 +80,11 @@ que representa una mano.
 
 18
 00:00:58,660 --> 00:00:59,770
-Enpezemos.
+Empezaremos.
 
 19
 00:01:00,870 --> 00:01:04,290
-Comenzemos definiendo un paquete.
+Comenzamos definiendo un paquete.
 
 20
 00:01:05,710 --> 00:01:06,790
@@ -133,7 +133,7 @@ porque es muy muy simple.
 
 30
 00:01:47,550 --> 00:01:52,360
-Enpezaremos de manera que podamos
+Empezaremos de manera que podamos
 
 31
 00:01:52,527 --> 00:01:53,950
@@ -197,12 +197,12 @@ así, pero
 
 44
 00:02:42,647 --> 00:02:46,650
-en este caso me gustaria comenzar con
-una prueba que funcione correctament.
+en este caso me gustaría comenzar con
+una prueba que funcione correctamente.
 
 45
 00:02:47,840 --> 00:02:52,120
-Como aqui, no tenemos mucha cosa,
+Como aquí, no tenemos mucha cosa,
 dire que la inicialización está ok.
 
 46
@@ -279,11 +279,11 @@ Me permite tener ... Ok ...
 62
 00:03:58,310 --> 00:04:00,770
 Entonces ahora voy a mirar
-la inplementacion para assegurarme
+la implementación para asegurarme
 
 63
 00:04:00,937 --> 00:04:03,620
-que és correcto. AtRandom, ¿qué hace?
+que es correcto. AtRandom, ¿qué hace?
 
 64
 00:04:04,870 --> 00:04:09,070
@@ -348,7 +348,7 @@ entre 1 y 6
 
 78
 00:05:12,807 --> 00:05:15,560
-bieno. (Entre 1 y 6).
+bien. (Entre 1 y 6).
 
 79
 00:05:15,820 --> 00:05:18,510
@@ -362,7 +362,7 @@ podríamos haber hecho que
 
 81
 00:05:22,637 --> 00:05:25,310
-funcione segun el
+funcione según el
 número de lados del dado
 
 82
@@ -394,11 +394,11 @@ guardo localmente, "Save".
 88
 00:05:44,757 --> 00:05:49,000
 Había creado unos cuantos antes
-para entrenar, asi que
+para entrenar, así que
 
 89
 00:05:49,167 --> 00:05:51,710
-volvere a crear uno
+volveré a crear uno
 "New version with
 
 90
@@ -416,7 +416,7 @@ Ahora me gustaría cambiar
 93
 00:06:14,777 --> 00:06:18,890
 la interfaz de creación
-Primero recategorizamos
+Primero re-categorizamos
 
 94
 00:06:19,810 --> 00:06:22,200
@@ -425,7 +425,7 @@ un poco la interfaz de creación
 
 95
 00:06:22,367 --> 00:06:26,390
-Nos gustaria decir:
+Nos gustaría decir:
 "to create a die
 
 96
@@ -448,7 +448,7 @@ como en el
 
 100
 00:06:49,090 --> 00:06:51,880
-método roll o otros metodos
+método roll o otros métodos
 codificados con anterioridad.
 
 101
@@ -463,11 +463,11 @@ class.
 
 103
 00:06:59,350 --> 00:07:00,710
-Enpezemos escribiendo un test.
+Empezaremos escribiendo un test.
 
 104
 00:07:03,050 --> 00:07:06,420
-Asi "betterInterface".
+Así "betterInterface".
 
 105
 00:07:08,790 --> 00:07:10,200
@@ -492,7 +492,7 @@ Lo haré lentamente.
 
 110
 00:07:32,950 --> 00:07:36,840
-Vengo aqui y escribo
+Vengo aquí y escribo
 "instance creation" faces: anInteger.
 
 111
@@ -502,11 +502,11 @@ pero aquí
 
 112
 00:07:49,167 --> 00:07:50,530
-lo hare de manera tranquila.
+lo haré de manera tranquila.
 
 113
 00:07:51,000 --> 00:07:52,940
-Asi creo un dado.
+Así creo un dado.
 
 114
 00:07:53,890 --> 00:07:57,740
@@ -556,12 +556,12 @@ ejecuto esto,
 123
 00:08:27,887 --> 00:08:29,520
 por ejemplo, si hago 
-debug (depuracion) para ver ...
+debug (depuración) para ver ...
 
 124
 00:08:33,640 --> 00:08:38,360
 Y hago clic en Over, aquí
-dice: "no conozo
+dice: "no conozco
 
 125
 00:08:38,527 --> 00:08:41,430
@@ -605,8 +605,8 @@ Entonces guardamos, "save"
 
 134
 00:09:19,347 --> 00:09:22,250
-mejor die creacion
-metodo con test.
+mejor die creación
+método con test.
 
 135
 00:09:22,417 --> 00:09:23,050
@@ -636,7 +636,7 @@ Nos gustaría escribir
 
 141
 00:09:49,300 --> 00:09:53,290
-Aqui crearemos un nuevo
+Aquí crearemos un nuevo
 dado, "die faces 6, addDie".
 
 142
@@ -649,7 +649,7 @@ Comenzamos escribiendo
 
 144
 00:10:12,207 --> 00:10:13,580
-una classe de test, esta vez.
+una clase de test, esta vez.
 
 145
 00:10:15,250 --> 00:10:19,930
@@ -734,7 +734,7 @@ Sí. Debe ser una clase.
 
 163
 00:11:28,560 --> 00:11:29,750
-Aquí la definira.
+Aquí la definirá.
 
 164
 00:11:29,917 --> 00:11:31,340
@@ -764,7 +764,7 @@ Entonces lo haremos.
 
 170
 00:11:48,737 --> 00:11:51,620
-Antes de hacer esto, estaria bien
+Antes de hacer esto, estaría bien
 de inicializar la mano,
 
 171
@@ -782,7 +782,7 @@ tener un error más tarde
 
 174
 00:12:04,727 --> 00:12:05,360
-Recategorizar.
+Re-categorizar.
 
 175
 00:12:21,880 --> 00:12:24,760
@@ -792,7 +792,7 @@ ejecutar mi
 176
 00:12:24,927 --> 00:12:27,730
 test, que se bloqueará.
-OK muy bien.
+Ok muy bien.
 
 177
 00:12:27,897 --> 00:12:30,200
@@ -804,7 +804,7 @@ Agregando
 
 179
 00:12:35,330 --> 00:12:38,030
-Aqui, me dice: "Debes implementar
+Aquí, me dice: "Debes implementar
 este método."
 
 180
@@ -823,7 +823,7 @@ Mi prueba continua sin funcionar
 183
 00:12:46,087 --> 00:12:48,150
 porque aun no he definido
-el metodo
+el método
 
 184
 00:12:48,317 --> 00:12:52,120
@@ -888,7 +888,7 @@ Escribo
 
 197
 00:13:49,040 --> 00:13:50,290
-Aquí que hare
+Aquí que haré
 
 198
 00:13:50,457 --> 00:13:54,530
@@ -919,13 +919,13 @@ Si miras, lo que no me gusta,
 
 204
 00:14:17,377 --> 00:14:19,030
-és que cuando inspecciono esto,
+es que cuando inspecciono esto,
 por ejemplo,
 
 205
 00:14:23,950 --> 00:14:28,740
 si hago "Inspect"
-aqui, no veo
+aquí, no veo
 
 206
 00:14:28,907 --> 00:14:31,530
@@ -987,7 +987,7 @@ Ahora voy a hacer
 
 219
 00:15:09,397 --> 00:15:13,220
-"aStreamNextPut", entonces pondre
+"aStreamNextPut", entonces pondré
 caracteres en el
 
 220
@@ -1007,7 +1007,7 @@ sea mas bonito, un paréntesis.
 223
 00:15:20,450 --> 00:15:23,550
 Entonces consideraré caras (faces)
-y las convertire
+y las convertiré
 
 224
 00:15:23,717 --> 00:15:27,780
@@ -1092,7 +1092,7 @@ Hay maneras muy compactas, lo
 
 241
 00:16:29,297 --> 00:16:31,490
-podria escribir en una linea, pero
+podría escribir en una linea, pero
 utilizando iteradores
 
 242
@@ -1125,7 +1125,7 @@ un dado y
 
 248
 00:16:48,120 --> 00:16:51,900
-Le pido que realize una tirada
+Le pido que realice una tirada
 y agregue el resultado a
 
 249
@@ -1148,7 +1148,7 @@ que funcione.
 
 253
 00:17:11,210 --> 00:17:12,140
-Intentémoslo una vez más.
+Intentemos-lo una vez más.
 
 254
 00:17:12,307 --> 00:17:13,140
@@ -1170,13 +1170,13 @@ y lo llamo rolling.
 
 258
 00:17:26,960 --> 00:17:30,940
-Entonces, ¿cómo deberiamos hacer
+Entonces, ¿cómo deberíamos hacer
 para probar esto?
 
 259
 00:17:31,107 --> 00:17:35,760
-Tendria que ser entre 1 y
-el maximo numero de dados.
+Tendría que ser entre 1 y
+el máximo numero de dados.
 
 260
 00:17:38,000 --> 00:17:42,100
@@ -1188,13 +1188,13 @@ Nosotros
 
 262
 00:17:48,280 --> 00:17:49,930
-podriamos definir un metodo
+podríamos definir un método
 que haga esto.
 
 263
 00:17:50,240 --> 00:17:53,040
-Hagamos un metodo
-que defina el maximo.
+Hagamos un método
+que defina el máximo.
 
 264
 00:17:56,720 --> 00:18:00,100
@@ -1260,7 +1260,7 @@ y utilizarlo.
 278
 00:18:54,080 --> 00:18:58,370
 Entonces, podemos probar
-que el metodo roll
+que el método roll
 
 279
 00:18:58,820 --> 00:19:02,340
@@ -1273,7 +1273,8 @@ y le pido que debe estar comprendido
 
 281
 00:19:08,937 --> 00:19:11,000
-entre ... "Roll between 1 and
+entre
+ ... "Roll between 1 and
 
 282
 00:19:14,230 --> 00:19:15,690
@@ -1295,7 +1296,7 @@ algo como
 
 286
 00:19:36,000 --> 00:19:38,560
-De acuerdo. Y ahi,
+De acuerdo. Y ahí,
 
 287
 00:19:42,220 --> 00:19:46,680
@@ -1320,7 +1321,7 @@ Casi hemos terminado,
 
 292
 00:20:08,547 --> 00:20:11,070
-nos gustaria expresar que
+nos gustaría expresar que
 
 293
 00:20:11,237 --> 00:20:13,680
@@ -1328,7 +1329,7 @@ en lugar de tener "die faces 6",
 
 294
 00:20:16,290 --> 00:20:17,670
-nos gustaria tener "1 D6".
+nos gustaría tener "1 D6".
 
 295
 00:20:17,837 --> 00:20:18,470
@@ -1388,7 +1389,7 @@ empaquetado
 307
 00:21:03,067 --> 00:21:04,460
 al mismo tiempo que este paquete.
-Hagamoslo.
+Hagamos-lo.
 
 308
 00:21:04,900 --> 00:21:08,950
@@ -1403,7 +1404,7 @@ un poco sobre eso ...
 310
 00:21:21,050 --> 00:21:24,250
 Primero creamos una mano porque
-esto podria
+esto podría
 
 311
 00:21:24,417 --> 00:21:25,510
@@ -1443,7 +1444,7 @@ el timesRepeat, es raro.
 
 319
 00:21:56,790 --> 00:22:01,150
-de "die faces". Y ahi,
+de "die faces". Y ahí,
 
 320
 00:22:02,000 --> 00:22:03,720
@@ -1502,7 +1503,7 @@ una mano, digamos 2 D 6.
 
 332
 00:22:47,020 --> 00:22:49,620
-Y alli haremos
+Y allí haremos
 "selfAssert".
 
 333
@@ -1545,7 +1546,7 @@ Si escribo =, dirá:
 
 341
 00:23:23,680 --> 00:23:26,480
-Aquí para el usuario final, que és
+Aquí para el usuario final, que es
 usted,
 
 342
@@ -1572,7 +1573,7 @@ Ok, funciona.
 
 347
 00:23:39,320 --> 00:23:41,940
-¿Podríamos tener una version
+¿Podríamos tener una versión
 
 348
 00:23:42,107 --> 00:23:43,090
@@ -1608,7 +1609,7 @@ lo pondremos aqui.
 355
 00:24:05,200 --> 00:24:08,000
 Y reescribimos D6 porque
-és mucho mejor D6
+es mucho mejor D6
 
 356
 00:24:08,137 --> 00:24:12,580
@@ -1642,7 +1643,7 @@ pero 2,
 363
 00:24:41,540 --> 00:24:45,930
 Entonces, rodemos los test, puesto
-que hemos canbiado la implementación.
+que hemos cambiado la implementación.
 
 364
 00:24:47,010 --> 00:24:49,370
@@ -1664,16 +1665,16 @@ poder sumar manos.
 
 368
 00:25:09,300 --> 00:25:11,600
-¿Qué test me gustaria tener?
+¿Qué test me gustaría tener?
 
 369
 00:25:11,767 --> 00:25:14,640
-Me gustaria que si hago,
+Me gustaría que si hago,
 por ejemplo,
 
 370
 00:25:18,710 --> 00:25:23,240
-"addingHandles", assegurarme que
+"addingHandles", asegurarme que
 
 
 371
@@ -1686,7 +1687,7 @@ Muy bien.
 
 373
 00:25:26,960 --> 00:25:28,940
-Me gustaria que si
+Me gustaría que si
 
 374
 00:25:29,107 --> 00:25:33,820
@@ -1782,21 +1783,21 @@ Lo verá en la semana 7,
 
 395
 00:26:42,697 --> 00:26:44,040
-hay toda una explicacion.
+hay toda una explicación.
 
 396
 00:26:44,740 --> 00:26:49,660
 Si hago "self
-dice do", lo que hare
+dice do", lo que haré
 
 397
 00:26:49,827 --> 00:26:53,480
-és iterar con mis dados y
+es iterar con mis dados y
 agregarlos a una mano.
 
 398
 00:26:53,647 --> 00:26:55,610
-Asi que hago
+Así que hago
 "handle addDie each",
 
 399
@@ -1812,7 +1813,7 @@ conoce
 401
 00:27:05,887 --> 00:27:07,420
 el mensaje, eso es lo que
-queria decir y
+quería decir y
 
 402
 00:27:07,587 --> 00:27:09,370
@@ -1835,8 +1836,8 @@ Entonces, ¿qué significa?
 
 406
 00:27:22,617 --> 00:27:24,790
-Significa que le falta un accesor
-que és dice.
+Significa que le falta un acceso
+que es dice.
 
 407
 00:27:25,280 --> 00:27:28,770
@@ -1845,7 +1846,7 @@ dice que me devuelve
 
 408
 00:27:28,937 --> 00:27:32,060
-la coleccion de mis dados
+la colección de mis dados
 
 409
 00:27:32,227 --> 00:27:35,280
@@ -1855,7 +1856,7 @@ mi test funciona.
 410
 00:27:35,700 --> 00:27:38,690
 Mi test funciona, es súper
-significa que practicamente
+significa que prácticamente
 
 411
 00:27:38,857 --> 00:27:43,610
@@ -1876,7 +1877,7 @@ Significa que ahora podemos escribir
 
 415
 00:28:02,377 --> 00:28:06,380
-hacer "Roll", lo que nos devolvera
+hacer "Roll", lo que nos devolverá
 un número.
 
 416
@@ -1891,7 +1892,7 @@ hemos definido
 
 418
 00:28:17,570 --> 00:28:19,480
-nuestro metodos, hemos definido
+nuestro métodos, hemos definido
 nuestros test, los hemos hecho
 
 419
@@ -1910,7 +1911,8 @@ paquete, que solo serán visibles
 cuando nuestro paquete se cargue.
 
 422
-00:28:32,290 --> 00:28:34,580
+00:28:32,290 -->
+ 00:28:34,580
 También sobrecargamos a los operadores,
 pero
 
