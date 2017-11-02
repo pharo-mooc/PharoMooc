@@ -142,7 +142,8 @@ is equivalent to
 ((Array new: 3) 
     at: 1 put: 'Calvin'; 
     at: 2 put: 'hates'; 
-    at: 3 put: 'Suzie') size
+    at: 3 put: 'Suzie';
+	yourself) size
 > 3
 ]]]
 
@@ -321,9 +322,9 @@ ${slide:title=Pairs}$
 
 ${slide:title=Dictionary Access}$
 [[[
-  | days |
-  days := Dictionary new. 
-  days   
+| days |
+days := Dictionary new. 
+days   
     at: #January put: 31;
     at: #February put: 28;
     at: #March put: 31.  
@@ -331,14 +332,14 @@ ${slide:title=Dictionary Access}$
 
 
 [[[
-  days at: #January 
-  > 31 
+days at: #January 
+> 31 
 
-  days at: #NoMonth
-  > KeyNotFound Error
+days at: #NoMonth
+> KeyNotFound Error
 
-  days at: #NoMonth ifAbsent: [0]
-  > 0 
+days at: #NoMonth ifAbsent: [0]
+> 0 
 ]]]
 
 
@@ -360,7 +361,7 @@ Because
 [[[
 Dictionary >> do: aBlock
 
-  ^self valuesDo: aBlock
+   ^ self valuesDo: aBlock
 ]]]
 
 ${slide:title=Keys and Values Iteration}$
