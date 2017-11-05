@@ -1,0 +1,30 @@
+Slide 13 instead of reading 
+
+#('Calvin' 'hates' 'Suzie') size
+> 3
+
+is equivalent to 
+
+
+((Array new: 3) 
+    at: 1 put: 'Calvin'; 
+    at: 2 put: 'hates'; 
+    at: 3 put: 'Suzie';
+    ) size
+> 3
+
+
+It should be read: 
+
+#('Calvin' 'hates' 'Suzie') size
+> 3
+
+is equivalent to 
+
+
+((Array new: 3) 
+    at: 1 put: 'Calvin'; 
+    at: 2 put: 'hates'; 
+    at: 3 put: 'Suzie';
+    size)
+> 3
