@@ -17,40 +17,39 @@ Metacello new
 ]]]
 
 Then, you can browse the code of the ==TBPost== class.
-With this solution, you can complete the code of ""your"" TinyBlog application if needed before continuing.
+With this solution, you can complete the code of ""your"" TinyBlog application, if needed, before continuing.
 
 !! Save your code
-Even if you can save the Pharo image which contains all the objects of the system
+Even though you can save the Pharo image which contains all the objects of the system
 (and as such the classes you wrote), this section explains how Pharoers usually save their code as packages on dedicated servers with the Pharo versioning system named Monticello. Smalltalkhub *http://smalltalkhub.com* is one of these servers to host saved Pharo code. You can also use SS3 at *http://ss3.gemstone.com*. 
 
 !!!Create a repository
 
-- Create an account on  *http://smalltalkhub.com/*.
+- Create an account onto  *http://smalltalkhub.com/*.
 - Log yourself on the web site.
-- Create a project (it may happen that you get a connection problem because the web site is still in beta, in such a case retry with a different web browser. If the problems persist use *http://ss3.gemstone.com*).
--- Name it the way you want. For example "TinyBlog"
+- Create a project (You may encounter a connection problem because the web site is still in beta. In that case retry with a different web browser or flush your proxies. If the problems persist use *http://ss3.gemstone.com*).
+-- Name it the way you want. For example TinyBlog
 
 
 !!! Save your package
-- In Pharo, open the Monticello Browser available in the main menu.
+- In Pharo, from the main menu, open the Monticello Browser available in the main menu.
 - Add a repository (of type either SmalltalkHub or HTTP for SS3)
-- Select the repository and the menu item 'Add to package...' to add this repository to the package TinyBlog. 
-- Select your package and press the 'Save' button.
-- Enter a log describing the changes you did. 
+- To add this repository to the package TinyBlog, select the repository and the menu item 'Add to package...'
+- Select your package and click the 'Save' button.
+- Fill up the log describing the changes that you did. 
 
 The code of your application is now in your SmalltalkHub repository. You should now be able to load your code in a new Pharo image. Nevertheless, if you use a stock Pharo image, you must also load Seaside and other libraries and frameworks.
 
-In this project, we encourage you to always use the image we gave with the preloaded packages and that you can find at *http://mooc.pharo.org*. This will let you load new code without having to take care about package dependencies. 
+In this project, we encourage you to only use the image we provided with the preloaded packages and that you can find at *http://mooc.pharo.org*. This enables you to load new code without being concerned about package dependencies. 
 
 !!About dependencies
-
-Good practices in Pharo developments are to clearly specify the dependencies of used packages. The idea is to ensure that the building of a project is fully reproducible.
-It is important because once we have such reproducible process we can take advantage about automatic build servers such as Jenkins or Travis. 
+ In Pharo developments, good practices are to specify clearly the dependencies of packages being used. The idea is to ensure that the building of a project is fully reproducible.
+This is important because after we have a reproducible process we can take advantage of automatic build servers such as Jenkins or Travis. 
 
 To express dependencies between projects and packages within a project
 Pharo offers special classes called Configurations. Such configurations express the architecture (main repository, dependencies to other projects, structure of the projects) as well as versionned packages. 
 
-In the context of the TinyBlog project, we do not gotany further on this. Note that a full chapter on dependency expression is available in the ''Deep Into Pharo'' book.
+In the context of the TinyBlog project, we do not go any further on this. Note that a full chapter on dependency expression is available in the ''Deep Into Pharo'' book.
  
 %!!!!! Optionel. 
 %If you want to create a configuration, you can use the Versionner tool.
@@ -89,7 +88,7 @@ TBBlog >> initialize
 In the rest of this project, we assume that we will manage only one blog. Later, you may add the possibility to manage multiple blogs such as one per user of the TinyBlog application.
 Currently, we use a Singleton design pattern on the ==TBBlog== class.
 
-Since all the management of a singleton is a class behavior, we define such methods at the class level. 
+Because all the management of a singleton is a class behavior, we define such methods at the class level. 
  
 [[[
 TBBlog class
@@ -138,7 +137,7 @@ TBBlogTest >> setUp
 ]]]
 
 As you may notice, we test different configurations. 
-Posts do not belong to the same category, one is visible and the other is not visible.
+Posts do not belong to the same category: one is visible and the other is not visible.
 
 At the end of each test, the ==tearDown==  method is executed and resets the blog.
 
@@ -153,7 +152,7 @@ We will now develop tests first and then implement all functionalities to make t
 
 !!!First test
 
-The first test adds a post in the blog and verifies that this post is effectivly added.
+The first test adds a post in the blog and verifies that this post is effectively added.
 
 [[[
 TBBlogTest >> testAddBlogPost
@@ -279,9 +278,9 @@ TBBlog >> allCategories
 
 !!Possible extensions
 
-Many extensions can be made such as: retrieve the list of categories that contains at least one visible post, delete a category and all posts that it contains, rename a category, move a post from one category to another, make (in)visible one category and all its content, etc. We encourage you to develop some of them. 
+Many extensions can be made. For example,  retrieve the list of categories that contains at least one visible post, delete a category and all posts that it contains, rename a category, move a post from one category to another, make (in)visible one category and all its content, etc. We encourage you to develop some of them. 
 
-To help you testing the application, you can add the following method that creates multiple posts.
+To help you with the testing of the application, you can add the following method that creates multiple posts.
 
 [[[
 TBBlog class >> createDemoPosts
@@ -302,7 +301,7 @@ If you inspect the result of the following snippet, you will see that the curren
 ]]]
 
 !! Conclusion
-You get now the full model of TinyBlog as well as some tests. You are now ready to implement more advanced functionality such as the database storage or a first HTTP server. Do not forget to save your code. 
+You now have all the code for both the full model of TinyBlog and some tests. You are now ready to implement more advanced functionality such as the database storage or a first HTTP server. Do not forget to save your code. 
 
 % Local Variables:
 % compile-command: "cd .. && ./compile.sh --to='latex' Exercises/Exo-W2-TinyBlog-ModelExtensionTests-EN.pillar"
