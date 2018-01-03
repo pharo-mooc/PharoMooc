@@ -1,27 +1,27 @@
 1
 00:00:01,260 --> 00:00:03,390
-En este video, me gustaría mostrar
-tu que Pharo
+En este video, me gustaría
+mostrarle que Pharo
 
 2
 00:00:03,557 --> 00:00:06,040
 también ofrece la posibilidad
-tener un asistente que
+de disponer de un asistente
 
 3
 00:00:06,207 --> 00:00:08,640
-comprueba la calidad de su código,
-se llama o
+que comprueba la calidad de su 
+código, y que llamamos
 
 4
 00:00:08,807 --> 00:00:11,450
-el asistente de calidad o
-Críticos de Código. Corre
+Quality Assistant o bien
+Code Critics. Comprueba automaticamente
 
 5
 00:00:11,617 --> 00:00:14,770
-automáticamente reglas de buenas prácticas
-en tu código
+reglas de buenas prácticas
+en su código.
 
 6
 00:00:15,710 --> 00:00:17,040
@@ -30,13 +30,13 @@ más cerca.
 
 7
 00:00:17,300 --> 00:00:19,220
-Has visto eso cada vez que
-navegar por una clase,
+Habeis visto que cada vez que
+navego por una clase,
 
 8
 00:00:19,387 --> 00:00:22,770
-tienes esta ventana emergente que
-se visualiza.
+teneis esta ventana emergente que
+se abre.
 
 9
 00:00:22,937 --> 00:00:25,300
@@ -49,17 +49,17 @@ mientras estoy navegando,
 
 11
 00:00:27,937 --> 00:00:32,010
-(vamos a elegir CubHelix
-para ver), tienes
+eligiremos CubHelix
+para ver, tiene
 
 12
 00:00:32,177 --> 00:00:35,740
 esta pequeña área aquí
-donde las indicaciones
+donde se muestran las
 
 13
 00:00:37,020 --> 00:00:40,390
-son mostrados. Y cuando voy
+indicaciones. Y cuando lo realizo
 en el paquete también.
 
 14
@@ -69,83 +69,83 @@ encontrar un
 
 15
 00:00:46,517 --> 00:00:49,240
-ejemplo convincente, lo haremos
-usa nuestro propio código y
+ejemplo convincente, utilizaremos
+nuestro propio código y
 
-dieciséis
+16
 00:00:49,407 --> 00:00:52,090
-escribe un código feo en él, de esta manera
-ya verás.
+escribiremos código feo en él,
+de esta manera lo podreis ver.
 
 17
 00:00:52,280 --> 00:00:57,080
-Si voy a Counter, imaginemos
-por ejemplo eso
+Si voy en Counter, imaginemos
+por ejemplo que
 
 18
 00:00:57,247 --> 00:01:00,480
-Dejo el código de depuración,
+dejo el código de depuración,
 
 19
 00:01:02,350 --> 00:01:04,730
 aquí el sistema me dice
-automáticamente 2 cosas.
+automáticamente dos cosas.
 
 20
 00:01:05,180 --> 00:01:09,310
-Dice que hay depuración
-código a la izquierda
+Me dice que hay depuración
+código que ha quedado
 
 21
 00:01:09,477 --> 00:01:12,200
-en el metodo
-Que puedo hacer ?
+en el metodo.
+Que puedo hacer?
 
 22
 00:01:12,940 --> 00:01:14,540
-Puedo entender donde
-esta regla viene de
+Puedo entender de donde
+viene esta regla.
 
 23
 00:01:14,707 --> 00:01:16,680
-Entonces hago clic en él, me dice
-usar
+Entonces si hago clic en él,
+me dice utilizar breakpoints
 
 24
 00:01:16,847 --> 00:01:19,800
-puntos de interrupción, que no es
-especialmente inteligente en el código de producción.
+(puntos de interrupción), no es muy
+inteligente en el código de producción.
 
 25
 00:01:21,280 --> 00:01:25,260
-Puede decirme que automáticamente
-resuelve este problema.
+Puede decirme, voy a resolver
+automáticamente este problema.
 
 26
 00:01:25,427 --> 00:01:26,340
-Intentemos, ya veremos.
+Probemos, y veremos.
 
 27
 00:01:27,300 --> 00:01:28,530
-Dice suprimir esto.
+Me dice, és necesario suprimir esto.
 
 28
 00:01:28,720 --> 00:01:30,240
-Ok muy bien.
+Ok, muy bien.
 
 29
 00:01:30,950 --> 00:01:32,710
-Y como consecuencia, yo
-Ya no tienes este problema.
+Y de golpe, ya no
+tiene mas este problema.
 
 30
 00:01:34,540 --> 00:01:36,700
-Has visto que lo hacemos
-mientras estoy
+Ha visto que lo hacemos
+mientras
 
 31
 00:01:36,867 --> 00:01:40,100
-programación.
+programamos.
 Finalmente, el sistema reaccionará.
 
 32
@@ -155,77 +155,77 @@ puedo
 
 33
 00:01:43,517 --> 00:01:48,250
-abre el navegador Critic en
+abre el Critic browser en
 mi paquete.
 
 34
 00:01:48,417 --> 00:01:49,460
-aquí es un paquete muy pequeño.
+Aquí, es un paquete muy pequeño.
 
 35
 00:01:50,960 --> 00:01:55,460
 Cometeremos un error para
-míralo.
+que podamos verlo.
 
 36
 00:01:55,627 --> 00:01:56,440
-Aquí si hago "self stop"
+Aquí, si hago "self halt"
 
 37
 00:02:01,020 --> 00:02:02,790
-o ejemplo lejano hago otro
+o ejemplo voi a hacer otro
 método,
 
 38
 00:02:03,460 --> 00:02:06,910
-Yo creo un método "increment3"
+Crearé el metodo "increment3"
 y
 
 39
 00:02:07,077 --> 00:02:08,790
-Invoco un método que
-no existe
+invoco un método que
+no existe.
 
 40
 00:02:08,957 --> 00:02:11,740
-Vamos a llamarlo "foofoo".
+Lo llamaremos "foofoo".
 
 41
 00:02:13,110 --> 00:02:16,010
-Entonces, aquí está rojo, pero supongamos
-No tengo
+Entonces, aquí está rojo, pero 
+supongamos que 
 
 42
 00:02:16,177 --> 00:02:18,900
-lo noté por una
-estado febril ...
+en un estado febril
+no me di cuenta.
 
 43
 00:02:20,590 --> 00:02:24,360
-Voy a usar el navegador Critic
+Voy a usar el Critic browser
+(navegador crítico)
 
 44
 00:02:27,380 --> 00:02:31,250
 en mi código y aquí
-el navegador Critic
+lo que me muestra el navegador
 
 45
 00:02:31,417 --> 00:02:32,770
-Me muestra el conjunto de reglas.
+critico és el conjunto de reglas.
 
 46
 00:02:33,720 --> 00:02:38,620
-De hecho, hay mucho
-reglas
-
+De hecho, hay muchas reglas
+con sus explicaciones.
 47
 00:02:38,787 --> 00:02:42,790
-con explicaciones Si usted tiene
-este código allí, en este
+Si usted tiene este código,
+entonces en este
 
 48
 00:02:42,957 --> 00:02:46,200
-caso de que mejor usarlo
+momento és mejor usarlo
 de esa manera, si hay
 
 49
@@ -238,13 +238,13 @@ Hay varios tipos de reglas.
 
 51
 00:02:50,040 --> 00:02:52,160
-Hay reglas vinculadas a
+Hay reglas vinculadas a la
 optimización, reglas
 
 52
 00:02:52,327 --> 00:02:54,300
-que puede identificar potencialmente
-Errores arreglados.
+que pueden potencialmente
+identificar bugs (errores).
 
 53
 00:02:54,650 --> 00:02:56,600
@@ -252,7 +252,7 @@ Reglas que identifican como verdaderas.
 
 54
 00:02:56,860 --> 00:02:59,200
-Si voy allí, veo el código.
+Si voy aquí, veo el código.
 
 55
 00:02:59,367 --> 00:03:03,050
@@ -265,12 +265,12 @@ o puedo transformarlo.
 
 57
 00:03:08,180 --> 00:03:12,160
-Y la advertencia desapareció.
+Y la advertencia ha desaparecido.
 
 58
 00:03:13,610 --> 00:03:15,400
-Ahora es importante notar
-ese
+Ahora lo que es importante de ver,
+es que 
 
 59
 00:03:15,567 --> 00:03:17,920
@@ -280,87 +280,85 @@ en heurística
 60
 00:03:18,087 --> 00:03:19,700
 Esto significa que a veces
-tu haces cosas
+hace cosas
 
 61
 00:03:19,867 --> 00:03:22,840
-que no son muy buenos
-Tu lo sabes y tu
+que no son muy correctas.
+Usted lo sabe y tiene
 
 62
 00:03:23,007 --> 00:03:24,200
-tiene que dejarlo así
-el sistema.
+que dejarlo asi en el sistema.
 
 63
 00:03:24,367 --> 00:03:28,840
-También puedes decir que esto
-es un falso
+Lo que tanbien puede hacer,
+puede decir, esto és un falso
 
 64
 00:03:29,007 --> 00:03:33,660
 positivo. Imaginemos
-Tengo un "foofoo"
+que tengo un mensaje 
 
-sesenta y cinco
+65
 00:03:33,827 --> 00:03:36,660
-mensaje y sé que quiero
-guárdalo, puedo
+"foofoo" y sé que quiero
+guardarlo, puedo decir
 
 66
 00:03:36,827 --> 00:03:40,240
-especifique que esta regla es falsa
-para este método
+que esta regla es falsa para este
 
 67
 00:03:41,850 --> 00:03:44,850
-Lo escribiré
+metodo, Lo escribire.
 
 68
 00:03:45,017 --> 00:03:46,510
-Aquí está en gris, ¿qué?
-¿eso significa?
+Aquí está gris, ¿qué
+significa esto?
 
 69
 00:03:46,677 --> 00:03:49,690
-Significa que luego podría
-míralo
+Significa que mas tarde podría
+mírar
 
 70
 00:03:49,857 --> 00:03:51,310
-y me digo tal vez esta regla
-era cierto y
+y preguntarme si tal vez 
+esta regla era cierta y
 
 71
 00:03:51,477 --> 00:03:53,490
-tenía sentido tomar otro
+tenía sentido
 
 72
 00:03:57,250 --> 00:03:57,883
-míralo.
+volver a visitarla.
 
 73
 00:03:58,410 --> 00:04:00,640
-Podemos salvar a los críticos.
+Podemos guardar los Critics.
 
 74
 00:04:00,807 --> 00:04:04,910
-Significa que guardamos los resultados de las reglas
-y
+Significa que podemos guardar los
+resultados de las reglas
 
 75
 00:04:05,077 --> 00:04:06,670
-así como los falsos positivos.
+así como de los falsos positivos.
 
 76
 00:04:07,290 --> 00:04:08,850
-Cuando escribimos algo era falso,
-no queremos
+Cuando escribimos que algo era
+falso, no queremos
 
 77
 00:04:09,017 --> 00:04:11,000
-el sistema para repetirlo
-constanltly
+que el sistema nos lo repita
+constantemente
 
 78
 00:04:11,167 --> 00:04:12,680
@@ -373,93 +371,91 @@ los pondrá en un manifiesto.
 
 80
 00:04:18,470 --> 00:04:21,690
-Mirémoslo Aqui alli
-es mi manifiesto lo que
+Veremos esta. Aqui, tengo
+mi manifiesto que sera
 
 81
 00:04:21,857 --> 00:04:23,920
-se le asignará una versión
-asociado con el sistema.
+versionado con el sistema.
 
 82
 00:04:24,087 --> 00:04:26,410
-No necesita ver cómo está codificado.
-dentro, no nos importa
+No és necesario ver cómo está codificado
+interiormente, no nos importa
 
 83
 00:04:26,577 --> 00:04:29,400
 El Manifiesto permite codificar
-cosas, pero no importa.
+cosas, pero inporta poco.
 
 84
 00:04:29,700 --> 00:04:32,590
-No tocas esto, este es el
-críticos de código que lo usarán
+Esto, no lo tocais, és el
+critico de codigo quien lo utilizara
 
 85
 00:04:32,757 --> 00:04:34,120
-para las próximas ejecuciones.
+en las próximas ejecuciones.
 
 86
 00:04:34,287 --> 00:04:36,260
-Y tienes un manifiesto para cada
-paquete.
+Así pues, tiene un Manifiesto
+para cada paquete.
 
 87
 00:04:36,700 --> 00:04:38,100
 Cuando asigna una versión a
-el codigo
+su codigo, entonces tambien
 
 88
 00:04:38,267 --> 00:04:39,920
-también asigna una versión a tu
-se manifiesta y cuando tu
+asigna una versión a su
+manifiesto y cuando ejecute de
 
 89
 00:04:40,087 --> 00:04:42,880
-ejecute nuevamente sus críticos de código,
-automáticamente lo
+nuevo sus críticos de código,
+automáticamente tendra
 
 90
 00:04:43,047 --> 00:04:44,890
-tomará en cuenta
-todos los falsos positivos y todos
+en cuenta todos los
+falsos positivos y todas
 
 91
 00:04:45,057 --> 00:04:47,040
-los meta-observaciones
-ponerlo
+las meta-observaciones
+que usted a incorporado.
 
 92
 00:04:47,207 --> 00:04:49,510
-Entonces, ¿qué es realmente interesante?
-con esa calidad
+Así, lo qué es realmente interesante
+con estas reglas de calidad
 
 93
 00:04:49,677 --> 00:04:53,390
-reglas es que Pharo se integra
-ellos en un proceso de desarrollo.
+és que Pharo las integra en 
+un proceso de desarrollo.
 
 94
 00:04:53,557 --> 00:04:56,010
-Nos aseguraremos de que,
+Haremos de manera que tenemos,
 
 95
 00:04:56,177 --> 00:04:58,570
-cada vez que compromete su proyecto,
-existen
+unos servidores Jenkins que,
 
 96
 00:04:58,737 --> 00:05:01,170
-Servidores Jenkins
-que cargará y ejecutará
+cada vez que tire adelante
+su proyecto, cargara y correrá
 
 97
 00:05:01,337 --> 00:05:04,000
-automáticamente esa calidad
-reglas para verificar eso
+automáticamente estas reglas de
+calidad para verificar que 
 
 98
 00:05:04,167 --> 00:05:05,920
 su programa realmente sigue
-esas reglas
+estas reglas
