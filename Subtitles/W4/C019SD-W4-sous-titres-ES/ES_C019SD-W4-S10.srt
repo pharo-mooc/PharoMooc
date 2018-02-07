@@ -1,16 +1,16 @@
 1
 00:00:00,600 --> 00:00:02,910
-Salud. Así que bienvenidos
+Saludos. Así que bienvenidos
 a este curso.
 
 2
 00:00:03,320 --> 00:00:05,930
 Aqui, le mostraré estos dos
-aspectos, no en profundidad,
+aspectos, aunque no en profundidad,
 
 3
 00:00:06,130 --> 00:00:07,890
-de todas maneras los realizará
+de todas maneras los va realizar
 
 4
 00:00:08,090 --> 00:00:11,420
@@ -18,7 +18,7 @@ con los ejercicios de Tiny blog.
 
 5
 00:00:11,620 --> 00:00:13,160
-Se trata, que podemos hacer
+La questión és, que podemos hacer
 una vez que dispongamos
 
 6
@@ -28,13 +28,13 @@ para realizar desarrollo Web?
 
 7
 00:00:16,440 --> 00:00:19,450
-I como Seaside realiza REST,
-es uno de los
+I como realiza REST  Seaside,
+que es uno de los
 
 8
 00:00:19,650 --> 00:00:20,460
 frameworks para
-realizar REST en Pharo.
+realizar REST con Pharo.
 
 9
 00:00:20,660 --> 00:00:22,010
@@ -48,27 +48,27 @@ Así que empezemos con el primer sujeto.
 11
 00:00:24,740 --> 00:00:27,940
 Magritte es un framework
-que realiza la hipotesis de decir
+que parte de la hipotesis de decir
 
 12
 00:00:28,140 --> 00:00:31,360
-si usted describe sus datos,
-entoneces en este momento
+que si usted describe sus datos,
+entonces, a partir de aqui,
 
 13
 00:00:31,560 --> 00:00:33,190
-podre hacer cosa que estaran
+podra hacer cosa que estaran
 basadas en estos datos.
 
 14
 00:00:33,550 --> 00:00:35,350
-Podre generar por ejemplo
+Podra generar por ejemplo
 formularios,
 
 15
 00:00:35,550 --> 00:00:38,000
 interfaces graficas.
-I és lo que le mostraré.
+I esto és lo que le mostraré.
 
 16
 00:00:38,190 --> 00:00:39,680
@@ -91,7 +91,7 @@ aplicaciones Web más rapidamente.
 20
 00:00:46,450 --> 00:00:49,180
 Ok si vemos, por ejemplo,
-tenemos una clase, la clase Address.
+que tenemos una clase, la clase Address.
 
 21
 00:00:49,380 --> 00:00:51,720
@@ -104,7 +104,7 @@ Que és una dirección?
 23
 00:00:53,250 --> 00:00:57,820
 És una calle, un lugar,
-un codigo posta y un
+un codigo postal y un
 
 24
 00:00:58,020 --> 00:00:58,780
@@ -117,7 +117,7 @@ una calle en particular, así
 
 26
 00:01:04,590 --> 00:01:05,480
-que nada de especifico.
+que nada del otro mundo.
 
 27
 00:01:05,680 --> 00:01:07,200
@@ -135,7 +135,7 @@ siguiente.
 
 30
 00:01:13,150 --> 00:01:14,950
-Tendremos una cadena de descripcion
+Tendremos una cadena de descripciones
 que nos dirá:
 
 31
@@ -172,7 +172,7 @@ estan entre 1.000 y 9.999.
 
 38
 00:01:34,190 --> 00:01:38,120
-Aqui, lo describimos en la
+Aqui, lo describiremos en la
 descripción y podremos
 
 39
@@ -187,42 +187,42 @@ formularios.
 
 41
 00:01:42,000 --> 00:01:45,050
-Luego para el lugar diremos queç
+Luego para el lugar diremos que
 és un campo requerido y 
 
 42
 00:01:45,250 --> 00:01:48,450
 más tarde que se trata de una plaza.
-Otra cosa és que por ejemplo en
+Otra cosa és que por ejemplo
 
 43
 00:01:48,650 --> 00:01:50,690
-Suiza, tienen 26
-cantons, lo que diremos és que
+Suiza, tiene 26
+cantones, lo que diremos és que
 
 44
 00:01:50,930 --> 00:01:53,740
 el canton ésta enumerado,
-és por eso que tenmos una 
+és por eso que elegimos una 
 
 45
 00:01:53,940 --> 00:01:56,370
 single option description,
-és un campo requerido, queremos que
+y és un campo requerido, queremos que
 
 46
 00:01:56,570 --> 00:01:58,740
-se a elegir y que las opcions
+sea a elegir y que las opciones
 sean listadas.
 
 47
 00:01:58,940 --> 00:02:01,630
 Así que facilitaremos la lista, 
-la enumeración de todos los cantones
+que enumera todos los cantones
 
 48
 00:02:01,830 --> 00:02:03,270
-Suizos, no podrá haver otro.
+Suizos, no podrá haber otro.
 
 49
 00:02:03,880 --> 00:02:06,870
@@ -231,7 +231,7 @@ podremos hacer con Magritte?
 
 50
 00:02:07,070 --> 00:02:09,740
-Así como lo describimos en Pharo?
+¿Tanbién como lo describimos en Pharo?
 
 51
 00:02:10,000 --> 00:02:13,210
@@ -312,7 +312,7 @@ Berna y el codigo postal 2012.
 67
 00:02:59,660 --> 00:03:02,910
 Así que podre utilizar el
-he hecho que mis datos
+he hecho de que mis datos
 
 68
 00:03:03,110 --> 00:03:06,200
@@ -330,7 +330,7 @@ con Seaside,
 
 71
 00:03:13,420 --> 00:03:14,950
-creare un componente visual Web.
+crearemos un componente visual Web.
 
 72
 00:03:15,490 --> 00:03:19,490
@@ -372,16 +372,16 @@ ni tan siquiera el DSL de Seaside para
 80
 00:03:39,010 --> 00:03:41,590
 describir mis componentes Web,
-se generan automaticamente.
+que se generan automaticamente.
 
 81
 00:03:42,250 --> 00:03:43,190
-Y esto és super p.
+Y esto és supe.
 
 82
 00:03:44,000 --> 00:03:45,860
 Me gustaria enseñaros,
-por ejemplo, la sociedad
+por ejemplo, que la sociedad
 
 83
 00:03:46,060 --> 00:03:50,070
@@ -400,8 +400,8 @@ Todos los reportes se generan
 
 86
 00:03:55,820 --> 00:04:00,400
-automaticamente. Y esto, esto és una
-ganancia de productividad muy seria.
+automaticamente. Y esto, és realmente
+una ganancia de productividad muy seria.
 
 87
 00:04:01,640 --> 00:04:05,050
@@ -548,7 +548,7 @@ hacer.
 
 117
 00:05:34,960 --> 00:05:37,150
-Aqui, le digo: de crearme un
+Aqui, le pido: de crearme un
 stream (flujo) Pharo.
 
 118
@@ -563,7 +563,7 @@ los bloques, puede ver
 
 120
 00:05:44,390 --> 00:05:46,700
-un itérateur más.
+un iterador más.
 Tomaré cada uno de los blogs
 
 121
@@ -573,7 +573,7 @@ Javascript y
 
 122
 00:05:49,230 --> 00:05:50,270
-los separaré por comas.
+los separaré con comas.
 
 123
 00:05:51,400 --> 00:05:53,660
@@ -591,7 +591,7 @@ un blog.
 
 126
 00:06:00,820 --> 00:06:03,450
-Quiero que me facilites el blog
+Quiero que me facilite el blog
 que se corresponde a un titulo.
 
 127
@@ -788,5 +788,5 @@ divertirse, es un pequeño
 
 167
 00:08:03,350 --> 00:08:06,180
-paquete y tiene un apartado
-en el libro Web Enterprise.
+paquete que dispone de documentación
+en el libro Pharo Web Enterprise.
