@@ -1,7 +1,7 @@
 1
 00:00:01,600 --> 00:00:03,720
 En estos videos, voy a
-mostrarle al inspector
+mostrarle el inspector
 
 2
 00:00:03,887 --> 00:00:04,750
@@ -23,12 +23,12 @@ cualquier objeto del sistema.
 6
 00:00:11,900 --> 00:00:15,210
 Como en Pharo todo está escrito
-basado en objetos,
+en base a objetos,
 
 7
 00:00:15,377 --> 00:00:18,160
-puedes inspeccionar todos los objetos
-componiendo Pharo
+puede inspeccionar todos los objetos
+que componen Pharo
 
 8
 00:00:18,810 --> 00:00:21,780
@@ -47,8 +47,8 @@ interactuar con los objetos
 
 11
 00:00:30,000 --> 00:00:32,300
-esta observando
-Es como si estuvieras
+que está observando.
+Es como si estuviera
 
 12
 00:00:32,467 --> 00:00:36,820
@@ -58,19 +58,19 @@ o bacterias,
 13
 00:00:37,030 --> 00:00:39,080
 y de repente
-eres capaz, gracias a
+fuera capaz, gracias a
 
 14
 00:00:39,247 --> 00:00:42,780
-una aguja interactúa con estos
-bacterias vivas
+una aguja, de interactúar con
+esas bacterias vivas.
 
 15
 00:00:42,960 --> 00:00:45,290
 He preparado
-una pequeña expresión
+una pequeña expresión.
 
-dieciséis
+16
 00:00:47,080 --> 00:00:49,040
 En la vida real sería
 muy raro de poner
@@ -82,27 +82,27 @@ un "Morph" mezclado en un diccionario.
 
 18
 00:00:52,350 --> 00:00:54,190
-pero para el propósito de esto
+pero para el propósito de este
 ejercicio está bien
 
 19
 00:00:54,630 --> 00:00:56,620
-Veamos esto El primero
-cosa que hacer una vez
+Veamos esto. La primera
+cosa que hacer una vez que 
 
 20
 00:00:56,787 --> 00:01:01,450
-escribiste la expresión,
+escribió la expresión,
 es llamar
 
 21
 00:01:01,617 --> 00:01:04,120
-el inspector. Asi que,
+el inspector. Así,
 obtenemos el inspector
 
 22
 00:01:05,240 --> 00:01:08,650
-Verás que es un
+Verá que es un
 objeto polimórfico
 
 23
@@ -116,13 +116,12 @@ varios elementos en mi
 
 25
 00:01:16,007 --> 00:01:18,260
-colección. Cada vez
-Hago clic en un elemento,
+colección. Cada vez que
+hago clic en un elemento,
 
 26
-00:01:18,427 --> 00:01:22,390
-Conseguiré otro
-apertura del inspector
+00:01:18,427 --> 00:01:22,390		  
+se abrirá otro inspector
 
 27
 00:01:22,557 --> 00:01:23,800
@@ -130,7 +129,7 @@ en el elemento seleccionado.
 
 28
 00:01:24,230 --> 00:01:28,060
-Tienes que notar eso
+Tiene que notar que 
 el inspector GT
 
 29
@@ -140,8 +139,8 @@ el inspector en Pharo,
 
 30
 00:01:33,000 --> 00:01:35,840
-es desarrollado por el
-GT Team en la Universidad de Berna.
+es desarrollado por el Equipo
+GT en la Universidad de Berna.
 
 31
 00:01:36,007 --> 00:01:36,640
@@ -164,7 +163,7 @@ No puede inspeccionar un diccionario
 35
 00:01:47,007 --> 00:01:50,440
 de la misma forma que manipula
-un elemento gráfico
+un elemento gráfico.
 
 36
 00:01:51,360 --> 00:01:54,440
@@ -178,12 +177,12 @@ para el usuario.
 
 38
 00:01:57,880 --> 00:01:59,760
-La vista básica que tienes
-es la vista Raw.
+La vista básica que tiene
+es la vista en bruto.
 
 39
 00:02:00,850 --> 00:02:03,800
-Esta es la vista que muestra el
+Ésta es la vista que muestra la
 implementación.
 
 40
@@ -197,23 +196,23 @@ esta clase tiene
 
 42
 00:02:12,567 --> 00:02:16,060
-2 variables de instancia
-diccionario y Teclas ordenadas.
+2 variables de instancia,
+dictionary y orderedKeys.
 
 43
 00:02:16,227 --> 00:02:19,780
-Aquí, el inspector
-muéstrame valores en bruto
+Aquí, el inspector me
+muestra los valores en bruto
 
 44
 00:02:19,947 --> 00:02:21,770
-contenido en estas instancias
-variables
+contenidos en estas variables
+de instancia.
 
 45
 00:02:22,000 --> 00:02:25,640
-Si hago clic en el diccionario,
-Veo que es un diccionario.
+Si hago clic en dictionary,
+veo que es un diccionario.
 
 46
 00:02:25,807 --> 00:02:29,360
@@ -223,45 +222,45 @@ es un diccionario
 47
 00:02:30,550 --> 00:02:34,000
 Y allí, veo una vez más
-La vista sin procesar de este objeto.
+la vista en bruto de este objeto.
 
 48
 00:02:34,760 --> 00:02:37,500
-Ha ordenado llaves que es
-Aparentemente una matriz.
+Tiene orderedKeys que es
+aparentemente un arreglo.
 
 49
 00:02:38,760 --> 00:02:41,080
-Tengo una matriz con
-Tiempo, fecha y cambio.
+Tengo un arreglo con
+Time, Date and Morph..
 
 50
 00:02:44,270 --> 00:02:47,170
 Cuando estoy en el modo de elementos -
-el modo Items es
+el modo Items es en el
 
 51
 00:02:48,860 --> 00:02:53,220
-que este OrderedDictionary
-elemento me ofrece ver
+que éste elemento OrderedDictionary
+me ofrece ver
 
 52
 00:02:53,387 --> 00:02:56,590
-sus claves y valores en un
+sus claves y valores de una
 mejor manera.
 
 53
 00:02:56,757 --> 00:02:59,100
-Si miras aquí, tienes que
-entra y
+Si mira aquí, tiene que
+ir al interior y
 
 54
 00:02:59,267 --> 00:03:01,950
-se pone un poco delicado
+se pone un poco complicado.
 
 55
 00:03:02,117 --> 00:03:03,870
-Aquí no lo sabemos ...
+Aquí no sabemos ...
 "¿Cuál es?
 
 56
@@ -271,13 +270,13 @@ esto significa que
 
 57
 00:03:07,450 --> 00:03:11,430
-Tengo una asociación en la que hay
-es Tiempo, tengo la llave y el valor, etc. "
+tengo una asociación en la que hay
+Time, tengo la llave y el valor, etc. "
 
 58
 00:03:11,597 --> 00:03:16,080
-Entonces, ves que el inspector
-Navega
+Entonces, ve que el inspector
+navega.
 
 59
 00:03:16,410 --> 00:03:17,930
@@ -292,7 +291,7 @@ pequeños círculos, veo
 61
 00:03:22,427 --> 00:03:24,270
 una vista previa de la pantalla
-Iré si hago clic en él.
+a la que iría si hago clic en él.
 
 62
 00:03:25,130 --> 00:03:28,060
@@ -301,16 +300,16 @@ También puedo reducir o cambiar
 63
 00:03:28,510 --> 00:03:31,510
 el tamaño de las ventanas y el foco
-Yo quiero.
+que deseo.
 
 64
 00:03:31,720 --> 00:03:35,220
 Puedo seleccionar los tres, por ejemplo.
-Aquí elijo un gran tamaño
+Aquí elijo el tamaño grane. 
 
-sesenta y cinco
+65
 00:03:35,387 --> 00:03:36,590
-para que veas mejor
+para que vea mejor
 
 66
 00:03:37,680 --> 00:03:42,460
@@ -319,26 +318,26 @@ Cuando estoy en modo Items,
 67
 00:03:42,627 --> 00:03:44,300
 es mejor porque
-Puedo interactuar
+puedo interactuar
 
 68
 00:03:44,467 --> 00:03:47,570
 Aquí veo una fecha, la clave
-y el valor Por ejemplo,
+y el valor. Por ejemplo,
 
 69
 00:03:47,737 --> 00:03:52,330
 cuando selecciono, veo la fecha,
-fecha en formato sin formato
+sin formato
 
 70
 00:03:52,620 --> 00:03:54,550
-de variables de instancia.
+de las variables de instancia.
 
 71
 00:03:54,820 --> 00:03:58,260
 Si hago autoexaminar,
-puedes imaginar lo que veremos.
+puede imaginar lo que veremos.
 
 72
 00:03:58,427 --> 00:04:03,220
@@ -346,19 +345,19 @@ Veremos exactamente una fecha, Timespan,
 
 73
 00:04:03,690 --> 00:04:05,000
-entonces tengo inicio y duración.
+entonces tengo start y duration.
 
 74
 00:04:06,810 --> 00:04:07,710
-Tengo inicio y duración.
+Tengo start y duration.
 
 75
 00:04:09,000 --> 00:04:11,730
-Si miro la pestaña Detalles,
+Si miro la pestaña "Details",
 
 76
 00:04:15,040 --> 00:04:19,390
-la fecha me ofrece verlo con,
+la fecha me ofrece verla con,
 
 77
 00:04:19,557 --> 00:04:24,280
@@ -384,7 +383,7 @@ puede decidir los aspectos que mostrará
 
 82
 00:04:33,760 --> 00:04:35,430
-y ofrezca al inspector.
+y ofrezce al inspector.
 
 83
 00:04:36,230 --> 00:04:37,640
@@ -392,8 +391,8 @@ Aquí está el calendario, por ejemplo.
 
 84
 00:04:37,807 --> 00:04:42,330
-Puedes ver que hay un gráfico
-Representación de lo que es una fecha.
+Puede ver que hay una representación
+gráfica de lo que es una fecha.
 
 85
 00:04:44,400 --> 00:04:45,400
@@ -406,16 +405,16 @@ Puedes ver que hay las mismas cosas.
 
 87
 00:04:52,560 --> 00:04:56,200
-Te he mostrado las pestañas Raw.
+Le he mostrado las pestañas "Raw".
 
 88
 00:04:57,440 --> 00:04:58,540
-También está la pestaña Meta.
+También está la pestaña "Meta".
 
 89
 00:04:59,840 --> 00:05:03,480
 Es un mini navegador de código que
-Muestra los métodos.
+muestra los métodos.
 
 90
 00:05:03,647 --> 00:05:06,770
@@ -424,16 +423,16 @@ Por ejemplo, aquí puedo ver los métodos
 91
 00:05:06,937 --> 00:05:11,410
 porque tal vez desee interactuar
-con la fecha y la hora
+con la fecha y la hora.
 
 92
 00:05:11,840 --> 00:05:15,310
-Imaginemos que no lo sé
-lo que puedo enviarle,
+Imaginemos que no sé lo 
+que puedo enviarle,
 
 93
 00:05:15,477 --> 00:05:17,000
-tal vez puedo enviar horas.
+tal vez puedo enviarle horas.
 
 94
 00:05:17,137 --> 00:05:21,500
@@ -442,7 +441,7 @@ Regresa 18. Son 18.
 95
 00:05:22,350 --> 00:05:25,780
 Normalmente, pude verlo allí si
-busca hora
+busco la hora
 
 96
 00:05:27,540 --> 00:05:30,900
@@ -485,12 +484,12 @@ HSVAColorSelectorMorph.
 
 105
 00:06:02,720 --> 00:06:04,720
-Solo para mostrarte, de hecho
+Solo para mostrarle, de hecho
 con el inspector,
 
 106
 00:06:04,887 --> 00:06:06,560
-Puedo interactuar con mi objeto.
+puedo interactuar con mi objeto.
 
 107
 00:06:07,100 --> 00:06:11,470
@@ -508,20 +507,20 @@ funcionalidades
 
 110
 00:06:22,000 --> 00:06:26,560
-Ofrece. puedo hacer
+ofrece. Puedo hacer
 
 111
 00:06:26,727 --> 00:06:29,090
-selectedColor Veremos si
+selectedColor. Veremos si
 funciona.
 
 112
 00:06:29,890 --> 00:06:30,590
-Si yo selecciono Color.
+Si hago: self selectedColor
 
 113
 00:06:30,757 --> 00:06:35,590
-Devuelve un color.
+devuelve un color.
 
 114
 00:06:36,000 --> 00:06:39,000
@@ -535,11 +534,11 @@ hacer una impresión,
 116
 00:06:42,527 --> 00:06:44,260
 y devuelve un texto
-Representación del objeto.
+que representa el objeto.
 
 117
 00:06:44,940 --> 00:06:49,080
-Pude inspeccionar en ella
+Pude hacer inspect en él
 
 118
 00:06:49,740 --> 00:06:51,760
@@ -551,7 +550,7 @@ Es lo que estoy haciendo aquí.
 
 120
 00:06:52,857 --> 00:06:55,000
-Ahora si quiero el resultado de esto
+Ahora si quiero el resultado de esta
 
 121
 00:06:55,167 --> 00:07:00,080
@@ -564,21 +563,21 @@ en el flujo del inspector,
 
 123
 00:07:01,137 --> 00:07:03,190
-Solo tengo que hacer "Hazlo y listo".
+Solo tengo que hacer "Do it and go".
 
 124
 00:07:03,610 --> 00:07:08,360
-Si hago "Hazlo y listo", yo
-han agregado en el flujo de interacción
+Si hago "Do it and go", he
+agregado en el flujo de interacción
 
 125
 00:07:08,790 --> 00:07:11,010
 un nuevo objeto y un inspector
-en un nuevo objeto
+del nuevo objeto
 
 126
 00:07:11,530 --> 00:07:15,620
-Entendiste. Aquí están los colores.
+Usted entiende. Aquí están los colores.
 con la codificación de los colores.
 
 127
@@ -606,18 +605,18 @@ y si quiero encontrar el
 
 132
 00:07:38,667 --> 00:07:42,180
-sub-morphs componiendo
+sub-morphs que componene
 mi objeto gráfico,
 
 133
 00:07:42,347 --> 00:07:47,030
 cuando estoy en modo Raw, yo
-tienes que navegar
+tengo que navegar
 
 134
 00:07:47,200 --> 00:07:52,050
-dentro de los componentes gráficos
-árbol.
+dentro del árbol de componentes
+gráficos.
 
 135
 00:07:53,130 --> 00:07:54,280
@@ -625,7 +624,7 @@ Puede ser realmente molesto.
 
 136
 00:07:55,080 --> 00:07:57,760
-Te mostraré un buen consejo.
+Le daré un buen consejo.
 
 137
 00:07:59,190 --> 00:08:03,660
@@ -634,7 +633,7 @@ Imaginemos que tengo mi árbol Morph.
 138
 00:08:05,550 --> 00:08:08,640
 Tengo dos vistas que son exactamente
-Lo mismo en el mismo objeto.
+lo mismo en el mismo objeto.
 
 139
 00:08:11,160 --> 00:08:12,820
@@ -652,12 +651,11 @@ en el árbol.
 
 142
 00:08:22,230 --> 00:08:25,610
-Lo digo:"Quiero que
-mostrar allí
+Lo digo:"Quiero mostrar allí solo ésta"
 
 143
 00:08:25,777 --> 00:08:30,590
-solo esta ", o por ejemplo,
+O por ejemplo,
 aquí estoy realmente
 
 144
@@ -676,7 +674,7 @@ encontrar el sub-morph correspondiente
 
 147
 00:08:43,517 --> 00:08:48,480
-al pequeño indicador aquí
+al pequeño indicador, aquí
 Es bastante fácil, es este.
 
 148
@@ -701,7 +699,7 @@ hasta que lo encuentre
 
 153
 00:09:07,470 --> 00:09:12,060
-Es aquí que creo,
+Está aqui ... creo.
 porque aquí está
 
 154
@@ -710,7 +708,7 @@ un objeto simple
 
 155
 00:09:14,500 --> 00:09:16,530
-Verás en los otros videos.
+Verá en los otros videos.
 que podemos hacer
 
 156
@@ -720,13 +718,13 @@ en cada objeto del sistema.
 
 157
 00:09:21,370 --> 00:09:23,530
-Te mostraré en particular
+Le mostraré en particular
 que podemos hacerlo
 
 158
 00:09:23,697 --> 00:09:27,850
-en sistemas de archivos, en clases
-sí mismos.
+en sistemas de archivos, las 
+propias clases.
 
 159
 00:09:28,160 --> 00:09:30,040
@@ -736,21 +734,21 @@ lo que hemos visto
 160
 00:09:30,207 --> 00:09:32,560
 es que el inspector es un
-objeto que te permitirá
+objeto que le permitirá
 
 161
 00:09:32,727 --> 00:09:37,230
-hablar, interactuar y
-modificar objetos vivos
+hablar con, interactuar y
+modificar objetos vivos,
 
 162
 00:09:37,397 --> 00:09:41,010
-tus objetos, y en otra mano,
-cada objeto se
+sus objetos, y por otro lado,
+cada objeto
 
 163
 00:09:41,177 --> 00:09:45,730
-mostrar diferentes aspectos
+mostrará diferentes aspectos
 o diferentes vistas de sí mismo
 
 164
@@ -760,12 +758,12 @@ para tener una diferente
 165
 00:09:48,427 --> 00:09:51,640
 interacción de acuerdo con
-tus escenarios
+sus escenarios
 
 166
 00:09:51,807 --> 00:09:53,760
 Constituye un muy,
-objeto muy poderoso
+pero muy poderoso objeto.
 
 167
 00:09:54,190 --> 00:09:56,290

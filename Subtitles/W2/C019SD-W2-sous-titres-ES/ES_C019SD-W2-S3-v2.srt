@@ -14,8 +14,8 @@ La pregunta que debe hacerse es:
 
 4
 00:00:11,760 --> 00:00:15,080
-"¿Qué sucede cuando tienes
-¿Una secuencia de mensajes únicos? "
+"¿Qué sucede cuando se tiene
+una secuencia de mensajes unarios?"
 
 5
 00:00:15,240 --> 00:00:18,040
@@ -23,27 +23,27 @@ Escribí la siguiente expresión:
 
 6
 00:00:18,200 --> 00:00:20,720
-1000 nombre de clase factorial
-¿Lo que pasa?
+1000 factorial class name
+¿Qué pasa?
 
 7
 00:00:20,880 --> 00:00:24,400
-Lo ejecutas como si hubiera escrito
-Todos estos paréntesis.
+Lo ejecuta como si hubiera escrito
+todos estos paréntesis.
 
 8
 00:00:24,560 --> 00:00:26,680
-Puedes ver que son molestos.
+Puede ver que son molestos.
 
 9
 00:00:26,840 --> 00:00:30,840
-Cuando tienes mensajes
+Cuando tiene mensajes
 al mismo nivel
 
 10
 00:00:31,000 --> 00:00:35,000
-(unario, binario o palabras clave:
-Funciona con los tres),
+unario, binario o palabras clave
+funciona con los tres,
 
 11
 00:00:35,160 --> 00:00:37,320
@@ -55,28 +55,28 @@ Envío el mensaje factorial a 1000.
 
 13
 00:00:40,440 --> 00:00:43,960
-Luego envío la clase de mensaje
+Luego envío el mensaje class
 al resultado de factorial.
 
 14
 00:00:44,120 --> 00:00:46,600
-Luego envío el nombre del mensaje
+Luego envío el mensaje name
 
 15
 00:00:47,800 --> 00:00:50,600
 a este nuevo objeto
 
-dieciséis
+16
 00:00:50,760 --> 00:00:52,880
 Devuelve LargePositiveInteger.
 
 17
 00:00:53,640 --> 00:00:56,080
-Factorial 1000 es un gran número.
+Factorial 1000 es un número muy grande.
 
 18
 00:00:56,240 --> 00:00:59,320
-También puedes probar con factorial 10000.
+También puede probar con factorial 10000.
 
 19
 00:00:59,920 --> 00:01:01,160
@@ -106,7 +106,7 @@ Tomemos un ejemplo.
 
 25
 00:01:17,880 --> 00:01:21,800
-Tengo un mensaje unario, cuadrado,
+Tengo un mensaje unario, squared,
 
 26
 00:01:21,960 --> 00:01:24,480
@@ -114,11 +114,11 @@ y un mensaje binario, +.
 
 27
 00:01:24,640 --> 00:01:27,000
-El mensaje único gana.
+El mensaje unario gana.
 
 28
 00:01:27,160 --> 00:01:30,800
-Primero, envío cuadrado.
+Primero, envío squared.
 
 29
 00:01:30,960 --> 00:01:33,760
@@ -134,8 +134,8 @@ Esta es otra situación.
 
 32
 00:01:39,720 --> 00:01:42,360
-Voy a subir al poder
-usando raisedTo.
+Voy a elevar a la potencia
+usando raisedTo:
 
 33
 00:01:42,520 --> 00:01:47,040
@@ -148,8 +148,8 @@ Primero, tengo 5.
 
 35
 00:01:49,680 --> 00:01:53,080
-Entonces ejecuto raisedTo, regresa 32.
-Es lo correcto.
+Entonces ejecuto raisedTo: regresa 32.
+Es correcto.
 
 36
 00:01:54,000 --> 00:01:56,160
@@ -203,16 +203,16 @@ Devuelve el color aBlack.
 
 47
 00:02:37,520 --> 00:02:41,520
-Yo comparo los dos colores.
+Comparo los dos colores.
 Obtengo aBlack = aBlack, lo cual es cierto.
 
 48
 00:02:43,320 --> 00:02:46,160
-Este es un ejemplo para mostrarte
+Este es un ejemplo para mostrarle que
 
 49
 00:02:47,360 --> 00:02:50,200
-También puedes hacer una conversión automática.
+también puede hacer una conversión automática.
 con Pharo
 
 50
@@ -222,7 +222,7 @@ Es una especie de broma.
 51
 00:02:53,960 --> 00:02:57,960
 Tengo la expresion
-1 clase maxVal + 1
+1 class maxVal + 1
 
 52
 00:02:58,120 --> 00:03:00,920
@@ -239,8 +239,8 @@ y un mensaje binario.
 
 55
 00:03:05,880 --> 00:03:08,800
-Envío la clase de mensaje
-al pequeño entero 1.
+Envío el mensaje class
+al SmallInteger 1.
 
 56
 00:03:08,960 --> 00:03:12,760
@@ -249,8 +249,8 @@ ya que 1 es un entero. Funciona.
 
 57
 00:03:13,560 --> 00:03:18,840
-Como es el resultado de 1 clase,
-Le envío el mensaje maxVal.
+Como es el resultado de 1 class,
+envío el mensaje maxVal.
 
 58
 00:03:19,000 --> 00:03:20,800
@@ -258,8 +258,8 @@ Le envío el mensaje maxVal.
 
 59
 00:03:20,960 --> 00:03:25,560
-Significa:"¿Cuál es el número más grande?
-¿Puedes codificar sobre un pequeño entero? "
+Significa:"¿Cuál es el número más grande
+que se puede codificar en un SmallInteger?"
 
 60
 00:03:25,720 --> 00:03:29,960
@@ -272,7 +272,7 @@ A este número, envío el mensaje + 1.
 
 62
 00:03:36,920 --> 00:03:40,160
-No devuelve un pequeño número entero.
+No devuelve un SmallInteger.
 
 63
 00:03:40,320 --> 00:03:44,240
@@ -282,11 +282,11 @@ representado por un pequeño entero.
 64
 00:03:44,400 --> 00:03:47,080
 Como resultado,
-no puede ser un pequeño entero.
+no puede ser un SmallInteger.
 
-sesenta y cinco
+65
 00:03:47,240 --> 00:03:51,440
-quiero saber
+Quiero saber
 cual es la clase de este numero
 
 66
@@ -296,12 +296,12 @@ Devuelve LargePositiveInteger.
 
 67
 00:03:56,640 --> 00:04:00,160
-Este es el más grande de los enteros pequeños.
+Este es el más grande de los SmallInteger.
 
 68
 00:04:00,320 --> 00:04:02,840
 Y eso es lo más pequeño
-de enteros grandes.
+de los LargePositiveInteger.
 
 69
 00:04:04,280 --> 00:04:06,280
@@ -314,8 +314,8 @@ La clase se hubiera enviado a 1.
 
 71
 00:04:09,640 --> 00:04:12,760
-No quiero eso:
-Quiero enviar clase al resultado.
+No quiero eso.
+Quiero enviar class al resultado.
 
 72
 00:04:14,520 --> 00:04:18,640
@@ -339,7 +339,7 @@ El sistema no comprende:
 76
 00:04:29,240 --> 00:04:33,680
 ¿Por qué? Porque bottomRight
-es un mensaje único.
+es un mensaje unario.
 
 77
 00:04:33,840 --> 00:04:38,560
@@ -349,7 +349,7 @@ se envía a 100, su receptor.
 78
 00:04:38,720 --> 00:04:42,520
 100 no puede entender esta API
-como es el de la clase Rectangle.
+dado que pertenece a la clase rectángulo.
 
 79
 00:04:42,680 --> 00:04:46,360
@@ -358,7 +358,7 @@ como lo hice en esta expresión.
 
 80
 00:04:46,520 --> 00:04:50,440
-¿Como funciona? Que hay entre
+¿Como funciona? Lo que hay entre
 paréntesis se ejecuta primero.
 
 81
@@ -373,7 +373,7 @@ dos de ellos se crean.
 
 83
 00:04:59,120 --> 00:05:02,360
-Envío alcance:
+Envío extent:
 a un punto que crea un rectángulo.
 
 84
@@ -382,7 +382,7 @@ Tengo un punto 0 @ 0.
 
 85
 00:05:05,280 --> 00:05:09,880
-Lo paso de 100 a 100.
+Le paso extent: 100@100.
 
 86
 00:05:10,440 --> 00:05:12,080
@@ -390,7 +390,7 @@ Devuelve este rectángulo.
 
 87
 00:05:12,240 --> 00:05:15,680
-Lo busco por el valor bottomRight.
+Lo pregunto por el valor bottomRight.
 
 88
 00:05:15,840 --> 00:05:17,200
@@ -402,16 +402,16 @@ Devuelve el valor del punto aquí:
 
 90
 00:05:20,640 --> 00:05:23,400
-es 100 a 100
+es 100@100
 
 91
 00:05:24,960 --> 00:05:28,600
-Te dije que las cosas eran muy simples.
-en Pharo:
+Le dije que las cosas eran muy simples
+en Pharo.
 
 92
 00:05:28,760 --> 00:05:30,360
-solo hay mensajes
+Solo hay mensajes.
 
 93
 00:05:30,520 --> 00:05:34,560
@@ -421,7 +421,7 @@ No hay orden de precedencia.
 94
 00:05:34,720 --> 00:05:38,400
 Lo bueno es que puedes usar +
-para lenguajes específicos del dominio
+para lenguajes de diminio específicos.
 
 95
 00:05:38,560 --> 00:05:42,920
@@ -475,7 +475,7 @@ No es lo que aprendí en la escuela.
 
 106
 00:06:15,640 --> 00:06:19,440
-Para desambiguar esto, tengo
+Para desambiguar esto, tengo que
 reescribir esto usando paréntesis
 
 107
@@ -513,16 +513,16 @@ ya que va de izquierda a derecha.
 114
 00:06:41,280 --> 00:06:43,840
 Si agrego paréntesis,
-Obtengo el resultado correcto
+obtengo el resultado correcto
 
 115
 00:06:44,000 --> 00:06:46,640
-Tengo un punto interesante para hacer:
+Tengo un punto interesante por hacer:
 
 116
 00:06:46,800 --> 00:06:49,960
 cuando escribo 1/3 + 2/3,
-Obtengo el pequeño número entero 1.
+obtengo el SmallInteger 1.
 
 117
 00:06:50,120 --> 00:06:54,280
@@ -556,11 +556,11 @@ luego unarios, binarios y palabras clave.
 
 124
 00:07:13,480 --> 00:07:16,120
-Cuando en el mismo nivel,
+Cuando estan en el mismo nivel,
 
 125
 00:07:16,280 --> 00:07:20,480
-por ejemplo, con dos mensajes únicos,
+por ejemplo, con dos mensajes unarios,
 vas de izquierda a derecha.
 
 126
@@ -569,14 +569,14 @@ No hay precedencia matemática
 
 127
 00:07:23,480 --> 00:07:26,480
-como operaciones matemáticas
-son simples mensajes
+dado que los operadores matemáticos
+son simples mensajes,
 
 128
 00:07:26,640 --> 00:07:29,280
-Lo que es diferente de la mayoría de los idiomas:
+lo que es diferente de la mayoría de los idiomas.
 
 129
 00:07:29,440 --> 00:07:34,160
-los argumentos se colocan dentro del mensaje
-estructura. entre:y:por ejemplo.
+Los argumentos se colocan dentro del mensaje
+estructura, por ejemplo en between:and:
