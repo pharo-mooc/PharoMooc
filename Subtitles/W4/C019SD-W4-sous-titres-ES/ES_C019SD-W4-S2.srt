@@ -1,552 +1,577 @@
-﻿1
-00:00:00,600 --> 00:00:04,800
-Hola a todos.
-Esta segunda secuencia sobre herencia
+1
+00:00:00,690 --> 00:00:04,950
+Buenos días a todos. En esta
+segunda secuencia sobre 
 
 2
-00:00:04,960 --> 00:00:08,480
-te enseñará más
-sobre herencia de comportamiento
+00:00:05,150 --> 00:00:07,920
+la herencia, veremos con
+detalle la herencia del
 
 3
-00:00:08,640 --> 00:00:11,800
-y que pasa cuando tu
-enviar un mensaje a un objeto
+00:00:08,120 --> 00:00:10,630
+comportamiento al enviar un
 
 4
-00:00:12,440 --> 00:00:15,320
-El objetivo de esta secuencia
+00:00:10,830 --> 00:00:12,030
+mensaje a un objeto.
 
 5
-00:00:15,480 --> 00:00:18,720
-es entender
-el algoritmo de envío de mensajes
+00:00:12,480 --> 00:00:16,760
+El objetivo de esta sequencia
+és el de ver el objetivo de
 
 6
-00:00:19,720 --> 00:00:24,400
-eso lo hace posible
-para convertir un mensaje
+00:00:17,000 --> 00:00:20,840
+los mensajes, de comprender
+bien el algoritmo, de comprender
 
 7
-00:00:24,560 --> 00:00:28,560
-enviado por un receptor a un método.
+00:00:21,040 --> 00:00:24,880
+el algoritmo que permite
+convertir un mensaje enviado
 
 8
-00:00:28,720 --> 00:00:32,720
-Es decir, qué método se ejecutará,
-en relación con el mensaje enviado,
+00:00:25,080 --> 00:00:29,530
+a un receptor a través de un
+metodo, o que metodo sera
 
 9
-00:00:34,320 --> 00:00:37,640
-y la semántica del "yo"
-o lo que realmente significa yo.
+00:00:29,730 --> 00:00:33,050
+ejecutado en funcion de este 
+mensaje enviado a tal receptor.
 
 10
-00:00:38,800 --> 00:00:40,920
-Como vimos en la secuencia 1,
+00:00:34,410 --> 00:00:37,040
+Y la semantica de self asi pues
+que significa realmente self.
 
 11
-00:00:41,400 --> 00:00:45,320
-La herencia es estática, por estado.
+00:00:38,850 --> 00:00:42,220
+Como hemos visto en la sequencia
+anterior, la herencia
 
 12
-00:00:45,480 --> 00:00:48,640
-Es decir, cuando se define la subclase,
+00:00:42,420 --> 00:00:47,010
+és estatica para el estado,
+és decir cuando una subclase
 
 13
-00:00:49,160 --> 00:00:51,240
-su estado es conocido
+00:00:47,210 --> 00:00:51,350
+és creada su estado és conocido
+en el momento de la creacion
 
 14
-00:00:51,400 --> 00:00:53,840
-Pero la herencia del comportamiento es dinámica.
+00:00:51,550 --> 00:00:53,680
+mientras que para el comportamiento
+és dinamico.
 
 15
-00:00:54,000 --> 00:00:56,040
-Cuando el programa se está ejecutando,
+00:00:54,090 --> 00:00:57,300
+És decir que durante la ejecucion,
+cuando enviamos un 
 
-dieciséis
-00:00:56,400 --> 00:00:58,720
-cuando envías un mensaje a un objeto
+16
+00:00:57,500 --> 00:00:59,010
+mensaje a un objeto, miraremos
+cuales son los metodos
 
 17
-00:00:58,880 --> 00:01:02,000
-buscas métodos
-para clase y superclase.
+00:00:59,210 --> 00:01:01,880
+de la clase y cuales són los 
+metodos de las super clases.
 
 18
-00:01:02,400 --> 00:01:06,200
-El envío de mensajes es un proceso de dos pasos.
+00:01:02,500 --> 00:01:05,960
+Enviar un mensaje a un objeto
+se realiza en 2 etapas:
 
 19
-00:01:06,920 --> 00:01:11,400
-Primero, busca el método
-que coincida con el mensaje.
+00:01:06,930 --> 00:01:10,950
+en la primera etapa buscamos el
+metodo que corresponde a este mensaje.
 
 20
-00:01:11,760 --> 00:01:15,120
-Paso dos, ejecuta el método
-en el receptor
+00:01:11,800 --> 00:01:14,810
+En la segunda etapa ejectuamos
+este metodo en el receptor.
 
 21
-00:01:16,760 --> 00:01:19,680
-Entonces, aquí tenemos la clase Rectangle,
+00:01:16,810 --> 00:01:21,500
+Así aqui, tenemos la clase
+"Rectangle", la clase "ColoredRectangle".
 
 22
-00:01:20,280 --> 00:01:22,880
-la clase ColoredRectangle,
+00:01:24,000 --> 00:01:26,360
+Una instancia de la clase
+"ColoredRectangle" que se llama
 
 23
-00:01:23,920 --> 00:01:27,760
-y una instancia de ColorRectangle
-llamado aColoredRectangle,
+00:01:26,560 --> 00:01:31,420
+aColoredRectangle y le enviamos
+el mensaje "area" a este
 
 24
-00:01:28,280 --> 00:01:31,760
-Enviamos el mensaje "área"
-a este objeto
+00:01:31,620 --> 00:01:32,380
+objeto.
 
 25
-00:01:34,440 --> 00:01:40,200
-Nuestro algoritmo de búsqueda busca un método
-coincidiendo con el mensaje "área".
+00:01:34,390 --> 00:01:37,750
+Pues tenemos un algoritmo de
+busqueda que buscara el
 
 26
-00:01:41,400 --> 00:01:43,680
-Encuentra el método
+00:01:37,950 --> 00:01:42,660
+metodo correspondiente al mensaje
+area, que encontrara este metodo.
 
 27
-00:01:44,160 --> 00:01:46,880
-y lo lleva a cabo
+00:01:44,290 --> 00:01:48,850
+El cuerpo del metodo se 
+ejecutara en funcion del
 
 28
-00:01:47,880 --> 00:01:51,400
-en relación al objeto
-aColoredRectangle
+00:01:49,570 --> 00:01:50,650
+objeto  aColoredRectangle.
 
 29
-00:01:52,600 --> 00:01:54,200
-El algoritmo de búsqueda
+00:01:52,650 --> 00:01:57,000
+El algoritmo de busqueda "lookup"
+permite conocer el metodo a
 
 30
-00:01:54,640 --> 00:01:57,640
-identifica el método a ejecutar
+00:01:57,200 --> 00:01:59,910
+ejecutar cuando un mensaje és
+enviado a un objeto.
 
 31
-00:01:57,880 --> 00:02:00,000
-cuando se envía un mensaje a un objeto.
+00:02:00,280 --> 00:02:02,190
+Así aqui distinguimos entre
+enviar un mensaje a un objeto
 
 32
-00:02:00,320 --> 00:02:04,560
-Hay claramente dos pasos:
-envío de mensajes y ejecución de métodos.
+00:02:02,390 --> 00:02:04,540
+y ejecutar un metodo, són 2
 
 33
-00:02:04,720 --> 00:02:07,920
-Son fundamentalmente diferentes,
-en la programación de objetos.
+00:02:04,740 --> 00:02:06,400
+cosas realmente diferentes, que
 
 34
-00:02:08,640 --> 00:02:10,760
-Incluso si usa otro idioma,
+00:02:06,600 --> 00:02:09,620
+són fundamentales en la programacion
+orientada objeto, aunque usted
 
 35
-00:02:10,880 --> 00:02:15,000
-es importante entender
-la diferencia entre los dos.
+00:02:09,820 --> 00:02:12,000
+utilize otro lenguaje de programacion
+és importante de comprender
 
 36
-00:02:15,320 --> 00:02:20,200
-Si envía el mensaje de "área"
-al objeto aColoredRectangle,
+00:02:12,200 --> 00:02:14,230
+la diferencia entre envio de 
+mensaje y ejecucion de metodo.
 
 37
-00:02:20,400 --> 00:02:23,160
-Lo primero que el algoritmo de búsqueda
-hará
+00:02:15,630 --> 00:02:19,000
+Aqui enviamos el mensaje
+"area" al objeto
 
 38
-00:02:23,320 --> 00:02:26,800
-es buscar la clase del receptor.
+00:02:19,200 --> 00:02:21,900
+aColoredRectangle
+el algoritmo de busqueda, la primera cosa
 
 39
-00:02:27,440 --> 00:02:29,840
-El receptor del mensaje "área"
+00:02:22,100 --> 00:02:26,240
+que hace és que buscara la classe
+del receptor.
 
 40
-00:02:30,000 --> 00:02:31,360
-es un rectángulo multicolor.
+00:02:27,510 --> 00:02:30,150
+Así el receptor del mensaje
+"area" és
 
 41
-00:02:31,520 --> 00:02:34,640
-El algoritmo de búsqueda
-comienza a buscar un método
+00:02:30,350 --> 00:02:33,640
+aColoredRectangle,
+el algoritmo de busqueda empezara
 
 42
-00:02:34,800 --> 00:02:38,720
-en la clase del objeto:
-ColoredRectangle.
+00:02:33,840 --> 00:02:36,240
+a buscar un metodo area a 
+partir de la clase de este objeto.
 
 43
-00:02:39,080 --> 00:02:41,840
-Busca un método de "área"
-en esa clase
+00:02:36,440 --> 00:02:37,200
+És decir ColoredRectangle.
 
 44
-00:02:42,160 --> 00:02:44,160
-El algoritmo de búsqueda
+00:02:39,160 --> 00:02:41,300
+Buscamos un metodo area
+en esta clase de aqui.
 
 45
-00:02:44,320 --> 00:02:48,000
-no encontrará el método "área"
-en esa subclase
+00:02:42,180 --> 00:02:45,760
+El algoritmo de busqueda no
+encontrara el metodo area
 
 46
-00:02:48,480 --> 00:02:51,200
-Entonces se verá en otra parte.
+00:02:45,960 --> 00:02:48,620
+aqui, este no forma parte de los
+metodos definidos en esta 
 
 47
-00:02:51,640 --> 00:02:54,960
-Se ve en la superclase Rectángulo.
+00:02:48,820 --> 00:02:50,780
+esta clase, así el algoritmo
+de busqueda se dirigira
 
 48
-00:02:55,640 --> 00:02:57,760
-Encuentra el método "área" allí,
+00:02:51,000 --> 00:02:54,330
+hacia la super clase,
+es decir la clase rectangulo.
 
 49
-00:02:58,720 --> 00:02:59,920
-y lo devuelve
+00:02:55,710 --> 00:02:59,540
+el metodo area se encuentra 
+aqui y lo devuelve.
 
 50
-00:03:00,080 --> 00:03:03,320
-El algoritmo de búsqueda está hecho
-cuando encuentra un método.
+00:02:59,740 --> 00:03:01,750
+El algoritmo de busqueda a
+acabado su trabajo una vez
 
 51
-00:03:04,320 --> 00:03:09,320
-Estudiemos dos casos y revise
-el algoritmo que acabo de enumerar en ellos.
+00:03:01,950 --> 00:03:04,350
+encuentra el metodo a ejecutar.
 
 52
-00:03:10,640 --> 00:03:13,200
-Enviamos el mensaje "color"
+00:03:04,550 --> 00:03:07,520
+Estudiamos 2 casos, y revisamos
+el algoritmo que acabo de
 
 53
-00:03:13,360 --> 00:03:14,680
-a aColorRectangle
+00:03:07,720 --> 00:03:09,370
+mostrar en estos 2 casos.
 
 54
-00:03:14,840 --> 00:03:18,360
-El algoritmo busca
-la clase receptora
+00:03:10,710 --> 00:03:13,660
+Enviamos el mensaje "color"
+a "aColorRectangle".
 
 55
-00:03:18,680 --> 00:03:20,920
-para un método llamado color.
+00:03:14,940 --> 00:03:19,350
+Así pues el algoritmo busca
+en la clase del receptor un
 
 56
-00:03:21,440 --> 00:03:23,840
-Lo encuentra y lo devuelve.
+00:03:19,550 --> 00:03:20,680
+metodo que se llama color.
 
 57
-00:03:25,160 --> 00:03:29,600
-Si ahora enviamos el mensaje "área"
-a aColoredRectangle,
+00:03:21,550 --> 00:03:23,490
+Lo encuentra y lo devuelve.
 
 58
-00:03:30,320 --> 00:03:33,560
-el algoritmo busca
-la clase del receptor
+00:03:25,230 --> 00:03:28,780
+Si en este momento enviamos 
+el mensaje "area" a
 
 59
-00:03:33,720 --> 00:03:35,160
-para el método "área".
+00:03:29,000 --> 00:03:32,010
+aColoredRectangle
+el algorimo busca en la clase del
 
 60
-00:03:35,320 --> 00:03:37,920
-Al no encontrarlo, busca en la superclase.
+00:03:32,210 --> 00:03:34,720
+receptor és decir aqui,
+un metodo que se llamaria
 
 61
-00:03:38,160 --> 00:03:40,920
-Lo encuentra y devuelve el método.
+00:03:34,920 --> 00:03:37,620
+"area", como no lo encuentra
+mira en la  super classe.
 
 62
-00:03:42,280 --> 00:03:45,520
-"Ser" siempre representa al receptor.
+00:03:38,220 --> 00:03:40,470
+Lo ha encontrado, el algoritmo
+de busqueda devuelve este metodo.
 
 63
-00:03:45,960 --> 00:03:49,720
-Los siguientes ejemplos
-te lo dejará en claro
+00:03:42,260 --> 00:03:45,580
+self representa siempre al receptor.
 
 64
-00:03:50,320 --> 00:03:54,560
-que el algoritmo de búsqueda siempre
-se aplica al receptor mismo.
+00:03:46,030 --> 00:03:48,680
+A traves de los ejemplos 
+que siguen comprendera
 
-sesenta y cinco
-00:03:54,960 --> 00:03:57,800
-Aquí tenemos una instancia de clase A.
+65
+00:03:48,880 --> 00:03:51,440
+como el algoritmo de 
+busqueda se aplica
 
 66
-00:04:01,240 --> 00:04:02,920
-Enviamos el mensaje "foo".
+00:03:51,640 --> 00:03:54,240
+en todos los casos, y que self
+es sistematicamente el receptor.
 
 67
-00:04:03,760 --> 00:04:06,120
-El algoritmo de búsqueda busca foo,
+00:03:55,000 --> 00:03:57,600
+Así aqui tenemos una instancia
+de la clase A
 
 68
-00:04:06,360 --> 00:04:08,120
-lo encuentra y lo ejecuta.
+00:04:01,290 --> 00:04:02,580
+a quien enviamos el mensaje foo.
 
 69
-00:04:10,000 --> 00:04:12,680
-Para B nuevo, comenzamos con aB,
+00:04:03,790 --> 00:04:07,840
+El algoritmo de busquea busca el
+metodo foo, y lo encuentra, y lo ejecuta.
 
 70
-00:04:13,000 --> 00:04:14,880
-Lo mismo que B nuevo.
+00:04:09,940 --> 00:04:14,370
+Para B New, partimos aqui de E
+B, que és lo mismo que 
 
 71
-00:04:15,040 --> 00:04:16,960
-Buscamos un método, "foo".
+00:04:14,570 --> 00:04:16,260
+B new, buscamos un metodo foo.
 
 72
-00:04:17,440 --> 00:04:19,360
-El algoritmo de búsqueda lo encuentra,
+00:04:17,580 --> 00:04:22,020
+El algoritmo de busqueda lo 
+encuentra, lo ejecuta, devuelve 50 .
 
 73
-00:04:20,200 --> 00:04:22,000
-lo ejecuta y devuelve 50.
+00:04:22,220 --> 00:04:25,250
+Aqui tenemos 10 y 50.
 
 74
-00:04:22,160 --> 00:04:23,440
-Entonces, aquí tenemos 10,
+00:04:25,720 --> 00:04:28,310
+És inportante que se tome el 
+tiempo necesario para reflexionar
 
 75
-00:04:24,520 --> 00:04:25,320
-y 50
+00:04:28,510 --> 00:04:29,940
+sobre el significado de self.
 
 76
-00:04:25,640 --> 00:04:30,200
-Es importante que te tomes el tiempo
-pensar en lo que significa "ser".
+00:04:30,560 --> 00:04:34,340
+2 puntos son importantes a
+describir: que representa self?
 
 77
-00:04:30,560 --> 00:04:33,040
-Es importante describir dos puntos.
+00:04:36,310 --> 00:04:41,020
+Como se comporta el envio
+de mensajes cuando un mensaje
 
 78
-00:04:33,400 --> 00:04:35,120
-¿Qué representa el "yo"?
+00:04:41,220 --> 00:04:43,430
+és enviado al objeto self?
 
 79
-00:04:36,280 --> 00:04:40,000
-¿Cómo se comporta el envío de mensajes?
+00:04:43,630 --> 00:04:48,180
+self y this, this en Java, 
+self en Pharo, entonces és lo
 
 80
-00:04:40,280 --> 00:04:42,640
-¿Cuándo se envía un mensaje a "uno mismo"?
+00:04:48,380 --> 00:04:52,250
+mismo esto representa siempre
+el receptor del mensaje.
 
 81
-00:04:43,160 --> 00:04:47,160
-"yo" y "esto"
-"este" siendo el término en Java -
+00:04:53,000 --> 00:04:57,630
+Así este ejemplo lo hemos
+visto con A new foo y B new
 
 82
-00:04:47,680 --> 00:04:48,880
-son lo mismo
+00:04:57,880 --> 00:05:01,050
+foo, aqui enviaremos el mensaje bar.
 
 83
-00:04:49,640 --> 00:04:52,560
-Siempre representan al receptor
-del mensaje
+00:05:02,510 --> 00:05:06,660
+Pues bar se envia a una 
+instancia, bar se encuentra aqui,
 
 84
-00:04:52,880 --> 00:04:54,240
-Entonces, vimos este ejemplo
+00:05:06,920 --> 00:05:11,560
+bar és ejecutado y enviamos el
+mensaje foo
 
 85
-00:04:54,560 --> 00:04:58,440
-con un nuevo foo y B nuevo foo.
+00:05:11,850 --> 00:05:12,610
+al objeto Self.
 
 86
-00:04:59,040 --> 00:05:01,520
-Ahora enviaremos el mensaje "barra".
+00:05:13,290 --> 00:05:15,630
+Self és mi objeto
+que se encuentra aqui A new.
 
 87
-00:05:02,480 --> 00:05:05,000
-La barra se envía a una instancia.
+00:05:18,950 --> 00:05:21,900
+Asi que buscamos un metodo
+foo a partir de este objeto,
 
 88
-00:05:05,560 --> 00:05:08,520
-La barra se encuentra aquí y se ejecuta.
+00:05:22,620 --> 00:05:24,580
+és decir que buscaremos
+en un metodo en su
 
 89
-00:05:09,360 --> 00:05:12,960
-y enviamos el mensaje foo
-objetar a uno mismo
+00:05:24,780 --> 00:05:28,120
+clase, lo hemos encontrado, 
+lo ejecutamos, devuelve 10.
 
 90
-00:05:13,240 --> 00:05:15,600
-"Ser" es este objeto,
+00:05:30,540 --> 00:05:34,160
+El otro caso és exactamente
+lo mismo, és necesario prestar
 
 91
-00:05:16,800 --> 00:05:17,760
-Una nueva
+00:05:34,360 --> 00:05:36,700
+atencion pues en este momento
+muchos principiantes en la
 
 92
-00:05:18,800 --> 00:05:21,960
-Entonces buscamos este objeto
-para un método "foo".
+00:05:36,900 --> 00:05:38,650
+programacion orientad a objetos
+se equivocan.
 
 93
-00:05:22,560 --> 00:05:24,920
-Buscamos en la clase el método.
+00:05:39,350 --> 00:05:41,020
+Pero el algoritmo és 
+exactamente el mismo.
 
 94
-00:05:25,480 --> 00:05:28,160
-Lo encontramos, lo ejecutamos y regresamos 10.
+00:05:42,630 --> 00:05:47,130
+Pues enviamos bar a este 
+objeto, bar no se encuentra
 
 95
-00:05:30,400 --> 00:05:33,560
-El otro caso es exactamente idéntico.
+00:05:47,330 --> 00:05:51,280
+aqui se encuentra aqui,
+és este bar el que sera ejecutado.
 
 96
-00:05:33,760 --> 00:05:37,480
-Pero presta atención, porque muchos
-programadores de objetos principiantes
+00:05:51,850 --> 00:05:54,500
+En este momento el mensaje
+foo és enviado a self.
 
 97
-00:05:37,640 --> 00:05:38,760
-se equivoca
+00:05:54,730 --> 00:05:58,670
+Que és self? EB pues B new.
 
 98
-00:05:39,280 --> 00:05:41,520
-Pero el algoritmo es idéntico.
+00:06:00,410 --> 00:06:02,680
+Enviamos el mensaje foo a 
+este objeto así que el algoritmo
 
 99
-00:05:42,560 --> 00:05:45,920
-Enviamos "barra" a este objeto.
+00:06:02,880 --> 00:06:04,960
+Lookup busca un metodo foo
+en la clase de este objeto.
 
 100
-00:05:46,200 --> 00:05:47,600
-barra no se encuentra aquí.
+00:06:06,310 --> 00:06:09,010
+Encuentra este metodo foo,
+devuelve 50.
 
 101
-00:05:47,760 --> 00:05:51,120
-Se encuentra aquí.
-Entonces esta es la barra que se ejecuta.
+00:06:09,850 --> 00:06:12,690
+Así aqui tiene el comportamiento
+del algoritmo y puede
 
 102
-00:05:51,840 --> 00:05:55,520
-En ese momento, el mensaje "foo"
-se envía a uno mismo, que es ...
+00:06:12,890 --> 00:06:15,110
+mirar etapa por etapa que
+esta pasando, que és 
 
 103
-00:05:56,840 --> 00:05:58,520
-aB, por lo tanto B nuevo.
+00:06:15,310 --> 00:06:16,610
+exactamente lo que acabo de 
+contarle.
 
 104
-00:06:00,360 --> 00:06:01,880
-Enviamos el mensaje foo,
+00:06:18,090 --> 00:06:22,090
+Este ejemplo tambien és 
+identico al anterior.
+
 
 105
-00:06:02,040 --> 00:06:05,640
-por lo que el algoritmo busca el método
-en la clase de objeto.
+00:06:23,560 --> 00:06:28,500
+La clase B aqui se encuentra
+vacia, una nueva clase
 
 106
-00:06:06,280 --> 00:06:07,480
-Lo encuentra.
+00:06:28,700 --> 00:06:30,930
+ C se ha creado con un metodo
+ foo que devuelve 50.
 
 107
-00:06:07,920 --> 00:06:09,160
-50 se devuelve.
+00:06:31,420 --> 00:06:33,590
+Usted desarrolla el algoritmo
+exactamente como se lo he
+Vous déroulez l'algorithme
+exactement de la façon dont je
 
 108
-00:06:09,720 --> 00:06:12,200
-Así es como se desarrolla el algoritmo.
+00:06:33,790 --> 00:06:38,230
+presentado y obtendra
+aqui 10, 10,
+vous l'ai présenté et vous
+allez obtenir ici 10, 10,
 
 109
-00:06:12,480 --> 00:06:16,400
-Mira cada paso en el proceso.
-Es lo que acabo de decirte.
+00:06:39,530 --> 00:06:43,160
+és este foo el que sera
+finalmente ejecutado y aqui 50.
 
 110
-00:06:18,040 --> 00:06:20,680
-Este ejemplo también es idéntico.
+00:06:45,170 --> 00:06:48,240
+Concluyendo, self és el
+equivalente a this en Java
 
 111
-00:06:21,080 --> 00:06:22,280
-a la anterior.
+00:06:48,440 --> 00:06:50,920
+y representa siempre al receptor.
 
 112
-00:06:23,480 --> 00:06:26,200
-La clase B, aquí, ahora está vacía.
+00:06:51,620 --> 00:06:54,020
+Enviar un mensaje a un objeto
+se desarrolla siempre en 2
 
 113
-00:06:27,360 --> 00:06:31,120
-Se define una nueva clase, C
-con el método foo return de 50.
+00:06:54,220 --> 00:06:56,700
+etapas: en la primera, el 
+algoritmo de Lookup busca
 
 114
-00:06:31,440 --> 00:06:34,760
-Pasas por el proceso de algoritmo
-Acabo de presentar
+00:06:56,900 --> 00:07:01,300
+el metodo que corresponde
+al mensaje que se ha enviado.
 
 115
-00:06:34,920 --> 00:06:38,360
-Aquí obtendrás 10.
-
-116
-00:06:38,760 --> 00:06:41,760
-Este es el foo que se ejecuta,
-en el final.
-
-117
-00:06:42,120 --> 00:06:43,520
-Aquí tienes 50.
-
-118
-00:06:45,160 --> 00:06:45,960
-Para concluir:
-
-119
-00:06:46,520 --> 00:06:50,880
-"Sí mismo", como "esto" en Java,
-siempre representa al receptor.
-
-120
-00:06:51,560 --> 00:06:54,200
-El envío de mensajes siempre implica
-dos pasos.
-
-121
-00:06:54,680 --> 00:06:58,360
-Primero, el algoritmo de búsqueda se ve
-para una coincidencia entre el método
-
-122
-00:06:59,800 --> 00:07:01,480
-y el mensaje enviado.
-
-123
-00:07:01,680 --> 00:07:05,160
-Segundo paso:el método encontrado
+00:07:01,710 --> 00:07:04,560
+en la segunda, el metodo encontrado
 se ejecuta en el receptor.
 
-124
-00:07:05,800 --> 00:07:09,800
-El algoritmo de búsqueda viaja hacia arriba
-de la clase del receptor.
+116
+00:07:05,960 --> 00:07:07,770
+El algoritmo de busqueda
+recorre la jerarquia a
 
-125
-00:07:10,200 --> 00:07:12,840
-El objetivo de la búsqueda de algoritmos
+117
+00:07:08,000 --> 00:07:11,080
+a partir de la clase del
+receptor. El algoritmo de busqueda
 
-126
-00:07:13,080 --> 00:07:17,520
-es encontrar un método que coincida
-el mensaje enviado a un receptor
+118
+00:07:11,710 --> 00:07:15,620
+tiene como objetivo encontrar
+el metodo que corresponde a un
+
+119
+00:07:15,820 --> 00:07:17,430
+mensaje enviado a un receptor.
