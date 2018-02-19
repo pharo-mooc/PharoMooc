@@ -512,391 +512,397 @@ que son mucho más avancadas.
 
 108
 00:05:44,200 --> 00:05:48,930
-Je peux dire "Je veux
-sélectionner la plupart des
+Puedo decir "Quiero seleccionar
+la mayoria de 
 
 109
 00:05:49,720 --> 00:05:52,750
-super-héros qui ont un
-niveau épique, dont le nom est
+super heroes que tienen
+un nivel epico, cuyo nombre se
 
 110
 00:05:52,950 --> 00:05:55,870
-trié dans un ordre ascendant
-et je veux une limite de 10,
+ordena de forma ascendente y
+lo quiero limitar a 10,
 
 111
 00:05:56,090 --> 00:06:00,270
-et je veux commencer à la
-page 0" pour pouvoir chercher
+y quiero empezar en la página 0
+para poder buscar
 
 112
 00:06:00,470 --> 00:06:01,720
-des tranches dans ma base de données.
+porciones en mi base de datos.
+
 
 113
 00:06:03,120 --> 00:06:05,040
-Ça, quand vous en aurez
-besoin vous regarderez la doc.
+Esto, cuando lo necesite solo
+tiene que mirar en la documentación.
 
 114
 00:06:06,620 --> 00:06:07,890
-On peut faire
-d'autres opérations dessus.
+Podemos realizar otras operaciones
+encima.
 
 115
 00:06:08,090 --> 00:06:10,280
-Je peux compter le nombre de
-héros, déjà ça c'est super.
+Puedo contar el numero de 
+heroes, lo que està muy bien.
 
 116
 00:06:10,810 --> 00:06:14,020
-Et puis, je peux compter ceux qui
-satisfont une certaine propriété.
+Luego, puedo contar aquellos que
+satisfacen cierta propiedad.
 
 117
 00:06:14,720 --> 00:06:16,820
-Bien sûr, je peux enlever,
-alors là si vous faites remove
+Por supuesto, puedo eliminar,
+entonces si aqui hace remove
 
 118
 00:06:17,020 --> 00:06:20,040
-all, vous n'aurez plus d'objets
-en base, il faut savoir assumer.
+all, no tendra mas objetos en 
+la base, se debe ser consciente.
 
 119
 00:06:20,610 --> 00:06:23,520
-Là, je peux dire "Je vais en
-sélectionner un et puis je vais l'enlever.
+Aqui, puedo decir "Voy a seleccionar
+uno y luego lo eliminare.
 
 120
 00:06:23,720 --> 00:06:26,650
-" Et j'aurai pu enlever mon
-héros de ma base de données.
+Y habria podido eliminar mi 
+heroe de mi base de datos.
 
 121
 00:06:26,850 --> 00:06:30,740
-Ce n'est que les opérations
-qui font du sens, on va dire.
+No és solo las operaciones
+que tienen sentido, digamos.
 
 122
 00:06:32,110 --> 00:06:34,630
+Ahora la cuestion que se plantea
+al fin cuando
 Maintenant la question qui
 se pose finalement quand vous
 
 123
 00:06:34,830 --> 00:06:38,690
-allez utiliser MongoDB,
-c'est "Qu'est-ce qu'on appelle
+utilize MongoDB, 
+és lo que llamamos 
 
 124
 00:06:38,890 --> 00:06:41,330
-une racine de base, et
-quand est-ce qu'on définit une
+una raiz de base, y cuando
+definimos una
 
 125
 00:06:41,530 --> 00:06:42,560
- classe comme une racine de base ?"
+clase como raiz de base?
 
 126
 00:06:43,090 --> 00:06:45,900
-On définit une classe comme
-une racine de base quand on a
+Definimos una clase como 
+raiz de base cuando
 
 127
 00:06:46,100 --> 00:06:46,860
-besoin de faire des query.
+necesitamos realizar consultas.
 
 128
 00:06:47,060 --> 00:06:49,710
-Ça, c'est la première règle:
-je fais une query parce que
+Esta, és la primera regla;
+realizo una consulta porque
 
 129
 00:06:49,960 --> 00:06:52,130
-je définis ma classe comme
-une racine parce que je veux
+he definido mi clase como
+una raiz porque quiero poder
 
 130
 00:06:52,330 --> 00:06:54,020
-pouvoir accéder à tous
-les objets de cette classe.
+acceder a todos los objetos
+de esta clase.
 
 131
 00:06:56,620 --> 00:07:00,380
-L'autre point, c'est "Je
-veux partager des objets entre
+El otro punto, és "Quiero 
+compartir objetos entre
 
 132
 00:07:02,370 --> 00:07:05,130
-mes objets. " Donc là par
-exemple je veux partager des
+mis objetos" Así, aqui por
+ejemplo quiero compartir 
 
 133
 00:07:05,330 --> 00:07:07,420
-pouvoirs, parce que la
-phrase n'est pas très claire, je
+poderes, porque la frase
+no és muy clara, quiero
 
 134
 00:07:07,620 --> 00:07:10,190
-veux partager des
-pouvoirs entre mes héros.
+compartir poderes entre
+mis heroes.
 
 135
 00:07:11,850 --> 00:07:14,750
-Dans ces cas-là, je vais
-devoir définir "pouvoirs" comme
+En este caso, deberia poder
+definir "poderes" como
 
 136
 00:07:14,950 --> 00:07:16,480
-une racine, donc on va voir ça.
+una raiz, así que vamos a ver esto.
 
 137
 00:07:18,100 --> 00:07:20,570
-Si on regarde héros, c'est
-bien une racine dans notre
+Si miramos heroes, és realmente
+una raiz en nuestro
 
 138
 00:07:20,770 --> 00:07:22,770
-exemple, mais en fait les
-pouvoirs ça pourrait être aussi
+ejemplo, pero de hecho los 
+poderes tambien podrian ser
 
 139
 00:07:23,000 --> 00:07:24,190
-des racines, il n'y
-a pas de problème.
+una raiz, no hay problema.
 
 140
 00:07:24,560 --> 00:07:28,310
-Dans Voyage, on peut déclarer
-n'importe quelle classe comme racine.
+En Voyage, podemos declarar
+cualquier clase como raiz.
 
 141
 00:07:29,170 --> 00:07:31,790
-Comment on fait ça ?
+Como lo hacemos?
 
 142
 00:07:32,310 --> 00:07:34,350
-Pareil que tout à l'heure,
-je vais dire que ma classe
+Igual que antes, 
+voy a decir que mi clase
 
 143
 00:07:34,550 --> 00:07:39,450
-power, c'est une
-racine. Ça veut dire que
+power, és una raiz.
+Esto quiere decir que
 
 144
 00:07:39,650 --> 00:07:43,500
-si je crée le pouvoir fly
-qui veut dire voler et que je
+creo el poder fly que 
+quiere decir volar y que 
 
 145
 00:07:43,700 --> 00:07:47,590
-le sauve, il sera mis en base;
-la force surhumaine, c'est pareil.
+lo guardo, se guardara en base;
+la fuerza sobrehumana, lo mismo.
 
 146
 00:07:48,090 --> 00:07:49,590
+Y ahora lo que voy a hacer, 
+podre realizar una 
 Et maintenant ce que je vais
 faire, je vais pouvoir faire
 
 147
 00:07:49,790 --> 00:07:54,530
+consulat que me dira "Quiero
+recuperar el poder 
 une query qui me dit "Je
-veux récupérer le pouvoir
+veux récupérer le pouvoir de volar
 
 148
 00:07:54,830 --> 00:07:59,120
-de voler. Je veux aussi récupérer le
-pouvoir d'avoir une force surhumaine.
+Tanbien quiero recuperar el poder
+de tener una fuerza sobrehumana.
 
 149
 00:07:59,320 --> 00:08:04,190
-" Et là maintenant, je
-recrée Superman en disant "J'
+"Y aqui ahora, vuelvo a crear
+Superman diciendo que 
 
 150
 00:08:07,060 --> 00:08:08,630
-ai récupéré ces 2 pouvoirs",
-donc ça veut dire qu'il n'y
+he recuperado estos 2 poderes,
+esto quiere decir que solo existe
 
 151
 00:08:08,830 --> 00:08:10,460
-en a qu'un dans le système à
-chaque fois et je le sauve.
+uno en el sistema cada vez
+que guardo.
 
 152
 00:08:11,380 --> 00:08:13,190
-Qu'est-ce qui se passe
-au niveau de ma base?
+Que esta pasando a nivel de 
+mi base?
 
 153
 00:08:13,600 --> 00:08:17,000
-C'est important, il faut
-faire un reset pour que ça
+És importante, se debe realizar
+un reset para que todo
 
 154
 00:08:18,250 --> 00:08:19,910
-fonctionne bien. En
-général, à chaque fois que vous
+funcione bien. En general, cada
+vez que modifica el
 
 155
 00:08:20,110 --> 00:08:22,130
-changez le schéma de base, il
-faut faire cette expression.
+el esquema de la base, és necesario
+de utilizar esta expresion.
 
 156
 00:08:22,530 --> 00:08:25,070
-Mais ce qui m'intéresse
-là, c'est de vous montrer que
+Pero lo que me interesa aqui,
+de enseñarle és que
 
 157
 00:08:26,180 --> 00:08:29,430
-maintenant dans les pouvoirs
-de Superman, je n'ai plus le
+ahora en los poderes de
+Superman, ya no tengo el
 
 158
 00:08:29,630 --> 00:08:33,870
-pouvoir qui est décrit de
-manière composée à l'intérieur,
+poder que se ha descrito de
+manera compuesta en el interior.
 
 159
 00:08:34,070 --> 00:08:35,730
-mais j'ai une
-référence vers un pouvoir.
+pero tengo una referencia
+hacia un poder.
 
 160
 00:08:36,720 --> 00:08:38,000
-Et là, je vais avoir
-une autre référence.
+Y aqui, voy a tener otra 
+referencia.
 
 161
 00:08:38,160 --> 00:08:38,920
-Donc qu'est-ce que ça veut dire ?
+Así que, que quiere decir esto?
 
 162
 00:08:39,120 --> 00:08:41,130
-Ça veut dire que si j'ai un
-autre super-héros qui sait
+Esto quiere decir que si
+tengo otro super heroe que sabe
 
 163
 00:08:41,330 --> 00:08:45,870
-voler, je vais pouvoir
-partager ce super pouvoir au lieu
+volar, podre compartir este
+poder en lugar de
 
 164
 00:08:46,070 --> 00:08:49,290
-d'en avoir 2. Et ça, ça
-dépend de votre domaine donc
+tener 2. Y esto, esto depende
+de su dominio así que
 
 165
 00:08:49,490 --> 00:08:50,920
-suivant le domaine et
-suivant comment vous voulez
+en funcion del dominio y segun
+como usted quiera modelizar
 
 166
 00:08:51,120 --> 00:08:54,230
-modéliser votre domaine, vous allez
-devoir définir des racines différentes.
+su dominio, tendra que definir
+raices diferentes.
 
 167
 00:08:54,430 --> 00:08:57,590
-Là, c'est sur un exemple idiot mais
-c'était pour vous donner l'intuition.
+Este, és sobre un ejemplo tonto pero
+solo era para facilitarle la intuicion.
 
 168
 00:08:58,520 --> 00:09:02,860
-Si je répète, vous allez
-définir une racine du domaine si
+Si repito, tendra que definir
+un dominio si usted
 
 169
 00:09:03,060 --> 00:09:05,220
-vous avez besoin de faire
-des query, ou si vous voulez
+necesita hacer consultas
+o si quiere 
 
 170
 00:09:05,420 --> 00:09:07,210
-partager des objets de cette racine.
+compartir los objetos de esta raiz.
 
 171
 00:09:10,890 --> 00:09:14,180
-Comment on exprime les
-relations dans Voyage?
+Como expresamos las
+relaciones en Voyage?
 
 172
 00:09:14,450 --> 00:09:16,100
-En fait, c'est
-l'équivalent des foreign keys dans les
+De hecho, és el equivalente
+a las llaves foraneas en las
 
 173
 00:09:16,300 --> 00:09:18,650
-bases de données
-relationnelles. Voyage va gérer
+bases de datos relacionalles.
+Voyage gestionara
 
 174
 00:09:18,850 --> 00:09:21,360
-automatiquement les
-références cycliques entre vos racines.
+automaticamente las referencias
+ciclicas entres sus raices.
 
 175
 00:09:21,870 --> 00:09:22,680
-Vous n'avez rien à faire.
+Usted no tiene que hacer nada.
 
 176
 00:09:23,240 --> 00:09:25,580
-Par contre, il faut faire
-attention, Voyage ne gère pas
+Por contra debe prestar 
+atencion, Voyage no gestiona
 
 177
 00:09:25,780 --> 00:09:28,350
-les références cycliques
-entre des objets qui seraient
+las referencias ciclicas entre
+objetos compuestos en su 
 
 178
 00:09:28,550 --> 00:09:32,570
-composés à l'intérieur. Vous
-vous expérimenterez et puis
+interior. Usted debe
+experimentar y luego 
 
 179
 00:09:32,770 --> 00:09:34,220
-vous verrez que la plupart
-du temps quand vous avez des
+vera que la mayoria de las
+veces cuando tiene raices
 
 180
 00:09:34,420 --> 00:09:35,280
-racines, vous n'avez aucun problème.
+usted no tiene ningun problema.
 
 181
 00:09:36,710 --> 00:09:39,070
-Ce que je voulais vous
-montrer dans ce cours, c'est qu'on
+Lo que le queria enseñar en
+este curso, és que 
 
 182
 00:09:39,270 --> 00:09:43,360
-peut très facilement sauver des
-objets dans une base de données Mongo.
+podemos guardar muy facilmente
+objetos en una base de datos Mongo.
 
 183
 00:09:43,710 --> 00:09:46,550
-Si vous voulez en savoir
-plus, il y a aussi un chapitre
+Si usted quiere conocer mas,
+encontrara un capitulo
 
 184
 00:09:46,750 --> 00:09:48,730
-dans Enterprise Pharo, ou
-Web perspectives qui est dans
+en el libro Enterprise Pharo,
+Web perspectives que se encuentra
 
 185
 00:09:48,930 --> 00:09:51,720
-les ressources du MOOC. Et
-de toute façon, vous aurez un
+en las fuentes del MOOC. De todas
+maneras tendra un 
 
 186
 00:09:51,920 --> 00:09:54,000
-petit tutoriel qui vous
-prendra par la main en vous
+pequeño tutorial que le 
+acompañara
 
 187
 00:09:54,200 --> 00:09:58,130
-faisant refaire les super-héros,
-donc vous pourrez tout apprendre.
+reconstruyendo los super heroes,
+así que lo podra aprender todo.
