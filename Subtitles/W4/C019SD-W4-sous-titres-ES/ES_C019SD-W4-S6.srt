@@ -28,7 +28,7 @@ pero se puede usar para otras cosas.
 7
 00:00:20,200 --> 00:00:24,080
 Veremos dos ejemplos
-de usos para los métodos de clase.
+de uso para los métodos de clase.
 
 8
 00:00:24,720 --> 00:00:28,280
@@ -54,7 +54,7 @@ Se lee como un título.
 
 13
 00:00:42,480 --> 00:00:47,720
-Líneas que comienzan con guiones
+Las líneas que comienzan con guiones
 son elementos de la lista.
 
 14
@@ -66,7 +66,7 @@ con más de un guión
 00:00:52,120 --> 00:00:54,760
 son subelementos en una lista.
 
-dieciséis
+16
 00:00:55,680 --> 00:00:58,000
 En cualquier otro caso, es un párrafo.
 
@@ -91,11 +91,11 @@ este programa
 21
 00:01:13,280 --> 00:01:16,600
 para que cada subclase
-de DocumentItem es responsable
+de DocumentItem sea responsable
 
 22
 00:01:16,760 --> 00:01:17,880
-para analizar líneas,
+de analizar líneas,
 
 23
 00:01:18,040 --> 00:01:21,640
@@ -133,7 +133,7 @@ Si la línea comienza con un guion.
 30
 00:01:44,760 --> 00:01:48,400
 Y la línea canParse que vemos aquí
-siempre debe devolver True.
+siempre debe devuelve True.
 
 31
 00:01:49,240 --> 00:01:54,320
@@ -142,8 +142,8 @@ que mira las clases una por una.
 
 32
 00:01:54,920 --> 00:01:58,120
-Apenas regrese
-canParse para una línea dada,
+Apenas vuelve
+canParse a una línea dada,
 
 33
 00:01:58,840 --> 00:02:03,480
@@ -157,7 +157,7 @@ Ese es el objetivo del método canParse.
 35
 00:02:07,000 --> 00:02:11,840
 El método newFromLine también
-toma una línea de texto como un parámetro.
+toma una línea de texto como parámetro.
 
 36
 00:02:12,960 --> 00:02:17,560
@@ -194,8 +194,7 @@ Subclases DocumentItem
 
 43
 00:02:40,000 --> 00:02:42,160
-por el uno
-a cargo de una línea determinada.
+por el primero de una línea determinada.
 
 44
 00:02:42,520 --> 00:02:46,360
@@ -218,7 +217,7 @@ que contiene estas tres clases.
 
 48
 00:02:58,640 --> 00:03:02,320
-Hacemos esto enviando el mensaje
+Lo hacemos enviando el mensaje
 "allSubclasses" a DocumentItem.
 
 49
@@ -229,7 +228,7 @@ ya existe en el sistema Pharo.
 50
 00:03:05,960 --> 00:03:09,160
 Devuelve la lista de subclases
-en una clase dada
+de una clase dada
 
 51
 00:03:09,640 --> 00:03:13,000
@@ -243,7 +242,7 @@ ListItem y Text.
 53
 00:03:17,960 --> 00:03:20,520
 Quiero la coleccion
-ordenado por prioridad
+ordenada por prioridad
 
 54
 00:03:20,680 --> 00:03:24,400
@@ -298,7 +297,7 @@ a la clase de sección de título
 para averiguar si la clase SectionTitle
 Puede analizar una línea determinada.
 
-sesenta y cinco
+65
 00:04:08,240 --> 00:04:12,560
 El método Parse de la clase Parser
 toma una línea como un parámetro.
@@ -315,7 +314,7 @@ de esta clase
 
 68
 00:04:24,200 --> 00:04:28,600
-Enviando el comando "detect:"
+Enviando metodo "detect:"
 a una colección
 
 69
@@ -330,8 +329,8 @@ de usar métodos de clase.
 
 71
 00:04:39,320 --> 00:04:43,800
-Veremos cómo la línea de comando
-los parámetros se manejan
+Veremos cómo se manejan los parámetros
+de la línea de comandos
 
 72
 00:04:44,480 --> 00:04:48,160
