@@ -1,6 +1,6 @@
 1
 00:00:00,650 --> 00:00:02,350
-Buenos dias. En esta secuencia
+Buenos días. En esta secuencia
 os hablaré de 
 
 2
@@ -15,11 +15,11 @@ Veremos un poco que es Voyage.
 4
 00:00:08,330 --> 00:00:11,410
 Aqui, el objetivo és el de poder
-crear una verdadera aplicacion.
+crear una verdadera aplicación.
 
 5
 00:00:11,800 --> 00:00:16,310
-Tiny blog, la podreis
+Tiny blog, la podréis
 guardar con Voyage en
 
 6
@@ -29,17 +29,17 @@ instalarla en un verdadero servicio.
 
 7
 00:00:19,420 --> 00:00:20,920
-La idea, és de enseñarle
-tanbien como
+La idea, es de enseñarle
+también como
 
 8
 00:00:21,280 --> 00:00:24,340
-guardar objetos facilmente,
+guardar objetos fácilmente,
 y hemos elegido esta 
 
 9
 00:00:24,540 --> 00:00:27,320
-solucion porque és realmente
+solución porque es realmente
 muy sencilla para el curso.
 
 10
@@ -48,7 +48,7 @@ MongoDB, de que se trata?
 
 11
 00:00:31,200 --> 00:00:34,250
-MongoDB, són las nuevas
+MongoDB, son las nuevas
 bases de datos NoSQL  que
 
 12
@@ -59,11 +59,11 @@ Usted dispone de un lenguaje
 13
 00:00:39,510 --> 00:00:42,220
 de consultas incorporado y
-és una de las más populares.
+es una de las más populares.
 
 14
 00:00:42,420 --> 00:00:44,420
-Tambien, tiene Couch DB y Riak.
+También, tiene Couch DB y Riak.
 
 15
 00:00:44,840 --> 00:00:47,750
@@ -72,11 +72,11 @@ MongoDB y Voyage.
 
 16
 00:00:48,350 --> 00:00:49,200
-Que és Voyage?
+Que es Voyage?
 
 17
 00:00:49,400 --> 00:00:51,010
-Voyage, est un replicador que
+Voyage, es un replicador que
 
 18
 00:00:51,210 --> 00:00:54,750
@@ -85,7 +85,7 @@ replicará en MongoDB esto lo
 
 19
 00:00:54,950 --> 00:00:56,370
-hará casi automaticamene para usted.
+hará casi automáticamente para usted.
 
 20
 00:00:56,760 --> 00:01:00,260
@@ -99,12 +99,12 @@ MongoDB y claro, esta realizado para Pharo.
 
 22
 00:01:05,380 --> 00:01:07,550
-Cuales són las funcionalidades
+Cuales son las funcionalidades
 de Voyage?
 
 23
 00:01:07,750 --> 00:01:10,150
-De hecho, Voyage és muy simple,
+De hecho, Voyage es muy simple,
 nos va a garantizar la identidad de
 
 24
@@ -119,8 +119,8 @@ Errores.
 
 26
 00:01:16,150 --> 00:01:20,470
-Tanbien dispone de un pool 
-de conexion para que ello 
+También dispone de un pool 
+de conexión para que ello 
 
 27
 00:01:20,670 --> 00:01:23,080
@@ -137,22 +137,22 @@ es crear un repositorio Mongo
 
 30
 00:01:29,880 --> 00:01:31,520
-con esta expresion.
+con esta expresión.
 
 31
 00:01:32,320 --> 00:01:34,340
-Aqui, és si usted quier accéder
+Aquí, és si usted quier acceder
 a su base de datos Mongo
 
 32
 00:01:34,590 --> 00:01:37,930
-Que està gestiona de modo 
+Que esta gestiona de modo 
 externo a Pharo.
 
 33
 00:01:38,320 --> 00:01:40,770
 Ahora lo que hacemos a menudo
-és trabajar en modo
+es trabajar en modo
 
 34
 00:01:41,000 --> 00:01:44,420
@@ -161,23 +161,23 @@ base de datos Mongo en memoria.
 
 35
 00:01:44,800 --> 00:01:47,000
-A visto la diferencia, aqui se
+A visto la diferencia, aquí se
 encuentra Mongo memory repository.
 
 36
 00:01:48,090 --> 00:01:49,880
-La idea, és que no necesita
+La idea, es que no necesita
 una base de datos Mongo,
 
 37
 00:01:50,080 --> 00:01:52,270
 usted podrá simular su
-aplicacion.
+aplicación.
 
 38
 00:01:53,080 --> 00:01:56,080
 Y cuando finalmente funcione, 
-entonces podra cambiar
+entonces podrá cambiar
 
 39
 00:01:56,550 --> 00:01:59,670
@@ -201,13 +201,13 @@ con super-poderes, con armaduras.
 
 43
 00:02:17,340 --> 00:02:19,450
-Tendra un ejercicio,
-lo podra hacer de todas maneras,
+Tendrá un ejercicio,
+lo podrá hacer de todas maneras,
 
 44
 00:02:19,650 --> 00:02:21,590
 todo lo que le mostraré durante
-este curso, dispondra
+este curso, dispondrá
 
 45
 00:02:21,790 --> 00:02:23,260
@@ -215,7 +215,7 @@ del soporte para poder realizarlo.
 
 46
 00:02:23,730 --> 00:02:26,370
-Y le sugiero de hacerlo porque és
+Y le sugiero de hacerlo porque es
 divertido de codear Superman.
 
 47
@@ -244,7 +244,7 @@ el nombre.
 
 52
 00:02:44,200 --> 00:02:45,690
-Tengo un nivel parecido aqui.
+Tengo un nivel parecido aquí.
 
 53
 00:02:46,000 --> 00:02:48,130
@@ -253,8 +253,8 @@ de manera conjunta.
 
 54
 00:02:48,330 --> 00:02:51,440
-Así aqui, digo los poderes,
-al inicio si és vacio pongo
+Así aquí, digo los poderes,
+al inicio si es vacío pongo
 
 55
 00:02:51,640 --> 00:02:55,350
@@ -295,8 +295,8 @@ se guardan en la base?
 
 63
 00:03:17,680 --> 00:03:21,000
-Aqui tenemos el concepto de root class,
-cuales són los puntos de entrada
+Aquí tenemos el concepto de root class,
+cuales son los puntos de entrada
 
 64
 00:03:21,320 --> 00:03:23,270
@@ -314,12 +314,12 @@ Como declararemos esto?
 
 67
 00:03:27,050 --> 00:03:30,240
-Lo declararemos con un metodo
+Lo declararemos con un método
 de clase, insisto
 
 68
 00:03:30,440 --> 00:03:32,090
-en la clase, un metodo de clase
+en la clase, un método de clase
 que se llama isVoyageRoot.
 
 69
@@ -328,7 +328,7 @@ como hacemos para los heroes?
 
 70
 00:03:35,410 --> 00:03:38,560
-És super facil, haremos clase
+Es super fácil, haremos clase
 heroe isVoyage devuelve verdadero.
 
 71
@@ -348,12 +348,12 @@ Spiderman se llama Spiderman,
 
 74
 00:03:50,620 --> 00:03:54,260
-és de nivel epico,
+es de nivel épico,
 tiene como super poder una
 
 75
 00:03:54,460 --> 00:03:59,150
-super fuerza, tanbien puede
+super fuerza, también puede
 escalar los muros y ademas
 
 76
@@ -366,7 +366,7 @@ Luego tenemos otro.
 
 78
 00:04:03,570 --> 00:04:08,420
-Aqui veis, lo guardo,
+Aquí veis, lo guardo,
 save, esto muestra a Voyage "OK,
 
 79
@@ -377,7 +377,7 @@ guardas en tu base.
 80
 00:04:11,510 --> 00:04:13,930
 Y de la misma manera con
-Wolverine, habeis comprendido
+Wolverine, habéis comprendido
 
 81
 00:04:14,130 --> 00:04:16,460
@@ -400,8 +400,8 @@ y que tiene?
 
 85
 00:04:26,360 --> 00:04:29,090
-Aqui justamente se tien que 
-prestar atencion, vemos claramente
+Aquí justamente se tiene que 
+prestar atención, vemos claramente
 
 86
 00:04:29,290 --> 00:04:34,050
@@ -410,7 +410,7 @@ que esta perfectamente descrito
 
 87
 00:04:34,360 --> 00:04:37,410
-aqui. Tendrias lo mismo con
+aquí. Tendrías lo mismo con
 Wolverine, y ect...
 
 88
@@ -424,36 +424,36 @@ nivel de Pharo, podemos hacer
 
 90
 00:04:42,450 --> 00:04:44,830
-un monton de expresiones.
+un montón de expresiones.
 No entraré en los detalles
 
 91
 00:04:45,030 --> 00:04:48,180
 pero puedo seleccionar a todos
-los puer heroes.
+los puer héroes.
 
 92
 00:04:48,380 --> 00:04:51,240
-Aqui, tendre 
+Aquí, tendré 
 Spiderman y Wolverine.
 
 93
 00:04:51,760 --> 00:04:54,830
 Puedo decir que quiero encontrar
-los heroes que se llaman Spiderman.
+los héroes que se llaman Spiderman.
 
 94
 00:04:55,280 --> 00:04:59,670
-Aqui, puedo decir que quiero
+Aquí, puedo decir que quiero
 encontrar a todos los super
 
 95
 00:04:59,870 --> 00:05:00,750
-heroes que tienen un nivel epico.
+héroes que tienen un nivel épico.
 
 96
 00:05:00,950 --> 00:05:04,930
-Aqui, encontrare mis 2 super heroes.
+Aquí, encontrare mis 2 super héroes.
 
 97
 00:05:06,620 --> 00:05:10,670
@@ -472,12 +472,12 @@ una consulta a la base de json.
 
 100
 00:05:18,670 --> 00:05:23,580
-Aqui, me gustaria conoces al 
-super heroe cuyo nombre
+Aquí, me gustaría conoces al 
+super héroe cuyo nombre
 
 101
 00:05:23,780 --> 00:05:25,670
-es Spiderman pero podeis ver que 
+es Spiderman pero podéis ver que 
 lo he expresado bajo la forma
 
 102
@@ -492,8 +492,8 @@ select as many.
 
 104
 00:05:32,770 --> 00:05:35,700
-Esto dependera de las consulta, 
-hay consultas mas faciles de
+Esto dependerá de las consulta, 
+hay consultas mas fáciles de
 
 105
 00:05:35,900 --> 00:05:38,050
@@ -507,18 +507,18 @@ tiene más importancia.
 
 107
 00:05:41,220 --> 00:05:44,000
-Tanbien podemos realizar consultas
-que son mucho más avancadas.
+También podemos realizar consultas
+que son mucho más avanzadas.
 
 108
 00:05:44,200 --> 00:05:48,930
 Puedo decir "Quiero seleccionar
-la mayoria de 
+la mayoría de 
 
 109
 00:05:49,720 --> 00:05:52,750
-super heroes que tienen
-un nivel epico, cuyo nombre se
+super héroes que tienen
+un nivel épico, cuyo nombre se
 
 110
 00:05:52,950 --> 00:05:55,870
@@ -548,7 +548,7 @@ encima.
 115
 00:06:08,090 --> 00:06:10,280
 Puedo contar el numero de 
-heroes, lo que està muy bien.
+héroes, lo que esta muy bien.
 
 116
 00:06:10,810 --> 00:06:14,020
@@ -558,51 +558,51 @@ satisfacen cierta propiedad.
 117
 00:06:14,720 --> 00:06:16,820
 Por supuesto, puedo eliminar,
-entonces si aqui hace remove
+entonces si aquí hace remove
 
 118
 00:06:17,020 --> 00:06:20,040
-all, no tendra mas objetos en 
+all, no tendrá mas objetos en 
 la base, se debe ser consciente.
 
 119
 00:06:20,610 --> 00:06:23,520
-Aqui, puedo decir "Voy a seleccionar
+Aquí, puedo decir "Voy a seleccionar
 uno y luego lo eliminare.
 
 120
 00:06:23,720 --> 00:06:26,650
-Y habria podido eliminar mi 
+Y habría podido eliminar mi 
 heroe de mi base de datos.
 
 121
 00:06:26,850 --> 00:06:30,740
-No és solo las operaciones
+No es solo las operaciones
 que tienen sentido, digamos.
 
 122
 00:06:32,110 --> 00:06:34,630
-Ahora la cuestion que se plantea
+Ahora la cuestión que se plantea
 al fin cuando
 
 123
 00:06:34,830 --> 00:06:38,690
-utilize MongoDB, 
-és lo que llamamos 
+utilice MongoDB, 
+es lo que llamamos 
 
 124
 00:06:38,890 --> 00:06:41,330
-una raiz de base, y cuando
+una raíz de base, y cuando
 definimos una
 
 125
 00:06:41,530 --> 00:06:42,560
-clase como raiz de base?
+clase como raíz de base?
 
 126
 00:06:43,090 --> 00:06:45,900
 Definimos una clase como 
-raiz de base cuando
+raíz de base cuando
 
 127
 00:06:46,100 --> 00:06:46,860
@@ -610,13 +610,13 @@ necesitamos realizar consultas.
 
 128
 00:06:47,060 --> 00:06:49,710
-Esta, és la primera regla;
+Esta, es la primera regla;
 realizo una consulta porque
 
 129
 00:06:49,960 --> 00:06:52,130
 he definido mi clase como
-una raiz porque quiero poder
+una raíz porque quiero poder
 
 130
 00:06:52,330 --> 00:06:54,020
@@ -625,51 +625,51 @@ de esta clase.
 
 131
 00:06:56,620 --> 00:07:00,380
-El otro punto, és "Quiero 
+El otro punto, es "Quiero 
 compartir objetos entre
 
 132
 00:07:02,370 --> 00:07:05,130
-mis objetos" Así, aqui por
+mis objetos" Así, aquí por
 ejemplo quiero compartir 
 
 133
 00:07:05,330 --> 00:07:07,420
 poderes, porque la frase
-no és muy clara, quiero
+no es muy clara, quiero
 
 134
 00:07:07,620 --> 00:07:10,190
 compartir poderes entre
-mis heroes.
+mis héroes.
 
 135
 00:07:11,850 --> 00:07:14,750
-En este caso, deberia poder
+En este caso, debería poder
 definir "poderes" como
 
 136
 00:07:14,950 --> 00:07:16,480
-una raiz, así que vamos a ver esto.
+una raíz, así que vamos a ver esto.
 
 137
 00:07:18,100 --> 00:07:20,570
-Si miramos heroes, és realmente
-una raiz en nuestro
+Si miramos héroes, es realmente
+una raíz en nuestro
 
 138
 00:07:20,770 --> 00:07:22,770
 ejemplo, pero de hecho los 
-poderes tambien podrian ser
+poderes también podrían ser
 
 139
 00:07:23,000 --> 00:07:24,190
-una raiz, no hay problema.
+una raíz, no hay problema.
 
 140
 00:07:24,560 --> 00:07:28,310
 En Voyage, podemos declarar
-cualquier clase como raiz.
+cualquier clase como raíz.
 
 141
 00:07:29,170 --> 00:07:31,790
@@ -682,7 +682,7 @@ voy a decir que mi clase
 
 143
 00:07:34,550 --> 00:07:39,450
-power, és una raiz.
+power, es una raíz.
 Esto quiere decir que
 
 144
@@ -702,17 +702,17 @@ podre realizar una
 
 147
 00:07:49,790 --> 00:07:54,530
-consulta que me dira "Quiero
+consulta que me dirá "Quiero
 recuperar el poder 
 
 148
 00:07:54,830 --> 00:07:59,120
-Tambien quiero recuperar el poder
+También quiero recuperar el poder
 de tener una fuerza sobrehumana.
 
 149
 00:07:59,320 --> 00:08:04,190
-"Y aqui ahora, vuelvo a crear
+"Y aquí ahora, vuelvo a crear
 Superman diciendo que 
 
 150
@@ -732,7 +732,7 @@ mi base?
 
 153
 00:08:13,600 --> 00:08:17,000
-És importante, se debe realizar
+Es importante, se debe realizar
 un reset para que todo
 
 154
@@ -742,13 +742,13 @@ vez que modifica el
 
 155
 00:08:20,110 --> 00:08:22,130
-el esquema de la base, és necesario
-de utilizar esta expresion.
+el esquema de la base, es necesario
+de utilizar esta expresión.
 
 156
 00:08:22,530 --> 00:08:25,070
-Pero lo que me interesa aqui,
-de enseñarle és que
+Pero lo que me interesa aquí,
+de enseñarle es que
 
 157
 00:08:26,180 --> 00:08:29,430
@@ -777,7 +777,7 @@ Así que, que quiere decir esto?
 162
 00:08:39,120 --> 00:08:41,130
 Esto quiere decir que si
-tengo otro super heroe que sabe
+tengo otro super héroe que sabe
 
 163
 00:08:41,330 --> 00:08:45,870
@@ -791,22 +791,22 @@ de su dominio así que
 
 165
 00:08:49,490 --> 00:08:50,920
-en funcion del dominio y segun
+en función del dominio y según
 como usted quiera modelizar
 
 166
 00:08:51,120 --> 00:08:54,230
-su dominio, tendra que definir
-raices diferentes.
+su dominio, tendrá que definir
+raíces diferentes.
 
 167
 00:08:54,430 --> 00:08:57,590
-Este, és sobre un ejemplo tonto pero
-solo era para facilitarle la intuicion.
+Este, es sobre un ejemplo tonto pero
+solo era para facilitarle la intuición.
 
 168
 00:08:58,520 --> 00:09:02,860
-Si repito, tendra que definir
+Si repito, tendrá que definir
 un dominio si usted
 
 169
@@ -816,7 +816,7 @@ o si quiere
 
 170
 00:09:05,420 --> 00:09:07,210
-compartir los objetos de esta raiz.
+compartir los objetos de esta raíz.
 
 171
 00:09:10,890 --> 00:09:14,180
@@ -826,17 +826,17 @@ relaciones en Voyage?
 172
 00:09:14,450 --> 00:09:16,100
 De hecho, és el equivalente
-a las llaves foraneas en las
+a las llaves foráneas en las
 
 173
 00:09:16,300 --> 00:09:18,650
-bases de datos relacionalles.
+bases de datos relacionales.
 Voyage gestionara
 
 174
 00:09:18,850 --> 00:09:21,360
-automaticamente las referencias
-ciclicas entres sus raices.
+automáticamente las referencias
+cíclicas entres sus raíces.
 
 175
 00:09:21,870 --> 00:09:22,680
@@ -845,11 +845,11 @@ Usted no tiene que hacer nada.
 176
 00:09:23,240 --> 00:09:25,580
 Por contra debe prestar 
-atencion, Voyage no gestiona
+atención, Voyage no gestiona
 
 177
 00:09:25,780 --> 00:09:28,350
-las referencias ciclicas entre
+las referencias cíclicas entre
 objetos compuestos en su 
 
 178
@@ -859,21 +859,21 @@ experimentar y luego
 
 179
 00:09:32,770 --> 00:09:34,220
-vera que la mayoria de las
-veces cuando tiene raices
+vera que la mayoría de las
+veces cuando tiene raíces
 
 180
 00:09:34,420 --> 00:09:35,280
-usted no tiene ningun problema.
+usted no tiene ningún problema.
 
 181
 00:09:36,710 --> 00:09:39,070
-Lo que le queria enseñar en
-este curso, és que 
+Lo que le quería enseñar en
+este curso, es que 
 
 182
 00:09:39,270 --> 00:09:43,360
-podemos guardar muy facilmente
+podemos guardar muy fácilmente
 objetos en una base de datos Mongo.
 
 183
@@ -889,7 +889,7 @@ Web perspectives que se encuentra
 185
 00:09:48,930 --> 00:09:51,720
 en las fuentes del MOOC. De todas
-maneras tendra un 
+maneras tendrá un 
 
 186
 00:09:51,920 --> 00:09:54,000
@@ -898,5 +898,5 @@ acompañara
 
 187
 00:09:54,200 --> 00:09:58,130
-reconstruyendo los super heroes,
-así que lo podra aprender todo.
+reconstruyendo los super héroes,
+así que lo podrá aprender todo.
