@@ -11,7 +11,7 @@ cubriremos los conceptos básicos
 3
 00:00:16,000 --> 00:00:20,660
 de la herencia en Pharo,
-el mecanismo de LookUp (busqueda)
+el mecanismo de LookUp (búsqueda)
 
 4
 00:00:20,860 --> 00:00:21,780
@@ -60,7 +60,7 @@ durante el resto del curso.
 14
 00:00:51,270 --> 00:00:53,300
 Esta secuencia enseñará
-que és la herencia,
+que es la herencia,
 
 15
 00:00:53,500 --> 00:00:55,610
@@ -69,7 +69,7 @@ y cómo utilizarla.
 16
 00:00:56,310 --> 00:00:58,680
 A su derecha puede ver una
-representacion de dos clases:
+representación de dos clases:
 
 17
 00:00:58,880 --> 00:01:02,900
@@ -94,7 +94,7 @@ de instancia y sus métodos.
 21
 00:01:16,840 --> 00:01:19,620
 La flecha vertical aquí, podemos
-ver que un triangulo vacio
+ver que un triangulo vacío
 
 22
 00:01:20,080 --> 00:01:24,480
@@ -139,7 +139,7 @@ de instancia, color
 30
 00:01:55,340 --> 00:01:57,380
 y borderedColor, también agrega
-el metodo color.
+el método color.
 
 31
 00:01:58,180 --> 00:02:03,140
@@ -235,12 +235,12 @@ comportamiento, lo haremos
 50
 00:02:56,820 --> 00:02:58,380
 dinamicamente,
-és decir que durante la ejecucion
+és decir que durante la ejecución
 
 51
 00:02:58,580 --> 00:03:00,940
 del programa miraremos
-cuales son los metodos
+cuales son los métodos
 
 52
 00:03:01,140 --> 00:03:02,710
@@ -255,11 +255,11 @@ la herencia de las variables de instancia
 54
 00:03:06,830 --> 00:03:08,700
 se produce en el momento de la
-creacion de la subclase.
+creación de la subclase.
 
 55
 00:03:09,320 --> 00:03:14,000
-Así en la creacion de la subclase,
+Así en la creación de la subclase,
 tomaremos 
 
 56
@@ -274,7 +274,7 @@ y haremos la
 
 58
 00:03:22,500 --> 00:03:26,390
-union con todas las variables
+unión con todas las variables
 de instancia definidas en
 
 59
@@ -289,22 +289,22 @@ a la clase Object.
 
 61
 00:03:34,170 --> 00:03:36,000
-Aqui las variables de instancia
+Aquí las variables de instancia
 de ColoredRectangle
 
 62
 00:03:37,020 --> 00:03:40,250
-seran width height color
+serán width height color
 y borderColor
 
 63
 00:03:41,470 --> 00:03:43,540
 Para el comportamiento el
-mecanismo és completamente
+mecanismo es completamente
 
 64
 000:03:43,740 --> 00:03:47,050
-diferente, y las sequencias
+diferente, y las secuencias
 que siguen presentaran 
 
 65
@@ -323,12 +323,12 @@ Cuando enviamos un mensaje a Object,
 
 68
 00:04:00,240 --> 00:04:03,660
-el metodo correspondiente se buscara
-en la jerarquia de clases.
+el método correspondiente se buscara
+en la jerarquía de clases.
 
 69
 00:04:04,420 --> 00:04:08,770
-Aqui, si envio un mensaje a
+Aquí, si envió un mensaje a
 ColoredRectangle, el 
 
 70
@@ -338,7 +338,7 @@ lo buscaremos
 
 71
 00:04:13,840 --> 00:04:16,650
-en su clase, buscaremos el metodo
+en su clase, buscaremos el método
 correspondiente
 
 72
@@ -347,13 +347,13 @@ en la clase de A color rectangle.
 
 73
 00:04:18,520 --> 00:04:23,270
-No encontramos el metodo Area
+No encontramos el método Area
 asi que remontamos
 
 74
 00:04:23,590 --> 00:04:26,650
 en la super clase, 
-buscamos el metodo Area,
+buscamos el método Area,
 
 75
 00:04:26,850 --> 00:04:29,080
@@ -366,7 +366,7 @@ Resumiendo.
 
 77
 00:04:31,520 --> 00:04:35,630
-La herencia, esta nocion de 
+La herencia, esta noción de 
 subclase y de superclase
 
 78
@@ -377,12 +377,12 @@ reafinar el
 79
 00:04:37,900 --> 00:04:41,250
 comportamiento de su superclase
-y estenderlo.
+y extenderlo.
 
 80
 00:04:42,200 --> 00:04:45,800
-La subclase puede tanbien puede
-estender, és decir agregar
+La subclase puede también puede
+extender, es decir agregar
 
 81
 00:04:46,060 --> 00:04:47,620
@@ -391,27 +391,27 @@ estado a su superclase.
 82
 00:04:48,510 --> 00:04:51,190
 Pharo tiene un modelo de 
-herencia simple, és de decir que 
+herencia simple, es de decir que 
 
 83
 00:04:51,390 --> 00:04:52,640
 una clase tiene solo una
-y unica superclase.
+y única superclase.
 
 84
 00:04:52,960 --> 00:04:55,110
-És posible hacer algo parecido a la
-herencia multiple
+Es posible hacer algo parecido a la
+herencia múltiple
 
 85
 00:04:55,310 --> 00:04:58,050
-con la nocion de trait, que 
-no abordaremos aqui.
+con la noción de trait, que 
+no abordaremos aquí.
 
 86
 00:04:59,010 --> 00:05:01,830
-En la cabeza de la jerarquia
-encontramos Object y tambien la
+En la cabeza de la jerarquía
+encontramos Object y también la
 
 87
 00:05:02,030 --> 00:05:04,920
@@ -420,12 +420,12 @@ no entraremos en detalles.
 
 88
 00:05:05,890 --> 00:05:09,400
-La herencia del estado és estatica,
-és decir que se 
+La herencia del estado es estática,
+es decir que se 
 
 89
 00:05:09,600 --> 00:05:13,080
-realiza en el momento de la definicion
+realiza en el momento de la definición
 de la subclase, mientras que la herencia
 
 90
