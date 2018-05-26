@@ -6,7 +6,7 @@ volvemos sobre Seaside,
 2
 00:00:03,290 --> 00:00:06,810
 y especialmente sobre la parte de la generación
-de codigo HTML, de un componente.
+de código HTML, de un componente.
 
 3
 00:00:07,590 --> 00:00:10,260
@@ -20,17 +20,17 @@ al mensaje renderContentOn,
 
 5
 00:00:14,160 --> 00:00:17,890
-que permite de generar el codigo
+que permite de generar el código
 HTML que corresponde a un componente.
 
 6
 00:00:19,060 --> 00:00:22,610
-Así que este metodo tiene un
-parametro que se llama HTML que
+Así que este método tiene un
+parámetro que se llama HTML que
 
 7
 00:00:22,810 --> 00:00:26,320
-és un objeto instacia de la 
+es un objeto instancia de la 
 clase WAHtmlCanvas o de una
 
 8
@@ -41,17 +41,17 @@ así que ofrece una API
 9
 00:00:29,180 --> 00:00:31,090
 a los programadores, para generar
-los codigos HTML validos.
+los códigos HTML validos.
 
 10
 00:00:32,170 --> 00:00:35,570
-Aqui os recuerdo el codigo
+Aquí os recuerdo el código
 del Counter así que este
 
 11
 00:00:35,770 --> 00:00:38,180
-objeto HTML aqui se utiliza para
-genera titulos,
+objeto HTML Aquí se utiliza para
+genera títulos,
 
 12
 00:00:38,380 --> 00:00:40,300
@@ -63,12 +63,12 @@ De acuerdo!
 
 14
 00:00:41,920 --> 00:00:44,500
-Así que volveremos a este lenguage
+Así que volveremos a este lenguaje
 dedicado en esta secuencia.
 
 15
 00:00:46,240 --> 00:00:48,650
-Así que este lenguage dedicado 
+Así que este lenguaje dedicado 
 de hecho se constituye de
 
 16
@@ -78,12 +78,12 @@ y cada pincel se
 
 17
 00:00:52,550 --> 00:00:55,610
-especializara en la generacion de
+especializara en la generación de
 una baliza HTML particular.
 
 18
 00:00:56,150 --> 00:00:59,260
-Pero con una API que és un objeto.
+Pero con una API que es un objeto.
 
 19
 00:00:59,680 --> 00:01:01,380
@@ -91,12 +91,12 @@ De acuerdo!
 
 20
 00:01:01,580 --> 00:01:03,880
-Y por construccion a la fuerza,
-dado que utilizio el 
+Y por construcción a la fuerza,
+dado que utilizo el 
 
 21
 00:01:04,080 --> 00:01:06,640
-envio de mensajes a objetos, 
+envío de mensajes a objetos, 
 por construcción el 
 
 22
@@ -106,49 +106,49 @@ valido si no nos hemos
 
 23
 00:01:10,120 --> 00:01:12,900
-equivocado en el envio de mensajes.
+equivocado en el envío de mensajes.
 
 24
 00:01:15,090 --> 00:01:16,370
-Os muestro un ejemplo aqui.
+Os muestro un ejemplo Aquí.
 
 25
 00:01:16,610 --> 00:01:20,390
-Si utilizo el lenguage dedicado
+Si utilizo el lenguaje dedicado
 y este objeto HTML, 
 
 26
 00:01:20,590 --> 00:01:23,650
-le envio el mensaje div lo que
-me devolvera un 
+le envío el mensaje div lo que
+me devolverá un 
 
 27
 00:01:23,850 --> 00:01:27,450
-objeto y este objeto és un pincel
+objeto y este objeto es un pincel
 especializado en la
 
 28
 00:01:27,650 --> 00:01:30,200
-generacion de codigo HTML div.
+generación de código HTML div.
 
 29
 00:01:30,400 --> 00:01:35,310
-Asi que comprende el mensaje "Id"
+Así que comprende el mensaje "Id"
 y comprende
 
 30
 00:01:35,510 --> 00:01:39,350
-el mensage "With". Asi que aqui me
+el mensaje "With". Así que Aquí me
 generara bien una div
 
 31
 00:01:39,550 --> 00:01:44,240
 con el atributo "id = Title"
-y despues del mensage div
+y después del mensaje div
 
 32
 00:01:44,440 --> 00:01:45,810
-el parametro, he situado 
+el parámetro, he situado 
 una cadena de caracteres
 
 33
@@ -167,21 +167,21 @@ siempre el mismo comienzo, así
 36
 00:01:55,530 --> 00:02:00,160
 HTML div id:list, de acuerdo
-así aqui esta el div, salvo que
+así Aquí esta el div, salvo que
 
 37
 00:02:00,360 --> 00:02:02,470
 en el interior de esta div puedo
-tener un monton de otras balizas.
+tener un montón de otras balizas.
 
 38
 00:02:02,910 --> 00:02:05,650
-Por esto with en lugar de pasarle
+Por esto with en lugar de pasar
 directamente una
 
 39
 00:02:05,850 --> 00:02:08,410
-cadena de caracteres voy a pasarle
+cadena de caracteres voy a pasar
 un bloque, y en el interior
 
 40
@@ -197,7 +197,7 @@ tipos de balizas.
 42
 00:02:14,020 --> 00:02:18,790
 Así HTML span class Item,
-así que introduzco un spam que és
+así que introduzco un spam que es
 
 43
 00:02:19,000 --> 00:02:21,110
@@ -205,22 +205,22 @@ un atributo de clase con un contenido.
 
 44
 00:02:24,410 --> 00:02:27,370
-Ahora puedo utlizar bucles
+Ahora puedo utilizar bucles
 porque se trata de un 
 
 45
 00:02:27,570 --> 00:02:29,670
-lenguage dedicado que tiene toda
+lenguaje dedicado que tiene toda
 la potencia de Pharo.
 
 46
 00:02:30,010 --> 00:02:34,290
 Así que por ejemplo voy a generar
-una lista no ordenada, aqui.
+una lista no ordenada, Aquí.
 
 47
 00:02:35,260 --> 00:02:40,060
-UnordererList aqui "ul",
+UnordererList Aquí "ul",
 que tiene un atributo Id list.
 
 48
@@ -231,7 +231,7 @@ lista no ordenada voy
 49
 00:02:43,060 --> 00:02:46,510
 a tener unos listItem así lisitem
-que estan aqui, salvo que
+que están Aquí, salvo que
 
 50
 00:02:46,710 --> 00:02:48,290
@@ -240,17 +240,17 @@ bucle For.
 
 51
 00:02:48,550 --> 00:02:50,930
-Así que aqui tengo un bucle
+Así que Aquí tengo un bucle
 1 to do.
 
 52
 00:02:51,130 --> 00:02:54,660
 Así que 1 simple, do realiza un
-bucle clasico de Pharo,
+bucle clásico de Pharo,
 
 53
 00:02:55,000 --> 00:02:58,390
-voy a genrear 5 listas Item con
+voy a generar 5 listas Item con
 un atributo classe
 
 54
@@ -261,11 +261,11 @@ clase y luego el nombre de
 55
 00:03:02,820 --> 00:03:06,540
 cada uno de los listItem y he
-concatenado el cusor de bucles
+concatenado el cursor de bucles
 
 56
 00:03:08,300 --> 00:03:09,720
-: asi Item 1, Item
+: Así Item 1, Item
 2, Item 3, Item 4.
 
 57
@@ -274,13 +274,13 @@ Podemos ir un poco más lejos.
 
 58
 00:03:14,910 --> 00:03:17,060
-Podriamos decir de hecho que
+Podríamos decir de hecho que
 quiero clases CSS
 
 59
 00:03:17,260 --> 00:03:21,770
 diferentes para cada uno de los
-item de la lista en funcion de
+item de la lista en función de
 
 60
 00:03:22,110 --> 00:03:23,650
@@ -289,7 +289,7 @@ impar.
 
 61
 00:03:24,470 --> 00:03:27,080
-Así por ejemplo aqui voy a utilizar el
+Así por ejemplo Aquí voy a utilizar el
 
 62
 00:03:27,280 --> 00:03:31,860
@@ -298,55 +298,55 @@ añado esta clase si esta
 
 63
 00:03:32,060 --> 00:03:35,000
-condicion se cumple o entonces
+condición se cumple o entonces
 añado esta clase CSS
 
 64
 00:03:35,550 --> 00:03:37,000
-si esta condicion se verifica.
+si esta condición se verifica.
 
 65
 00:03:37,340 --> 00:03:40,080
-Y podemos ver que en el codigo generado
+Y podemos ver que en el código generado
 tenemos el
 
 66
 00:03:40,280 --> 00:03:45,180
 primer listItem que tiene esta
-clase CSS aqui, itemOdd, y
+clase CSS Aquí, itemOdd, y
 
 67
 00:03:45,380 --> 00:03:47,810
 el segundo list Item que tiene
-esta clase CSS aqui.
+esta clase CSS Aquí.
 
 68
 00:03:49,110 --> 00:03:51,690
-Aqui és un elemento par, impar,
+Aquí es un elemento par, impar,
 ect y ect....
 
 69
 00:03:52,860 --> 00:03:55,800
-Podemos ver que aqui tenemos una
+Podemos ver que Aquí tenemos una
 sintaxis concisa que utiliza
 
 70
 00:03:56,000 --> 00:03:57,600
 toda la potencia de Pharo para 
-generar el codigo HTML
+generar el código HTML
 
 71
 00:03:58,150 --> 00:03:59,190
-gracias a este lenguage dedicado.
+gracias a este lenguaje dedicado.
 
 72
 00:04:00,820 --> 00:04:03,160
-Así que este lenguage dedicado tiene
-otra propieda y es que
+Así que este lenguaje dedicado tiene
+otra propiedad y es que
 
 73
 00:04:03,360 --> 00:04:05,390
-és extensible, así que és facil
+es extensible, así que es fácil
 de hacerle soportar los
 
 
@@ -367,7 +367,7 @@ para generar los elementos  HTML
 
 77
 00:04:14,630 --> 00:04:19,440
-que són bellos, como por ejemplo
+que son bellos, como por ejemplo
 campos verdes, azules y
 
 78
@@ -377,12 +377,12 @@ ect. ect...
 79
 00:04:20,600 --> 00:04:23,130
 ¿Y como funciona para extender este
-lenguage dedicado?
+lenguaje dedicado?
 
 80
 00:04:23,400 --> 00:04:27,390
-Tendremos pinceles especificos
-aqui són
+Tendremos pinceles específicos
+Aquí son
 
 81
 00:04:27,590 --> 00:04:28,740
@@ -395,7 +395,7 @@ Tbs significa Tweeter BootStrap.
 83
 00:04:30,270 --> 00:04:33,900
 Así que a mi objeto HTML le 
-envio el mensaje tbsAlert
+envío el mensaje tbsAlert
 
 84
 00:04:34,950 --> 00:04:38,350
@@ -409,7 +409,7 @@ Framework Tweeter BootStrap.
 
 86
 00:04:43,620 --> 00:04:47,840
-Así que vamos a tener un monton
+Así que vamos a tener un montón
 de pinceles relativos a este
 
 87
@@ -419,7 +419,7 @@ Strap, así que puedo generar
 
 88
 00:04:50,660 --> 00:04:52,120
-elementos del tipo boton o
+elementos del tipo botón o
 tbsButton.
 
 89
@@ -439,8 +439,8 @@ del contador que
 
 92
 00:05:05,280 --> 00:05:08,000
-teniamos en la secuencia anterior,
-habiamos definido
+teníamos en la secuencia anterior,
+habíamos definido
 
 93
 00:05:08,200 --> 00:05:10,120
@@ -449,12 +449,12 @@ construir
 
 94
 00:05:10,320 --> 00:05:12,260
-la versiont tweeter
+la version tweeter
 Bootstrap de este contador.
 
 95
 00:05:12,670 --> 00:05:13,750
-Así que és muy facil.
+Así que es muy fácil.
 
 96
 00:05:14,040 --> 00:05:15,940
@@ -472,7 +472,7 @@ al lado clase de esta clase
 
 99
 00:05:26,220 --> 00:05:28,260
-y defino el metodo initialize en
+y defino el método initialize en
 el que
 
 100
@@ -487,28 +487,28 @@ TbsDevelopmentLibrary, JQDeploymentLibrary.
 
 102
 00:05:37,720 --> 00:05:42,180
-Así que és el Framework
+Así que es el Framework
 Javascript y el Framework CSS.
 
 103
 00:05:46,000 --> 00:05:50,190
-Luego volvere al lado instancia
+Luego volveré al lado instancia
 de esta clase y 
 
 104
 00:05:50,390 --> 00:05:52,130
-voy definir el nuevo metodo
-renderCounterOn, podeis
+voy definir el nuevo método
+renderCounterOn, podéis
 
 105
 00:05:52,330 --> 00:05:54,750
-volver a definir la que haviamos
+volver a definir la que habíamos
 definido anteriormente,
 
 106
 00:05:55,270 --> 00:05:57,500
 y voy a utilizar unos pinceles que
-enpiezan todos por Tbs.
+empiezan todos por Tbs.
 
 107
 00:05:58,470 --> 00:06:01,780
@@ -517,8 +517,8 @@ TbsButton, etc. ect...
 
 108
 00:06:02,490 --> 00:06:05,320
-Pero esto no va a canviar nada de
-mi codigo clasico así que és
+Pero esto no va a cambiar nada de
+mi código clásico así que es
 
 109
 00:06:05,520 --> 00:06:10,060
@@ -527,12 +527,12 @@ con self increase, y self decrease.
 
 110
 00:06:10,400 --> 00:06:11,160
-Esto no canvia absolutamente nada.
+Esto no cambia absolutamente nada.
 
 111
 00:06:11,370 --> 00:06:16,280
-De acuerdo! Són solo los pinceles
-de renderizado del codigo 
+De acuerdo! son solo los pinceles
+de renderizado del código 
 
 112
 00:06:16,480 --> 00:06:18,050
@@ -555,18 +555,18 @@ para mostrar el valor del
 
 116
 00:06:28,940 --> 00:06:31,220
-Counter que és la version
+Counter que es la versión
 Bootstrap de my contador.
 
 117
 00:06:34,600 --> 00:06:36,600
-Pero de hecho podeis ir aun 
-mas lejos, no estais 
+Pero de hecho podéis ir aun 
+mas lejos, no estáis 
 
 118
 00:06:36,800 --> 00:06:38,430
 obligados a utilizar BootStrap
-podeis definir
+podéis definir
 
 119
 00:06:38,630 --> 00:06:40,860
@@ -575,12 +575,12 @@ en vuestro contador.
 
 120
 00:06:41,140 --> 00:06:45,750
-Por ejemplo aqui he decidido
+Por ejemplo Aquí he decidido
 de decir que todos los elementos
 
 121
 00:06:46,110 --> 00:06:50,180
-inpares odd, tendran la clase odd.
+impares odd, tendrán la clase odd.
 
 122
 00:06:51,470 --> 00:06:53,500
@@ -589,7 +589,7 @@ el valor de mi
 
 123
 00:06:53,700 --> 00:06:57,950
-Contador aqui bajo la forma de
+Contador Aquí bajo la forma de
 tbsBadge, así que
 
 124
@@ -603,7 +603,7 @@ salvo que voy
 
 126
 00:07:02,220 --> 00:07:06,860
-a añadir la clase CSS odd aqui,
+a añadir la clase CSS odd Aquí,
 solo si el valor
 
 127
@@ -612,12 +612,12 @@ es impar. De acuerdo!
 
 128
 00:07:08,750 --> 00:07:09,570
-Así que aqui 7.
+Así que Aquí 7.
 
 129
 00:07:10,810 --> 00:07:14,270
-Así que esta clase CSS se añadira
-solo si cumple esta condicion.
+Así que esta clase CSS se añadirá
+solo si cumple esta condición.
 
 130
 00:07:16,290 --> 00:07:18,440
@@ -626,12 +626,12 @@ CSS odd.
 
 131
 00:07:18,830 --> 00:07:21,940
-De hecho puedo definir el metodo
+De hecho puedo definir el método
 style en mi contador
 
 132
 00:07:22,140 --> 00:07:23,940
-que devolvera una cadena de 
+que devolverá una cadena de 
 caracteres con las reglas de
 
 133
@@ -645,26 +645,26 @@ Así que point odd color red.
 135
 00:07:27,230 --> 00:07:30,050
 Y el valor de contador pasara
-a rojo en caso de ser inpar.
+a rojo en caso de ser impar.
 
 136
 00:07:31,490 --> 00:07:34,940
-Como conclusion: un component,
-una aplicacion Web
+Como conclusión: un componente,
+una aplicación Web
 
 137
 00:07:35,150 --> 00:07:37,230
-Seaside és un componente raiz.
+Seaside es un componente raíz.
 
 138
 00:07:37,840 --> 00:07:40,610
-Todos los componentes saven mostrarse
-en HTML gracias a el
+Todos los componentes saben como
+mostrarse en HTML gracias al
 
 139
 00:07:40,810 --> 00:07:43,950
-metodo renderContenOn.
-Y disponemos de un lenguage dedicado
+método renderContenOn.
+Y disponemos de un lenguaje dedicado
 
 140
 00:07:44,150 --> 00:07:48,220
@@ -673,8 +673,8 @@ permite de escribir
 
 141
 00:07:48,420 --> 00:07:51,370
-la generación de codigo HTML 
-muy facilmente, gracias a
+la generación de código HTML 
+muy fácilmente, gracias a
 
 142
 00:07:51,570 --> 00:07:55,940
@@ -692,15 +692,15 @@ UI, ect... ect...
 
 145
 00:08:00,850 --> 00:08:03,680
-Y podreis aprovechar de 
+Y podréis aprovechar de 
 toda la potencia del
 
 146
 00:08:03,880 --> 00:08:06,000
-lenguage Pharo, los bucles
+lenguaje Pharo, los bucles
 ect... ect...
 
 147
 00:08:06,200 --> 00:08:07,810
-podremos generar facilmente un
+podremos generar fácilmente un
 conjunto de elementos.
