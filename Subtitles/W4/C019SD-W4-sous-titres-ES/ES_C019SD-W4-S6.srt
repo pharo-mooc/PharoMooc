@@ -1,20 +1,20 @@
 1
 00:00:00,510 --> 00:00:03,470
-Buenos dias a todos. En esta
+Buenos días a todos. En esta
 secuencia, nos pararemos
 
 2
 00:00:03,670 --> 00:00:05,790
-un poco sobre los metodos de clase.
+un poco sobre los métodos de clase.
 
 3
 00:00:06,350 --> 00:00:10,550
-Hemos visto que los metodos de 
+Hemos visto que los métodos de 
 clase son 
 
 4
 00:00:10,790 --> 00:00:12,950
-metodos normales, como los otros.
+métodos normales, como los otros.
 
 5
 00:00:14,000 --> 00:00:17,220
@@ -23,13 +23,13 @@ nuevas instancias
 
 6
 00:00:18,000 --> 00:00:19,760
-pero tanbien pueden servir para
+pero también pueden servir para
 otras cosas.
 
 7
 00:00:20,310 --> 00:00:23,800
 Veremos 2 ejemplos sobre para
-que pueden servir los metodos de clase.
+que pueden servir los métodos de clase.
 
 8
 00:00:24,920 --> 00:00:28,840
@@ -38,11 +38,11 @@ un programa que toma
 
 9
 00:00:29,040 --> 00:00:33,040
-este texto como parametro y que crea
+este texto como parámetro y que crea
 
 10
 00:00:34,020 --> 00:00:38,910
-una estructura. La idea és
+una estructura. La idea es
 que si una linea empieza con
 
 11
@@ -57,7 +57,7 @@ guion, consideramos que
 
 13
 00:00:45,950 --> 00:00:48,010
-és el elemento de una lista.
+es el elemento de una lista.
 
 14
 00:00:49,180 --> 00:00:51,920
@@ -66,22 +66,22 @@ mas de un guion,
 
 15
 00:00:52,120 --> 00:00:54,490
-consideramos que és un subelemento de
+consideramos que es un subelemento de
 una lista.
 
 16
 00:00:55,750 --> 00:00:57,720
 En cualquier otro caso consideramos
-que se trata de un paragrafo.
+que se trata de un parágrafo.
 
 17
 00:00:58,620 --> 00:01:02,820
-Deseamos escribir un progra que 
+Deseamos escribir un programa que 
 toma esto como entrada y
 
 18
 00:01:03,070 --> 00:01:06,520
-instancia las clases que veis aqui,
+instancia las clases que veis aquí,
 
 19
 00:01:06,720 --> 00:01:07,760
@@ -89,7 +89,7 @@ las subclases de document y item.
 
 20
 00:01:10,110 --> 00:01:13,670
-Tanbien deseamos, en esta concepcion,
+también deseamos, en esta concepción,
 que cada
 
 21
@@ -105,11 +105,11 @@ si ellas pueden parsear
 23
 00:01:20,010 --> 00:01:23,050
 o no una linea determinada.
-Si miro el metodo
+Si miro el método
 
 24
 00:01:23,400 --> 00:01:28,310
-canParse aqui, le entregamos
+canParse aquí, le entregamos
 una linea de texto.
 
 25
@@ -119,7 +119,7 @@ punto de exclamación, el
 
 26
 00:01:30,810 --> 00:01:32,700
-metodo canParse deve devolver
+método canParse debe devolver
 verdadero porque nos 
 
 27
@@ -129,7 +129,7 @@ encontramos en la clase SectionTitle.
 28
 00:01:36,470 --> 00:01:39,620
 En la clase listeItem,
-el metodo can parse deve
+el método can parse debe
 
 29
 00:01:39,820 --> 00:01:42,470
@@ -138,17 +138,17 @@ con un guion, si la
 
 30
 00:01:42,670 --> 00:01:44,170
-linea entregada como parametro
-enpieza con un guion.
+linea entregada como parámetro
+empieza con un guion.
 
 31
 00:01:44,840 --> 00:01:49,330
-Y el metodo canParse, que se encuentra
-aqui, nos devolvera sistematicamente verdadero
+Y el método canParse, que se encuentra
+aquí, nos devolverá sistemáticamente verdadero
 
 32
 00:01:49,530 --> 00:01:53,150
-La idea és de escribir un algoritmo
+La idea es de escribir un algoritmo
 que analizara las
 
 33
@@ -167,18 +167,18 @@ instancia en relación a esta linea.
 
 36
 00:02:04,580 --> 00:02:06,750
-Este és el objetivo del metodo
+Este es el objetivo del método
 canParse y el objetivo
 
 37
 00:02:06,950 --> 00:02:10,130
-del metodo newFromLine,
-toma tanbien una linea como
+del método newFromLine,
+toma también una linea como
 
 38
 00:02:10,330 --> 00:02:13,440
-parametro, una linea de texto
-como parametro a menos que
+parámetro, una linea de texto
+como parámetro a menos que
 
 39
 00:02:13,640 --> 00:02:16,010
@@ -187,26 +187,26 @@ clase en la que
 
 40
 00:02:16,210 --> 00:02:18,470
-acaba de ser inplementada.
+acaba de ser implementada.
 
 41
 00:02:18,670 --> 00:02:21,920
-Si envio el mensaje newFromLine
+Si envío el mensaje newFromLine
 a la clase
 
 42
 00:02:22,120 --> 00:02:24,920
 SectionTitle con una cadena de 
-caracteres que enpieza
+caracteres que empieza
 
 43
 00:02:25,120 --> 00:02:29,170
 con un punto de exclamación,
-el metodo newFromLine
+el método newFromLine
 
 44
 00:02:29,370 --> 00:02:31,000
-devolvera una instacia 
+devolverá una instancia 
 de la clase SectionTitle.
 
 45
@@ -215,7 +215,7 @@ de la clase SectionTitle.
 
 46
 00:02:34,000 --> 00:02:36,300
-És la clase Parse que sera 
+es la clase Parse que sera 
 responsable de realizar
 
 47
@@ -235,11 +235,11 @@ linea en particular.
 50
 00:02:42,890 --> 00:02:45,750
 La clase Parser posee
-un metodo document classes
+un método document classes
 
 51
 00:02:45,950 --> 00:02:50,790
-con la mision de devolver la
+con la misión de devolver la
 
 52
 00:02:51,000 --> 00:02:52,860
@@ -248,7 +248,7 @@ documentItem.
 
 53
 00:02:53,060 --> 00:02:56,100
-Devolvera una coleción que contiene
+Devolverá una colección que contiene
 
 54
 00:02:56,300 --> 00:02:57,060
@@ -262,7 +262,7 @@ mensaje "allSupclasses" a "DocumentItem".
 
 56
 00:03:02,150 --> 00:03:04,440
-"allSup classes", és un metodo
+"allSup classes", es un método
 que existe en
 
 57
@@ -276,8 +276,8 @@ de una clase determinada.
 
 59
 00:03:09,920 --> 00:03:13,280
-Aqui, realizando esto, obtengo,
-diretamente una colección
+aquí, realizando esto, obtengo,
+directamente una colección
 
 60
 00:03:13,480 --> 00:03:14,240
@@ -286,16 +286,16 @@ SectionTitle, listItem y Text.
 
 61
 00:03:14,440 --> 00:03:15,290
-Esta coleción, la quiero ordenar
+Esta colección, la quiero ordenar
 
 62
 00:03:19,400 --> 00:03:23,680
-por prioridad. La idea és
+por prioridad. La idea es
 que una clase Text debe
 
 63
 00:03:23,880 --> 00:03:27,100
-llegar al fin porque su metodo
+llegar al fin porque su método
 canParse devuelve siempre verdadero.
 
 64
@@ -310,26 +310,26 @@ los otros.
 
 66
 00:03:36,240 --> 00:03:39,290
-Tenemos esta nocion de prioridad,
-aqui.
+Tenemos esta noción de prioridad,
+aquí.
 
 67
 00:03:41,250 --> 00:03:44,910
-Vemos que muchos metodos esta
-subrallados.
+Vemos que muchos métodos esta
+subrayados.
 
 68
 00:03:45,320 --> 00:03:50,080
-Si subrallo estos metodos,
+Si subrayo estos métodos,
 indica que son
 
 69
 00:03:50,280 --> 00:03:51,240
-metodos de clase.
+métodos de clase.
 
 70
 00:03:52,720 --> 00:03:56,200
-Para ejecutar esto metodos, és 
+Para ejecutar esto métodos, es 
 necesario enviar mensajes a las clases.
 
 71
@@ -348,8 +348,8 @@ parsear una linea determinada.
 
 74
 00:04:08,290 --> 00:04:12,690
-El metodo parse de la clase
-Parser toma una linea como parametro.
+El método parse de la clase
+Parser toma una linea como parámetro.
 
 75
 00:04:12,890 --> 00:04:15,080
@@ -363,7 +363,7 @@ una clase capaz de
 
 77
 00:04:18,020 --> 00:04:21,240
-parsear esta linea, y si és el caso,
+parsear esta linea, y si es el caso,
 crearemos
 
 78
@@ -378,7 +378,7 @@ colección que encuentra
 80
 00:04:30,740 --> 00:04:33,070
 un elemento entre
-N segun un predicado.
+N según un predicado.
 
 81
 00:04:33,270 --> 00:04:37,520
@@ -387,31 +387,31 @@ ejemplo de utilización
 
 82
 00:04:37,720 --> 00:04:38,570
-de metodos de clase.
+de métodos de clase.
 
 83
 00:04:39,360 --> 00:04:43,730
 Nos interesaremos a la lectura de
-parametros de la linea de comando.
+parámetros de la linea de comando.
 
 84
 00:04:44,530 --> 00:04:47,690
-Aqui la idea és de realizar un
+aquí la idea es de realizar un
 programa que en caso
 
 85
 00:04:47,890 --> 00:04:50,580
-de recibir unos parametros, mirara
-cuales són
+de recibir unos parámetros, mirara
+cuales son
 
 86
 00:04:50,780 --> 00:04:53,190
-estos parametros y realizara alguna
-cosa diferente en funcion de los parametros.
+estos parámetros y realizara alguna
+cosa diferente en función de los parámetros.
 
 87
 00:04:53,430 --> 00:04:56,790
-El primer parametro indica la
+El primer parámetro indica la
 acción a ejecutar.
 
 88
@@ -430,16 +430,16 @@ eval CommandLineHandler.
 
 91
 00:05:07,250 --> 00:05:11,940
-¿Cual és la acción realizada cuando
+¿Cual es la acción realizada cuando
 
 92
 00:05:12,660 --> 00:05:14,750
-se presente el parametro eval?
+se presente el parámetro eval?
 
 93
 00:05:14,950 --> 00:05:17,870
-Lo que haremos és  ejecutar este
-codigo, aqui,
+Lo que haremos es  ejecutar este
+código, aquí,
 
 94
 00:05:18,070 --> 00:05:20,060
@@ -448,13 +448,13 @@ caracteres como
 
 95
 00:05:20,260 --> 00:05:23,570
-codigo Pharo y devuelva el
+código Pharo y devuelva el
 resultado de estas expresiones.
 
 96
 00:05:24,820 --> 00:05:27,250
-El numero que se encuentra aqui és el
-resultado de la expresion 10 factorial.
+El numero que se encuentra aquí es el
+resultado de la expresión 10 factorial.
 
 97
 00:05:27,940 --> 00:05:30,720
@@ -467,29 +467,29 @@ una clase
 
 99
 00:05:34,730 --> 00:05:37,350
-EvaluateCommandHandler que és una
+EvaluateCommandHandler que es una
 subclase que tiene
 
 100
 00:05:37,550 --> 00:05:41,310
 como objetivo de tratar al 
-parametro eval.
+parámetro eval.
 
 101
 00:05:41,510 --> 00:05:44,300
-Si el parametro eval se envia 
+Si el parámetro eval se envía 
 primer
 
 
 102
 00:05:44,500 --> 00:05:47,200
-parametro en la linea de comandos, entonces
-és esta clase que tiene que trabajar.
+parámetro en la linea de comandos, entonces
+es esta clase que tiene que trabajar.
 
 103
 00:05:48,730 --> 00:05:53,590
-El metodo isResponsibleFor
-deve devolver verdadero en caso de 
+El método isResponsibleFor
+debe devolver verdadero en caso de 
 
 104
 00:05:54,000 --> 00:05:58,120
@@ -498,7 +498,7 @@ interpretar la linea
 
 105
 00:05:59,680 --> 00:06:04,070
-de comando. Vemos, aqui abajo,
+de comando. Vemos, aquí abajo,
 exactamente el mismo 
 106
 00:06:04,270 --> 00:06:07,410
@@ -507,8 +507,8 @@ ejemplo anterior.
 
 107
 00:06:08,040 --> 00:06:11,450
-Otra vez, volvemos autilizar
-metodos de clase y enviamos
+Otra vez, volvemos a utilizar
+métodos de clase y enviamos
 
 108
 00:06:11,650 --> 00:06:16,510
@@ -518,12 +518,12 @@ a crear instancias.
 109
 00:06:17,620 --> 00:06:21,700
 Hemos vistos dos posibles utilidades
-de los metodos de clase.
+de los métodos de clase.
 
 110
 00:06:22,710 --> 00:06:24,680
 La mayor parte del tiempo los
-metodos de clase se utilizan
+métodos de clase se utilizan
 
 111
 00:06:24,880 --> 00:06:27,170
@@ -532,5 +532,5 @@ pero
 
 112
 00:06:27,370 --> 00:06:29,280
-tanbien se pueden utilizar en
+también se pueden utilizar en
 otros casos.
