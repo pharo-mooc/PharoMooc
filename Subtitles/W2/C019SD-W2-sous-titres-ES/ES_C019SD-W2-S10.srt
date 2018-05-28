@@ -5,7 +5,7 @@ Hola a todos.
 2
 00:00:01,920 --> 00:00:05,280
 En este curso,
-Aprenderemos sobre el método usted mismo.
+Aprenderemos sobre el método usted yourself.
 
 3
 00:00:06,040 --> 00:00:10,520
@@ -18,11 +18,11 @@ Comencemos con un ejercicio.
 
 5
 00:00:12,440 --> 00:00:16,480
-Para esta expresión, Establecer nuevo agregar:2,
+Para esta expresión, Set new add:2,
 
 6
 00:00:18,320 --> 00:00:23,680
-nos gustaría obtener un set
+nos gustaría obtener un conjunto
 que contiene el valor 2
 
 7
@@ -31,42 +31,42 @@ para que regrese solo el valor 2.
 
 8
 00:00:27,360 --> 00:00:31,240
-¿Por qué obtienes el valor 2?
+¿Por qué obtiene el valor 2
 en lugar de un conjunto que contiene 2?
 
 9
 00:00:31,400 --> 00:00:34,880
-Si miras el método agrega:
-implementado en el conjunto de clases,
+Si mira el método add:
+implementado en la clase Set,
 
 10
 00:00:35,040 --> 00:00:37,800
-puedes ver que devuelve su parámetro.
+puede ver que devuelve su parámetro.
 
 11
 00:00:42,320 --> 00:00:44,520
-En la expresión Establecer nuevo agregar:2,
+En la expresión Set new add: 2,
 
 12
 00:00:46,160 --> 00:00:48,880
 la expresión Set
-devuelve el conjunto de clases.
+devuelve la clase Set.
 
 13
 00:00:50,480 --> 00:00:54,960
-Cuando envías nuevo al conjunto de clases,
-Devuelve un nuevo conjunto.
+Cuando envía new a la clase Set,
+devuelve un nuevo conjunto.
 
 14
 00:00:55,960 --> 00:00:57,520
-Establecer nuevo agregar:2
+Set new add: 2
 
 15
 00:00:57,680 --> 00:01:01,000
 devuelve el valor devuelto por add:2,
 que es 2
 
-dieciséis
+16
 00:01:01,160 --> 00:01:02,720
 El conjunto se pierde.
 
@@ -76,12 +76,12 @@ Para resolver este problema,
 
 18
 00:01:05,440 --> 00:01:09,000
-puedes describir las expresiones
+puede escribir las expresiones
 paso a paso.
 
 19
 00:01:09,840 --> 00:01:14,280
-Puedes crear una variable temporal:
+Puede crear una variable temporal:
 usted declara la variable s.
 
 20
@@ -90,7 +90,7 @@ Asigne el nuevo conjunto a s.
 
 21
 00:01:19,720 --> 00:01:21,800
-Agregar 2 a s.
+Agregue 2 a s.
 
 22
 00:01:22,920 --> 00:01:28,480
@@ -107,20 +107,20 @@ Puede simplificar estas expresiones
 
 25
 00:01:34,080 --> 00:01:36,440
-usando el método tú mismo.
+usando el método yourself.
 
 26
 00:01:36,600 --> 00:01:38,200
-Si miras más de cerca,
+Si mira más de cerca,
 
 27
 00:01:38,360 --> 00:01:42,960
 verá que contiene solo una cosa:
-volver a ti mismo
+return self.
 
 28
 00:01:43,120 --> 00:01:47,160
-Volver ser opcional,
+return self, siendo opcional,
 este método también podría estar vacío
 
 29
@@ -139,7 +139,7 @@ Y sin embargo, es útil en tales casos.
 
 32
 00:02:00,800 --> 00:02:03,400
-gracias a la cascada del operador.
+gracias al operador de cascada.
 
 33
 00:02:03,560 --> 00:02:05,360
@@ -147,7 +147,7 @@ Después de agregar 2,
 
 34
 00:02:05,520 --> 00:02:08,960
-vamos a ejecutar el método usted mismo
+vamos a ejecutar el método yourself
 
 35
 00:02:09,120 --> 00:02:11,040
@@ -156,11 +156,11 @@ que devolverá el receptor
 36
 00:02:11,200 --> 00:02:14,360
 para que la expresión completa
-puede ser el receptor,
+pueda ser el receptor,
 
 37
 00:02:14,520 --> 00:02:17,560
-que es el nuevo Set.
+que es el nuevo conjunto.
 
 38
 00:02:18,480 --> 00:02:22,520
@@ -172,7 +172,7 @@ que es el nuevo conjunto,
 
 40
 00:02:24,760 --> 00:02:28,600
-y escriba add:2 aplicado a Set new,
+y escribo add:2 aplicado a Set new,
 
 41
 00:02:28,760 --> 00:02:30,320
@@ -180,22 +180,22 @@ devuelve 2
 
 42
 00:02:30,480 --> 00:02:34,280
-Pero gracias a la cascada del operador
-seguido de ti mismo,
+Pero gracias al operador de cascada 
+seguido de yourself,
 
 43
 00:02:34,440 --> 00:02:39,240
 la expresion
-en su conjunto devuelve el nuevo Set.
+en su conjunto devuelve el nuevo conjunto.
 
 44
 00:02:40,360 --> 00:02:43,240
 ¿Por qué la cascada
-retornar sistemáticamente
+regresa sistemáticamente
 
 45
 00:02:43,400 --> 00:02:45,760
-¿El valor de su última expresión vuelve?
+el valor que su última expresión regresa?
 
 46
 00:02:46,600 --> 00:02:48,800
@@ -203,11 +203,11 @@ La cascada, en este caso,
 
 47
 00:02:48,960 --> 00:02:52,840
-devuelve el mismo valor devuelve.
+devuelve el valor que yourself devuelve.
 
 48
 00:02:53,000 --> 00:02:56,960
-A menudo usamos usted mismo y la cascada
+A menudo usamos yourself y la cascada
 
 49
 00:02:57,120 --> 00:03:00,120
@@ -235,8 +235,8 @@ que contiene un objeto de forma predeterminada,
 
 55
 00:03:16,600 --> 00:03:21,680
-Puedo enviar el mensaje con:anObject
-poner.
+puedo enviar el mensaje with:anObject
+a Set.
 
 56
 00:03:21,840 --> 00:03:25,520
@@ -245,7 +245,7 @@ para crear un nuevo conjunto,
 
 57
 00:03:25,680 --> 00:03:27,920
-para ponerlo en la instancia variable,
+para ponerlo en la variable de instancia,
 
 58
 00:03:28,680 --> 00:03:31,600
@@ -258,7 +258,7 @@ y para devolver la instancia.
 60
 00:03:34,240 --> 00:03:38,080
 Puedo escribir esta expresión como un todo
-al usarte
+usando yourself
 
 61
 00:03:38,240 --> 00:03:42,080
@@ -274,9 +274,9 @@ Es importante dominar el punto y coma,
 
 64
 00:03:50,160 --> 00:03:52,400
-la cascada y usted mismo.
+la cascada y yourself.
 
-sesenta y cinco
+65
 00:03:53,080 --> 00:03:56,920
 Lo que debes recordar
 al final de este curso
@@ -288,12 +288,12 @@ aunque son muy simples,
 
 67
 00:04:00,640 --> 00:04:03,240
-Puede ser muy potente y se usa mucho.
+Puede ser muy potente y se usan mucho.
 
 68
 00:04:05,200 --> 00:04:09,440
 La cascada, el punto y coma,
-y el método usted mismo
+y el método yourself
 
 69
 00:04:09,600 --> 00:04:11,880
@@ -301,7 +301,7 @@ se usan muy a menudo juntos
 
 70
 00:04:12,040 --> 00:04:15,240
-para asegurarte de una expresión completa
+para asegurarse de que una expresión completa
 
 71
 00:04:15,400 --> 00:04:17,960

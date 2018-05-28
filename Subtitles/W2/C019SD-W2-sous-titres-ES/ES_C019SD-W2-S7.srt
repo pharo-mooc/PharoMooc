@@ -1,16 +1,16 @@
 ﻿1
 00:00:00,640 --> 00:00:03,600
 En esta sesión,
-Hablaremos de bucles en Pharo.
+Hablaremos de ciclos en Pharo.
 
 2
 00:00:03,760 --> 00:00:08,320
-En Pharo, los bucles son mensajes
+En Pharo, los ciclos son mensajes
 enviado a los objetos
 
 3
 00:00:08,480 --> 00:00:10,680
-Hay muchos tipos de bucles.
+Hay muchos tipos de ciclos.
 
 4
 00:00:11,320 --> 00:00:14,680
@@ -53,41 +53,41 @@ Este bloque comienza aquí y termina allí.
 
 13
 00:00:39,080 --> 00:00:43,520
-Este mensaje se repite
+Este mensaje repite
 la evaluación de este bloque
 
 14
 00:00:44,120 --> 00:00:46,960
-varias veces:en este ejemplo,
+varias veces en este ejemplo,
 cuatro veces
 
 15
 00:00:47,120 --> 00:00:48,840
 como el receptor es 4.
 
-dieciséis
+16
 00:00:50,720 --> 00:00:54,080
 Hay otros tipos de mensajes
-para crear bucles.
+para crear ciclos.
 
 17
 00:00:54,240 --> 00:00:57,000
 En este ejemplo,
-Es el mensaje para:hacer :.
+es el mensaje to:do:.
 
 18
 00:00:57,160 --> 00:01:00,360
-El mensaje para:hacer:
-se define en el número de clase.
+El mensaje to:do:
+se define en la clase Número.
 
 19
 00:01:01,520 --> 00:01:04,360
-También lo pasaré un bloque
+También le pasaré un bloque
 como un parámetro,
 
 20
 00:01:04,520 --> 00:01:06,400
-El último argumento del mensaje.
+el último argumento del mensaje.
 
 21
 00:01:06,560 --> 00:01:09,440
@@ -96,7 +96,7 @@ un número de veces
 
 22
 00:01:09,600 --> 00:01:13,640
-con un cursor de bucle
+con un cursor de ciclo
 que va desde el receptor
 
 23
@@ -113,7 +113,7 @@ con el mismo ejemplo:
 
 26
 00:01:23,240 --> 00:01:26,360
-Envío el mensaje a:hacer:
+envío el mensaje to:do:
 al entero 1.
 
 27
@@ -123,29 +123,29 @@ usted muestra el parámetro del bloque,
 
 28
 00:01:32,000 --> 00:01:34,080
-el parámetro i en cada bucle.
+el parámetro i en cada ciclo.
 
 29
 00:01:34,240 --> 00:01:39,200
-En la transcripción, tiene todos
+En el Transcript, tiene todos
 los enteros entre 1 y 100.
 
 30
 00:01:42,000 --> 00:01:47,120
 Hay otros mensajes
-para crear bucles.
+para crear ciclos.
 
 31
 00:01:47,280 --> 00:01:50,280
-Por ejemplo, el mensaje a:by:do
+Por ejemplo, el mensaje to:by:do
 
 32
 00:01:50,440 --> 00:01:52,440
-Incrementar en más de 1.
+para incrementar en más de 1.
 
 33
 00:01:52,600 --> 00:01:55,680
-Tú controlas la escala del incremento.
+Usted controla la escala del incremento.
 
 34
 00:01:55,840 --> 00:01:58,040
@@ -154,16 +154,16 @@ Puede incrementar en 3 en este ejemplo.
 35
 00:01:58,200 --> 00:02:02,160
 Con cada ciclo,
-Tomo valores por paso de 3.
+toma valores con incrementos de 3.
 
 36
 00:02:03,920 --> 00:02:08,080
-Puedes ver que pasa
-cuando ejecutas este bit de código.
+Puede ver que pasa
+cuando ejecuta este segmento de código.
 
 37
 00:02:08,240 --> 00:02:12,040
-Puedes ver que fui de 1 a 100
+Puede ver que fui de 1 a 100
 
 38
 00:02:12,200 --> 00:02:14,400
@@ -172,7 +172,7 @@ con un incremento de 3 cada vez.
 39
 00:02:15,880 --> 00:02:18,920
 También hay iteradores
-para crear bucles.
+para crear ciclos.
 
 40
 00:02:19,080 --> 00:02:23,360
@@ -185,16 +185,16 @@ a objetos de colección
 
 42
 00:02:25,160 --> 00:02:28,440
-Hay muchos tipos como hacer :.
+Hay muchos tipos como do:.
 
 43
 00:02:28,600 --> 00:02:31,880
-hacer:itera
+do: itera
 sobre cada elemento de una colección.
 
 44
 00:02:32,040 --> 00:02:35,400
-recoger:itera
+collect: itera
 sobre los elementos de una colección
 
 45
@@ -207,22 +207,22 @@ para ponerlos en una nueva colección.
 
 47
 00:02:41,200 --> 00:02:45,560
-seleccionar:selecciona los elementos coincidentes
+select: selecciona los elementos coincidentes
 en una colección:
 
 48
 00:02:45,720 --> 00:02:48,720
-construyes una nueva colección
-con las que seleccionaste
+construye una nueva colección
+con los elementos seleccionados
 
 49
 00:02:48,880 --> 00:02:53,280
-rechazar:rechaza los elementos
-de una colección que no quieres.
+reject: rechaza los elementos
+de una colección que no desea.
 
 50
 00:02:53,440 --> 00:02:56,320
-detectar:​​ayuda a determinar
+detect:​​ ayuda a determinar
 
 51
 00:02:56,480 --> 00:03:00,120
@@ -236,13 +236,13 @@ en las próximas diapositivas.
 
 53
 00:03:04,200 --> 00:03:08,440
-do :, por ejemplo,
+do:, por ejemplo,
 es el mensaje más común.
 
 54
 00:03:08,600 --> 00:03:13,000
 Envía el mensaje:
-a una colección y pasarlo un bloque.
+a una colección y lo pasa a un bloque.
 
 55
 00:03:13,160 --> 00:03:16,240
@@ -250,7 +250,7 @@ Con cada ciclo,
 
 56
 00:03:16,400 --> 00:03:19,160
-el parámetro del bloque,:cada uno,
+el parámetro del bloque :each,
 
 57
 00:03:19,320 --> 00:03:22,200
@@ -264,16 +264,17 @@ de la colección
 
 59
 00:03:28,280 --> 00:03:31,680
-Esto es un ejemplo:
-Es una colección definida.
+Esto es un ejemplo;
+es una colección definida.
 
 60
 00:03:31,840 --> 00:03:34,200
-Un recordatorio de la sintaxis:abrir con # (
+Un recordatorio de la sintaxis:
+abrir con #(
 
 61
 00:03:34,360 --> 00:03:37,080
-y cierra con)
+y cierra con )
 para colecciones literales
 
 62
@@ -284,15 +285,15 @@ Esta colección contiene cuatro enteros:
 63
 00:03:42,280 --> 00:03:46,320
 Envía el mensaje:
-a la colección y pasarlo un bloque.
+a la colección y lo pasa a un bloque.
 
 64
 00:03:46,480 --> 00:03:51,000
 i, el parámetro del bloque,
 
-sesenta y cinco
+65
 00:03:51,160 --> 00:03:53,560
-toma el valor 15 en el primer bucle,
+toma el valor 15 en el primer ciclo,
 
 66
 00:03:53,720 --> 00:03:56,120
@@ -300,19 +301,19 @@ luego 10, 19 y 68.
 
 67
 00:03:59,040 --> 00:04:01,680
-Este es otro mensaje:whileTrue :.
+Este es otro mensaje: whileTrue:.
 
 68
 00:04:01,840 --> 00:04:04,680
-whileTrue:también puede crear bucles,
+whileTrue: también puede crear ciclos,
 
 69
 00:04:04,840 --> 00:04:07,640
-pero es un mensaje que envía a un bloque.
+pero es un mensaje que se envía a un bloque.
 
 70
 00:04:07,800 --> 00:04:09,800
-Se define sobre el Bloque de clase.
+Se define en la clase Bloque.
 
 71
 00:04:09,960 --> 00:04:12,480
@@ -324,12 +325,12 @@ Aquí hay un bloque de argumentos.
 
 73
 00:04:15,320 --> 00:04:19,320
-Te doy un ejemplo concreto
+Le doy un ejemplo concreto
 de la clase Color.
 
 74
 00:04:19,480 --> 00:04:22,120
-Esto es mientras verdad :.
+Esto es whileTrue:.
 
 75
 00:04:22,760 --> 00:04:25,800
@@ -348,25 +349,25 @@ del primer bloque, el receptor,
 78
 00:04:32,360 --> 00:04:34,800
 usted desencadena o no desencadena
-La ejecución
+la ejecución
 
 79
 00:04:34,960 --> 00:04:38,600
 del segundo bloque,
-que es el parámetro de whileTrue :.
+que es el parámetro de whileTrue:.
 
 80
 00:04:39,520 --> 00:04:42,080
-Hay otra versión de whileTrue :.
+Hay otra versión de whileTrue:.
 
 81
 00:04:42,240 --> 00:04:46,480
-Es el método while True
+Es el método whileTrue
 sin un parámetro
 
 82
 00:04:46,640 --> 00:04:50,280
-Lleva el bloque receptor
+Toma el bloque receptor
 y lo evalúa.
 
 83
@@ -384,7 +385,7 @@ siempre que su valor sea verdadero.
 
 86
 00:05:00,840 --> 00:05:04,960
-Tienes los gemelos de while True
+Tienes los gemelos de whileTrue
 con los métodos whileFalse,
 
 87
@@ -402,7 +403,7 @@ En resumen, en este curso,
 
 90
 00:05:16,800 --> 00:05:20,840
-vimos que los lazos se expresan
+vimos que los ciclos se expresan
 como mensajes normales en Pharo.
 
 91
@@ -415,8 +416,8 @@ Se envían a los objetos
 
 93
 00:05:28,280 --> 00:05:32,400
-Puedes usarlos para construir
-muchos bucles diferentes
+Puede usarlos para construir
+muchos ciclos diferentes
 
 94
 00:05:32,560 --> 00:05:34,680
