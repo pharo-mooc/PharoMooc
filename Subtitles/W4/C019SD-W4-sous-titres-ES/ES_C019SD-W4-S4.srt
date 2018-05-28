@@ -1,433 +1,478 @@
 ﻿1
-00:00:00,520 --> 00:00:05,760
-Hola. Bienvenido a la cuarta secuencia
-en herencia y búsqueda.
+00:00:00,570 --> 00:00:05,000
+Buenos días. Bienvenidos a esta
+cuarta secuencia sobre la herencia
 
 2
-00:00:06,360 --> 00:00:11,360
-Ahora aprenderemos qué sucede cuando
-el algoritmo no encuentra un método.
+00:00:05,200 --> 00:00:05,960
+y la búsqueda.
 
 3
-00:00:11,800 --> 00:00:13,120
-Como verás,
+00:00:06,440 --> 00:00:08,080
+En esta secuencia veremos que ocurre
 
 4
-00:00:14,360 --> 00:00:18,440
-los códigos de clase
-puede agregar procesamiento en este caso,
+00:00:08,280 --> 00:00:09,950
+cuando el algoritmo de búsqueda
+no encuentra el método
 
 5
-00:00:18,920 --> 00:00:23,000
-para manejar el hecho
-que un mensaje de búsqueda
+00:00:10,150 --> 00:00:11,290
+que corresponde a un mensaje.
 
 6
-00:00:23,160 --> 00:00:24,920
-no fue entendido
+00:00:11,880 --> 00:00:16,710
+Veremos que el código, las clases,
+son capaces
 
 7
-00:00:25,600 --> 00:00:28,680
-Revisaré el envío de mensajes brevemente:
+00:00:17,360 --> 00:00:21,840
+de incorporar el tratamiento
+necesario para tratar
 
 8
-00:00:29,520 --> 00:00:33,400
-Se envía el mensaje "área"
-a ColoredRectangle.
+00:00:22,410 --> 00:00:24,940
+un mensaje envíado no entendido.
 
 9
-00:00:33,760 --> 00:00:38,800
-Primero, el algoritmo busca
-el método que coincide con el mensaje.
+00:00:26,000 --> 00:00:28,520
+Vuelvo rápidamente al envío
+de mensajes.
 
 10
-00:00:39,160 --> 00:00:43,360
-Comienza buscando el método
-en la clase del receptor:
+00:00:29,640 --> 00:00:32,550
+envíamos el mensaje area al
+objeto coloured rectangle.
 
 11
-00:00:43,800 --> 00:00:47,400
-Si encuentra "área" en ColorRectangle,
-lo ejecuta
+00:00:33,850 --> 00:00:37,000
+El algoritmo de búsqueda tiene
+como objetivo encontrar el método a
 
 12
-00:00:47,720 --> 00:00:51,760
-Pero "área" no está allí,
-por lo que el algoritmo busca en la superclase
+00:00:37,200 --> 00:00:40,160
+ejecutar correspondiente a
+este mensaje, así pues el algoritmo
 
 13
-00:00:52,120 --> 00:00:54,520
-En "Rectángulo", encuentra "área".
+00:00:40,360 --> 00:00:42,710
+de búsqueda busca en la clase del
+receptor, es decir
+
 
 14
-00:00:55,640 --> 00:00:58,680
-El método se ejecuta en el receptor.
+00:00:42,910 --> 00:00:46,630
+ColoredRectangle, un
+llamado area y si
 
 15
-00:01:00,680 --> 00:01:04,120
-¿Qué sucede en la ausencia total?
-¿De un método de "área"?
+00:00:46,830 --> 00:00:48,020
+la encuentra, la ejecuta.
 
 16
-00:01:04,440 --> 00:01:07,120
-¿Qué pasa si la búsqueda falla?
+00:00:48,220 --> 00:00:49,570
+Aquí no lo encuentra así pues
+el algoritmo de búsqueda mirara
 
 17
-00:01:08,040 --> 00:01:13,160
-Aquí hay un ejemplo:un mensaje "coucou"
-se envía a Object Node 1.
+00:00:49,770 --> 00:00:54,100
+en la superclase. El método area
 
 18
-00:01:13,800 --> 00:01:16,640
-"Coucou" no se puede encontrar
-en la jerarquía
+00:00:54,300 --> 00:00:58,540
+es encontrado y se ejecuta en el
+receptor.
 
 19
-00:01:16,960 --> 00:01:20,280
-El mensaje "coucou" se envía al nodo 1.
+00:01:00,790 --> 00:01:03,270
+Entonces que ocurre si no
+existe ningún método
 
 20
-00:01:20,600 --> 00:01:24,360
-El algoritmo no puede encontrar "coucou"
-en "Nodo".
+00:01:03,470 --> 00:01:06,960
+area, y el algoritmo de búsqueda
+falla ¿?
 
 21
-00:01:24,720 --> 00:01:27,960
-A continuación, el algoritmo busca
-"Objeto." No "coucou"
+00:01:08,090 --> 00:01:12,660
+En este caso se envía el
+mensaje "Coucou" al objeto node1.
+
 
 22
-00:01:28,120 --> 00:01:29,440
-En ese punto,
+00:01:13,830 --> 00:01:17,570
+¿No esta implementado el 
+método Coucou, así que 
 
 23
-00:01:29,840 --> 00:01:34,880
-la máquina virtual Pharo
-envía un mensaje de "no entiende"
+00:01:17,770 --> 00:01:18,530
+que ocurre con el mensaje?
 
 24
-00:01:35,320 --> 00:01:38,520
-al receptor - Nodo 1.
+00:01:18,730 --> 00:01:22,520
+enviamos el mensaje Coucou a
+node1, buscamos Coucou
 
 25
-00:01:40,360 --> 00:01:43,320
-DNU = No lo entiende.
+00:01:22,720 --> 00:01:25,340
+en la classe Node y no lo encuentra,
+el algoritmo de búsqueda
 
 26
-00:01:43,880 --> 00:01:47,600
-Transfiere el mensaje inicial
-como un parámetro
+00:01:25,540 --> 00:01:27,820
+busca Coucou en la clase Object,
+y no lo encuentra.
 
 27
-00:01:48,480 --> 00:01:50,520
-Este es el parámetro:"coucou stef".
+00:01:28,260 --> 00:01:32,500
+En este momento, la maquína
+virtual de Pharo envía el
 
 28
-00:01:50,840 --> 00:01:53,800
-Si lo repaso paso a paso,
+00:01:32,700 --> 00:01:37,570
+mensaje
+doesNotUnderstand al receptor
 
 29
-00:01:54,240 --> 00:01:57,880
-"Coucou" se envía al nodo 1.
-Se busca una coincidencia en la clase,
+00:01:37,770 --> 00:01:40,690
+a node1. Así que doesNotUnderstand
 
 30
-00:01:59,080 --> 00:02:01,040
-luego en la superclase.
+00:01:43,920 --> 00:01:47,110
+con el mensaje inicial como
+parámetro, así que con un 
 
 31
-00:02:01,200 --> 00:02:05,920
-"Coucou" no está allí, por lo que el mensaje
-"no entiende" se resiente
+00:01:48,580 --> 00:01:49,930
+coucou: stef como parámetro.
 
 32
-00:02:06,160 --> 00:02:08,200
-al nodo objeto 1
+00:01:50,780 --> 00:01:55,150
+Aquí, si lo repito etapa a etapa,
+coucou se envía a
 
 33
-00:02:09,000 --> 00:02:12,640
-El algoritmo busca el método
-"no entiende."
+00:01:55,350 --> 00:01:59,610
+node1, Coucou se busca en la
+classe Node, Coucou se
 
 34
-00:02:12,880 --> 00:02:14,200
-en la clase Nodo 1.
+00:01:59,810 --> 00:02:02,480
+busca en la clase
+Object, el método Coucou no
 
 35
-00:02:14,800 --> 00:02:19,960
-No encontrando una coincidencia allí, el algoritmo
-Busca en la superclase.
+00:02:02,680 --> 00:02:07,370
+existe así que el mensaje
+doesNotUnderstandse envía al objeto node1.
 
 36
-00:02:20,600 --> 00:02:22,680
-Se ubica allí
+00:02:09,070 --> 00:02:12,010
+Así que el algoritmo de
+búsqueda buscara un método
 
 37
-00:02:22,840 --> 00:02:27,080
-Un método "no entiende"
-se encuentra en Objeto y se ejecuta.
+00:02:12,210 --> 00:02:13,830
+doesNotUnderstand
+en la clase de node1.
 
 38
-00:02:27,440 --> 00:02:29,480
-Eso significa
+00:02:14,030 --> 00:02:17,260
+DoesNotUnderstand no se encuentra
+en la classe Node
 
 39
-00:02:29,960 --> 00:02:32,000
-en todas las subclases de Object,
+00:02:17,460 --> 00:02:19,260
+así que el algoritmo de lookup
+carga doesNotUnderstand en
 
 40
-00:02:32,360 --> 00:02:34,800
-"no entiende"
-puede ser implementado
+00:02:19,460 --> 00:02:22,660
+la super classe, el método
+doesNotUnderstand es encontrado
 
 41
-00:02:34,960 --> 00:02:38,360
-para desencadenar un comportamiento específico
+00:02:22,860 --> 00:02:25,180
+o un método
+doesNotUnderstand es encontrado Aquí
 
 42
-00:02:39,200 --> 00:02:43,640
-cuando un objeto, instancia o clase
-no entiende un mensaje
+00:02:25,380 --> 00:02:26,920
+en la clase Object, y es ejecutado.
 
 43
-00:02:44,480 --> 00:02:46,880
-Esta diapositiva muestra los detalles,
+00:02:27,500 --> 00:02:28,570
+Así que significa esto?
 
 44
-00:02:47,200 --> 00:02:50,680
-paso a paso.
+00:02:28,770 --> 00:02:31,430
+Significa que todas las subclases 
+de la clase
 
 45
-00:02:51,400 --> 00:02:54,280
-"No entiende" es un mensaje
-como cualquier otro.
+00:02:31,630 --> 00:02:35,550
+Object, pueden implementar 
+doesNotUnderstand para tener un
 
 46
-00:02:54,560 --> 00:02:58,960
-Por lo tanto, puedes implementar
-un método "DNU" para ser ejecutado
+00:02:35,750 --> 00:02:39,760
+un comportamiento particular
+al ejecutarse cuando un
 
 47
-00:02:59,400 --> 00:03:03,200
-cada vez que una instancia
-no entiende un mensaje
+00:02:39,960 --> 00:02:43,310
+objet, instancia de esta
+classe no comprenda un mensaje.
 
 48
-00:03:03,760 --> 00:03:05,160
-Este mecanismo se usa
+00:02:44,470 --> 00:02:48,440
+Así que en este slide tenéis los
+detalles etapa por etapa
 
 49
-00:03:05,800 --> 00:03:09,760
-en ciertos casos algo complicados
+00:02:48,640 --> 00:02:50,100
+ce este ejemplo que podéis
+volver a leer.
 
 50
-00:03:10,120 --> 00:03:12,880
-como proxies y delegación automática:
+00:02:51,450 --> 00:02:54,450
+DoesNotUnderstand, es un mensaje
+como los demás.
 
 51
-00:03:13,560 --> 00:03:17,800
-cuando quieres un determinado objeto
-para transmitir todos los mensajes que recibe
+00:02:54,650 --> 00:02:56,550
+Así que podéis implementar
+un método que se llama
 
 52
-00:03:17,960 --> 00:03:19,680
-a otro objeto
+00:02:56,750 --> 00:03:00,230
+doesNotUnderstand, que se ejecutara
+cada vez que una instancia de una 
 
 53
-00:03:19,840 --> 00:03:23,200
-El mecanismo "no entiende"
-Se puede usar para eso.
+00:03:00,430 --> 00:03:03,280
+clase no comprende un mensaje.
 
 54
-00:03:24,040 --> 00:03:27,400
-Implementación predeterminada
-de "no entiende" se encuentra
+00:03:03,770 --> 00:03:08,000
+Utilizamos este mecanismo en
+ciertos casos un poco complicados
 
 55
-00:03:27,560 --> 00:03:28,640
-en la clase de objetos.
+00:03:08,200 --> 00:03:12,300
+como los proxys, la delegación
 
 56
-00:03:29,000 --> 00:03:32,200
-Se plantea una excepción.
+00:03:12,500 --> 00:03:16,280
+automática, es decir
+cuando queréis que todos
 
 57
-00:03:33,000 --> 00:03:34,240
-La excepción
+00:03:16,480 --> 00:03:18,720
+los mensajes que recibe un objeto
+sean transmitidos a otro objeto.
 
 58
-00:03:35,080 --> 00:03:38,280
-se llama "mensaje no entendido".
+00:03:19,710 --> 00:03:22,110
+En estos casos podemos utilizar 
+este mecanismo doesNotUnderstand.
 
 59
-00:03:38,640 --> 00:03:41,760
-Entonces, si el método "DNU"
-de la clase de objeto
+00:03:24,080 --> 00:03:27,100
+La implementación por defecto
+de doesNotUnderstand se
 
 60
-00:03:41,920 --> 00:03:44,680
-se ejecuta, se plantea una excepción.
+00:03:27,300 --> 00:03:30,260
+encuentra en la clase object,
+y esta implementación por 
 
 61
-00:03:45,240 --> 00:03:49,600
-Eso significa el código que estás escribiendo
-puede atrapar la excepción,
+00:03:30,460 --> 00:03:34,070
+defecto levanta una excepción.
+La excepción 
 
 62
-00:03:49,920 --> 00:03:52,640
-la forma en que capturaría cualquier excepción.
+00:03:35,740 --> 00:03:36,950
+se llama "MessageNotUnderstood".
 
 63
-00:03:52,880 --> 00:03:57,520
-La excepción abre un depurador
-para mensajes que no se entienden
+00:03:38,670 --> 00:03:41,750
+Así que si el método
+doesNotUnderstand de la clase Object
 
 64
-00:03:58,040 --> 00:03:59,440
-En este ejemplo,
+00:03:42,000 --> 00:03:44,250
+se ejecuta, se 
+levantara una excepción.
 
 65
-00:04:00,080 --> 00:04:02,640
-Regresamos a la clase "Nodo".
+00:03:44,450 --> 00:03:49,000
+esto significa que el codigo que
+escribáis puede capturar
 
 66
-00:04:02,960 --> 00:04:07,120
-Tenemos un método "say hello" en Node,
-que envía un mensaje de "coucou"
+00:03:49,200 --> 00:03:51,950
+esta excepción, como si capturara
+cualquier otra 
 
 67
-00:04:07,600 --> 00:04:09,480
-al receptor o auto.
+00:03:52,150 --> 00:03:55,230
+excepción y puede tener un
+trato particular
 
 68
-00:04:10,760 --> 00:04:12,760
-También hay un método de "bienvenida"
+00:03:55,650 --> 00:03:57,170
+cuando no se comprende un mensaje.
 
 69
-00:04:13,120 --> 00:04:16,280
-que envía un mensaje de "decir hola"
-a sí mismo.
+00:03:58,280 --> 00:04:02,170
+En este ejemplo, volvemos 
+sobre la clase Node, y
 
 70
-00:04:16,680 --> 00:04:20,600
-Proporciona manejo especial
-en el contexto
+00:04:03,110 --> 00:04:06,010
+tenemos un método "sayHello" 
+en la clase Node, que
 
 71
-00:04:21,360 --> 00:04:23,280
-de un mensaje incomprendido
+00:04:06,210 --> 00:04:09,020
+envía el mensaje Coucou
+al receptor es decir self.
 
 72
-00:04:23,600 --> 00:04:28,600
-Si un mensaje no se entiende,
-será manejado
+00:04:10,840 --> 00:04:14,500
+También tenemos un método
+Welcome que envía el mensaje
 
 73
-00:04:28,760 --> 00:04:32,000
-Aquí, "di hola"
-envía un mensaje de "coucou" a ti mismo.
+00:04:14,700 --> 00:04:18,330
+"Sayhello" a self y que 
+realiza un tratamiento particular
 
 74
-00:04:32,160 --> 00:04:34,280
-"Coucou" aún no se ha implementado.
+00:04:18,530 --> 00:04:22,710
+si en el contexto de este envío
+de mensaje,
 
 75
-00:04:34,880 --> 00:04:37,640
-Por último,
-el método "no entiende"
+00:04:23,690 --> 00:04:28,080
+un mensaje no se comprende, 
+tendrá un comportamiento particular.
 
 76
-00:04:38,000 --> 00:04:40,920
-será ejecutado.
+00:04:28,830 --> 00:04:32,570
+Así que Aquí hello envía el mensaje
+Coucou a self, Coucou
 
 77
-00:04:41,560 --> 00:04:45,240
-El "mensaje no se entiende"
-Se levantará la excepción.
+00:04:32,770 --> 00:04:36,450
+aun no se ha implementado,
+así que al fina el método
 
 78
-00:04:46,120 --> 00:04:48,280
-El código aquí, siguiendo en / do,
+00:04:36,650 --> 00:04:40,390
+doesNotUnderstand sera ejecutado,
 
 79
-00:04:48,680 --> 00:04:52,560
-se usa para capturar excepciones,
-como "probar / atrapar" en Java.
+00:04:41,640 --> 00:04:45,220
+una excepción se levantara,
+la excepción messageNotUnderstood.
 
 80
-00:04:52,960 --> 00:04:56,800
-Una secuencia posterior del curso
-entrará en estas excepciones.
+00:04:46,220 --> 00:04:49,610
+El código que se encuentra Aquí
+con undo sirve para capturar las
 
 81
-00:04:57,880 --> 00:05:00,800
-El punto aquí es notar
-que este codigo
+00:04:49,810 --> 00:04:51,690
+excepciones, es el equivalente
+a un try catch en Java.
 
 82
-00:05:00,960 --> 00:05:05,720
-es lo mismo que "catch" de Java y
-se ejecutará para cada excepción.
+00:04:51,890 --> 00:04:56,240
+Tendréis una secuencia mas tarde que 
+os hablara de las excepcione en  detalle.
 
 83
-00:05:06,640 --> 00:05:09,280
-Digamos que enviamos el mensaje "bienvenido"
+00:04:57,920 --> 00:05:00,670
+Pero Aquí lo que nos interesa
+es de ver que este
 
 84
-00:05:10,440 --> 00:05:11,840
-al nodo 1
+00:05:00,870 --> 00:05:02,780
+código, de hecho, es el 
+equivalente de un catch de Java,
 
 85
-00:05:12,000 --> 00:05:14,080
-Sabiendo que "coucou"
-no se implementa,
+00:05:03,000 --> 00:05:05,490
+así que este código sera ejecutado
+cuando se la excepción se capture.
 
 86
-00:05:14,520 --> 00:05:18,520
-la consola mostrará "algo"
-salió mal con el mensaje ".
+00:05:06,810 --> 00:05:11,400
+Si enviamos el mensaje Welcome
+a node1,
 
 87
-00:05:19,440 --> 00:05:20,640
-Lo que deberías saber:
+00:05:12,180 --> 00:05:15,530
+sabiendo que Coucou no esta 
+implementado, mostraremos
 
 88
-00:05:22,680 --> 00:05:27,240
-Cuando el algoritmo de búsqueda no encuentra
-un método para hacer coincidir un mensaje,
+00:05:15,730 --> 00:05:17,760
+en la consola el mensaje
+alguna cosa ha ido mal con el mensaje.
 
 89
-00:05:27,560 --> 00:05:31,440
-un mensaje de "no entiende" se envía
-al receptor inicial,
+00:05:17,960 --> 00:05:22,270
+Lo que tenéis que recordar, es que
 
 90
-00:05:31,600 --> 00:05:33,760
-con el primer mensaje como parámetro.
+00:05:22,680 --> 00:05:25,500
+cuando el algoritmo de búsqueda
+no encuentra un método
 
 91
-00:05:34,360 --> 00:05:37,520
-Cada clase puede implementar este método.
+00:05:25,700 --> 00:05:28,010
+que corresponde a un mensaje
+enviado, un mensaje
 
 92
-00:05:37,800 --> 00:05:41,840
-La implementación predeterminada en el objeto
-La clase se ejecutará.
+00:05:28,210 --> 00:05:31,670
+doesNotUnderstand se envía
+al receptor inicial con el 
 
 93
-00:05:42,080 --> 00:05:45,200
-Esta implementación predeterminada
-plantea una excepción,
+00:05:31,870 --> 00:05:33,740
+el mensaje original como parámetro.
 
 94
-00:05:45,440 --> 00:05:47,400
-llamado "mensaje no entendido".
+00:05:34,330 --> 00:05:37,280
+podéis implementar un método
+doesNotUnderstand en vuestras clases.
 
 95
-00:05:47,560 --> 00:05:50,560
-El código que está escribiendo puede atrapar
-La excepción
+00:05:37,800 --> 00:05:41,620
+Por defecto, se ejecutara la implementación
+por defecto en la clase Object.
 
 96
-00:05:50,720 --> 00:05:53,200
-y lo someto a depuración.
+00:05:42,120 --> 00:05:45,530
+Esta implementación por defecto
+levanta una excepción, esta
+
+97
+00:05:45,730 --> 00:05:48,130
+excepción se llama
+messageNotUnderstood, y el vuestro
+
+98
+00:05:48,330 --> 00:05:50,180
+código puede capturar
+esta excepción y tener un
+
+99
+00:05:50,380 --> 00:05:53,050
+trato particular cuando no
+se comprenda un mensaje.
