@@ -14,22 +14,22 @@ objetos de diferentes tamaños.
 
 4
 00:00:13,920 --> 00:00:18,040
-Aquí voy a crear una matriz
-usando esta expresión
+Aquí voy a crear un "Array"
+usando esta expresión.
 
 5
 00:00:18,240 --> 00:00:21,680
 Contiene diez elementos,
-todo puesto a cero.
+todos con 'nil'.
 
 6
 00:00:21,920 --> 00:00:25,480
 Usando la misma expresión,
-Ahora creo una matriz
+Ahora creo un Array
 
 7
 00:00:26,040 --> 00:00:28,640
-que contiene cinco elementos
+que contiene cinco elementos.
 
 8
 00:00:29,160 --> 00:00:33,720
@@ -39,7 +39,7 @@ crea instancias de tamaños variables.
 9
 00:00:34,120 --> 00:00:38,480
 Pero hasta ahora, no hemos explicado
-como puedes hacer esto
+como puedes hacerlo.
 
 10
 00:00:39,040 --> 00:00:40,040
@@ -56,7 +56,7 @@ cómo crear instancias de estos objetos,
 
 13
 00:00:49,240 --> 00:00:52,280
-y cómo acceder a estos tamaños variables.
+y cómo acceder estos tamaños variables.
 
 14
 00:00:52,800 --> 00:00:54,360
@@ -69,7 +69,7 @@ Es muy sencillo.
 16
 00:00:57,600 --> 00:01:02,280
 La definición usa el mensaje
-variableSubclass:en lugar de la subclase :.
+"variableSubclass:" en lugar de la "subclass:".
 
 17
 00:01:02,600 --> 00:01:05,040
@@ -77,7 +77,7 @@ Copiaremos la definición de la clase Array.
 
 18
 00:01:05,280 --> 00:01:09,120
-Tenga en cuenta que usamos variableSubclass,
+Noten que usamos variableSubclass,
 instanceVariableNames,
 
 19
@@ -87,20 +87,20 @@ y así sucesivamente, para crear la clase.
 20
 00:01:12,400 --> 00:01:15,760
 Mientras que generalmente,
-cuando definimos la clase Puntero,
+cuando definimos la clase "Pointer",
 
 21
 00:01:15,920 --> 00:01:18,800
-Clase de contador o clase de dados,
+"Counter" o "Dice",
 
 22
 00:01:19,280 --> 00:01:21,520
-solo usaríamos Subclase.
+solo usaríamos "subclass".
 
 23
 00:01:21,960 --> 00:01:26,800
 Usando esta definición, las instancias
-Creamos tenemos tamaños variables.
+que creamos tienen tamaño variable.
 
 24
 00:01:27,200 --> 00:01:31,320
@@ -109,7 +109,7 @@ si queremos hacer un punto "extraño"
 
 25
 00:01:31,520 --> 00:01:34,640
-usando dos variables de instancia, xey,
+usando dos variables de instancia, x e y,
 
 26
 00:01:34,800 --> 00:01:38,600
@@ -132,12 +132,12 @@ También podríamos tener otra instancia,
 
 30
 00:01:52,320 --> 00:01:56,000
-que también tiene xey,
+que también tiene x e y,
 con 10 aquí y 20 aquí,
 
 31
 00:01:56,160 --> 00:01:59,080
-y, por ejemplo, 100 aquí y 200 aquí,
+y, por ejemplo, 100 y 200 aquí,
 
 32
 00:01:59,760 --> 00:02:03,800
@@ -162,20 +162,20 @@ y solo hay una por clase,
 36
 00:02:18,880 --> 00:02:22,360
 para evitar problemas de implementación
-al expandirlo
+al expandirla.
 
 37
 00:02:22,520 --> 00:02:25,520
-Ahora hemos visto cómo crear clases.
+Ahora hemos visto cómo crear clases
 
 38
 00:02:25,680 --> 00:02:28,240
-que tienen diferentes instancias de tamaño.
+que tienen instancias de diferente tamaño.
 
 39
 00:02:28,400 --> 00:02:32,120
 Ahora regresaremos
-a cómo podemos instanciarlos
+a cómo podemos instanciarlas
 
 40
 00:02:32,320 --> 00:02:34,960
@@ -183,12 +183,12 @@ y cómo acceder a este tamaño variable.
 
 41
 00:02:36,120 --> 00:02:38,480
-La forma en que los instalamos
+La forma en que las instanciamos
 
 42
 00:02:38,720 --> 00:02:42,880
-es usar el mensaje "nuevo:"
-observando el uso del colon.
+es usar el mensaje "new:"
+observando el uso del dos puntos.
 
 43
 00:02:43,080 --> 00:02:46,520
@@ -208,7 +208,7 @@ se especifica por su valor "max".
 46
 00:02:54,680 --> 00:02:58,280
 Entonces, creamos un objeto,
-una matriz con cuatro elementos
+un Array con cuatro elementos.
 
 47
 00:02:58,880 --> 00:03:01,320
@@ -220,45 +220,45 @@ Esto muestra los cuatro elementos.
 
 49
 00:03:04,760 --> 00:03:09,400
-Usamos los mensajes en:y en:put :,
-que viste en las matrices.
+Usamos los mensajes "at:" y "at:put:",
+que vimos en los Arrays.
 
 50
 00:03:09,680 --> 00:03:13,880
-Esto funciona para todos los objetos.
+Esto funciona para todos los objetos
 con un tamaño variable.
 
 51
 00:03:14,280 --> 00:03:18,400
-Entonces, si escribimos en:2 aquí, agregamos 'lulu'.
+Entonces, si escribimos "at: 2" aquí, agregamos 'lulu'.
 
 52
 00:03:20,480 --> 00:03:25,240
 Entonces, si accedemos al valor 1,
-lógicamente devolverá cero.
+lógicamente devolverá nil.
 
 53
 00:03:25,440 --> 00:03:29,680
 Y si miramos el valor 2,
-Nos dará 'lulu'.
+nos dará 'lulu'.
 
 54
 00:03:30,080 --> 00:03:33,320
-De hecho, se aplica una asignación aquí
+De hecho, se aplica una correspondencia aquí
 
 55
 00:03:33,520 --> 00:03:38,000
-entre matrices y objetos de tamaño variable
-usando en:put:y 'lulu'.
+entre Arrays y objetos de tamaño variable
+usando "at:put:" y 'lulu'.
 
 56
 00:03:38,160 --> 00:03:41,440
-Este protocolo API funciona para matrices
+Este protocolo funciona para Arrays
 
 57
 00:03:42,560 --> 00:03:47,320
-y para todos los objetos
-queremos tener un tamaño variable.
+y para todos los objetos que
+queremos tengan un tamaño variable.
 
 58
 00:03:49,680 --> 00:03:52,440
@@ -267,20 +267,20 @@ No he explicado mucho aquí,
 59
 00:03:52,600 --> 00:03:56,840
 solo cómo definir la clase Array
-y extiéndalo a otros objetos,
+y extenderlo a otros objetos,
 
 60
 00:03:57,000 --> 00:03:58,960
-ya sabes el protocolo.
+ya que conoces el protocolo.
 
 61
 00:03:59,840 --> 00:04:03,480
 Entonces, en Pharo
-hay objetos o clases,
+hay objetos, o clases,
 
 62
 00:04:03,760 --> 00:04:05,880
-que toma diferentes formas.
+que toman diferentes formas.
 
 63
 00:04:06,080 --> 00:04:10,320
@@ -289,8 +289,8 @@ que solo tienen variables de instancia nombradas,
 
 64
 00:04:10,600 --> 00:04:15,160
-como clase de contador con conteo
-o clase de dados con el número de lados.
+como "Counter" con el conteo
+o "Dice" con el número de lados.
 
 65
 00:04:15,480 --> 00:04:18,880
@@ -298,8 +298,8 @@ Luego tenemos clases que solo tienen
 
 66
 00:04:19,200 --> 00:04:22,640
-una variable o zona indexada,
-como clase de matriz.
+una zona variable o indexada,
+como la clase Array.
 
 67
 00:04:22,800 --> 00:04:26,240
@@ -309,7 +309,7 @@ que son una mezcla de ambos.
 68
 00:04:26,960 --> 00:04:32,000
 Sin embargo, hay algunas limitaciones,
-Es más sutil de lo que parece.
+es más sutil de lo que parece.
 
 69
 00:04:32,160 --> 00:04:35,680
@@ -331,7 +331,7 @@ o quizás variables Byte o Word.
 
 73
 00:04:48,440 --> 00:04:51,520
-Se usa para interfaz
+Se usa para la interfaz
 con el mundo exterior
 
 74
@@ -345,21 +345,21 @@ a objetos con una forma específica.
 
 76
 00:04:59,240 --> 00:05:03,480
-Esta es una función avanzada,
+Esta es una característica avanzada,
 pero quería mostrártelo.
 
 77
 00:05:03,680 --> 00:05:06,760
 Normalmente solo necesitarás
-para usar "subclase".
+usar "subclass".
 
 78
 00:05:06,920 --> 00:05:10,280
-A veces usará "variableSubclass"
+A veces usarás "variableSubclass"
 
 79
 00:05:10,680 --> 00:05:14,080
-y "mapa de bits"
+y "Bitamp"
 que representa la pantalla.
 
 80
@@ -368,7 +368,7 @@ Bitmap es un objeto
 
 81
 00:05:17,840 --> 00:05:20,440
-que tiene una zona variable, denominada Palabras.
+que tiene una zona variable, denominada "Words".
 
 82
 00:05:21,280 --> 00:05:23,280
@@ -380,12 +380,12 @@ Como Pharo es un sistema reflexivo,
 
 84
 00:05:27,760 --> 00:05:29,800
-podemos hacerle preguntas
+podemos hacerle preguntas.
 
 85
 00:05:29,960 --> 00:05:33,680
 Entonces, usando estos métodos,
-podemos hacer consultas
+podemos hacer consultas.
 
 86
 00:05:33,840 --> 00:05:37,840
@@ -413,7 +413,7 @@ Se aplica una restricción.
 
 91
 00:05:53,640 --> 00:05:58,480
-Clases que se definen utilizando la subclase
+Las clases que se definen utilizando "subclass"
 
 92
 00:05:58,880 --> 00:06:01,080
@@ -425,27 +425,27 @@ Si tenemos puntos usando x e y,
 
 94
 00:06:04,280 --> 00:06:07,600
-podremos agregar una subclase llamada z
+podremos agregar una subclase llamada Z
 
 95
 00:06:07,840 --> 00:06:12,440
-o una subclase llamada xy,
+o una subclase llamada XY,
 más una zona variable.
 
 96
 00:06:14,520 --> 00:06:20,520
 Pero si quieres crear una subclase
-de una clase que ya tiene una variable,
+de una clase que ya tiene una zona variable,
 
 97
 00:06:20,720 --> 00:06:25,560
-solo puedes usar variables
-desde clases que son variables.
+solo puedes usar variantes
+que sean variables.
 
 98
 00:06:25,760 --> 00:06:30,680
 De lo contrario, el sistema que construye
-Las clases dicen que es incompatible.
+las clases dice que es incompatible.
 
 99
 00:06:30,840 --> 00:06:35,800
@@ -455,7 +455,7 @@ para manejar las restricciones.
 100
 00:06:36,000 --> 00:06:40,280
 En cualquier caso, el sistema le informará
-si es imposible
+si es imposible.
 
 101
 00:06:41,000 --> 00:06:43,200
@@ -476,5 +476,5 @@ y cómo instanciarlos usando "new:"
 
 105
 00:06:56,840 --> 00:07:02,320
-y cómo acceder a ellos
-utilizando el protocolo visto en las matrices.
+y cómo acceder a ella
+utilizando el protocolo visto en Array.

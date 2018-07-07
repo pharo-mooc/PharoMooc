@@ -1,7 +1,7 @@
 ﻿1
 00:00:08,000 --> 00:00:12,320
 Hola a todos, este video muestra
-algunos puntos avanzados en las clases.
+algunos temas avanzados sobre las clases.
 
 2
 00:00:13,720 --> 00:00:15,320
@@ -9,13 +9,13 @@ Tiene tres partes principales.
 
 3
 00:00:15,520 --> 00:00:20,760
-En primer lugar, cómo compartir un estado entre
+En primer lugar, cómo compartir estado entre
 instancias de una clase y sus subclases.
 
 4
 00:00:22,280 --> 00:00:27,240
-En segundo lugar, cómo habilitar las clases
-tener sus propias variables
+En segundo lugar, cómo hacer que las clases
+tengan sus propias variables.
 
 5
 00:00:28,600 --> 00:00:30,960
@@ -23,23 +23,23 @@ En tercer lugar, cómo inicializar las clases.
 
 6
 00:00:32,760 --> 00:00:36,160
-Primero, cómo compartir un estado
-entre instancias
+Primero, cómo compartir estado
+entre instancias.
 
 7
 00:00:37,560 --> 00:00:41,640
 Aquí tenemos una clase
-con varias instancias
+con varias instancias.
 
 8
 00:00:41,920 --> 00:00:47,200
-Para compartir un estado, estas instancias
-requieren un objeto común
+Para compartir estado, estas instancias
+requieren un objeto común.
 
 9
 00:00:47,720 --> 00:00:53,920
-En Java, utilizamos una variable de "instancia"
-que toma la palabra clave "estática".
+En Java, usamos una variable de "instancia"
+con el keyword "static".
 
 10
 00:00:55,160 --> 00:00:58,240
@@ -55,18 +55,18 @@ En Pharo, usamos "variables de clase".
 
 13
 00:01:06,200 --> 00:01:11,120
-Esto debería ser una expresión familiar
-Eso nos permite crear clases.
+Esta debería ser una expresión familiar
+que nos permite crear clases.
 
 14
 00:01:11,480 --> 00:01:15,640
-Aquí creamos la clase Color,
-que es una subclase de objeto.
+Aquí creamos la clase "Color",
+que es una subclase de "Object".
 
 15
 00:01:15,800 --> 00:01:21,600
 Primero, enumeramos sus variables de instancia,
-luego eche un vistazo a la línea a continuación.
+echemos un vistazo a la siguiente línea.
 
 16
 00:01:21,920 --> 00:01:25,480
@@ -75,12 +75,12 @@ de la clase Color.
 
 17
 00:01:26,640 --> 00:01:32,200
-La clase de color tiene al menos dos variables,
+La clase "Color" tiene al menos dos variables,
 ColorRegistry y ComponentMask.
 
 18
 00:01:32,720 --> 00:01:34,440
-Valores de una variable de clase
+Los valores de una variable de clase
 
 19
 00:01:34,680 --> 00:01:39,400
@@ -90,7 +90,7 @@ de la clase y las subclases.
 20
 00:01:40,480 --> 00:01:46,600
 Estas variables son accesibles
-desde ambos métodos de instancia y clase.
+desde métodos de instancia y clase.
 
 21
 00:01:47,480 --> 00:01:49,920
@@ -102,17 +102,17 @@ Volvamos a nuestro ejemplo.
 
 23
 00:01:53,320 --> 00:01:55,600
-Aquí tenemos nuestra clase de Color,
+Aquí tenemos nuestra clase "Color",
 
 24
 00:01:55,920 --> 00:01:59,520
 que es una instancia
-de la clase de color metaclase.
+de la metaclase "Color class".
 
 25
 00:02:01,160 --> 00:02:06,760
 La clase Color define
-dos variables estándar, rgb y alfa.
+dos variables estándar, "rgb" y "alpha".
 
 26
 00:02:06,960 --> 00:02:09,720
@@ -126,21 +126,21 @@ utilizando los métodos de la clase Color.
 28
 00:02:18,440 --> 00:02:24,560
 También define ColorRegistry,
-que está subrayado y usa mayúsculas.
+que está subrayado y en mayúsculas.
 
 29
 00:02:25,240 --> 00:02:28,360
 Esto indica que esta variable
-está compartido.
+está compartida.
 
 30
 00:02:29,480 --> 00:02:33,080
-Es una variable de clase que es accesible.
+Es una variable de clase que es accesible
 
 31
 00:02:33,600 --> 00:02:39,640
-por los métodos de la clase Color
-y los de la clase Clase de color.
+por los métodos de la clase "Color"
+y los de la clase "Color class".
 
 32
 00:02:40,240 --> 00:02:43,600
@@ -150,21 +150,21 @@ de los usos de esta variable.
 33
 00:02:44,000 --> 00:02:48,520
 En un método de instancia,
-el de privateBlue en la clase Color,
+"privateBlue" en la clase "Color",
 
 34
 00:02:48,840 --> 00:02:54,320
 accedemos a la variable de clase
-usando su nombre
+usando su nombre.
 
 35
 00:02:55,360 --> 00:02:59,280
 Del mismo modo, si queremos
-darle a esta variable un valor,
+asignarle a esta variable un valor,
 
 36
 00:02:59,640 --> 00:03:03,560
-usamos un signo de igual a dos puntos,
+usamos " := "
 como con cualquier variable.
 
 37
@@ -179,34 +179,34 @@ Muy a menudo,
 39
 00:03:09,000 --> 00:03:14,720
 los valores de estas variables de clase
-se puede leer
+se acceden
 
 40
 00:03:15,800 --> 00:03:17,600
-dentro de los métodos de instancia,
+desde los métodos de instancia,
 
 41
 00:03:17,800 --> 00:03:21,680
-y están escritos dentro de los métodos de clase.
+y se escriben desde los métodos de clase.
 
 42
 00:03:22,080 --> 00:03:25,960
 Esto es lo que ocurre con mayor frecuencia,
-no es obligatorio
+no es obligatorio.
 
 43
 00:03:28,040 --> 00:03:31,440
-Ahora veamos
-Variables de instancia de clases.
+Ahora veamos variables
+de instancia de clases.
 
 44
 00:03:33,320 --> 00:03:34,920
-No es lo mismo
+No es lo mismo.
 
 45
 00:03:35,200 --> 00:03:38,360
 Una clase es un objeto,
-Como todo lo demás.
+como todo.
 
 46
 00:03:38,520 --> 00:03:41,600
@@ -230,7 +230,7 @@ en el lado de la clase,
 
 50
 00:03:58,480 --> 00:04:02,000
-hacemos clic en el botón "clase"
+hacemos clic en el botón "class"
 en el navegador de código.
 
 51
@@ -249,7 +249,7 @@ define una variable denominada cachePackages.
 
 54
 00:04:15,440 --> 00:04:19,240
-Estas variables solo se pueden acceder.
+Estas variables solo se pueden acceder
 de los métodos de clase
 
 55
@@ -264,7 +264,7 @@ Aquí hay un ejemplo.
 57
 00:04:27,960 --> 00:04:32,960
 La variable cachePackages se define
-en la clase metaclass RPackageSet.
+en la metaclase "RPackageSet class".
 
 58
 00:04:35,280 --> 00:04:36,720
@@ -282,7 +282,7 @@ asociado con esta variable.
 
 61
 00:04:46,840 --> 00:04:48,080
-Similar,
+Similarmente,
 
 62
 00:04:49,280 --> 00:04:53,760
@@ -291,7 +291,7 @@ de la clase RPackageSet
 
 63
 00:04:54,000 --> 00:04:58,600
-tener un valor específico para esa variable,
+tienen un valor específico para esa variable,
 que es un valor diferente.
 
 64
@@ -309,8 +309,8 @@ tiene su propio valor para esta variable.
 
 67
 00:05:08,040 --> 00:05:14,040
-Variables de clase y variables de instancia
-En el lado de la clase hay cosas diferentes.
+Las variables de clase y variables de instancia
+en el lado de la clase son cosas diferentes.
 
 68
 00:05:14,200 --> 00:05:17,960
@@ -335,7 +335,7 @@ y deshabilitar la creación de una nueva instancia.
 72
 00:05:36,920 --> 00:05:39,920
 Eso es lo que haremos aquí
-con WebServer
+con WebServer.
 
 73
 00:05:41,040 --> 00:05:45,440
@@ -344,7 +344,7 @@ en el lado de la clase.
 
 74
 00:05:46,760 --> 00:05:48,960
-Su nombre toma minúsculas.
+Su nombre es en minúsculas.
 
 75
 00:05:49,120 --> 00:05:53,200
@@ -353,8 +353,8 @@ en la definición de la metaclase.
 
 76
 00:05:53,760 --> 00:05:56,920
-Ahora deshabilitamos la ejecución.
-del método "nuevo".
+Ahora deshabilitamos la ejecución
+del método "new".
 
 77
 00:05:57,200 --> 00:06:02,040
@@ -374,7 +374,7 @@ si no es nada y tiene contenido,
 80
 00:06:11,200 --> 00:06:15,440
 o bien agrega algo
-a la variable usando "super nuevo".
+a la variable usando "super new".
 
 81
 00:06:15,600 --> 00:06:18,840
@@ -383,7 +383,7 @@ de la clase WebServer,
 
 82
 00:06:19,000 --> 00:06:21,960
-y lo almacena
+y la almacena
 en la variable uniqueInstance.
 
 83
@@ -418,7 +418,7 @@ Tendrá un total de cuatro valores.
 
 90
 00:06:47,640 --> 00:06:50,600
-Uno para WebServer y para cada subclase.
+Uno para WebServer y otro para cada subclase.
 
 91
 00:06:51,320 --> 00:06:54,600
@@ -435,8 +435,8 @@ usando una U mayúscula.
 
 94
 00:07:06,720 --> 00:07:11,920
-Nuevamente rechazamos el envío de mensajes "nuevos"
-e implementa UniqueInstance.
+Nuevamente rechazamos el envío del mensaje "new"
+e implementamos UniqueInstance.
 
 95
 00:07:12,080 --> 00:07:16,200
@@ -450,7 +450,7 @@ Como resultado de elegir una variable de clase,
 97
 00:07:22,120 --> 00:07:25,040
 la jerarquía de clase
-tiene solo un singleton
+tiene solo un singleton.
 
 98
 00:07:25,240 --> 00:07:27,520
@@ -459,7 +459,7 @@ Si WebServer tiene tres subclases,
 99
 00:07:27,680 --> 00:07:32,080
 estas tres subclases y WebServer
-comparten el mismo singleton
+comparten el mismo singleton.
 
 100
 00:07:32,240 --> 00:07:35,680
@@ -486,12 +486,12 @@ Hacemos esto cuando inicializamos la clase.
 105
 00:07:50,560 --> 00:07:55,160
 Los objetos se inicializan
-cuando se envía el mensaje de inicialización.
+cuando se envía el mensaje "initialize".
 
 106
 00:07:55,320 --> 00:07:59,120
 Del mismo modo, podemos enviar
-el mensaje de inicialización a una clase.
+el mensaje "initialize" a una clase.
 
 107
 00:07:59,320 --> 00:08:04,240
@@ -501,7 +501,7 @@ usando el código del método de inicialización.
 108
 00:08:05,840 --> 00:08:09,000
 Si queremos inicializar
-la clase de color,
+la clase Color,
 
 109
 00:08:09,320 --> 00:08:11,840
@@ -519,7 +519,7 @@ por la herramienta de control de versiones,
 112
 00:08:19,280 --> 00:08:22,520
 el mensaje de inicialización
-Se envía a todas las clases.
+se envía a todas las clases.
 
 113
 00:08:22,880 --> 00:08:26,560
@@ -537,7 +537,7 @@ Pero si implementamos una clase,
 116
 00:08:31,320 --> 00:08:35,000
 si creamos una nueva clase
-usando el método de inicialización
+usando el método "initialize"
 
 117
 00:08:35,400 --> 00:08:37,760
@@ -562,7 +562,7 @@ o variables de instancia en el lado de la clase.
 
 122
 00:08:53,240 --> 00:08:55,960
-Hay dos tipos de variables aquí.
+Hay de los dos tipos de variables aquí.
 
 123
 00:08:57,800 --> 00:08:59,680
@@ -570,17 +570,17 @@ En los métodos de inicialización,
 
 124
 00:08:59,880 --> 00:09:03,360
-nunca usamos super inicializar
+nunca usamos "super initialize"
 en el lado de la clase.
 
 125
 00:09:03,560 --> 00:09:07,880
 Cuando agregamos un método de inicialización
-Por el lado de la instancia,
+por el lado de la instancia,
 
 126
 00:09:08,080 --> 00:09:10,920
-nosotros sistemáticamente llamamos súper inicializar
+nosotros llamamos sistemáticamente "super initialize"
 
 127
 00:09:11,080 --> 00:09:15,320
@@ -598,7 +598,7 @@ cuando se envía el mensaje de inicialización,
 
 130
 00:09:22,160 --> 00:09:25,920
-no llamamos súper inicialización
+no enviamos "super initialize"
 en el método de inicialización
 
 131
@@ -608,11 +608,11 @@ para evitar reiniciar las clases.
 
 132
 00:09:30,160 --> 00:09:31,680
-Aquí están las comidas para llevar.
+Este es el resumen.
 
 133
 00:09:31,880 --> 00:09:35,640
-Utilizamos las variables de clase para compartir un estado.
+Utilizamos las variables de clase para compartir estado.
 
 134
 00:09:37,200 --> 00:09:41,000
@@ -631,5 +631,5 @@ le enviamos un mensaje de inicialización
 
 137
 00:09:48,840 --> 00:09:52,200
-y aplicar el método de inicialización
+y aplicar el método "initialize"
 en el lado de la clase.
