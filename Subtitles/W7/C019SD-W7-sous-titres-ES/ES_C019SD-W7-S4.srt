@@ -1,12 +1,12 @@
 ﻿1
 00:00:00,480 --> 00:00:04,600
 Este video se enfocará
-En un aspecto avanzado de Pharo,
+en un aspecto avanzado de Pharo,
 
 2
 00:00:04,800 --> 00:00:10,800
 que son las operaciones reflexivas
-Necesario para la programación en vivo que usamos.
+necesarias para la programación en vivo que usamos.
 
 3
 00:00:11,680 --> 00:00:16,680
@@ -15,13 +15,13 @@ cuando recompilamos una clase.
 
 4
 00:00:17,040 --> 00:00:20,080
-Y lo explicaremos
+Y explicaremos
 las operaciones reflexivas
 
 5
 00:00:20,200 --> 00:00:24,720
-necesario para implementar
-programación en vivo
+necesarias para implementar
+programación en vivo.
 
 6
 00:00:24,920 --> 00:00:26,560
@@ -34,26 +34,26 @@ Por lo general, comenzamos por definir una clase,
 8
 00:00:30,600 --> 00:00:34,640
 luego agregamos métodos
-y cree instancias para esta clase.
+y creamos instancias de esa clase.
 
 9
 00:00:35,160 --> 00:00:40,400
 Luego redefinimos la clase
-y agregar nuevas variables de instancia.
+y agregamos nuevas variables de instancia.
 
 10
 00:00:41,200 --> 00:00:45,640
-Entonces, ¿qué hacemos con las instancias?
-eso ya existia
+Entonces, ¿qué hacemos con las instancias
+que ya existían
 
 11
 00:00:46,160 --> 00:00:48,440
-cuando hubo un atributo menos?
+cuando hay una variable de instancia menos?
 
 12
 00:00:48,680 --> 00:00:53,920
 Debemos configurar un mecanismo
-migrar estas instancias
+para migrar estas instancias
 
 13
 00:00:54,280 --> 00:00:57,360
@@ -69,8 +69,8 @@ Después de eso, veremos las operaciones
 
 16
 00:01:04,440 --> 00:01:09,160
-que habilite la redefinición dinámica de clases,
-Recopilación de métodos,
+que habilitan la redefinición dinámica de clases,
+recompilación de métodos,
 
 17
 00:01:09,600 --> 00:01:11,040
@@ -78,8 +78,8 @@ y que permiten
 
 18
 00:01:11,400 --> 00:01:15,160
-un automático y transparente
-migración de instancias
+una migración de instancias
+automática y transparente
 
 19
 00:01:15,360 --> 00:01:18,200
@@ -88,7 +88,7 @@ a la nueva versión de la clase.
 20
 00:01:18,520 --> 00:01:22,560
 Para hacer esto, necesitamos
-Recopilar todas las instancias de clase.
+recopilar todas las instancias de clase.
 
 21
 00:01:22,840 --> 00:01:28,280
@@ -97,17 +97,17 @@ todo lo que usaba estos objetos
 
 22
 00:01:28,840 --> 00:01:31,920
-y asigna sus indicadores
-a nuevos objetos
+y asignar sus punteros
+a nuevos objetos.
 
 23
 00:01:32,400 --> 00:01:33,400
-¿Bueno?
+¿Vamos?
 
 24
 00:01:34,160 --> 00:01:38,920
-Primero, ¿cómo recopilamos?
-todas las instancias de una clase
+Primero, ¿cómo recopilamos
+todas las instancias de una clase?
 
 25
 00:01:39,400 --> 00:01:43,560
@@ -117,7 +117,7 @@ a una clase,
 26
 00:01:43,800 --> 00:01:47,320
 muestra todos los objetos
-que son sus instancias
+que son sus instancias.
 
 27
 00:01:47,640 --> 00:01:51,440
@@ -126,23 +126,23 @@ de todos los objetos estándar.
 
 28
 00:01:51,640 --> 00:01:57,800
-Si lo enviamos a la clase de ventana,
-Obtenemos una colección de objetos de ventana.
+Si lo enviamos a la clase de Window,
+obtenemos una colección de objetos de ventana.
 
 29
 00:01:58,280 --> 00:02:02,760
 Podemos recuperar el primer elemento
-y envíe un mensaje de "cierre"
+y envíarle un mensaje "close"
 
 30
 00:02:02,920 --> 00:02:06,840
-ya que el método "cerrado"
-se define en la clase Ventana.
+ya que el método "close"
+se define en la clase Window.
 
 31
 00:02:07,360 --> 00:02:11,840
 Otra primitiva reflexiva
-es punteros a.
+es "pointersTo".
 
 32
 00:02:12,160 --> 00:02:16,920
@@ -151,8 +151,8 @@ accedemos a la colección
 
 33
 00:02:17,400 --> 00:02:21,000
-de todos los objetos que almacena
-una referencia al objeto
+de todos los objetos que almacenan
+una referencia al mismo.
 
 34
 00:02:21,200 --> 00:02:23,040
@@ -165,7 +165,7 @@ cuando queremos intercambiar objetos.
 36
 00:02:29,560 --> 00:02:34,080
 La primitiva para intercambiar punteros
-es "convertido".
+es "become".
 
 37
 00:02:34,600 --> 00:02:39,760
@@ -192,7 +192,7 @@ ahora apunta a este objeto.
 
 42
 00:02:57,280 --> 00:03:01,720
-Rompemos los enlaces para las indicaciones
+Rompemos los enlaces para los punteros
 que estaban de este lado,
 
 43
@@ -201,7 +201,7 @@ por lo que cambian de objeto.
 
 44
 00:03:06,360 --> 00:03:11,680
-"Convertirse" significa invertir todos los indicadores.
+"Become" significa invertir todos los punteros
 en el sistema simétricamente.
 
 45
@@ -210,26 +210,26 @@ Aquí hay un ejemplo.
 
 46
 00:03:15,320 --> 00:03:17,600
-Yo creo un punto 1,
+Yo creo un pt1,
 
 47
 00:03:17,800 --> 00:03:22,320
-que apunta al objeto del punto 0 @ 0
+que apunta al objeto "0 @ 0"
 y una variable pt2,
 
 48
 00:03:22,840 --> 00:03:25,320
-que también apunta al objeto 0 @ 0.
+que también apunta al objeto "0 @ 0".
 
 49
 00:03:25,560 --> 00:03:29,560
 Además de una variable pt3
-eso apunta al punto 100 @ 100.
+que apunta al punto "100 @ 100".
 
 50
 00:03:29,800 --> 00:03:33,200
-Entonces escribo el primitivo
-pt1 convertido en:pt3.
+Entonces escribo la primitiva
+"pt1 become: pt3".
 
 51
 00:03:34,160 --> 00:03:38,680
@@ -247,7 +247,7 @@ Es decir, todos los punteros a pt1.
 54
 00:03:44,600 --> 00:03:49,760
 Vemos que la variable pt2
-señaló al mismo objeto que pt1,
+apunta al mismo objeto que pt1,
 
 55
 00:03:49,920 --> 00:03:54,400
@@ -257,11 +257,11 @@ lo que fue referenciado por pt3.
 56
 00:03:54,760 --> 00:04:00,440
 En cuanto a pt3, ya que es simétrico,
-señalará a lo que apuntó pt1.
+apuntará a lo que apuntó pt1.
 
 57
 00:04:00,640 --> 00:04:01,760
-Arriba arriba
+Hasta arriba
 
 58
 00:04:02,800 --> 00:04:06,080
@@ -270,12 +270,12 @@ Y pt1 apunta a lo que apuntó pt3.
 59
 00:04:06,280 --> 00:04:10,000
 Los punteros han sido intercambiados
-simétricamente
+simétricamente.
 
 60
 00:04:11,200 --> 00:04:14,800
 La variante asimétrica
-es convertido hacia adelante
+es "becomeForward".
 
 61
 00:04:15,440 --> 00:04:18,400
@@ -294,11 +294,11 @@ Los punteros a este objeto permanecen iguales.
 
 64
 00:04:31,520 --> 00:04:34,640
-Aquí hay otro ejemplo que usa puntos.
+Aquí hay otro ejemplo usando puntos.
 
 65
 00:04:35,280 --> 00:04:39,640
-Cuando ejecutamos un convertido hacia adelante,
+Cuando ejecutamos un "becomeForward",
 
 66
 00:04:39,920 --> 00:04:45,080
@@ -306,18 +306,18 @@ vemos que impacta en pt1 y pt2.
 
 67
 00:04:45,600 --> 00:04:48,640
-Pt3 no se vio afectado
-por el convertido hacia adelante,
+pt3 no se vio afectado
+por el "becomeForward",
 
 68
 00:04:48,840 --> 00:04:53,000
-y los que señalaron
+y los que apuntaban
 a este objeto no se modifican.
 
 69
 00:04:55,400 --> 00:04:59,840
 Otra primitiva reflexiva
-es adoptarInstancia.
+es "adoptInstance".
 
 70
 00:05:00,200 --> 00:05:02,640
@@ -326,12 +326,12 @@ Esto cambia la clase de un objeto.
 71
 00:05:02,840 --> 00:05:07,920
 Le pedimos a una clase que adopte una nueva instancia,
-pasado como un parámetro
+pasada como un parámetro.
 
 72
 00:05:08,560 --> 00:05:13,400
-Cambiar una clase es muy poderoso,
-pero algo limitada, herramienta.
+Cambiar una clase es herramienta muy
+poderosa, pero algo limitada.
 
 73
 00:05:13,640 --> 00:05:17,520
@@ -340,11 +340,11 @@ que la clase original del objeto
 
 74
 00:05:18,160 --> 00:05:19,840
-en este caso, una instancia,
+en este caso, "anInstance",
 
 75
 00:05:20,040 --> 00:05:24,680
-es compatible con el formato
+sea compatible con el formato
 de la clase objetivo.
 
 76
@@ -362,8 +362,8 @@ es muy importante.
 
 79
 00:05:36,680 --> 00:05:40,640
-Miremos a
-que clase es en esencia.
+Miremos que es una clase
+en esencia.
 
 80
 00:05:40,920 --> 00:05:43,360
@@ -386,13 +386,13 @@ y un diccionario de métodos.
 
 84
 00:05:56,840 --> 00:06:01,680
-Aquí tenemos la clase Comportamiento,
+Aquí tenemos "Behavior class",
 que es una superclase
 
 85
 00:06:02,080 --> 00:06:07,520
-de clase de clase,
-que define el comportamiento básico de la clase.
+de "Class class",
+que define el comportamiento básico de las clases.
 
 86
 00:06:08,160 --> 00:06:11,000
@@ -401,7 +401,7 @@ Es el mínimo básico para una clase.
 87
 00:06:11,200 --> 00:06:14,720
 Entonces, una clase tiene una superclase,
-un diccionario de método,
+un diccionario de métodos,
 
 88
 00:06:14,840 --> 00:06:18,200
@@ -409,8 +409,8 @@ y especificaciones de formato.
 
 89
 00:06:19,200 --> 00:06:24,440
-Ahora resumiré
-todas las características de comportamiento reflexivo
+Ahora resumiré todas las
+características de comportamiento reflexivo
 
 90
 00:06:25,000 --> 00:06:27,360
@@ -419,7 +419,7 @@ que hemos discutido hasta ahora,
 91
 00:06:28,440 --> 00:06:33,440
 que dan ciertas instancias
-comportamiento que es específico de ellos.
+comportamiento que es específico de ellas.
 
 92
 00:06:34,760 --> 00:06:37,800
@@ -428,7 +428,7 @@ Explicaré el código a medida que avancemos.
 93
 00:06:38,000 --> 00:06:42,400
 Vamos a crear una instancia
-de la clase de comportamiento en estas tres líneas.
+de la "Behavior class" en estas tres líneas.
 
 94
 00:06:42,640 --> 00:06:44,280
@@ -437,34 +437,34 @@ Recuerda, es una clase.
 95
 00:06:44,640 --> 00:06:50,080
 Creo una instancia de la clase,
-que yo llamo Comportamiento.
+que yo llamo Behavior.
 
 96
 00:06:51,600 --> 00:06:54,400
-Eso me da un objeto llamado Comportamiento.
+Eso me da un objeto llamado Behavior.
 
 97
 00:06:55,040 --> 00:07:00,600
 Indico que este objeto
-hereda de la clase Modelo.
+hereda de la clase Model.
 
 98
 00:07:02,000 --> 00:07:03,000
-Me gusta esto.
+Como esto.
 
 99
 00:07:03,680 --> 00:07:08,080
-Configuré el formato
-de este objeto Comportamiento.
+Configuro el formato
+de este objeto Behavior.
 
 100
 00:07:08,600 --> 00:07:12,400
 Entonces creo una instancia
-de la clase de modelo aquí.
+de la clase Model.
 
 101
 00:07:14,520 --> 00:07:16,360
-Es un objeto llamado modelo.
+Es un objeto llamado Model.
 
 102
 00:07:17,200 --> 00:07:20,080
@@ -473,21 +473,21 @@ Aquí está la línea importante en este código.
 103
 00:07:20,760 --> 00:07:23,920
 Cambiaré la clase
-de este objeto modelo
+de este objeto Model
 
 104
 00:07:24,080 --> 00:07:28,920
 para convertirse en una clase del objeto
-pasado como un parámetro, llamado Comportamiento.
+pasado como un parámetro, llamado Behavior.
 
 105
 00:07:29,200 --> 00:07:34,400
-Rompo el enlace
-y hazlo una instancia de esta clase.
+Rompo el enlace y lo hago
+una instancia de esta clase.
 
 106
 00:07:34,800 --> 00:07:37,400
-Esta es una subclase de la clase Modelo.
+Esta es una subclase de la clase Model.
 
 107
 00:07:38,800 --> 00:07:43,400
@@ -496,12 +496,12 @@ Un nuevo método en esta clase.
 
 108
 00:07:43,600 --> 00:07:47,400
-Compilo con el método foo,
+Compilo el método #foo,
 que devuelve 2
 
 109
 00:07:48,840 --> 00:07:51,840
-Estoy haciendo esto en el objeto Comportamiento.
+Estoy haciendo esto en el objeto Behavior.
 
 110
 00:07:53,560 --> 00:07:55,280
@@ -510,15 +510,15 @@ Como podemos ver aquí,
 111
 00:07:55,560 --> 00:07:59,840
 si envío el mensaje foo
-al objeto Modelo por aquí,
+al objeto Model,
 
 112
 00:08:01,000 --> 00:08:02,160
-Me gusta esto,
+como aquí,
 
 113
 00:08:02,760 --> 00:08:04,160
-regresará 2
+regresará 2.
 
 114
 00:08:04,640 --> 00:08:06,720
@@ -530,8 +530,8 @@ Envío el mensaje foo.
 
 116
 00:08:09,200 --> 00:08:14,600
-El modelo de objeto busca el método
-en su clase, el objeto Comportamiento,
+El objeto Model busca el método
+en su clase, el objeto Behavior,
 
 117
 00:08:14,800 --> 00:08:17,360
@@ -539,16 +539,16 @@ y encuentra con éxito el método.
 
 118
 00:08:17,760 --> 00:08:19,160
-Funciona a la perfección
+Funciona a la perfección.
 
 119
 00:08:19,920 --> 00:08:24,080
 Pero si creo una nueva instancia
-de clase modelo,
+de clase Model,
 
 120
 00:08:25,200 --> 00:08:26,200
-Me gusta esto,
+como esta,
 
 121
 00:08:26,560 --> 00:08:28,360
@@ -557,7 +557,7 @@ y le envío el mensaje foo,
 122
 00:08:29,360 --> 00:08:33,360
 se indica un error
-por MessageNotUnderstood.
+via MessageNotUnderstood.
 
 123
 00:08:33,640 --> 00:08:35,800
@@ -565,8 +565,8 @@ Porque si aplico ToLookUp,
 
 124
 00:08:36,080 --> 00:08:39,080
-Miro en la clase del objeto,
-Clase de modelo
+miro en la clase del objeto,
+Model class,
 
 125
 00:08:39,320 --> 00:08:43,920
@@ -584,8 +584,8 @@ de la clase Model con un comportamiento.
 
 128
 00:08:54,200 --> 00:08:57,840
-Aplicemos esto a la clase Establecer
-para aclararlo
+Aplicemos esto a la clase Set
+para aclararlo.
 
 129
 00:08:58,040 --> 00:09:01,280
@@ -593,13 +593,13 @@ Creo set1, una instancia de la clase Set.
 
 130
 00:09:01,800 --> 00:09:05,720
-El diccionario de método de clase Establecer
-contiene el método add :.
+El diccionario de método de clase Set
+contiene el método add:.
 
 131
 00:09:06,400 --> 00:09:11,520
 Para una instancia específica de la clase Set,
-Quiero cambiar el método add :,
+Quiero cambiar el método add:,
 
 132
 00:09:11,720 --> 00:09:15,360
@@ -613,7 +613,7 @@ Entonces, creo una clase "anónima" aquí.
 134
 00:09:18,840 --> 00:09:22,920
 Es una clase específica que hereda.
-de la clase Establecer.
+de la clase Set.
 
 135
 00:09:23,280 --> 00:09:25,200
@@ -635,7 +635,7 @@ dándole un comportamiento particular.
 
 139
 00:09:40,920 --> 00:09:45,800
-Ahora, si envío el mensaje agrega:
+Ahora, si envío el mensaje add:
 al objeto set2,
 
 140
@@ -644,23 +644,23 @@ este método será seleccionado,
 
 141
 00:09:48,800 --> 00:09:52,320
-y tendrá un específico,
-diferente comportamiento
+y tendrá un comportamient específico,
+diferente
 
 142
 00:09:53,600 --> 00:09:58,040
-desde el método add:aquí
+del método add: aquí
 si hubiéramos enviado el mensaje a este conjunto.
 
 143
 00:09:58,280 --> 00:10:03,360
 Entonces, tenemos dos conjuntos que reaccionan
-De manera diferente al mensaje add :.
+De manera diferente al mensaje add:.
 
 144
 00:10:03,680 --> 00:10:07,080
 Aquí está el código
-para llevar a cabo este ejercicio
+para llevar a cabo este ejercicio.
 
 145
 00:10:07,400 --> 00:10:11,280
@@ -668,15 +668,15 @@ Al igual que antes, creo una clase
 
 146
 00:10:11,640 --> 00:10:13,800
-como una instancia de la clase de comportamiento.
+como una instancia de "Behavior class".
 
 147
 00:10:14,080 --> 00:10:16,840
-Puse la superclase en la clase Establecer.
+Establezco la superclase como "Set class".
 
 148
 00:10:17,400 --> 00:10:18,640
-Configuré el formato.
+Configuro el formato.
 
 149
 00:10:18,840 --> 00:10:23,600
@@ -686,17 +686,17 @@ en esta clase anónima.
 150
 00:10:24,080 --> 00:10:29,360
 Estoy redefiniendo el método add:
-que se define en la clase Establecer.
+que está define en la clase Set.
 
 151
 00:10:30,080 --> 00:10:36,080
 Uso "Transcript show" para mostrar
-la ejecución del método agrega :.
+la ejecución del método add:.
 
 152
 00:10:36,400 --> 00:10:40,680
 Entonces llamo "super" para ejecutar
-el método agregar:en la clase Establecer.
+el método add: en la clase Set.
 
 153
 00:10:41,360 --> 00:10:45,720
@@ -705,39 +705,39 @@ creando un primer set.
 
 154
 00:10:45,920 --> 00:10:48,600
-Aquí tengo la clase Establecer.
+Aquí tengo la clase Set.
 
 155
 00:10:50,280 --> 00:10:54,280
 Creo la primera instancia
-de esta clase, llamado Set.
+de esta clase, llamada Set.
 
 156
 00:10:55,080 --> 00:10:57,040
-Le envío el mensaje add :.
+Le envío el mensaje add:.
 
 157
 00:10:58,920 --> 00:11:03,760
 Envío add:1, que usa
-el método agregar:de la clase Establecer.
+el método agregar:de la clase Set.
 
 158
 00:11:05,240 --> 00:11:08,720
-Si pido la clase Establecer aquí,
-Voy a tener set.
+Si pido la clase Set aquí,
+Voy a tener Set.
 
 159
 00:11:09,400 --> 00:11:13,160
-Pero ahora ejecutaré este primitivo
-tu ves aqui
+Pero ahora ejecutaré este primitiva
+que ves aquí.
 
 160
 00:11:13,600 --> 00:11:16,200
-Le pido al objeto Establecer que cambie las clases.
+Le pido al objeto Set que cambie las clases.
 
 161
 00:11:16,400 --> 00:11:21,160
-y para usar la clase de comportamiento de antes,
+para usar la clase Behavior de antes,
 que es una subclase
 
 162
@@ -747,22 +747,22 @@ de la clase Set.
 163
 00:11:24,360 --> 00:11:28,400
 Entonces, cambia y se vuelve
-una instancia de la clase Establecer,
+una instancia de la clase Set,
 
 164
 00:11:28,680 --> 00:11:32,000
 que tiene una nueva versión
-del método agregar :.
+del método add:.
 
 165
 00:11:32,280 --> 00:11:37,920
 Ahora, si envío el mensaje
-agregar:2 a este objeto,
+add: 2 a este objeto,
 
 166
 00:11:38,360 --> 00:11:43,280
 seleccionará el método add:
-desde el objeto Comportamiento,
+desde el objeto Behavior,
 
 167
 00:11:43,560 --> 00:11:45,720
@@ -770,7 +770,7 @@ y ejecutará este código.
 
 168
 00:11:46,280 --> 00:11:48,920
-Podemos verificar en la transcripción
+Podemos verificar en el Transcript
 
 169
 00:11:49,760 --> 00:11:53,280
@@ -783,12 +783,12 @@ Eventualmente se ejecutará,
 171
 00:11:57,640 --> 00:12:02,040
 ya que también usamos "super"
-para el método add:de la clase Set.
+para el método add: de la clase Set.
 
 172
 00:12:02,840 --> 00:12:07,840
 Esto nos permite espiar
-en instancias seleccionadas en Set,
+en instancias seleccionadas de Set,
 
 173
 00:12:08,080 --> 00:12:09,560
@@ -816,22 +816,22 @@ que promueven la extensibilidad del lenguaje.
 178
 00:12:30,200 --> 00:12:34,080
 Pero hay una regla de oro
-cuando se usa la reflexion
+cuando se usa la reflexión.
 
 179
 00:12:34,320 --> 00:12:38,800
-No debe usarlo de manera inapropiada.
+No hay que usarlo de manera inapropiada.
 en el código de dominio.
 
 180
 00:12:39,040 --> 00:12:44,720
-Limitamos el uso
-de códigos reflectantes en el código de dominio.
+Limitamos el uso de códigos
+reflexivo en el código de dominio.
 
 181
 00:12:45,080 --> 00:12:49,200
 La reflexión puede violar
-La encapsulación de los objetos.
+el encapsulamiento de los objetos.
 
 182
 00:12:49,840 --> 00:12:51,000
