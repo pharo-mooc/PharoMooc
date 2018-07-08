@@ -9,13 +9,13 @@ el gancho doNotUnderstand.
 
 3
 00:00:08,080 --> 00:00:13,400
-Ya habrás visto ya
-una ventana de depuración con este mensaje.
+Seguramente ya habrás visto una ventana
+de Debugger con este mensaje.
 
 4
 00:00:13,920 --> 00:00:16,840
-De dónde viene
-¿Y, para qué es esto?
+¿De dónde viene
+y, para qué sirve?
 
 5
 00:00:17,280 --> 00:00:20,080
@@ -27,8 +27,8 @@ Tenemos el objeto node1.
 
 7
 00:00:22,640 --> 00:00:27,520
-Enviaremos este objeto
-el mensaje coucou:stef.
+Enviaremos a este objeto
+el mensaje coucou: stef.
 
 8
 00:00:28,280 --> 00:00:31,280
@@ -37,7 +37,7 @@ seguimos el método de búsqueda
 
 9
 00:00:31,840 --> 00:00:33,920
-Volver a la clase del objeto.
+hasta la clase del objeto.
 
 10
 00:00:34,200 --> 00:00:37,720
@@ -60,13 +60,13 @@ por lo que reifica el mensaje.
 
 14
 00:00:51,200 --> 00:00:56,440
-Discutimos sobre la reificación en el video.
-en introspección y reflexión.
+Discutimos sobre la reificación en el video
+de introspección y reflexión.
 
 15
 00:00:56,920 --> 00:01:02,640
-Reify significa representar
-Un concepto implícito como un objeto.
+Reificar significa representar
+un concepto implícito como un objeto.
 
 16
 00:01:02,920 --> 00:01:04,520
@@ -79,7 +79,7 @@ para representar el mensaje
 
 18
 00:01:08,080 --> 00:01:10,400
-Es una instancia de clase de mensaje.
+Es una instancia de la clase Message.
 
 19
 00:01:10,680 --> 00:01:15,000
@@ -92,7 +92,7 @@ al objeto node1.
 21
 00:01:17,760 --> 00:01:22,800
 Envía el mensaje doesNotUnderstand,
-Pasando el objeto como un parámetro.
+pasando el objeto como un parámetro.
 
 22
 00:01:22,920 --> 00:01:27,000
@@ -115,37 +115,37 @@ Encuentra el método, abreviado a DNU.
 
 26
 00:01:41,160 --> 00:01:44,440
-Ahora puede ejecutar el método ahora.
+Ahora puede ejecutar el método.
 
 27
 00:01:47,080 --> 00:01:49,920
-Does Not Unstandstand es un mensaje
+DoesNotUnstandstand es un mensaje
 
 28
 00:01:50,200 --> 00:01:53,840
 que la maquina virtual
-te envía a los objetos
+envía a los objetos
 
 29
 00:01:54,280 --> 00:01:56,280
-cuando un mensaje ha fallado
+cuando un mensaje ha fallado.
 
 30
 00:01:57,080 --> 00:02:00,680
-Todas las clases pueden redefinir este método.
+Todas las clases pueden redefinir este método
 
 31
 00:02:01,280 --> 00:02:06,800
 para darle un comportamiento específico
-cuando no se comprende un mensaje
+cuando no se comprende un mensaje.
 
 32
 00:02:07,320 --> 00:02:09,840
-Este método es una herramienta importante.
+Este método es una herramienta importante
 
 33
 00:02:10,320 --> 00:02:13,800
-Eso nos permite construir muchas características.
+que nos permite construir muchas características.
 
 34
 00:02:14,080 --> 00:02:17,440
@@ -157,17 +157,17 @@ programación distribuida, y así sucesivamente.
 
 36
 00:02:21,400 --> 00:02:25,080
-Aquí veremos
-algunos usos de doesNotUnderstand.
+Aquí veremos algunos
+usos de doesNotUnderstand.
 
 37
 00:02:25,720 --> 00:02:30,400
 Supongamos que queremos redirigir
-Todos nuestros mensajes a un objeto diferente.
+todos nuestros mensajes a un objeto diferente.
 
 38
 00:02:31,640 --> 00:02:37,200
-En una simple delegación, creo
+En una delegación simple, creo
 un objeto que almacena el objetivo,
 
 39
@@ -176,25 +176,25 @@ donde se enviarán los mensajes.
 
 40
 00:02:39,520 --> 00:02:42,200
-Redefinir el método doesNotUnderstand.
+Redefino el método doesNotUnderstand.
 
 41
 00:02:42,400 --> 00:02:45,560
-Lleva el objeto un mensaje
-como un parámetro,
+Toma el objeto aMessage
+como parámetro,
 
 42
 00:02:45,760 --> 00:02:49,280
-que contiene el selector de mensajes fallidos.
+que contiene el selector del mensaje fallido.
 
 43
 00:02:49,680 --> 00:02:53,400
-Entonces puedo preguntar este mensaje
-para reenviarse.
+Entonces puedo preguntarle a este
+mensaje que se reenvie.
 
 44
 00:02:53,760 --> 00:02:59,920
-Uso sendTo:self target,
+Uso "sendTo: self target",
 que es la variable de instancia.
 
 45
@@ -203,12 +203,12 @@ Reenvío el mensaje a otro objeto.
 
 46
 00:03:04,320 --> 00:03:07,400
-Ten cuidado, esta es una función poderosa.
+Ten cuidado, esta es una función poderosa
 
 47
 00:03:07,920 --> 00:03:12,400
-eso puede interferir con
-La legibilidad del código.
+que puede interferir con
+la legibilidad del código.
 
 48
 00:03:12,760 --> 00:03:15,160
@@ -221,11 +221,11 @@ quien finalmente recibe el mensaje.
 
 50
 00:03:20,920 --> 00:03:23,680
-Es muy útil para construir herramientas.
+Es muy útil para construir herramientas
 
 51
 00:03:24,080 --> 00:03:28,080
-y la construcción de mecanismos avanzados.
+y mecanismos avanzados.
 
 52
 00:03:29,720 --> 00:03:33,720
@@ -243,8 +243,8 @@ que contiene pocos métodos,
 
 55
 00:03:40,600 --> 00:03:44,360
-y para personalizar
-its doesNotUnderstand:method.
+y personalizar
+su doesNotUnderstand:.
 
 56
 00:03:44,800 --> 00:03:48,840
@@ -252,8 +252,8 @@ Luego intercambiaremos un objeto de dominio
 
 57
 00:03:49,400 --> 00:03:53,920
-con este proxy, o objeto mínimo,
-usando "convertido".
+con este proxy, u objeto mínimo,
+usando "become".
 
 58
 00:03:54,840 --> 00:03:58,840
@@ -261,7 +261,7 @@ Primero, creamos un objeto proxy.
 
 59
 00:03:59,360 --> 00:04:02,840
-Le damos un objeto al objeto proxy,
+Le damos un "subject" al objeto proxy,
 
 60
 00:04:03,080 --> 00:04:06,560
@@ -279,12 +279,12 @@ el contador con cada mensaje
 
 63
 00:04:15,400 --> 00:04:20,760
-Ponemos el contador en inicializar a 0,
-ya que no ha recibido mensajes
+Ponemos el contador al inicializar en 0,
+ya que no ha recibido mensajes.
 
 64
 00:04:20,920 --> 00:04:25,400
-Luego agregamos el tema,
+Luego agregamos el "subjet",
 que es lo que será reemplazado.
 
 65
@@ -295,17 +295,17 @@ el método DNU en este proxy.
 66
 00:04:29,920 --> 00:04:33,360
 Cada vez que un nuevo mensaje
-No se entiende,
+no se entiende,
 
 67
 00:04:33,560 --> 00:04:38,840
-su recepción aparece en la transcripción,
+su recepción aparece en el Transcript,
 y el contador se incrementa.
 
 68
 00:04:39,200 --> 00:04:43,400
 Luego reenviamos el mensaje
-al sujeto
+al sujeto objetivo.
 
 69
 00:04:44,080 --> 00:04:47,600
@@ -315,17 +315,17 @@ redirigimos el mensaje a otra parte.
 70
 00:04:48,800 --> 00:04:52,920
 Para sendTo, como ves
-en la implementación de la clase Mensaje,
+en la implementación de la clase Message,
 
 71
 00:04:53,080 --> 00:04:57,400
-simplemente utilizamos el método Perform
-con argumentos
+simplemente utilizamos el método
+"perform:withArguments:" .
 
 72
 00:04:57,640 --> 00:05:01,440
 Ya explicamos esto
-en un curso anterior
+en un curso anterior.
 
 73
 00:05:02,920 --> 00:05:05,160
@@ -338,16 +338,16 @@ Veamos un ejemplo.
 75
 00:05:10,000 --> 00:05:13,280
 Vamos a crear una instancia,
-el punto objeto.
+el objeto punto.
 
 76
 00:05:14,040 --> 00:05:16,680
-Luego usaremos "convertido"
+Luego usaremos "become"
 
 77
 00:05:17,040 --> 00:05:20,200
-para que todo
-eso apunta a este punto
+para que todo lo que apunte
+a este punto
 
 78
 00:05:20,680 --> 00:05:24,280
@@ -356,16 +356,16 @@ señale a LoggingProxy,
 
 79
 00:05:25,520 --> 00:05:27,320
-a lo que instamos.
+al que instanciamos.
 
 80
 00:05:27,760 --> 00:05:30,760
-Ahora si enviamos mensajes
-al punto del objeto,
+Ahora, si enviamos mensajes
+al objeto punto,
 
 81
 00:05:30,920 --> 00:05:36,600
-observando que "convertirse" ahora es
+observando que "become" es
 una instancia de LoggingProxy,
 
 82
@@ -374,16 +374,16 @@ cada vez que le enviemos un mensaje,
 
 83
 00:05:39,840 --> 00:05:42,000
-se mostrará en la transcripción
+se mostrará en el Transcript
 
 84
 00:05:42,720 --> 00:05:45,320
-y el contador se incrementará.
+y se incrementará el contador.
 
 85
 00:05:46,000 --> 00:05:48,800
-esto es lo que hicimos
-en doesNotUnderstand
+Esto es lo que hicimos
+en doesNotUnderstand.
 
 86
 00:05:49,040 --> 00:05:53,200
@@ -392,8 +392,8 @@ el contador muestra un valor de 3.
 
 87
 00:05:54,440 --> 00:05:57,840
-Hay limites
-al marco del proxy,
+Hay limites a esta
+variante de proxy,
 
 88
 00:05:58,000 --> 00:06:00,200
@@ -410,8 +410,8 @@ Eso se vuelve complicado.
 
 91
 00:06:08,040 --> 00:06:14,160
-No podemos usar "convertirse" con clases,
-ya que los modelos reflectantes tienen limitaciones.
+No podemos usar "become" con clases,
+ya que los modelos reflexivos tienen limitaciones.
 
 92
 00:06:14,720 --> 00:06:18,720
@@ -420,7 +420,7 @@ y el objeto a reemplazar
 
 93
 00:06:18,920 --> 00:06:21,400
-Ambos entienden el mismo mensaje.
+ambos entienden el mismo mensaje.
 
 94
 00:06:21,760 --> 00:06:24,600
@@ -433,13 +433,13 @@ en lugar de capturarlo con DNU
 
 96
 00:06:28,560 --> 00:06:31,520
-y transfiriéndolo
+y transferirlo
 al objeto de destino.
 
 97
 00:06:32,280 --> 00:06:37,000
-Pharo tiene otros más poderosos
-marcos proxy que atrapan todo,
+Pharo tiene otras variantes de proxys
+más poderosas que atrapan todo,
 
 98
 00:06:37,160 --> 00:06:42,200
@@ -453,7 +453,7 @@ de cómo aplicar esta técnica
 
 100
 00:06:47,080 --> 00:06:53,280
-es generar dinámicamente accesores,
+es generar dinámicamente accesors,
 o incluso métodos.
 
 101
@@ -467,13 +467,13 @@ Veo que se ha recibido un mensaje,
 
 103
 00:07:01,400 --> 00:07:06,200
-entonces pruebo si tengo la instancia
+entonces pruebo si tengo en la instancia
 variables que incluyen el mensaje.
 
 104
 00:07:06,400 --> 00:07:11,200
 Si es así, genero un nuevo método
-usando "compilar"
+usando "compile"
 
 105
 00:07:11,560 --> 00:07:14,040
@@ -482,7 +482,7 @@ para definir un nuevo método para la clase.
 106
 00:07:16,360 --> 00:07:19,600
 Esto devolverá
-el valor de la variable
+el valor de la variable.
 
 107
 00:07:19,760 --> 00:07:23,600
@@ -497,16 +497,16 @@ no coincide con el nombre
 109
 00:07:28,920 --> 00:07:32,840
 de una variable de instancia,
-Envío un super doesNotUnderstand.
+envío super doesNotUnderstand.
 
 110
 00:07:33,400 --> 00:07:38,400
-Esto nos permite cargar
+Esto nos permite crear
 read-accessors automáticamente,
 
 111
 00:07:38,920 --> 00:07:41,840
-Dependiendo de
+dependiendo de
 si han sido llamados o no.
 
 112
@@ -520,11 +520,11 @@ Hemos visto cómo usar objetos mínimos.
 114
 00:07:48,080 --> 00:07:51,640
 No son instancias directas
-de la clase de objetos,
+de la clase Object,
 
 115
 00:07:51,840 --> 00:07:54,040
-pero de la clase de objeto proto.
+pero de la clase ProtoObject.
 
 116
 00:07:54,200 --> 00:07:56,920
@@ -532,13 +532,13 @@ Pueden ser la base de proxies.
 
 117
 00:07:57,200 --> 00:08:01,400
-Al redefinir doesNotUnderstand
-método, podemos capturar
+Al redefinir el método
+doesNotUnderstand, podemos capturar
 
 118
 00:08:01,920 --> 00:08:07,800
 la existencia de un mensaje fallido
-y luego redirigir el mensaje.
+y luego redirigirlo.
 
 119
 00:08:08,320 --> 00:08:13,840
@@ -548,7 +548,7 @@ la base de muchas herramientas en Pharo.
 120
 00:08:14,560 --> 00:08:18,000
 Pero debes ser muy cuidadoso
-cuando lo usas
+cuando lo usas.
 
 121
 00:08:18,280 --> 00:08:21,760
@@ -556,5 +556,5 @@ Solo se debe usar cuando sea necesario.
 
 122
 00:08:22,080 --> 00:08:27,320
-No lo coloque en el código de dominio todavía,
-Es una técnica muy avanzada.
+No lo uses en el código de dominio todavía,
+es una técnica muy avanzada.

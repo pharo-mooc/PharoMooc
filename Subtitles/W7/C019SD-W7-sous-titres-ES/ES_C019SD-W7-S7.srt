@@ -5,18 +5,18 @@ hablaremos sobre la campaña Anti-IF.
 
 2
 00:00:06,480 --> 00:00:09,480
-En particular,
-Explicaremos los motivos por los que
+En particular, explicaremos
+los motivos por los que
 
 3
 00:00:09,920 --> 00:00:13,720
-el retorno cero y el control nulo
-Las funciones no son geniales.
+retornar y verificar por nil
+no es bueno.
 
 4
 00:00:13,920 --> 00:00:18,520
 Aquí hay un ejemplo de un código,
-que no es un objeto
+que no es un objeto.
 
 5
 00:00:19,040 --> 00:00:21,680
@@ -29,8 +29,8 @@ de acuerdo con el animal.
 
 7
 00:00:24,880 --> 00:00:30,560
-Por ejemplo, podemos preguntar a un perro
-para mover su cola o un pato al curandero.
+Por ejemplo, podemos pedir a un perro
+que mueva su cola o un pato que grazne.
 
 8
 00:00:31,000 --> 00:00:33,440
@@ -59,16 +59,16 @@ todo el código del proyecto
 13
 00:00:53,680 --> 00:00:56,880
 para buscar declaraciones If.
-eso puede aplicarse.
+que puedan aplicar.
 
 14
 00:00:57,040 --> 00:01:01,280
 Tendríamos que modificar
-Numerosos códigos en todo el proyecto.
+numeroso código en todo el proyecto.
 
 15
 00:01:01,640 --> 00:01:06,560
-Además, agregando casos a métodos
+Además, agregar casos a métodos
 los hace engorrosos,
 
 16
@@ -84,7 +84,7 @@ hace que este método sea muy largo,
 18
 00:01:13,920 --> 00:01:17,160
 y cada tipo de animal
-puede tener muchos detalles
+puede tener muchos detalles.
 
 19
 00:01:17,320 --> 00:01:21,760
@@ -94,17 +94,17 @@ como que no todos los perros tienen colas,
 20
 00:01:21,920 --> 00:01:25,920
 tendríamos que crear
-Casos separados para cada opción.
+casos separados para cada opción.
 
 21
 00:01:26,120 --> 00:01:31,640
-El código se convertiría
+El código se convertiría en
 complicado y más difícil de entender.
 
 22
 00:01:32,240 --> 00:01:35,760
-Entonces, para reemplazar estas acciones,
-nosotros enviamos mensajes
+Entonces, para reemplazar estas
+acciones, enviamos mensajes.
 
 23
 00:01:36,080 --> 00:01:38,480
@@ -146,7 +146,7 @@ y uno de sus métodos se ejecutará.
 31
 00:02:11,520 --> 00:02:15,040
 Vemos aquí que Pharo
-está siguiendo la función If.
+está haciendo la función If.
 
 32
 00:02:15,200 --> 00:02:19,960
@@ -165,7 +165,7 @@ para especificar Ifs para tipos de objetos.
 35
 00:02:28,040 --> 00:02:31,200
 Solo hace códigos
-menos coherente y dinámica.
+menos coherentes y dinámicos.
 
 36
 00:02:32,560 --> 00:02:36,040
@@ -174,7 +174,7 @@ el caso específico de Nil.
 
 37
 00:02:36,440 --> 00:02:39,160
-Si un método devuelve cero,
+Si un método devuelve nil,
 
 38
 00:02:39,320 --> 00:02:43,120
@@ -191,7 +191,7 @@ Aquí utilizamos un ejemplo de un código
 
 41
 00:02:50,760 --> 00:02:55,440
-basado en un parámetro y un inferencia.
+basado en un parámetro y una inferencia.
 
 42
 00:02:55,600 --> 00:02:57,880
@@ -200,7 +200,7 @@ El tipo de código no es importante.
 43
 00:02:58,160 --> 00:03:01,440
 Aquí vemos que en algunos casos,
-nada se devuelve
+se devuelve nil.
 
 44
 00:03:01,840 --> 00:03:04,480
@@ -208,12 +208,12 @@ Esto significa que cuando usamos este código,
 
 45
 00:03:04,760 --> 00:03:08,600
-tenemos que probar
+tenemos que verificar
 el mensaje rulesForFact.
 
 46
 00:03:08,800 --> 00:03:11,480
-¿Las reglasForFact regresaron nulas?
+¿Retornó rulesForFact nil?
 
 47
 00:03:11,680 --> 00:03:14,560
@@ -231,11 +231,11 @@ ya que estamos usando un término plural,
 50
 00:03:20,440 --> 00:03:23,960
 el método probablemente
-Devuelve una colección.
+devuelve una colección.
 
 51
 00:03:24,200 --> 00:03:26,880
-Una solución efectiva para evitar nada
+Una solución efectiva para evitar nil
 
 52
 00:03:27,080 --> 00:03:31,000
@@ -275,13 +275,13 @@ y muestra un error,
 
 60
 00:03:56,560 --> 00:04:01,640
-En lugar de regresar nada, informamos
-El sistema al levantar una excepción.
+en lugar de retornar nil, informamos
+al sistema al levantar una excepción.
 
 61
 00:04:01,920 --> 00:04:05,600
 En Pharo,
-llamamos a esta presentación una excepción.
+llamamos a esto lanzar una excepción.
 
 62
 00:04:05,760 --> 00:04:09,560
@@ -290,7 +290,7 @@ de la clase o subclase de excepción
 
 63
 00:04:09,720 --> 00:04:11,960
-y envíe el mensaje o señal.
+y enviamos el mensaje "signal".
 
 64
 00:04:13,680 --> 00:04:19,640
@@ -299,12 +299,12 @@ el cliente del método nextPutAll
 
 65
 00:04:19,800 --> 00:04:23,960
-para probar si es nulo,
-cuando es probable que haya ocurrido un problema
+verificar si es nil,
+cuando es probable que haya ocurrido un problema.
 
 66
 00:04:24,200 --> 00:04:26,800
-El cliente maneja la excepción
+O bien el cliente maneja la excepción
 
 67
 00:04:26,960 --> 00:04:31,680
@@ -322,18 +322,18 @@ Evita el uso excesivo de Ifs.
 
 70
 00:04:40,880 --> 00:04:45,720
-Otro caso en el que encontramos cheques
-por el valor nulo
+Otro caso en el que encontramos
+chequeos por nil
 
 71
 00:04:45,880 --> 00:04:49,280
 es en variables de instancia
-que no se inicializan
+que no se inicializan.
 
 72
 00:04:49,600 --> 00:04:54,800
 Si un código dice que si la variable
-es todavía nula, debe reaccionar de cierta manera,
+es todavía nil, debe reaccionar de cierta manera,
 
 73
 00:04:54,960 --> 00:04:59,200
@@ -350,13 +350,13 @@ Por lo tanto, aquí,
 
 76
 00:05:03,600 --> 00:05:06,680
-para "miembros"
+para "members"
 que contiene una colección,
 
 77
 00:05:06,840 --> 00:05:10,600
 inicializamos una colección vacía
-en lugar de usar nada.
+en lugar de usar nil.
 
 78
 00:05:10,920 --> 00:05:13,520
@@ -375,7 +375,7 @@ para calcular su valor,
 81
 00:05:22,840 --> 00:05:26,560
 puedes esperar hasta el último momento
-para calcularlo
+para calcularlo.
 
 82
 00:05:26,720 --> 00:05:30,520
@@ -385,7 +385,7 @@ por lo que ahorra tiempo de ejecución.
 83
 00:05:31,320 --> 00:05:35,040
 En esos casos,
-Usamos la inicialización perezosa.
+usamos la inicialización perezosa.
 
 84
 00:05:35,200 --> 00:05:38,280
@@ -393,7 +393,7 @@ Esto se usa cuando se requiere un valor.
 
 85
 00:05:38,680 --> 00:05:42,400
-Si el valor sigue siendo nulo,
+Si el valor sigue siendo nil,
 le asignamos un valor.
 
 86
@@ -409,11 +409,11 @@ pero solo tenemos uno.
 88
 00:05:53,160 --> 00:05:57,920
 Todos los demás usuarios de la variable
-utilizar el método de descenso,
+utilizar el método de acceso,
 
 89
 00:05:58,520 --> 00:06:00,720
-y no he probado si es nulo.
+y no deben verificar si es nil.
 
 90
 00:06:01,320 --> 00:06:03,960
@@ -430,16 +430,17 @@ Como vemos en este ejemplo.
 
 93
 00:06:12,800 --> 00:06:15,840
-Aquí tenemos una paleta de herramientas.
+Aquí tenemos una ToolPalette.
 
 94
 00:06:16,120 --> 00:06:19,440
-Si se selecciona una herramienta, podemos responder,
+Si se selecciona una herramienta,
+podemos responder,
 
 95
 00:06:19,600 --> 00:06:22,960
 pero si no se selecciona ninguno,
-preferimos no actuar
+preferimos no actuar.
 
 96
 00:06:23,640 --> 00:06:26,480
@@ -483,7 +484,7 @@ Esta herramienta se seleccionará de manera predeterminada.
 105
 00:06:57,360 --> 00:07:01,840
 Creamos una herramienta que no hace nada
-Cuando se le pide que realice acciones.
+cuando se le pide que realice acciones.
 
 106
 00:07:03,120 --> 00:07:09,000
@@ -501,7 +502,7 @@ En conclusión,
 
 109
 00:07:17,000 --> 00:07:19,640
-Los mensajes son más efectivos que Ifs.
+los mensajes son más efectivos que los Ifs.
 
 110
 00:07:19,840 --> 00:07:22,520
@@ -514,13 +515,13 @@ y envíe mensajes en su lugar.
 
 112
 00:07:28,840 --> 00:07:34,160
-Evita regresar nada porque
-Te obliga a insertar Si cheques
+Evita retornar nil porque
+te obliga a insertar chequeos con IFs
 
 113
 00:07:34,360 --> 00:07:38,280
-para saber si es o no
-el valor es nulo
+para saber si el valor
+es o no nil.
 
 114
 00:07:39,440 --> 00:07:44,720
@@ -529,15 +530,15 @@ o usando la inicialización perezosa.
 
 115
 00:07:45,680 --> 00:07:50,760
-Crea objetos que representan el valor predeterminado.
-Comportamiento o ausencia de comportamiento.
+Crea objetos que representan el comportamiento
+predeterminado o la ausencia del mismo.
 
 116
 00:07:50,960 --> 00:07:54,960
 Esto se aplica no solo a Pharo
-pero a todos los idiomas de objeto.
+sino a todos los lenguajes de objetos.
 
 117
 00:07:55,200 --> 00:08:00,840
 Es importante recordar estos puntos.
-sea ​​cual sea el idioma que use.
+sea ​​cual sea el lenguaje que uses.
