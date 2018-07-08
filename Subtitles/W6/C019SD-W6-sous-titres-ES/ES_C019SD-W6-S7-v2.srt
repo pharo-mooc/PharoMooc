@@ -9,35 +9,35 @@ pero realmente quiero llevarlo a casa.
 
 3
 00:00:07,280 --> 00:00:09,920
-Personajes, Cuerdas y Símbolos.
+Caracteres, Strings y Símbolos.
 
 4
 00:00:10,920 --> 00:00:14,560
 Lo que vas a aprender
-es como manejar personajes,
+es como manejar caracteres,
 
 5
 00:00:14,720 --> 00:00:16,360
-cómo se representan las cadenas,
+cómo se representan los strings,
 
 6
 00:00:16,520 --> 00:00:19,160
-y que simbolo esta en relacion
-a una cuerda
+y que es un símbolo en relación
+con un string.
 
 7
 00:00:19,520 --> 00:00:21,960
-Tomémoslo desde el principio:
+Empecemos desde el principio:
 Caracteres.
 
 8
 00:00:22,120 --> 00:00:25,920
 En Pharo,
-los personajes comienzan con el signo de dólar,
+los caracteres comienzan con el signo de dólar,
 
 9
 00:00:26,200 --> 00:00:28,600
-seguido de una carta.
+seguido de una letra.
 
 10
 00:00:28,880 --> 00:00:32,680
@@ -45,42 +45,43 @@ Esto es para representar caracteres literales.
 
 11
 00:00:33,200 --> 00:00:36,960
-Caracteres no imprimibles
+Para los caracteres no imprimibles
 que no tienen una forma
 
 12
 00:00:37,120 --> 00:00:40,720
-use espacio, pestaña o retorno de carro,
+como el espacio, la tabulación y
+el retorno de carro,
 
 13
 00:00:40,880 --> 00:00:42,920
-que salta a una nueva línea.
+que salta a una nueva línea,
 
 14
 00:00:43,080 --> 00:00:46,200
-Enviamos un mensaje
-a esta clase de personaje
+enviamos un mensaje
+a la clase Character
 
 15
 00:00:46,360 --> 00:00:47,920
-para obtener este personaje
+para obtener este caracter.
 
 16
 00:00:49,960 --> 00:00:51,160
-Ahora para cadenas.
+Ahora strings.
 
 17
 00:00:51,320 --> 00:00:54,720
-Cadenas de caracteres
+Los strings
 están delimitados por comillas simples.
 
 18
 00:00:54,880 --> 00:00:56,880
-Este personaje aquí mismo.
+Este caracter aquí mismo.
 
 19
 00:00:57,040 --> 00:01:00,320
-Aquí tenemos la cadena:
+Aquí tenemos el string:
 'eclair au chocolat'.
 
 20
@@ -90,7 +91,7 @@ Comienza aquí y termina aquí.
 21
 00:01:02,680 --> 00:01:05,520
 Podemos enviarle un mensaje,
-por ejemplo, tamaño
+por ejemplo, size.
 
 22
 00:01:05,680 --> 00:01:08,400
@@ -98,45 +99,45 @@ Y devuelve "18".
 
 23
 00:01:08,560 --> 00:01:11,760
-De hecho, esta cadena
-contiene 18 caracteres
+De hecho, este string
+contiene 18 caracteres.
 
 24
 00:01:12,240 --> 00:01:14,320
-Incluso podemos jugar con esta cuerda.
+Incluso podemos jugar con el.
 
 25
 00:01:14,480 --> 00:01:16,880
-Puedo decir división de espacio de personajes.
+Puedo decir "Character space split" .
 
 26
 00:01:17,120 --> 00:01:21,440
-Esto significa que cortaré esta cadena
+Esto significa que cortaré este string
 de acuerdo con los espacios,
 
 27
 00:01:21,600 --> 00:01:25,040
-y obtengo una colección ordenada
-con 3 elementos
+y obtengo una colección
+con 3 elementos.
 
 28
 00:01:25,200 --> 00:01:28,160
-La cuerda se cortó en 3 elementos.
+El string se cortó en 3 elementos.
 
 29
 00:01:28,960 --> 00:01:34,000
-Cadenas de caracteres
-Son colecciones como cualquier otra en Pharo.
+Los strings son colecciones como
+cualquier otra en Pharo.
 
 30
 00:01:34,160 --> 00:01:37,440
-Una cuerda es realmente
-una colección de personajes,
+Un string es realmente
+una colección de caracteres,
 
 31
 00:01:37,600 --> 00:01:41,120
-pero la clase de cadena heredará
-de la clase de colección.
+y la clase String hereda
+de la clase Collection.
 
 32
 00:01:41,560 --> 00:01:44,360
@@ -145,16 +146,16 @@ Entonces puedo usar todos los métodos clásicos.
 33
 00:01:44,520 --> 00:01:49,120
 Recuerda,
-Tenemos clases comunes de recolección.
+Tenemos mensajes comunes de Collection.
 
 34
 00:01:49,280 --> 00:01:52,960
-Por ejemplo, "en:"
+Por ejemplo, "at:"
 para todas las colecciones indexadas.
 
 35
 00:01:53,120 --> 00:01:55,240
-'eclair au chocolat' en:1
+'eclair au chocolat' at: 1
 
 36
 00:01:55,400 --> 00:01:59,160
@@ -168,16 +169,16 @@ Corresponde a esta "e".
 38
 00:02:02,480 --> 00:02:06,560
 También puedo usar "do:" que se ejecuta
-los elementos de una colección
+para cada elemento de una colección.
 
 39
 00:02:06,720 --> 00:02:09,320
-Y después de cada ciclo, la configuración de bloque
+Y después de cada ciclo, el bloque
 
 40
 00:02:09,480 --> 00:02:13,960
-es igual al primer elemento
-de la colección, luego la segunda, etc.
+se evalua con el primer elemento
+de la colección, luego el segundo, etc.
 
 41
 00:02:14,120 --> 00:02:15,640
@@ -185,12 +186,13 @@ Una pequeña sutileza.
 
 42
 00:02:15,800 --> 00:02:19,720
-Dado que las cadenas de caracteres
+Dado que los strings
 están delimitados por comillas simples,
 
 43
 00:02:19,880 --> 00:02:22,200
-si quiero poner el código en una cadena,
+si quiero poner una comilla
+simple en un string,
 
 44
 00:02:22,360 --> 00:02:24,960
@@ -199,8 +201,8 @@ lado a lado.
 
 45
 00:02:25,120 --> 00:02:29,960
-Esto significa que quiero insertar una cita
-en mi cadena de personajes ...
+Esto significa que quiero insertar una comilla
+en mi string ...
 
 46
 00:02:30,120 --> 00:02:32,440
@@ -209,76 +211,76 @@ Pero ten cuidado, la sutileza es que
 47
 00:02:32,600 --> 00:02:35,640
 solo cuenta como
-Un elemento en la cadena.
+un elemento en la cadena.
 
 48
 00:02:35,800 --> 00:02:39,720
 Por ejemplo:
-'L'' eclair au chocolat 'en:2
+'L'' eclair au chocolat ' at: 2
 
 49
 00:02:39,880 --> 00:02:42,560
 significa que quiero el elemento 2
-de esta colección
+de esta colección.
 
 50
 00:02:42,720 --> 00:02:45,040
-Y devuelve el carácter de cita.
+Y devuelve el caracter '.
 
 51
 00:02:45,200 --> 00:02:49,160
-Y si lo pido en:3
-Recibo la "e" que está aquí.
+Y si le pido at: 3
+recibo la "e" que está aquí.
 
 52
 00:02:49,320 --> 00:02:54,640
 Entonces, incluso si ingrese dos comillas simples,
-ellos cuentan como uno.
+cuentan como una.
 
 53
 00:02:56,800 --> 00:03:01,240
-Cadenas de caracteres
-se tratan como cualquier otra colección.
+Los strings se tratan como
+cualquier otra colección.
 
 54
 00:03:01,400 --> 00:03:05,440
 Puedo decir que quiero
-el último elemento de una cadena.
+el último elemento.
 
 55
 00:03:05,600 --> 00:03:10,320
-Si pido "str at:str size"
-Recibo el último elemento.
+Si pido "str at: str size"
+recibo el último elemento.
 
 56
 00:03:10,480 --> 00:03:13,960
 No te olvides, en Pharo
-Las cadenas comienzan con el valor de índice 1,
+las colecciones se indexas desde 1,
 
 57
 00:03:14,120 --> 00:03:17,400
 por lo tanto, el último elemento
-es el tamaño de la cadena.
+es el tamaño del string.
 
 58
 00:03:17,640 --> 00:03:22,320
 O simplemente podemos usar
-"último" para recuperar el último elemento.
+"last" para recuperar el último elemento.
 
 59
 00:03:22,840 --> 00:03:26,200
-Para generar cadenas,
+Para generar strings,
 hay varias técnicas
 
 60
 00:03:26,360 --> 00:03:29,760
-El más fácil
+La más fácil
 es el método de conversión.
 
 61
 00:03:29,920 --> 00:03:33,560
 Convierto un símbolo en
-una cadena de caracteres con asString.
+un string con "asString".
 
 62
 00:03:33,720 --> 00:03:36,960
@@ -288,7 +290,7 @@ printString a cualquier objeto.
 63
 00:03:37,120 --> 00:03:41,200
 Esto me dará
-una representación de cadena del objeto.
+una representación en string del objeto.
 
 64
 00:03:42,400 --> 00:03:46,240
@@ -297,7 +299,7 @@ directamente de una colección.
 
 65
 00:03:46,400 --> 00:03:49,840
-Recuerde, puede enviar "con"
+Recuerde, puede enviar "with:"
 a cualquier clase de colección
 
 66
@@ -307,12 +309,12 @@ automáticamente contiene ciertos objetos.
 
 67
 00:03:54,800 --> 00:03:56,600
-Si uso String con:$ A,
+Si uso String with: $A,
 
 68
 00:03:56,760 --> 00:04:00,520
-Obtengo una cuerda
-que contiene un solo carácter:"A."
+Obtengo un string
+que contiene un solo carácter: "A"
 
 69
 00:04:00,680 --> 00:04:02,120
@@ -321,16 +323,16 @@ Para la concatenación,
 70
 00:04:02,280 --> 00:04:05,640
 ya has visto esto,
-utilizamos el mensaje "coma".
+utilizamos el mensaje coma.
 
 71
 00:04:05,800 --> 00:04:09,640
-Envío "," a una cadena
-y ejecutarlo a través de otra cadena
+Envío "," a un string
+y con otro string
 
 72
 00:04:09,800 --> 00:04:13,800
-para crear una nueva cadena que sea
+para crear uno nuevo que sea
 la concatenación de los dos.
 
 73
@@ -345,7 +347,7 @@ Debes entender
 75
 00:04:19,560 --> 00:04:23,440
 que generé
-versiones intermedias que son inútiles
+versiones intermedias que son inútiles.
 
 76
 00:04:23,600 --> 00:04:27,440
@@ -354,32 +356,32 @@ eso fue enviado
 
 77
 00:04:27,600 --> 00:04:30,120
-a esta cadena, con este valor.
+a este string, con este valor.
 
 78
 00:04:30,280 --> 00:04:34,600
-Tenemos una primera cadena de concatenación.
-eso fue generado
+Tenemos una primer string concatenado
+que fue generado
 
 79
 00:04:34,920 --> 00:04:38,800
-Esta concatenación envió el mensaje
+Esta concatenación envia el mensaje
 "," con este valor,
 
 80
 00:04:38,960 --> 00:04:41,680
-y se creó otra cadena:
+y se creó otro string:
 El resultado final
 
 81
 00:04:41,840 --> 00:04:45,280
-Una cuerda intermedia
-no hemos visto fue generado,
+Se generó un string intermedio
+que no hemos visto,
 
 82
 00:04:45,440 --> 00:04:48,680
-y te hace perder el tiempo
-en tus cálculos
+y te hace perder tiempo
+en los cálulos.
 
 83
 00:04:48,840 --> 00:04:51,560
@@ -392,39 +394,38 @@ para ver realmente lo que está pasando
 
 85
 00:04:56,000 --> 00:04:59,240
-y si no sería
-vale la pena usar una transmisión.
+y si vale la pena usar un Stream.
 
 86
 00:04:59,400 --> 00:05:02,000
-Genero una cadena de caracteres
+Genero un string
 
 87
 00:05:02,160 --> 00:05:06,000
 y digo que definiré
-una secuenciaContenido con:s
+una streamContent with: s
 
 88
 00:05:06,160 --> 00:05:11,320
-Y puedo enviar cadenas directamente a esto
-transmitir para generar la cadena final.
+Y puedo enviar strings directamente a este
+stream para generar el final.
 
 89
 00:05:11,480 --> 00:05:14,200
-De esta forma, evito las cadenas intermedias.
+De esta forma, evito los strings intermedios.
 
 90
 00:05:14,360 --> 00:05:16,760
-Ahora por símbolos.
+Ahora con los símbolos.
 
 91
 00:05:16,920 --> 00:05:21,200
 Sintácticamente hablando,
-Los símbolos comienzan con un hashtag,
+los símbolos comienzan con un hashtag,
 
 92
 00:05:21,360 --> 00:05:23,120
-luego una cadena de personajes.
+luego un string.
 
 93
 00:05:23,280 --> 00:05:24,880
@@ -432,8 +433,8 @@ Este es un símbolo literal.
 
 94
 00:05:25,040 --> 00:05:29,760
-Es una especie de cuerda, pero ten cuidado,
-Son únicos en el sistema.
+Es una especie de string, pero ten cuidado,
+son únicos en el sistema.
 
 95
 00:05:29,920 --> 00:05:33,200
@@ -447,7 +448,7 @@ en el programa esto aparece,
 
 97
 00:05:36,480 --> 00:05:38,760
-Estoy designando el mismo objeto.
+estoy designando el mismo objeto.
 
 98
 00:05:38,920 --> 00:05:40,680
@@ -468,8 +469,8 @@ Es el mismo objeto.
 
 102
 00:05:50,280 --> 00:05:53,760
-Este no es el caso de las cadenas.
-Para cadenas, depende.
+Este no es el caso de los strings.
+Para strings, depende.
 
 103
 00:05:53,920 --> 00:05:57,000
@@ -479,16 +480,16 @@ las optimizaciones del compilador.
 104
 00:05:57,400 --> 00:06:01,440
 Entonces esta es la verdadera diferencia.
-entre símbolos y cadenas.
+entre símbolos y strings.
 
 105
 00:06:01,600 --> 00:06:05,360
-Un símbolo está únicamente en solo lectura.
+Un símbolo existe únicamente en solo lectura.
 
 106
 00:06:05,520 --> 00:06:08,600
 Los símbolos no se pueden modificar,
-debes crear una nueva.
+debes crear uno nuevo.
 
 107
 00:06:08,760 --> 00:06:13,080
@@ -497,8 +498,8 @@ por lo que siempre apunta al mismo objeto.
 
 108
 00:06:13,240 --> 00:06:17,440
-Las cadenas son objetos mutables,
-puedes modificar su contenido
+Los strings son objetos mutables,
+puedes modificar su contenido.
 
 109
 00:06:17,600 --> 00:06:22,440
@@ -511,12 +512,11 @@ Los símbolos se usan a menudo como
 
 111
 00:06:27,560 --> 00:06:30,320
-selectores de método
+selectores de métodos.
 
 112
 00:06:31,480 --> 00:06:35,160
-Y simbolos
-son buenos candidatos para llaves
+Y son buenos candidatos para claves
 
 113
 00:06:35,320 --> 00:06:37,160
@@ -524,7 +524,7 @@ en diccionarios,
 
 114
 00:06:37,320 --> 00:06:39,080
-a saber, identityDictionary
+sobre todo en IdentityDictionary
 
 115
 00:06:39,240 --> 00:06:40,560
@@ -546,17 +546,17 @@ para generarlo en un diccionario.
 119
 00:06:52,680 --> 00:06:56,360
 Lo importante para recordar
-desde esta sesión,
+de esta sesión,
 
 120
 00:06:56,520 --> 00:07:00,120
-es que las cuerdas
+es que los strings
 son como cualquier otra colección.
 
 121
 00:07:00,280 --> 00:07:03,360
-Y esos símbolos son únicos,
+Y que los símbolos son únicos,
 
 122
 00:07:03,520 --> 00:07:06,320
-en modo de solo lectura, e inmutable.
+de solo lectura, e inmutables.

@@ -5,8 +5,8 @@ con la sesión anterior
 
 2
 00:00:04,080 --> 00:00:07,280
-donde expliqué
-que los pequeños métodos eran buenos.
+donde expliqué que los
+métodos pequeños eran buenos.
 
 3
 00:00:07,440 --> 00:00:09,160
@@ -15,7 +15,7 @@ Hoy mostraré algunos ejemplos.
 4
 00:00:09,320 --> 00:00:12,840
 Pero primero, repasemos rápidamente
-nuestra sesión anterior
+nuestra sesión anterior.
 
 5
 00:00:13,000 --> 00:00:15,280
@@ -23,12 +23,12 @@ Enviar un mensaje lleva a una elección.
 
 6
 00:00:15,440 --> 00:00:19,640
-Una opción enmascarada porque varios
-posibles implementaciones
+Una opción enmascarada porque se
+invocarán varias
 
 7
 00:00:19,800 --> 00:00:21,560
-se llamará
+posibles implementaciones.
 
 8
 00:00:22,040 --> 00:00:25,960
@@ -48,21 +48,21 @@ nuevas elecciones mediante la creación de subclases.
 11
 00:00:35,760 --> 00:00:40,480
 Las subclases pueden redefinir o refinar
-el código de su superclase
+el código de su superclase.
 
 12
 00:00:42,000 --> 00:00:43,920
-Y enviando un mensaje
+Y enviar un mensaje
 
 13
 00:00:44,080 --> 00:00:49,360
-significa dar subclases
-La posibilidad de cambiar el comportamiento.
+significa dar a las subclases
+la posibilidad de cambiar el comportamiento.
 
 14
 00:00:50,520 --> 00:00:54,080
 Hoy miraremos
-el método de plantilla de patrón de diseño.
+el patrón de diseño "Template Method".
 
 15
 00:00:54,240 --> 00:00:56,880
@@ -71,7 +71,7 @@ en el manual de diseño de patrones.
 
 16
 00:00:57,640 --> 00:00:59,960
-¿Qué es un método de plantilla?
+¿Qué es un template method?
 
 17
 00:01:00,120 --> 00:01:04,600
@@ -86,7 +86,7 @@ con ganchos en el interior.
 19
 00:01:08,960 --> 00:01:12,680
 Y estos ganchos pueden ser
-redefinido por subclases.
+redefinidos por subclases.
 
 20
 00:01:13,840 --> 00:01:16,000
@@ -100,7 +100,7 @@ no sabemos exactamente qué.
 22
 00:01:20,280 --> 00:01:25,320
 Luego, hace algo
-en gancho Método 1,
+en hookMethod1,
 
 23
 00:01:25,720 --> 00:01:27,080
@@ -109,11 +109,11 @@ luego algo más,
 24
 00:01:27,240 --> 00:01:29,480
 y luego algo
-en ganchoMetodo2.
+en hookMethod2.
 
 25
 00:01:29,640 --> 00:01:34,200
-Desde hookMethods 1 y 2
+Dadp que hookMethods 1 y 2
 son ambos métodos completos,
 
 26
@@ -123,7 +123,7 @@ pueden ser redefinidos en las subclases.
 27
 00:01:37,600 --> 00:01:41,320
 Hay 2 posibilidades,
-uno para el hookMethod 1 y 2.
+uno para cada uno de hookMethod 1 y 2.
 
 28
 00:01:42,760 --> 00:01:46,520
@@ -131,11 +131,11 @@ Estos métodos pueden o no
 
 29
 00:01:46,680 --> 00:01:49,800
-tienen un comportamiento predeterminado.
+tener un comportamiento predeterminado.
 
 30
 00:01:50,160 --> 00:01:53,840
-Aquí, digamos que hookMethod 1
+Aquí, digamos que hookMethod1
 tiene un comportamiento predeterminado.
 
 31
@@ -145,8 +145,8 @@ si la subclase no propone nada,
 
 32
 00:01:57,680 --> 00:02:03,000
-hookMethod 1 tiene un comportamiento predeterminado
-eso funciona
+hookMethod1 tiene un comportamiento predeterminado
+que funciona.
 
 33
 00:02:04,240 --> 00:02:06,280
@@ -154,7 +154,7 @@ Del mismo modo, podríamos decir
 
 34
 00:02:06,440 --> 00:02:09,960
-ese hookMethod 2
+ese hookMethod2
 no tiene un comportamiento predeterminado.
 
 35
@@ -165,55 +165,54 @@ debe imperativamente definir uno.
 36
 00:02:13,000 --> 00:02:15,960
 Como diseñador de la clase,
-tu puedes elegir
+puedes elegir
 
 37
 00:02:16,120 --> 00:02:19,840
-si o no
-para determinar un comportamiento predeterminado.
+determinar o no un
+comportamiento predeterminado.
 
 38
 00:02:20,640 --> 00:02:23,760
 Usaremos printString
-Como primer ejemplo.
+como primer ejemplo.
 
 39
 00:02:23,920 --> 00:02:27,640
 La idea es que si envío
-un mensaje printString a un objeto,
+el mensaje printString a un objeto,
 
 40
 00:02:27,800 --> 00:02:31,120
-Obtengo una cadena de caracteres
-que representa este objeto
+obtengo un string
+que representa este objeto.
 
 41
 00:02:31,280 --> 00:02:33,160
-Aquí tengo un retraso.
+Aquí tengo un Delay.
 
 42
 00:02:34,400 --> 00:02:37,640
-He creado una demora de 10 segundos.
+He creado uno de 10 segundos.
 
 43
 00:02:38,480 --> 00:02:42,960
-Si envío un mensaje printString
-a esta demora,
+Si le envío el mensaje printString,
 
 44
 00:02:43,120 --> 00:02:47,720
-Tengo un retraso y entre paréntesis,
-un milisegundo de valor para la demora.
+obtengo aDelay y entre paréntesis,
+un milisegundo de valor para el mismo.
 
 45
 00:02:48,200 --> 00:02:52,840
-El método printString se implementa
-en la clase de objeto como esta.
+El método printString está implementa
+en la clase Object.
 
 46
 00:02:53,600 --> 00:02:56,640
 Envía el mensaje
-printStringLimitedTo
+printStringLimitedTo:.
 
 47
 00:02:57,160 --> 00:02:58,560
@@ -221,16 +220,15 @@ Esta implementación
 
 48
 00:02:58,720 --> 00:03:02,920
-recupera una cadena de caracteres
-eso representa
+recupera una string que representa
 
 49
 00:03:03,080 --> 00:03:04,880
-el objeto.
+al objeto.
 
 50
 00:03:05,040 --> 00:03:09,360
-Y si esta cadena de caracteres
+Y si este string
 es demasiado largo,
 
 51
@@ -244,7 +242,7 @@ Concatenamos con '... etc ...'
 
 53
 00:03:17,560 --> 00:03:19,880
-decir que la cadena no está hecha.
+para avisar que no está completo.
 
 54
 00:03:20,640 --> 00:03:23,600
@@ -252,17 +250,16 @@ Lo importante aquí
 
 55
 00:03:23,760 --> 00:03:28,120
-es que printStringLimitedTo
-envía un mensaje printOn a ti mismo.
+es que printStringLimitedTo:
+envía un mensaje printOn: a self.
 
 56
 00:03:28,280 --> 00:03:29,880
-Este es el metodo
+Este es el método
 
 57
 00:03:30,040 --> 00:03:33,400
-que lo hará o no
-ser redefinido en las subclases.
+que será redefinido o no en las subclases.
 
 58
 00:03:34,040 --> 00:03:37,560
@@ -274,12 +271,12 @@ para un nodo y para una manzana,
 
 60
 00:03:40,280 --> 00:03:43,800
-El nodo nuevo devuelve un nodo.
+Node new devuelve aNode.
 
 61
 00:03:44,200 --> 00:03:48,440
 Este es el printString
-de la clase Nodo.
+de la clase Node.
 
 62
 00:03:49,120 --> 00:03:53,240
@@ -293,7 +290,7 @@ y el comportamiento predeterminado
 
 64
 00:03:57,160 --> 00:03:59,920
-se implementan en el objeto de clase.
+se implementan en la clase Object.
 
 65
 00:04:00,080 --> 00:04:04,320
@@ -302,7 +299,7 @@ de printString para cualquier objeto que sea
 
 66
 00:04:04,680 --> 00:04:06,000
-es uno:
+es, primero:
 
 67
 00:04:06,160 --> 00:04:10,000
@@ -314,7 +311,7 @@ En este caso, Node y Apple.
 
 69
 00:04:13,120 --> 00:04:16,720
-Y dos, si el nombre de la clase
+Y segundo, si el nombre de la clase
 comienza con una vocal,
 
 70
@@ -323,13 +320,13 @@ utilizamos el prefijo "an".
 
 71
 00:04:19,920 --> 00:04:23,000
-Si comienza con una consonante,
+si comienza con una consonante,
 utilizamos el prefijo "a".
 
 72
 00:04:23,160 --> 00:04:26,320
-Así es como nosotras
-"un nodo" y "una manzana".
+Así es como obtenemos
+"aNode" y "anApple".
 
 73
 00:04:27,880 --> 00:04:30,520
@@ -337,34 +334,31 @@ Este es el comportamiento predeterminado.
 
 74
 00:04:31,120 --> 00:04:34,400
-Pero es posible cambiar
-este comportamiento predeterminado
+Pero es posible cambiarlo
 
 75
 00:04:34,560 --> 00:04:36,280
-refinando printOn.
+refinando printOn:.
 
 76
 00:04:36,720 --> 00:04:38,480
-Por un retraso,
+Para una instancia de Delay,
 
 77
 00:04:38,640 --> 00:04:41,560
-nosotros vemos eso
-el printString de una demora
+vemos que el printString
 
 78
 00:04:41,720 --> 00:04:46,240
-comienza con
-la devolución predeterminada de printOn.
+empieza con lo predeterminado.
 
 79
 00:04:46,400 --> 00:04:47,640
-Eso es "un retraso".
+Esto es "aDelay".
 
 80
 00:04:47,800 --> 00:04:52,720
-Pero luego, podemos agregar la demora
+Pero luego, podemos agregar el tiempo
 en milisegundos entre paréntesis.
 
 81
@@ -375,7 +369,7 @@ el método printOn.
 82
 00:04:56,880 --> 00:05:01,080
 Comienza preguntando a la superclase
-para el printString predeterminado.
+por el printString predeterminado.
 
 83
 00:05:02,160 --> 00:05:05,240
@@ -396,18 +390,18 @@ Solo miramos el refinamiento.
 
 87
 00:05:15,040 --> 00:05:18,120
-La clase de retraso
+La clase Delay
 refina la implementación
 
 88
 00:05:18,280 --> 00:05:21,520
 del método printOn
-en la clase de objeto.
+en la clase Object.
 
 89
 00:05:21,680 --> 00:05:25,200
 Pero una clase también puede
-redefinir completamente el comportamiento
+redefinir completamente el comportamiento.
 
 90
 00:05:25,680 --> 00:05:29,880
@@ -416,28 +410,28 @@ por ejemplo.
 
 91
 00:05:30,040 --> 00:05:31,760
-Si muestro falso,
+Si muestro false,
 
 92
 00:05:31,920 --> 00:05:34,800
-devolverá falso
+devolverá false.
 
 93
 00:05:34,960 --> 00:05:37,240
-No tenemos "un falso"
+No tenemos  un "a false",
 
 94
 00:05:37,400 --> 00:05:39,120
-simplemente "falso".
+simplemente "false".
 
 95
 00:05:39,280 --> 00:05:43,200
 Para esto, solo enviamos
-la cadena de caracteres "falsa"
+el string "false"
 
 96
 00:05:43,360 --> 00:05:45,680
-en el flujo de variables printOn.
+en printOn:.
 
 97
 00:05:46,200 --> 00:05:48,080
@@ -460,11 +454,11 @@ un valor mínimo y máximo.
 101
 00:05:57,680 --> 00:06:02,680
 El intervalo de 1 a 100 se muestra mediante:
-(1 a:100)
+(1 to: 100)
 
 102
 00:06:04,320 --> 00:06:07,600
-El intervalo de 1 a:100 por:3
+El intervalo de 1 a 100 cada 3
 
 103
 00:06:07,840 --> 00:06:10,400
@@ -481,13 +475,12 @@ con el "by" adicional.
 
 106
 00:06:18,240 --> 00:06:22,640
-La clase de intervalo
+La clase Interval
 redefine el método printOn
 
 107
 00:06:23,120 --> 00:06:26,200
-y envía mensajes diferentes
-para transmitir variables.
+y envía mensajes diferentes.
 
 108
 00:06:26,360 --> 00:06:28,600
@@ -509,11 +502,11 @@ y este "1" aquí.
 
 112
 00:06:39,680 --> 00:06:41,440
-Luego escribimos 'a:'.
+Luego escribimos 'to:'.
 
 113
 00:06:44,600 --> 00:06:47,640
-Y escribimos el valor final:"100",
+Y escribimos el valor final: "100",
 
 114
 00:06:48,520 --> 00:06:49,800
@@ -540,7 +533,7 @@ Vimos que printString
 119
 00:07:07,160 --> 00:07:11,000
 usa el patrón de diseño
-método de plantillas para que las clases
+template method para que las clases
 
 120
 00:07:11,160 --> 00:07:15,120
@@ -550,16 +543,16 @@ su propia representación textual.
 121
 00:07:15,360 --> 00:07:19,600
 Ahora veremos otro ejemplo,
-que es copia de objeto.
+que es la copia de objetos.
 
 122
 00:07:19,760 --> 00:07:21,120
-¿Qué hace la copia?
+¿Qué hace "copy"?
 
 123
 00:07:21,280 --> 00:07:25,960
 Te permite tomar un objeto
-y crea un código desde él.
+y crea una copia de él.
 
 124
 00:07:26,840 --> 00:07:29,680
@@ -575,13 +568,12 @@ Cada clase puede decidir
 
 127
 00:07:35,360 --> 00:07:39,200
-cual es la copia de sus instancias
-debería parecerse.
+como debe lucir la copia de sus instancias.
 
 128
 00:07:39,720 --> 00:07:43,400
-Hay una simple
-solución de método de plantilla
+Hay una solución simple usando
+template methods
 
 129
 00:07:43,560 --> 00:07:46,520
@@ -589,13 +581,13 @@ que usa copy y postCopy.
 
 130
 00:07:46,880 --> 00:07:50,560
-Copiar es un método de plantilla
+copy es un template method
 y postCopy es un gancho.
 
 131
 00:07:51,360 --> 00:07:54,200
-En la clase de objeto
-hay un método de copia.
+En la clase Object
+hay un método copy.
 
 132
 00:07:54,800 --> 00:07:57,640
@@ -608,12 +600,12 @@ enviamos shallowCopy
 
 134
 00:08:03,080 --> 00:08:05,240
-como un mensaje para ti mismo,
+como un mensaje para self,
 
 135
 00:08:05,400 --> 00:08:08,640
 seguido de postCopy
-en el resultado
+al resultado.
 
 136
 00:08:08,920 --> 00:08:12,360
@@ -644,7 +636,7 @@ Ese es el comportamiento predeterminado
 
 142
 00:08:34,320 --> 00:08:35,720
-de poca profundidad.
+de shallowCopy.
 
 143
 00:08:35,880 --> 00:08:38,800
@@ -657,7 +649,7 @@ las variables serán compartidas o no.
 145
 00:08:41,560 --> 00:08:44,240
 Si postCopy está vacío,
-todas las variables se comparten
+todas las variables se comparten.
 
 146
 00:08:44,400 --> 00:08:48,640
@@ -672,7 +664,7 @@ o nada en absoluto.
 148
 00:08:53,040 --> 00:08:55,680
 La configuración predeterminada de postCopy
-comparte todo
+comparte todo.
 
 149
 00:08:55,840 --> 00:08:59,240
@@ -694,30 +686,30 @@ Bag es un tipo de colección
 153
 00:09:09,840 --> 00:09:13,440
 y su método postCopy
-copia su contenido
+copia su contenido.
 
 154
 00:09:14,640 --> 00:09:17,520
-Por lo tanto, una bolsa es
-una variable de instancia de contenido,
+Por lo tanto, un Bag tiene
+una variable de instancia 'contents',
 
 155
 00:09:17,680 --> 00:09:21,080
 y los diseñadores
-de la clase Bag decidió que
+de la clase decidieron
 
 156
 00:09:21,240 --> 00:09:22,920
-cuando copia una bolsa,
+que cuando copias un Bag,
 
 157
 00:09:23,080 --> 00:09:26,000
 no quieres compartir
-la variable de contenido,
+la variable 'contents',
 
 158
 00:09:26,160 --> 00:09:27,920
-Quieres variables separadas.
+quieres variables separadas.
 
 159
 00:09:28,080 --> 00:09:31,960
@@ -730,8 +722,8 @@ Aquí la idea es:
 
 161
 00:09:34,880 --> 00:09:39,440
-postCopy es un mensaje enviado para copiar,
-o el nuevo objeto,
+postCopy es un mensaje enviado al
+nuevo objeto que es la copia,
 
 162
 00:09:41,880 --> 00:09:45,080
@@ -740,21 +732,21 @@ todas las variables de instancia.
 
 163
 00:09:45,240 --> 00:09:47,200
-Si no queremos compartirlos,
+Si no queremos compartirlas,
 
 164
 00:09:47,360 --> 00:09:50,280
-creamos otros nuevos
-y decidir sobre su valor.
+creamos nuevas
+y decidimos sobre su valor.
 
 165
 00:09:50,760 --> 00:09:52,600
-Aquí en mi variable de contenido,
+Aquí en mi variable 'contents',
 
 166
 00:09:52,760 --> 00:09:55,120
-Pondré una copia
-de los contenidos iniciales.
+pondré una copia
+del contenido inicial.
 
 167
 00:09:55,280 --> 00:09:57,000
@@ -762,7 +754,7 @@ De esa manera no los comparto.
 
 168
 00:09:57,160 --> 00:10:00,080
-Cada copia de mi bolsa
+Cada copia de mi Bag
 tiene sus propios contenidos.
 
 169
@@ -791,12 +783,12 @@ queremos copiar la colección,
 174
 00:10:16,160 --> 00:10:19,440
 y cada diccionario
-Tiene su propia colección de pares ...
+tiene su propia colección de pares ...
 
 175
 00:10:19,600 --> 00:10:21,960
 Pero también queremos que cada par
-ser diferente.
+sea diferente.
 
 176
 00:10:22,120 --> 00:10:26,520
@@ -806,7 +798,7 @@ no modificará el otro lado.
 177
 00:10:26,920 --> 00:10:30,640
 Para hacer esto, copio la tabla,
-pero también copia
+pero también copio
 
 178
 00:10:30,800 --> 00:10:32,400
@@ -819,7 +811,7 @@ Esto es lo que está sucediendo aquí.
 180
 00:10:34,880 --> 00:10:38,640
 Para concluir, el patrón de diseño
-El método de plantilla es muy común.
+template method es muy común.
 
 181
 00:10:39,040 --> 00:10:41,520
@@ -828,7 +820,7 @@ Es una señal de buen diseño.
 182
 00:10:41,720 --> 00:10:45,880
 Si haces un buen diseño de objetos,
-tendrás muchos métodos de plantilla.
+tendrás muchos template methods.
 
 183
 00:10:46,040 --> 00:10:48,560
@@ -840,10 +832,10 @@ Entonces, no dudes en usarlos.
 
 185
 00:10:51,080 --> 00:10:56,040
-Esta técnica permite subclases
+Esta técnica permite a las subclases
 definir comportamiento
 
 186
 00:10:56,200 --> 00:10:59,640
 y modificar parcialmente
-El comportamiento de la superclase.
+el comportamiento de la superclase.

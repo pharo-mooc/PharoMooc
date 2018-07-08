@@ -1,7 +1,7 @@
 ﻿1
 00:00:00,520 --> 00:00:04,760
 Hoy vamos a revisar
-algo más que ya has aprendido
+algo que ya has aprendido
 
 2
 00:00:04,920 --> 00:00:06,880
@@ -10,54 +10,54 @@ para realmente llevarlo a casa.
 3
 00:00:07,040 --> 00:00:12,000
 El tema es la diferencia entre
-Arreglos literales y dinámicos.
+Arrays literales y dinámicos.
 
 4
 00:00:13,080 --> 00:00:15,000
-Lo que aprenderá es que:
+Lo que aprenderás es que:
 
 5
 00:00:15,160 --> 00:00:18,160
-Las matrices literales no se crean
+Los Arrays literales no se crean
 mediante el envío de mensajes,
 
 6
 00:00:18,320 --> 00:00:23,560
-se crean mensajes dinámicos
+y los dinámicos se crean
 en tiempo de ejecución usando mensajes,
 
 7
 00:00:23,720 --> 00:00:26,600
-pero ambas son instancias
-de la clase de array.
+pero ambos son instancias
+de la clase Array.
 
 8
 00:00:26,760 --> 00:00:29,560
 Son simplemente dos métodos
-para crear matrices.
+para crear arrays.
 
 9
 00:00:30,000 --> 00:00:31,440
-Si tu recuerdas,
+Si recuerdas,
 
 10
 00:00:31,600 --> 00:00:36,080
-para crear una matriz literal,
+para crear un array literal,
 usamos la sintaxis # (
 
 11
 00:00:36,240 --> 00:00:40,280
-y en el medio,
-Puedo poner cualquier objeto en forma textual.
+y en el medio, puedo poner cualquier
+objeto en forma textual.
 
 12
 00:00:40,440 --> 00:00:43,600
 En este caso, el número entero 45,
-la cuerda 'milou'
+el string 'milou'
 
 13
 00:00:44,000 --> 00:00:46,600
-el número 1300, el booleano verdadero,
+el número 1300, el booleano true,
 
 14
 00:00:46,760 --> 00:00:48,760
@@ -66,12 +66,12 @@ y el símbolo #tintin.
 15
 00:00:49,600 --> 00:00:53,680
 Si le pregunto a este objeto literal
-para su clase,
+por su clase,
 
 16
 00:00:53,840 --> 00:00:56,600
 el valor de retorno
-es una instancia de Array.
+es Array.
 
 17
 00:00:56,960 --> 00:00:59,760
@@ -79,17 +79,17 @@ La versión dinámica
 
 18
 00:00:59,920 --> 00:01:03,440
-de esta matriz literal, está aquí mismo.
+de este array literal, está aquí mismo.
 
 19
 00:01:03,720 --> 00:01:07,160
-Entonces para crear una matriz dinámica,
-Tomo la clase de array,
+Entonces para crear un array dinámico,
+tomo la clase Array,
 
 20
 00:01:07,320 --> 00:01:11,160
-Creo una instancia
-usando el método "con-con-con-con".
+creo una instancia
+usando el método "with-with-with-with".
 
 21
 00:01:11,320 --> 00:01:14,160
@@ -97,18 +97,18 @@ Lo envío con todos estos valores
 
 22
 00:01:14,320 --> 00:01:18,480
-y crea una instancia de clase de matriz
+y crea una instancia de la clase Array
 igual a la anterior.
 
 23
 00:01:18,640 --> 00:01:21,720
 Es solo dos maneras diferentes
-de crear objetos
+de crear objetos.
 
 24
 00:01:22,640 --> 00:01:25,600
 Esta es otra versión
-de la matriz dinámica.
+del array dinámico.
 
 25
 00:01:25,760 --> 00:01:29,200
@@ -116,35 +116,35 @@ Podría haber creado un array manualmente
 
 26
 00:01:29,360 --> 00:01:32,480
-enviando el mensaje "nuevo"
-a la clase de array.
+enviando el mensaje "new"
+a la clase Array.
 
 27
 00:01:32,640 --> 00:01:37,200
 Entonces habría usado "at" y "put"
-para completar la matriz,
+para completarlo,
 
 28
 00:01:37,360 --> 00:01:38,880
-y luego devuelve la matriz.
+y luego retornarlo.
 
 29
 00:01:39,040 --> 00:01:42,240
 Esta es otra forma de crear
-una matriz dinámica
+un array dinámico.
 
 30
 00:01:42,560 --> 00:01:46,960
 Pero también tenemos una sintaxis específica
-llamado azúcar sintáctico,
+(syntactic sugar),
 
 31
 00:01:47,120 --> 00:01:49,320
-que está hecho con llaves.
+que está hecha con llaves.
 
 32
 00:01:49,880 --> 00:01:50,880
-¿Bueno?
+¿Bien?
 
 33
 00:01:51,040 --> 00:01:55,880
@@ -161,16 +161,16 @@ Pero es lo mismo.
 
 36
 00:02:02,080 --> 00:02:05,440
-Esto significa que usaré aparatos ortopédicos
+Esto significa que usaré llaves
 
 37
 00:02:05,600 --> 00:02:08,680
-y poner un conjunto de expresiones
-separados por puntos,
+y pondré un conjunto de expresiones
+separadas por puntos,
 
 38
 00:02:08,840 --> 00:02:11,520
-que se evaluará
+que se evaluarán
 para crear la colección.
 
 39
@@ -179,12 +179,11 @@ La gran diferencia
 
 40
 00:02:13,520 --> 00:02:16,000
-entre una matriz literal
+entre un array literal
 
 41
 00:02:16,160 --> 00:02:20,920
-y una matriz
-creado dinámicamente con llaves ...
+y uno dinámico con llaves ...
 
 42
 00:02:21,080 --> 00:02:24,280
@@ -192,47 +191,47 @@ Si tomo la expresión ...
 
 43
 00:02:24,440 --> 00:02:28,160
-Aquí hay un ejemplo:tomo una variable
-e inicialízalo a las 12.
+Aquí hay un ejemplo: tomo una variable
+e la inicializo con 12.
 
 44
 00:02:28,320 --> 00:02:33,640
-Quiero crear una matriz.
-Como es una matriz literal, uso # (
+Quiero crear un array.
+Como es literal, uso # (
 
 45
 00:02:33,800 --> 00:02:36,240
-y agrego 'a + 1.13'
+y agrego 'a + 1. 13'
 
 46
 00:02:36,400 --> 00:02:38,320
-y devuelve esta matriz.
+y devuelve este array.
 
 47
 00:02:38,720 --> 00:02:42,160
-Es una matriz que contendrá
-los símbolos a y +,
+Es un array que contendrá
+los símbolos #a y #+ ,
 
 48
 00:02:42,320 --> 00:02:45,520
-entero 1, símbolo y entero 13.
+el entero 1, el símbolo #. y el entero 13.
 
 49
 00:02:45,680 --> 00:02:48,480
 Hago lo mismo aquí
-con una matriz dinámica.
+con una array dinámico.
 
 50
 00:02:48,640 --> 00:02:50,120
-a = 12
+a := 12
 
 51
 00:02:50,480 --> 00:02:53,000
-llaves a + 1. 13
+{ a + 1. 13}
 
 52
 00:02:53,160 --> 00:02:56,120
-y obtengo una matriz con 2 elementos:
+y obtengo un array con 2 elementos:
 
 53
 00:02:56,520 --> 00:02:58,000
@@ -254,11 +253,11 @@ a = 12 + 1. 13
 57
 00:03:06,760 --> 00:03:10,240
 Cada expresión separada por un punto
-fue evaluado
+fue evaluada
 
 58
 00:03:10,400 --> 00:03:12,120
-antes de crear una matriz.
+antes de crear el array.
 
 59
 00:03:12,880 --> 00:03:15,880
@@ -267,65 +266,65 @@ está aquí mismo:
 
 60
 00:03:16,040 --> 00:03:18,600
-Cuando uso frenillos,
+Cuando uso llaves,
 ejecuta expresiones,
 
 61
 00:03:18,760 --> 00:03:22,240
 sin embargo cuando uso # (
-para crear una matriz literal,
+para crear un array literal,
 
 62
 00:03:22,400 --> 00:03:25,760
 las expresiones literales
-no se ejecutan
+no se ejecutan.
 
 63
 00:03:25,920 --> 00:03:27,200
-Por qué no?
+¿Por qué no?
 
 64
 00:03:28,040 --> 00:03:32,720
-Porque es el compilador lo que
-crear la matriz
+Porque es el compilador el que
+crear el array
 
 65
 00:03:32,880 --> 00:03:34,880
-en el caso de una matriz literal.
+en el caso de un array literal.
 
 66
 00:03:35,200 --> 00:03:39,080
-Aquí está otro
-un ejemplo algo más complicado.
+Aquí está otro ejemplo
+ algo más complicado.
 
 67
 00:03:39,240 --> 00:03:41,360
-Empiezo con # (
+Empieza con # (
 
 68
 00:03:41,520 --> 00:03:44,760
 y reutilizo paréntesis dentro.
-Entonces, este es un punto.
+Entonces, este es el punto.
 
 69
 00:03:44,920 --> 00:03:48,800
 Y reutilizo paréntesis
-para producir una matriz literal anidada.
+para producir un array literal anidado.
 
 70
 00:03:48,960 --> 00:03:53,760
 Vemos que nada se interpretó
-en esta matriz literal,
+en este array literal,
 
 71
 00:03:53,920 --> 00:03:57,440
-porque fue creado
-en compilación por el compilador.
+porque fue creado en tiempo de
+compilación por el compilador.
 
 72
 00:03:57,600 --> 00:04:02,160
-Entonces tenemos una matriz
-que contiene matrices anidadas.
+Entonces tenemos un array
+que contiene arrays anidados.
 
 73
 00:04:02,560 --> 00:04:04,440
@@ -333,7 +332,7 @@ Puedes verlos aquí.
 
 74
 00:04:06,520 --> 00:04:09,240
-La primera matriz anidada contiene 10,
+El primer array anidado contiene 10,
 
 75
 00:04:09,400 --> 00:04:13,920
@@ -341,39 +340,39 @@ el símbolo @, el número entero 20, etc.
 
 76
 00:04:14,080 --> 00:04:17,680
-Para darle prueba:
-Si pido el elemento 1 de esta matriz,
+Para demostrarlo:
+Si pido el elemento 1 de este array,
 
 77
 00:04:17,840 --> 00:04:19,560
-Obtengo una matriz
+Obtengo un array.
 
 78
 00:04:20,160 --> 00:04:23,000
 Cada vez que pongo paréntesis
-en una matriz literal,
+en un array literal,
 
 79
 00:04:23,160 --> 00:04:25,200
-crea matrices anidadas.
+crea arrays anidados.
 
 80
 00:04:26,240 --> 00:04:28,120
-¿Qué es importante recordar?
+Lo importante de recordar
 
 81
 00:04:28,280 --> 00:04:31,800
 es que tenemos
-un solo tipo de matriz en Pharo:
+un solo tipo de array en Pharo:
 
 82
 00:04:31,960 --> 00:04:34,400
-La clase de matriz y sus instancias.
+La clase Array y sus instancias.
 
 83
 00:04:34,560 --> 00:04:38,440
 Pero hay varias formas
-para obtener instancias y crear matrices.
+para obtener instancias y crear arrays.
 
 84
 00:04:38,600 --> 00:04:42,520
@@ -382,23 +381,23 @@ La primera forma es la sintaxis literal:
 
 85
 00:04:42,680 --> 00:04:47,000
-Tenga cuidado, se crean arrays.
+Tenga cuidado, los arrays son creados
 por el compilador en tiempo de compilación.
 
 86
 00:04:47,240 --> 00:04:50,000
 Tenemos la forma dinámica simple:
-Array nuevo.
+Array new.
 
 87
 00:04:50,160 --> 00:04:53,160
-Envío el mensaje "nuevo
-a la clase de array.
+Envío el mensaje "new"
+a la clase Array.
 
 88
 00:04:53,320 --> 00:04:57,920
-Y tenemos otro más
-método dinámico sintácticamente compacto
+Y tenemos otro método dinámico
+sintácticamente más compacto
 
 89
 00:04:58,080 --> 00:05:02,880
@@ -407,4 +406,4 @@ y expresiones separadas por puntos
 
 90
 00:05:03,040 --> 00:05:05,720
-que se evalúan para crear una matriz.
+que se evalúan para crear un array.
