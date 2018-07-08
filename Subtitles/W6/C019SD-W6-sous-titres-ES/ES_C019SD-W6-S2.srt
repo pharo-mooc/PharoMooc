@@ -5,27 +5,27 @@ Hola.
 2
 00:00:02,240 --> 00:00:06,560
 Hoy revisaremos
-La implementación de ifTrue:ifFalse:
+la implementación de ifTrue:ifFalse:
 
 3
 00:00:06,720 --> 00:00:09,920
 Si has estado atento
-y estoy seguro de que lo tienes,
+y estoy seguro de que si,
 
 4
 00:00:10,080 --> 00:00:14,320
 seguramente te has dado cuenta
-que cuando sugerí ejemplos para No,
+que cuando sugerí ejemplos para Not,
 
 5
 00:00:14,480 --> 00:00:17,920
-Dije que podrías implementar
-No, o y si es cierto:ifFalse:
+dije que podrías implementar
+Not, or: e ifTrue:ifFalse:
 
 6
 00:00:18,080 --> 00:00:21,320
 Pero en la solución,
-Nunca mencioné si es cierto:ifFalse:
+nunca mencioné ifTrue:ifFalse:
 
 7
 00:00:21,480 --> 00:00:23,720
@@ -34,7 +34,7 @@ Solucionaremos este problema ahora.
 8
 00:00:24,440 --> 00:00:28,760
 En efecto, en Pharo,
-Las condiciones son mensajes.
+las condiciones son mensajes.
 
 9
 00:00:28,920 --> 00:00:30,480
@@ -43,7 +43,7 @@ Aquí hay un ejemplo.
 10
 00:00:30,640 --> 00:00:34,480
 Tenemos una clase de clima:
-"El clima está resonando".
+"Weather isRaining".
 
 11
 00:00:34,640 --> 00:00:36,600
@@ -78,7 +78,7 @@ y se envía a una instancia booleana.
 18
 00:00:58,160 --> 00:01:02,720
 En realidad, está muy optimizado
-por el compilador y no realmente enviado,
+por el compilador y no se envia realmente,
 
 19
 00:01:02,880 --> 00:01:05,640
@@ -103,8 +103,7 @@ Explicaré la técnica ahora.
 
 24
 00:01:17,400 --> 00:01:20,880
-El ifTrue:ifFalse:
-el método es tan importante
+ifTrue:ifFalse: es tan importante
 
 25
 00:01:21,040 --> 00:01:23,520
@@ -112,12 +111,11 @@ y lo necesitamos para ir tan rápido,
 
 26
 00:01:23,680 --> 00:01:26,800
-que la función
-en realidad no se invoca
+que la método en realidad no se invoca.
 
 27
 00:01:27,160 --> 00:01:29,400
-El compilador hace saltos en línea en su lugar.
+El compilador hace saltos en su lugar.
 
 28
 00:01:29,560 --> 00:01:33,240
@@ -126,21 +124,21 @@ veremos cómo funciona.
 
 29
 00:01:33,400 --> 00:01:35,960
-te quiero
+Te quiero
 para proponer una implementación.
 
 30
 00:01:36,120 --> 00:01:37,800
-Sabes sobre bloques
+Sabes sobre bloques.
 
 31
 00:01:37,960 --> 00:01:40,920
-Sabes lo que hicimos
-Verdadero y falso,
+Sabes lo que hicimos con
+True y False,
 
 32
 00:01:41,120 --> 00:01:42,720
-y con Or y no.
+y con Or y Not.
 
 33
 00:01:42,880 --> 00:01:45,440
@@ -149,12 +147,12 @@ Puedes hacerlo con ifTrue:ifFalse:
 34
 00:01:45,600 --> 00:01:49,960
 En resumen, si mi receptor es falso,
-Yo regreso 5
+retorno 5.
 
 35
 00:01:50,120 --> 00:01:52,880
-Y si mi receptor es cierto,
-Yo regreso 3
+Y si mi receptor es verdaero,
+retorno 3.
 
 36
 00:01:53,600 --> 00:01:56,920
@@ -168,11 +166,11 @@ pero así es como es.
 
 38
 00:02:00,600 --> 00:02:03,480
-Recuerda que los paréntesis ...
+Recuerda que los corchetes ...
 
 39
 00:02:05,960 --> 00:02:08,080
-congelar la ejecución
+congelan la ejecución
 
 40
 00:02:08,240 --> 00:02:10,800
@@ -180,17 +178,17 @@ de la expresión que contienen,
 
 41
 00:02:10,960 --> 00:02:15,360
-y ese "valor"
-patea la ejecución de un código congelado.
+y que "value" inicia la
+ejecución del código congelado.
 
 42
 00:02:15,520 --> 00:02:18,680
-Con esto, y no y o,
+Con esto, y Not y Or,
 
 43
 00:02:18,840 --> 00:02:21,480
 deberías poder
-para implementar sus condiciones.
+implementar tus condiciones.
 
 44
 00:02:21,640 --> 00:02:25,280
@@ -208,20 +206,20 @@ Te daré unos segundos para pensar.
 47
 00:02:30,880 --> 00:02:34,360
 Exactamente de la misma manera
-como Or y no.
+que Or y Not.
 
 48
 00:02:34,520 --> 00:02:37,280
-En la clase verdadera,
-Tengo un método llamado
+En la clase True,
+tengo un método llamado
 
 49
 00:02:37,440 --> 00:02:39,920
-ifTrue:ifFalse:y dos argumentos.
+ifTrue:ifFalse: y dos argumentos.
 
 50
 00:02:40,080 --> 00:02:44,280
-Un bloque para verdadero
+Un bloque para True
 y un bloque para False.
 
 51
@@ -230,22 +228,22 @@ y un bloque para False.
 
 52
 00:02:45,680 --> 00:02:48,320
-Cuando estoy en el bloque True,
-Ejecuto cierto
+Cuando estoy en True,
+ejecuto el bloque verdadero
 
 53
 00:02:49,600 --> 00:02:52,160
-Y cuando estoy en la clase Falsa,
+Y cuando estoy en la clase False,
 
 54
 00:02:52,320 --> 00:02:56,240
-Tengo el mismo método
+tengo el mismo método
 con los mismos dos argumentos,
 
 55
 00:02:56,400 --> 00:03:00,160
-pero como estoy en la clase Falsa,
-Ejecuto el bloque falso.
+pero como estoy en la clase False,
+ejecuto el bloque falso.
 
 56
 00:03:00,520 --> 00:03:03,080
@@ -257,7 +255,7 @@ Tengo la implementación de los booleanos.
 
 58
 00:03:05,400 --> 00:03:06,520
-Me gusta esto.
+Como esto.
 
 59
 00:03:06,680 --> 00:03:10,160
@@ -265,31 +263,31 @@ Cuando envío un mensaje a mi booleano,
 
 60
 00:03:10,320 --> 00:03:12,560
-que de hecho es cierto,
+que de hecho es True,
 
 61
 00:03:12,720 --> 00:03:16,480
-Envío si es verdad:hacer algo cierto
+envío si es verdad hacer algo cierto
 o hacer algo falso.
 
 62
 00:03:16,640 --> 00:03:20,520
-Luego busco si es verdad:ifFalse:
-en la clase verdadera,
+Luego busco ifTrue:ifFalse:
+en la clase True,
 
 63
 00:03:20,680 --> 00:03:21,920
-Esta aqui
+está aqui mismo.
 
 64
 00:03:22,080 --> 00:03:25,440
-Dice que para ejecutar el bloque verdadero,
-asi que lo hago
+Dice que ejecute el bloque verdadero,
+asi que lo hago.
 
 65
 00:03:25,600 --> 00:03:29,600
 Ahora envío el mensaje
-"B es un booleano:falso".
+"B is a boolean: False".
 
 66
 00:03:29,760 --> 00:03:33,800
@@ -298,8 +296,8 @@ Encuentro ifTrue:ifFalse:
 
 67
 00:03:33,960 --> 00:03:38,760
-Dice para ejecutar el bloque falso,
-y eso es lo que hago
+Dice que ejecute el bloque falso,
+y eso es lo que hago.
 
 68
 00:03:39,200 --> 00:03:43,480
@@ -313,30 +311,30 @@ y el sistema no lo aceptará.
 
 70
 00:03:46,560 --> 00:03:50,840
-Pero lo que sí sugiero que intente,
-se implementa de la misma manera:
+Pero lo que sí sugiero que intentes,
+es implementar del mismo modo:
 
 71
 00:03:51,000 --> 00:03:52,800
-ifFalse:o si verdad:
+ifFalse: o ifTrue:
 
 72
 00:03:52,960 --> 00:03:55,080
-ifTrue:un bloque 1,
+ifTrue: aBlock1,
 
 73
 00:03:56,160 --> 00:04:00,680
-y ifFalse:un bloque 2.
+y ifFalse: aBlock2.
 Luego implementalas.
 
 74
 00:04:00,840 --> 00:04:03,280
-Use un punto de interrupción y experimente.
+Usa un punto de interrupción y experimente.
 
 75
 00:04:03,880 --> 00:04:07,920
-Entonces, ¿qué hemos mostrado?
-con este ejemplo
+Entonces, ¿qué hemos mostrado
+con este ejemplo?
 
 76
 00:04:08,080 --> 00:04:11,640
@@ -345,15 +343,15 @@ selecciona el método correcto.
 
 77
 00:04:11,800 --> 00:04:16,320
-Aquí decidimos
-para que el receptor decida su comportamiento.
+Aquí decidimos dejar
+que el receptor decida su comportamiento.
 
 78
 00:04:16,480 --> 00:04:21,400
 Y vimos que los paréntesis
-congelación de cómputo,
+congelan el cómputo,
 
 79
 00:04:21,560 --> 00:04:24,840
-y ese "valor"
-obliga a la ejecución de un código congelado.
+y que "value" fuerza la
+ejecución del código congelado.
