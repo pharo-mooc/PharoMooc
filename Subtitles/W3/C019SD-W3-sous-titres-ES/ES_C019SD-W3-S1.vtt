@@ -1,0 +1,520 @@
+WEBVTT
+
+00:00:07.120 --> 00:00:12.760 align:middle
+Hola. Durante este curso, principalmente
+hablaremos de concepción orientada a objetos
+
+00:00:13.480 --> 00:00:17.320 align:middle
+y aprenderemos sobre
+la esencia del (dispatch)
+
+00:00:17.480 --> 00:00:20.560 align:middle
+y de la evaluación perezosa (late binding)
+en lenguajes orientados a objetos.
+
+00:00:20.720 --> 00:00:24.880 align:middle
+Entonces, este curso usa a Pharo como ejemplo.
+
+00:00:25.040 --> 00:00:27.880 align:middle
+Está bien que Pharo haya estado
+bien implementado
+
+00:00:28.040 --> 00:00:32.040 align:middle
+En la próxima clase, hablaremos
+sobre sus muchas posibilidades de generalización.
+
+00:00:32.200 --> 00:00:33.960 align:middle
+Vamos a empezar.
+
+00:00:34.720 --> 00:00:36.160 align:middle
+Echemos un vistazo a los booleanos.
+
+00:00:37.520 --> 00:00:38.680 align:middle
+Booleanos en Pharo
+
+00:00:38.840 --> 00:00:42.920 align:middle
+son de hecho las cosas más básicas.
+
+00:00:43.080 --> 00:00:47.720 align:middle
+Operadores 
+como &, |, not, (eager)
+
+00:00:47.880 --> 00:00:52.040 align:middle
+operadores como or:, and:, (lazy)
+con evaluación de argumentos cuando sea necesario,
+
+00:00:52.200 --> 00:00:57.320 align:middle
+también los condicionales
+que veremos en otro curso.
+
+00:00:57.480 --> 00:01:02.600 align:middle
+Entonces está bien implementado pero no hay
+nada fantástico ni específico
+
+00:01:02.760 --> 00:01:05.920 align:middle
+La semana pasada, le pedí
+realizar algunos ejercicios
+
+00:01:06.080 --> 00:01:07.920 align:middle
+Hubo tres preguntas.
+
+00:01:08.080 --> 00:01:10.400 align:middle
+Cómo implementar Not,
+
+00:01:10.560 --> 00:01:12.000 align:middle
+cómo implementar Or,
+
+00:01:12.160 --> 00:01:15.760 align:middle
+y la mas importante:
+¿Cuál es el objetivo de estos ejercicios?
+
+00:01:16.560 --> 00:01:20.400 align:middle
+Responderé a las dos primeras preguntas;
+y en el próximo curso,
+
+00:01:20.560 --> 00:01:24.000 align:middle
+responderé a la última pregunta.
+
+00:01:25.880 --> 00:01:28.080 align:middle
+El ejercicio realmente es ...
+
+00:01:28.240 --> 00:01:32.560 align:middle
+Si envía el mensaje not a false,
+volverá a ser true.
+
+00:01:32.720 --> 00:01:35.240 align:middle
+Si envia el mensaje not a true, devolverá false.
+
+00:01:35.400 --> 00:01:38.600 align:middle
+Mediante objetos ¿Cómo se implementa esto?
+
+00:01:38.760 --> 00:01:41.000 align:middle
+Primero le daré algunos consejos.
+
+00:01:41.160 --> 00:01:43.720 align:middle
+La solución no usa condicionales.
+
+00:01:44.280 --> 00:01:46.960 align:middle
+En general encuentra
+una solución utilizando una condición
+
+00:01:47.120 --> 00:01:50.960 align:middle
+Pero le digo que mi solución,
+implementada por Pharo,
+
+00:01:51.120 --> 00:01:53.440 align:middle
+no contiene ninguna condición
+
+00:01:54.600 --> 00:01:55.960 align:middle
+ni condicionales.
+
+00:01:56.120 --> 00:01:58.640 align:middle
+Entonces no se utiliza if en la solución.
+
+00:02:00.600 --> 00:02:04.800 align:middle
+Piense un poco
+para ver si tiene alguna idea.
+
+00:02:04.960 --> 00:02:09.960 align:middle
+Normalmente, este tipo de sugerencia
+realmente no funciona.
+
+00:02:10.120 --> 00:02:13.840 align:middle
+La segunda pista:
+La solución usa tres clases.
+
+00:02:14.360 --> 00:02:17.240 align:middle
+Tiene la clase Boolean
+
+00:02:17.400 --> 00:02:19.440 align:middle
+que es abstracta.
+
+00:02:19.600 --> 00:02:22.760 align:middle
+Tiene la clase True
+y la clase False.
+
+00:02:22.920 --> 00:02:28.400 align:middle
+El objeto booleano true
+es la única instancia de True.
+
+00:02:28.560 --> 00:02:30.480 align:middle
+¿Ve la diferencia?
+
+00:02:31.040 --> 00:02:35.200 align:middle
+La instancia true
+comienza con una minúscula
+
+00:02:35.360 --> 00:02:40.920 align:middle
+y la clase False
+comienza con una mayúscula F.
+
+00:02:41.080 --> 00:02:44.000 align:middle
+Y false es la única instancia (singleton)
+de False
+
+00:02:44.160 --> 00:02:46.200 align:middle
+Si lo visualizamos en un diagrama,
+
+00:02:46.360 --> 00:02:50.160 align:middle
+podemos ver true es instancia de True,
+y false de False.
+
+00:02:50.320 --> 00:02:55.000 align:middle
+En teoría, con esta pista,
+la solución debería ser obvia.
+
+00:02:55.160 --> 00:02:57.520 align:middle
+No estoy seguro de que pueda verlo.
+
+00:02:57.680 --> 00:03:00.520 align:middle
+Le dejaré pensar más al respecto.
+
+00:03:00.680 --> 00:03:03.520 align:middle
+La solución al final ...
+
+00:03:04.720 --> 00:03:07.600 align:middle
+No se lo diré en este momento ...
+Vamos a pensarlo.
+
+00:03:07.760 --> 00:03:11.320 align:middle
+¿Cómo expresamos una elección?
+en los lenguajes orientados a objetos?
+
+00:03:12.400 --> 00:03:14.920 align:middle
+Una opción se expresa
+definiendo clases
+
+00:03:15.080 --> 00:03:18.920 align:middle
+con interfaces compatibles,
+es decir, métodos,
+
+00:03:19.080 --> 00:03:21.360 align:middle
+y enviando un mensaje a una instancia.
+
+00:03:21.520 --> 00:03:25.720 align:middle
+Ese es mi ejemplo
+Cuando escribo x abrir,
+
+00:03:27.240 --> 00:03:29.920 align:middle
+Elijo el método correcto
+asociado con x.
+
+00:03:30.080 --> 00:03:33.720 align:middle
+Significa que si es un archivo, se abrirá
+un archivo; si es una ventana, una ventana;
+
+00:03:33.880 --> 00:03:35.720 align:middle
+si es una herramienta, una herramienta
+
+00:03:35.880 --> 00:03:40.800 align:middle
+Entonces se seleccionará el método
+basado en la clase de x.
+
+00:03:41.800 --> 00:03:46.520 align:middle
+Entonces, ¿cómo encontramos la solución?
+con esta sugerencia
+
+00:03:48.400 --> 00:03:50.280 align:middle
+Lo implementaremos así.
+
+00:03:51.400 --> 00:03:56.320 align:middle
+Significa que implemento
+el método not en la clase False;
+
+00:03:56.480 --> 00:03:58.560 align:middle
+en este caso, devolverá true.
+
+00:03:58.720 --> 00:04:03.480 align:middle
+Implemento el método not
+en la clase True; devolverá false
+
+00:04:04.440 --> 00:04:06.440 align:middle
+En un diagrama, se ve así.
+
+00:04:08.200 --> 00:04:11.840 align:middle
+Puede ver que esta solución
+no tiene condiciones explícitas
+
+00:04:12.000 --> 00:04:14.760 align:middle
+No uso ningún if en este caso.
+
+00:04:14.920 --> 00:04:16.200 align:middle
+¿Como funciona?
+
+00:04:17.040 --> 00:04:20.160 align:middle
+Funciona así.
+Cuando envío el mensaje not,
+
+00:04:21.520 --> 00:04:25.600 align:middle
+¿Dónde busco el método?
+Lo busco en la clase receptora.
+
+00:04:25.760 --> 00:04:27.640 align:middle
+true es instancia de True.
+
+00:04:27.800 --> 00:04:30.640 align:middle
+Entonces este método se ejecutará aquí,
+
+00:04:30.800 --> 00:04:33.400 align:middle
+y el resultado será false.
+Funciona.
+
+00:04:33.560 --> 00:04:37.640 align:middle
+Ahora envío un mensaje
+a la instancia false
+
+00:04:37.800 --> 00:04:40.040 align:middle
+¿Dónde me veo? En la clase False.
+
+00:04:40.200 --> 00:04:42.760 align:middle
+Esto no se ejecuta,
+y vuelve true.
+
+00:04:42.920 --> 00:04:46.760 align:middle
+He implementado mis booleanos,
+
+00:04:46.920 --> 00:04:49.680 align:middle
+la negación booleana con dos métodos
+
+00:04:51.560 --> 00:04:53.640 align:middle
+sin el uso de condicionales.
+
+00:04:54.960 --> 00:04:58.800 align:middle
+También podemos ver la implementación
+de la superclase
+
+00:04:58.960 --> 00:05:00.840 align:middle
+La clase booleana es abstracta.
+
+00:05:01.000 --> 00:05:04.720 align:middle
+Tiene dos subclases
+que implementan los operadores necesarios.
+
+00:05:04.880 --> 00:05:06.600 align:middle
+En Pharo,
+
+00:05:06.760 --> 00:05:10.080 align:middle
+not expresa
+un método abstracto en Boolean
+
+00:05:10.240 --> 00:05:13.040 align:middle
+mediante el uso de self subclassResponsibility.
+
+00:05:13.200 --> 00:05:17.440 align:middle
+Solo quería contarle sobre Pharo
+para ser completo
+
+00:05:18.400 --> 00:05:21.000 align:middle
+Por ahora, debe haber entendido
+
+00:05:21.160 --> 00:05:23.520 align:middle
+cómo expresar el comportamiento de Or.
+
+00:05:23.680 --> 00:05:25.960 align:middle
+Le daré tiempo para expresar esto.
+
+00:05:26.120 --> 00:05:28.560 align:middle
+La idea aquí es definir un método
+
+00:05:28.720 --> 00:05:31.280 align:middle
+que utilizará un argumento adicional.
+
+00:05:31.440 --> 00:05:33.560 align:middle
+Dependiendo de su valor,
+
+00:05:33.720 --> 00:05:37.240 align:middle
+Le seguirá el resultado correcto.
+
+00:05:38.000 --> 00:05:41.240 align:middle
+A menudo piensa que con
+usar una condición es suficiente:
+
+00:05:41.400 --> 00:05:42.720 align:middle
+No. Eso es lo que pasa.
+
+00:05:42.880 --> 00:05:47.360 align:middle
+Una vez más, no necesita
+condicionales para implementar Or.
+
+00:05:47.520 --> 00:05:51.280 align:middle
+Le daré 10 segundos
+para pensar en ello
+
+00:05:51.440 --> 00:05:54.160 align:middle
+Se suponía que debia haber preparado esto.
+
+00:05:55.720 --> 00:05:58.960 align:middle
+Definiré or
+en la clase Boolean abstracta
+
+00:05:59.120 --> 00:06:01.640 align:middle
+como un método abstracto.
+Muy bien.
+
+00:06:02.800 --> 00:06:06.800 align:middle
+Luego en la clase False:
+lo puede ver
+
+00:06:06.960 --> 00:06:10.280 align:middle
+El receptor pertenece a False.
+Que devuelvo
+
+00:06:11.240 --> 00:06:15.600 align:middle
+Cuando es true devuelve true, cuando es false devuelve false,
+cuando es cualquier cosa devuelve cualquier cosa.
+
+00:06:15.760 --> 00:06:17.880 align:middle
+Entonces, significa que devuelve el argumento.
+
+00:06:18.600 --> 00:06:22.840 align:middle
+Entonces, aquí, la implementación de Or
+en la clase False
+
+00:06:23.000 --> 00:06:25.400 align:middle
+se trata de devolver el argumento.
+
+00:06:25.560 --> 00:06:27.240 align:middle
+Eso es exactamente lo que hicimos.
+
+00:06:29.320 --> 00:06:30.600 align:middle
+Igualmente,
+
+00:06:31.960 --> 00:06:34.720 align:middle
+si miramos la clase True,
+se explica
+
+00:06:37.200 --> 00:06:38.800 align:middle
+Se explica aquí.
+
+00:06:38.960 --> 00:06:43.640 align:middle
+Cuando envío or al receptor true,
+
+00:06:43.800 --> 00:06:45.360 align:middle
+Devuelvo el receptor.
+
+00:06:45.520 --> 00:06:46.840 align:middle
+Entonces retorno true.
+
+00:06:48.360 --> 00:06:51.440 align:middle
+Como puede ver aquí, nuevamente,
+no uso condicionales,
+
+00:06:51.600 --> 00:06:53.240 align:middle
+acabo de usar mensajes de mensajes.
+
+00:06:55.000 --> 00:06:59.240 align:middle
+Entonces, de una manera más limpia,
+¿Cómo está escrito en Pharo?
+
+00:06:59.400 --> 00:07:03.480 align:middle
+Sabemos que true
+es el receptor del mensaje;
+
+00:07:03.640 --> 00:07:06.200 align:middle
+así que en lugar de escribir true,
+podemos escribir self.
+
+00:07:06.360 --> 00:07:09.680 align:middle
+Si lee la definición,
+puede ver self y decir:
+
+00:07:09.840 --> 00:07:12.480 align:middle
+que tiene sentido.
+Como el receptor es true,
+
+00:07:12.640 --> 00:07:15.800 align:middle
+es exactamente lo mismo.
+
+00:07:18.680 --> 00:07:21.560 align:middle
+Una vez más, vamos a visualizarlo.
+
+00:07:21.720 --> 00:07:26.960 align:middle
+Cuando envío el mensaje or
+con algo
+
+00:07:27.120 --> 00:07:29.400 align:middle
+al objeto true,
+
+00:07:29.560 --> 00:07:33.080 align:middle
+busco esta definición de or aquí,
+
+00:07:33.240 --> 00:07:35.680 align:middle
+y volverá self, por lo tanto, true.
+
+00:07:35.840 --> 00:07:39.720 align:middle
+Cuando envío el mensaje or
+con algo,
+
+00:07:39.880 --> 00:07:42.640 align:middle
+busco en la clase False
+que es false
+
+00:07:42.800 --> 00:07:47.280 align:middle
+Entonces termino con esta implementación,
+y devuelvo alpha.
+
+00:07:47.440 --> 00:07:51.040 align:middle
+Es la tabla booleana
+que estaba intentando implementar.
+
+00:07:53.440 --> 00:07:55.360 align:middle
+Lo que tiene que recordar es:
+
+00:07:55.520 --> 00:07:59.480 align:middle
+la solución que hemos implementado
+no usa ningún condicional
+
+00:08:00.160 --> 00:08:03.120 align:middle
+o cualquier instrucción condicional
+
+00:08:03.280 --> 00:08:05.640 align:middle
+tal como un bucle explícito;
+
+00:08:05.800 --> 00:08:08.480 align:middle
+deje que el receptor decida.
+
+00:08:08.640 --> 00:08:12.400 align:middle
+Significa que le digo al objeto booleano
+que recibe el mensaje
+
+00:08:12.560 --> 00:08:14.680 align:middle
+para encontrar la solución correcta
+
+00:08:14.840 --> 00:08:18.920 align:middle
+No estoy aqui para dictar
+lo que hay que decidir
+
+00:08:19.080 --> 00:08:21.480 align:middle
+Este principio se encuentra también en otros lugares.
+
+00:08:21.640 --> 00:08:24.520 align:middle
+Es un principio fundamental de la OOP.
+
+00:08:24.680 --> 00:08:28.560 align:middle
+Es la heurística que mencioné
+Al comienzo de esta lección:
+
+00:08:28.720 --> 00:08:30.160 align:middle
+No preguntar, contar.
+
+00:08:30.320 --> 00:08:33.400 align:middle
+Significa que no quiero expresar
+cualquier condicional;
+
+00:08:33.560 --> 00:08:35.240 align:middle
+Solo quiero dar una orden.
+
+00:08:35.400 --> 00:08:39.680 align:middle
+Esa es una de las claves importantes de OOP.
+
+00:08:39.840 --> 00:08:42.640 align:middle
+La otra es
+dejar que el receptor decida.
+
+00:08:42.800 --> 00:08:46.760 align:middle
+Le doy una orden al receptor:
+quien debe encapsular su conocimiento
+
+00:08:46.920 --> 00:08:48.840 align:middle
+y tomar las decisiones correctas.
+

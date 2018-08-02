@@ -1,0 +1,427 @@
+WEBVTT
+
+00:00:00.510 --> 00:00:03.470 align:middle
+Buenos días a todos. En esta
+secuencia, nos pararemos
+
+00:00:03.670 --> 00:00:05.790 align:middle
+un poco sobre los métodos de clase.
+
+00:00:06.350 --> 00:00:10.550 align:middle
+Hemos visto que los métodos de 
+clase son 
+
+00:00:10.790 --> 00:00:12.950 align:middle
+métodos normales, como los demas.
+
+00:00:14.000 --> 00:00:17.220 align:middle
+En general, sirven a crear 
+nuevas instancias
+
+00:00:18.000 --> 00:00:19.760 align:middle
+pero también pueden servir para
+otras cosas.
+
+00:00:20.310 --> 00:00:23.800 align:middle
+Veremos 2 ejemplos sobre para
+que pueden servir los métodos de clase.
+
+00:00:24.920 --> 00:00:28.840 align:middle
+Imaginemos que deseamos escribir
+un programa que toma
+
+00:00:29.040 --> 00:00:33.040 align:middle
+este texto como parámetro y que crea
+
+00:00:34.020 --> 00:00:38.910 align:middle
+una estructura. La idea es
+que si una linea empieza con
+
+00:00:39.110 --> 00:00:41.620 align:middle
+un punto de exclamación, la
+consideramos un titulo.
+
+00:00:42.280 --> 00:00:45.460 align:middle
+Si una linea comienza con un
+guion, consideramos que 
+
+00:00:45.950 --> 00:00:48.010 align:middle
+es el elemento de una lista.
+
+00:00:49.180 --> 00:00:51.920 align:middle
+Si empieza por un guion o
+mas de un guion, 
+
+00:00:52.120 --> 00:00:54.490 align:middle
+consideramos que es un subelemento de
+una lista.
+
+00:00:55.750 --> 00:00:57.720 align:middle
+En cualquier otro caso consideramos
+que se trata de un párrafo.
+
+00:00:58.620 --> 00:01:02.820 align:middle
+Deseamos escribir un programa que 
+toma esto como entrada y
+
+00:01:03.070 --> 00:01:06.520 align:middle
+instancia las clases que veis aquí,
+
+00:01:06.720 --> 00:01:07.760 align:middle
+las subclases de document y item.
+
+00:01:10.110 --> 00:01:13.670 align:middle
+también deseamos, en esta concepción,
+que cada
+
+00:01:13.870 --> 00:01:16.500 align:middle
+subclase document y item 
+sean responsables de
+
+00:01:16.700 --> 00:01:19.810 align:middle
+parsear las lineas y de decidir
+si ellas pueden parsear
+
+00:01:20.010 --> 00:01:23.050 align:middle
+o no una linea determinada.
+Si miro el método
+
+00:01:23.400 --> 00:01:28.310 align:middle
+canParse aquí, le entregamos
+una linea de texto.
+
+00:01:28.580 --> 00:01:30.610 align:middle
+Si esta linea empieza con un
+punto de exclamación, el
+
+00:01:30.810 --> 00:01:32.700 align:middle
+método canParse debe devolver
+verdadero porque nos 
+
+00:01:32.900 --> 00:01:34.100 align:middle
+encontramos en la clase SectionTitle.
+
+00:01:36.470 --> 00:01:39.620 align:middle
+En la clase listeItem,
+el método can parse debe
+
+00:01:39.820 --> 00:01:42.470 align:middle
+devolver verdadero si la linea empieza
+con un guion, si la
+
+00:01:42.670 --> 00:01:44.170 align:middle
+linea entregada como parámetro
+empieza con un guion.
+
+00:01:44.840 --> 00:01:49.330 align:middle
+Y el método canParse, que se encuentra
+aquí, nos devolverá sistemáticamente verdadero
+
+00:01:49.530 --> 00:01:53.150 align:middle
+La idea es de escribir un algoritmo
+que analizara las
+
+00:01:53.350 --> 00:01:56.420 align:middle
+clases una por una, y cuando
+encuentre una que devuelva 
+
+00:01:56.620 --> 00:01:59.920 align:middle
+canParse, utilizaremos
+
+00:02:00.120 --> 00:02:03.220 align:middle
+esta clase para construir una nueva
+instancia en relación a esta linea.
+
+00:02:04.580 --> 00:02:06.750 align:middle
+Este es el objetivo del método
+canParse y el objetivo
+
+00:02:06.950 --> 00:02:10.130 align:middle
+del método newFromLine,
+toma también una linea como
+
+00:02:10.330 --> 00:02:13.440 align:middle
+parámetro, una linea de texto
+como parámetro a menos que
+
+00:02:13.640 --> 00:02:16.010 align:middle
+devuelva una instancia de la
+clase en la que 
+
+00:02:16.210 --> 00:02:18.470 align:middle
+acaba de ser implementada.
+
+00:02:18.670 --> 00:02:21.920 align:middle
+Si envío el mensaje newFromLine
+a la clase
+
+00:02:22.120 --> 00:02:24.920 align:middle
+SectionTitle con una cadena de 
+caracteres que empieza
+
+00:02:25.120 --> 00:02:29.170 align:middle
+con un punto de exclamación,
+el método newFromLine
+
+00:02:29.370 --> 00:02:31.000 align:middle
+devolverá una instancia 
+de la clase SectionTitle.
+
+00:02:32.410 --> 00:02:33.550 align:middle
+¿Entonces, como funciona?
+
+00:02:34.000 --> 00:02:36.300 align:middle
+es la clase Parse que sera 
+responsable de realizar
+
+00:02:36.500 --> 00:02:38.820 align:middle
+este trabajo y de buscar entre
+las subclases de 
+
+00:02:39.020 --> 00:02:41.360 align:middle
+documentItem cual sera la responsable
+de una
+
+00:02:41.560 --> 00:02:42.320 align:middle
+linea en particular.
+
+00:02:42.890 --> 00:02:45.750 align:middle
+La clase Parser posee
+un método document classes
+
+00:02:45.950 --> 00:02:50.790 align:middle
+con la misión de devolver la
+
+00:02:51.000 --> 00:02:52.860 align:middle
+lista de subclase de 
+documentItem.
+
+00:02:53.060 --> 00:02:56.100 align:middle
+Devolverá una colección que contiene
+
+00:02:56.300 --> 00:02:57.060 align:middle
+esta clase, esta clase y
+esta clase.
+
+00:02:58.710 --> 00:03:01.950 align:middle
+Para poder hacer, enviamos el
+mensaje "allSupclasses" a "DocumentItem".
+
+00:03:02.150 --> 00:03:04.440 align:middle
+"allSup classes", es un método
+que existe en
+
+00:03:04.640 --> 00:03:06.750 align:middle
+el sistema Pharo, que
+devuelve una list de las subclases
+
+00:03:07.750 --> 00:03:08.510 align:middle
+de una clase determinada.
+
+00:03:09.920 --> 00:03:13.280 align:middle
+aquí, realizando esto, obtengo,
+directamente una colección
+
+00:03:13.480 --> 00:03:14.240 align:middle
+que contiene 
+SectionTitle, listItem y Text.
+
+00:03:14.440 --> 00:03:15.290 align:middle
+Esta colección, la quiero ordenar
+
+00:03:19.400 --> 00:03:23.680 align:middle
+por prioridad. La idea es
+que una clase Text debe
+
+00:03:23.880 --> 00:03:27.100 align:middle
+llegar al fin porque su método
+canParse devuelve siempre verdadero.
+
+00:03:28.200 --> 00:03:31.680 align:middle
+La clase Text puede parsear
+cualquier linea.
+
+00:03:33.050 --> 00:03:35.570 align:middle
+Lo probaremos después de comprobar
+los otros.
+
+00:03:36.240 --> 00:03:39.290 align:middle
+Tenemos esta noción de prioridad,
+aquí.
+
+00:03:41.250 --> 00:03:44.910 align:middle
+Vemos que muchos métodos esta
+subrayados.
+
+00:03:45.320 --> 00:03:50.080 align:middle
+Si subrayo estos métodos,
+indica que son
+
+00:03:50.280 --> 00:03:51.240 align:middle
+métodos de clase.
+
+00:03:52.720 --> 00:03:56.200 align:middle
+Para ejecutar esto métodos, es 
+necesario enviar mensajes a las clases.
+
+00:03:56.570 --> 00:04:00.350 align:middle
+Necesito enviar el mensaje
+"CanParse" a la clase
+
+00:04:00.550 --> 00:04:04.470 align:middle
+section title para saber si
+la clase SectionTitle puede
+
+00:04:04.670 --> 00:04:05.470 align:middle
+parsear una linea determinada.
+
+00:04:08.290 --> 00:04:12.690 align:middle
+El método parse de la clase
+Parser toma una linea como parámetro.
+
+00:04:12.890 --> 00:04:15.080 align:middle
+Miraremos al conjunto de subclases de
+
+00:04:15.280 --> 00:04:17.820 align:middle
+
+una clase capaz de align:middle
+
+00:04:18.020 --> 00:04:21.240 align:middle
+parsear esta linea, y si es el caso,
+crearemos
+
+00:04:21.440 --> 00:04:25.560 align:middle
+una instancia de esta clase.
+El mensaje encontrado facilitara una
+
+00:04:25.760 --> 00:04:29.350 align:middle
+colección que encuentra
+
+00:04:30.740 --> 00:04:33.070 align:middle
+un elemento entre
+N según un predicado.
+
+00:04:33.270 --> 00:04:37.520 align:middle
+Ahora nos interesaremos a otro 
+ejemplo de utilización
+
+00:04:37.720 --> 00:04:38.570 align:middle
+de métodos de clase.
+
+00:04:39.360 --> 00:04:43.730 align:middle
+Nos interesaremos a la lectura de
+parámetros de la linea de comando.
+
+00:04:44.530 --> 00:04:47.690 align:middle
+aquí la idea es de realizar un
+programa que en caso
+
+00:04:47.890 --> 00:04:50.580 align:middle
+de recibir unos parámetros, mirara
+cuales son
+
+00:04:50.780 --> 00:04:53.190 align:middle
+estos parámetros y realizara alguna
+cosa diferente en función de los parámetros.
+
+00:04:53.430 --> 00:04:56.790 align:middle
+El primer parámetro indica la
+acción a ejecutar.
+
+00:04:57.730 --> 00:04:59.510 align:middle
+Lo que haremos en la concepción e este
+
+00:04:59.710 --> 00:05:02.010 align:middle
+programa, tendremos una clase
+para cada tipo de acción.
+
+00:05:02.690 --> 00:05:07.050 align:middle
+La acción eval representara una clase,
+eval CommandLineHandler.
+
+00:05:07.250 --> 00:05:11.940 align:middle
+¿Cual es la acción realizada cuando
+
+00:05:12.660 --> 00:05:14.750 align:middle
+se presente el parámetro eval?
+
+00:05:14.950 --> 00:05:17.870 align:middle
+Lo que haremos es  ejecutar este
+código, aquí,
+
+00:05:18.070 --> 00:05:20.060 align:middle
+interpretaremos esta cadena de 
+caracteres como
+
+00:05:20.260 --> 00:05:23.570 align:middle
+código Pharo y devuelva el
+resultado de estas expresiones.
+
+00:05:24.820 --> 00:05:27.250 align:middle
+El numero que se encuentra aquí es el
+resultado de la expresión 10 factorial.
+
+00:05:27.940 --> 00:05:30.720 align:middle
+¿Como lo hacemos para implementar eso?
+
+00:05:30.920 --> 00:05:34.530 align:middle
+Tenemos una clase CommandLineHandler, 
+una clase
+
+00:05:34.730 --> 00:05:37.350 align:middle
+EvaluateCommandHandler que es una
+subclase que tiene
+
+00:05:37.550 --> 00:05:41.310 align:middle
+como objetivo de tratar al 
+parámetro eval.
+
+00:05:41.510 --> 00:05:44.300 align:middle
+Si el parámetro eval se envía 
+primer
+
+102 align:middle
+00:05:44,500 --> 00:05:47,200
+parámetro en la linea de comandos, entonces
+es esta clase que tiene que trabajar.
+
+00:05:48.730 --> 00:05:53.590 align:middle
+El método isResponsibleFor
+debe devolver verdadero en caso de 
+
+00:05:54.000 --> 00:05:58.120 align:middle
+que una subclase sea capaz de
+interpretar la linea
+
+00:05:59.680 --> 00:06:04.070 align:middle
+de comando. Vemos, aquí abajo,
+exactamente el mismo 
+106
+00:06:04,270 --> 00:06:07,410
+mecanismo que hemos visto en el
+ejemplo anterior.
+
+00:06:08.040 --> 00:06:11.450 align:middle
+Otra vez, volvemos a utilizar
+métodos de clase y enviamos
+
+00:06:11.650 --> 00:06:16.510 align:middle
+mensajes a clases para hacer otra cosa
+a crear instancias.
+
+00:06:17.620 --> 00:06:21.700 align:middle
+Hemos vistos dos posibles utilidades
+de los métodos de clase.
+
+00:06:22.710 --> 00:06:24.680 align:middle
+La mayor parte del tiempo los
+métodos de clase se utilizan
+
+00:06:24.880 --> 00:06:27.170 align:middle
+para crear nuevas instancias,
+pero
+
+00:06:27.370 --> 00:06:29.280 align:middle
+también se pueden utilizar en
+otros casos.
+

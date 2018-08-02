@@ -1,0 +1,184 @@
+WEBVTT
+
+00:00:00.840 --> 00:00:03.400 align:middle
+En esta sesión, me gustaría que se enfoque.
+
+00:00:03.560 --> 00:00:06.320 align:middle
+en el uso de paréntesis y corchetes.
+
+00:00:06.480 --> 00:00:08.520 align:middle
+No los mezcle.
+
+00:00:09.160 --> 00:00:12.480 align:middle
+Los paréntesis cambian la prioridad
+de una ejecución
+
+00:00:12.640 --> 00:00:15.040 align:middle
+en expresiones o en código,
+
+00:00:15.200 --> 00:00:17.760 align:middle
+mientras que los corchetes definen los bloques.
+
+00:00:17.920 --> 00:00:22.840 align:middle
+Cuando las expresiones en un bloque
+se definen, no se ejecutan.
+
+00:00:23.000 --> 00:00:27.160 align:middle
+Usted controla la ejecución. Debe enviar
+el mensaje value el bloque
+
+00:00:27.320 --> 00:00:29.960 align:middle
+para desencadenar la ejecución
+de sus expresiones
+
+00:00:31.960 --> 00:00:36.760 align:middle
+Hablemos de nuevo
+sobre cuándo debes usar los paréntesis.
+
+00:00:36.920 --> 00:00:38.960 align:middle
+Los usa alrededor de expresiones
+
+00:00:39.120 --> 00:00:44.600 align:middle
+si no sabe
+si se ejecutarán.
+
+00:00:45.280 --> 00:00:49.320 align:middle
+Por ejemplo, ¿usan if? 
+¿Pertenecen a la rama de una desviación?
+
+00:00:50.440 --> 00:00:53.440 align:middle
+También usa corchetes
+
+00:00:53.600 --> 00:00:57.040 align:middle
+si no sabe cuántas veces
+debes ejecutar
+
+00:00:58.200 --> 00:01:01.760 align:middle
+las expresiones que contiene un bloque
+
+00:01:02.760 --> 00:01:07.120 align:middle
+Por ejemplo:
+n timesRepeat:[self doSomething]
+
+00:01:07.280 --> 00:01:11.840 align:middle
+self doAlgo
+está encapsulado en un bloque.
+
+00:01:12.480 --> 00:01:18.080 align:middle
+¿Por qué? Porque debe
+ejecutar sus expresiones varias veces.
+
+00:01:18.240 --> 00:01:22.840 align:middle
+Debes ponerlos en un bloque para enviarles
+el valor del mensaje varias veces.
+
+00:01:25.840 --> 00:01:29.680 align:middle
+Otro ejemplo:esta vez,
+Envío el mensaje si es cierto :.
+
+00:01:29.840 --> 00:01:32.000 align:middle
+Según el receptor,
+
+00:01:32.160 --> 00:01:36.240 align:middle
+dependiendo de si ésta expresión
+es verdadero o falso,
+
+00:01:36.920 --> 00:01:41.120 align:middle
+usted ejecuta o no ejecuta
+la expresión self doSomething.
+
+00:01:41.280 --> 00:01:46.120 align:middle
+No puedo usar paréntesis ya que, si es necesario,
+no se ejecutará en absoluto.
+
+00:01:47.120 --> 00:01:48.840 align:middle
+Si lo pone en un bloque,
+
+00:01:49.000 --> 00:01:52.640 align:middle
+puedes decidir
+si le envía el valor del mensaje.
+
+00:01:55.080 --> 00:01:59.240 align:middle
+Esto es lo mismo
+pero con whileTrue :.
+
+00:01:59.400 --> 00:02:04.120 align:middle
+Es lo mismo con el bloque receptor
+y el bloque pasado como un parámetro.
+
+00:02:04.280 --> 00:02:10.040 align:middle
+Dependiendo de si la evaluación
+devuelve el valor booleano verdadero o falso,
+
+00:02:10.200 --> 00:02:14.280 align:middle
+debe ejecutar una vez, varias veces,
+o ni siquiera en absoluto
+
+00:02:14.440 --> 00:02:18.000 align:middle
+la expresión self doSomething:
+Se debe poner en un bloque.
+
+00:02:19.400 --> 00:02:22.240 align:middle
+Hagamos un pequeño ejercicio.
+
+00:02:23.160 --> 00:02:26.400 align:middle
+Si le doy
+las dos siguientes expresiones,
+
+00:02:26.560 --> 00:02:30.360 align:middle
+repeat from 1 to: n self doSomething,
+
+00:02:30.520 --> 00:02:33.040 align:middle
+¿Debo usar paréntesis o corchetes?
+
+00:02:33.200 --> 00:02:36.800 align:middle
+Si escribo x ifEmpty:self doSomething,
+
+00:02:36.960 --> 00:02:39.520 align:middle
+¿Debo usar paréntesis o corchetes?
+
+00:02:41.720 --> 00:02:43.440 align:middle
+Le daré las respuestas.
+
+00:02:44.360 --> 00:02:46.920 align:middle
+En ambos casos, debe usar corchetes.
+
+00:02:47.080 --> 00:02:51.600 align:middle
+En el primer caso,
+si quieres repetir self doSomething,
+
+00:02:51.760 --> 00:02:55.360 align:middle
+tienes que enviar el valor del mensaje
+a este bloque varias veces.
+
+00:02:56.080 --> 00:02:59.000 align:middle
+En el segundo caso, x ifEmpty:,
+
+00:02:59.160 --> 00:03:04.360 align:middle
+si x no está vacío,
+no deberías ejecutar self doSomething.
+
+00:03:04.520 --> 00:03:07.560 align:middle
+Si x está vacío, debes hacerlo.
+
+00:03:07.720 --> 00:03:10.280 align:middle
+En resumen, vimos en este curso
+
+00:03:10.440 --> 00:03:13.720 align:middle
+que no debere confundir
+paréntesis y corchetes.
+
+00:03:13.880 --> 00:03:19.120 align:middle
+Los paréntesis tratan de cambiar el orden.
+de cálculo en una expresión.
+
+00:03:19.280 --> 00:03:23.800 align:middle
+Los corchetes son sobre congelar
+
+00:03:23.960 --> 00:03:27.040 align:middle
+expresiones
+
+00:03:27.200 --> 00:03:31.400 align:middle
+y para controlar su ejecución
+o incluso para ejecutarlos varias veces.
+

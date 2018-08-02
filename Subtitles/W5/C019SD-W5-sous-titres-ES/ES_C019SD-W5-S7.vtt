@@ -1,0 +1,479 @@
+WEBVTT
+
+00:00:00.480 --> 00:00:01.440 align:middle
+Hola a todos.
+
+00:00:01.600 --> 00:00:06.240 align:middle
+En esta secuencia veremos
+La API para manipular archivos.
+
+00:00:06.680 --> 00:00:09.280 align:middle
+Lo que miraremos particularmente
+
+00:00:09.480 --> 00:00:12.760 align:middle
+es cómo navegar entre archivos,
+
+00:00:12.920 --> 00:00:15.640 align:middle
+cómo crear y eliminar archivos,
+
+00:00:16.520 --> 00:00:19.400 align:middle
+cómo enumerar archivos en los directorios,
+
+00:00:20.280 --> 00:00:24.120 align:middle
+y como leer de
+y escribir en archivos.
+
+00:00:24.320 --> 00:00:25.720 align:middle
+Para empezar,
+
+00:00:25.920 --> 00:00:28.240 align:middle
+necesitamos un punto de entrada
+en el sistema de archivos,
+
+00:00:28.400 --> 00:00:30.440 align:middle
+Hay muchos.
+
+00:00:30.600 --> 00:00:34.840 align:middle
+Con "FileLocator home"
+tienes el directorio de usuario,
+
+00:00:35.560 --> 00:00:38.880 align:middle
+"Raíz FileLocator" tienes la raíz
+
+00:00:39.040 --> 00:00:42.840 align:middle
+del sistema de directorio.
+
+00:00:43.000 --> 00:00:47.120 align:middle
+Con "FileLocatorC" en Windows
+tienes el disco C:
+
+00:00:47.480 --> 00:00:50.160 align:middle
+Una vez que tenga un directorio,
+
+00:00:50.440 --> 00:00:53.120 align:middle
+estos 3 elementos son directorios,
+
+00:00:53.280 --> 00:00:56.680 align:middle
+Tomo uno, "FileLocator home"
+
+00:00:56.840 --> 00:01:00.040 align:middle
+en el que tengo
+el directorio de inicio de usuario.
+
+00:01:01.240 --> 00:01:03.160 align:middle
+Desde allí puedo decir,
+
+00:01:03.920 --> 00:01:06.000 align:middle
+"Dame tu ruta de acceso".
+
+00:01:06.160 --> 00:01:10.480 align:middle
+Entonces "casa" no es una cadena,
+es un objeto que representa
+
+00:01:10.640 --> 00:01:12.960 align:middle
+un directorio y puedo decir,
+
+00:01:13.120 --> 00:01:17.600 align:middle
+"Dame la cuerda
+ubicarlo en el sistema ".
+
+00:01:17.800 --> 00:01:20.120 align:middle
+Entonces eso es "home / cassou".
+
+00:01:21.000 --> 00:01:23.800 align:middle
+Puedo pedir un directorio
+donde están sus hijos
+
+00:01:23.960 --> 00:01:27.880 align:middle
+"¿Qué son todos los archivos?
+y directorios que contiene? "
+
+00:01:28.040 --> 00:01:30.960 align:middle
+Aquí me dice, en "casa".
+
+00:01:31.120 --> 00:01:33.640 align:middle
+Tengo un archivo llamado .bashrc,
+
+00:01:33.800 --> 00:01:36.040 align:middle
+y tengo un directorio de música.
+
+00:01:36.960 --> 00:01:39.080 align:middle
+Entonces esto, "hijos"
+
+00:01:39.240 --> 00:01:41.280 align:middle
+devuelve un paquete de objetos,
+
+00:01:41.440 --> 00:01:45.080 align:middle
+que son archivos y directorios.
+
+00:01:45.680 --> 00:01:49.080 align:middle
+Si jugamos un poco más con esta API,
+
+00:01:49.800 --> 00:01:53.160 align:middle
+veremos el método "/",
+
+00:01:53.320 --> 00:01:55.000 align:middle
+Cuando enviamos el mensaje /
+
+00:01:55.840 --> 00:02:01.400 align:middle
+a un directorio podemos indicar
+un niño en particular que nos interesa.
+
+00:02:02.320 --> 00:02:06.800 align:middle
+Entonces "home / 'Music'"
+Me da el directorio de música.
+
+00:02:08.080 --> 00:02:11.880 align:middle
+Enviando el mensaje
+"directorios" en un archivo,
+
+00:02:12.040 --> 00:02:14.480 align:middle
+Obtengo todos los subarchivos.
+
+00:02:14.640 --> 00:02:18.080 align:middle
+Aquí veo eso, en mi biblioteca de música,
+
+00:02:18.240 --> 00:02:20.400 align:middle
+Tengo un archivo Anouar_Brahem.
+
+00:02:22.080 --> 00:02:25.360 align:middle
+El mensaje principal me permite
+para subir un peldaño,
+
+00:02:25.520 --> 00:02:28.320 align:middle
+así que si estoy en el archivo de música,
+
+00:02:28.480 --> 00:02:31.840 align:middle
+Envío "padre" pero regreso
+a mi archivo "hogar"
+
+00:02:32.160 --> 00:02:34.120 align:middle
+Dejando mi directorio
+
+00:02:34.400 --> 00:02:38.440 align:middle
+"Música", como vimos antes,
+Intentaré crear un directorio.
+
+00:02:39.520 --> 00:02:43.000 align:middle
+Para hacer esto, verifico
+si el directorio existe
+
+00:02:43.160 --> 00:02:46.400 align:middle
+Al enviar un mensaje "isDirectory"
+
+00:02:46.560 --> 00:02:48.480 align:middle
+Veo si existe o no.
+
+00:02:48.640 --> 00:02:51.000 align:middle
+Esto dice que no existe.
+
+00:02:51.160 --> 00:02:54.560 align:middle
+De acuerdo, lo creo con
+"ensureCreateDirectory".
+
+00:02:55.320 --> 00:02:59.840 align:middle
+Luego lo pruebo, "¿existes?"
+En este caso existe,
+
+00:03:00.000 --> 00:03:03.520 align:middle
+con "borrar" puedo borrarlo,
+y verifico que se borre
+
+00:03:03.680 --> 00:03:05.360 align:middle
+enviando "" isDirectory ".
+
+00:03:06.200 --> 00:03:07.280 align:middle
+Encontrar
+
+00:03:07.480 --> 00:03:10.120 align:middle
+todos los niños en un directorio,
+
+00:03:10.280 --> 00:03:14.280 align:middle
+hay varios métodos
+Te mostraré dos.
+
+00:03:14.440 --> 00:03:17.320 align:middle
+Enviamos un mensaje,
+"allChildrenMatching" a un directorio,
+
+00:03:17.480 --> 00:03:21.120 align:middle
+y al pasarle una expresión
+
+00:03:21.280 --> 00:03:25.120 align:middle
+eso es típico de la escalera
+y que representa
+
+00:03:26.720 --> 00:03:30.640 align:middle
+el nombre del directorio que esperamos,
+así que con "* .org"
+
+00:03:30.800 --> 00:03:33.520 align:middle
+Quiero que todos los archivos tengan
+la extensión ".ogg".
+
+00:03:34.840 --> 00:03:39.280 align:middle
+Eso devolverá todos mis archivos de música.
+a .ogg en mi directorio de Pink Floyd.
+
+00:03:40.520 --> 00:03:43.680 align:middle
+Puedo hacer lo mismo
+de una manera más lenta.
+
+00:03:43.840 --> 00:03:46.640 align:middle
+Enviando el mensaje
+"allChildren" recibo a todos los niños
+
+00:03:46.800 --> 00:03:50.960 align:middle
+todos los archivos y directorios,
+en un directorio particular,
+
+00:03:51.800 --> 00:03:54.680 align:middle
+y filtro con el mensaje "seleccionar"
+
+00:03:54.840 --> 00:03:57.880 align:middle
+todos aquellos cuyo nombre termina en ".ogg".
+
+00:03:58.040 --> 00:04:02.080 align:middle
+"Nombre de base" devuelve la cadena
+que representa el nombre del archivo
+
+00:04:02.240 --> 00:04:05.360 align:middle
+y quiero el nombre del archivo
+terminar en .ogg
+
+00:04:05.560 --> 00:04:08.080 align:middle
+Estos dos bits de código
+son casi lo mismo
+
+00:04:08.680 --> 00:04:12.520 align:middle
+¿Cómo obtenemos información sobre un archivo?
+
+00:04:12.680 --> 00:04:16.280 align:middle
+¿Cómo creamos un archivo de una cadena?
+
+00:04:16.440 --> 00:04:20.040 align:middle
+Tengo un nombre de archivo, "asFileReference",
+
+00:04:20.200 --> 00:04:24.000 align:middle
+que convierte mi nombre de archivo
+En una referencia hacia un archivo.
+
+00:04:24.160 --> 00:04:29.000 align:middle
+Puede ser un
+o un archivo inexistente, no lo sé.
+
+00:04:29.160 --> 00:04:32.760 align:middle
+Echemos un vistazo al mensaje
+"isFile" en esta referencia.
+
+00:04:32.920 --> 00:04:36.600 align:middle
+Obtendré "verdadero" si existe
+y "falso" si no es así.
+
+00:04:37.560 --> 00:04:41.720 align:middle
+Al enviar el mensaje "nombre base",
+Obtengo el nombre del archivo.
+
+00:04:41.880 --> 00:04:45.080 align:middle
+Al enviar "extensión"
+Obtengo la extensión del archivo,
+
+00:04:45.920 --> 00:04:48.720 align:middle
+con "tamaño" obtengo el tamaño,
+
+00:04:49.640 --> 00:04:52.000 align:middle
+y con "PathString",
+como vimos antes,
+
+00:04:52.160 --> 00:04:55.160 align:middle
+Obtengo la ruta de acceso
+en la forma de una cuerda.
+
+00:04:55.920 --> 00:04:59.680 align:middle
+Ahora veamos cómo escribir para
+y leer de un archivo. Escribir,
+
+00:05:00.160 --> 00:05:04.240 align:middle
+antes que nada, tomo
+una referencia hacia un archivo
+
+00:05:05.160 --> 00:05:07.160 align:middle
+Aquí, verifico que no exista.
+
+00:05:07.320 --> 00:05:11.720 align:middle
+Podemos escribir en un archivo que existe,
+Estoy comprobando que no existe.
+
+00:05:11.880 --> 00:05:16.400 align:middle
+Le escribo
+Para escribir, creo una secuencia.
+
+00:05:17.360 --> 00:05:18.920 align:middle
+Con "nextPutAll"
+
+00:05:19.080 --> 00:05:22.520 align:middle
+Pido escribir cada personaje
+de la secuencia en el archivo.
+
+00:05:23.480 --> 00:05:26.680 align:middle
+Al final cierro mi transmisión
+para asegurar que el sistema
+
+00:05:26.840 --> 00:05:28.720 align:middle
+ha escrito todo en el disco.
+
+00:05:29.200 --> 00:05:30.640 align:middle
+Por el contrario, puedo leer
+
+00:05:30.840 --> 00:05:34.680 align:middle
+desde un archivo,
+así que tomo el mismo archivo y .txt.
+
+00:05:34.840 --> 00:05:38.400 align:middle
+Comprobo que existe, y lo hace,
+porque puedo escribirle.
+
+00:05:39.560 --> 00:05:42.920 align:middle
+Yo creo un "ReadStream"
+
+00:05:43.080 --> 00:05:46.880 align:middle
+y yo miro, cualquiera de los personajes
+por personaje enviando "próximo".
+
+00:05:47.040 --> 00:05:51.480 align:middle
+Con el mensaje "próximo" obtendré,
+"h" luego "e" luego "l", etc ...
+
+00:05:51.640 --> 00:05:54.240 align:middle
+Hago "next" una vez, obtengo "h".
+
+00:05:54.400 --> 00:05:56.120 align:middle
+Luego recogeré todo,
+
+00:05:56.280 --> 00:05:59.200 align:middle
+desde la primera "h" que acabo de leer
+al final del archivo.
+
+00:05:59.360 --> 00:06:01.840 align:middle
+Aquí obtengo "ello World"
+sin la "h"
+
+00:06:02.000 --> 00:06:05.120 align:middle
+Al final, envío "stream close"
+al objeto de secuencia,
+
+00:06:05.280 --> 00:06:08.440 align:middle
+para garantizar que la referencia del archivo esté cerrada.
+
+00:06:09.160 --> 00:06:12.440 align:middle
+Podemos escribir estos códigos de manera más simple,
+
+00:06:13.000 --> 00:06:16.400 align:middle
+sin tener la necesidad
+
+00:06:16.560 --> 00:06:18.720 align:middle
+para enviar el mensaje "cerrar".
+
+00:06:18.880 --> 00:06:22.240 align:middle
+Podríamos olvidar enviar
+el mensaje "cerrado"
+
+00:06:22.400 --> 00:06:26.200 align:middle
+Puede haber una excepción
+eso significa que "cerrar" nunca se envía.
+
+00:06:26.360 --> 00:06:30.720 align:middle
+En general, intentamos evitar
+tener que escribirlo nosotros mismos
+
+00:06:30.880 --> 00:06:33.360 align:middle
+Para hacer esto, para escribir,
+
+00:06:33.520 --> 00:06:36.640 align:middle
+Tomo mi referencia de archivo,
+
+00:06:36.800 --> 00:06:39.520 align:middle
+Envío el mensaje "writeStreamDo",
+
+00:06:39.680 --> 00:06:41.400 align:middle
+que toma un bloque entre paréntesis,
+
+00:06:41.560 --> 00:06:45.400 align:middle
+el bloque toma una secuencia
+entre paréntesis.
+
+00:06:45.560 --> 00:06:49.280 align:middle
+Esta transmisión será automática.
+proporcionado por "writeStreamDo"
+
+00:06:49.440 --> 00:06:54.040 align:middle
+que creará un
+"writeStream" en el archivo.
+
+00:06:54.200 --> 00:06:56.840 align:middle
+Lo único que tengo que hacer es,
+Al usar esta transmisión,
+
+00:06:57.000 --> 00:06:59.960 align:middle
+manipular la corriente
+Para hacer lo que quiero con el archivo.
+
+00:07:00.120 --> 00:07:04.560 align:middle
+Escribiré "Hello World" en el archivo,
+"transmitir nextPutAll:Hello World".
+
+00:07:04.720 --> 00:07:06.080 align:middle
+Cuando el bloque termina,
+
+00:07:06.240 --> 00:07:09.800 align:middle
+el flujo se cierra automáticamente,
+y el archivo se escribe en el disco.
+
+00:07:11.240 --> 00:07:15.040 align:middle
+El mismo principio para la lectura,
+Puse "readStreamDo".
+
+00:07:16.200 --> 00:07:18.480 align:middle
+Aquí tengo una transmisión,
+Puedo hacer lo que quiera con eso.
+
+00:07:18.640 --> 00:07:23.000 align:middle
+Decido recuperar
+el contenido de la secuencia
+
+00:07:24.080 --> 00:07:25.920 align:middle
+Lo que deberías saber,
+
+00:07:26.480 --> 00:07:30.120 align:middle
+es que los archivos y directorios
+son referencias,
+
+00:07:30.320 --> 00:07:34.200 align:middle
+son referencias hacia
+archivos y directorios en el disco
+
+00:07:34.360 --> 00:07:38.880 align:middle
+que puede o no existir.
+Compruebe con "isFile", "isDirectory"
+
+00:07:39.040 --> 00:07:41.560 align:middle
+si los archivos existen en el disco.
+
+00:07:41.720 --> 00:07:43.040 align:middle
+La API es simple,
+
+00:07:43.200 --> 00:07:48.120 align:middle
+y facilita la navegación
+y manipulación de los archivos.
+
+00:07:49.040 --> 00:07:54.120 align:middle
+Podemos leer y escribir en archivos
+a través de corrientes,
+
+00:07:54.480 --> 00:07:57.480 align:middle
+y con una API
+
+00:07:57.640 --> 00:08:02.320 align:middle
+que cerrará la corriente
+automáticamente al final.
+

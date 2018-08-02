@@ -1,0 +1,389 @@
+WEBVTT
+
+00:00:01.250 --> 00:00:03.460 align:middle
+En este vídeo,
+Me gustaría mostrarle que Nautilus
+
+00:00:03.870 --> 00:00:06.710 align:middle
+permite refactorizaciones. Que es
+una refactorización.
+
+00:00:07.050 --> 00:00:11.560 align:middle
+Es una operación que
+transformará un codigo
+
+00:00:11.727 --> 00:00:13.000 align:middle
+preservando su comportamiento.
+
+00:00:13.320 --> 00:00:15.850 align:middle
+Debería saber que históricamente
+la refactorización fue
+
+00:00:16.017 --> 00:00:18.700 align:middle
+implementada por primera vez
+en el antepasado de Pharo,
+
+00:00:18.867 --> 00:00:21.840 align:middle
+y más tarde en todos los
+demás lenguajes, como Java
+
+00:00:22.170 --> 00:00:26.470 align:middle
+Así pues desde el '95, Smalltalk
+disponía de una herramienta
+de refactorización
+
+00:00:26.637 --> 00:00:27.890 align:middle
+y la de Pharo está inspirada
+en esta herramienta.
+
+00:00:28.540 --> 00:00:31.070 align:middle
+Así, que abramos el Nautilus para
+mirar un poco los tipos
+
+00:00:31.237 --> 00:00:32.020 align:middle
+de refactorización que nos propone.
+
+00:00:33.320 --> 00:00:36.440 align:middle
+Trabajaremos en nuestra clase.
+
+00:00:38.000 --> 00:00:39.800 align:middle
+Tiene refactorizaciones
+en diferentes niveles.
+
+00:00:39.967 --> 00:00:41.790 align:middle
+Tiene refactorizaciones en el
+nivel de la clase, en el nivel del
+
+00:00:41.957 --> 00:00:45.330 align:middle
+método y en el nivel del código.
+Así que en el nivel de la clase dispone
+
+00:00:48.710 --> 00:00:49.343 align:middle
+de todos esos tipos de refactorización.
+
+00:00:51.270 --> 00:00:53.120 align:middle
+Puede tener refactorización en
+el nivel de las variables instancia
+
+00:00:53.287 --> 00:00:56.020 align:middle
+y en el nivel de las variables de clase.
+
+00:00:57.550 --> 00:01:00.580 align:middle
+Cuando una refactorización es muy
+útil aparece
+
+00:01:01.490 --> 00:01:05.320 align:middle
+en el nivel más alto de los menús,
+para que pueda 
+
+00:01:05.487 --> 00:01:07.490 align:middle
+ir más rápido, no necesita
+hacer clic en clase,
+
+00:01:07.960 --> 00:01:09.210 align:middle
+refactoring, Rename está aquí.
+
+00:01:10.140 --> 00:01:14.690 align:middle
+De la misma manera, para los métodos
+
+00:01:14.857 --> 00:01:17.310 align:middle
+las refactorizaciones, tendremos
+todos estos métodos aqui,
+
+00:01:19.850 --> 00:01:22.470 align:middle
+también con rename, que es
+una refactorización importante
+
+00:01:22.637 --> 00:01:25.310 align:middle
+en este nivel.
+Ahora si elijo otro
+
+00:01:25.477 --> 00:01:28.750 align:middle
+trozo de código, no son
+muy complicados
+
+00:01:28.917 --> 00:01:33.820 align:middle
+en esta clase, tendremos las
+refactorizaciones siguientes
+
+00:01:35.350 --> 00:01:38.040 align:middle
+que trabajaran al nivel del código
+del método.
+
+00:01:41.300 --> 00:01:45.450 align:middle
+Si cambio de nombre, si hago un Rename
+de la clase Counter,
+
+00:01:45.617 --> 00:01:50.020 align:middle
+la llamaré Class Counter 2,
+el sistema me dice ok.
+
+00:01:50.187 --> 00:01:51.300 align:middle
+Hago un rename, de acuerdo.
+
+00:01:55.130 --> 00:01:56.710 align:middle
+Me devuelve un retorno, no sé
+exactamente qué significa esto.
+
+00:01:56.877 --> 00:01:57.960 align:middle
+pero no importa, lo ignoro.
+
+00:01:58.870 --> 00:02:00.750 align:middle
+Y aquí voy a ver,
+que en los lugares donde
+
+00:02:04.510 --> 00:02:08.710 align:middle
+se llamaba a la Class Counter,
+ahora me muestra Counter 2 en su lugar.
+
+00:02:10.000 --> 00:02:14.780 align:middle
+Este es una típica refactorización
+de rename (renombrar).
+
+00:02:14.947 --> 00:02:15.580 align:middle
+una clase.
+
+00:02:16.490 --> 00:02:18.830 align:middle
+Ahora, si quiero cambiar el nombre,
+y este es un muy
+
+00:02:19.000 --> 00:02:23.480 align:middle
+buen ejemplo, imaginemos que
+desea renombrar el método increment.
+
+00:02:24.450 --> 00:02:27.230 align:middle
+Haré un Rename, y como 
+no estoy muy inspirado,
+
+00:02:27.397 --> 00:02:28.520 align:middle
+lo llamaré Increment2.
+
+00:02:31.480 --> 00:02:33.670 align:middle
+El sistema me dice:
+"Cuidado"
+
+00:02:33.837 --> 00:02:35.550 align:middle
+Así que tengo cuidado.
+
+00:02:36.350 --> 00:02:40.520 align:middle
+Ten cuidado, estás a punto de cambiar el nombre
+
+00:02:41.740 --> 00:02:44.630 align:middle
+de alrededor una decena de
+implementadores en el
+
+00:02:44.797 --> 00:02:48.750 align:middle
+sistema, estás a punto de renombrarlos
+todos, realmente quieres hacer esto?
+
+00:02:48.917 --> 00:02:50.600 align:middle
+Primero, no quiero hacerlo,
+segundo tampoco
+
+00:02:50.767 --> 00:02:52.730 align:middle
+quiero seleccionar y deseleccionar.
+
+00:02:53.470 --> 00:02:56.580 align:middle
+podríamos hacerlo,
+lo que me permite mostrarle que,
+
+00:02:56.747 --> 00:02:58.700 align:middle
+al final, el programador
+está en disposición de
+
+00:02:58.867 --> 00:03:00.490 align:middle
+escoger. Pero yo no
+quiero hacerlo.
+
+00:03:01.000 --> 00:03:03.700 align:middle
+Sin embargo, lo que puedo 
+hacer es decir:
+
+00:03:03.867 --> 00:03:06.630 align:middle
+estoy trabajando en el paquete 
+MyCounter
+
+00:03:06.797 --> 00:03:09.450 align:middle
+y no tengo muchas ganas
+que se modifique el resto
+
+00:03:09.617 --> 00:03:11.020 align:middle
+del sistema automáticamente.
+
+00:03:11.310 --> 00:03:13.680 align:middle
+Entonces le digo a Nautilus:
+Me gustaría que abrieras
+
+00:03:13.847 --> 00:03:17.280 align:middle
+el browser (navegador) solo
+en mi paquete y que 
+
+00:03:17.447 --> 00:03:20.380 align:middle
+todas las operaciones se realicen
+solo en la selección.
+
+00:03:20.890 --> 00:03:23.770 align:middle
+Así que lo que haré es
+browse scoped.
+
+00:03:26.530 --> 00:03:28.710 align:middle
+Eso lo que también puede obtener
+presionando
+
+00:03:28.877 --> 00:03:30.180 align:middle
+el botón Scoped,
+es lo mismo
+
+00:03:30.570 --> 00:03:32.940 align:middle
+Es una característica tan interesante
+que se ha implementado mediante un
+
+00:03:33.107 --> 00:03:36.240 align:middle
+botón propio. La diferencia entre
+estos 2 mundos,
+
+00:03:36.407 --> 00:03:40.780 align:middle
+es que que aquí tengo 
+todos mis paquetes
+
+00:03:40.947 --> 00:03:41.890 align:middle
+y aquí solo tengo un paquete.
+
+00:03:42.057 --> 00:03:45.310 align:middle
+Podría tener varios, solo tengo
+una selección de estos paquetes.
+
+00:03:45.477 --> 00:03:47.120 align:middle
+Y ahora, si quiero modificar
+increment
+
+00:03:47.287 --> 00:03:52.200 align:middle
+Puedo decir: "Rename"
+
+00:03:52.460 --> 00:03:57.180 align:middle
+en increment2
+y lo hará solo
+
+00:03:57.500 --> 00:04:01.510 align:middle
+locamente en el paquete o en
+la selección del navegador con Scoped.
+
+00:04:03.380 --> 00:04:05.590 align:middle
+Hago clic en Aceptar y ahora 
+correremos nuestras pruebas.
+
+00:04:05.757 --> 00:04:08.150 align:middle
+Mis pruebas aún funcionan,
+Todas son verdes.
+
+00:04:08.480 --> 00:04:11.890 align:middle
+Y veo que ahora todos mis
+
+00:04:12.057 --> 00:04:13.790 align:middle
+increment ha cambiado de nombre
+a increment2.
+
+00:04:16.800 --> 00:04:18.890 align:middle
+En este video hemos visto que
+Pharo
+
+00:04:19.057 --> 00:04:21.610 align:middle
+nos ofrece una variedad de operaciones,
+
+00:04:21.777 --> 00:04:25.080 align:middle
+selecciones y manipulaciones de código,
+con el plus de la posibilidad de
+
+00:04:25.247 --> 00:04:27.960 align:middle
+restriccion al subconjuntos de paquetes
+
+00:04:28.200 --> 00:04:30.630 align:middle
+para poder controlar donde
+se aplican los cambios.
+
+00:04:31.110 --> 00:04:32.870 align:middle
+En Pharo, también dispone de
+
+00:04:33.037 --> 00:04:35.240 align:middle
+una herramienta que le permitirá
+reescribir el código
+
+00:04:35.407 --> 00:04:38.060 align:middle
+automáticamente, no me extenderé
+al respeto, si lo necesita
+
+00:04:38.227 --> 00:04:40.650 align:middle
+solo tiene que pedirlo,
+hay una herramienta concreta
+
+00:04:40.817 --> 00:04:42.310 align:middle
+para realizar este tipo de acciones.
+
+00:04:43.160 --> 00:04:45.480 align:middle
+Ahora el último punto que me gustaría
+mostrarle
+
+00:04:45.647 --> 00:04:50.410 align:middle
+es que a menudo tiene operaciones
+que le son propuestas
+
+00:04:50.577 --> 00:04:51.210 align:middle
+que están generadas.
+
+00:04:51.470 --> 00:04:54.900 align:middle
+Los aplicará, el sistema
+le propondrá ejecutarlos
+
+00:04:55.067 --> 00:04:57.330 align:middle
+pero no le garantiza que funcione,
+que realmente sea apropiado.
+
+00:04:57.890 --> 00:05:00.810 align:middle
+Lo que Pharo propone es lo
+que Nautilus también propone,
+
+00:05:01.000 --> 00:05:03.460 align:middle
+és lo que llamamos Smart Suggestions.
+
+00:05:03.627 --> 00:05:08.090 align:middle
+Así las Smart Suggestions,
+és una herramienta que conoce
+
+00:05:08.520 --> 00:05:12.530 align:middle
+y le propondrá operaciones
+basadas en la selección actual.
+
+00:05:14.120 --> 00:05:18.590 align:middle
+Por ejemplo, aquí puede proponerme
+de realizar un
+
+00:05:18.757 --> 00:05:22.510 align:middle
+Extract Method, no és muy
+interesante en este caso
+
+00:05:22.677 --> 00:05:25.900 align:middle
+o un Inline method.
+Esto significa que si selecciono
+
+00:05:26.067 --> 00:05:29.230 align:middle
+la afectación,
+no tendré siempre
+
+00:05:29.397 --> 00:05:32.490 align:middle
+las mismas operaciones disponibles
+
+00:05:33.400 --> 00:05:36.110 align:middle
+Si estoy en una clase, 
+me pedirá de
+
+00:05:36.277 --> 00:05:37.710 align:middle
+navegar por las referencias,
+de renombrar la clase.
+
+00:05:37.877 --> 00:05:41.000 align:middle
+Y puede ver que dependiendo de
+la posición del cursor,
+
+00:05:41.710 --> 00:05:43.000 align:middle
+no le ofrece las mismas operaciones.
+

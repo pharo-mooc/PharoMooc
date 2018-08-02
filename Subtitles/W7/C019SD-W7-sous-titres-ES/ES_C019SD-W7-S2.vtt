@@ -1,0 +1,378 @@
+WEBVTT
+
+00:00:00.440 --> 00:00:05.120 align:middle
+En este video, explicaremos un punto
+rara vez cubierto en cursos de Pharo.
+
+00:00:05.320 --> 00:00:08.040 align:middle
+Cómo definir objetos de tamaño variable.
+
+00:00:09.360 --> 00:00:13.760 align:middle
+Notarás que ya usamos
+objetos de diferentes tamaños.
+
+00:00:13.920 --> 00:00:18.040 align:middle
+Aquí voy a crear una matriz
+usando esta expresión
+
+00:00:18.240 --> 00:00:21.680 align:middle
+Contiene diez elementos,
+todo puesto a cero.
+
+00:00:21.920 --> 00:00:25.480 align:middle
+Usando la misma expresión,
+Ahora creo una matriz
+
+00:00:26.040 --> 00:00:28.640 align:middle
+que contiene cinco elementos
+
+00:00:29.160 --> 00:00:33.720 align:middle
+Vemos que la clase Array
+crea instancias de tamaños variables.
+
+00:00:34.120 --> 00:00:38.480 align:middle
+Pero hasta ahora, no hemos explicado
+como puedes hacer esto
+
+00:00:39.040 --> 00:00:40.040 align:middle
+Asi que,
+
+00:00:40.440 --> 00:00:45.720 align:middle
+aquí te mostraremos cómo definir
+clases con instancias de tamaño variable,
+
+00:00:46.040 --> 00:00:49.080 align:middle
+cómo crear instancias de estos objetos,
+
+00:00:49.240 --> 00:00:52.280 align:middle
+y cómo acceder a estos tamaños variables.
+
+00:00:52.800 --> 00:00:54.360 align:middle
+Ahora para el primer punto.
+
+00:00:55.600 --> 00:00:56.800 align:middle
+Es muy sencillo.
+
+00:00:57.600 --> 00:01:02.280 align:middle
+La definición usa el mensaje
+variableSubclass:en lugar de la subclase :.
+
+00:01:02.600 --> 00:01:05.040 align:middle
+Copiaremos la definición de la clase Array.
+
+00:01:05.280 --> 00:01:09.120 align:middle
+Tenga en cuenta que usamos variableSubclass,
+instanceVariableNames,
+
+00:01:09.600 --> 00:01:12.240 align:middle
+y así sucesivamente, para crear la clase.
+
+00:01:12.400 --> 00:01:15.760 align:middle
+Mientras que generalmente,
+cuando definimos la clase Puntero,
+
+00:01:15.920 --> 00:01:18.800 align:middle
+Clase de contador o clase de dados,
+
+00:01:19.280 --> 00:01:21.520 align:middle
+solo usaríamos Subclase.
+
+00:01:21.960 --> 00:01:26.800 align:middle
+Usando esta definición, las instancias
+Creamos tenemos tamaños variables.
+
+00:01:27.200 --> 00:01:31.320 align:middle
+Usando este ejemplo,
+si queremos hacer un punto "extraño"
+
+00:01:31.520 --> 00:01:34.640 align:middle
+usando dos variables de instancia, xey,
+
+00:01:34.800 --> 00:01:38.600 align:middle
+como un punto y una zona variable,
+utilizamos esta definición.
+
+00:01:40.000 --> 00:01:44.640 align:middle
+Esto crea objetos que se parecen a esto,
+con un valor para x,
+
+00:01:45.480 --> 00:01:49.600 align:middle
+un valor para y,
+y una zona variable por instancia.
+
+00:01:49.760 --> 00:01:52.160 align:middle
+También podríamos tener otra instancia,
+
+00:01:52.320 --> 00:01:56.000 align:middle
+que también tiene xey,
+con 10 aquí y 20 aquí,
+
+00:01:56.160 --> 00:01:59.080 align:middle
+y, por ejemplo, 100 aquí y 200 aquí,
+
+00:01:59.760 --> 00:02:03.800 align:middle
+con una zona variable
+que puede contener diferentes objetos.
+
+00:02:04.800 --> 00:02:09.600 align:middle
+Entonces, las instancias de una clase
+que puede tener instancias de tamaño variable
+
+00:02:09.800 --> 00:02:15.400 align:middle
+tener una zona indexada que se agrega
+después de las variables nombradas, como x e y.
+
+00:02:15.680 --> 00:02:18.680 align:middle
+Está implícita
+y solo hay una por clase,
+
+00:02:18.880 --> 00:02:22.360 align:middle
+para evitar problemas de implementación
+al expandirlo
+
+00:02:22.520 --> 00:02:25.520 align:middle
+Ahora hemos visto cómo crear clases.
+
+00:02:25.680 --> 00:02:28.240 align:middle
+que tienen diferentes instancias de tamaño.
+
+00:02:28.400 --> 00:02:32.120 align:middle
+Ahora regresaremos
+a cómo podemos instanciarlos
+
+00:02:32.320 --> 00:02:34.960 align:middle
+y cómo acceder a este tamaño variable.
+
+00:02:36.120 --> 00:02:38.480 align:middle
+La forma en que los instalamos
+
+00:02:38.720 --> 00:02:42.880 align:middle
+es usar el mensaje "nuevo:"
+observando el uso del colon.
+
+00:02:43.080 --> 00:02:46.520 align:middle
+Discutimos esto
+en el curso de colecciones.
+
+00:02:46.760 --> 00:02:49.920 align:middle
+Aquí queremos crear
+un objeto de tamaño variable
+
+00:02:50.080 --> 00:02:54.480 align:middle
+El tamaño variable del objeto
+se especifica por su valor "max".
+
+00:02:54.680 --> 00:02:58.280 align:middle
+Entonces, creamos un objeto,
+una matriz con cuatro elementos
+
+00:02:58.880 --> 00:03:01.320 align:middle
+Esto muestra los cuatro elementos.
+
+00:03:01.960 --> 00:03:04.400 align:middle
+¿Cómo accedemos a este tamaño variable?
+
+00:03:04.760 --> 00:03:09.400 align:middle
+Usamos los mensajes en:y en:put :,
+que viste en las matrices.
+
+00:03:09.680 --> 00:03:13.880 align:middle
+Esto funciona para todos los objetos.
+con un tamaño variable.
+
+00:03:14.280 --> 00:03:18.400 align:middle
+Entonces, si escribimos en:2 aquí, agregamos 'lulu'.
+
+00:03:20.480 --> 00:03:25.240 align:middle
+Entonces, si accedemos al valor 1,
+lógicamente devolverá cero.
+
+00:03:25.440 --> 00:03:29.680 align:middle
+Y si miramos el valor 2,
+Nos dará 'lulu'.
+
+00:03:30.080 --> 00:03:33.320 align:middle
+De hecho, se aplica una asignación aquí
+
+00:03:33.520 --> 00:03:38.000 align:middle
+entre matrices y objetos de tamaño variable
+usando en:put:y 'lulu'.
+
+00:03:38.160 --> 00:03:41.440 align:middle
+Este protocolo API funciona para matrices
+
+00:03:42.560 --> 00:03:47.320 align:middle
+y para todos los objetos
+queremos tener un tamaño variable.
+
+00:03:49.680 --> 00:03:52.440 align:middle
+No he explicado mucho aquí,
+
+00:03:52.600 --> 00:03:56.840 align:middle
+solo cómo definir la clase Array
+y extiéndalo a otros objetos,
+
+00:03:57.000 --> 00:03:58.960 align:middle
+ya sabes el protocolo.
+
+00:03:59.840 --> 00:04:03.480 align:middle
+Entonces, en Pharo
+hay objetos o clases,
+
+00:04:03.760 --> 00:04:05.880 align:middle
+que toma diferentes formas.
+
+00:04:06.080 --> 00:04:10.320 align:middle
+Hay clases
+que solo tienen variables de instancia nombradas,
+
+00:04:10.600 --> 00:04:15.160 align:middle
+como clase de contador con conteo
+o clase de dados con el número de lados.
+
+00:04:15.480 --> 00:04:18.880 align:middle
+Luego tenemos clases que solo tienen
+
+00:04:19.200 --> 00:04:22.640 align:middle
+una variable o zona indexada,
+como clase de matriz.
+
+00:04:22.800 --> 00:04:26.240 align:middle
+Luego tenemos otras clases
+que son una mezcla de ambos.
+
+00:04:26.960 --> 00:04:32.000 align:middle
+Sin embargo, hay algunas limitaciones,
+Es más sutil de lo que parece.
+
+00:04:32.160 --> 00:04:35.680 align:middle
+Ahora podemos decidir
+en el tipo de variable de clase.
+
+00:04:35.840 --> 00:04:38.280 align:middle
+Solo te mostraré la intención.
+
+00:04:38.440 --> 00:04:42.400 align:middle
+Este aspecto variable del que hablamos
+
+00:04:43.240 --> 00:04:47.840 align:middle
+pueden simplemente ser punteros de objetos,
+o quizás variables Byte o Word.
+
+00:04:48.440 --> 00:04:51.520 align:middle
+Se usa para interfaz
+con el mundo exterior
+
+00:04:51.680 --> 00:04:54.160 align:middle
+cuando necesitamos especificar un tamaño,
+
+00:04:54.360 --> 00:04:58.840 align:middle
+y dentro de eso ponemos punteros
+a objetos con una forma específica.
+
+00:04:59.240 --> 00:05:03.480 align:middle
+Esta es una función avanzada,
+pero quería mostrártelo.
+
+00:05:03.680 --> 00:05:06.760 align:middle
+Normalmente solo necesitarás
+para usar "subclase".
+
+00:05:06.920 --> 00:05:10.280 align:middle
+A veces usará "variableSubclass"
+
+00:05:10.680 --> 00:05:14.080 align:middle
+y "mapa de bits"
+que representa la pantalla.
+
+00:05:14.280 --> 00:05:17.280 align:middle
+Bitmap es un objeto
+
+00:05:17.840 --> 00:05:20.440 align:middle
+que tiene una zona variable, denominada Palabras.
+
+00:05:21.280 --> 00:05:23.280 align:middle
+Solo para que sepas que existe.
+
+00:05:23.680 --> 00:05:27.600 align:middle
+Como Pharo es un sistema reflexivo,
+
+00:05:27.760 --> 00:05:29.800 align:middle
+podemos hacerle preguntas
+
+00:05:29.960 --> 00:05:33.680 align:middle
+Entonces, usando estos métodos,
+podemos hacer consultas
+
+00:05:33.840 --> 00:05:37.840 align:middle
+Tal como si el tamaño de la clase
+es fijo o variable.
+
+00:05:38.000 --> 00:05:41.560 align:middle
+O si almacena punteros o bytes,
+por ejemplo.
+
+00:05:41.760 --> 00:05:46.160 align:middle
+Tenemos toda la API
+para preguntar sobre el tipo de clase.
+
+00:05:46.400 --> 00:05:50.120 align:middle
+Esta lista fue creada.
+haciendo consultas al sistema.
+
+00:05:51.240 --> 00:05:52.640 align:middle
+Se aplica una restricción.
+
+00:05:53.640 --> 00:05:58.480 align:middle
+Clases que se definen utilizando la subclase
+
+00:05:58.880 --> 00:06:01.080 align:middle
+puede tener cualquier tipo de subclase.
+
+00:06:01.280 --> 00:06:04.040 align:middle
+Si tenemos puntos usando x e y,
+
+00:06:04.280 --> 00:06:07.600 align:middle
+podremos agregar una subclase llamada z
+
+00:06:07.840 --> 00:06:12.440 align:middle
+o una subclase llamada xy,
+más una zona variable.
+
+00:06:14.520 --> 00:06:20.520 align:middle
+Pero si quieres crear una subclase
+de una clase que ya tiene una variable,
+
+00:06:20.720 --> 00:06:25.560 align:middle
+solo puedes usar variables
+desde clases que son variables.
+
+00:06:25.760 --> 00:06:30.680 align:middle
+De lo contrario, el sistema que construye
+Las clases dicen que es incompatible.
+
+00:06:30.840 --> 00:06:35.800 align:middle
+Necesita saber que hay una zona
+para manejar las restricciones.
+
+00:06:36.000 --> 00:06:40.280 align:middle
+En cualquier caso, el sistema le informará
+si es imposible
+
+00:06:41.000 --> 00:06:43.200 align:middle
+Entonces, ¿qué necesitas saber?
+
+00:06:43.440 --> 00:06:46.920 align:middle
+Ahora deberías saber
+como definir clases
+
+00:06:47.080 --> 00:06:50.520 align:middle
+que tienen instancias de tamaños variables
+
+00:06:50.680 --> 00:06:56.520 align:middle
+y cómo instanciarlos usando "new:"
+
+00:06:56.840 --> 00:07:02.320 align:middle
+y cómo acceder a ellos
+utilizando el protocolo visto en las matrices.
+

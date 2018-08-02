@@ -1,0 +1,484 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:01.640 align:middle
+Hola a todos.
+
+00:00:01.800 --> 00:00:04.400 align:middle
+Hoy estamos hablando
+errores frecuentemente realizados
+
+00:00:04.560 --> 00:00:08.360 align:middle
+por desarrolladores de Pharo incluido yo mismo.
+
+00:00:08.520 --> 00:00:12.520 align:middle
+Veremos cómo encontrar y arreglar
+errores comunes más rápido
+
+00:00:13.560 --> 00:00:16.280 align:middle
+Aquí tenemos un poco de código.
+
+00:00:16.440 --> 00:00:20.000 align:middle
+Cuando se ejecuta, se abre un depurador
+
+00:00:21.080 --> 00:00:24.880 align:middle
+y nos dice que el mensaje
+"self" ha sido enviado a un objeto
+
+00:00:25.040 --> 00:00:27.680 align:middle
+y este objeto no
+Entiende el mensaje "yo".
+
+00:00:27.840 --> 00:00:32.400 align:middle
+Podríamos decir que "yo"
+No es un mensaje que se envía con mucha frecuencia,
+
+00:00:32.560 --> 00:00:36.120 align:middle
+así que probablemente haya un error
+en algún lugar del código.
+
+00:00:36.280 --> 00:00:38.680 align:middle
+Echándolo un poco,
+
+00:00:39.840 --> 00:00:41.800 align:middle
+vemos que falta un período,
+
+00:00:42.760 --> 00:00:45.800 align:middle
+y asi la ejecucion
+está sucediendo como si
+
+00:00:45.960 --> 00:00:50.360 align:middle
+"self" fue un mensaje enviado
+como resultado de "DiceHandle new".
+
+00:00:50.520 --> 00:00:53.640 align:middle
+Desde la clase DiceHandle
+no tiene un método de "auto"
+
+00:00:53.800 --> 00:00:56.000 align:middle
+el depurador se abre.
+
+00:00:57.560 --> 00:01:02.240 align:middle
+Entonces, la solución es agregar este período
+Al final de la primera línea.
+
+00:01:03.720 --> 00:01:06.600 align:middle
+Otro problema que a menudo vemos
+
+00:01:06.760 --> 00:01:11.920 align:middle
+son mensajes que no deberían teóricamente
+Se combinan que se combinan.
+
+00:01:12.080 --> 00:01:16.280 align:middle
+Entonces aquí tenemos un error que dice
+que "incluye:ifTrue no existe".
+
+00:01:16.440 --> 00:01:19.400 align:middle
+"Incluye" existe, "ifTrue" existe,
+"Incluye:IfTrue" no lo hace.
+
+00:01:19.560 --> 00:01:21.560 align:middle
+Mirando más de cerca,
+
+00:01:21.880 --> 00:01:24.720 align:middle
+nos damos cuenta de que de hecho
+
+00:01:24.880 --> 00:01:27.240 align:middle
+el mensaje se está enviando
+"Incluye:ifTrue"
+
+00:01:27.720 --> 00:01:32.120 align:middle
+al receptor "x" con 2 parámetros,
+"33" y un bloque,
+
+00:01:32.320 --> 00:01:34.320 align:middle
+y eso no funciona
+
+00:01:34.480 --> 00:01:36.600 align:middle
+Cuando Pharo ve una palabra clave,
+
+00:01:36.760 --> 00:01:39.120 align:middle
+trata de ver
+todas las palabras clave subsiguientes.
+
+00:01:39.280 --> 00:01:41.880 align:middle
+Se los lleva a todos
+y lo considera como un mensaje.
+
+00:01:42.040 --> 00:01:44.160 align:middle
+Entonces, ¿qué falta aquí?
+
+00:01:44.320 --> 00:01:45.920 align:middle
+es un par de paréntesis para decir
+
+00:01:46.080 --> 00:01:49.480 align:middle
+que se envía el mensaje "ifTrue"
+Como resultado de "x incluye:33".
+
+00:01:50.520 --> 00:01:54.440 align:middle
+Del mismo modo,
+"afirmar:incluye no existe",
+
+00:01:54.600 --> 00:01:57.760 align:middle
+lo que queríamos hacer era
+"afirmar en el resultado de includes",
+
+00:01:57.920 --> 00:02:01.440 align:middle
+entonces faltan paréntesis aquí.
+
+00:02:02.040 --> 00:02:05.680 align:middle
+No dudes en poner paréntesis
+cuando tengas
+
+00:02:05.880 --> 00:02:09.280 align:middle
+múltiples mensajes de palabras clave
+en la misma expresión,
+
+00:02:09.440 --> 00:02:13.200 align:middle
+para delimitarlos, porque Pharo
+intentará agrupar palabras clave juntas
+
+00:02:13.360 --> 00:02:16.160 align:middle
+y considérelo como un mensaje.
+
+00:02:16.400 --> 00:02:18.600 align:middle
+En este ejemplo,
+
+00:02:19.080 --> 00:02:23.320 align:middle
+queremos tener una colección
+de números en números,
+
+00:02:23.480 --> 00:02:27.720 align:middle
+y por el momento,
+solo hay un número allí, 35.
+
+00:02:27.880 --> 00:02:33.000 align:middle
+Sin embargo, si vemos lo que está en números,
+No es una colección, es el número.
+
+00:02:33.160 --> 00:02:35.840 align:middle
+Es el número 35, así que hay un problema.
+
+00:02:37.200 --> 00:02:41.240 align:middle
+De la misma manera, en este código,
+
+00:02:41.400 --> 00:02:45.120 align:middle
+si envío el mensaje "nuevo"
+a la clase de dados
+
+00:02:45.280 --> 00:02:47.400 align:middle
+Obtengo el numero 6
+
+00:02:47.600 --> 00:02:49.200 align:middle
+en lugar de un dado de 6 caras.
+
+00:02:49.600 --> 00:02:52.200 align:middle
+Es el mismo problema en ambos ejemplos.
+
+00:02:52.360 --> 00:02:54.360 align:middle
+Si miramos más de cerca,
+
+00:02:54.520 --> 00:02:57.880 align:middle
+agregando "usted mismo" después de "agregar"
+
+00:02:58.040 --> 00:02:59.520 align:middle
+corregirá el problema ¿Por qué?
+
+00:02:59.720 --> 00:03:02.280 align:middle
+Porque "agregar" devuelve su configuración.
+
+00:03:03.000 --> 00:03:05.560 align:middle
+Entonces "OrderedCollection new add:35"
+
+00:03:05.720 --> 00:03:07.920 align:middle
+regresa 35
+
+00:03:08.080 --> 00:03:12.000 align:middle
+Si agregamos la cadena a "usted mismo"
+estamos seguros de recibir al receptor al final
+
+00:03:12.160 --> 00:03:14.200 align:middle
+y los números serán
+una colección de números
+
+00:03:14.840 --> 00:03:15.960 align:middle
+Entonces la solución aquí
+
+00:03:16.160 --> 00:03:20.640 align:middle
+es agregar "tu mismo"
+Al final de cada mensaje.
+
+00:03:21.560 --> 00:03:22.680 align:middle
+Aquí hay otro problema.
+
+00:03:22.880 --> 00:03:26.000 align:middle
+Aquí tenemos una clase de libro
+en el método "Pedir prestado".
+
+00:03:26.160 --> 00:03:29.200 align:middle
+Cuando lo ejecutamos, recibimos el mensaje
+
+00:03:29.360 --> 00:03:32.040 align:middle
+que "nada entiende si falla".
+
+00:03:32.200 --> 00:03:35.960 align:middle
+Entonces enviamos el mensaje
+"ifFalse" aquí a cero.
+
+00:03:36.120 --> 00:03:38.440 align:middle
+Qué significa eso?
+Significa que en la biblioteca
+
+00:03:38.600 --> 00:03:41.360 align:middle
+al valor cero, que tiene
+el valor predeterminado de todas las variables,
+
+00:03:41.520 --> 00:03:46.360 align:middle
+podemos decir que probablemente
+"inLibrary" nunca se ha inicializado.
+
+00:03:46.520 --> 00:03:51.440 align:middle
+Tenemos que poner un valor predeterminado
+en esa variable
+
+00:03:51.600 --> 00:03:53.960 align:middle
+Es bastante fácil de corregir
+
+00:03:54.120 --> 00:03:56.240 align:middle
+Al agregar el método "inicializar",
+
+00:03:56.400 --> 00:04:01.880 align:middle
+que desde la creación de cada uno
+instancia de la clase Libro
+
+00:04:02.040 --> 00:04:04.480 align:middle
+pondrá el valor "Verdadero"
+
+00:04:04.640 --> 00:04:07.280 align:middle
+en la variable de instancia en la biblioteca.
+
+00:04:07.640 --> 00:04:09.680 align:middle
+Excepto que si ejecutamos este código ahora,
+
+00:04:09.880 --> 00:04:12.280 align:middle
+obtendremos otro mensaje de error,
+
+00:04:12.440 --> 00:04:16.800 align:middle
+"Clase verdadera
+no entiende si falso ".
+
+00:04:17.520 --> 00:04:21.200 align:middle
+¿De donde viene esto?
+Es porque, lo que ponemos aquí,
+
+00:04:21.360 --> 00:04:23.040 align:middle
+es una clase
+
+00:04:23.200 --> 00:04:25.400 align:middle
+No es un booleano, es una clase.
+
+00:04:26.040 --> 00:04:29.360 align:middle
+El booleano es "verdadero" con una pequeña "t".
+
+00:04:30.480 --> 00:04:34.880 align:middle
+Las clases generalmente tienen una letra mayúscula,
+
+00:04:35.040 --> 00:04:37.280 align:middle
+así que "Verdadero" con un capital es una clase,
+
+00:04:37.440 --> 00:04:41.240 align:middle
+y "verdadero" con una pequeña "t"
+es la instancia única de la clase True.
+
+00:04:42.000 --> 00:04:43.920 align:middle
+Aquí hay otro problema.
+
+00:04:44.240 --> 00:04:46.840 align:middle
+En el método "roll"
+en la clase de dados que esperamos,
+
+00:04:47.000 --> 00:04:49.760 align:middle
+cuando rodamos un dado, para obtener un número
+
+00:04:49.920 --> 00:04:52.520 align:middle
+entre 1 y el número
+de caras en el dado,
+
+00:04:52.680 --> 00:04:56.280 align:middle
+excepto que aquí,
+cuando rodamos el dado obtenemos un dado
+
+00:04:56.440 --> 00:05:00.200 align:middle
+y no la cara en la que aterrizamos.
+
+00:05:01.200 --> 00:05:05.520 align:middle
+El método que acabo de mostrar
+es equivalente al método a continuación.
+
+00:05:05.800 --> 00:05:10.760 align:middle
+Esto significa que, por defecto, un método
+que devuelve nada devuelve "yo".
+
+00:05:11.680 --> 00:05:15.680 align:middle
+Esto significa nuestro método de "rollo"
+cuando se ejecuta, devuelve el dado
+
+00:05:15.840 --> 00:05:18.360 align:middle
+y no el resultado de enviar "roll" ...
+
+00:05:20.040 --> 00:05:24.120 align:middle
+No es el resultado de enviar "atRandom"
+a la colección "caras"
+
+00:05:24.920 --> 00:05:27.360 align:middle
+Entonces el mismo problema
+en un ejemplo un poco diferente.
+
+00:05:27.800 --> 00:05:31.200 align:middle
+Aquí, estamos creando un nuevo método,
+
+00:05:31.360 --> 00:05:33.400 align:middle
+en la clase de dados,
+
+00:05:33.560 --> 00:05:35.080 align:middle
+por lo que en la clase de dados,
+
+00:05:35.240 --> 00:05:39.400 align:middle
+queremos hacer un nuevo método
+para crear instancias en la clase Dados,
+
+00:05:39.560 --> 00:05:43.120 align:middle
+que inicializa por defecto
+El número de caras en cero.
+
+00:05:44.120 --> 00:05:46.880 align:middle
+Si enviamos el mensaje "nuevo"
+a la clase de dados,
+
+00:05:47.040 --> 00:05:49.480 align:middle
+lo que obtendremos es la clase de dados en sí
+
+00:05:49.640 --> 00:05:52.120 align:middle
+en lugar de una nueva instancia
+de la clase de dados.
+
+00:05:53.040 --> 00:05:54.080 align:middle
+Entonces, en ambos casos,
+
+00:05:54.280 --> 00:05:56.760 align:middle
+el hecho de que no hay retorno
+en "self return"
+
+00:05:56.920 --> 00:06:01.240 align:middle
+y "self" por defecto es el receptor,
+en el caso de un método de clase
+
+00:06:01.400 --> 00:06:02.760 align:middle
+"yo" es la clase.
+
+00:06:03.200 --> 00:06:04.920 align:middle
+Para corregir estos 2 problemas,
+
+00:06:05.560 --> 00:06:09.520 align:middle
+solo tenemos que agregar el cursor ^
+para volver a un valor específico.
+
+00:06:11.200 --> 00:06:12.160 align:middle
+Problema siguiente
+
+00:06:12.600 --> 00:06:15.480 align:middle
+si este código se ejecuta,
+
+00:06:15.640 --> 00:06:20.520 align:middle
+el sistema parece estar congelado
+y no pasa nada más
+
+00:06:20.680 --> 00:06:23.360 align:middle
+Es imposible interactuar con Pharo.
+
+00:06:23.960 --> 00:06:25.120 align:middle
+¿Qué causa este problema?
+
+00:06:25.440 --> 00:06:29.000 align:middle
+Viene del hecho de que
+estamos implementando un nuevo método
+
+00:06:29.160 --> 00:06:31.920 align:middle
+en la clase de dados
+
+00:06:33.200 --> 00:06:36.280 align:middle
+"Sí" es dados
+
+00:06:36.440 --> 00:06:40.960 align:middle
+y así "auto nuevo"
+se llamará recursivamente.
+
+00:06:41.320 --> 00:06:42.680 align:middle
+La intención aquí
+
+00:06:43.280 --> 00:06:46.640 align:middle
+es usar la creación
+de instancia por defecto
+
+00:06:46.800 --> 00:06:48.560 align:middle
+definido en la superclase Dados,
+
+00:06:48.720 --> 00:06:51.400 align:middle
+y luego agregar cosas
+en relación a eso
+
+00:06:51.560 --> 00:06:53.920 align:middle
+Al escribir así,
+tenemos un bucle infinito,
+
+00:06:54.640 --> 00:06:57.680 align:middle
+entonces tenemos que reemplazar
+"self" con "super"
+
+00:06:57.840 --> 00:07:01.720 align:middle
+para solicitar la implementación
+de la superclase
+
+00:07:03.000 --> 00:07:04.880 align:middle
+Lo que deberías saber,
+
+00:07:06.520 --> 00:07:08.360 align:middle
+todos cometemos muchos errores.
+
+00:07:08.520 --> 00:07:11.600 align:middle
+Los que te he mostrado
+se hacen con mucha frecuencia
+
+00:07:11.760 --> 00:07:13.800 align:middle
+por todos los desarrolladores de Pharo,
+
+00:07:13.960 --> 00:07:17.880 align:middle
+así que hay cosas que encontramos
+muy frecuentemente:
+
+00:07:18.040 --> 00:07:20.360 align:middle
+Períodos faltantes
+
+00:07:20.520 --> 00:07:22.240 align:middle
+paréntesis,
+
+00:07:22.400 --> 00:07:24.480 align:middle
+carets faltantes ^,
+
+00:07:24.640 --> 00:07:26.160 align:middle
+y usted mismo".
+
+00:07:26.840 --> 00:07:29.800 align:middle
+Intenta usar el depurador
+todo lo que puedas para encontrar
+
+00:07:30.000 --> 00:07:33.280 align:middle
+La raíz de los problemas.
+Realmente te ayudará.
+
+00:07:33.440 --> 00:07:36.040 align:middle
+No lo cierre tan pronto como se abra.
+
+00:07:36.200 --> 00:07:39.520 align:middle
+Te vas a perder
+en una forma de solucionar problemas.
+

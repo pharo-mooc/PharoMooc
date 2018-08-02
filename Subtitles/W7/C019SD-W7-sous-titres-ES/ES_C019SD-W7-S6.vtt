@@ -1,0 +1,508 @@
+WEBVTT
+
+00:00:00.560 --> 00:00:04.040 align:middle
+Este curso explora
+Otra característica avanzada.
+
+00:00:04.200 --> 00:00:07.080 align:middle
+Quiero mostrarte cómo podemos transformar
+
+00:00:07.280 --> 00:00:10.560 align:middle
+la pila de ejecución en un objeto,
+Bajo demanda.
+
+00:00:11.200 --> 00:00:15.600 align:middle
+El objetivo es darte herramientas intuitivas.
+sin entrar en detalles.
+
+00:00:17.080 --> 00:00:19.840 align:middle
+Podemos manipular
+y navega por la pila,
+
+00:00:20.040 --> 00:00:23.160 align:middle
+y lo modifico,
+pero nos centraremos en navegar.
+
+00:00:23.600 --> 00:00:28.400 align:middle
+Hay dos capítulos
+Puedes leer sobre este tema.
+
+00:00:28.640 --> 00:00:31.640 align:middle
+Son los capítulos en bloques
+
+00:00:31.840 --> 00:00:35.080 align:middle
+y excepciones
+en el libro <i> Deep into Pharo </ i>.
+
+00:00:35.280 --> 00:00:39.280 align:middle
+Vale la pena leer
+ya que dan explicaciones claras.
+
+00:00:39.520 --> 00:00:43.400 align:middle
+En Pharo, la clase de contexto
+también representa la pila.
+
+00:00:44.600 --> 00:00:45.600 align:middle
+Asi que,
+
+00:00:46.280 --> 00:00:50.160 align:middle
+usaremos un escenario
+eso ya está en tu depurador.
+
+00:00:50.400 --> 00:00:55.000 align:middle
+Aquí, no se encuentra un mensaje que envió.
+porque no lo definiste,
+
+00:00:55.200 --> 00:00:57.520 align:middle
+mientras ejecuta una prueba unitaria.
+
+00:00:57.840 --> 00:01:02.720 align:middle
+En el depurador, respondes
+que desea crear un método.
+
+00:01:02.920 --> 00:01:06.040 align:middle
+Lo compila y lo instala
+en la clase.
+
+00:01:06.200 --> 00:01:07.920 align:middle
+Luego lo vuelve a ejecutar.
+
+00:01:08.080 --> 00:01:12.560 align:middle
+Este método genera una excepción.
+¡ya que el sistema no es mágico!
+
+00:01:12.720 --> 00:01:16.200 align:middle
+Te envía
+el mensaje shouldBeImplemented
+
+00:01:16.360 --> 00:01:19.440 align:middle
+diciéndote que edites
+el método en el depurador.
+
+00:01:19.640 --> 00:01:21.440 align:middle
+Usted implementa el método,
+
+00:01:21.840 --> 00:01:26.000 align:middle
+usted vuelve a compilar el método en el lugar,
+luego seleccione "continuar"
+
+00:01:26.600 --> 00:01:28.080 align:middle
+para reanudar el programa
+
+00:01:28.920 --> 00:01:32.360 align:middle
+Hay dos puntos clave
+en este escenario.
+
+00:01:32.920 --> 00:01:36.280 align:middle
+En primer lugar, recompilamos
+El método sobre la marcha.
+
+00:01:36.640 --> 00:01:40.080 align:middle
+Varias veces,
+pero ese es el trabajo del compilador.
+
+00:01:40.920 --> 00:01:44.920 align:middle
+En segundo lugar, y lo más importante,
+modificamos la pila de ejecución
+
+00:01:45.080 --> 00:01:48.840 align:middle
+para inyectar nuevos trozos de pila,
+
+00:01:49.040 --> 00:01:53.200 align:middle
+que nos permiten continuar el programa
+después de un error
+
+00:01:53.440 --> 00:01:58.600 align:middle
+No es solo una cuestión de reificación
+la pila o convertirla en un objeto.
+
+00:01:58.760 --> 00:02:03.640 align:middle
+No es solo un ejercicio formal,
+puede mejorar la experiencia del usuario
+
+00:02:03.920 --> 00:02:05.560 align:middle
+y crear nuevas herramientas.
+
+00:02:05.720 --> 00:02:10.640 align:middle
+También se usa en Seaside
+para utilizar aplicaciones web.
+
+00:02:11.080 --> 00:02:15.720 align:middle
+Pharo generalmente tiene una pila C,
+la propia pila de la máquina virtual.
+
+00:02:16.040 --> 00:02:19.360 align:middle
+Bajo demanda, podemos convertir esto
+en un objeto vivo.
+
+00:02:19.520 --> 00:02:25.440 align:middle
+Lo que es interesante es que podemos
+Navega y modifica este objeto.
+
+00:02:25.760 --> 00:02:30.200 align:middle
+Al modificar, quiero decir que
+cuando cambiamos este objeto Pharo,
+
+00:02:30.400 --> 00:02:34.400 align:middle
+cambiará la pila C implícita,
+por lo que es muy poderoso
+
+00:02:35.800 --> 00:02:41.280 align:middle
+También es compatible con todas las excepciones,
+así que recomiendo leer esos capítulos.
+
+00:02:41.560 --> 00:02:44.080 align:middle
+Navegamos por las excepciones
+
+00:02:44.440 --> 00:02:47.920 align:middle
+para buscar capturas de bloques,
+
+00:02:49.920 --> 00:02:51.800 align:middle
+conocidos como manipuladores de excepciones.
+
+00:02:52.000 --> 00:02:57.200 align:middle
+Además, esta habilidad
+transformar la pila en un objeto
+
+00:02:57.400 --> 00:02:59.840 align:middle
+nos permite crear continuaciones
+
+00:03:00.040 --> 00:03:04.400 align:middle
+y servidores web, como por ejemplo
+Idiomas funcionales como Scheme.
+
+00:03:05.320 --> 00:03:09.080 align:middle
+Para explicar cómo funciona esto,
+podemos ver la variable
+
+00:03:09.200 --> 00:03:13.640 align:middle
+llamado thisContext,
+una de las tres pseudovariables de Pharo.
+
+00:03:14.160 --> 00:03:17.360 align:middle
+Estos son self, super y thisContext.
+
+00:03:17.920 --> 00:03:22.600 align:middle
+Cuando pides el valor de esteContext,
+Devuelve la pila de ejecución.
+
+00:03:22.920 --> 00:03:27.400 align:middle
+Eso es lo que ves
+cuando abres el depurador.
+
+00:03:27.640 --> 00:03:31.840 align:middle
+Se muestra la pila de ejecución,
+basado en esteContext.
+
+00:03:32.200 --> 00:03:36.280 align:middle
+Como ejercicio, puede definir un método
+
+00:03:36.400 --> 00:03:39.360 align:middle
+en el que inserta "detener".
+
+00:03:39.520 --> 00:03:44.400 align:middle
+El depurador aparecerá,
+pero también puede escribir "thisContext"
+
+00:03:45.440 --> 00:03:50.040 align:middle
+y un inspector abrirá
+en la pila de ejecución en sí.
+
+00:03:50.600 --> 00:03:53.800 align:middle
+Ahora les mostraré dos ejemplos
+
+00:03:53.920 --> 00:03:56.400 align:middle
+de cómo usamos esteContext.
+
+00:03:56.680 --> 00:04:02.360 align:middle
+El primero es la desaprobación,
+Se usa cuando queremos cambiar la API.
+
+00:04:02.640 --> 00:04:08.560 align:middle
+Como programador, editamos el método
+y use el mensaje "obsoleto"
+
+00:04:08.720 --> 00:04:13.640 align:middle
+con "en" y "en", como expliqué
+en el curso de las excepciones.
+
+00:04:14.680 --> 00:04:19.760 align:middle
+Aquí queremos expresar
+el mensaje "Usar barra".
+
+00:04:20.080 --> 00:04:23.840 align:middle
+¿Y qué mostrará la desaprobación?
+
+00:04:24.000 --> 00:04:26.840 align:middle
+Se mostrará al usuario el mensaje
+
+00:04:27.040 --> 00:04:30.200 align:middle
+"Mensaje foo está en desuso en Pharo".
+
+00:04:30.360 --> 00:04:33.920 align:middle
+Es importante tener en cuenta que, como usuario,
+
+00:04:34.200 --> 00:04:36.600 align:middle
+No declaré el método utilizado,
+
+00:04:36.840 --> 00:04:40.920 align:middle
+pero el sistema identificó a foo
+como el método que llama.
+
+00:04:42.080 --> 00:04:46.640 align:middle
+Como puede ver, no usamos foo
+en los argumentos de desaprobado
+
+00:04:47.320 --> 00:04:48.920 align:middle
+o en el método de llamada.
+
+00:04:49.080 --> 00:04:51.840 align:middle
+Entonces, ¿cómo se implementa esto?
+
+00:04:52.600 --> 00:04:54.280 align:middle
+El mensaje "en desuso"
+
+00:04:55.920 --> 00:04:58.040 align:middle
+es una excepción, "Deprecación".
+
+00:04:58.200 --> 00:05:03.160 align:middle
+El sistema toma los argumentos,
+anExplanationString, y así sucesivamente,
+
+00:05:03.320 --> 00:05:07.800 align:middle
+y agrega la expresión
+"Método de remitente de thisContext".
+
+00:05:08.160 --> 00:05:13.920 align:middle
+ThisContext es la pila en el momento
+de ejecución del método en desuso.
+
+00:05:15.720 --> 00:05:19.320 align:middle
+Ahora, usando el emisor
+podemos acceder al método que llama.
+
+00:05:20.000 --> 00:05:23.200 align:middle
+Eso nos dará foo,
+que fue nuestro ejemplo
+
+00:05:23.600 --> 00:05:25.560 align:middle
+Luego le pedimos el método.
+
+00:05:25.720 --> 00:05:29.800 align:middle
+Método de envío de esteContext
+devuelve el método compilado,
+
+00:05:29.920 --> 00:05:31.640 align:middle
+que es un objeto,
+
+00:05:31.800 --> 00:05:35.080 align:middle
+llamado A >> foo.
+
+00:05:35.280 --> 00:05:39.720 align:middle
+Entonces, la excepción usa lo que necesita.
+para poder extraer
+
+00:05:39.920 --> 00:05:43.840 align:middle
+el selector de metodos
+y cree un mensaje más claro.
+
+00:05:44.280 --> 00:05:49.600 align:middle
+Se usa para hacer mensajes
+más fácil para que los usuarios entiendan,
+
+00:05:49.800 --> 00:05:54.040 align:middle
+sin forzar al programador
+para codificar en profundidad la fuente del mensaje.
+
+00:05:54.320 --> 00:05:59.040 align:middle
+Ahora te voy a mostrar
+otra función muy poderosa.
+
+00:06:01.640 --> 00:06:05.280 align:middle
+Frecuentemente cuando se depura,
+queremos insertar un punto de interrupción
+
+00:06:05.400 --> 00:06:08.760 align:middle
+en un método que es muy usado.
+
+00:06:09.360 --> 00:06:13.320 align:middle
+Es posible que simplemente desee depurar
+tu versión del programa
+
+00:06:13.440 --> 00:06:15.720 align:middle
+sin detener todo el sistema.
+
+00:06:15.920 --> 00:06:21.040 align:middle
+Condiciones como "detener una vez"
+interrumpirá el sistema una vez,
+
+00:06:21.200 --> 00:06:25.680 align:middle
+pero lo que quieres
+es detener la ejecución solo si el método
+
+00:06:25.920 --> 00:06:29.000 align:middle
+ha sido llamado por otro método.
+
+00:06:29.640 --> 00:06:32.840 align:middle
+¿Cómo lo expresa un programador?
+
+00:06:33.040 --> 00:06:37.400 align:middle
+Expresamos que solo queremos detener
+si foo ha sido llamado
+
+00:06:37.600 --> 00:06:40.520 align:middle
+por el método testSetInitialized.
+
+00:06:41.520 --> 00:06:44.280 align:middle
+¿Cómo implementamos esto?
+
+00:06:44.440 --> 00:06:47.200 align:middle
+Por lo general, este método no debe detenerse.
+
+00:06:47.760 --> 00:06:52.760 align:middle
+Puedes abrir el código en Pharo
+para ver cómo se implementa.
+
+00:06:52.920 --> 00:06:54.840 align:middle
+Entonces, detener lanza una excepción.
+
+00:06:55.400 --> 00:06:57.640 align:middle
+mostrando el mensaje "Si:".
+
+00:06:57.840 --> 00:07:00.160 align:middle
+Tenemos varias opciones de argumento.
+
+00:07:00.320 --> 00:07:05.080 align:middle
+En un caso que involucra un símbolo,
+Planteamos una consulta para confirmar que es verdad.
+
+00:07:05.320 --> 00:07:10.200 align:middle
+Miramos para ver si la cadena de llamadas
+contiene el simbolo
+
+00:07:10.400 --> 00:07:11.400 align:middle
+Vamos a revisar.
+
+00:07:12.360 --> 00:07:15.360 align:middle
+Veamos el método que surge.
+
+00:07:16.000 --> 00:07:19.800 align:middle
+Supongamos que tenemos una prueba
+que se llama
+
+00:07:20.840 --> 00:07:22.200 align:middle
+testSetInicializado
+
+00:07:23.800 --> 00:07:25.280 align:middle
+Es una discusión aquí.
+
+00:07:26.200 --> 00:07:31.400 align:middle
+Primero, el método recuperará
+la pila de ejecución o el contexto,
+
+00:07:32.720 --> 00:07:35.560 align:middle
+que es sinónimo de pila de ejecución.
+
+00:07:35.760 --> 00:07:41.080 align:middle
+Entonces usamos Context para acceder a la pila,
+luego agregamos whileFalse.
+
+00:07:41.200 --> 00:07:44.920 align:middle
+Tenga en cuenta que no estamos en la parte superior
+de la pila de ejecución,
+
+00:07:45.160 --> 00:07:48.080 align:middle
+donde no hay remitente invocándonos.
+
+00:07:48.440 --> 00:07:52.280 align:middle
+En la parte superior de la pila,
+el remitente es nulo
+
+00:07:52.600 --> 00:07:56.160 align:middle
+En un caso donde el remitente no es nulo,
+
+00:07:56.520 --> 00:07:59.400 align:middle
+nos movemos entre secciones de la pila.
+
+00:07:59.560 --> 00:08:02.920 align:middle
+Podemos imaginar
+las áreas de pila como esta,
+
+00:08:03.200 --> 00:08:06.040 align:middle
+y viajamos hacia arriba usando el remitente,
+
+00:08:06.840 --> 00:08:07.920 align:middle
+cada vez.
+
+00:08:09.080 --> 00:08:12.080 align:middle
+Ahora tenemos que ver si el selector ...
+
+00:08:12.200 --> 00:08:15.520 align:middle
+En algún lugar de esta área,
+deberíamos ver la prueba
+
+00:08:16.680 --> 00:08:18.320 align:middle
+haciendo la pregunta
+
+00:08:18.840 --> 00:08:23.080 align:middle
+si el símbolo de la llamada de esta pila
+Partidas en las que pretendemos detenernos.
+
+00:08:23.200 --> 00:08:26.400 align:middle
+Le preguntamos si nos han llamado
+por prueba conjunto.
+
+00:08:26.640 --> 00:08:31.200 align:middle
+Si es así, paramos y marcamos una señal
+porque la clase es una excepción.
+
+00:08:32.000 --> 00:08:36.320 align:middle
+Es importante entender
+que esto es difícil de implementar
+
+00:08:36.440 --> 00:08:39.760 align:middle
+en un idioma
+eso no significa la pila.
+
+00:08:40.080 --> 00:08:44.640 align:middle
+Aquí lo ves en cinco líneas,
+incluso si parece difícil de entender.
+
+00:08:44.840 --> 00:08:49.560 align:middle
+Es compacto y potente,
+y solo es posible a través de la reificación.
+
+00:08:50.160 --> 00:08:55.640 align:middle
+ThisContext raramente se usa
+ya que es una función avanzada.
+
+00:08:55.920 --> 00:08:59.160 align:middle
+Pero es muy importante
+para nuevas innovaciones,
+
+00:08:59.320 --> 00:09:02.080 align:middle
+tales como herramientas, como lo demuestran estas pruebas,
+
+00:09:02.840 --> 00:09:05.560 align:middle
+que son facilitados por este idioma.
+
+00:09:05.720 --> 00:09:09.080 align:middle
+También se usa
+para representar continuaciones
+
+00:09:09.400 --> 00:09:12.600 align:middle
+El creador de Seaside lo usó
+en el antepasado de Pharo
+
+00:09:12.760 --> 00:09:16.280 align:middle
+manipular la pila
+para representar continuaciones
+
+00:09:16.400 --> 00:09:21.840 align:middle
+Esta es la base de la llamada y respuesta
+mecanismo en el mar.
+
+00:09:22.280 --> 00:09:27.280 align:middle
+Aquí tienes una función avanzada
+de Pharo para jugar.
+

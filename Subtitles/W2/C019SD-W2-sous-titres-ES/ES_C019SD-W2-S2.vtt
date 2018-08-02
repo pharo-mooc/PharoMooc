@@ -1,0 +1,513 @@
+WEBVTT
+
+00:00:00.440 --> 00:00:01.520 align:middle
+Hola a todos.
+
+00:00:01.680 --> 00:00:06.040 align:middle
+En esta clase, ilustraré Pharo
+
+00:00:06.200 --> 00:00:11.880 align:middle
+comparándolo con
+otro lenguaje OOP, Java.
+
+00:00:12.520 --> 00:00:16.040 align:middle
+En Pharo, solo manipula objetos.
+
+00:00:16.200 --> 00:00:20.200 align:middle
+Hace cosas
+gracias a los mensajes solamente
+
+00:00:20.360 --> 00:00:22.640 align:middle
+y al asignar valores a las variables.
+
+00:00:23.280 --> 00:00:27.440 align:middle
+Las siguientes diapositivas mostrarán algunas
+equivalencias entre Java y Pharo
+
+00:00:27.600 --> 00:00:30.720 align:middle
+para entender sus diferencias
+y similitudes.
+
+00:00:30.880 --> 00:00:32.360 align:middle
+Por ahí,
+
+00:00:33.080 --> 00:00:35.840 align:middle
+Java se usa para crear una nueva colección
+
+00:00:36.000 --> 00:00:38.840 align:middle
+que contiene cadenas.
+
+00:00:39.000 --> 00:00:43.560 align:middle
+Esta colección es asociada
+a variables llamadas cadenas.
+
+00:00:44.920 --> 00:00:46.560 align:middle
+En Pharo, es lo mismo.
+
+00:00:46.720 --> 00:00:49.240 align:middle
+La clase que maneja colecciones
+
+00:00:49.400 --> 00:00:52.120 align:middle
+se llama OrderedCollection,
+no ArrayList,
+
+00:00:52.280 --> 00:00:54.240 align:middle
+pero el comportamiento es el mismo.
+
+00:00:54.400 --> 00:00:56.640 align:middle
+Tiene que ser consciente de varias cosas:
+
+00:00:57.560 --> 00:01:02.960 align:middle
+primero, en Pharo,
+new es un mensaje enviado a una clase.
+
+00:01:03.120 --> 00:01:06.280 align:middle
+Se envía el mensaje new
+a la clase OrderedCollection
+
+00:01:06.440 --> 00:01:09.000 align:middle
+para crear una nueva instancia
+de la colección
+
+00:01:09.160 --> 00:01:11.440 align:middle
+En Java, new viene primero.
+
+00:01:11.600 --> 00:01:14.320 align:middle
+Esta colección sintáctica es específica
+
+00:01:15.280 --> 00:01:18.360 align:middle
+para la creacion de instancias en Java,
+
+00:01:18.520 --> 00:01:21.640 align:middle
+mientras que en Pharo
+es un envío de mensaje estándar.
+
+00:01:22.920 --> 00:01:26.960 align:middle
+No hay tipos estáticos en Pharo.
+
+00:01:27.120 --> 00:01:31.840 align:middle
+Muchas cosas que se necesitan en Java
+No se usan en Pharo.
+
+00:01:32.000 --> 00:01:36.280 align:middle
+No necesita especificar
+que la colección contiene cadenas.
+
+00:01:36.440 --> 00:01:40.360 align:middle
+Y las cadenas no son una colección.
+
+00:01:41.120 --> 00:01:46.480 align:middle
+Hay otra equivalencia cuando
+se trata de crear un proceso secundario.
+
+00:01:47.080 --> 00:01:50.960 align:middle
+Nos gustaría ejecutar este segmento de código
+
+00:01:51.120 --> 00:01:52.720 align:middle
+en otro proceso
+
+00:01:52.880 --> 00:01:56.000 align:middle
+En Java, debe crear
+
+00:01:56.160 --> 00:01:59.400 align:middle
+una nueva instancia de la clase Thread
+
+00:01:59.560 --> 00:02:01.920 align:middle
+dándole Runnable como un parámetro.
+
+00:02:02.760 --> 00:02:04.680 align:middle
+Escribe new Runnable().
+
+00:02:04.840 --> 00:02:09.960 align:middle
+Runnable es una clase abstracta,
+tienes que definir el método que falta.
+
+00:02:10.800 --> 00:02:13.160 align:middle
+Este método se llama run.
+
+00:02:13.320 --> 00:02:17.440 align:middle
+Contiene el codigo
+desea ejecutar en un proceso secundario:
+
+00:02:17.600 --> 00:02:19.640 align:middle
+this.doSomething().
+
+00:02:20.960 --> 00:02:25.520 align:middle
+El método doSomething
+pertenece a la misma clase
+
+00:02:25.680 --> 00:02:27.680 align:middle
+como aquel donde se encuentra el código.
+
+00:02:28.400 --> 00:02:31.520 align:middle
+En Pharo, la sintaxis es mucho más simple.
+
+00:02:32.680 --> 00:02:37.720 align:middle
+Lo que es equivalente a toda esa parte
+es esta parte
+
+00:02:39.160 --> 00:02:41.440 align:middle
+En el final,
+
+00:02:42.360 --> 00:02:46.880 align:middle
+este inicio ayuda a lanzar
+el proceso hijo
+
+00:02:47.040 --> 00:02:50.680 align:middle
+Puedes hacerlo gracias a "fork",
+
+00:02:50.840 --> 00:02:53.440 align:middle
+un mensaje que se envía al bloque.
+
+00:02:54.320 --> 00:02:58.760 align:middle
+Desde Java 8,
+la última versión de Java
+
+00:02:58.920 --> 00:03:02.080 align:middle
+La sintaxis de Java ha mejorado mucho.
+
+00:03:02.240 --> 00:03:05.480 align:middle
+Como puede ver,
+el código en Java es mucho más claro.
+
+00:03:06.280 --> 00:03:10.200 align:middle
+El equivalente de este bloque
+
+00:03:10.360 --> 00:03:14.280 align:middle
+es el cierre léxico ubicado aquí.
+
+00:03:15.200 --> 00:03:19.080 align:middle
+El resto es el mismo
+que en la diapositiva anterior.
+
+00:03:19.240 --> 00:03:22.080 align:middle
+En Pharo,
+hay tres tipos de mensajes:
+
+00:03:22.240 --> 00:03:23.760 align:middle
+mensajes unarios,
+
+00:03:23.920 --> 00:03:27.840 align:middle
+que son mensajes sin argumentos
+aplicado a un receptor,
+
+00:03:28.000 --> 00:03:32.040 align:middle
+como el método factorial
+que ya los estudiamos,
+
+00:03:32.800 --> 00:03:35.880 align:middle
+o como el método cr
+
+00:03:36.040 --> 00:03:40.160 align:middle
+que muestra una línea vacía
+en la consola.
+
+00:03:41.120 --> 00:03:45.400 align:middle
+Los mensajes binarios
+se aplican a un receptor
+
+00:03:45.560 --> 00:03:48.240 align:middle
+y toman un valor como argumento.
+
+00:03:48.400 --> 00:03:51.600 align:middle
+Por ejemplo, los operadores
+
+00:03:51.760 --> 00:03:54.320 align:middle
+tales como + que agrega tres y cuatro.
+
+00:03:54.480 --> 00:03:58.560 align:middle
+-> se usa para crear un par
+con una clave y un valor
+
+00:03:58.720 --> 00:04:02.560 align:middle
+5->10 crea el par 5 10.
+
+00:04:04.200 --> 00:04:06.840 align:middle
+El tercer tipo de mensajes
+está basado en palabras clave.
+
+00:04:07.000 --> 00:04:10.520 align:middle
+Pueden tomar uno, dos, tres,
+o más parámetros.
+
+00:04:11.160 --> 00:04:13.320 align:middle
+Están separados por dos puntos.
+
+00:04:14.600 --> 00:04:18.920 align:middle
+Aquí se muestra el mensaje de palabra clave show:
+Se envía al objeto Transcript.
+
+00:04:19.080 --> 00:04:22.240 align:middle
+y toma la cadena en la consola
+como un parámetro
+
+00:04:22.800 --> 00:04:26.240 align:middle
+En el segundo ejemplo,
+el mensaje es between:and:
+
+00:04:26.400 --> 00:04:29.360 align:middle
+Es un mensaje
+separados en dos palabras clave.
+
+00:04:29.520 --> 00:04:34.000 align:middle
+Toma dos argumentos
+y se aplica a un receptor.
+
+00:04:34.160 --> 00:04:38.520 align:middle
+El mensaje between:and:
+se aplica al objeto 2
+
+00:04:38.680 --> 00:04:40.920 align:middle
+y toma 0 y 5 como argumentos.
+
+00:04:41.960 --> 00:04:44.320 align:middle
+Para comparar con Java,
+
+00:04:44.480 --> 00:04:48.120 align:middle
+especialmente cuando se trata
+a los mensajes basados ​​en palabras clave,
+
+00:04:48.280 --> 00:04:51.840 align:middle
+ya que son muy diferentes
+comparado con Java:
+
+00:04:52.800 --> 00:04:56.960 align:middle
+En Java, tienes un receptor,
+un punto,
+
+00:04:57.720 --> 00:05:00.560 align:middle
+el nombre del mensaje
+enviado al objeto,
+
+00:05:00.720 --> 00:05:04.200 align:middle
+y los argumentos entre paréntesis
+separado por comas.
+
+00:05:05.440 --> 00:05:07.800 align:middle
+En Pharo, expresa lo mismo
+
+00:05:09.560 --> 00:05:14.120 align:middle
+separando las palabras clave
+desde el nombre del método
+
+00:05:14.280 --> 00:05:16.720 align:middle
+y al poner los argumentos
+en el medio.
+
+00:05:16.880 --> 00:05:18.520 align:middle
+Por ejemplo:
+
+00:05:19.600 --> 00:05:24.040 align:middle
+Envío el mensaje send a postman
+
+00:05:24.200 --> 00:05:27.840 align:middle
+para enviar correo a un destinatario.
+
+00:05:28.000 --> 00:05:30.200 align:middle
+Esta es la sintaxis de Java.
+
+00:05:30.360 --> 00:05:34.040 align:middle
+Lo descompondré gradualmente
+para terminar con la sintaxis Pharo.
+
+00:05:34.200 --> 00:05:35.640 align:middle
+Primer paso:
+
+00:05:35.800 --> 00:05:40.320 align:middle
+extraer las partes que pertenecen
+a la sintaxis de Java:
+
+00:05:41.120 --> 00:05:45.320 align:middle
+el período, los paréntesis,
+la coma y el punto y coma.
+
+00:05:46.680 --> 00:05:48.000 align:middle
+Vamos a eliminarlos
+
+00:05:48.160 --> 00:05:51.360 align:middle
+Terminas con:
+postman send mail recipient.
+
+00:05:51.520 --> 00:05:54.600 align:middle
+Si convierte esto en una oración
+para facilitar la lectura, en inglés,
+
+00:05:54.760 --> 00:05:59.120 align:middle
+obtiene: postman send mail to recipient.
+Es más fácil de leer.
+
+00:05:59.280 --> 00:06:02.440 align:middle
+Para obtener la sintaxis correcta de Pharo,
+agrega dos puntos.
+
+00:06:04.640 --> 00:06:08.680 align:middle
+Hay un mensaje, el mensaje
+postman send: mail to: recipient.
+
+00:06:08.840 --> 00:06:14.320 align:middle
+Se necesitan dos argumentos,
+el correo y el destinatario.
+
+00:06:14.480 --> 00:06:18.560 align:middle
+Condicionales
+tal como if y else,
+
+00:06:18.720 --> 00:06:22.280 align:middle
+y ciclos como do, for, etc.
+
+00:06:22.440 --> 00:06:26.560 align:middle
+Son palabras clave en Java.
+En Pharo, no lo son.
+
+00:06:26.720 --> 00:06:31.800 align:middle
+No son palabras específicas definidas
+por el idioma y el compilador.
+
+00:06:31.960 --> 00:06:36.760 align:middle
+Son solo métodos y mensajes.
+enviado a algunos tipos de objetos.
+
+00:06:36.920 --> 00:06:41.240 align:middle
+En Pharo, por ejemplo, para ejecutar if,
+
+00:06:41.880 --> 00:06:44.160 align:middle
+envía el mensaje ifTrue: ifFalse:.
+
+00:06:44.320 --> 00:06:47.600 align:middle
+Es un mensaje que le envía a un booleano.
+
+00:06:47.760 --> 00:06:51.840 align:middle
+Toma dos bloques como parámetros:
+uno se ejecuta si el booleano es verdadero,
+
+00:06:52.000 --> 00:06:54.320 align:middle
+el otro si el booleano es falso.
+
+00:06:54.920 --> 00:06:58.800 align:middle
+Del mismo modo, los ciclos son solo métodos.
+enviado a algunos tipos de objetos.
+
+00:06:58.960 --> 00:07:00.640 align:middle
+En el primer ejemplo,
+
+00:07:02.080 --> 00:07:03.560 align:middle
+el objeto 4 es un número.
+
+00:07:03.720 --> 00:07:07.320 align:middle
+Puedo enviar el mensaje TimesRepeat:
+con un bloque como parámetro.
+
+00:07:08.040 --> 00:07:12.520 align:middle
+El método subyacente ejecuta el bloque
+
+00:07:13.920 --> 00:07:17.280 align:middle
+tantas veces
+como lo indica el receptor.
+
+00:07:17.840 --> 00:07:22.200 align:middle
+4 timesRepeat:
+ejecuta algo cuatro veces.
+
+00:07:23.320 --> 00:07:27.280 align:middle
+Del mismo modo, el mensaje to: do:
+se envía a un número.
+
+00:07:27.440 --> 00:07:29.960 align:middle
+Toma un número y un bloque
+como parámetros
+
+00:07:30.120 --> 00:07:34.760 align:middle
+El valor i
+que es el parámetro del bloque
+
+00:07:34.920 --> 00:07:37.440 align:middle
+toma cada valor entre 0 y 100.
+
+00:07:38.840 --> 00:07:40.080 align:middle
+Igualmente,
+
+00:07:41.120 --> 00:07:43.000 align:middle
+el mensaje to: by: do:
+
+00:07:44.320 --> 00:07:49.120 align:middle
+selecciona los valores comprendidos
+entre 0 y 100
+
+00:07:49.280 --> 00:07:53.080 align:middle
+que son múltiplos de 3:
+0, 3, 6, 9, etc.
+
+00:07:55.480 --> 00:07:58.600 align:middle
+Finalmente, el mensaje dice:
+enviado a una colección
+
+00:07:58.760 --> 00:08:02.160 align:middle
+es lo mismo que un ciclo foreach en Java.
+
+00:08:02.320 --> 00:08:06.760 align:middle
+Ejecuta el bloque
+para cada elemento de la colección.
+
+00:08:07.680 --> 00:08:10.920 align:middle
+La variable :each
+
+00:08:11.080 --> 00:08:14.480 align:middle
+primero toma el primer valor
+de la colección,
+
+00:08:14.640 --> 00:08:16.320 align:middle
+su primer elemento
+
+00:08:16.480 --> 00:08:19.640 align:middle
+El bloque se ejecuta usando
+este valor de :each.
+
+00:08:19.800 --> 00:08:23.360 align:middle
+Entonces :each toma
+El segundo elemento de la colección.
+
+00:08:23.520 --> 00:08:27.880 align:middle
+El bloque se ejecuta usando este valor
+hasta el final de la colección.
+
+00:08:28.480 --> 00:08:31.560 align:middle
+Para resumir,
+hay tres tipos de mensajes:
+
+00:08:31.720 --> 00:08:34.600 align:middle
+mensajes unarios, mensajes binarios,
+y palabras clave.
+
+00:08:35.160 --> 00:08:37.400 align:middle
+El orden de precedencia:
+
+00:08:37.560 --> 00:08:40.280 align:middle
+primero ejecuta
+lo que esté entre paréntesis,
+
+00:08:40.440 --> 00:08:44.800 align:middle
+luego mensajes unarios,
+luego mensajes binarios, luego palabras clave.
+
+00:08:45.840 --> 00:08:47.600 align:middle
+Condicionales y ciclos
+
+00:08:47.760 --> 00:08:51.200 align:middle
+son mensajes enviados
+a algunos tipos de objetos,
+
+00:08:51.360 --> 00:08:54.240 align:middle
+a diferencia de en otros lenguajes
+como Java,
+
+00:08:54.400 --> 00:08:56.800 align:middle
+donde palabras clave específicas del idioma
+
+00:08:56.960 --> 00:09:00.480 align:middle
+tienen instrucciones especificas
+con respecto al compilador.
+
+00:09:00.640 --> 00:09:03.760 align:middle
+En Pharo, son mensajes
+enviados a objetos específicos
+

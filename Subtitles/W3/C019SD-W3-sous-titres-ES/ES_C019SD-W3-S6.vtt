@@ -1,0 +1,223 @@
+WEBVTT
+
+00:00:00.760 --> 00:00:04.120 align:middle
+Hola. En esta sesión,
+Hablaremos sobre métodos de clase.
+
+00:00:05.320 --> 00:00:07.960 align:middle
+En Pharo, todo es un objeto,
+
+00:00:08.120 --> 00:00:10.400 align:middle
+y puede enviar mensajes a los objetos.
+
+00:00:11.120 --> 00:00:14.320 align:middle
+Entonces si toma estas dos piezas
+de información,
+
+00:00:14.480 --> 00:00:16.160 align:middle
+Las clases también son objetos,
+
+00:00:16.320 --> 00:00:19.880 align:middle
+y puede enviar información a ellas,
+De ahí los mensajes a las clases.
+
+00:00:21.120 --> 00:00:22.800 align:middle
+Le daré dos ejemplos.
+
+00:00:22.960 --> 00:00:27.480 align:middle
+"Time now" envía el mensaje "now"
+al objeto "Time" que es una clase.
+
+00:00:27.640 --> 00:00:29.800 align:middle
+Y devuelve la hora actual.
+
+00:00:31.160 --> 00:00:32.680 align:middle
+Entonces le envío el mensaje "now"
+
+00:00:33.680 --> 00:00:37.320 align:middle
+al objeto Time
+que es un nombre de clase.
+
+00:00:38.360 --> 00:00:40.320 align:middle
+Me devuelve la hora actual.
+
+00:00:40.480 --> 00:00:45.440 align:middle
+Del mismo modo, envío el mensaje "today"
+al objeto Date que es una clase
+
+00:00:45.600 --> 00:00:47.400 align:middle
+devuelve la fecha.
+
+00:00:47.560 --> 00:00:49.480 align:middle
+Daré tres ejemplos más.
+
+00:00:50.200 --> 00:00:54.440 align:middle
+Envío el mensaje workingDirectory
+a la clase FileLocator
+
+00:00:54.600 --> 00:00:58.040 align:middle
+devuelve la ruta actual
+
+00:00:58.200 --> 00:01:02.520 align:middle
+del archivo donde se lleva a cabo
+la ejecución
+
+00:01:03.720 --> 00:01:05.080 align:middle
+En el segundo ejemplo,
+
+00:01:05.240 --> 00:01:08.760 align:middle
+Envío el mensaje "getPng:"
+al objeto ZnEasy
+
+00:01:08.920 --> 00:01:13.000 align:middle
+con la URL de un archivo png
+como argumento
+
+00:01:13.160 --> 00:01:17.160 align:middle
+Devuelve el archivo png
+que fue descargado previamente.
+
+00:01:18.600 --> 00:01:19.920 align:middle
+En el tercer ejemplo,
+
+00:01:20.080 --> 00:01:24.000 align:middle
+Envío el mensaje "startDefaultOn:"
+a ZnServer que es una clase de nuevo,
+
+00:01:24.160 --> 00:01:25.800 align:middle
+con un número de puerto
+
+00:01:27.160 --> 00:01:30.280 align:middle
+Esto iniciará el servidor HTTP.
+
+00:01:31.480 --> 00:01:35.360 align:middle
+Entonces, en los tres casos,
+envía un mensaje a una clase.
+
+00:01:36.320 --> 00:01:40.200 align:middle
+¿Cómo implementa un método de clase?
+
+00:01:41.000 --> 00:01:42.560 align:middle
+Usted selecciona la clase
+
+00:01:43.960 --> 00:01:47.880 align:middle
+y hace clic en el botón Class
+para decir que quieres implementar un método
+
+00:01:48.040 --> 00:01:50.960 align:middle
+en el lado de la clase
+y no en el lado de la instancia.
+
+00:01:51.120 --> 00:01:53.920 align:middle
+Y implementa un método como de costumbre.
+
+00:01:54.800 --> 00:01:58.880 align:middle
+Entonces, el método "today" se implementa
+en el lado de la clase,
+
+00:01:59.040 --> 00:02:00.880 align:middle
+en la clase "Date".
+
+00:02:03.440 --> 00:02:07.080 align:middle
+En esta diapositiva,
+puede ver un error común.
+
+00:02:07.240 --> 00:02:12.760 align:middle
+Aquí, desea enviar
+el mensaje "withValue:"
+
+00:02:12.920 --> 00:02:14.920 align:middle
+a la clase "Counter"
+
+00:02:15.080 --> 00:02:19.040 align:middle
+para devolver un nuevo contador
+con un valor determinado como parámetro.
+
+00:02:19.200 --> 00:02:20.800 align:middle
+Entonces quiere
+
+00:02:22.520 --> 00:02:26.840 align:middle
+"Counter withValue:10" devuelva un nuevo
+contador que comience con el valor 10.
+
+00:02:28.280 --> 00:02:32.560 align:middle
+Si evalúo esta expresión,
+Obtengo el valor "Counter",
+
+00:02:32.720 --> 00:02:34.240 align:middle
+no un nuevo contador.
+
+00:02:34.400 --> 00:02:38.240 align:middle
+De hecho, obtengo la clase,
+No una nueva instancia de esta clase.
+
+00:02:38.400 --> 00:02:41.320 align:middle
+¿Por qué este error? ¿Cuál es el problema?
+
+00:02:41.480 --> 00:02:46.320 align:middle
+El problema es que, de forma predeterminada,
+todos los métodos devuelven "self".
+
+00:02:47.280 --> 00:02:51.560 align:middle
+Entonces, si no especifica el valor
+a regresar, el método volverá "self"
+
+00:02:51.720 --> 00:02:56.160 align:middle
+Entonces, este código es equivalente
+a este otro.
+
+00:02:56.320 --> 00:02:59.320 align:middle
+En este caso, self es "Counter"
+
+00:03:00.640 --> 00:03:05.640 align:middle
+Entonces el método devuelve la clase misma,
+no la instancia creada justo arriba.
+
+00:03:05.800 --> 00:03:07.640 align:middle
+Para corregir este problema,
+
+00:03:07.800 --> 00:03:11.680 align:middle
+simplemente agregue un acento circunflejo
+
+00:03:11.840 --> 00:03:13.320 align:middle
+delante de "self"
+
+00:03:14.240 --> 00:03:16.880 align:middle
+En resumen, las clases son objetos.
+
+00:03:17.040 --> 00:03:21.560 align:middle
+Puede enviar mensajes a cualquier objeto,
+así que también puede enviarlos a cualquier clase.
+
+00:03:21.720 --> 00:03:24.360 align:middle
+Para implementar los métodos correspondientes,
+
+00:03:24.520 --> 00:03:29.000 align:middle
+debe presionar el botón Clase
+Después de seleccionar una clase.
+
+00:03:30.000 --> 00:03:33.160 align:middle
+La mayoría de los métodos de clase crean
+no solo nuevas instancias
+
+00:03:33.320 --> 00:03:36.000 align:middle
+sino también otras cosas.
+
+00:03:36.160 --> 00:03:40.480 align:middle
+Verá muchos otros usos
+de los métodos de clase en Pharo.
+
+00:03:40.640 --> 00:03:44.800 align:middle
+Los métodos de clase son simplemente
+como otros métodos,
+
+00:03:44.960 --> 00:03:46.800 align:middle
+no hay reglas particulares.
+
+00:03:46.960 --> 00:03:49.960 align:middle
+La búsqueda funciona
+exactamente de la misma manera.
+
+00:03:50.120 --> 00:03:52.160 align:middle
+Lo sabremos la próxima semana.
+

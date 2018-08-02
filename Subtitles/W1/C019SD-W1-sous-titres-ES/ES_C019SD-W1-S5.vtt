@@ -1,0 +1,1044 @@
+WEBVTT
+
+00:00:00.040 --> 00:00:02.880 align:middle
+Este será un resumen
+de la sintaxis
+
+00:00:03.040 --> 00:00:06.240 align:middle
+Le mostraremos
+la totalidad de la sintaxis ...
+
+00:00:06.400 --> 00:00:09.440 align:middle
+No se estrese
+si no la entiende por completo.
+
+00:00:09.600 --> 00:00:11.400 align:middle
+Repasaremos todo de nuevo.
+
+00:00:11.560 --> 00:00:15.360 align:middle
+La idea es mostrarle
+todo lo que hay en Pharo.
+
+00:00:16.040 --> 00:00:20.000 align:middle
+Vamos a ver
+los principales elementos sintácticos.
+
+00:00:20.160 --> 00:00:22.760 align:middle
+Veremos que hay
+3 tipos de mensajes.
+
+00:00:22.920 --> 00:00:25.280 align:middle
+Y bueno, mire la sintaxis del bloque,
+
+00:00:25.440 --> 00:00:27.440 align:middle
+una parte esencial de Pharo.
+
+00:00:27.600 --> 00:00:32.000 align:middle
+No se preocupe si no entiende todo,
+repetiremos todos los puntos.
+
+00:00:33.120 --> 00:00:37.320 align:middle
+Solo para recordarle,
+Tiene toda la sintaxis en esta diapositiva.
+
+00:00:37.480 --> 00:00:40.040 align:middle
+Puedo entrar en los detalles un poco ahora.
+
+00:00:40.200 --> 00:00:43.960 align:middle
+Aquí hay una definición de método,
+exampleWithNumber.
+
+00:00:44.120 --> 00:00:46.120 align:middle
+Y tiene un argumento.
+
+00:00:46.360 --> 00:00:51.040 align:middle
+Tengo definiciones de variables locales
+con barras verticales.
+
+00:00:51.200 --> 00:00:54.040 align:middle
+Tengo el retorno,
+que me permite dar un valor.
+
+00:00:54.200 --> 00:00:57.400 align:middle
+Tengo ciclos, una afectación ...
+
+00:00:57.560 --> 00:01:01.640 align:middle
+El punto, por ejemplo ese
+es un separador de instrucciones.
+
+00:01:03.120 --> 00:01:05.600 align:middle
+Veremos todo esto.
+
+00:01:07.040 --> 00:01:10.080 align:middle
+Vamos a empezar
+con el tradicional hola mundo.
+
+00:01:10.240 --> 00:01:12.000 align:middle
+Aquí, si lo desea ...
+
+00:01:12.160 --> 00:01:16.400 align:middle
+Puede ejecutar todas las instrucciones
+en Pharo usted mismo
+
+00:01:16.560 --> 00:01:18.360 align:middle
+para ver cuál es el resultado.
+
+00:01:18.520 --> 00:01:21.440 align:middle
+Entonces aquí tengo una cadena,
+
+00:01:21.840 --> 00:01:25.880 align:middle
+que convierto en un morph,
+un elemento gráfico,
+
+00:01:26.040 --> 00:01:29.640 align:middle
+y lo pido
+abrirse en una ventana
+
+00:01:29.840 --> 00:01:33.320 align:middle
+Así que envío asMorph
+al objeto cadena.
+
+00:01:33.480 --> 00:01:36.080 align:middle
+Y envío openInWindow
+
+00:01:36.240 --> 00:01:37.920 align:middle
+al morph resultante.
+
+00:01:38.080 --> 00:01:41.480 align:middle
+Entonces tenemos dos envíos de mensajes
+y un objeto cadena.
+
+00:01:42.520 --> 00:01:43.960 align:middle
+Un ejemplo más complicado.
+
+00:01:44.120 --> 00:01:47.920 align:middle
+Imagine que quiere tomar
+el logo de Pharo desde la web.
+
+00:01:48.280 --> 00:01:50.800 align:middle
+Bueno, lo hace de esta manera.
+
+00:01:50.960 --> 00:01:56.840 align:middle
+Uno hace ZnEasy getPng:
+con una cadena que representa la URL
+
+00:01:57.000 --> 00:02:00.000 align:middle
+del recurso que desea leer.
+
+00:02:00.160 --> 00:02:04.440 align:middle
+Y una vez más lo convierte
+en un objeto gráfico
+
+00:02:04.600 --> 00:02:06.760 align:middle
+y le píde que se abra en una ventana.
+
+00:02:06.920 --> 00:02:09.200 align:middle
+Entonces vemos que ZnEasy es una clase
+
+00:02:09.360 --> 00:02:12.480 align:middle
+porque las clases comienzan con mayúscula.
+
+00:02:12.640 --> 00:02:17.800 align:middle
+Los dos puntos del mensaje getPng:
+significa que estoy esperando un argumento,
+
+00:02:17.960 --> 00:02:22.120 align:middle
+que es la cadena
+http://pharo.org
+
+00:02:22.280 --> 00:02:27.120 align:middle
+Esta cadena es el argumento
+del método getPng:
+
+00:02:28.280 --> 00:02:32.520 align:middle
+Los mensajes asMorph
+y openInWindow
+
+00:02:32.680 --> 00:02:35.400 align:middle
+se leen de izquierda a derecha.
+
+00:02:35.800 --> 00:02:38.640 align:middle
+Entonces puede cortar y pegar este código.
+
+00:02:38.800 --> 00:02:41.000 align:middle
+o vuelva a escribirlo en Pharo,
+
+00:02:41.160 --> 00:02:43.760 align:middle
+y obtendrá el logo de Pharo.
+
+00:02:43.920 --> 00:02:47.200 align:middle
+Entonces, ¿qué elementos sintácticos
+hay en Pharo?
+
+00:02:47.360 --> 00:02:50.680 align:middle
+Tiene comentarios, que comienzan
+con comillas dobles.
+
+00:02:50.840 --> 00:02:52.200 align:middle
+Ese es un comentario
+
+00:02:52.360 --> 00:02:55.840 align:middle
+Los caracteres siempre van precedidos
+por un signo de dólar
+
+00:02:56.000 --> 00:02:58.080 align:middle
+$A es el caracter A.
+
+00:02:58.240 --> 00:03:02.280 align:middle
+Las cadenas inician y terminan
+con una comilla simple.
+
+00:03:03.400 --> 00:03:05.920 align:middle
+Tiene símbolos,
+que son cadenas únicas.
+
+00:03:06.080 --> 00:03:10.320 align:middle
+Estos comienzan así,
+con el hashtag
+
+00:03:10.480 --> 00:03:12.840 align:middle
+#a es el símbolo a.
+
+00:03:13.000 --> 00:03:14.600 align:middle
+Hay arreglos literales.
+
+00:03:14.760 --> 00:03:19.200 align:middle
+Aquí tengo uno con 12, 23 y 36.
+Tres elementos
+
+00:03:19.560 --> 00:03:22.280 align:middle
+Los enteros tienen varias representaciones,
+
+00:03:22.440 --> 00:03:24.600 align:middle
+pero no nos detendremos en esto.
+
+00:03:24.760 --> 00:03:27.360 align:middle
+Por lo general usamos representaciones
+en la base 10
+
+00:03:27.520 --> 00:03:30.240 align:middle
+Pero si quieres uno en la base 2,
+está bien.
+
+00:03:30.400 --> 00:03:32.760 align:middle
+Tienes real
+Esto es lo mismo.
+
+00:03:32.920 --> 00:03:35.200 align:middle
+Puede encontrar la sintaxis si lo necesita.
+
+00:03:35.360 --> 00:03:38.080 align:middle
+Tienes booleanos,
+con verdadero y falso.
+
+00:03:38.240 --> 00:03:39.800 align:middle
+Tienes indefinido
+
+00:03:39.960 --> 00:03:43.640 align:middle
+El null de Java es nil en Pharo.
+
+00:03:43.800 --> 00:03:47.200 align:middle
+Es una instancia
+de la clase UndefinedObject.
+
+00:03:47.480 --> 00:03:49.320 align:middle
+Y tiene puntos.
+
+00:03:49.480 --> 00:03:52.720 align:middle
+Esto se describe en Pharo
+de la forma
+
+00:03:52.880 --> 00:03:56.440 align:middle
+10@200, por ejemplo.
+
+00:03:56.600 --> 00:03:59.880 align:middle
+Entonces estoy creando el punto 10,
+que es 10 en la x,
+
+00:04:00.040 --> 00:04:02.440 align:middle
+y 200 en la y.
+
+00:04:03.680 --> 00:04:07.040 align:middle
+Entonces, hemos visto los elementos
+esenciales de la sintaxis
+
+00:04:07.200 --> 00:04:09.840 align:middle
+Ahora tenemos los constructos
+de la lengua
+
+00:04:10.000 --> 00:04:13.040 align:middle
+Tienes
+declaración de variable temporal.
+
+00:04:13.200 --> 00:04:16.200 align:middle
+Es una barra vertical
+seguido de otra barra vertical.
+
+00:04:16.360 --> 00:04:19.320 align:middle
+Asignación
+Es un signo de dos puntos y un igual.
+
+00:04:19.480 --> 00:04:22.520 align:middle
+En la variable var pongo aValue.
+
+00:04:22.720 --> 00:04:24.640 align:middle
+Tengo mensajes en mi sistema.
+
+00:04:24.800 --> 00:04:26.280 align:middle
+¿Cómo los separo?
+
+00:04:26.440 --> 00:04:28.240 align:middle
+Con un punto
+
+00:04:28.400 --> 00:04:30.760 align:middle
+Cuando quiero una secuencia de mensajes.
+
+00:04:30.920 --> 00:04:32.000 align:middle
+Hay retorno,
+
+00:04:32.160 --> 00:04:34.560 align:middle
+donde una función o método
+da un valor
+
+00:04:34.720 --> 00:04:39.520 align:middle
+Yo uso el sombrero pequeño,
+que se llama caret en inglés.
+
+00:04:39.680 --> 00:04:41.200 align:middle
+Entonces tiene bloques,
+
+00:04:41.360 --> 00:04:45.760 align:middle
+que, técnicamente hablando,
+son cierres léxicos,
+
+00:04:46.480 --> 00:04:49.840 align:middle
+y que puedes tomar
+como métodos anónimos.
+
+00:04:50.000 --> 00:04:53.120 align:middle
+Le mostraré lo que es un bloque.
+
+00:04:53.280 --> 00:04:55.880 align:middle
+Se define con corchetes.
+
+00:04:56.680 --> 00:04:59.560 align:middle
+Y se ejecuta
+con el valor del mensaje.
+
+00:04:59.720 --> 00:05:01.160 align:middle
+Veremos esto.
+
+00:05:01.320 --> 00:05:03.960 align:middle
+Ahí tiene todas las construcciones.
+
+00:05:05.240 --> 00:05:08.520 align:middle
+Entonces, ¿cuál es la esencia
+de un programa en Pharo?
+
+00:05:08.680 --> 00:05:12.240 align:middle
+Esta creando objetos
+mediante el uso de mensajes,
+
+00:05:12.400 --> 00:05:14.320 align:middle
+enviando mensajes a estos objetos,
+
+00:05:14.480 --> 00:05:17.280 align:middle
+y, de vez en cuando,
+usando bloques o métodos anónimos.
+
+00:05:17.440 --> 00:05:18.680 align:middle
+Eso es todo.
+
+00:05:19.800 --> 00:05:23.080 align:middle
+Hay tres tipos
+de mensaje en Pharo. ¿Por qué?
+
+00:05:23.240 --> 00:05:26.560 align:middle
+Con el fin de minimizar
+El número de paréntesis utilizados.
+
+00:05:26.720 --> 00:05:28.320 align:middle
+Es bastante simple
+
+00:05:28.480 --> 00:05:32.360 align:middle
+Un mensaje unario
+es siempre un receptor y un selector.
+
+00:05:32.520 --> 00:05:35.480 align:middle
+Aquí, por ejemplo, he dicho
+que quiero 9 al cuadrado.
+
+00:05:35.640 --> 00:05:37.680 align:middle
+Quiero la fecha de hoy.
+
+00:05:37.840 --> 00:05:41.480 align:middle
+Envío el mensaje hoy
+a la clase Fecha.
+
+00:05:41.960 --> 00:05:43.800 align:middle
+No hay argumento
+
+00:05:43.960 --> 00:05:46.080 align:middle
+Luego está el mensaje binario,
+
+00:05:46.240 --> 00:05:50.800 align:middle
+que también toma la forma
+de un receptor, selector y argumento.
+
+00:05:51.160 --> 00:05:52.640 align:middle
+Pero el selector será
+
+00:05:52.800 --> 00:05:57.320 align:middle
+mas, menos, tilde, igual, diagonal ...
+Ese tipo de cosas.
+
+00:05:57.480 --> 00:06:01.080 align:middle
+Todos esos signos matemáticos
+son para mensajes binarios
+
+00:06:01.360 --> 00:06:04.560 align:middle
+Aquí vemos 1 + 2.
+Este es un mensaje.
+
+00:06:04.720 --> 00:06:08.080 align:middle
+Enviar el mensaje + al objeto 1
+con argumento objeto 2.
+
+00:06:08.240 --> 00:06:11.240 align:middle
+@ para la creación de un punto
+También es un mensaje,
+
+00:06:11.400 --> 00:06:12.760 align:middle
+un mensaje binario
+
+00:06:12.920 --> 00:06:16.160 align:middle
+Aquí creo el punto 3@4
+
+00:06:16.320 --> 00:06:18.640 align:middle
+enviando el mensaje @.
+
+00:06:18.800 --> 00:06:22.200 align:middle
+Después tiene
+lo que llamamos mensajes de palabras clave.
+
+00:06:22.360 --> 00:06:24.920 align:middle
+Un mensaje de palabra clave toma la forma
+
+00:06:25.080 --> 00:06:28.840 align:middle
+de receptor: key1: arg1 key2: arg2.
+
+00:06:29.000 --> 00:06:31.440 align:middle
+Un ejemplo es ...
+
+00:06:31.600 --> 00:06:34.720 align:middle
+es 2 entre 10 y 20
+
+00:06:35.000 --> 00:06:38.760 align:middle
+Si lo escribió en Java o C
+Sería así ...
+
+00:06:39.000 --> 00:06:44.320 align:middle
+Escribiría betweenAnd ...
+
+00:06:44.480 --> 00:06:48.920 align:middle
+Luego, entre paréntesis,
+escribiría (10, 20).
+
+00:06:49.080 --> 00:06:53.720 align:middle
+En Pharo lo expresa
+en forma de clave y clave.
+
+00:06:53.880 --> 00:06:57.520 align:middle
+Volveremos a ver esto, pero
+le da una idea de la sintaxis.
+
+00:06:58.800 --> 00:07:02.680 align:middle
+Hay una precedencia
+entre mensajes,
+
+00:07:02.840 --> 00:07:06.480 align:middle
+el sistema ejecutará en prioridad
+los paréntesis,
+
+00:07:06.640 --> 00:07:09.200 align:middle
+después el unario,
+los mensajes binarios y de palabras clave.
+
+00:07:09.360 --> 00:07:10.160 align:middle
+¿Por qué?
+
+00:07:10.320 --> 00:07:13.560 align:middle
+Para evitar escribir demasiados paréntesis.
+
+00:07:13.720 --> 00:07:17.880 align:middle
+Podríamos haber tenido un sistema
+con paréntesis por todas partes,
+
+00:07:18.040 --> 00:07:20.000 align:middle
+pero el código sería ilegible.
+
+00:07:20.960 --> 00:07:24.680 align:middle
+Volveré sobre cada tipo de mensaje
+de una manera simple
+
+00:07:24.840 --> 00:07:27.680 align:middle
+Este mensaje único, 10000 factorial.
+
+00:07:27.840 --> 00:07:30.160 align:middle
+Pruébelo, es un número muy grande.
+
+00:07:30.320 --> 00:07:33.640 align:middle
+Envío el mensaje factorial
+al objeto 10000.
+
+00:07:33.800 --> 00:07:36.240 align:middle
+No hay argumento,
+Es un mensaje unario.
+
+00:07:36.880 --> 00:07:41.840 align:middle
+De forma similar, un mensaje binario.
+1 + 3 es un mensaje, un mensaje binario.
+
+00:07:42.000 --> 00:07:46.720 align:middle
+El selector,
+El nombre del método es +.
+
+00:07:47.360 --> 00:07:52.040 align:middle
+Envío el mensaje + al objeto 1
+con el objeto 3 como argumento.
+
+00:07:53.120 --> 00:07:55.960 align:middle
+Un mensaje de palabra clave,
+como expliqué antes ...
+
+00:07:56.120 --> 00:08:00.360 align:middle
+Se lo diré de nuevo; la enseñanza
+tiene que ver con la repetición.
+
+00:08:00.800 --> 00:08:04.520 align:middle
+Tengo un mensaje de palabra clave
+con palabra clave y palabra clave,
+
+00:08:04.680 --> 00:08:07.560 align:middle
+que es el mensaje,
+con los argumentos,
+
+00:08:07.720 --> 00:08:11.080 align:middle
+que flotan dentro del mensaje.
+
+00:08:11.240 --> 00:08:14.680 align:middle
+La idea es tener una sintaxis
+que los niños pueden usar
+
+00:08:14.840 --> 00:08:18.320 align:middle
+y tener algo
+similar a ingles
+
+00:08:18.480 --> 00:08:24.280 align:middle
+Entonces puede poner los argumentos
+dentro de sus mensajes
+
+00:08:25.440 --> 00:08:29.120 align:middle
+Como ejemplo, imagine que
+estoy enviando una solicitud HTTP.
+
+00:08:29.280 --> 00:08:32.880 align:middle
+ZnClient es un servidor HTTP para Pharo.
+
+00:08:33.040 --> 00:08:35.880 align:middle
+Entonces creo una instancia de servidor Zn.
+
+00:08:36.040 --> 00:08:40.680 align:middle
+Entonces new es un mensaje unario,
+No hay argumento, ni dos puntos.
+
+00:08:41.560 --> 00:08:46.720 align:middle
+url es un mensaje de palabras clave,
+hay dos puntos.
+
+00:08:46.880 --> 00:08:49.880 align:middle
+queryAt: put:
+es otro mensaje
+
+00:08:50.040 --> 00:08:52.600 align:middle
+Es otro mensaje de palabra clave.
+
+00:08:52.760 --> 00:08:54.880 align:middle
+Y get es un mensaje unario.
+
+00:08:55.360 --> 00:08:59.400 align:middle
+Lo que también podemos ver
+en estos ejemplo son puntos y comas
+
+00:08:59.760 --> 00:09:02.120 align:middle
+Llamamos a esto una cascada,
+
+00:09:02.880 --> 00:09:05.800 align:middle
+que envía todos los mensajes
+al mismo objeto
+
+00:09:05.960 --> 00:09:08.920 align:middle
+No necesita
+una variable temporal
+
+00:09:09.080 --> 00:09:12.320 align:middle
+Y puede escribir un código más compacto.
+
+00:09:13.720 --> 00:09:17.080 align:middle
+Tiene que entender
+que los mensajes están en todas partes
+
+00:09:17.240 --> 00:09:20.880 align:middle
+Condicionales, ciclos, iteradores y
+La concurrencia se expresa como mensajes.
+
+00:09:21.040 --> 00:09:23.480 align:middle
+Mi explicacion
+sobre esos tres mensajes
+
+00:09:23.640 --> 00:09:25.560 align:middle
+aplica en todos los ámbitos.
+
+00:09:25.720 --> 00:09:27.760 align:middle
+Es la piedra angular del sistema.
+
+00:09:27.920 --> 00:09:31.000 align:middle
+No hay nada mas
+que estos mensajes
+
+00:09:31.520 --> 00:09:32.880 align:middle
+Echemos un vistazo.
+
+00:09:33.040 --> 00:09:35.520 align:middle
+Me he tomado
+la tonta definición de factorial aquí.
+
+00:09:35.680 --> 00:09:37.200 align:middle
+¿Cómo lo defino?
+
+00:09:37.360 --> 00:09:40.160 align:middle
+Defino mi método factorial.
+
+00:09:40.320 --> 00:09:43.840 align:middle
+Puse un comentario para el método.
+Comillas dobles.
+
+00:09:44.000 --> 00:09:45.360 align:middle
+Y empiezo con self.
+
+00:09:45.520 --> 00:09:47.560 align:middle
+Si el objeto
+que obtiene el mensaje es cero,
+
+00:09:47.720 --> 00:09:49.600 align:middle
+entonces le daré 1.
+
+00:09:49.760 --> 00:09:51.320 align:middle
+Si self es positivo,
+
+00:09:51.480 --> 00:09:55.160 align:middle
+por ejemplo, factorial 6,
+self es igual a 6 ...
+
+00:09:55.480 --> 00:09:58.120 align:middle
+Si esto es cierto
+¿Qué le daré?
+
+00:09:58.280 --> 00:10:01.520 align:middle
+6 multiplicado por 6 menos 1 factorial.
+
+00:10:01.680 --> 00:10:04.920 align:middle
+La definición recursiva que todos 
+conocemos. Y eso es todo.
+
+00:10:05.080 --> 00:10:08.120 align:middle
+Y lo interesante a destacar aquí
+
+00:10:08.280 --> 00:10:10.440 align:middle
+es que ifTrue:, que es una condición,
+
+00:10:10.600 --> 00:10:13.720 align:middle
+También es un mensaje,
+un mensaje de palabra clave con dos puntos,
+
+00:10:13.880 --> 00:10:15.320 align:middle
+enviado a un booleano
+
+00:10:15.480 --> 00:10:18.800 align:middle
+También tienes ifFalse:ifTrue:,
+ifTrue:ifFalse:...
+
+00:10:18.960 --> 00:10:21.440 align:middle
+Todas estas condiciones son mensajes
+
+00:10:21.600 --> 00:10:23.320 align:middle
+que satisfacen las reglas,
+
+00:10:23.480 --> 00:10:28.680 align:middle
+y son mensajes de palabra clave
+como he presentado anteriormente.
+
+00:10:29.080 --> 00:10:30.960 align:middle
+Entonces las condiciones son mensajes.
+
+00:10:31.120 --> 00:10:32.960 align:middle
+Los ciclos también son mensajes.
+
+00:10:33.120 --> 00:10:35.160 align:middle
+Aquí haré un ciclo del 1 al 4.
+
+00:10:35.320 --> 00:10:37.840 align:middle
+Del 1 al 4, ¿qué hago?
+
+00:10:38.000 --> 00:10:40.080 align:middle
+Un bloque.
+Un método anónimo.
+
+00:10:40.240 --> 00:10:45.360 align:middle
+Aquí estoy diciendo que lo quiero
+para mostrar el valor de i,
+
+00:10:45.520 --> 00:10:50.320 align:middle
+y tomaré el valor
+de 1, 2, 3, 4 ...
+
+00:10:50.480 --> 00:10:53.840 align:middle
+Y allí puede ver eso to:do:
+
+00:10:54.000 --> 00:10:56.280 align:middle
+es un mensaje de palabras clave.
+
+00:10:56.520 --> 00:10:59.960 align:middle
+Es un mensaje
+que toma la forma de un ciclo.
+
+00:11:00.120 --> 00:11:03.360 align:middle
+Hay otros ciclos en Pharo : timesRepeat:,
+to:by:do: y así sucesivamente.
+
+00:11:03.520 --> 00:11:05.360 align:middle
+Los veremos a todos.
+
+00:11:05.520 --> 00:11:07.520 align:middle
+Pero, nuevamente, estos son mensajes ...
+
+00:11:07.680 --> 00:11:11.440 align:middle
+Entonces aquí, to:do: se envía al objeto 1
+con 4 como parámetro y un bloque.
+
+00:11:11.600 --> 00:11:14.600 align:middle
+Veremos qué es un bloque muy pronto.
+
+00:11:14.760 --> 00:11:16.480 align:middle
+También tienes iteradores.
+
+00:11:16.640 --> 00:11:18.440 align:middle
+Los iteradores son diferentes.
+
+00:11:18.600 --> 00:11:21.040 align:middle
+Envío el mensaje do:
+
+00:11:21.200 --> 00:11:22.360 align:middle
+a la colección,
+
+00:11:22.520 --> 00:11:25.680 align:middle
+diciendo lo que quiero aplicar
+a cada uno de los elementos.
+
+00:11:25.840 --> 00:11:29.320 align:middle
+De manera que cada uno,
+el argumento de mi función,
+
+00:11:29.480 --> 00:11:34.440 align:middle
+tomará como valor
+1, 2, -4 y -86.
+
+00:11:34.600 --> 00:11:36.960 align:middle
+Y lo que hago aquí
+es que para cada uno ...
+
+00:11:38.440 --> 00:11:40.800 align:middle
+aplico el valor absoluto
+y lo muestro
+
+00:11:40.960 --> 00:11:43.840 align:middle
+Una vez más,
+este será otro curso.
+
+00:11:44.000 --> 00:11:45.720 align:middle
+Explicaremos los iteradores.
+
+00:11:45.880 --> 00:11:48.640 align:middle
+Iteradores son algo
+que encuentra en Java 8
+
+00:11:50.280 --> 00:11:53.240 align:middle
+Y son parte del núcleo de Pharo.
+
+00:11:54.280 --> 00:11:55.760 align:middle
+Entonces, ¿qué es un bloque?
+
+00:11:55.920 --> 00:11:57.680 align:middle
+Los bloques parecen funciones.
+
+00:11:57.840 --> 00:12:01.320 align:middle
+Si en matemáticas escribe f (x) = x² + 3,
+
+00:12:01.480 --> 00:12:03.920 align:middle
+Lo escribiría así, literalmente.
+
+00:12:04.440 --> 00:12:07.320 align:middle
+Defino una variable
+en el que afecto un bloque.
+
+00:12:07.480 --> 00:12:10.520 align:middle
+Un bloque es algo
+dentro de corchetes.
+
+00:12:10.680 --> 00:12:13.160 align:middle
+Aquí, el bloque tiene un argumento
+que es x.
+
+00:12:13.520 --> 00:12:16.640 align:middle
+Y pongo el contenido, que es x + 3.
+
+00:12:16.800 --> 00:12:18.600 align:middle
+Y cuando quiero
+ejecutar este bloque ...
+
+00:12:18.760 --> 00:12:20.880 align:middle
+La aplicación de la función.
+
+00:12:21.040 --> 00:12:24.600 align:middle
+Esa es la definición de la función,
+ahora tengo la aplicación
+
+00:12:24.760 --> 00:12:30.360 align:middle
+Envío el mensaje value:
+al bloque. Si pongo value: 2.
+
+00:12:31.520 --> 00:12:35.080 align:middle
+x es 2,
+entonces mi bloqueo me dará 5.
+
+00:12:35.520 --> 00:12:36.680 align:middle
+¿OK?
+
+00:12:36.960 --> 00:12:41.560 align:middle
+Entonces, ¿qué es un bloque? Es un tipo
+de función anónima, no tiene nombre.
+
+00:12:41.960 --> 00:12:46.160 align:middle
+De hecho, es un cierre léxico.
+
+00:12:46.320 --> 00:12:48.240 align:middle
+Lo explicaremos
+
+00:12:48.400 --> 00:12:50.360 align:middle
+Los bloques son objetos reales.
+
+00:12:50.520 --> 00:12:54.440 align:middle
+Se pueden pasar como método
+argumentos, almacenados en variables,
+
+00:12:54.600 --> 00:12:55.720 align:middle
+devueltos ...
+
+00:12:55.880 --> 00:12:58.600 align:middle
+Entonces pueden ser usados
+como disparadores de botón,
+
+00:12:58.760 --> 00:13:02.960 align:middle
+como devolucion de llamada en aplicaciones 
+web ... Estos pueden ser bloques.
+
+00:13:04.480 --> 00:13:06.560 align:middle
+Ya hemos visto el uso del bloque.
+
+00:13:06.720 --> 00:13:08.800 align:middle
+En iteradores tienes bloques.
+
+00:13:08.960 --> 00:13:11.680 align:middle
+Vimos que los bloques son usados
+en condiciones
+
+00:13:11.840 --> 00:13:13.600 align:middle
+Habrá un curso sobre bloques.
+
+00:13:13.840 --> 00:13:16.440 align:middle
+Es elegante,
+Fueron introducidos en Eiffel,
+
+00:13:16.600 --> 00:13:19.200 align:middle
+fueron introducido recientemente en Java 8,
+
+00:13:19.360 --> 00:13:21.800 align:middle
+hubo una primera versión en C# ...
+
+00:13:21.960 --> 00:13:23.200 align:middle
+Entonces es fundamental.
+
+00:13:23.360 --> 00:13:26.320 align:middle
+Los bloques son un elemento fundamental
+
+00:13:26.480 --> 00:13:30.400 align:middle
+de la sintaxis de Pharo
+y su modelo computacional.
+
+00:13:30.720 --> 00:13:33.600 align:middle
+¿Cómo definimos una clase en Pharo?
+
+00:13:33.760 --> 00:13:37.480 align:middle
+El navegador que ves aquí
+muestra paquetes.
+
+00:13:37.640 --> 00:13:39.960 align:middle
+Tiene las clases dentro.
+
+00:13:40.120 --> 00:13:41.600 align:middle
+Y le muestra una plantilla.
+
+00:13:41.760 --> 00:13:45.240 align:middle
+La plantilla dice que
+de forma predeterminada, hereda un objeto,
+
+00:13:45.400 --> 00:13:47.480 align:middle
+y el nombre de la clase.
+
+00:13:47.640 --> 00:13:51.160 align:middle
+Lo veremos para la clase Point,
+por ejemplo.
+
+00:13:51.320 --> 00:13:53.360 align:middle
+Entonces, la definición de la clase ...
+
+00:13:53.520 --> 00:13:56.840 align:middle
+Tengo el objeto de clase.
+¡También es un mensaje!
+
+00:13:57.000 --> 00:13:59.680 align:middle
+La subclase del mensaje:
+InstanceVariableNames:
+
+00:13:59.840 --> 00:14:01.160 align:middle
+bla, bla, bla...
+
+00:14:01.320 --> 00:14:02.160 align:middle
+Con ...
+
+00:14:02.320 --> 00:14:04.960 align:middle
+Defino la clase Point,
+
+00:14:05.120 --> 00:14:07.920 align:middle
+y le doy las variables de instancia
+x e y.
+
+00:14:08.080 --> 00:14:13.640 align:middle
+Eso es solo para mostrar que la sintaxis
+siempre sigue el mismo modelo con mensajes.
+
+00:14:13.800 --> 00:14:16.680 align:middle
+Normalmente no lo escribo
+a mano.
+
+00:14:16.840 --> 00:14:20.960 align:middle
+La herramienta le da la plantilla
+y simplemente lo completa.
+
+00:14:22.680 --> 00:14:24.480 align:middle
+Entonces, ¿cómo definimos un método?
+
+00:14:24.640 --> 00:14:27.400 align:middle
+Como dije, los métodos
+son públicos y virtuales,
+
+00:14:27.560 --> 00:14:29.240 align:middle
+y de forma predeterminada, regresan self.
+
+00:14:29.400 --> 00:14:31.720 align:middle
+Entonces, cuando está en el navegador,
+
+00:14:31.880 --> 00:14:34.120 align:middle
+sugiere una plantilla,
+
+00:14:34.280 --> 00:14:37.160 align:middle
+el nombre del método potencial
+y un comentario ...
+
+00:14:37.320 --> 00:14:41.800 align:middle
+Somos amables y educados
+por lo que comentamos sobre nuestro código.
+
+00:14:41.960 --> 00:14:46.800 align:middle
+También podemos poner nombres de
+variables temporales y declaraciones.
+
+00:14:46.960 --> 00:14:50.360 align:middle
+¿Qué nos da esto?
+Hemos visto el método factorial.
+
+00:14:50.520 --> 00:14:53.040 align:middle
+Aquí estoy en la clase Integer.
+
+00:14:53.200 --> 00:14:56.400 align:middle
+Miro el método factorial,
+Tengo su codigo,
+
+00:14:56.560 --> 00:14:59.000 align:middle
+con el nombre del método,
+su comentario
+
+00:14:59.160 --> 00:15:02.040 align:middle
+y el contenido del método
+que he definido
+
+00:15:03.840 --> 00:15:05.840 align:middle
+Entonces, para resumir, ¿qué hemos visto?
+
+00:15:06.000 --> 00:15:09.560 align:middle
+Hay 3 tipos de mensajes:
+mensajes unarios, sin argumentos,
+
+00:15:09.720 --> 00:15:12.760 align:middle
+mensajes binarios
+donde los selectores son matemáticos,
+
+00:15:12.920 --> 00:15:17.000 align:middle
+y mensajes de palabras clave,
+donde puede haber varios argumentos.
+
+00:15:17.160 --> 00:15:20.720 align:middle
+Hay una prioridad:
+paréntesis primero,
+
+00:15:20.880 --> 00:15:23.080 align:middle
+luego unario, binario y palabra clave.
+
+00:15:23.240 --> 00:15:27.360 align:middle
+Y si hay mensajes del mismo nivel
+Es de izquierda a derecha.
+
+00:15:27.600 --> 00:15:30.920 align:middle
+¿Qué hemos visto?
+La sintaxis es muy compacta.
+
+00:15:31.160 --> 00:15:35.040 align:middle
+Hay pocas construcciones
+pero son realmente expresivas.
+
+00:15:35.200 --> 00:15:39.480 align:middle
+Son principalmente mensajes
+y cierres léxicos, o bloques.
+
+00:15:39.640 --> 00:15:42.400 align:middle
+Hay tres tipos de mensajes.
+
+00:15:42.560 --> 00:15:45.160 align:middle
+Haras un ejercicio
+para desarrollar un lenguaje
+
+00:15:45.320 --> 00:15:49.200 align:middle
+Así puede definir lo que llamamos
+Lenguaje de Dominio Específico.
+
+

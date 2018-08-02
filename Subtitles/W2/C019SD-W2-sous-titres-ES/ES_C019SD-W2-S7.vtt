@@ -1,0 +1,333 @@
+WEBVTT
+
+00:00:00.640 --> 00:00:03.600 align:middle
+En esta sesión,
+Hablaremos de ciclos en Pharo.
+
+00:00:03.760 --> 00:00:08.320 align:middle
+En Pharo, los ciclos son mensajes
+enviado a los objetos
+
+00:00:08.480 --> 00:00:10.680 align:middle
+Hay muchos tipos de ciclos.
+
+00:00:11.320 --> 00:00:14.680 align:middle
+Son mensajes
+enviado a números, colecciones,
+
+00:00:14.840 --> 00:00:16.360 align:middle
+o incluso a bloques.
+
+00:00:16.520 --> 00:00:21.040 align:middle
+En algunos casos, son iteradores
+sobre los elementos de una colección.
+
+00:00:22.080 --> 00:00:23.600 align:middle
+Esto es un ejemplo:
+
+00:00:23.760 --> 00:00:27.240 align:middle
+Envío el mensaje timesRepeat:
+
+00:00:27.400 --> 00:00:29.000 align:middle
+al entero 4.
+
+00:00:29.160 --> 00:00:31.640 align:middle
+Le paso un bloque como parámetro.
+
+00:00:31.800 --> 00:00:34.480 align:middle
+Estudiamos bloques
+en el curso anterior.
+
+00:00:34.640 --> 00:00:38.400 align:middle
+Este bloque comienza aquí y termina allí.
+
+00:00:39.080 --> 00:00:43.520 align:middle
+Este mensaje repite
+la evaluación de este bloque
+
+00:00:44.120 --> 00:00:46.960 align:middle
+varias veces en este ejemplo,
+cuatro veces
+
+00:00:47.120 --> 00:00:48.840 align:middle
+como el receptor es 4.
+
+00:00:50.720 --> 00:00:54.080 align:middle
+Hay otros tipos de mensajes
+para crear ciclos.
+
+00:00:54.240 --> 00:00:57.000 align:middle
+En este ejemplo,
+es el mensaje to:do:.
+
+00:00:57.160 --> 00:01:00.360 align:middle
+El mensaje to:do:
+se define en la clase Número.
+
+00:01:01.520 --> 00:01:04.360 align:middle
+También le pasaré un bloque
+como un parámetro,
+
+00:01:04.520 --> 00:01:06.400 align:middle
+el último argumento del mensaje.
+
+00:01:06.560 --> 00:01:09.440 align:middle
+Este bloque se ejecuta
+un número de veces
+
+00:01:09.600 --> 00:01:13.640 align:middle
+con un cursor de ciclo
+que va desde el receptor
+
+00:01:13.800 --> 00:01:16.320 align:middle
+al primer argumento del mensaje.
+
+00:01:17.800 --> 00:01:19.960 align:middle
+Por ejemplo,
+
+00:01:20.120 --> 00:01:23.080 align:middle
+con el mismo ejemplo:
+
+00:01:23.240 --> 00:01:26.360 align:middle
+envío el mensaje to:do:
+al entero 1.
+
+00:01:27.160 --> 00:01:31.840 align:middle
+En el bloque,
+usted muestra el parámetro del bloque,
+
+00:01:32.000 --> 00:01:34.080 align:middle
+el parámetro i en cada ciclo.
+
+00:01:34.240 --> 00:01:39.200 align:middle
+En el Transcript, tiene todos
+los enteros entre 1 y 100.
+
+00:01:42.000 --> 00:01:47.120 align:middle
+Hay otros mensajes
+para crear ciclos.
+
+00:01:47.280 --> 00:01:50.280 align:middle
+Por ejemplo, el mensaje to:by:do
+
+00:01:50.440 --> 00:01:52.440 align:middle
+para incrementar en más de 1.
+
+00:01:52.600 --> 00:01:55.680 align:middle
+Usted controla la escala del incremento.
+
+00:01:55.840 --> 00:01:58.040 align:middle
+Puede incrementar en 3 en este ejemplo.
+
+00:01:58.200 --> 00:02:02.160 align:middle
+Con cada ciclo,
+toma valores con incrementos de 3.
+
+00:02:03.920 --> 00:02:08.080 align:middle
+Puede ver que pasa
+cuando ejecuta este segmento de código.
+
+00:02:08.240 --> 00:02:12.040 align:middle
+Puede ver que fui de 1 a 100
+
+00:02:12.200 --> 00:02:14.400 align:middle
+con un incremento de 3 cada vez.
+
+00:02:15.880 --> 00:02:18.920 align:middle
+También hay iteradores
+para crear ciclos.
+
+00:02:19.080 --> 00:02:23.360 align:middle
+Los iteradores son mensajes
+que debe enviarse a colecciones,
+
+00:02:23.520 --> 00:02:25.000 align:middle
+a objetos de colección
+
+00:02:25.160 --> 00:02:28.440 align:middle
+Hay muchos tipos como do:.
+
+00:02:28.600 --> 00:02:31.880 align:middle
+do: itera
+sobre cada elemento de una colección.
+
+00:02:32.040 --> 00:02:35.400 align:middle
+collect: itera
+sobre los elementos de una colección
+
+00:02:35.560 --> 00:02:39.040 align:middle
+pero también recoge los resultados
+
+00:02:39.200 --> 00:02:41.040 align:middle
+para ponerlos en una nueva colección.
+
+00:02:41.200 --> 00:02:45.560 align:middle
+select: selecciona los elementos coincidentes
+en una colección:
+
+00:02:45.720 --> 00:02:48.720 align:middle
+construye una nueva colección
+con los elementos seleccionados
+
+00:02:48.880 --> 00:02:53.280 align:middle
+reject: rechaza los elementos
+de una colección que no desea.
+
+00:02:53.440 --> 00:02:56.320 align:middle
+detect:​​ ayuda a determinar
+
+00:02:56.480 --> 00:03:00.120 align:middle
+si existe un elemento
+en una colección dada, etc.
+
+00:03:00.280 --> 00:03:03.360 align:middle
+Estudiaremos algunos de estos
+en las próximas diapositivas.
+
+00:03:04.200 --> 00:03:08.440 align:middle
+do:, por ejemplo,
+es el mensaje más común.
+
+00:03:08.600 --> 00:03:13.000 align:middle
+Envía el mensaje:
+a una colección y lo pasa a un bloque.
+
+00:03:13.160 --> 00:03:16.240 align:middle
+Con cada ciclo,
+
+00:03:16.400 --> 00:03:19.160 align:middle
+el parámetro del bloque :each,
+
+00:03:19.320 --> 00:03:22.200 align:middle
+recibe el primer elemento
+de la colección,
+
+00:03:22.360 --> 00:03:26.000 align:middle
+luego el segundo, hasta el elemento final
+de la colección
+
+00:03:28.280 --> 00:03:31.680 align:middle
+Esto es un ejemplo;
+es una colección definida.
+
+00:03:31.840 --> 00:03:34.200 align:middle
+Un recordatorio de la sintaxis:
+abrir con #(
+
+00:03:34.360 --> 00:03:37.080 align:middle
+y cierra con )
+para colecciones literales
+
+00:03:37.240 --> 00:03:42.120 align:middle
+Esta colección contiene cuatro enteros:
+15, 10, 19 y 68.
+
+00:03:42.280 --> 00:03:46.320 align:middle
+Envía el mensaje:
+a la colección y lo pasa a un bloque.
+
+00:03:46.480 --> 00:03:51.000 align:middle
+i, el parámetro del bloque,
+
+00:03:51.160 --> 00:03:53.560 align:middle
+toma el valor 15 en el primer ciclo,
+
+00:03:53.720 --> 00:03:56.120 align:middle
+luego 10, 19 y 68.
+
+00:03:59.040 --> 00:04:01.680 align:middle
+Este es otro mensaje: whileTrue:.
+
+00:04:01.840 --> 00:04:04.680 align:middle
+whileTrue: también puede crear ciclos,
+
+00:04:04.840 --> 00:04:07.640 align:middle
+pero es un mensaje que se envía a un bloque.
+
+00:04:07.800 --> 00:04:09.800 align:middle
+Se define en la clase Bloque.
+
+00:04:09.960 --> 00:04:12.480 align:middle
+Este es el bloque receptor.
+
+00:04:12.640 --> 00:04:14.720 align:middle
+Aquí hay un bloque de argumentos.
+
+00:04:15.320 --> 00:04:19.320 align:middle
+Le doy un ejemplo concreto
+de la clase Color.
+
+00:04:19.480 --> 00:04:22.120 align:middle
+Esto es whileTrue:.
+
+00:04:22.760 --> 00:04:25.800 align:middle
+En el bloque receptor,
+hay una condición
+
+00:04:25.960 --> 00:04:28.560 align:middle
+El bloque se evalúa como verdadero o falso.
+
+00:04:28.720 --> 00:04:32.200 align:middle
+Dependiendo de la evaluación
+del primer bloque, el receptor,
+
+00:04:32.360 --> 00:04:34.800 align:middle
+usted desencadena o no desencadena
+la ejecución
+
+00:04:34.960 --> 00:04:38.600 align:middle
+del segundo bloque,
+que es el parámetro de whileTrue:.
+
+00:04:39.520 --> 00:04:42.080 align:middle
+Hay otra versión de whileTrue:.
+
+00:04:42.240 --> 00:04:46.480 align:middle
+Es el método whileTrue
+sin un parámetro
+
+00:04:46.640 --> 00:04:50.280 align:middle
+Toma el bloque receptor
+y lo evalúa.
+
+00:04:50.440 --> 00:04:52.920 align:middle
+Si devuelve verdadero o falso,
+
+00:04:53.080 --> 00:04:55.800 align:middle
+se vuelve a evaluar una vez más, y así sucesivamente.
+
+00:04:55.960 --> 00:04:59.240 align:middle
+Vuelva a evaluar el bloque
+siempre que su valor sea verdadero.
+
+00:05:00.840 --> 00:05:04.960 align:middle
+Tienes los gemelos de whileTrue
+con los métodos whileFalse,
+
+00:05:05.120 --> 00:05:07.440 align:middle
+con y sin parámetros
+
+00:05:07.600 --> 00:05:12.120 align:middle
+Cada variación existe
+cuando se trata de clases y bloques.
+
+00:05:14.160 --> 00:05:16.640 align:middle
+En resumen, en este curso,
+
+00:05:16.800 --> 00:05:20.840 align:middle
+vimos que los ciclos se expresan
+como mensajes normales en Pharo.
+
+00:05:21.000 --> 00:05:22.440 align:middle
+Se envían a los objetos
+
+00:05:22.600 --> 00:05:27.560 align:middle
+(enteros, colecciones, bloques ...).
+
+00:05:28.280 --> 00:05:32.400 align:middle
+Puede usarlos para construir
+muchos ciclos diferentes
+
+00:05:32.560 --> 00:05:34.680 align:middle
+Incluso puede agregar algunos si lo desea.
+

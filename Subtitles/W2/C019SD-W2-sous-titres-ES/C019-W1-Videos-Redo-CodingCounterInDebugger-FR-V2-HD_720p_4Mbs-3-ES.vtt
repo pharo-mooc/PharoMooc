@@ -1,0 +1,478 @@
+WEBVTT
+
+00:00:01.220 --> 00:00:02.580 align:middle
+En esta sesión,
+Me gustaría mostrarle cómo
+
+00:00:02.747 --> 00:00:05.220 align:middle
+usar el depurador para programar
+diferentemente.
+
+00:00:05.760 --> 00:00:09.330 align:middle
+Vamos a implementar de nuevo
+la aplicación de contador
+
+00:00:09.497 --> 00:00:14.190 align:middle
+pero de una manera diferente, con un
+Flujo de desarrollo más interactivo.
+
+00:00:16.940 --> 00:00:18.290 align:middle
+Primero voy a crear
+
+00:00:18.457 --> 00:00:20.840 align:middle
+un nuevo paquete con contador,
+como anteriormente.
+
+00:00:26.050 --> 00:00:28.810 align:middle
+También filtraré para tener
+menos elementos
+
+00:00:29.270 --> 00:00:33.240 align:middle
+En MyCounter, primero
+defino
+
+00:00:34.960 --> 00:00:37.100 align:middle
+una prueba, una clase de prueba.
+
+00:00:37.267 --> 00:00:39.090 align:middle
+Las clases de prueba heredan de TestCase.
+
+00:00:40.260 --> 00:00:41.650 align:middle
+Lo llamaré CounterTest.
+
+00:00:42.790 --> 00:00:44.870 align:middle
+Compilaré. Lo hago una vez
+más en el menú y luego
+
+00:00:45.037 --> 00:00:46.340 align:middle
+Lo hago con los comentarios.
+
+00:00:46.507 --> 00:00:47.830 align:middle
+Ha creado una clase de prueba.
+
+00:00:48.260 --> 00:00:51.610 align:middle
+En mi clase de prueba, escribo
+un método de prueba
+
+00:00:53.260 --> 00:00:56.150 align:middle
+Los métodos de prueba comienzan con la prueba test.
+
+00:01:02.260 --> 00:01:04.160 align:middle
+¿Qué debo hacer?
+
+00:01:04.520 --> 00:01:07.820 align:middle
+Como anteriormente, defino una
+variable local. En
+
+00:01:08.000 --> 00:01:12.570 align:middle
+esa variable local
+Puse un
+
+00:01:12.737 --> 00:01:15.150 align:middle
+objeto de la clase contador.
+
+00:01:16.770 --> 00:01:21.130 align:middle
+Inicializo el valor del contador
+y
+
+00:01:21.297 --> 00:01:25.500 align:middle
+verifica que el contador
+tiene el valor correcto
+
+00:01:31.450 --> 00:01:32.083 align:middle
+Compilo
+
+00:01:33.320 --> 00:01:36.070 align:middle
+Ahora el sistema me dice:
+"¡Advertencia! No lo sé
+
+00:01:36.237 --> 00:01:38.250 align:middle
+qué es un contador". Ya estaba
+indicado
+
+00:01:38.417 --> 00:01:39.670 align:middle
+con la cursiva aquí.
+
+00:01:40.030 --> 00:01:42.460 align:middle
+Propone:"¿Quieres definir
+una nueva clase
+
+00:01:42.627 --> 00:01:44.040 align:middle
+¿Una nueva variable global o de clase?
+
+00:01:44.207 --> 00:01:45.000 align:middle
+En éste caso es una nueva clase.
+
+00:01:45.137 --> 00:01:48.260 align:middle
+Ofrece la definición de clase.
+
+00:01:48.427 --> 00:01:50.790 align:middle
+Yo digo:"ok, es correcto, es
+en el paquete correcto, hereda
+
+00:01:50.957 --> 00:01:51.590 align:middle
+desde el objeto, de acuerdo, hazlo".
+
+00:01:51.757 --> 00:01:55.160 align:middle
+Entonces crea una clase vacía.
+
+00:01:56.050 --> 00:01:58.520 align:middle
+Ahora vamos a arreglar esto.
+
+00:02:00.520 --> 00:02:04.260 align:middle
+Puedo ver que mi clase de contador
+esta vacia.
+
+00:02:04.610 --> 00:02:07.130 align:middle
+Si ejecuto mi prueba, esta en rojo.
+
+00:02:07.297 --> 00:02:08.820 align:middle
+¿Por qué esta en rojo?
+
+00:02:09.000 --> 00:02:09.860 align:middle
+Porque tengo un error.
+
+00:02:10.290 --> 00:02:11.760 align:middle
+Entonces, ¿cómo debería leer este mensaje?
+
+00:02:11.927 --> 00:02:13.470 align:middle
+Tomemos 2 minutos para hacerlo.
+
+00:02:14.630 --> 00:02:19.590 align:middle
+El sistema dice:"el mensaje Count
+ha sido enviado a
+
+00:02:19.757 --> 00:02:23.440 align:middle
+una instancia de la clase Counter
+y el correspondiente
+
+00:02:23.607 --> 00:02:28.240 align:middle
+el método no se encontró ".
+Voy a buscar…
+
+00:02:31.590 --> 00:02:32.360 align:middle
+Abro el depurador
+
+00:02:32.760 --> 00:02:36.050 align:middle
+El depurador muestra la pila de
+ejecución, para que pueda
+
+00:02:36.217 --> 00:02:39.760 align:middle
+ver que un mensaje no ha sido
+entendido.
+
+00:02:39.927 --> 00:02:42.960 align:middle
+Y allí muestra dónde
+ha sido invocado el mensaje.
+
+00:02:43.760 --> 00:02:46.020 align:middle
+Veo que si voy allí,
+Puedo ver las
+
+00:02:46.187 --> 00:02:50.770 align:middle
+variables del sistema Si miro en C,
+puedo acceder
+
+00:02:50.937 --> 00:02:55.010 align:middle
+a la variable temporal C, que
+Se valora como contador.
+
+00:02:55.177 --> 00:02:56.920 align:middle
+De todos modos, si escribo clase C
+por ejemplo,
+
+00:02:57.830 --> 00:03:00.730 align:middle
+self class, dice que es
+la clase Contador
+
+00:03:03.790 --> 00:03:08.230 align:middle
+Esto es obvio. Por el momento,
+en mi clase, no tengo ningún
+
+00:03:08.397 --> 00:03:12.620 align:middle
+método. Pediré al sistema
+que cree uno por mi
+
+00:03:12.787 --> 00:03:13.590 align:middle
+Hago Create
+
+00:03:14.290 --> 00:03:15.630 align:middle
+Propone las clases.
+
+00:03:15.797 --> 00:03:17.370 align:middle
+Yo elijo la class Counter.
+
+00:03:17.537 --> 00:03:18.670 align:middle
+¿Puede crear esto?
+
+00:03:18.837 --> 00:03:20.330 align:middle
+Sí, en el acceso.
+
+00:03:21.780 --> 00:03:23.620 align:middle
+Y, finalmente, ¿qué hizo él?
+
+00:03:25.930 --> 00:03:29.200 align:middle
+Se compiló automáticamente
+un método con la firma correcta
+
+00:03:30.310 --> 00:03:31.850 align:middle
+Para el cuerpo del método, no
+saber qué hacer,
+
+00:03:32.017 --> 00:03:36.010 align:middle
+por lo que usa
+ShouldBeImplemented. ¿Qué hace eso?
+
+00:03:36.177 --> 00:03:40.360 align:middle
+Lanza una excepción en
+la ejecución y el sistema
+
+00:03:40.527 --> 00:03:41.630 align:middle
+ejecute de nuevo el método.
+
+00:03:41.797 --> 00:03:44.140 align:middle
+Ahora hay un nuevo error y
+Tengo que
+
+00:03:44.570 --> 00:03:46.680 align:middle
+implementar el cuerpo del método.
+
+00:03:48.090 --> 00:03:49.950 align:middle
+Conozco Count
+¿Que voy a hacer?
+
+00:03:50.117 --> 00:03:53.020 align:middle
+Quiero asignar este valor a
+una
+
+00:03:53.187 --> 00:03:55.450 align:middle
+variable de instancia. Asi aqui
+
+00:03:58.180 --> 00:04:02.600 align:middle
+está en rojo, porque por el momento
+mi clase no tiene esta instancia.
+
+00:04:02.860 --> 00:04:04.170 align:middle
+Compilo
+
+00:04:05.130 --> 00:04:07.360 align:middle
+El sistema propone:
+"¿Quieres una variable temporal?
+
+00:04:07.527 --> 00:04:09.140 align:middle
+o una variable de instancia? "
+
+00:04:09.307 --> 00:04:11.350 align:middle
+Quiero una variable de instancia.
+
+00:04:14.330 --> 00:04:19.040 align:middle
+Entonces hago esto. Si miro en mi
+clase, tengo
+
+00:04:19.207 --> 00:04:21.640 align:middle
+una variable de instancia que
+fue creada y
+
+00:04:21.807 --> 00:04:26.650 align:middle
+el método que
+
+00:04:26.817 --> 00:04:27.450 align:middle
+establecerá el valor.
+
+00:04:29.790 --> 00:04:31.390 align:middle
+Una vez que hice esto, puedo decir
+al depurador
+
+00:04:31.557 --> 00:04:34.550 align:middle
+que continue, continuar significa
+continuar la ejecución
+
+00:04:34.717 --> 00:04:37.610 align:middle
+como si nada hubiera pasado
+
+00:04:38.470 --> 00:04:39.103 align:middle
+¿Qué pasa?
+
+00:04:39.270 --> 00:04:40.020 align:middle
+Todavía hay un error.
+
+00:04:41.310 --> 00:04:44.600 align:middle
+El sistema todavía dice que
+hay una instancia
+
+00:04:44.767 --> 00:04:47.000 align:middle
+de la clase Counter que recibió
+el mensaje count y que
+
+00:04:47.167 --> 00:04:50.360 align:middle
+no ha encontrado el método apropiado.
+Esto es normal porque
+
+00:04:50.527 --> 00:04:54.250 align:middle
+C tiene 7
+
+00:04:55.680 --> 00:05:00.420 align:middle
+en su contador, en su variable de conteo,
+sin embargo
+
+00:05:00.587 --> 00:05:01.850 align:middle
+el método count no existe.
+
+00:05:02.250 --> 00:05:03.080 align:middle
+Lo voy a crear.
+
+00:05:03.247 --> 00:05:05.360 align:middle
+Haré Create. ¿En que clase?
+
+00:05:05.527 --> 00:05:09.000 align:middle
+En la clase Counter, en
+el protocolo de acceso,
+
+00:05:09.460 --> 00:05:14.310 align:middle
+porque es un método de acceso.
+Y aqui usted puede
+
+00:05:14.477 --> 00:05:18.260 align:middle
+ver que el sistema es más inteligente.
+
+00:05:18.427 --> 00:05:21.680 align:middle
+Se dio cuenta de que había una
+variable de instancia nombrada
+
+00:05:21.847 --> 00:05:26.000 align:middle
+count y quiere definir un
+método nombrado count,
+
+00:05:27.120 --> 00:05:29.240 align:middle
+así que vamos a proponerle un 
+método de acceso.
+
+00:05:29.410 --> 00:05:30.140 align:middle
+Eso es lo que quería.
+
+00:05:30.307 --> 00:05:31.050 align:middle
+Entonces ahora puedo proceder.
+
+00:05:32.440 --> 00:05:33.350 align:middle
+¿Que es lo que veo?
+
+00:05:33.517 --> 00:05:37.750 align:middle
+Mi prueba está en verde.
+Tengo una prueba en verde y
+
+00:05:37.917 --> 00:05:42.050 align:middle
+se han creado 2 métodos.
+en mi clase.
+
+00:05:44.240 --> 00:05:45.470 align:middle
+Ahora haré lo mismo
+para el incremento
+
+00:05:49.640 --> 00:05:51.100 align:middle
+De hecho, estoy
+
+00:05:51.267 --> 00:05:54.490 align:middle
+especificando qué es lo que el método
+tiene qué hacer
+
+00:05:54.657 --> 00:05:56.240 align:middle
+y verificando que lo hace.
+
+00:05:58.360 --> 00:06:03.090 align:middle
+Entonces, debo tener 9,
+Compilo, ejecuto.
+
+00:06:03.300 --> 00:06:07.730 align:middle
+Y el sistema me dice que
+no conoce el método increment.
+
+00:06:07.897 --> 00:06:12.490 align:middle
+Sí, es normal. Hago Create,
+aquí en funcionamiento
+
+00:06:15.960 --> 00:06:19.950 align:middle
+Si miro el incremento,
+Puedo poner: count
+
+00:06:20.750 --> 00:06:25.230 align:middle
+= count + 1. compilo
+
+00:06:27.080 --> 00:06:29.570 align:middle
+Procedeo. Tengo mi prueba
+
+00:06:30.370 --> 00:06:31.760 align:middle
+Mientras estoy en eso, creo decrement.
+
+00:06:31.927 --> 00:06:36.050 align:middle
+La idea es que lo haga,
+para practicarlo
+
+00:06:39.520 --> 00:06:43.120 align:middle
+Entonces aquí será 5.
+Defino mi prueba
+
+00:06:45.460 --> 00:06:46.750 align:middle
+Yo creo mi método.
+
+00:06:51.480 --> 00:06:55.000 align:middle
+De acuerdo. Entonces, ya sabe,
+contar:= contar,
+
+00:07:00.330 --> 00:07:01.660 align:middle
+Compilo en el depurador.
+
+00:07:01.827 --> 00:07:05.640 align:middle
+Hago clic en Proceed. Y mis
+pruebas están en verde.
+
+00:07:05.807 --> 00:07:10.060 align:middle
+Ahora mi clase tiene 2 operaciones:
+increment y decrement.
+
+00:07:10.420 --> 00:07:11.770 align:middle
+Es hora de guardar,
+por ejemplo.
+
+00:07:12.010 --> 00:07:14.500 align:middle
+Voy a guardar como se
+lo mostré antes.
+
+00:07:15.280 --> 00:07:19.180 align:middle
+Hago clic en Save, guardo y
+
+00:07:20.040 --> 00:07:20.760 align:middle
+aquí escribo "con
+
+00:07:25.740 --> 00:07:29.430 align:middle
+accesores y decremento,
+incremento cubierto por pruebas en verde ".
+
+00:07:29.597 --> 00:07:34.000 align:middle
+¡Asi que aqui esta! He guardado eso
+
+00:07:47.250 --> 00:07:47.883 align:middle
+Todo bien.
+
+00:07:49.100 --> 00:07:52.860 align:middle
+Lo importante para recordar
+en esta sesión es eso
+
+00:07:53.390 --> 00:07:58.250 align:middle
+el depurador da acceso al
+estado de los objetos,
+
+00:07:58.417 --> 00:08:02.340 align:middle
+lo ubica en el
+contexto de llamada correcta y
+
+00:08:02.507 --> 00:08:04.460 align:middle
+le permite usar el contexto de llamada
+para tener toda la información
+
+00:08:04.627 --> 00:08:07.390 align:middle
+necesaria para escribir su codigo.
+
+00:08:07.557 --> 00:08:08.690 align:middle
+Y esto es realmente muy,
+muy poderoso.
+

@@ -1,0 +1,356 @@
+WEBVTT
+
+00:00:02.560 --> 00:00:04.600 align:middle
+En este video,
+Me gustaría explicar cómo
+
+00:00:04.767 --> 00:00:07.080 align:middle
+el depurador funciona y
+como puedes usarlo
+
+00:00:07.247 --> 00:00:10.780 align:middle
+para identificar errores
+y ejecutar expresiones,
+
+00:00:10.947 --> 00:00:12.710 align:middle
+e interactuar con los objetos.
+
+00:00:14.080 --> 00:00:16.030 align:middle
+Entonces quiero hacer una vez más
+
+00:00:16.197 --> 00:00:18.820 align:middle
+los ejercicios que habíamos completado
+y hecho juntos en el
+
+00:00:19.000 --> 00:00:21.220 align:middle
+contador, por lo que uso Monticello,
+
+00:00:21.387 --> 00:00:25.240 align:middle
+Entro en el paquete de caché,
+y
+
+00:00:25.407 --> 00:00:26.320 align:middle
+Veo que hay un paquete de contador.
+
+00:00:27.050 --> 00:00:29.010 align:middle
+También me permite explicar
+
+00:00:29.177 --> 00:00:31.560 align:middle
+esta función aquí. Para estar seguro
+
+00:00:31.727 --> 00:00:35.300 align:middle
+este es el paquete correcto,
+Puedo navegar, es decir
+
+00:00:35.560 --> 00:00:37.650 align:middle
+que voy a mirar el
+Clases definidas en el paquete.
+
+00:00:38.240 --> 00:00:39.830 align:middle
+Entonces, aquí veo que tengo
+un paquete llamado
+
+00:00:40.000 --> 00:00:42.500 align:middle
+MyCounter, que contiene
+2 clases, contador y
+
+00:00:42.667 --> 00:00:44.830 align:middle
+CounterTest, y si miro
+todas las operaciones
+
+00:00:45.000 --> 00:00:48.130 align:middle
+de Counter, tengo el 4
+métodos que hemos definido
+
+00:00:48.297 --> 00:00:51.240 align:middle
+juntos y de la misma manera
+para la prueba.
+
+00:00:51.407 --> 00:00:53.180 align:middle
+Entonces, ahora sé que esto es
+este paquete
+
+00:00:53.347 --> 00:00:54.490 align:middle
+Quiero cargar, voy a ir
+hacer carga
+
+00:00:58.300 --> 00:01:02.160 align:middle
+Entonces, voy a navegar
+la clase Contador
+
+00:01:08.200 --> 00:01:11.710 align:middle
+Para la clase Counter, las pruebas
+son verdes, para que podamos comenzar.
+
+00:01:15.000 --> 00:01:16.680 align:middle
+Me gustaría mostrarte
+
+00:01:16.847 --> 00:01:19.470 align:middle
+cómo podemos usar el depurador para
+ejecutar una
+
+00:01:19.637 --> 00:01:22.260 align:middle
+expresión paso a paso,
+e ir o no en el
+
+00:01:22.427 --> 00:01:23.720 align:middle
+expresiones que queremos
+ver en mas detalles
+
+00:01:24.530 --> 00:01:26.800 align:middle
+Para hacer esto, tomo el
+TestDecrement
+
+00:01:27.000 --> 00:01:30.300 align:middle
+como ejemplo, hago
+DebugTest.
+
+00:01:30.467 --> 00:01:35.420 align:middle
+Prueba de depuración, aquí está,
+una vez más
+
+00:01:35.587 --> 00:01:36.700 align:middle
+¿Qué hace el depurador?
+¿Muéstrame?
+
+00:01:36.867 --> 00:01:38.880 align:middle
+El depurador muestra
+la pila de ejecución
+
+00:01:39.047 --> 00:01:41.830 align:middle
+Como en Pharo todo es un
+mensaje, ves que
+
+00:01:42.000 --> 00:01:46.860 align:middle
+podemos profundizar en la pila,
+al principio nosotros
+
+00:01:47.027 --> 00:01:50.160 align:middle
+ejecutó el método Run,
+Deshacer, muchas cosas como esta.
+
+00:01:50.327 --> 00:01:53.240 align:middle
+Por el momento, el sistema
+Por eso no nos importa.
+
+00:01:54.530 --> 00:01:59.300 align:middle
+Aquí vemos el código ejecutado
+en la pila
+
+00:01:59.730 --> 00:02:00.930 align:middle
+y el estado del sistema.
+
+00:02:01.097 --> 00:02:03.060 align:middle
+Aquí, mira, tengo una variable local
+C. por el momento
+
+00:02:03.227 --> 00:02:05.480 align:middle
+no se ha asignado,
+así que hay cero.
+
+00:02:06.150 --> 00:02:08.800 align:middle
+Y aquí veo ese Ser
+es de hecho una clase de
+
+00:02:09.380 --> 00:02:13.770 align:middle
+CounterTest, este es el
+método CounterTest >>
+
+00:02:14.880 --> 00:02:15.580 align:middle
+#testDecrement.
+
+00:02:16.690 --> 00:02:21.420 align:middle
+Cuando hago clic en "sobre" aquí,
+
+00:02:21.587 --> 00:02:24.370 align:middle
+Entro en la primera expresión
+ejecutar.
+
+00:02:24.537 --> 00:02:26.540 align:middle
+Tenga en cuenta que,
+Si yo quiero,
+
+00:02:26.707 --> 00:02:28.720 align:middle
+Puedo crear de inmediato, puedo
+ejecute esto
+
+00:02:28.887 --> 00:02:32.340 align:middle
+expresión porque es completa,
+
+00:02:32.507 --> 00:02:34.190 align:middle
+la clase Contador se define
+y yo puedo
+
+00:02:34.357 --> 00:02:35.380 align:middle
+envíale el mensaje nuevo.
+
+00:02:36.120 --> 00:02:38.790 align:middle
+Aquí veo que C es siempre así,
+asi que
+
+00:02:38.957 --> 00:02:40.650 align:middle
+ahora voy a decir que quiero
+"Encima".
+
+00:02:40.817 --> 00:02:41.910 align:middle
+Over:¿qué significa?
+
+00:02:42.077 --> 00:02:45.840 align:middle
+Significa que quiero ejecutar el
+expresión sin entrar dentro.
+
+00:02:47.430 --> 00:02:52.150 align:middle
+Aquí estoy en la segunda expresión
+que es un
+
+00:02:52.317 --> 00:02:55.400 align:middle
+Asignación y haré clic en
+"Over" una vez más y
+
+00:02:55.567 --> 00:02:59.940 align:middle
+de repente mi variable
+C puntos en un contador
+
+00:03:00.340 --> 00:03:04.300 align:middle
+que la puedo ver Aquí por el momento
+el valor del contador es cero.
+
+00:03:04.467 --> 00:03:07.960 align:middle
+Si quisiera saber cómo
+contar:
+
+00:03:08.127 --> 00:03:11.600 align:middle
+se implementa, en lugar de
+usando "Over" lo haría
+
+00:03:11.767 --> 00:03:12.520 align:middle
+use "Into".
+
+00:03:12.687 --> 00:03:16.140 align:middle
+"En" me hará entrar
+el método,
+
+00:03:17.510 --> 00:03:20.050 align:middle
+Me gusta esto. Aquí puedo ver
+la definición del método y
+
+00:03:20.217 --> 00:03:22.160 align:middle
+una vez más, puedo interactuar
+con los argumentos
+
+00:03:22.580 --> 00:03:26.350 align:middle
+Aquí tengo un intérprete, si escribo
+Imprimir, puedo ver
+
+00:03:26.517 --> 00:03:28.230 align:middle
+mira que tengo 7 y de todos modos
+aninteger
+
+00:03:28.397 --> 00:03:32.930 align:middle
+está aquí y cuenta, por ahora,
+
+00:03:33.097 --> 00:03:35.460 align:middle
+la variable de instancia
+su valor es nulo
+
+00:03:35.627 --> 00:03:37.210 align:middle
+También se muestra allí.
+
+00:03:38.750 --> 00:03:41.530 align:middle
+Sigo, hago clic en "Over",
+porque
+
+00:03:41.697 --> 00:03:44.450 align:middle
+Quiero decir que quiero saltar
+eso.
+
+00:03:44.617 --> 00:03:46.360 align:middle
+Quiero continuar la expresion
+ejecución.
+
+00:03:49.740 --> 00:03:50.373 align:middle
+Por lo tanto, allí.
+
+00:03:51.860 --> 00:03:53.370 align:middle
+Ahora imaginemos que quiero
+entrar en decremento,
+
+00:03:53.537 --> 00:03:55.690 align:middle
+Haré lo mismo,
+Haré clic en "Into",
+
+00:03:56.190 --> 00:04:00.670 align:middle
+decremento, tengo decremento
+codigo y,
+
+00:04:01.310 --> 00:04:04.890 align:middle
+usted entendió el principio,
+de esta manera puedo hacer
+
+00:04:05.057 --> 00:04:07.190 align:middle
+La expresión paso a paso.
+
+00:04:11.230 --> 00:04:13.280 align:middle
+Entonces, ahora, ¿qué hace?
+¿Habilita hacer?
+
+00:04:13.447 --> 00:04:15.950 align:middle
+Permite decir:"de
+este punto continúa
+
+00:04:16.117 --> 00:04:18.310 align:middle
+como si nada hubiera pasado
+Entonces eso es lo que voy a hacer
+
+00:04:18.750 --> 00:04:22.750 align:middle
+y mi prueba será verde.
+Así que ahora también podría
+
+00:04:22.917 --> 00:04:27.760 align:middle
+ejecute independientemente esto
+
+00:04:27.927 --> 00:04:29.810 align:middle
+poco de código, esto significa
+
+00:04:30.000 --> 00:04:32.850 align:middle
+Puedo ponerlo en un patio de recreo
+Me gusta esto,
+
+00:04:33.017 --> 00:04:37.920 align:middle
+y aquí tengo Debug,
+Yo recibo lo mismo
+
+00:04:38.960 --> 00:04:40.630 align:middle
+En este caso se compila
+un poco
+
+00:04:40.797 --> 00:04:43.930 align:middle
+diferente pero tengo
+exactamente lo mismo
+
+00:04:44.097 --> 00:04:47.710 align:middle
+funciones, con mi valor de contador
+que es 7,
+
+00:04:49.550 --> 00:04:52.080 align:middle
+y si hago clic en el contador,
+Puedo ver que tengo 7
+
+00:04:52.350 --> 00:04:57.020 align:middle
+aquí y hago clic en "Into"
+por ejemplo,
+
+00:04:57.960 --> 00:04:59.850 align:middle
+Puedo ir en decremento, "Over",
+"Encima",
+
+00:05:03.030 --> 00:05:05.320 align:middle
+y lo mismo en "Over".
+
+00:05:08.810 --> 00:05:12.430 align:middle
+Entonces aquí vuelve el valor de cascada,
+por lo que regresa
+
+00:05:12.597 --> 00:05:13.440 align:middle
+el contador C
+

@@ -1,0 +1,666 @@
+WEBVTT
+
+00:00:00.480 --> 00:00:03.920 align:middle
+Hoy continuaremos
+con la sesión anterior
+
+00:00:04.080 --> 00:00:07.280 align:middle
+donde expliqué
+que los pequeños métodos eran buenos.
+
+00:00:07.440 --> 00:00:09.160 align:middle
+Hoy mostraré algunos ejemplos.
+
+00:00:09.320 --> 00:00:12.840 align:middle
+Pero primero, repasemos rápidamente
+nuestra sesión anterior
+
+00:00:13.000 --> 00:00:15.280 align:middle
+Enviar un mensaje lleva a una elección.
+
+00:00:15.440 --> 00:00:19.640 align:middle
+Una opción enmascarada porque varios
+posibles implementaciones
+
+00:00:19.800 --> 00:00:21.560 align:middle
+se llamará
+
+00:00:22.040 --> 00:00:25.960 align:middle
+Y Pharo hace una elección
+dependiendo del receptor del mensaje.
+
+00:00:26.480 --> 00:00:30.360 align:middle
+La jerarquía de clases define las opciones:
+Más clases = más opciones.
+
+00:00:30.600 --> 00:00:34.360 align:middle
+Y puedes agregar fácilmente
+nuevas elecciones mediante la creación de subclases.
+
+00:00:35.760 --> 00:00:40.480 align:middle
+Las subclases pueden redefinir o refinar
+el código de su superclase
+
+00:00:42.000 --> 00:00:43.920 align:middle
+Y enviando un mensaje
+
+00:00:44.080 --> 00:00:49.360 align:middle
+significa dar subclases
+La posibilidad de cambiar el comportamiento.
+
+00:00:50.520 --> 00:00:54.080 align:middle
+Hoy miraremos
+el método de plantilla de patrón de diseño.
+
+00:00:54.240 --> 00:00:56.880 align:middle
+Lo encontrarás
+en el manual de diseño de patrones.
+
+00:00:57.640 --> 00:00:59.960 align:middle
+¿Qué es un método de plantilla?
+
+00:01:00.120 --> 00:01:04.600 align:middle
+Es un esqueleto
+que define el comportamiento general
+
+00:01:04.760 --> 00:01:08.800 align:middle
+de un algoritmo, por ejemplo,
+con ganchos en el interior.
+
+00:01:08.960 --> 00:01:12.680 align:middle
+Y estos ganchos pueden ser
+redefinido por subclases.
+
+00:01:13.840 --> 00:01:16.000 align:middle
+Este es un algoritmo.
+
+00:01:16.320 --> 00:01:19.320 align:middle
+Hace algo,
+no sabemos exactamente qué.
+
+00:01:20.280 --> 00:01:25.320 align:middle
+Luego, hace algo
+en gancho Método 1,
+
+00:01:25.720 --> 00:01:27.080 align:middle
+luego algo más,
+
+00:01:27.240 --> 00:01:29.480 align:middle
+y luego algo
+en ganchoMetodo2.
+
+00:01:29.640 --> 00:01:34.200 align:middle
+Desde hookMethods 1 y 2
+son ambos métodos completos,
+
+00:01:34.360 --> 00:01:37.040 align:middle
+pueden ser redefinidos en las subclases.
+
+00:01:37.600 --> 00:01:41.320 align:middle
+Hay 2 posibilidades,
+uno para el hookMethod 1 y 2.
+
+00:01:42.760 --> 00:01:46.520 align:middle
+Estos métodos pueden o no
+
+00:01:46.680 --> 00:01:49.800 align:middle
+tienen un comportamiento predeterminado.
+
+00:01:50.160 --> 00:01:53.840 align:middle
+Aquí, digamos que hookMethod 1
+tiene un comportamiento predeterminado.
+
+00:01:54.000 --> 00:01:57.160 align:middle
+Esto significa que
+si la subclase no propone nada,
+
+00:01:57.680 --> 00:02:03.000 align:middle
+hookMethod 1 tiene un comportamiento predeterminado
+eso funciona
+
+00:02:04.240 --> 00:02:06.280 align:middle
+Del mismo modo, podríamos decir
+
+00:02:06.440 --> 00:02:09.960 align:middle
+ese hookMethod 2
+no tiene un comportamiento predeterminado.
+
+00:02:10.120 --> 00:02:12.840 align:middle
+La subclase
+debe imperativamente definir uno.
+
+00:02:13.000 --> 00:02:15.960 align:middle
+Como diseñador de la clase,
+tu puedes elegir
+
+00:02:16.120 --> 00:02:19.840 align:middle
+si o no
+para determinar un comportamiento predeterminado.
+
+00:02:20.640 --> 00:02:23.760 align:middle
+Usaremos printString
+Como primer ejemplo.
+
+00:02:23.920 --> 00:02:27.640 align:middle
+La idea es que si envío
+un mensaje printString a un objeto,
+
+00:02:27.800 --> 00:02:31.120 align:middle
+Obtengo una cadena de caracteres
+que representa este objeto
+
+00:02:31.280 --> 00:02:33.160 align:middle
+Aquí tengo un retraso.
+
+00:02:34.400 --> 00:02:37.640 align:middle
+He creado una demora de 10 segundos.
+
+00:02:38.480 --> 00:02:42.960 align:middle
+Si envío un mensaje printString
+a esta demora,
+
+00:02:43.120 --> 00:02:47.720 align:middle
+Tengo un retraso y entre paréntesis,
+un milisegundo de valor para la demora.
+
+00:02:48.200 --> 00:02:52.840 align:middle
+El método printString se implementa
+en la clase de objeto como esta.
+
+00:02:53.600 --> 00:02:56.640 align:middle
+Envía el mensaje
+printStringLimitedTo
+
+00:02:57.160 --> 00:02:58.560 align:middle
+Esta implementación
+
+00:02:58.720 --> 00:03:02.920 align:middle
+recupera una cadena de caracteres
+eso representa
+
+00:03:03.080 --> 00:03:04.880 align:middle
+el objeto.
+
+00:03:05.040 --> 00:03:09.360 align:middle
+Y si esta cadena de caracteres
+es demasiado largo,
+
+00:03:10.200 --> 00:03:13.800 align:middle
+podemos cortarlo en un cierto límite.
+
+00:03:13.960 --> 00:03:17.400 align:middle
+Luego al final,
+Concatenamos con '... etc ...'
+
+00:03:17.560 --> 00:03:19.880 align:middle
+decir que la cadena no está hecha.
+
+00:03:20.640 --> 00:03:23.600 align:middle
+Lo importante aquí
+
+00:03:23.760 --> 00:03:28.120 align:middle
+es que printStringLimitedTo
+envía un mensaje printOn a ti mismo.
+
+00:03:28.280 --> 00:03:29.880 align:middle
+Este es el metodo
+
+00:03:30.040 --> 00:03:33.400 align:middle
+que lo hará o no
+ser redefinido en las subclases.
+
+00:03:34.040 --> 00:03:37.560 align:middle
+Si miro lo que devuelve printString
+
+00:03:37.720 --> 00:03:40.120 align:middle
+para un nodo y para una manzana,
+
+00:03:40.280 --> 00:03:43.800 align:middle
+El nodo nuevo devuelve un nodo.
+
+00:03:44.200 --> 00:03:48.440 align:middle
+Este es el printString
+de la clase Nodo.
+
+00:03:49.120 --> 00:03:53.240 align:middle
+Y aquí en Apple, tenemos
+el printString de la clase Apple.
+
+00:03:53.720 --> 00:03:57.000 align:middle
+Vemos que este comportamiento
+y el comportamiento predeterminado
+
+00:03:57.160 --> 00:03:59.920 align:middle
+se implementan en el objeto de clase.
+
+00:04:00.080 --> 00:04:04.320 align:middle
+Entonces, el comportamiento predeterminado
+de printString para cualquier objeto que sea
+
+00:04:04.680 --> 00:04:06.000 align:middle
+es uno:
+
+00:04:06.160 --> 00:04:10.000 align:middle
+Recupera los nombres de clase.
+
+00:04:10.160 --> 00:04:12.840 align:middle
+En este caso, Node y Apple.
+
+00:04:13.120 --> 00:04:16.720 align:middle
+Y dos, si el nombre de la clase
+comienza con una vocal,
+
+00:04:17.640 --> 00:04:19.760 align:middle
+utilizamos el prefijo "an".
+
+00:04:19.920 --> 00:04:23.000 align:middle
+Si comienza con una consonante,
+utilizamos el prefijo "a".
+
+00:04:23.160 --> 00:04:26.320 align:middle
+Así es como nosotras
+"un nodo" y "una manzana".
+
+00:04:27.880 --> 00:04:30.520 align:middle
+Este es el comportamiento predeterminado.
+
+00:04:31.120 --> 00:04:34.400 align:middle
+Pero es posible cambiar
+este comportamiento predeterminado
+
+00:04:34.560 --> 00:04:36.280 align:middle
+refinando printOn.
+
+00:04:36.720 --> 00:04:38.480 align:middle
+Por un retraso,
+
+00:04:38.640 --> 00:04:41.560 align:middle
+nosotros vemos eso
+el printString de una demora
+
+00:04:41.720 --> 00:04:46.240 align:middle
+comienza con
+la devolución predeterminada de printOn.
+
+00:04:46.400 --> 00:04:47.640 align:middle
+Eso es "un retraso".
+
+00:04:47.800 --> 00:04:52.720 align:middle
+Pero luego, podemos agregar la demora
+en milisegundos entre paréntesis.
+
+00:04:52.880 --> 00:04:56.040 align:middle
+Esto es exactamente lo que
+el método printOn.
+
+00:04:56.880 --> 00:05:01.080 align:middle
+Comienza preguntando a la superclase
+para el printString predeterminado.
+
+00:05:02.160 --> 00:05:05.240 align:middle
+Después,
+abre un paréntesis
+
+00:05:05.560 --> 00:05:08.080 align:middle
+con un número predeterminado de milisegundos,
+
+00:05:08.880 --> 00:05:11.240 align:middle
+y luego cierra los paréntesis.
+
+00:05:11.760 --> 00:05:14.720 align:middle
+Solo miramos el refinamiento.
+
+00:05:15.040 --> 00:05:18.120 align:middle
+La clase de retraso
+refina la implementación
+
+00:05:18.280 --> 00:05:21.520 align:middle
+del método printOn
+en la clase de objeto.
+
+00:05:21.680 --> 00:05:25.200 align:middle
+Pero una clase también puede
+redefinir completamente el comportamiento
+
+00:05:25.680 --> 00:05:29.880 align:middle
+Este es el caso de los booleanos,
+por ejemplo.
+
+00:05:30.040 --> 00:05:31.760 align:middle
+Si muestro falso,
+
+00:05:31.920 --> 00:05:34.800 align:middle
+devolverá falso
+
+00:05:34.960 --> 00:05:37.240 align:middle
+No tenemos "un falso"
+
+00:05:37.400 --> 00:05:39.120 align:middle
+simplemente "falso".
+
+00:05:39.280 --> 00:05:43.200 align:middle
+Para esto, solo enviamos
+la cadena de caracteres "falsa"
+
+00:05:43.360 --> 00:05:45.680 align:middle
+en el flujo de variables printOn.
+
+00:05:46.200 --> 00:05:48.080 align:middle
+Eso es una redefinición completa.
+
+00:05:48.240 --> 00:05:51.640 align:middle
+Otro ejemplo
+de redefinición completa es intervalos.
+
+00:05:51.800 --> 00:05:54.120 align:middle
+Un intervalo define un conjunto de valores
+
+00:05:54.280 --> 00:05:56.920 align:middle
+situado entre
+un valor mínimo y máximo.
+
+00:05:57.680 --> 00:06:02.680 align:middle
+El intervalo de 1 a 100 se muestra mediante:
+(1 a:100)
+
+00:06:04.320 --> 00:06:07.600 align:middle
+El intervalo de 1 a:100 por:3
+
+00:06:07.840 --> 00:06:10.400 align:middle
+1, 4 y así sucesivamente,
+
+00:06:10.560 --> 00:06:14.720 align:middle
+se muestra de la misma manera
+con el "by" adicional.
+
+00:06:15.680 --> 00:06:18.080 align:middle
+¿Cómo se implementa esto?
+
+00:06:18.240 --> 00:06:22.640 align:middle
+La clase de intervalo
+redefine el método printOn
+
+00:06:23.120 --> 00:06:26.200 align:middle
+y envía mensajes diferentes
+para transmitir variables.
+
+00:06:26.360 --> 00:06:28.600 align:middle
+Empezamos abriendo paréntesis.
+
+00:06:28.760 --> 00:06:31.240 align:middle
+Los paréntesis aquí y aquí.
+
+00:06:31.600 --> 00:06:36.560 align:middle
+Luego mostramos el valor inicial
+o el primer número del intervalo,
+
+00:06:36.720 --> 00:06:39.360 align:middle
+que es este "1" aquí,
+y este "1" aquí.
+
+00:06:39.680 --> 00:06:41.440 align:middle
+Luego escribimos 'a:'.
+
+00:06:44.600 --> 00:06:47.640 align:middle
+Y escribimos el valor final:"100",
+
+00:06:48.520 --> 00:06:49.800 align:middle
+y "100".
+
+00:06:50.000 --> 00:06:53.720 align:middle
+Si hay un "by"
+eso es diferente del predeterminado "1",
+
+00:06:53.880 --> 00:06:56.800 align:middle
+escribimos el "a".
+
+00:06:59.120 --> 00:07:02.320 align:middle
+Y al final,
+cerramos los paréntesis.
+
+00:07:04.360 --> 00:07:07.000 align:middle
+Vimos que printString
+
+00:07:07.160 --> 00:07:11.000 align:middle
+usa el patrón de diseño
+método de plantillas para que las clases
+
+00:07:11.160 --> 00:07:15.120 align:middle
+puede implementar
+su propia representación textual.
+
+00:07:15.360 --> 00:07:19.600 align:middle
+Ahora veremos otro ejemplo,
+que es copia de objeto.
+
+00:07:19.760 --> 00:07:21.120 align:middle
+¿Qué hace la copia?
+
+00:07:21.280 --> 00:07:25.960 align:middle
+Te permite tomar un objeto
+y crea un código desde él.
+
+00:07:26.840 --> 00:07:29.680 align:middle
+Copiar objetos es complejo.
+
+00:07:30.880 --> 00:07:33.120 align:middle
+Puede haber diferentes estrategias.
+
+00:07:33.280 --> 00:07:35.200 align:middle
+Cada clase puede decidir
+
+00:07:35.360 --> 00:07:39.200 align:middle
+cual es la copia de sus instancias
+debería parecerse.
+
+00:07:39.720 --> 00:07:43.400 align:middle
+Hay una simple
+solución de método de plantilla
+
+00:07:43.560 --> 00:07:46.520 align:middle
+que usa copy y postCopy.
+
+00:07:46.880 --> 00:07:50.560 align:middle
+Copiar es un método de plantilla
+y postCopy es un gancho.
+
+00:07:51.360 --> 00:07:54.200 align:middle
+En la clase de objeto
+hay un método de copia.
+
+00:07:54.800 --> 00:07:57.640 align:middle
+Te dejaré leer el comentario.
+
+00:07:58.640 --> 00:08:02.920 align:middle
+En este metodo,
+enviamos shallowCopy
+
+00:08:03.080 --> 00:08:05.240 align:middle
+como un mensaje para ti mismo,
+
+00:08:05.400 --> 00:08:08.640 align:middle
+seguido de postCopy
+en el resultado
+
+00:08:08.920 --> 00:08:12.360 align:middle
+¿Qué hace shallowCopy?
+
+00:08:12.520 --> 00:08:16.200 align:middle
+Crea un nuevo objeto
+que comparte todas las variables de instancia
+
+00:08:16.360 --> 00:08:17.960 align:middle
+con el objeto base.
+
+00:08:18.200 --> 00:08:22.080 align:middle
+Tenemos dos objetos y
+sus variables de instancia son las mismas.
+
+00:08:22.240 --> 00:08:26.640 align:middle
+Si modifico la variable de instancia
+de un objeto, modifico el otro también.
+
+00:08:28.880 --> 00:08:32.320 align:middle
+Ese es el comportamiento predeterminado
+
+00:08:34.320 --> 00:08:35.720 align:middle
+de poca profundidad.
+
+00:08:35.880 --> 00:08:38.800 align:middle
+Según lo que hace postCopy,
+
+00:08:38.960 --> 00:08:41.400 align:middle
+las variables serán compartidas o no.
+
+00:08:41.560 --> 00:08:44.240 align:middle
+Si postCopy está vacío,
+todas las variables se comparten
+
+00:08:44.400 --> 00:08:48.640 align:middle
+Pero las clases pueden decidir
+poner cosas diferentes en postCopy
+
+00:08:48.800 --> 00:08:52.440 align:middle
+para compartir ciertas variables
+o nada en absoluto.
+
+00:08:53.040 --> 00:08:55.680 align:middle
+La configuración predeterminada de postCopy
+comparte todo
+
+00:08:55.840 --> 00:08:59.240 align:middle
+Simplemente devuelve el objeto actual.
+
+00:09:00.440 --> 00:09:04.080 align:middle
+Pero también podríamos imaginar
+otras aplicaciones para postCopy.
+
+00:09:04.240 --> 00:09:06.680 align:middle
+Por ejemplo, en la clase Bag.
+
+00:09:06.840 --> 00:09:09.600 align:middle
+Bag es un tipo de colección
+
+00:09:09.840 --> 00:09:13.440 align:middle
+y su método postCopy
+copia su contenido
+
+00:09:14.640 --> 00:09:17.520 align:middle
+Por lo tanto, una bolsa es
+una variable de instancia de contenido,
+
+00:09:17.680 --> 00:09:21.080 align:middle
+y los diseñadores
+de la clase Bag decidió que
+
+00:09:21.240 --> 00:09:22.920 align:middle
+cuando copia una bolsa,
+
+00:09:23.080 --> 00:09:26.000 align:middle
+no quieres compartir
+la variable de contenido,
+
+00:09:26.160 --> 00:09:27.920 align:middle
+Quieres variables separadas.
+
+00:09:28.080 --> 00:09:31.960 align:middle
+Tienen el mismo valor inicial
+pero puedes modificar solo uno.
+
+00:09:33.440 --> 00:09:34.720 align:middle
+Aquí la idea es:
+
+00:09:34.880 --> 00:09:39.440 align:middle
+postCopy es un mensaje enviado para copiar,
+o el nuevo objeto,
+
+00:09:41.880 --> 00:09:45.080 align:middle
+que comparte
+todas las variables de instancia.
+
+00:09:45.240 --> 00:09:47.200 align:middle
+Si no queremos compartirlos,
+
+00:09:47.360 --> 00:09:50.280 align:middle
+creamos otros nuevos
+y decidir sobre su valor.
+
+00:09:50.760 --> 00:09:52.600 align:middle
+Aquí en mi variable de contenido,
+
+00:09:52.760 --> 00:09:55.120 align:middle
+Pondré una copia
+de los contenidos iniciales.
+
+00:09:55.280 --> 00:09:57.000 align:middle
+De esa manera no los comparto.
+
+00:09:57.160 --> 00:10:00.080 align:middle
+Cada copia de mi bolsa
+tiene sus propios contenidos.
+
+00:10:00.600 --> 00:10:03.400 align:middle
+Con el diccionario, vamos aún más lejos.
+
+00:10:03.560 --> 00:10:06.840 align:middle
+Un diccionario es una colección
+de pares clave-valor,
+
+00:10:07.000 --> 00:10:09.080 align:middle
+o una colección de asociaciones.
+
+00:10:09.240 --> 00:10:12.360 align:middle
+No solo queremos copiar
+la colección...
+
+00:10:12.520 --> 00:10:16.000 align:middle
+Si copiamos un diccionario,
+queremos copiar la colección,
+
+00:10:16.160 --> 00:10:19.440 align:middle
+y cada diccionario
+Tiene su propia colección de pares ...
+
+00:10:19.600 --> 00:10:21.960 align:middle
+Pero también queremos que cada par
+ser diferente.
+
+00:10:22.120 --> 00:10:26.520 align:middle
+Entonces, si modifico uno,
+no modificará el otro lado.
+
+00:10:26.920 --> 00:10:30.640 align:middle
+Para hacer esto, copio la tabla,
+pero también copia
+
+00:10:30.800 --> 00:10:32.400 align:middle
+cada par adentro.
+
+00:10:32.560 --> 00:10:34.720 align:middle
+Esto es lo que está sucediendo aquí.
+
+00:10:34.880 --> 00:10:38.640 align:middle
+Para concluir, el patrón de diseño
+El método de plantilla es muy común.
+
+00:10:39.040 --> 00:10:41.520 align:middle
+Es una señal de buen diseño.
+
+00:10:41.720 --> 00:10:45.880 align:middle
+Si haces un buen diseño de objetos,
+tendrás muchos métodos de plantilla.
+
+00:10:46.040 --> 00:10:48.560 align:middle
+Es perfectamente normal y algo bueno.
+
+00:10:49.080 --> 00:10:50.920 align:middle
+Entonces, no dudes en usarlos.
+
+00:10:51.080 --> 00:10:56.040 align:middle
+Esta técnica permite subclases
+definir comportamiento
+
+00:10:56.200 --> 00:10:59.640 align:middle
+y modificar parcialmente
+El comportamiento de la superclase.
+

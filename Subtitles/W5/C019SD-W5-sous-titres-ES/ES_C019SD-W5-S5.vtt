@@ -1,0 +1,481 @@
+WEBVTT
+
+00:00:00.560 --> 00:00:01.360 align:middle
+Hola a todos.
+
+00:00:01.520 --> 00:00:04.800 align:middle
+En esta secuencia vamos
+para presentar rápidamente el depurador,
+
+00:00:04.960 --> 00:00:09.360 align:middle
+y la noción de puntos de ruptura,
+Los diferentes puntos de interrupción en Pharo.
+
+00:00:09.600 --> 00:00:11.560 align:middle
+Lo que verá es que
+
+00:00:11.760 --> 00:00:14.760 align:middle
+el sistema esta vivo
+y que podemos comunicarnos,
+
+00:00:14.920 --> 00:00:18.040 align:middle
+tenemos que comunicarnos
+con ella y sus objetos.
+
+00:00:18.840 --> 00:00:22.000 align:middle
+No trabajamos con el código fuente,
+Trabajamos con objetos,
+
+00:00:22.160 --> 00:00:25.520 align:middle
+que tienen un estado,
+y recibir y enviar mensajes.
+
+00:00:26.760 --> 00:00:29.200 align:middle
+No tengas miedo de usar el depurador.
+
+00:00:29.360 --> 00:00:33.480 align:middle
+Podemos codificar en depurador,
+inspecciona el programa mientras se está ejecutando ...
+
+00:00:33.920 --> 00:00:37.360 align:middle
+Es una herramienta poderosa y realmente útil.
+
+00:00:37.920 --> 00:00:41.040 align:middle
+Conozco a varios desarrolladores,
+yo mismo incluido
+
+00:00:41.200 --> 00:00:45.360 align:middle
+quien tiene una tendencia
+para desarrollarse directamente en depuradores.
+
+00:00:45.520 --> 00:00:49.440 align:middle
+Entonces, una gran cantidad de código
+está escrito en depuradores en lugar de
+
+00:00:49.600 --> 00:00:51.280 align:middle
+en un navegador de código.
+
+00:00:51.440 --> 00:00:54.040 align:middle
+La ventaja de eso es,
+mientras escribes el código,
+
+00:00:54.200 --> 00:00:58.400 align:middle
+tienes acceso a la configuración del método,
+a los objetos, a las variables.
+
+00:00:58.560 --> 00:01:00.960 align:middle
+Puedes verlo todo y probarlo.
+
+00:01:01.120 --> 00:01:04.640 align:middle
+Tienes todos los datos a mano
+para poder probarlo
+
+00:01:04.800 --> 00:01:06.360 align:middle
+mientras escribía el código.
+
+00:01:06.920 --> 00:01:10.280 align:middle
+El depurador se parece a esto.
+
+00:01:10.440 --> 00:01:14.560 align:middle
+Hay una barra de título
+indicando el mensaje de error.
+
+00:01:14.720 --> 00:01:16.920 align:middle
+Aquí está la "pila", la pila de llamadas,
+
+00:01:17.080 --> 00:01:20.200 align:middle
+es decir, el método de llamada.
+Aquí podemos ver eso
+
+00:01:20.360 --> 00:01:24.440 align:middle
+este método, "performtest"
+ha llamado al método "testSumming",
+
+00:01:24.600 --> 00:01:27.600 align:middle
+que ha llamado el método "lugar",
+
+00:01:27.760 --> 00:01:32.400 align:middle
+que ha planteado el problema
+"No entiende".
+
+00:01:33.680 --> 00:01:37.720 align:middle
+Aquí tenemos el código
+del área que se selecciona aquí.
+
+00:01:37.880 --> 00:01:41.440 align:middle
+Lo que se selecciona aquí es el método
+más la clase DiceHandle,
+
+00:01:41.600 --> 00:01:44.480 align:middle
+por lo que aparece en la ventana inferior.
+
+00:01:44.640 --> 00:01:48.640 align:middle
+Y justo en la parte inferior
+tenemos diferentes variables,
+
+00:01:48.800 --> 00:01:50.760 align:middle
+todas las variables accesibles
+
+00:01:50.920 --> 00:01:53.720 align:middle
+en el contexto
+de la ejecución en curso,
+
+00:01:53.880 --> 00:01:56.480 align:middle
+Para modificar las variables,
+
+00:01:56.640 --> 00:01:59.840 align:middle
+para inspeccionar los objetos, etc ...
+
+00:02:00.400 --> 00:02:04.000 align:middle
+Es un grupo de acciones
+en esa área que nos permite
+
+00:02:04.160 --> 00:02:08.280 align:middle
+reiniciar la ejecución
+del método o sumergirse en el código
+
+00:02:08.440 --> 00:02:10.760 align:middle
+o vea línea por línea lo que está sucediendo.
+
+00:02:11.400 --> 00:02:14.880 align:middle
+Cuando se abre un depurador,
+cerrarlo no resolverá el problema.
+
+00:02:15.160 --> 00:02:17.560 align:middle
+Es mucho más fácil abrir el depurador,
+
+00:02:17.720 --> 00:02:21.200 align:middle
+mirar adentro en detalle
+a lo que está causando el problema
+
+00:02:21.360 --> 00:02:24.120 align:middle
+e inspeccione la pila de llamadas y los objetos,
+
+00:02:24.280 --> 00:02:26.240 align:middle
+y solucionar el problema en el depurador
+
+00:02:26.400 --> 00:02:30.040 align:middle
+en lugar de cerrarlo y luego
+Adivina por qué se abrió el depurador.
+
+00:02:31.480 --> 00:02:34.840 align:middle
+El depurador es tu mejor amigo.
+
+00:02:35.000 --> 00:02:37.560 align:middle
+Te permite comunicarte
+con todos los objetos de contexto,
+
+00:02:37.720 --> 00:02:42.440 align:middle
+ya sea la configuración,
+las variables de instancia, etc ...
+
+00:02:42.600 --> 00:02:47.040 align:middle
+Para verificar el estado de todas las variables
+e incluso modificar este estado.
+
+00:02:48.000 --> 00:02:51.560 align:middle
+Para enviar mensajes para verificar
+el estado de ciertos objetos
+
+00:02:51.720 --> 00:02:54.440 align:middle
+o comprueba cómo están reaccionando.
+
+00:02:55.080 --> 00:02:59.160 align:middle
+Por supuesto, podemos modificar los métodos.
+en la pila de llamadas, guardado,
+
+00:02:59.320 --> 00:03:02.160 align:middle
+y continúe con el nuevo código
+Sin ningún problema,
+
+00:03:02.320 --> 00:03:06.920 align:middle
+todo sin reiniciar
+Ejecución desde cero.
+
+00:03:07.400 --> 00:03:10.120 align:middle
+Entonces, si un método falla,
+nosotros corregimos el método,
+
+00:03:10.280 --> 00:03:14.080 align:middle
+reiniciamos la ejecución del método
+y el programa continúa.
+
+00:03:15.000 --> 00:03:16.200 align:middle
+Una forma de depurar
+
+00:03:17.040 --> 00:03:19.240 align:middle
+eso se usa con mucha frecuencia
+
+00:03:19.680 --> 00:03:22.400 align:middle
+está mostrando cosas en la consola.
+
+00:03:22.560 --> 00:03:27.200 align:middle
+Podemos ver que esto es realmente
+
+00:03:27.360 --> 00:03:31.720 align:middle
+una mala forma de depuración,
+porque tienes que modificar
+
+00:03:32.320 --> 00:03:37.480 align:middle
+todos los métodos en los que desea rastros,
+y luego modificarlos nuevamente
+
+00:03:37.640 --> 00:03:40.600 align:middle
+para eliminarlos cuando el problema se solucione.
+
+00:03:40.760 --> 00:03:44.400 align:middle
+Y luego debes saber,
+o tener una idea, donde está el problema ...
+
+00:03:44.560 --> 00:03:47.680 align:middle
+Donde podría estar el problema,
+o de donde viene,
+
+00:03:47.840 --> 00:03:52.440 align:middle
+saber dónde poner la línea
+y que mostrar
+
+00:03:52.760 --> 00:03:57.240 align:middle
+La otra forma de hacer esto
+está usando puntos de interrupción.
+
+00:03:57.680 --> 00:04:01.920 align:middle
+Un punto de interrupción es un lugar en el código
+donde indicaremos
+
+00:04:02.080 --> 00:04:06.040 align:middle
+a Pharo que tiene que parar
+La próxima vez que pase este lugar.
+
+00:04:06.200 --> 00:04:09.560 align:middle
+Entonces el punto de corte más simple
+es "detener ahora".
+
+00:04:09.720 --> 00:04:13.800 align:middle
+Envía el mensaje "ahora"
+al objeto "Halt", que es una clase,
+
+00:04:13.960 --> 00:04:17.360 align:middle
+que detendrá inmediatamente la ejecución.
+
+00:04:17.520 --> 00:04:19.520 align:middle
+A partir de ahí, se abrirá un depurador.
+
+00:04:19.680 --> 00:04:23.760 align:middle
+Podemos ver línea por línea lo que está sucediendo,
+el estado del programa, etc ...
+
+00:04:24.320 --> 00:04:27.520 align:middle
+Entonces, "Detener ahora" detiene el programa ...
+
+00:04:27.680 --> 00:04:30.120 align:middle
+podemos reiniciarlo,
+pero por ahora está en pausa ...
+
+00:04:30.280 --> 00:04:33.880 align:middle
+y abre un depurador con
+El estado actual de la aplicación.
+
+00:04:34.040 --> 00:04:36.120 align:middle
+Entonces, "Detener ahora" es muy bueno,
+
+00:04:36.280 --> 00:04:40.120 align:middle
+a menos que lo pones en un método
+eso se ejecuta constantemente,
+
+00:04:40.320 --> 00:04:43.200 align:middle
+incluido por el propio sistema.
+
+00:04:43.360 --> 00:04:48.120 align:middle
+Puedes tener docenas
+de apertura de depuradores
+
+00:04:48.280 --> 00:04:52.520 align:middle
+si pones un "alto ahora" en un lugar
+utilizado por un depurador de apertura.
+
+00:04:52.920 --> 00:04:55.800 align:middle
+Entonces pones "Detener ahora"
+en el código del depurador.
+
+00:04:55.960 --> 00:04:57.400 align:middle
+Si se abre el depurador,
+
+00:04:57.560 --> 00:04:59.440 align:middle
+ejecutará "Deténgase ahora" en sí mismo,
+
+00:04:59.600 --> 00:05:04.200 align:middle
+que abrirá otro depurador, etc.,
+recursivamente y pausa su sistema.
+
+00:05:04.520 --> 00:05:07.760 align:middle
+En este caso, usamos "Halt once",
+
+00:05:07.920 --> 00:05:12.520 align:middle
+que, una vez que se activa "Halt once",
+se detiene una vez, se detiene una vez,
+
+00:05:12.680 --> 00:05:17.240 align:middle
+y todos los pasajes posteriores a través de
+"Detener una vez" no hará una pausa en el programa.
+
+00:05:18.520 --> 00:05:22.120 align:middle
+Entonces escribimos "Detener una vez"
+en cualquier parte del código,
+
+00:05:23.880 --> 00:05:26.200 align:middle
+lo activamos, una vez,
+
+00:05:26.360 --> 00:05:28.280 align:middle
+nosotros ejecutamos el programa,
+
+00:05:28.440 --> 00:05:31.680 align:middle
+un depurador se abre y
+"Detener una vez" se desactiva inmediatamente.
+
+00:05:32.360 --> 00:05:35.240 align:middle
+Otra posibilidad es parar
+después de varias iteraciones.
+
+00:05:35.640 --> 00:05:38.560 align:middle
+Podríamos detenernos después de la décima iteración
+
+00:05:38.720 --> 00:05:42.080 align:middle
+si sabemos que un elemento
+en una colección que nos interesa
+
+00:05:42.240 --> 00:05:44.800 align:middle
+está en la 10ª posición.
+No necesariamente vale la pena
+
+00:05:44.960 --> 00:05:47.880 align:middle
+depuración de los 9
+tiempos anteriores por nada,
+
+00:05:48.040 --> 00:05:51.000 align:middle
+así que paramos en la décima iteración.
+
+00:05:52.040 --> 00:05:56.280 align:middle
+Otra posibilidad es parar
+cuando una condición particular
+
+00:05:56.520 --> 00:05:59.920 align:middle
+es cierto, entonces para eso tenemos "detener si".
+
+00:06:00.080 --> 00:06:02.040 align:middle
+"Detener si" se toma
+
+00:06:02.240 --> 00:06:04.200 align:middle
+un símbolo que indica un método,
+
+00:06:04.400 --> 00:06:07.480 align:middle
+que tiene que estar en la pila de llamadas
+para que el depurador se abra,
+
+00:06:07.640 --> 00:06:11.280 align:middle
+significa que,
+si pongo "Halt if:printString"
+
+00:06:11.440 --> 00:06:15.920 align:middle
+el dados >> se debe llamar al código de caras
+
+00:06:16.080 --> 00:06:18.000 align:middle
+desde el método printString
+
+00:06:18.160 --> 00:06:20.200 align:middle
+para el punto de quiebre
+
+00:06:20.520 --> 00:06:23.120 align:middle
+para activar y el programa para pausar.
+
+00:06:23.720 --> 00:06:25.360 align:middle
+"Si" también puede tomar un bloque.
+
+00:06:25.520 --> 00:06:28.320 align:middle
+Podemos poner cualquier
+bit de código en el bloque,
+
+00:06:28.480 --> 00:06:32.680 align:middle
+si se evalúa como verdadero,
+para hacer que el depurador se detenga,
+
+00:06:32.880 --> 00:06:35.080 align:middle
+para que no se abra
+y el programa para continuar.
+
+00:06:35.320 --> 00:06:38.840 align:middle
+Desde las pruebas en Pharo
+son métodos en la pila de llamadas,
+
+00:06:39.000 --> 00:06:42.840 align:middle
+puedes poner el número de prueba,
+para que un poco de código solo se detenga
+
+00:06:43.000 --> 00:06:45.400 align:middle
+cuando se ejecuta desde una prueba.
+
+00:06:45.960 --> 00:06:49.560 align:middle
+Todos estos métodos,
+"ahora", "una vez", "onCount" y "if",
+
+00:06:50.240 --> 00:06:53.000 align:middle
+son métodos en la clase Halt.
+
+00:06:53.160 --> 00:06:56.720 align:middle
+Puedes estudiar el código,
+mira qué código le ha hecho,
+
+00:06:56.880 --> 00:06:59.880 align:middle
+y también puedes agregar tus propios métodos,
+
+00:07:00.040 --> 00:07:03.760 align:middle
+agrega tu propio tipo de punto de interrupción
+de acuerdo a sus necesidades.
+
+00:07:03.920 --> 00:07:06.240 align:middle
+Entonces, en el ejemplo a continuación,
+
+00:07:06.400 --> 00:07:11.080 align:middle
+He codificado un punto de interrupción,
+llamado "entre:y"
+
+00:07:11.240 --> 00:07:14.280 align:middle
+que solo detiene el programa
+
+00:07:14.440 --> 00:07:19.320 align:middle
+cuando está en medio
+"minTime" y "maxTime".
+
+00:07:20.400 --> 00:07:23.800 align:middle
+Entonces, este programa solo se detendrá,
+
+00:07:23.960 --> 00:07:27.640 align:middle
+el depurador solo se abrirá,
+entre la medianoche y las 2am.
+
+00:07:27.800 --> 00:07:31.240 align:middle
+Deberías saber eso
+El depurador es una herramienta muy poderosa.
+
+00:07:31.560 --> 00:07:35.280 align:middle
+Hay muchos puntos de ruptura
+ya definido en el sistema.
+
+00:07:35.440 --> 00:07:37.760 align:middle
+Puedes agregar tantas como quieras.
+
+00:07:37.920 --> 00:07:41.360 align:middle
+Para agregar un punto de interrupción,
+modificar un método, se abre el depurador,
+
+00:07:41.520 --> 00:07:44.240 align:middle
+y puedes ver línea por línea
+que está pasando.
+
+00:07:45.120 --> 00:07:48.720 align:middle
+Los puntos de interrupción son realmente potentes.
+
+00:07:48.880 --> 00:07:52.440 align:middle
+y no deberías dudar
+para usarlos o los depuradores.
+

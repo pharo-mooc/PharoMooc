@@ -1,0 +1,544 @@
+WEBVTT
+
+00:00:00.280 --> 00:00:02.400 align:middle
+Hola. En este curso,
+
+00:00:02.560 --> 00:00:06.920 align:middle
+nosotros repasaremos
+cómo funciona la ejecución de Pharo,
+
+00:00:07.080 --> 00:00:10.840 align:middle
+y qué tipo de archivos se utilizan
+cuando y donde.
+
+00:00:11.000 --> 00:00:13.040 align:middle
+Hasta ahora has estado usando
+
+00:00:13.200 --> 00:00:15.640 align:middle
+.imagen,
+.source y .change,
+
+00:00:15.800 --> 00:00:18.120 align:middle
+y probablemente no esté claro para ti.
+
+00:00:18.280 --> 00:00:22.080 align:middle
+Funciona, pero me gustaría explicar
+exactamente lo que hace,
+
+00:00:22.240 --> 00:00:26.400 align:middle
+para que puedas evitar futuros errores
+y mejor controle su sistema.
+
+00:00:27.080 --> 00:00:30.240 align:middle
+En suma,
+el modelo de ejecución de Pharo
+
+00:00:30.400 --> 00:00:33.200 align:middle
+es una maquina virtual
+que ejecuta el código compilado.
+
+00:00:33.360 --> 00:00:36.920 align:middle
+Esta maquina virtual
+es específico de la plataforma,
+
+00:00:37.080 --> 00:00:42.680 align:middle
+y las máquinas virtuales existen para diferentes versiones
+de MacOS, Windows, Linux,
+
+00:00:42.840 --> 00:00:44.600 align:middle
+IOS, ARM y Android.
+
+00:00:44.760 --> 00:00:49.400 align:middle
+Es el mismo modelo de ejecución.
+como para C # y Java.
+
+00:00:49.560 --> 00:00:51.560 align:middle
+En Pharo es exactamente lo mismo.
+
+00:00:52.040 --> 00:00:55.200 align:middle
+Tenemos lo que se llama
+compilación de múltiples etapas.
+
+00:00:55.360 --> 00:01:00.080 align:middle
+Esto significa que el código que programa
+se compila a bytecode,
+
+00:01:00.240 --> 00:01:03.520 align:middle
+que es un conjunto
+de instrucciones neutrales de la plataforma.
+
+00:01:03.680 --> 00:01:09.160 align:middle
+Y la máquina virtual se transforma
+bytecode al código de ensamblaje.
+
+00:01:09.480 --> 00:01:11.000 align:middle
+Así es como funciona Pharo.
+
+00:01:11.160 --> 00:01:14.600 align:middle
+Es lo mismo
+en otros lenguajes orientados a objetos.
+
+00:01:15.560 --> 00:01:17.880 align:middle
+La máquina virtual es el archivo.
+
+00:01:18.040 --> 00:01:22.120 align:middle
+Según su sistema operativo,
+es .exe o .app con MAC.
+
+00:01:22.280 --> 00:01:23.760 align:middle
+Son máquinas virtuales.
+
+00:01:23.920 --> 00:01:26.840 align:middle
+Pueden ejecutarse
+en dos modos,
+
+00:01:27.000 --> 00:01:30.280 align:middle
+ya sea desde una línea de comando,
+
+00:01:30.440 --> 00:01:34.200 align:middle
+o en modo interactivo
+con una interfaz gráfica
+
+00:01:34.360 --> 00:01:38.200 align:middle
+Por ejemplo, con Linux,
+cuando usas Pharo en un servidor
+
+00:01:38.360 --> 00:01:40.440 align:middle
+usualmente usas la línea de comando.
+
+00:01:40.920 --> 00:01:43.720 align:middle
+La máquina virtual se ejecuta
+código compilado
+
+00:01:43.880 --> 00:01:46.040 align:middle
+y genera en el ensamblaje de la mosca.
+
+00:01:46.200 --> 00:01:48.240 align:middle
+Este código compilado
+
+00:01:48.400 --> 00:01:51.960 align:middle
+está empaquetado y almacenado en una imagen.
+
+00:01:52.200 --> 00:01:53.960 align:middle
+Una instantánea de memoria.
+
+00:01:54.120 --> 00:01:58.960 align:middle
+Esta imagen representa una virtualización.
+sistema para objetos Pharo.
+
+00:01:59.120 --> 00:02:00.720 align:middle
+Lo veremos a continuación.
+
+00:02:01.000 --> 00:02:04.880 align:middle
+La máquina virtual necesita
+solo la imagen para ejecutar programas.
+
+00:02:05.040 --> 00:02:10.240 align:middle
+Porque aquí es donde se compila el código
+y donde están los objetos.
+
+00:02:10.640 --> 00:02:13.200 align:middle
+Además, tenemos 3 archivos.
+
+00:02:13.360 --> 00:02:16.320 align:middle
+Imagen, cambio y fuente.
+
+00:02:16.480 --> 00:02:19.560 align:middle
+Explicaré cada uno de estos archivos
+y su papel.
+
+00:02:19.840 --> 00:02:25.120 align:middle
+El archivo .image es una instantánea de memoria
+que contiene objetos
+
+00:02:25.280 --> 00:02:29.120 align:middle
+Contiene objetos simples
+como puntos, cadenas, etc.
+
+00:02:29.440 --> 00:02:30.800 align:middle
+Todo lo que usamos
+
+00:02:30.960 --> 00:02:34.200 align:middle
+Pero también contiene métodos compilados
+
+00:02:34.360 --> 00:02:37.120 align:middle
+y concretamente clases compiladas.
+
+00:02:37.560 --> 00:02:41.920 align:middle
+Entonces, cada vez que guarde su imagen,
+Todos los objetos se guardan en el disco.
+
+00:02:42.080 --> 00:02:46.560 align:middle
+La imagen es realmente un sistema de virtualización.
+por delante de su tiempo.
+
+00:02:47.280 --> 00:02:49.440 align:middle
+Al inicio,
+
+00:02:49.600 --> 00:02:53.400 align:middle
+Recuperas todos los objetos que guardaste.
+
+00:02:53.560 --> 00:02:55.440 align:middle
+Es decir, el contador del programa,
+
+00:02:55.600 --> 00:02:58.880 align:middle
+que también se guardará
+
+00:02:59.040 --> 00:03:02.680 align:middle
+y restaurado exactamente
+donde estaba antes de guardarlo.
+
+00:03:03.480 --> 00:03:07.800 align:middle
+Lo importante es que
+tienes un sistema operativo y una máquina virtual,
+
+00:03:07.960 --> 00:03:11.720 align:middle
+y por encima de la máquina virtual,
+tienes este sistema,
+
+00:03:11.880 --> 00:03:15.240 align:middle
+que es un espacio de memoria
+donde viven tus objetos
+
+00:03:15.400 --> 00:03:18.040 align:middle
+y que puedes guardar
+a tu disco o no.
+
+00:03:18.560 --> 00:03:21.440 align:middle
+Y contiene tus objetos compilados.
+
+00:03:21.600 --> 00:03:24.360 align:middle
+Es por eso que puse "1s" y "0s".
+
+00:03:25.200 --> 00:03:27.440 align:middle
+En adición,
+tienes cambios de archivos
+
+00:03:27.600 --> 00:03:31.440 align:middle
+Un archivo de cambio
+Es un archivo que contiene copias de seguridad.
+
+00:03:31.840 --> 00:03:34.600 align:middle
+Todo lo que haces en Pharo se registra.
+
+00:03:34.760 --> 00:03:38.080 align:middle
+y entró en
+una especie de gran cinta virtual,
+
+00:03:38.240 --> 00:03:41.800 align:middle
+que contiene todo
+de sus adiciones y modificaciones.
+
+00:03:41.960 --> 00:03:44.480 align:middle
+Es como Big Brother,
+solo es para Pharo.
+
+00:03:44.640 --> 00:03:48.880 align:middle
+Puedes divertirte con él y utilizarlo
+para reproducir ciertas secuencias.
+
+00:03:49.040 --> 00:03:50.680 align:middle
+Es una cinta
+
+00:03:51.080 --> 00:03:54.640 align:middle
+que contiene copias de seguridad
+de cada acción que modifica Pharo.
+
+00:03:55.120 --> 00:04:00.080 align:middle
+Lo que sucede es que, un archivo de cambio
+está asociado a un archivo de imagen.
+
+00:04:00.600 --> 00:04:02.160 align:middle
+¿Cuál es el propósito de esto?
+
+00:04:02.320 --> 00:04:04.400 align:middle
+Cuando defines una nueva clase,
+
+00:04:04.560 --> 00:04:08.280 align:middle
+el código de clase no se almacena
+en el archivo de imagen,
+
+00:04:08.440 --> 00:04:11.160 align:middle
+está almacenado en el archivo de cambio.
+
+00:04:12.960 --> 00:04:16.920 align:middle
+Entonces si desasocia los dos,
+podrías perder tu código
+
+00:04:17.080 --> 00:04:19.000 align:middle
+El programa seguirá ejecutándose,
+
+00:04:19.160 --> 00:04:22.760 align:middle
+pero puede perder
+El código fuente de su aplicación.
+
+00:04:23.040 --> 00:04:24.440 align:middle
+Si miramos de cerca,
+
+00:04:24.600 --> 00:04:26.760 align:middle
+Tengo un archivo de imagen que contiene
+
+00:04:27.160 --> 00:04:31.040 align:middle
+mi bytecode y objetos compilados
+en forma binaria,
+
+00:04:31.200 --> 00:04:35.880 align:middle
+y al lado, tengo un archivo de cambio
+que contiene una lista de cambios.
+
+00:04:36.040 --> 00:04:39.800 align:middle
+Por ejemplo, aquí agregué contador,
+aumentar y disminuir
+
+00:04:40.720 --> 00:04:42.680 align:middle
+Del mismo modo con otras clases.
+
+00:04:42.840 --> 00:04:46.760 align:middle
+Y tenemos herramientas que te permiten
+para reproducir estos cambios.
+
+00:04:46.920 --> 00:04:50.960 align:middle
+En Pharo, puedes navegar por
+Varias versiones de métodos.
+
+00:04:51.120 --> 00:04:54.920 align:middle
+Las herramientas que usan diferentes versiones
+de los métodos usan .change.
+
+00:04:55.080 --> 00:04:59.800 align:middle
+Dibujé una línea de puntos alrededor de esta pareja.
+porque es muy importante
+
+00:04:59.960 --> 00:05:04.200 align:middle
+que .change y .image
+permanecen sincronizados
+
+00:05:04.360 --> 00:05:07.840 align:middle
+No comience a editar el texto con Emacs.
+dentro de archivos .change.
+
+00:05:08.000 --> 00:05:10.480 align:middle
+Puedes hacerlo,
+pero no tiene ningún interés real.
+
+00:05:10.640 --> 00:05:12.960 align:middle
+Solo romperás tu archivo .change.
+
+00:05:13.400 --> 00:05:15.760 align:middle
+El archivo de imagen continuará ejecutándose
+
+00:05:15.920 --> 00:05:19.360 align:middle
+porque solo usa .change
+para mostrar datos en el modo de programación.
+
+00:05:19.520 --> 00:05:20.960 align:middle
+Pero no lo aconsejo.
+
+00:05:21.480 --> 00:05:23.760 align:middle
+Generalmente hablando,
+
+00:05:23.920 --> 00:05:26.880 align:middle
+Las imágenes son útiles para desarrollar.
+
+00:05:27.040 --> 00:05:29.520 align:middle
+Tu estas trabajando
+y alguien te interrumpe.
+
+00:05:29.680 --> 00:05:32.040 align:middle
+Guarda tu imagen y toma un descanso.
+
+00:05:32.200 --> 00:05:36.240 align:middle
+Cuando vuelvas,
+estás exactamente en la misma situación
+
+00:05:36.400 --> 00:05:40.840 align:middle
+El estado completo de su sistema
+se almacena en el disco.
+
+00:05:41.000 --> 00:05:43.160 align:middle
+Puedes volver 3 años después.
+
+00:05:43.320 --> 00:05:46.480 align:middle
+y encontrar exactamente
+el mismo estado que hace 3 años.
+
+00:05:46.760 --> 00:05:50.400 align:middle
+Pero para un ingeniero de software,
+no es una buena práctica.
+
+00:05:50.560 --> 00:05:53.560 align:middle
+Está bien para el desarrollo.
+y prototipos.
+
+00:05:53.720 --> 00:05:56.640 align:middle
+Por favor use
+un sistema de control de versiones en su lugar.
+
+00:05:56.800 --> 00:05:58.320 align:middle
+Tenemos Monticello,
+
+00:05:58.480 --> 00:06:00.720 align:middle
+un sistema de control de versiones escrito en Pharo,
+
+00:06:00.880 --> 00:06:02.560 align:middle
+y tenemos un backend para Git.
+
+00:06:02.720 --> 00:06:07.400 align:middle
+Guarde su código
+en un sistema de control de versiones,
+
+00:06:07.560 --> 00:06:12.280 align:middle
+luego usa una integración continua
+Servidor como Jenkins o Travis
+
+00:06:12.440 --> 00:06:15.560 align:middle
+para construir tus imágenes
+cada vez que se inicia.
+
+00:06:15.720 --> 00:06:19.480 align:middle
+La gente a menudo confunde
+Estas dos cosas al principio en Pharo.
+
+00:06:19.640 --> 00:06:22.600 align:middle
+Las imágenes son extremadamente prácticas.
+Para desarrollo.
+
+00:06:22.760 --> 00:06:24.680 align:middle
+Pero cuando quieras
+
+00:06:24.840 --> 00:06:27.800 align:middle
+desarrollo más estructurado
+y mayor control,
+
+00:06:27.960 --> 00:06:30.960 align:middle
+debes usar absolutamente
+herramientas clásicas
+
+00:06:31.320 --> 00:06:32.480 align:middle
+Funcionan bien
+
+00:06:32.640 --> 00:06:34.280 align:middle
+Hay un modo prototipo,
+
+00:06:34.440 --> 00:06:38.560 align:middle
+pero en algún momento debes guardar
+a un sistema de control de versiones,
+
+00:06:38.720 --> 00:06:42.200 align:middle
+entonces puedes acceder
+Todas las versiones de su entorno.
+
+00:06:42.360 --> 00:06:46.480 align:middle
+Hay videos que explican
+la clase de contador, por ejemplo.
+
+00:06:46.640 --> 00:06:49.800 align:middle
+Hay un tercer archivo
+No he hablado todavía.
+
+00:06:49.960 --> 00:06:51.680 align:middle
+Es el archivo fuente.
+
+00:06:51.960 --> 00:06:55.400 align:middle
+Un archivo fuente
+es un tipo de archivo de cambio específico.
+
+00:06:55.560 --> 00:06:59.840 align:middle
+Contiene todas las definiciones textuales
+del sistema en .0.
+
+00:07:00.000 --> 00:07:04.000 align:middle
+Para cada nueva versión de Pharo,
+hay un nuevo archivo .change,
+
+00:07:04.160 --> 00:07:09.360 align:middle
+y este archivo .change contendrá
+definiciones para matrices, conjuntos, etc.
+
+00:07:09.520 --> 00:07:12.240 align:middle
+Todos los métodos que se definen
+
+00:07:12.400 --> 00:07:16.000 align:middle
+en las bibliotecas centrales de Pharo.
+
+00:07:16.680 --> 00:07:20.520 align:middle
+Generalmente hablando,
+querrá compartir este archivo fuente
+
+00:07:20.800 --> 00:07:22.160 align:middle
+y está en solo lectura.
+
+00:07:22.360 --> 00:07:26.080 align:middle
+Los archivos de cambio están en modo escritura
+y hay una por imagen.
+
+00:07:26.240 --> 00:07:28.400 align:middle
+Vamos a ver.
+
+00:07:28.560 --> 00:07:31.640 align:middle
+Esta es una instantánea del estado del sistema.
+
+00:07:31.800 --> 00:07:34.720 align:middle
+al inicio
+de la nueva versión de Pharo 4.0,
+
+00:07:34.880 --> 00:07:37.880 align:middle
+que correspondía a este universo.
+
+00:07:39.040 --> 00:07:43.080 align:middle
+Luego definimos nuevas clases.
+Definí la clase de nodo.
+
+00:07:43.240 --> 00:07:47.520 align:middle
+Creé nuevos objetos en forma binaria,
+
+00:07:47.680 --> 00:07:51.640 align:middle
+y en el archivo de cambio
+asociado con mi imagen,
+
+00:07:51.800 --> 00:07:55.560 align:middle
+Agregué mis nuevas definiciones,
+que se escriben aquí.
+
+00:07:55.960 --> 00:07:59.440 align:middle
+Como dije,
+este archivo está en modo de solo lectura.
+
+00:08:00.520 --> 00:08:02.440 align:middle
+Y esta está en modo de escritura.
+
+00:08:02.800 --> 00:08:06.760 align:middle
+Una vez más podemos decir eso,
+conceptualmente hablando
+
+00:08:06.920 --> 00:08:10.120 align:middle
+la imagen y los archivos de cambio
+funcionan juntas
+
+00:08:10.280 --> 00:08:13.920 align:middle
+Espero que esto haya aclarado los roles
+de estos 3 archivos.
+
+00:08:14.080 --> 00:08:18.400 align:middle
+Lo que necesitas saber
+es que estamos armando
+
+00:08:18.560 --> 00:08:21.840 align:middle
+un nuevo sistema de gestión de cambios
+
+00:08:22.000 --> 00:08:25.280 align:middle
+para que puedas recuperar tus archivos
+más fácilmente
+
+00:08:25.440 --> 00:08:28.360 align:middle
+o reproducir varias versiones
+de tu sistema
+
+00:08:28.520 --> 00:08:32.160 align:middle
+En el futuro,
+Ser una mejor integración con Git,
+
+00:08:32.720 --> 00:08:36.880 align:middle
+y ofreceremos nuevas formas
+para producir imágenes industrialmente.
+

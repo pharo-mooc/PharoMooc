@@ -1,0 +1,235 @@
+WEBVTT
+
+00:00:01.080 --> 00:00:03.400 align:middle
+En este video,
+Me gustaría mostrarte cómo
+
+00:00:03.400 --> 00:00:06.950 align:middle
+El objeto puede definir pestañas mostradas.
+en el inspector
+
+00:00:08.430 --> 00:00:10.280 align:middle
+¿Cómo lo veremos?
+
+00:00:10.580 --> 00:00:12.240 align:middle
+Vamos a usar Spotter para hacer esto.
+
+00:00:14.410 --> 00:00:18.240 align:middle
+En Spotter recuerdo
+que busco
+
+00:00:18.240 --> 00:00:22.910 align:middle
+un #pragma, una anotación de método,
+comenzando con gt.
+
+00:00:22.910 --> 00:00:27.440 align:middle
+Sé que hay un "inspector" dentro
+así que voy a ver esto.
+
+00:00:30.190 --> 00:00:32.040 align:middle
+En mi inspector puedo ver alli
+son #Pragmas y
+
+00:00:32.040 --> 00:00:34.080 align:middle
+#Sendedores, guardo el
+#Pragma.
+
+00:00:35.760 --> 00:00:39.250 align:middle
+Ahora puedo buscar por ejemplo en
+
+00:00:39.250 --> 00:00:41.210 align:middle
+Morph es uno.
+
+00:00:41.280 --> 00:00:43.180 align:middle
+Abrimos el código.
+
+00:00:43.180 --> 00:00:47.450 align:middle
+Este es el que corresponde a ...
+¿Recuerdas? Si lo hago
+
+00:00:47.450 --> 00:00:51.320 align:middle
+"Inspeccionar", abre un inspector
+y
+
+00:00:52.090 --> 00:00:56.970 align:middle
+este inspector tiene esta pestaña,
+
+00:00:57.910 --> 00:00:59.070 align:middle
+comparemos.
+
+00:01:08.100 --> 00:01:11.240 align:middle
+Ves que creamos un 'Morph'
+compuesto, hay
+
+00:01:11.240 --> 00:01:16.170 align:middle
+un título y habrá un
+acción realizada con
+
+00:01:16.310 --> 00:01:18.950 align:middle
+una gestión de errores en el caso
+el 'Morph' no se mostraría bien.
+
+00:01:19.290 --> 00:01:21.990 align:middle
+Convertimos y mostramos un 'Morph'.
+
+00:01:21.990 --> 00:01:26.840 align:middle
+También tienes "actuar", que es
+el camino para
+
+00:01:28.880 --> 00:01:31.390 align:middle
+asociando operaciones a
+
+00:01:36.410 --> 00:01:37.060 align:middle
+esta pestaña
+
+00:01:37.440 --> 00:01:38.700 align:middle
+Veamos otro ejemplo.
+
+00:01:43.660 --> 00:01:47.980 align:middle
+Aquí y allá.
+
+00:01:49.270 --> 00:01:50.210 align:middle
+Quiero ver "Fecha".
+
+00:01:56.080 --> 00:01:59.530 align:middle
+Si recuerdas, teníamos
+"Fecha de hoy inspeccionar".
+
+00:02:05.220 --> 00:02:07.690 align:middle
+Tuvimos detalles y calendario.
+
+00:02:09.130 ​​-> 00:02:11.740 align:middle
+¿Cómo crear este 'Morph'?
+
+00:02:11.740 --> 00:02:16.520 align:middle
+Simplemente crea el 'Morph'
+al usar este mensaje
+
+00:02:17.570 --> 00:02:20.000 align:middle
+Y Detalles, ¿cómo funciona?
+
+00:02:26.990 --> 00:02:29.250 align:middle
+Solicito la creación de una mesa,
+Lo asigno un
+
+00:02:29.250 --> 00:02:34.010 align:middle
+título, valor clave, evaluar,
+regreso
+
+00:02:36.190 --> 00:02:38.730 align:middle
+la clave y el cálculo
+el valor.
+
+00:02:41.150 --> 00:02:43.080 align:middle
+El último ejemplo que quería
+para mostrar que usted fue:
+
+00:02:43.990 --> 00:02:48.990 align:middle
+que pasa cuando haces el trabajo
+hecho
+
+00:02:48.990 --> 00:02:53.470 align:middle
+por un inspector de método?
+
+00:02:55.200 --> 00:02:57.930 align:middle
+Recuerdas, teníamos un método
+que era
+
+00:02:57.930 --> 00:03:02.200 align:middle
+Bytecode, al menos una tabla
+que contiene Bytecode y
+
+00:03:02.200 --> 00:03:05.970 align:middle
+Hablamos la Fuente o el
+AST o Bytecode.
+
+00:03:06.150 --> 00:03:10.680 align:middle
+Echemos un vistazo a AST. voy a
+pregúntale a mi querido
+
+00:03:10.910 --> 00:03:15.640 align:middle
+Observador. Voy a buscar
+Compilado
+
+00:03:15.640 --> 00:03:19.470 align:middle
+método. Consideremos la fuente,
+
+00:03:21.290 --> 00:03:21.970 align:middle
+Parece bien.
+
+00:03:26.410 --> 00:03:28.300 align:middle
+Para el origen, que es este
+panel aquí, podemos
+
+00:03:34.330 --> 00:03:37.240 align:middle
+ver que definimos la fuente
+y aquí hay un pharoMethod.
+
+00:03:37.240 --> 00:03:39.450 align:middle
+No sé exactamente qué
+es pero debe decir
+
+00:03:39.450 --> 00:03:42.920 align:middle
+que tiene que crear un objeto
+capaz de mostrar
+
+00:03:42.920 --> 00:03:45.940 align:middle
+un método Pharo llamando al
+el Sintaxhighlighter o
+
+00:03:45.940 --> 00:03:50.600 align:middle
+algo como esto.
+Y si miro a AST,
+
+00:03:50.900 --> 00:03:53.100 align:middle
+regresa
+
+00:03:56.060 --> 00:03:56.400 align:middle
+un árbol,
+
+00:04:01.340 --> 00:04:04.270 align:middle
+devuelve el AST que
+Se mostrará en el árbol.
+
+00:04:04.800 --> 00:04:06.710 align:middle
+El objetivo no es que entiendas
+precisamente
+
+00:04:06.710 --> 00:04:09.480 align:middle
+cómo funciona, es mostrarte
+un poco
+
+00:04:09.480 --> 00:04:12.020 align:middle
+La complejidad de esta cosa.
+
+00:04:12.310 --> 00:04:14.820 align:middle
+Ves eso en general
+no es muy complicado
+
+00:04:15.180 --> 00:04:19.060 align:middle
+Aquí, es para el Bytecode,
+El ir es otra cosa.
+
+00:04:19.060 --> 00:04:23.010 align:middle
+Además, hay trabajo relacionado
+lógica adentro porque tu
+
+00:04:23.010 --> 00:04:26.890 align:middle
+tengo que pensar en cómo
+calcula el intermediario
+
+00:04:26.890 --> 00:04:30.630 align:middle
+representación, etc.
+Pero todavía es algo manejable.
+
+00:04:31.990 --> 00:04:33.910 align:middle
+Quería mostrarte esto porque
+es lindo tu
+
+00:04:33.910 --> 00:04:37.170 align:middle
+a veces puede hacerlo en tu
+objetos relacionados con el trabajo y
+
+00:04:37.170 --> 00:04:38.260 align:middle
+Te permite ir más rápido.
+

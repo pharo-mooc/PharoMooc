@@ -1,0 +1,296 @@
+WEBVTT
+
+00:00:00.200 --> 00:00:01.750 align:middle
+Buenos días. En este curso, os
+hablaré de la pila 
+
+00:00:01.950 --> 00:00:04.550 align:middle
+Web de Pharo que es excelente, 
+echaremos un
+
+00:00:04.750 --> 00:00:06.820 align:middle
+vistazo a las funcionalidades
+o paquetes
+
+00:00:07.020 --> 00:00:10.190 align:middle
+existentes y a aquellos que
+utilizaremos durante este curso.
+
+00:00:11.370 --> 00:00:13.810 align:middle
+Simplificando, si miramos de manera
+esquemática cuando
+
+00:00:14.340 --> 00:00:18.180 align:middle
+realizamos una consulta http,
+¿de que disponemos?
+
+00:00:18.380 --> 00:00:21.780 align:middle
+Tenemos Zinc, así que Zinc es el
+servidor http y https de
+
+00:00:22.000 --> 00:00:24.730 align:middle
+base que se encuentra en Pharo.
+Sobre Zinc, tenéis Teapot.
+
+00:00:25.610 --> 00:00:28.610 align:middle
+Ha habido un curso sobre la
+sintaxis de Teapot.
+
+00:00:29.380 --> 00:00:31.660 align:middle
+Después, tenemos múltiples
+paquetes como aquellos para
+
+00:00:31.860 --> 00:00:34.100 align:middle
+formato Json, Stone, este 
+tipo de cosas.
+
+00:00:34.720 --> 00:00:37.520 align:middle
+Tenemos Seaside REST, os lo
+presentare rápidamente,
+
+00:00:37.720 --> 00:00:39.620 align:middle
+es como podemos hacer de la 
+programación REST sobre Seaside.
+
+00:00:39.820 --> 00:00:42.410 align:middle
+Así que Seaside, es el Web
+framework que utilizaremos y
+
+00:00:42.610 --> 00:00:46.420 align:middle
+que utilizareis en
+Tiny blog, es por eso que
+
+00:00:46.620 --> 00:00:49.130 align:middle
+os hemos presentado Seaside
+y Seaside también es
+
+00:00:49.330 --> 00:00:50.460 align:middle
+muy utilizado por las compañías.
+
+00:00:52.030 --> 00:00:57.000 align:middle
+Utilizaremos Voyage que es un
+paquete que permite
+
+00:00:57.200 --> 00:01:00.090 align:middle
+hacer de la persistencia de
+documentos.
+
+00:01:00.290 --> 00:01:02.220 align:middle
+Tomamos nuestros objetos y 
+los guardamos como
+
+00:01:02.420 --> 00:01:03.880 align:middle
+documentos en una base de
+datos Mongo.
+
+00:01:06.610 --> 00:01:10.580 align:middle
+también tenéis Garage que
+es un tipo de driver para
+
+00:01:10.780 --> 00:01:12.180 align:middle
+todo lo que sea base de 
+datos relacionales.
+
+00:01:12.670 --> 00:01:13.940 align:middle
+También os mostraré Magritte.
+
+00:01:14.140 --> 00:01:17.700 align:middle
+Magrite, parte de la idea que
+vamos a describir nuestros datos y
+
+00:01:18.010 --> 00:01:20.060 align:middle
+como hemos descrito estos
+datos, automáticamente podremos
+
+00:01:20.260 --> 00:01:21.700 align:middle
+generar formularios en lugar
+de hacerlos a mano,
+
+00:01:21.900 --> 00:01:23.820 align:middle
+así que esto no esta mal.
+Reef, es algo que nos
+
+00:01:24.020 --> 00:01:28.250 align:middle
+permitirá incorporar Javascript
+en los
+
+00:01:28.450 --> 00:01:31.300 align:middle
+componentes Web. No lo mostraremos
+durante este curso
+
+00:01:31.500 --> 00:01:34.380 align:middle
+pero esta disponible.
+Mustache, es un sistema de
+
+00:01:34.580 --> 00:01:37.660 align:middle
+plantillas por ejemplo para
+generar Html al vuelo.
+
+00:01:37.860 --> 00:01:40.440 align:middle
+Y Boostrap, es la librería
+Booststrap de Tweeter que
+
+00:01:40.640 --> 00:01:42.570 align:middle
+esta completamente integrada
+en Seaside que utilizaremos.
+
+00:01:43.930 --> 00:01:45.760 align:middle
+Principalmente ésto es lo que 
+la gente utiliza la mayor parte
+
+00:01:46.000 --> 00:01:49.630 align:middle
+del tiempo pero también tenéis
+otros paquetes sobre 
+
+00:01:50.140 --> 00:01:53.840 align:middle
+Pharo, para conectarse a Amazon
+o a buscadores
+
+00:01:54.040 --> 00:01:55.260 align:middle
+elastic y todo este tipo
+de tecnologias.
+
+00:01:57.060 --> 00:01:59.170 align:middle
+Así que nosotros que utilizaremos,
+utilizaremos Seaside.
+
+00:01:59.370 --> 00:02:01.180 align:middle
+Seaside es un framework Web
+para construir
+
+00:02:01.380 --> 00:02:05.950 align:middle
+aplicaciones dinámicas, a base
+de componente que podreis
+
+00:02:06.150 --> 00:02:11.010 align:middle
+reutilizar. No tenemos que
+gestionar las
+
+00:02:11.210 --> 00:02:13.040 align:middle
+consultas, Seaside lo hace 
+por nosotros.
+
+00:02:13.240 --> 00:02:15.000 align:middle
+tenéis documentación sobre
+Seaside.
+
+00:02:15.170 --> 00:02:18.090 align:middle
+La pagina esta en proceso de reconstrucción
+por los administradores de Seaside.
+
+00:02:18.290 --> 00:02:21.190 align:middle
+Y sobretodo tenéis un libro
+
+00:02:21.390 --> 00:02:24.740 align:middle
+de 250 paginas completamente
+disponible.
+
+00:02:24.940 --> 00:02:27.030 align:middle
+Os animo a mirarlo aunque
+
+00:02:27.230 --> 00:02:29.530 align:middle
+no es obligatorio. De todas
+maneras, tendréis lo esencial
+
+00:02:29.890 --> 00:02:31.180 align:middle
+que se desarrollara en el curso.
+
+00:02:32.430 --> 00:02:34.690 align:middle
+A nivel de la persistencia,
+es lo que decía antes
+
+00:02:34.890 --> 00:02:38.670 align:middle
+hay dos grandes familias que
+són las
+
+00:02:38.880 --> 00:02:42.910 align:middle
+bases no Sql, sobretodo 
+basadas en componentes
+
+00:02:43.160 --> 00:02:46.730 align:middle
+como Mongo y Couch debit o Riak.
+
+00:02:46.930 --> 00:02:49.220 align:middle
+Aqui utilizaremos Voyage que 
+es una abstracción
+
+00:02:49.420 --> 00:02:54.150 align:middle
+sobr Mongo DB, y Garage que
+es un framework que
+
+00:02:54.350 --> 00:02:57.010 align:middle
+permite proponer una API
+unificada para todo aquello que 
+
+00:02:57.210 --> 00:02:58.630 align:middle
+sea base de datos relacionales.
+No lo utilizaremos en este
+
+00:02:58.830 --> 00:02:59.620 align:middle
+curso pero esta disponible.
+
+00:02:59.820 --> 00:03:01.740 align:middle
+tenéis conectores para Postgres,
+mysql, sqlite y
+
+00:03:01.940 --> 00:03:06.130 align:middle
+opendbx y están en mejora continua.
+
+00:03:07.410 --> 00:03:10.940 align:middle
+Sino lo que os mostraremos,
+es interesante, es que
+
+00:03:11.140 --> 00:03:14.030 align:middle
+tenemos un framework Magritte, en
+honor al
+
+00:03:14.230 --> 00:03:18.950 align:middle
+al pintor surrealista, que nos
+permite de describir
+
+00:03:19.240 --> 00:03:21.000 align:middle
+datos y una vez que estos datos
+están descritos, nos
+
+00:03:21.200 --> 00:03:22.590 align:middle
+permitirá de generar automáticamente
+componentes
+
+00:03:22.790 --> 00:03:24.570 align:middle
+Seaside, lo que nos permitirá
+de incrementar realmente la
+
+00:03:24.770 --> 00:03:28.050 align:middle
+productividad al construir 
+aplicaciones Web.
+
+00:03:28.950 --> 00:03:31.190 align:middle
+En resumen, de hecho hay todo
+un ecosistema 
+
+00:03:31.390 --> 00:03:32.600 align:middle
+my rico en Pharo sobre el Web.
+
+00:03:32.800 --> 00:03:35.860 align:middle
+La mayoría de las compañías que
+utilizan Pharo habitualmente
+
+00:03:36.060 --> 00:03:38.080 align:middle
+realizan desarrollo Web.
+Funciona para las 
+
+00:03:38.280 --> 00:03:40.830 align:middle
+empresas, y veréis que Seaside
+es realmente
+
+00:03:41.030 --> 00:03:42.930 align:middle
+innovador al coger a contrapie
+ciertas formas arraigadas de
+
+00:03:43.870 --> 00:03:45.800 align:middle
+programar la Web y esto es lo
+interesante,
+
+00:03:46.000 --> 00:03:47.780 align:middle
+Te ayuda a pensar de manera diferente.
+

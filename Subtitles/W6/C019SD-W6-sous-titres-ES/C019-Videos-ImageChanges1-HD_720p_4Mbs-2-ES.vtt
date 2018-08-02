@@ -1,0 +1,572 @@
+WEBVTT
+
+00:00:01.150 --> 00:00:03.440 align:middle
+En este video, me gustaría
+explicar un poco
+
+00:00:03.607 --> 00:00:06.480 align:middle
+El diferente embalaje de Pharo
+maneras, para
+
+00:00:06.647 --> 00:00:08.640 align:middle
+No se pierda en el futuro.
+
+00:00:09.000 --> 00:00:11.400 align:middle
+Cuando instala Pharo, lo hará
+normalmente haga clic en un enlace
+
+00:00:11.950 --> 00:00:14.370 align:middle
+dado, pero si sigues
+Pharo,
+
+00:00:14.537 --> 00:00:17.280 align:middle
+el lanzamiento en este momento
+de este video
+
+00:00:17.447 --> 00:00:21.060 align:middle
+es la versión 4, pero la versión 5
+ser exactamente igual
+
+00:00:21.410 --> 00:00:24.370 align:middle
+Cuando descargué la versión Mac OSX,
+Obtengo este zip.
+
+00:00:24.750 --> 00:00:29.090 align:middle
+Si descomprimo este zip,
+Recibo lo que yo llamo la aplicación Pharo4.
+
+00:00:29.480 --> 00:00:32.460 align:middle
+Cuando lanzo
+Aplicación de Pharo 4, obtengo Pharo.
+
+00:00:32.627 --> 00:00:36.410 align:middle
+Imaginemos que escribimos
+
+00:00:42.690 --> 00:00:47.380 align:middle
+"Hola". Cuando ahorro,
+salvará el medio ambiente
+
+00:00:48.730 --> 00:00:50.430 align:middle
+Hago clic en Guardar.
+
+00:00:51.490 --> 00:00:55.920 align:middle
+Si hago clic en Salir ahora,
+Lo lanzaré de nuevo,
+
+00:00:56.360 --> 00:01:00.100 align:middle
+y tendré exactamente
+"Hola", porque salvar al Pharo
+
+00:01:00.267 --> 00:01:03.810 align:middle
+imagen está haciendo una copia de memoria
+con todo el
+
+00:01:04.000 --> 00:01:07.780 align:middle
+objetos incluidos objetos de Bytecode
+y métodos compilados.
+
+00:01:07.947 --> 00:01:11.920 align:middle
+Que hay en
+
+00:01:13.340 --> 00:01:14.400 align:middle
+¿esta aplicación?
+
+00:01:14.567 --> 00:01:16.750 align:middle
+En Mac, podemos lo que está dentro.
+
+00:01:16.930 --> 00:01:20.620 align:middle
+Si hago clic en Mostrar contenido,
+que voy a ver
+
+00:01:20.930 --> 00:01:24.380 align:middle
+Voy a encontrar un Pharo virtual
+máquina y recursos.
+
+00:01:24.810 --> 00:01:27.530 align:middle
+Y aquí, encontraré cambios.
+archivo y una
+
+00:01:31.280 --> 00:01:31.913 align:middle
+archivo de imagen.
+
+00:01:32.400 --> 00:01:35.880 align:middle
+El archivo de imagen es el que
+realmente contiene
+
+00:01:36.047 --> 00:01:39.840 align:middle
+los objetos que representan la memoria,
+y el archivo de cambios
+
+00:01:40.070 --> 00:01:42.760 align:middle
+es un archivo que comprende todos los
+cambios incrementales
+
+00:01:42.927 --> 00:01:46.680 align:middle
+hecho.
+Si hago doble clic
+
+00:01:48.580 --> 00:01:49.800 align:middle
+en el archivo de imagen,
+
+00:01:55.800 --> 00:02:00.000 align:middle
+Normalmente, dependiendo de
+OS, lo pondré en marcha
+
+00:02:00.470 --> 00:02:03.960 align:middle
+una máquina virtual Pharo que
+Lo he instalado
+
+00:02:04.127 --> 00:02:05.900 align:middle
+Volverá a iniciar mi archivo de imagen.
+
+00:02:07.020 --> 00:02:08.450 align:middle
+Este archivo de imagen,
+¿Qué pasa con eso?
+
+00:02:08.617 --> 00:02:10.000 align:middle
+Imaginemos que defino una clase.
+
+00:02:10.157 --> 00:02:12.050 align:middle
+Voy a definir un paquete,
+
+00:02:18.100 --> 00:02:18.733 align:middle
+"Agregar paquete" "ATest".
+
+00:02:18.900 --> 00:02:20.060 align:middle
+En este paquete,
+
+00:02:23.470 --> 00:02:24.300 align:middle
+Voy a definir
+"MyStrangeClass".
+
+00:02:28.600 --> 00:02:33.170 align:middle
+Lo defino y aquí pongo
+"foooo" que regresa
+
+00:02:33.430 --> 00:02:34.063 align:middle
+42
+
+00:02:38.650 --> 00:02:42.750 align:middle
+Si guardo esta imagen con
+otro nombre, voy a ir
+
+00:02:42.917 --> 00:02:44.270 align:middle
+para guardarlo con el nombre
+
+00:02:44.437 --> 00:02:45.070 align:middle
+Pharo40Stef.
+
+00:02:52.060 --> 00:02:53.930 align:middle
+Que hizo
+
+00:02:54.097 --> 00:02:58.580 align:middle
+Lo dejo. Creó otro
+par
+
+00:02:58.747 --> 00:03:01.570 align:middle
+imagen y cambio En este cambio
+archivo, no lo abriremos
+
+00:03:01.737 --> 00:03:04.620 align:middle
+porque no es legible
+por un humano, hay
+
+00:03:04.787 --> 00:03:07.110 align:middle
+el código de métodos que acabo de usar
+creado.
+
+00:03:07.277 --> 00:03:11.840 align:middle
+Y si vuelvo a lanzar Pharo 4,
+voy a
+
+00:03:12.007 --> 00:03:16.300 align:middle
+lanzarlo usando el virtual
+máquina, me sale
+
+00:03:17.940 --> 00:03:22.110 align:middle
+una vez más la instantánea, qué
+llamamos al sistema
+
+00:03:22.277 --> 00:03:27.200 align:middle
+copia que había hecho en cierto
+momento
+
+00:03:27.440 --> 00:03:28.073 align:middle
+antes de.
+
+00:03:28.240 --> 00:03:32.790 align:middle
+Ahora, si vuelvo a ejecutar
+Imagen PharoStef, ¿qué hará?
+
+00:03:32.957 --> 00:03:33.590 align:middle
+¿hacer?
+
+00:03:33.757 --> 00:03:37.180 align:middle
+Me mostrará el sistema
+con mi nueva clase
+
+00:03:39.740 --> 00:03:42.920 align:middle
+La aplicación Pharo 4,
+es lo que llamamos un Mac
+
+00:03:43.087 --> 00:03:47.460 align:middle
+paquete que contiene el Pharo
+VM más una imagen más un cambio.
+
+00:03:47.627 --> 00:03:50.500 align:middle
+Si hago doble clic en él,
+No tengo otra opción
+
+00:03:50.667 --> 00:03:52.950 align:middle
+siempre elegiré la imagen de Pharo
+porque es un guion
+
+00:03:53.330 --> 00:03:55.660 align:middle
+que ha codificado:
+"Aquí está, esta es esa imagen".
+
+00:03:55.827 --> 00:03:59.430 align:middle
+En general, es útil en
+el comienzo del uso de
+
+00:03:59.597 --> 00:04:02.600 align:middle
+Pharo, pero no lo usamos.
+
+00:04:02.767 --> 00:04:05.840 align:middle
+En general, usamos un
+instrucción del comando
+
+00:04:06.007 --> 00:04:09.200 align:middle
+línea que es algo como
+
+00:04:10.290 --> 00:04:14.470 align:middle
+Pharo-ui con
+MyPharoImage.image
+
+00:04:14.637 --> 00:04:19.250 align:middle
+y esto lo hará
+
+00:04:19.417 --> 00:04:21.710 align:middle
+envíe la cosa O si usamos
+línea de comando y nosotros
+
+00:04:21.877 --> 00:04:24.010 align:middle
+no quiero tener la ui, nosotros
+hará ese tipo de cosas.
+
+00:04:24.520 --> 00:04:26.450 align:middle
+Significa que Pharo está instalado
+en algún lugar de
+
+00:04:26.617 --> 00:04:30.130 align:middle
+su sistema como Unix estándar
+solicitud.
+
+00:04:31.070 --> 00:04:34.400 align:middle
+Ahora, ves en esta página
+
+00:04:36.150 --> 00:04:38.930 align:middle
+que puedes descargar un
+Pharo
+
+00:04:39.097 --> 00:04:40.940 align:middle
+par, puedes
+descargar una máquina virtual
+
+00:04:41.110 --> 00:04:43.560 align:middle
+Vamos a descargar el
+máquina virtual y
+
+00:04:43.727 --> 00:04:48.220 align:middle
+descargar un par de imágenes
+y también fuente.
+
+00:04:48.690 --> 00:04:50.830 align:middle
+Voy a explicar lo que es,
+de esta manera tendremos el
+
+00:04:51.000 --> 00:04:54.460 align:middle
+3 a mano, jugaremos juntos.
+
+00:05:02.630 --> 00:05:05.760 align:middle
+Ahora si descomprimo el archivo
+correspondiente a
+
+00:05:06.570 --> 00:05:09.240 align:middle
+Pharo Image y
+Cambios, me sale este.
+
+00:05:09.710 --> 00:05:12.260 align:middle
+Cuando descomprimo, ¿qué obtengo en
+Pharo en este archivo?
+
+00:05:12.427 --> 00:05:13.680 align:middle
+Obtengo una imagen
+
+00:05:13.870 --> 00:05:15.950 align:middle
+Lo haremos en un modo donde
+usted puede
+
+00:05:19.140 --> 00:05:20.070 align:middle
+mira lo que hay dentro
+
+00:05:21.290 --> 00:05:24.010 align:middle
+Significa que este archivo,
+de nuevo es un par de imágenes
+
+00:05:24.177 --> 00:05:27.660 align:middle
+correspondiente a cierto
+estado de la instantánea o de la
+
+00:05:27.827 --> 00:05:32.630 align:middle
+Imagen Pharo, de la virtualización
+sistema. Aquí, puedo ejecutarlo
+
+00:05:32.797 --> 00:05:36.280 align:middle
+en la imagen Pharo.
+
+00:05:38.140 --> 00:05:42.120 align:middle
+Recibo un mensaje
+que es este mensaje
+
+00:05:44.700 --> 00:05:49.270 align:middle
+El sistema puede funcionar desde
+Puedo ejecutar cualquier cosa
+
+00:05:49.890 --> 00:05:50.770 align:middle
+Puedo ejecutarlo
+
+00:05:50.937 --> 00:05:53.330 align:middle
+Ahora puedo hacer exactamente lo que yo
+hizo antes
+
+00:05:53.497 --> 00:05:58.360 align:middle
+Puedo definir MyPackage,
+y en MyPackage
+
+00:05:58.770 --> 00:05:59.900 align:middle
+Diré MyStrangeClass.
+
+00:06:00.740 --> 00:06:02.220 align:middle
+Entonces comenzamos a estar acostumbrados.
+
+00:06:04.180 --> 00:06:07.580 align:middle
+Defino un método:
+
+00:06:09.010 --> 00:06:12.520 align:middle
+fooo 42. Me pregunta por mi
+iniciar sesión.
+
+00:06:14.460 --> 00:06:17.510 align:middle
+Puedo hacer como siempre
+"MyStrangeClass
+
+00:06:19.370 --> 00:06:23.050 align:middle
+nuevo fooo "y tengo 42.
+
+00:06:23.420 --> 00:06:24.600 align:middle
+Muy bueno. Puedo salvar
+
+00:06:25.620 --> 00:06:27.360 align:middle
+Lo guardo por ejemplo con
+otro nombre,
+
+00:06:27.527 --> 00:06:32.240 align:middle
+Stef, lo llamo
+PharoStrange
+
+00:06:32.407 --> 00:06:33.040 align:middle
+DE ACUERDO.
+
+00:06:39.410 --> 00:06:40.200 align:middle
+¿Qué dice?
+
+00:06:40.367 --> 00:06:44.530 align:middle
+Dice "No puedo encontrar la fuente
+archivo
+
+00:06:45.310 --> 00:06:49.200 align:middle
+Pharo 4. 0. "¿Por qué dice esto?
+
+00:06:50.240 --> 00:06:53.730 align:middle
+Cuando abro el briwser, si puedo
+ver por ejemplo el
+
+00:06:53.897 --> 00:06:58.670 align:middle
+Código AST, este no es tu código,
+así que vamos en la parte superior.
+
+00:06:58.837 --> 00:07:03.000 align:middle
+La razón por la cual el sistema
+
+00:07:03.167 --> 00:07:04.000 align:middle
+no encuentra los comentarios
+
+00:07:08.120 --> 00:07:09.180 align:middle
+es que se está descomponiendo.
+
+00:07:09.750 --> 00:07:11.730 align:middle
+Entonces, no lo vemos porque los métodos
+son
+
+00:07:11.897 --> 00:07:13.420 align:middle
+demasiado simple, pero descompone
+el código.
+
+00:07:13.587 --> 00:07:15.000 align:middle
+Vamos a hacer algo más
+hormigón.
+
+00:07:15.147 --> 00:07:19.820 align:middle
+Aquí descompiló el código,
+el Bytecode representa un
+
+00:07:20.000 --> 00:07:21.620 align:middle
+una discusión y sabe muy bien
+que este es un argumento
+
+00:07:22.040 --> 00:07:23.440 align:middle
+Pero perdimos la fuente.
+
+00:07:24.050 --> 00:07:28.870 align:middle
+En general, la fuente del sistema,
+cuando Pharo
+
+00:07:29.037 --> 00:07:33.530 align:middle
+se implementa, se almacena en
+un archivo llamado fuente Pharo 4
+
+00:07:33.697 --> 00:07:36.290 align:middle
+que puedes encontrar aquí.
+
+00:07:36.457 --> 00:07:38.920 align:middle
+En genral Pharo 4
+
+00:07:39.087 --> 00:07:41.420 align:middle
+la fuente se instalará una vez
+en el sistema porque
+
+00:07:41.587 --> 00:07:44.040 align:middle
+este archivo está en solo lectura,
+y todo tu
+
+00:07:44.860 --> 00:07:46.030 align:middle
+las aplicaciones pueden usarlo.
+
+00:07:46.210 --> 00:07:47.180 align:middle
+Lo tengo aquí, lo voy a descomprimir.
+
+00:07:47.347 --> 00:07:50.670 align:middle
+Aquí tengo Pharo4.source.
+
+00:07:51.270 --> 00:07:52.840 align:middle
+Si renuncio sin guardar
+
+00:07:56.690 --> 00:07:59.060 align:middle
+y relanzo la aplicación,
+aquí de todos modos ves
+
+00:07:59.227 --> 00:08:02.280 align:middle
+que hace exactamente lo mismo que
+anteriormente, es decir
+
+00:08:02.470 --> 00:08:05.190 align:middle
+que cuando guardo una instantánea
+dándole
+
+00:08:05.357 --> 00:08:10.160 align:middle
+otro nombre, tengo una vez más
+un sistema con 2 cosas:
+
+00:08:10.420 --> 00:08:11.620 align:middle
+La imagen y sus cambios.
+
+00:08:12.520 --> 00:08:16.650 align:middle
+Aquí si tomo mi imagen anterior,
+ahí
+
+00:08:17.670 --> 00:08:20.780 align:middle
+Ya no hay error porque
+ha encontrado el código y
+
+00:08:20.947 --> 00:08:24.710 align:middle
+sabe que corresponde a
+el estado allí
+
+00:08:24.880 --> 00:08:27.130 align:middle
+cuando lanzamos la primera imagen.
+
+00:08:27.297 --> 00:08:28.640 align:middle
+Ahora si uso el segundo,
+
+00:08:34.500 --> 00:08:38.960 align:middle
+si considero el archivo
+AST-Core, primero
+
+00:08:39.127 --> 00:08:41.830 align:middle
+Mis clases tienen comentarios.
+
+00:08:47.100 --> 00:08:51.000 align:middle
+Aquí estos son realmente los nombres
+la gente dio
+
+00:08:51.830 --> 00:08:53.870 align:middle
+Si miramos esta arquitectura,
+¿que tenemos?
+
+00:08:54.950 --> 00:08:57.230 align:middle
+Tenemos el archivo fuente
+que contiene las fuentes del sistema,
+
+00:08:57.397 --> 00:09:02.000 align:middle
+en general, una vez que el sistema
+compilado el compilador
+
+00:09:02.167 --> 00:09:04.610 align:middle
+no necesita las fuentes,
+
+00:09:04.777 --> 00:09:08.330 align:middle
+la maquina virtual y
+Imagen y cambio de pares.
+
+00:09:09.390 --> 00:09:12.180 align:middle
+La imagen contiene todos los objetos.
+que se han definido más
+
+00:09:12.347 --> 00:09:14.790 align:middle
+los objetos del sistema,
+con los archivos de cambios que
+
+00:09:14.957 --> 00:09:18.520 align:middle
+contiene los deltas de lo que has hecho
+comparado con el archivo de cambios.
+
+00:09:18.690 --> 00:09:22.430 align:middle
+Cada vez que guarda su sistema,
+es
+
+00:09:22.597 --> 00:09:25.260 align:middle
+como si guardaras un virtual
+Imagen de su sistema operativo.
+
+00:09:25.427 --> 00:09:26.730 align:middle
+Este es exactamente el mismo principio.
+
+00:09:27.480 --> 00:09:31.910 align:middle
+Si miras dentro del Pharo 4
+solicitud,
+
+00:09:33.200 --> 00:09:35.200 align:middle
+encontrará esos recursos.
+
+00:09:36.430 --> 00:09:40.730 align:middle
+Tengo las fuentes Pharo 4,
+Tengo el archivo de imagen,
+
+00:09:40.897 --> 00:09:43.130 align:middle
+el archivo de cambios y en algún lugar
+aquí el virtual
+
+00:09:43.297 --> 00:09:44.540 align:middle
+máquina con sus complementos.
+
