@@ -36,6 +36,7 @@ $CPMV $SRC/Exercises/Exo-W2-TinyBlog-ModelExtensionTests-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-ObjectsExpressions.pdf $DEST
 $CPMV $SRC/Exercises/Exo-ObjectsExpressions-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-DSL.pdf $DEST
+$CPMV $SRC/Exercises/Exo-DSL-V2.pdf $DEST
 $CPMV $SRC/Exercises/Challenge1-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge1-EN.pdf $DEST
 
