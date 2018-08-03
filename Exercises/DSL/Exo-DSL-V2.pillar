@@ -1,4 +1,4 @@
-!! Crafting a simple embedded DSL with Pharo
+! Crafting a simple embedded DSL with Pharo
 
 
 In this chapter you will develop a simple domain specific language (DSL) for rolling dice. Players of games such as Dungeons \& Dragons are familiar with such DSL. An example of such DSL is the following expression: ==2 D20 + 1 D6== which means that we should roll two 20-faces dices and one 6 faces die. 
@@ -9,11 +9,11 @@ This little exercise shows how we can (1) simply reuse traditional operator such
 
 Pay attention that the companion video is slightly different: the difference are (1) we rewrote tests that check that errors are not raised and (2) the class creation method is now call ==withFaces:== instead of ==faces:== because some students got confused, (3) the class ==DiceHandle== is not named ==DieHandle==.
 
-!!! Getting started
+!! Getting started
 
 Using the code browser, define a package named ==Dice== or any name you like.
 
-!!!! Create a test 
+!!! Create a test 
 It is always empowering to verify that the code we write is always working as we defining it. For this purpose you should create a unit test. Remember unit testing was promoted by K. Beck first in the ancestor of Pharo. Nowadays this is a common practice but this is always useful to remember our roots!
 
 Define the class ==DieTest== as a subclass of ==TestCase== as follows: 
@@ -35,7 +35,7 @@ DieTest >> testInitializeIsOk
 If you execute the test, the system will prompt you to create a class ==Die==. Do it.
 
 
-!!!! Define the class Die
+!!! Define the class Die
 
 The class ==Die== inherits from ==Object== and it has an instance variable, ==faces== to represent the number of faces one instance will have. Figure *@figOneClassDiceDesign* gives an overview of the messages. 
 
@@ -64,7 +64,7 @@ Die >> faces
 
 Now your tests should all pass (and turn green).
 
-!!! Rolling a die
+!! Rolling a die
 To roll a die you should use the method from Number ==atRandom== which draws randomly a 
 number between one and the receiver. For example ==10 atRandom== draws number between 1 to 10. 
 Therefore we define the method ==roll==:
@@ -82,7 +82,7 @@ You should get an inspector like the one shown in Figure *@figDiceNoDetail*. Wit
 
  
 
-!!! Creating another test
+!! Creating another test
 But better, let us define a test that verifies that rolling a new created dice with a default 6 faces only returns 
 value comprised between 1 and 6. This is what the following test method is actually specifying.
  
@@ -95,7 +95,7 @@ DieTest >> testRolling
 
 ""Important"" Often it is better to define the test even before the code it tests. Why? Because you can think about the API of your objects and a scenario that illustrate their correct behavior. It helps you to program your solution.
 
-!!! Instance creation interface
+!! Instance creation interface
 We would like to get a simpler way to create ==Die== instances. For example we want to create a 20-faces die as follows: ==Die withFaces: 20== instead of always have to send the new message to the class as in ==Die new faces: 20==.
 Both expressions are creating the same die but one is shorter.
 
@@ -114,7 +114,7 @@ What the test clearly shows is that we are sending a message to the ""class"" ==
 
 
 
-!!!! Defining a class method
+!!! Defining a class method
 
 Define the ''class'' method ==withFaces:== as follows:
 - Click on the class button in the browser to make sure that you are editing a ""class"" method.
@@ -148,7 +148,7 @@ Now your tests should run. So even if the class ==Die== could implement more beh
 
 ""Important""  A class method is a method executed in reaction to messages sent to a ''class''. It is defined on the class side of the class. In ==Die withFaces: 20==, the message ==withFaces:== is sent to the class ==Die==. In ==Die new faces: 20==, the message ==new== is sent to the ''class'' ==Die== and the message ==faces:== is sent to the ''instance'' returned by ==Die new==. 
 
-!!!! [Optional] Alternate instance creation definition
+!!! [Optional] Alternate instance creation definition
  In a first reading you can skip this section. The ''class'' method definition ==withFaces:== above is strictly equivalent to the one below.
 
 [[[
@@ -169,7 +169,7 @@ The trick is that ==yourself== is a simple method defined on ==Object== class: T
 The use of ==;== sends the message to the receiver of the previous message (here ==faces:==).  The message ==yourself== is then sent to the object resulting from the execution of the expression ==self new== (which returns a new instance of the class ==Die==), as a consequence it returns the new instance. 
 
 
-!!! First specification of a die handle
+!! First specification of a die handle
 Let us define a new class ==DieHandle== that represents a die handle. 
 Here is the API that we would like to offer for now (as shown in Figure *@fig:DiceDesign*). We create a new handle then add some dice to it.
 
@@ -192,7 +192,7 @@ TestCase subclass: #DieHandleTest
 	package: 'Dice'
 ]]]
 
-!!!! Testing a die handle
+!!! Testing a die handle
 We define a new test method as follows. We create a new handle and add one die of 6 faces and one die of 10 faces.
 We verify that the handle is composed of two dice. 
 
@@ -222,7 +222,7 @@ DieHandleTest >> testAddingTwiceTheSameDice
 Now that we specified what we want, we should implement the expected class and messages. 
 Easy!
 
-!!! Defining the DieHandle class
+!! Defining the DieHandle class
 
 The class ==DieHandle== inherits from ==Object== and it defines one instance variable to hold the dice it contains. 
 
@@ -265,7 +265,7 @@ DieHandle >> diceNumber
 
 Now your tests should run and this is a good moment to save and publish your code. 
 
-!!! Improving programmer experience
+!! Improving programmer experience
 
 Now when you open an inspector you cannot see well the dice that compose the die handle. Click on the ==dice== instance variable and you will only get a list of ==a Dice== without further information. What we would like to get is something like ==a Die (6)== or ==a Die (10)== so that in a glance we know the faces a die has. 
 
@@ -305,7 +305,7 @@ Die >> printOn: aStream
 		nextPutAll: ')'
 ]]]
 
-!!! Rolling a die handle
+!! Rolling a die handle
 
 Now we can define the rolling of a die handle by simply summing result of rolling each of its dice. 
 Implement the ==roll== method of the ==DieHandle== class. This method must collect the results of rolling each dice of the handle and sum them.
@@ -334,7 +334,7 @@ DieHandleTest >> testRoll
 	... Your solution ...
 ]]]
 
-!!! About Dice and DieHandle API
+!! About Dice and DieHandle API
 
 It is worth to spend some times looking at the relationship between ==DieHandle== and ==Dice==. 
 A die handle is composed of dices. What is an important design decision is that the API of the main behavior (==roll==) is the same for a die or a die handle. You can send the message ==roll== to a dice or a die handle. This is an important property.
@@ -356,10 +356,10 @@ col add: (DieHandle new addDie: (Die withFaces: 4); yourself).
 >>> #(17 3) 
 ]]]
 
-!!!! About composition
+!!! About composition
 Composite objects such document objects (a book is composed of chapters, a chapter is composed of sections, a section is composed of paragraphs) have often a more complex composition relationship than the composition between die and die handle. Often the composition is recursive in the sense that an element can be the whole: for example, a diagram can be composed of lines, circles, and other diagrams. We will see an example of such composition in the Expression Chapter *@cha:expressions*.
 
-!!! Role playing syntax
+!! Role playing syntax
 
 Now we are ready to offer a syntax following practice of role playing game, i.e., using ==2 D20== to create a handle of two dice with 20 faces each.  For this purpose we will define class extensions: we will define methods in the class ==Integer== but these methods will be only available when the package Dice will be loaded. 
 
@@ -382,7 +382,7 @@ Integer >> D20
 	... Your solution ...
 ]]]
 
-!!!! About class extensions
+!!! About class extensions
 
 We asked you to place the method ==D20== in a protocol starting with a star and having the name of the package (=='*Dice'==) because we want this method to be saved (and packaged) together with the code of the classes we already created (==Die==, ==DieHandle==,...) 
 Indeed in Pharo we can define methods in classes that are not defined in our package. Pharoers call this action a class extension: we can add methods to a class that is not ours. For example ==D20== is defined on the class ==Integer==. Now such methods only make sense when the package ==Dice== is loaded. 
@@ -422,7 +422,7 @@ Integer >> D20
 
 We have now a compact form to create dice and we are ready for the last part: the addition of handles. 
 
-!!! Handle's addition
+!! Handle's addition
 Now what is missing is that possibility to add several handles as follows: ==2 D20 + 3 D10==. Of course let's write a test first to be clear on what we mean.
 
 [[[
@@ -445,7 +445,7 @@ DieHandle >> + aDieHandle
 
 Now we can execute the method ==(2 D20 + 1 D6) roll== nicely and start playing role playing games, of course.
 
-!!! Conclusion
+!! Conclusion
 
 This chapter illustrates how to create a small DSL based on the definition of some domain classes (here ==Dice== and  
  ==DieHandle==) and the extension of core class such as ==Integer==. It also shows that we can create packages with all the methods that are needed even when such methods are defined on classes external (here ==Integer==) to the package.  
