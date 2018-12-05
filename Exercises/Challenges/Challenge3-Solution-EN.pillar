@@ -29,6 +29,21 @@ Two little challenges:
 
 !!!! Get poster of The Terminator movie
 
+You need a free key to get the solution fully working. Here is a possible way to do it. 
+
+[[[
+(ZnEasy getJpeg: 
+	((STON fromString:
+		(ZnClient new 
+			url: 'http://www.omdbapi.com/?i=tt3896198&apikey=891bda06';
+			queryAt: 't' put: 'The Terminator';
+			get;
+			contents)
+		) at: #Poster)
+	) asMorph openInHand
+]]]
+
+When the service did not require a key we did it that way.
 [[[
 (ZnEasy getJpeg: ((STON fromString:
     (ZnClient new

@@ -25,8 +25,24 @@ Deux petits défis:
 ]]]
 
 
-!!!! Get poster of The Terminator movie
+!!!! Obtenir le poster du film The Terminator
 
+Vous devez obtenir une clé d'access gratuite. Une fois cette clef obtenue
+voici une solution. 
+
+[[[
+(ZnEasy getJpeg: 
+	((STON fromString:
+		(ZnClient new 
+			url: 'http://www.omdbapi.com/?i=tt3896198&apikey=891bda06';
+			queryAt: 't' put: 'The Terminator';
+			get;
+			contents)
+		) at: #Poster)
+	) asMorph openInHand
+]]]
+
+Quand le service ne nécessitait pas de clef, la solution suivante fonctionnait. 
 [[[
 (ZnEasy getJpeg: ((STON fromString:
     (ZnClient new
