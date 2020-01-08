@@ -139,9 +139,6 @@ e) W2-LiveE-Nautilus3
 		- do not start with spotter to avoid spurious dependencies
 	Status: English and French
 	
-New video	
-	Live look at users of an instance variable
-	Live look at References of a class
 
 f) W2-Redo-CounterInDebugger 
 	8''
@@ -156,16 +153,6 @@ f) W2-Redo-CounterInDebugger
 
 
 
-New videos: Using Iceberg
-
-		- Configure iceberg for real. 
-			precondition
-				you can push on a repo on github
-				- create the repo
-				- ssh
-				- monticello integration
-			
-		- Adding a remote and commiting
 
 ==================================================================
 Week 3
@@ -177,55 +164,114 @@ W3-LiveA-Nautilus4
 	05”26
 	Live Nautilus 4: How to Become a Super Pharo Developer: Understanding Sender and Implementors
 	
+
+	Conclusion scenario: 
+		- do not the class reference here because it is in the previous one
+		- check the scope of in another video (may be we did it in another video)
+		
+	Status: English and French
+	
 	
 b) Live Nautilus 5: Navigating Fast Inside Classes
 	01”12 
+	
+	Conclusion scenario: 
+	New video	
+		Live look at users of an instance variable
+		Live look at References of a class
+	Status: English and French
+	
 
 c) Live Spotter 1: Find and Browse a Class
 	00”42
-	
-	
+	Conclusion scenario: 
+		- just fully redo
+	Status: English and French
+
 d) Live Spotter 2: Filter Results by Category
-	a voir si on l'a refait il y a juste la fin qui montre nautilus
-	
+	Analysis: a voir si on l'a refait il y a juste la fin qui montre nautilus
 	02”57
-	
+
+	Conclusion scenario: 
+		- just fully redo
+	Status: English and French
+
+
 e) W3-Redo-DSL
-	faces: -> withFaces:
-	should raise Error -> a ne pas faire suivre le 
-	How to split it 
-		die up to the tests
-		diecehandle
-		May split the extensions
-		May be split summary
+	30 min this is clearly far too long
+	Point of attention:
+		- Should check the PDF V2 available on the web
+		class method and instance method faces: is confusing 
+			-> withFaces:
+		- should raise Error -> a ne pas faire suivre le 
+		Conclusion scenario: 
+			Split it into three videos
+				- die up to the tests 10 min
+					- diecehandle	10 min	
+					- Split the extensions 10 min
 	
+	Status: English and French
 
 ==================================================================
 Week 4
 01”20 | b) 01”47 | c) 05”43 | d) 05”08
 Week total: 13”58
 
-a)Live How to load code from repository
-	-> convert iceberg
-	
-b) Live How to load projects
-	-> kill this videos
-	
-c)Live Nautilus 6: An overview of Refactorings
-	a voir si on garde les smarts suggestions car on a enlever les anciennes
-	
-d)Live Nautilus 7: Using the Quality Assistant and Code Critic
+New videos: Setup Iceberg
 
-New videos
-=========
+		- Configure iceberg for real. 
+			precondition
+				you can push on a repo on github
+				- create the repo
+				- ssh
+				- monticello integration
+			
+		- Adding a remote and commiting
 
-g) how to save remotely to an existing github repo
+	Check what Pablo added to iceberg
+	
+New videos : Commit
+	create an src
+	tonel format
+	how to save remotely to an existing github repo
 	commit
 	push
 	
-h) how to set a github repo
-	create an src
-	tonel format
+	Check what Pablo added to iceberg
+	
+	
+	
+a)Live How to load code from repository
+	Que du MC -> convert iceberg
+
+	Conclusion scenario: 
+		redo it in iceberg
+
+b) Live How to load projects
+	
+	Execute
+		Metacello new
+			  baseline: 'ContainersStack';
+			  repository: 'github://Ducasse/Containers-Stack/src';
+			  load.
+	  
+	 + show install baseline in iceberg
+	 
+	
+	
+c)Live Nautilus 6: An overview of Refactorings
+	a voir si on garde les smarts suggestions car on a enlever les anciennes
+	refactor 
+		class 
+		instance 
+		methods rename extract method
+		show that we have contextual operation.
+	
+d)Live Nautilus 7: Using the Quality Assistant and Code Critic
+	Pas  d'utilisation de Spotter
+	
+	Conclusion scenario: 
+		 just redo it :)
 
 ==================================================================
 Week 5
@@ -242,13 +288,22 @@ b)	Live Spotter 6: Search, Navigate and Preview Files
 	 
 c) 	Live Learning the Debugger
 	05”16
-	si on enleve le chargeement (car MC) on n'aurait pas besoin de la refaire
+		Conclusion
+			- On ne charge pas le code 
+			- mais on doit refaire car nouvel MC
 	
 d)	Live How to find a bug?
 	il y a Nautilus au depart
+	Sinon on pourrait garder
+	
+	Conclusion
+			- mais on doit refaire car Nautilus
+
 
 e)	Live GTInspector 2: Inspect Files and Directories
 	6 min
+		Conclusion
+		 Il y a nautilus
 		 
 ==================================================================
 Week 6
@@ -259,22 +314,57 @@ a) Live Understanding Images and Changes Files
 	09”46
 	to see how to split
 	looks too complex.
+	TOO complex. 
+	
+	Conclusion
+		- on utilise Pharo launcher
+		- on met le fond est rouge
+		- on fait un save as.
+		- on fait un open 
+		- on fait un open de l'autre image
+	
 
 b)Live Using the Pharo Launcher to manage your Pharo images
-	To be redone fully
-		- how to execute
+	Kill!
+	No need to redo it and PharoLauncher will be fully redone.
+
 		
 c)Live Diffing and Merging in Pharo
 	A voir soit avec iceberg soit on jette
+	Kill it
+	
 	
 d)Live GTInspector 4: Build Custom Tab Views for your Objects
 	A jeter probablement.
+	
+	Keep it as it is
 
 
-A la place:
+New Videos
+
 	startUp item with System setting preference 
 	
-
+	StartupPreferencesLoader default executeAtomicItems: {
+		StartupAction 
+			name: 'Logo' 
+			code: [ PolymorphSystemSettings showDesktopLogo: false] .
+	StartupAction 
+		name: 'Git Settings' 
+		code: [
+			Iceberg enableMetacelloIntegration: true.
+			IceCredentialsProvider useCustomSsh: true.
+			IceCredentialsProvider sshCredentials
+					username: 'git';
+					publicKey: '/Users/ducasse/.ssh/id_rsa.pub';
+					privateKey: '/Users/ducasse/.ssh/id_rsa'.
+			IceCredentialStore current
+					storeCredential: (IcePlaintextCredentials new
+					username: 'ZZZ';
+					password: 'XXX';
+					host: 'github.com';
+					yourself).
+			 ]. 
+}.
 ==================================================================
 Week 7
 a)	00”50 | b) 00”27 | c) 00”39 | d) 09”29
@@ -289,12 +379,3 @@ b)Live Spotter 5: Search in Playground History
 c)Live GTInspector 3: Understand Pharo Internals by Inspection
 		We can keep it. 
 		
-a)	00”50 | b) 00”27 | c) 00”39 | d) 09”29
-Week total: 11”25
-
-
-Redo a revoir principalement 
-
-Counter et Dice dont il faudra que je revois le script (pour l’aligner avec le pdf ou une nouvelle version du pdf 
-	- un truc sur le nom de la method de creation
-	- un point sur le premier test qui ne doit pas etre avec une capture d;exception
