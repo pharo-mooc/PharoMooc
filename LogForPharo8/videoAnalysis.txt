@@ -46,29 +46,40 @@ d)	Live Learn Keyboard Shortcuts
 	Workspace (does it work can we use something else)
 	Settings (shortcutt remoinder is set already)
 	Inspector
-	Bar Navigation
-	
+	Bar Navigation of Spotter
+	Conclusion scenario: 
+		OK on pourrait reutiliser la version french.
+	Status: English a faire
+
 f) 	Redo Counter
-	15''
-	Suggestions: what if we split it in parts: 
-		- Part 1 Define class + accessor
-				- Playground try
-				- Define first tests
-		
-		- Part 2 Save code / Iceberg en local (pas de setup ssh peut etre dans une autre video)
-		
+		- Part 1 
+			- Define class + accessor
+			- Explain class comment exclamation mark
+			- Playground try
+
+		- Part 2 - Define first tests
+
+		- Part 3 - New Method vs modifier une methode existante
+			1 min
+
+		- Part 3 Save code / Iceberg en local
+			Create a package
+			Create project with local repository 
+			Add package to project
+			Commit local
+
 		- Define other tests and operations
 			in particular class methods. 
-		- Iceberg tools (do we keep it?)
-		
-	Fix	
-		- count: anNumber -> count: anInteger
-		- adding comments after
-		- remove self assert: = 7
-		- should get the end too. 
-		
-	System browser
-	Playground
+
+		- Diff history
+			show that we can show the difference between a commit and the image
+			show that we can see the difference between one commit and another one. 
+			
+		Points of Attention:
+			- count: aNumber -> count: anInteger
+			- remove self assert: counter = 7
+				On ne garde que le assert: equals: 
+			- should get the end too.
 
 
 
@@ -81,35 +92,80 @@ Week total: 30”
 a) W2-LiveA-Finder 
 Live Finding Methods with Finder 04”13
 	- would be nice to show an executable comment
-	- show nautilus arg!
+
+	Points of Attention
+		- show nautilus arg!
+
+	May be split in two for the examples part. 
+
+	#(11 22 33) . 4 . 11
+	
+	Conclusion scenario: 
+		- may be splitting in two
+	Status: English and French
+	
 
 b) W2-LiveB-GTInspector1
-09”58 
-Live GTInspector 1: Inspect and Interact with Objects 09”58
-	- on pourrait presque le reutiliser 
+	09”58 
+	Live GTInspector 1: Inspect and Interact with Objects 09”58
+		- on pourrait presque le reutiliser 
+	Conclusion scenario: 
+		- est ce que cela marche en Pharo 80?
+	Status: English and French
+	
+	
 	
 c) W2-LiveC-Nautilus1
 01”39 
 Live Nautilus 1: First Meet with the Code Browser
 	-
+	Conclusion scenario: 
+		peut etre sur une autre class
+		- show how to filter package (may be here or in the next one)
+	Status: English and French
 	
 d )W2-LiveD-Nautilus2
 	Live Nautilus 2: Packages, Tags and Groups
 02”39
+	Conclusion scenario: 
+		- remove groups
+		- scoped instead of Groups (may be in another videos.
+	Status: English and French
 	
 e) W2-LiveE-Nautilus3
 2'56 
 	Live Nautilus 3: Inheritance view
+	Conclusion scenario: 
+		- do not start with spotter to avoid spurious dependencies
+	Status: English and French
 	
-would be good to do another  another 
-	Live look at users of instance variable
+New video	
+	Live look at users of an instance variable
+	Live look at References of a class
 
 f) W2-Redo-CounterInDebugger 
 	8''
-	ok pas de class method. 
+
+	Conclusion scenario: 
+		- Test first
+		- not complete - pass de class method
+		- no need to commit 
+		- up to increment / decrement
+		- show that we can access the object state in the debugger.
+	Status: English and French
 
 
 
+New videos: Using Iceberg
+
+		- Configure iceberg for real. 
+			precondition
+				you can push on a repo on github
+				- create the repo
+				- ssh
+				- monticello integration
+			
+		- Adding a remote and commiting
 
 ==================================================================
 Week 3
