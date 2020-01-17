@@ -22,3 +22,6 @@ Outline of the MOOC is in Roadmap/Roadmap.pillar.
 	./deploy.sh
 
 all results should be in *pharoMooc* subdirectory 
+
+
+

@@ -520,21 +520,7 @@ TBPostsListComponent >> readSelectedPosts
 ]]]
 
 
-Nous pouvons maintenant modifier la méthode chargée du rendu de la liste des posts:
-
-[[[
-TBPostsListComponent >> renderContentOn: html
-   super renderContentOn: html.
-   html render: (TBCategoriesComponent
-               categories: (self blog allCategories)
-               postsList: self).
-   html tbsContainer: [ 
-      self readSelectedPosts do: [ :p |
-         html render: (TBPostComponent new post: p) ] ]
-]]]
-
-Une instance du composant ==TBCategoriesComponent== est ajoutée sur la page et permet de sélectionner la catégorie courante (voir la figure *@ugly*).
-
+c
 +Catégories afin de sélectionner les posts.>file://figures/categoriesUgly.png|width=75|label=ugly+
 
 
