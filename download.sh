@@ -107,5 +107,5 @@ if [[ $should_prepare_image -eq 1 ]]; then
     prepare_image
 fi
 
-# Load independant project to generate Makefile 
-${PHARO_VM} Pharo.image eval --save "Gofer new smalltalkhubUser: 'Pier' project: 'Pillar'; package: 'Pillar-MakefileGeneration'; load."
+# Load independant project to generate Makefile
+${PHARO_VM} Pharo.image eval --no-default-preferences --save "Gofer new smalltalkhubUser: 'Pier' project: 'Pillar'; package: 'Pillar-MakefileGeneration'; load. 0"
