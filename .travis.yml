@@ -6,9 +6,9 @@ before_install:
 - docker pull dpollet/texlive:pillar
 
 script: |
+  ./download.sh && \
   docker run -it --rm --volume $PWD:/work dpollet/texlive:pillar bash -c "\
-    wget --quiet --output-document=- 'https://raw.githubusercontent.com/pillar-markup/pillar/master/download.sh' | bash \
-    && ./download.sh && ./compile.sh && ./pillar makefile && make && ./deploy.sh"
+    ./compile.sh && ./pillar makefile && make && ./deploy.sh"
 
 deploy:
 - provider: bintray
