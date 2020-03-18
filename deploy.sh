@@ -18,6 +18,7 @@ $CPMV $SRC/Slides/Week1/*.erratum $DEST
 $CPMV $SRC/Exercises/Exo-Expressions-LiteralObjects.pdf $DEST
 $CPMV $SRC/Exercises/Exo-Expressions-LiteralObjects-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-Counter.pdf $DEST
+$CPMV $SRC/Exercises/Exo-Counter-V2.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W1-TinyBlog-Model-EN.pdf $DEST
 $CPMV $SRC/Exercises/Exo-W1-TinyBlog-Model-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge0-EN.pdf $DEST
