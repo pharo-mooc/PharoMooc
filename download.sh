@@ -108,4 +108,5 @@ if [[ $should_prepare_image -eq 1 ]]; then
 fi
 
 # Load independant project to generate Makefile
-${PHARO_VM} Pharo.image eval --no-default-preferences --save "Gofer new smalltalkhubUser: 'Pier' project: 'Pillar'; package: 'Pillar-MakefileGeneration'; load. 0"
+# ${PHARO_VM} Pharo.image eval --save "Gofer new smalltalkhubUser: 'Pier' project: 'Pillar'; package: 'Pillar-MakefileGeneration'; load."
+${PHARO_VM} Pharo.image eval "Gofer new smalltalkhubUser: 'Pier' project: 'Pillar'; package: 'Pillar-MakefileGeneration'; load. Smalltalk snapshot: true andQuit: true"
