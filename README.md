@@ -17,9 +17,8 @@ Official page: [Pharo MOOC](http://mooc.pharo.org)
 
 	git clone git@github.com:SquareBracketAssociates/PharoMooc.git
 	cd PharoMooc
-	./download.sh
-	./pillar makefile
-	make
+	git checkout pharo8
+	# pillar build step is work in progress
 	./deploy.sh
 
 all results should be in *pharoMooc* subdirectory
