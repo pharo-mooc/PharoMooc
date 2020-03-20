@@ -1,6 +1,6 @@
 
 This branch is dedicated to:
-- compiling the Pharo MOOC using the Pillar [v8.0.2](https://github.com/pillar-markup/pillar/tree/v8.0.2)
+- ~~compiling the Pharo MOOC using the Pillar [v8.0.2](https://github.com/pillar-markup/pillar/tree/v8.0.2)~~ (let's do another branch for this)
 - porting the Pharo MOOC content to Pharo8
 
 # Pharo MOOC
