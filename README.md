@@ -5,8 +5,8 @@ Official page: [Pharo MOOC](http://mooc.pharo.org)
 ## Git Branches
 
 - pharo5: Pharo MOOC based on Pharo 5
-- **pharo8**: WIP version of porting the Pharo MOOC content to Pharo8
-- main: stable latest version of the Pharo MOOC
+- **pharo8**: stable latest version of the Pharo MOOC
+- main: WIP version of porting the Pharo MOOC content to Pharo8
 
 # Key folders
 
