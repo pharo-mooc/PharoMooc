@@ -1,0 +1,64 @@
+! Exercise: Modeling 
+
+The purpose of this exercise is to create a basis for writing future OO programs. We work on an application that simulates a simple Local Area Network (LAN).  We will create several classes: ==LNPacket==, ==LNNode==, ==Workstation==, and ==PrintServer==. We start with the simplest version of a LAN, then we will add new requirements and modify the proposed implementation to take them into account.
+
+
+!! Classes or Instances
+
+!!!!Classes/Instances. 
+
+What are instances and what are classes in the following lists:
+- Les bijoux de la castafiore, Comix, Asterix le gaulois, Book, Novel, Fahrenheit 451, Da Vinci Code.
+- Tokyo, Lisbon, Paris, Capital, Country, State, Madrid, France, Spain, Portugal
+- Video, Book, "le fabuleux destin d’amelie Poulain", Client, "la Bible", StarWars4, StarWars5, Dupont, Dupond. GhostInTheShell, Le Voyage De Chihiro.
+
+!!  Classification
+
+Classify the following abstractions: Opera, Film, Book, Novel, Comics.
+What could be a possible common superclass?
+To check if your hierarchy makes sense here is a guideline: It should be possible to substitute any instance of a superclasse by any instance of a subclass without breaking a program of the superclass.
+
+!! Capitals and countries
+
+
+- How do you relate the following entities: Lisbon, Paris, Capital, Country, State, Madrid, France, Spain, Portugal?
+
+- What are the possible relationships from countries to capitals and vice versa?
+Write some examples.
+
+-  How would you characterize countries and states in the context of international income?
+
+
+!! A Basic LAN Application
+
+Identify the classes and their possible responsibilities in the following example. Note that responsibilities are not state or properties of the objects but their behavior.
+
+Imagine a local network simulator \textbf{Local Area Network (LAN)}. Workstations, nodes, printers are linked together and form a ring. Each node (workstations, nodes, printers) is pointing to a next node forming a ring. When a packet is received by a node it checks if this is for him, if this is the case, it performs appropriate actions (printing the contents of the packet for a printer), displaying it on a screen if this is a workstation). Only workstation can emit packet to reach other workstations or printers. 
+When a workstation or a printer received a packet that is sent to it it does not forward it to the next node of the network.  A packet identifies who sent it, ist addressee and its contents. 
+
+
+
+
+!! Mail
+A mail has a title, one text, one sender, multiple recipients, and multiple attached files. What are the possible classes and their relationships.
+
+#!! Hotel Reservation
+
+#Monsieur Formulain, directeur d'une cha\^ine d'h\^otels, vous demande de concevoir une application de gestion pour ses h\^otels. Voici ce que vous devez mod\'eliser :
+
+#Un h\^otel Formulain est constitu\'e d'un certain nombre de chambres. Un responsable de l'h\^otel g\`ere la location des chambres. Chaque chambre se loue \`a un prix donn\'e (suivant ses prestations).
+
+#L'acc\`es aux salles de bain est compris dans le prix de la location d'une chambre. Certaines chambres comportent une salle de bain, mais pas toutes. Les h\^otes de chambres sans salle de bain peuvent utiliser une salle de bain sur le palier. Ces derni\`eres peuvent \^etre utilis\'ees par plusieurs h\^otes.
+
+#Les pi\`eces de l'h\^otel qui ne sont ni des chambres, ni des salles de bain (hall d'accueil, cuisine...) ne font pas partie de l'\'etude (hors sujet).
+
+#Des personnes peuvent louer une ou plusieurs chambres de l'h\^otel, afin d'y r\'esider. En d'autre termes : l'h\^otel h\'eberge un certain nombre de personnes, ses h\^otes (il s'agit des personnes qui louent au moins une chambre de l'h\^otel...).
+
+
+!! Classes/Instances.
+#Describe with the best accuracy the information that you would like to have to describe a video for an online catalog. You can get inspired by http://www.imdb.com/ or http://wrapper.rottentomatoes.com/. 
+
+#Now from the list StarWars4, StarWars5, DVDStarWarsBoite35, DVDStarWarsBoite35, Video, K7, LeVoyageDeChihiro, BoiteNoireLeVoyageDeChihiro145, BoiteNoireLeVoyageDeChihiro146, how would you identify instances and classes. 
+For this item we suggest you to read http://students.engr.scu.edu/~gvenkata/typeobjectpattern.htm.
+
+!! Redo the Exercises using UML notation

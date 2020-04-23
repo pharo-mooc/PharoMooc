@@ -1,0 +1,90 @@
+Morph subclass: #Turtle
+	instanceVariableNames: ''
+	classVariableNames: ''
+	package: 'Turtle'
+	
+
+Turtle >> initialize
+	super initialize.
+	self extent: 50@50.
+	direction := 0
+	
+	
+Turtle new openInWorld
+
+inspect.
+
+self color: Color yellow.
+
+
+drawOn: aCanvas
+
+	aCanvas
+		fillOval: (self bounds topLeft + (5@5) extent: (self height - 10) asPoint)
+		color: Color green
+		
+drawOn: aCanvas
+
+	aCanvas
+		fillOval: (self bounds topLeft + (5@5) extent: (self height - 10) asPoint)
+		color: Color blue
+		
+
+drawOn: aCanvas
+
+	aCanvas
+		fillOval: (self bounds topLeft + (5@5) extent: (self height - 10) asPoint)
+		color: Color green
+
+drawOn: aCanvas
+	self haltOnce.
+	aCanvas
+		fillOval: (self bounds topLeft + (5@5) extent: (self height - 10) asPoint)
+		color: Color green
+		
+		
+Refactoring
+	drawBodyOn:
+	
+drawOn: aCanvas
+	self drawBodyOn: aCanvas
+
+drawBodyOn: aCanvas
+	aCanvas
+		fillOval: (self bounds topLeft + (5 @ 5) extent: (self height - 10) asPoint)
+		color: Color green
+		
+		
+drawOn: aCanvas
+	self drawBodyOn: aCanvas.
+	self drawHeadOn: aCanvas.
+	
+	
+drawHeadOn: aCanvas
+
+	| vector centerOffset centerOfHead |
+	vector := direction degreeCos @ direction degreeSin negated.
+	centerOffset := self height // 2 - 5.
+	centerOfHead := (self center + (vector * centerOffset)) rounded.
+	aCanvas
+		fillOval: (centerOfHead - 5 extent: 10 asPoint)
+		color: Color brown	
+	
+Changing direction into the inspector
+
+
+goAt: aPoint 
+	self center: aPoint
+
+direction: aDegree
+
+	direction := aDegree.
+	self changed.
+	
+move: aDistance 
+	self goAt: (direction degreeCos @ direction degreeSin negated * aDistance)
+asIntegerPoint + self center	
+	
+self startStepping
+self stopStepping
+
