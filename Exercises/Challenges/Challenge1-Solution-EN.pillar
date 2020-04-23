@@ -10,11 +10,18 @@ Using the Zinc HTTP library, get a photo from an email address through gravatar 
 - Message ==openInHand== is fun.
 
 !!! Solution
+
 [[[
 	| email url |
-	email := 'stephane.ducasse@inria.fr'. 
-	url := 'http://www.gravatar.com/avatar/', (MD5 hashMessage: email trimBoth asLowercase) hex, '.jpg'. 
-	(ZnEasy getJpeg: url) asMorph openInHand.  
+	email := 'stephane.ducasse@inria.fr'.
+	url := 'http://www.gravatar.com/avatar/', (MD5 hashMessage: email trimBoth asLowercase) hex, '.jpg'.
+	imageMorph := (ZnEasy getJpeg: url) asMorph openInHand.
+]]]
+
+Pour fermer l'image ouverte, exécutez :
+
+[[[
+	World removeMorph: imageMorph
 ]]]
 
 +Grabbing the gravatar associated with stephane.ducasse@inria.fr . >file://figures/gravatar.png|width=80+

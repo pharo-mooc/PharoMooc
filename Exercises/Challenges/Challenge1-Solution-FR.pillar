@@ -12,10 +12,16 @@ En utilisant la bibliothèque Zinc HTTP, récupérer une photo à partir d'une a
 !!! Solution
 
 [[[
-	| email url |
-	email := 'stephane.ducasse@inria.fr'. 
-	url := 'http://www.gravatar.com/avatar/', (MD5 hashMessage: email trimBoth asLowercase) hex, '.jpg'. 
-	(ZnEasy getJpeg: url) asMorph openInHand.  
+	| email url imageMorph |
+	email := 'stephane.ducasse@inria.fr'.
+	url := 'http://www.gravatar.com/avatar/', (MD5 hashMessage: email trimBoth asLowercase) hex, '.jpg'.
+	imageMorph := (ZnEasy getJpeg: url) asMorph openInHand.
+]]]
+
+You can close the openned morph using:
+
+[[[
+	World removeMorph: imageMorph
 ]]]
 
 +Récupérer le gravatar de stephane.ducasse@inria.fr .>file://figures/gravatar.png|width=80+
