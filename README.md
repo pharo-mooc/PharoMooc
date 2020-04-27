@@ -19,7 +19,7 @@ Official MOOC page: [Pharo MOOC](http://mooc.pharo.org)
 The Pharo MOOC still uses an old version of Pillar to compile.
 
 ```bash
-	git clone git@github.com:PharoMooc/PharoMooc.git
+	git clone git@github.com:pharo-mooc/PharoMooc.git
 	cd PharoMooc
 	git checkout pharo8
 	./download.sh		# download pillar
