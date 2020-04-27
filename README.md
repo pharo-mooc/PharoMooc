@@ -1,12 +1,12 @@
-# Pharo MOOC
+# Welcome to the repository of the Pharo Mooc
 
-Official page: [Pharo MOOC](http://mooc.pharo.org)
+Official MOOC page: [Pharo MOOC](http://mooc.pharo.org)
 
 ## Git Branches
 
 - pharo5: Pharo MOOC based on Pharo 5
-- **pharo8**: stable latest version of the Pharo MOOC
-- main: WIP version of porting the Pharo MOOC content to Pharo8
+- pharo8: stable version of the MOOC for Pharo 8
+- master: WIP version of porting the Pharo MOOC content to Pharo8
 
 # Key folders
 
@@ -27,6 +27,3 @@ The Pharo MOOC still uses an old version of Pillar to compile.
 	make				# compile whole MOOC or only modified source files
 	./deploy.sh			# copy all MOOC's files into PharoMooc/ directory
 ```
-
-
-
