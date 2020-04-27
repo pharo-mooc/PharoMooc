@@ -1,16 +1,17 @@
+================================================================================
 Log
-==========================
+================================================================================
 - 18 Octobre 2019: Quentin
 	- one afternoon: videos cleaning and first maps.
 
 - 26 Decembre 2019: Quentin + Stef
 	one afternoon
 	checking all videos and problem identification
-	
+
 - 2 Janvier 2020: Quentin
 	playing and falling with microphones
 	2 hours
-	
+
 - 8 Janvier 2020: Quentin + Stef
 	- Planning and sketching: one afternoon * 2 people.
 
@@ -21,19 +22,82 @@ Log
 -- sync Counter with videos script
 -- sync assert: -> assert:equals:
 
-==========================================
-- videos analysis see other files
-- Errata see files
-- quid streams?
-- check challenges
+- 31 mars 2020: Luc
+-- PharoWeb 8.0  https://github.com/LucFabresse/PharoWeb
+-- TinyBlog Code on github + branches for solutions https://github.com/LucFabresse/TinyBlog
+-- Updated Book TinyBlog-EN in pharo8 branch - https://github.com/SquareBracketAssociates/TinyBlog-EN/tree/pharo8
+-- Updated Pharo Launcher to create P8 image
+- Updated Book TinyBlog-FR https://github.com/SquareBracketAssociates/TinyBlogTutorial
+- Updated mooc.pharo.org (install notes - remove manual installation)
 
-- check exercises
--- Counter Monticello -> git
-	
-- Migration PBE underway	
-	iceberg
-	
-- Migrate Loop book to P8
+- 22 avril 2020: Luc
+-- PharoMOOC github orga
+   https://github.com/PharoMOOC/PharoMooc
+-- add deprecation notice on all SquareBracketAssociates/MOOC* repos
+-- PharoMooc branch pharo8
+   updated README for compilation instructions
+-- removed PharoMOOC github orga
+-- removed deprecation notice on all SquareBracketAssociates/MOOC*
 
-- Migration tiny tutorial to iceberg
-	iceberg
+- 23 avril 2020 : Luc
+-- change logo Mines Douai by IMT Lille Douai everywhere...
+-- cleaned a lot - removed unused
+-- removed TinyBlog sources + archived TinyBlog pdfs + update deploy.sh
+-- pass on all W1 (Remaining todos are below)
+-- add C019-W2S03-Messages-Precedence.pillar.erratum because 1 maxVal is different in 64bits + fix slides
+-- fix challenge1 solution - replaced openInHand by openInWindow to be able to close the image
+-- update tinyblog entries in the roadmaps EN/FR
+
+
+================================================================================
+W1 TODOs
+================================================================================
+
+Remaining TODOs while REVIEWING SLIDES:
+- modify C019-W1S02-WhatIsPharo.pdf
+	s12 : "Currently updated to Pharo 50" -> Currently updated to Pharo 80
+	s17 : redo screenshot in P8 because halo changed
+	s23 : screenshot shows P4 download instead of P8
+	last slide : replace Mines Douai logo  by IMT Lille Douai Logo (cf. support/beamer/imgs/IMT_Lille_Douai_Logo.png)
+
+- modify C019-W1S03-PharoVision.pdf
+	s09 : broken link http://pharo.org/success ?
+	last slide : replace Mines Douai logo  by IMT Lille Douai Logo (cf. support/beamer/imgs/IMT_Lille_Douai_Logo.png)
+
+- Exercises/Exo-Counter.pillar
+	page 6 - section 1.5 Saving your work -> describes MC
+	IMO, we should remove MC solution completely and only decribe there image persitency + st fileout
+	git / iceberg should be in a dedicated document or better we should just give a ref to a live + book (PBE8 ?)
+
+- Exercises/Exo-Counter-V2.pillar
+	should we remove ExoCounter and only keep v2?
+	IMO, figures 1.3 et 1.4 page 7 should be removed and replaced by the old explanation of saving the image or fileout
+	chap3 : saving your work
+	same here remark here - remove MC
+	why is this a chapter and not a section?
+
+================================================================================
+W2 TODOs
+================================================================================
+
+- Where is committed DSL (dice) solution code?
+
+================================================================================
+General TODOs
+================================================================================
+
+- check quizzes in P8?
+- discuss if we should redo all screenshots of browsers in slides because this is Calypso now in P8
+- migrate to pharo-mooc orga ? :
+-- https://github.com/SquareBracketAssociates/TinyBlog-EN
+-- https://github.com/SquareBracketAssociates/TinyBlogTutorial
+-- https://github.com/SquareBracketAssociates/PharoMooc-website
+-- https://github.com/SquareBracketAssociates/OOProgrammingMooc
+-- https://github.com/SquareBracketAssociates/OOProgrammingMooc-website
+-- https://github.com/SquareBracketAssociates/PharoMoocResources
+- write unit tests for all code snippets in slides, exos, challenges, ...
+- integrate subtitles into deploy.sh
+- fix all LogForPharo8/Pharo_mooc_errata.pdf
+- double check TinyBlog
+- fix and remove Subtitles/VerificationLog.txt
+- Migrate Loop book to P8 (Luc: what does it mean?)

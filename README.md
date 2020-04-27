@@ -1,9 +1,29 @@
-# Welcome to the new repository for Pharo Mooc
+# Welcome to the repository of the Pharo Mooc
 
-This mooc is officially hosted at: [http://mooc.pharo.org](http://mooc.pharo.org).
+Official MOOC page: [Pharo MOOC](http://mooc.pharo.org)
 
-This repository stores the slides, exercises and scripts. 
+## Git Branches
 
-You will find videos in French and English with subtitles in Spanish, French, English and Japanese. 
+- pharo5: Pharo MOOC based on Pharo 5
+- pharo8: stable version of the MOOC for Pharo 8
+- master: WIP version of porting the Pharo MOOC content to Pharo8
 
-Here is an old channel with the first version of videos in French: [https://www.canal-u.tv/producteurs/inria/cours_en_ligne/live_object_programming_in_pharo](https://www.canal-u.tv/producteurs/inria/cours_en_ligne/live_object_programming_in_pharo)
+# Key folders
+
+*Roadmap/MoocRoadmap.pillar* describes the week organisation including lectures, exercises for the seven week of the mooc
+
+*Slides/* contains all slides of the MOOC based on week decomposition.
+
+# Compilation Instructions
+
+The Pharo MOOC still uses an old version of Pillar to compile.
+
+```bash
+	git clone git@github.com:PharoMooc/PharoMooc.git
+	cd PharoMooc
+	git checkout pharo8
+	./download.sh		# download pillar
+	./pillar makefile	# generate Makefile according to pillar.conf
+	make				# compile whole MOOC or only modified source files
+	./deploy.sh			# copy all MOOC's files into PharoMooc/ directory
+```
