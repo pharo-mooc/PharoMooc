@@ -9,14 +9,14 @@ ${slide:title=Composition: from Left to Right!}$
 What happens when we have two messages of the same kind?
 - Execution from left to right
 [[[
-1000 factorial class name  
+1000 factorial class name
 > 'LargePositiveInteger'
 ]]]
 
-is equivalent to 
+is equivalent to
 
 [[[
-(((1000 factorial) class) name) 
+(((1000 factorial) class) name)
 ]]]
 
 - Ease the composition of messages
@@ -35,7 +35,7 @@ ${slide:title=Precedence Example}$
 > 11
 ]]]
 
-- unary (squared) first 
+- unary (squared) first
 - then binary (==+==)
 
 ${slide:title=Precedence Example}$
@@ -46,7 +46,7 @@ ${slide:title=Precedence Example}$
 > 32
 ]]]
 
-- binary (==+==) first 
+- binary (==+==) first
 - then keyword-based (==raisedTo:==)
 
 ${slide:title=Precedence Example}$
@@ -64,8 +64,8 @@ Color gray - Color white = Color black
 ${slide:title=Precedence Example}$
 
 [[[
-1 class maxVal + 1 
-> 1073741824
+1 class maxVal + 1
+> 1152921504606846976
 ]]]
 
 - unary, unary and binary
@@ -75,11 +75,11 @@ ${slide:title=Precedence Example}$
 > SmallInteger
 
 1 class maxVal
-> 1073741823
-	
+> 1152921504606846975
+
 1 class maxVal + 1
-> 1073741824
-	
+> 1152921504606846976
+
 (1 class maxVal + 1) class
 > LargePositiveInteger
 ]]]
@@ -106,9 +106,9 @@ Should use ==()==
 ${slide:title=The Price for Simplicity}$
 
 Only messages:
-- ==+== 
+- ==+==
 -- is a message, no precedence
--- can be redefined in domain classes 
+-- can be redefined in domain classes
 - Simple
 - One limit: no mathematical precedence
 
@@ -146,6 +146,6 @@ ${slide:title=Summary}$
 - (...) > unary > binary > keywords
 - Then from left to right
 - There is no mathematical precedence because mathematical operations are plain messages
-- Arguments are placed inside message structure: 
+- Arguments are placed inside message structure:
 -- 2 between: 0 and: 5 (the message is ==between:and:==)
 
