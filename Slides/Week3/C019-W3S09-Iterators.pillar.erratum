@@ -1,0 +1,16 @@
+C019-W3S09-Iterators
+
+================================================================================
+s19
+
+Instead of:
+
+#(1 2 3 4 5 6 7) groupedBy: #even
+> a PluggableDictionary(false − >#(1 3 5 7) true − >#(2 4 6) )
+
+
+you should read:
+
+#(1 2 3 4 5 6 7) groupedBy: #even
+> an OrderedDictionary(false->#(1 3 5 7) true->#(2 4 6))
+

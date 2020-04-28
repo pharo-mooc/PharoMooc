@@ -48,6 +48,19 @@ Log
 -- fix challenge1 solution - replaced openInHand by openInWindow to be able to close the image
 -- update tinyblog entries in the roadmaps EN/FR
 
+- 28 avril 2020 : Luc
+-- pass W3
+	removed DSL
+	keep DSL-V2
+	added multiple erratums files + slides corrections
+	added some unit code tests (not trivial code)
+
+	Migrated to pharo-mooc github orga > [DONE: Stef]
+	> https://github.com/SquareBracketAssociates/PharoMooc-website
+	> https://github.com/SquareBracketAssociates/OOProgrammingMooc
+	> https://github.com/SquareBracketAssociates/OOProgrammingMooc-website
+	> https://github.com/SquareBracketAssociates/PharoMoocResources
+
 
 ================================================================================
 W1 TODOs
@@ -64,17 +77,14 @@ Remaining TODOs while REVIEWING SLIDES:
 	s09 : broken link http://pharo.org/success ?
 	last slide : replace Mines Douai logo  by IMT Lille Douai Logo (cf. support/beamer/imgs/IMT_Lille_Douai_Logo.png)
 
-- Exercises/Exo-Counter.pillar
-	page 6 - section 1.5 Saving your work -> describes MC
-	IMO, we should remove MC solution completely and only decribe there image persitency + st fileout
-	git / iceberg should be in a dedicated document or better we should just give a ref to a live + book (PBE8 ?)
-
 - Exercises/Exo-Counter-V2.pillar
-	should we remove ExoCounter and only keep v2?
 	IMO, figures 1.3 et 1.4 page 7 should be removed and replaced by the old explanation of saving the image or fileout
 	chap3 : saving your work
 	same here remark here - remove MC
 	why is this a chapter and not a section?
+	https://github.com/QDucasse/PharoMoocScripts/blob/master/W1/W1-Redo_Script
+	J’ai verifie Quentin utilise Iceberg
+	[TODO] Stef: Je vais le reecrire pour utiliser Iceberg
 
 ================================================================================
 W2 TODOs
@@ -82,22 +92,28 @@ W2 TODOs
 
 - Where is committed DSL (dice) solution code?
 
+
+================================================================================
+W3 TODOs
+================================================================================
+
+- we should redo the video about DSL using DSL V2
+
 ================================================================================
 General TODOs
 ================================================================================
 
-- check quizzes in P8?
+- check quizzes in P8
 - discuss if we should redo all screenshots of browsers in slides because this is Calypso now in P8
-- migrate to pharo-mooc orga ? :
--- https://github.com/SquareBracketAssociates/TinyBlog-EN
--- https://github.com/SquareBracketAssociates/TinyBlogTutorial
--- https://github.com/SquareBracketAssociates/PharoMooc-website
--- https://github.com/SquareBracketAssociates/OOProgrammingMooc
--- https://github.com/SquareBracketAssociates/OOProgrammingMooc-website
--- https://github.com/SquareBracketAssociates/PharoMoocResources
 - write unit tests for all code snippets in slides, exos, challenges, ...
 - integrate subtitles into deploy.sh
 - fix all LogForPharo8/Pharo_mooc_errata.pdf
 - double check TinyBlog
 - fix and remove Subtitles/VerificationLog.txt
-- Migrate Loop book to P8 (Luc: what does it mean?)
+- Migrate Loop book to P8 - TODO Stef: Je dois regarder de le bouquin Learning OOP in Pharo fonctionne sur Pharo80
+- check erratums on FUN because I suspect that there are more on FUN
+
+
+- [NO] migrate to pharo-mooc orga:
+-- https://github.com/SquareBracketAssociates/TinyBlog-EN
+-- https://github.com/SquareBracketAssociates/TinyBlogTutorial

@@ -40,14 +40,13 @@ ln -s ${TINYBLOGFR} ${DEST}/TinyBlog-FR_Chapter1and2.pdf
 ln -s ${TINYBLOGEN} ${DEST}/TinyBlog-EN_Chapter1and2.pdf
 $CPMV $SRC/Exercises/Exo-ObjectsExpressions.pdf $DEST
 $CPMV $SRC/Exercises/Exo-ObjectsExpressions-FR.pdf $DEST
-$CPMV $SRC/Exercises/Exo-DSL.pdf $DEST
-$CPMV $SRC/Exercises/Exo-DSL-V2.pdf $DEST
 $CPMV $SRC/Exercises/Challenge1-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge1-EN.pdf $DEST
 
 DEST=PharoMooc/Week3
 mkdir -p $DEST
 $CPMV $SRC/Slides/Week3/*.pdf $DEST
+$CPMV $SRC/Slides/Week3/*.erratum $DEST
 $CPMV $SRC/Exercises/Exo-ObjectsExpressions-Solution.pdf $DEST
 $CPMV $SRC/Exercises/Exo-ObjectsExpressions-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-Expressions-Rewriting.pdf $DEST
@@ -56,12 +55,14 @@ $CPMV $SRC/Exercises/Challenge1-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge1-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge2-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge2-FR.pdf $DEST
+$CPMV $SRC/Exercises/Exo-DSL-V2.pdf $DEST
 ln -s ${TINYBLOGFR} ${DEST}/TinyBlog-FR_Chapter3.pdf
 ln -s ${TINYBLOGEN} ${DEST}/TinyBlog-EN_Chapter3.pdf
 
 DEST=PharoMooc/Week4
 mkdir -p $DEST
 $CPMV $SRC/Slides/Week4/*.pdf $DEST
+# $CPMV $SRC/Slides/Week4/*.erratum $DEST
 $CPMV $SRC/Exercises/Challenge2-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge2-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-Expressions-Rewriting-Solution.pdf $DEST
@@ -75,6 +76,7 @@ ln -s ${TINYBLOGEN} ${DEST}/TinyBlog-EN_Chapter4to7.pdf
 DEST=PharoMooc/Week5
 mkdir -p $DEST
 $CPMV $SRC/Slides/Week5/*.pdf $DEST
+# $CPMV $SRC/Slides/Week5/*.erratum $DEST
 $CPMV $SRC/Exercises/Challenge3-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge3-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Challenge4-EN.pdf $DEST
