@@ -27,3 +27,12 @@ The Pharo MOOC still uses an old version of Pillar to compile.
 	make				# compile whole MOOC or only modified source files
 	./deploy.sh			# copy all MOOC's files into PharoMooc/ directory
 ```
+
+# Unit Tests for MOOC Code Snippets
+
+```
+Metacello new
+   baseline:'MoocTests';
+   repository: 'github://LucFabresse/PharoMooc/src';
+   load
+```
