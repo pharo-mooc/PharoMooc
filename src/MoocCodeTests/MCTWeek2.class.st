@@ -17,6 +17,24 @@ asMorph openInWindow.
 ]
 
 { #category : #tests }
+MCTWeek2 >> testW2S01_s04 [
+	| win |
+	"<slide code>"
+	win := (ZnEasy getPng: 'http://a.tile.openstreetmap.org/8/12/8.png')
+asMorph openInWindow.
+	"</slide code>"
+	self assert: win isSystemWindow.
+	win close
+]
+
+{ #category : #tests }
+MCTWeek2 >> testW2S01_s07 [
+	
+	self assert: (Date today isKindOf: Date).
+	self assert: Float pi isFloat
+]
+
+{ #category : #tests }
 MCTWeek2 >> testW2S01_s10 [
 	
 	self assert: (Point selectors select: #isUnary) isCollection

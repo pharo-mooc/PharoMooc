@@ -5,6 +5,16 @@ Class {
 }
 
 { #category : #tests }
+MCTWeek1 >> testW1S05_s04 [
+	| win |
+	"<slide code>"
+	win := 'Hello World' asMorph openInWindow.
+	"</slide code>"
+	self assert: win isSystemWindow.
+	win close
+]
+
+{ #category : #tests }
 MCTWeek1 >> testW1S05_s14 [
 	| response |
 	"<slide code>"
