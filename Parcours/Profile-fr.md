@@ -1,8 +1,8 @@
-# Profiles
+# Profils
 
-5 profils ont été identifiés pour suivre le cours à des vitesses et niveaux différents. Les séquences du cours seront étiquetées en fonction des profils. Vous pouvez aussi ne pas suivre certains cours car ils sont sur des sujets annexes comme les exceptions, les fichiers ou autres. 
+5 profils ont été identifiés pour suivre le cours à des vitesses et niveaux différents. Les séquences du cours seront étiquetées en fonction des profils. Vous pouvez aussi ne pas suivre certains cours car ils sont sur des sujets annexes comme les exceptions, les fichiers ou autres.
 
-Nous proposons 5 profiles différents. Ces profils ne sont pas exclusifs : pour devenir un expert en Pharo il faut commencer par le profil newbie et compléter avec les autres parcours. 
+Nous proposons 5 profiles différents. Ces profils ne sont pas exclusifs : pour devenir un expert en Pharo il faut commencer par le profil newbie et compléter avec les autres parcours.
 
 * **Débutant complet [newbie]** Focalisez-vous sur les premiers cours et suivez le cours jusqu’au bout sans essayez de tout comprendre. Vous pouvez sauter les cours sur Seaside et Mongo ainsi que les exercises sur TinyBlog dans un premier temps. Détendez-vous et prenez le temps de comprendre que le système est écrit en lui-même. Focalisez-vous également sur les outils de navigation (senders et implémenteurs).
 
@@ -164,4 +164,3 @@ Download the slides, videos and exercises.
 * [Xpert] [Live] Spotter 5: Search in Playground History
 * [Xpert] [Live] GTInspector 3: Understand Pharo Internals by Inspection
 * [Newbie] [Challenge] Solution: Challenge 5
-	

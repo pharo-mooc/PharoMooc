@@ -1,12 +1,12 @@
 !Expressions et Messages - Solution
 
 Ces exercices sont principalement pour vous apprendre à lire et à comprendre les expressions Pharo ainsi qu'à identifier
-les différentes sortes de messages et receveurs. 
+les différentes sortes de messages et receveurs.
 
 Notez que dans les expressions pour lesquels on vous demande de les lire et les exécutez, vous pouvez assumer que l'implantation
 des méthodes correspond généralement à ce que le nom du message implique (par exemple, ==2 + 2 = 4==).
 
-De plus, la plupart des expression que nous utilisons sont des expressions que vous pouvez exécuter dans Pharo donc n'hésitez pas. 
+De plus, la plupart des expression que nous utilisons sont des expressions que vous pouvez exécuter dans Pharo donc n'hésitez pas.
 
 
 !!! Exercice : Objets Littéraux
@@ -66,7 +66,7 @@ A quelles sortes d'objets les expressions littérales font elles référence ?
 
 !!!! Exercice :
 [[[
-$A 
+$A
 ]]]
 
 ""Solution.""
@@ -97,8 +97,8 @@ true
 !!Exercice : Messages
 Pour chacune des expressions ci-dessous, répondez aux questions suivantes :
 
-- Quel est l'objet receiveur ?
-- Quel est le selecteur du message ?
+- Quel est l'objet receveur ?
+- Quel est le sélecteur du message ?
 - Quel(s) est (sont) les argument(s) ?
 - Quel est le résultat retourné par l'exécution de l'expression ?
 
@@ -140,7 +140,7 @@ anArray at: 1 put: 'hello'
 
 !!!! Exercice :
 [[[
-anArray at: i 
+anArray at: i
 ]]]
 
 ""Solution.""
@@ -157,7 +157,7 @@ anArray at: i
 
 ""Solution.""
 [[[
-	receiver: #(2 33 -4 67) 
+	receiver: #(2 33 -4 67)
 	selector: collect:
 	argument:  [ :each | each abs ]
 ]]]
@@ -206,7 +206,7 @@ true | false
 ""Solution.""
 [[[
 	receiver: true
-	selector: | 
+	selector: |
 	argument: false
 ]]]
 
@@ -219,7 +219,7 @@ Point selectors
 [[[
 	receiver: Point
 	selector: selectors
-	argument: 
+	argument:
 ]]]
 
 !!! Exercice : Nommage
@@ -227,7 +227,7 @@ Point selectors
 - Que peut-on assumer d'une variable nommée ==Transferator== ?
 
 ""Solution.""
-==Transferator== est une variable globale : soit une classe, une variable globale ou une variable de classe. 
+==Transferator== est une variable globale : soit une classe, une variable globale ou une variable de classe.
 
 - Que peut-on assumer d'une variable nommée ==rectangle== ?
 

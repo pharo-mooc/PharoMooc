@@ -1,4 +1,4 @@
-# Profiles Short
+# Description courte des Profils
 5 profils ont été identifiés pour vous aider à suivre le cours à des vitesses et niveaux différents. Les séquences du cours sont étiquetées en fonction des profils. Ces profils ne sont pas exclusifs : pour devenir un expert en Pharo il faut commencer par le profil newbie et compléter avec les autres parcours.
 
 * **Débutant complet [newbie]** Focalisez-vous sur les premiers cours et suivez le cours jusqu’au bout sans essayez de tout comprendre. Détendez-vous et prenez le temps de comprendre que le système est écrit en lui-même. Focalisez-vous également sur les outils de navigation (senders et implémenteurs).
