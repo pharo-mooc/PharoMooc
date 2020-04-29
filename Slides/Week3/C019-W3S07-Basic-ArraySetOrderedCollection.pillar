@@ -35,7 +35,7 @@ Common messages work on all collections
 
 #creation: ==with: anElt==, ==with:with:==, ==withAll: aCollection==
 #accessing: ==size==, ==at: anIndex==, ==at: anIndex put: anElt==
-#testing: ==isEmpty==, ==includes: anElt==, ==contains: aBlock==, 
+#testing: ==isEmpty==, ==includes: anElt==, ==contains: aBlock==,
 #adding: ==add: anElement==, ==addAll: aCollection==
 #removing: ==remove: anElt==, ==remove: anElt ifAbsent: aBlock==, ==removeAll: aCollection==
 #enumerating: ==do: aBlock==, ==collect: aBlock==, ==select: aBlock==, ==reject: aBlock==, ==detect: aBlock==, ...
@@ -56,18 +56,18 @@ Array new: 2
 > #(nil nil)
 ]]]
 
-[[[  
+[[[
 (OrderedCollection new: 1000)
 ]]]
 
 ${slide:title=With Specific Elements}$
 
-[[[  
+[[[
 OrderedCollection withAll: #(7 7 3 13)
 > an OrderedCollection(7 7 3 13)
 ]]]
 
-[[[  
+[[[
 Set withAll: #(7 7 3 13)
 > a Set( 7 3 13)
 ]]]
@@ -76,7 +76,7 @@ Remember: no duplicate in Sets
 ${slide:title=Creation  with Default Value}$
 
 [[[
-OrderedCollection new: 5 withAll: 'a' 
+OrderedCollection new: 5 withAll: 'a'
 > an OrderedCollection('a' 'a' 'a' 'a' 'a')
 ]]]
 
@@ -87,7 +87,7 @@ ${slide:title=First Element Starts At 1}$
 #('Calvin' 'hates' 'Suzie') at: 2
 > 'hates'
 
-#('Calvin' 'hates' 'Suzie') asOrderedCollection  at: 2 
+#('Calvin' 'hates' 'Suzie') asOrderedCollection  at: 2
 > 'hates'
 ]]]
 
@@ -103,11 +103,11 @@ Collections can contain any sort of objects
 
 [[[
 | s |
-s := Set new. 
-s add: Set new; 
+s := Set new.
+s add: Set new;
     add: 1;
     add: 2.
-s asArray 
+s asArray
 > an Array(1 2 a Set())
 ]]]
 - A set containing an empty set and some numbers
@@ -118,7 +118,7 @@ ${slide:title=Iteration}$
 - Using message ==do: aBlock==
 - But many iterators (see Iterators Lecture)
 [[[
-#('Calvin' 'hates' 'Suzie') 
+#('Calvin' 'hates' 'Suzie')
      do: [ :each | Transcript show: each ; cr ]
 ]]]
 
@@ -128,20 +128,20 @@ ${slide:title=Arrays}$
 
 - Fixed size collection
 - Direct access: ==at:== and ==at:put:==
-- Has literal syntax: ==#( ... )== 
-- Can also be created using ==new:== 
+- Has literal syntax: ==#( ... )==
+- Can also be created using ==new:==
 
 [[[
 #('Calvin' 'hates' 'Suzie') size
 > 3
 ]]]
 
-is equivalent to 
+is equivalent to
 
 [[[
-((Array new: 3) 
-    at: 1 put: 'Calvin'; 
-    at: 2 put: 'hates'; 
+((Array new: 3)
+    at: 1 put: 'Calvin';
+    at: 2 put: 'hates';
     at: 3 put: 'Suzie';
 	size)
 > 3
@@ -175,11 +175,11 @@ ${slide:title=Accessing Out of Bounds Elements}$
 
 ${slide:title=Modifying Elements}$
 
-Use the message ==at: anIndex put: anObject== 
+Use the message ==at: anIndex put: anObject==
 
 Modifying the second element of the receiver
 [[[
-#('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
+#('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'; yourself
 > #('Calvin' 'loves' 'Suzie')
 ]]]
 
@@ -208,14 +208,14 @@ Literal arrays are equivalent to a dynamic version
 
 A literal array
 [[[
-#(45 38 'milou' 8) 
-> #(45 38 'milou' 8) 
+#(45 38 'milou' 8)
+> #(45 38 'milou' 8)
 ]]]
 
 An array
 [[[
 Array with: 45 with: 38 with: 'milou' with: 8
-> #(45 38 'milou' 8) 
+> #(45 38 'milou' 8)
 ]]]
 
 
@@ -229,7 +229,7 @@ ${slide:title=OrderedCollection}$
 | ordCol |
 ordCol := OrderedCollection new.
 ordCol add: 'Reef'; add: 'Pharo'; addFirst: 'Pharo'.
-ordCol 
+ordCol
 > an OrderedCollection('Pharo' 'Reef' 'Pharo')
 ordCol add: 'Seaside'.
 ordCol
@@ -275,32 +275,32 @@ ${slide:title=Dictionary}$
 - Key/values
 - Growing size
 - Accessing ==at:==, ==at:ifAbsent:==
-- Changing/adding ==at:put:==, ==at:ifAbsentPut:== 
+- Changing/adding ==at:put:==, ==at:ifAbsentPut:==
 - Iterating: ==do:==, ==keysDo:==, ==keysAndValuesDo:==
 
 ${slide:title=Dictionary Creation}$
 
 [[[
 | days |
-days := Dictionary new. 
-days   
+days := Dictionary new.
+days
   at: #January put: 31;
   at: #February put: 28;
-  at: #March put: 31.  
+  at: #March put: 31.
 ]]]
 
 ${slide:title=Alternate Dictionary Creation}$
 
 [[[
 | days |
-days := Dictionary new. 
-days   
+days := Dictionary new.
+days
   at: #January put: 31;
   at: #February put: 28;
-  at: #March put: 31.  
+  at: #March put: 31.
 ]]]
 
-is equivalent to 
+is equivalent to
 
 [[[
 { #January -> 31.
@@ -311,7 +311,7 @@ is equivalent to
 ${slide:title=Pairs}$
 
 [[[
-(#January -> 31) key 
+(#January -> 31) key
 > #January
 ]]]
 
@@ -323,23 +323,23 @@ ${slide:title=Pairs}$
 ${slide:title=Dictionary Access}$
 [[[
 | days |
-days := Dictionary new. 
-days   
+days := Dictionary new.
+days
     at: #January put: 31;
     at: #February put: 28;
-    at: #March put: 31.  
+    at: #March put: 31.
 ]]]
 
 
 [[[
-days at: #January 
-> 31 
+days at: #January
+> 31
 
 days at: #NoMonth
 > KeyNotFound Error
 
 days at: #NoMonth ifAbsent: [0]
-> 0 
+> 0
 ]]]
 
 
@@ -347,7 +347,7 @@ days at: #NoMonth ifAbsent: [0]
 ${slide:title=Dictionary Iteration}$
 
 [[[
-days do: [ :each | Transcript show: each ;cr ] 
+days do: [ :each | Transcript show: each ;cr ]
 ]]]
 
 prints
@@ -356,7 +356,7 @@ prints
   28
   31
 ]]]
-Why? 
+Why?
 Because
 [[[
 Dictionary >> do: aBlock
@@ -367,11 +367,11 @@ Dictionary >> do: aBlock
 ${slide:title=Keys and Values Iteration}$
 
 [[[
-days keysAndValuesDo: 
-  [ :k :v | Transcript show: k asString, ' has ',  v printString, ' days' ; cr ] 
+days keysAndValuesDo:
+  [ :k :v | Transcript show: k asString, ' has ',  v printString, ' days' ; cr ]
 ]]]
 
-shows: 
+shows:
 [[[
   January has 31 days
   February has 28 days

@@ -1,30 +1,51 @@
-Slide 13 instead of reading 
+================================================================================
+Slide 13 instead of reading
 
 #('Calvin' 'hates' 'Suzie') size
 > 3
 
-is equivalent to 
+is equivalent to
 
 
-((Array new: 3) 
-    at: 1 put: 'Calvin'; 
-    at: 2 put: 'hates'; 
+((Array new: 3)
+    at: 1 put: 'Calvin';
+    at: 2 put: 'hates';
     at: 3 put: 'Suzie';
     ) size
 > 3
 
 
-It should be read: 
+It should be read:
 
 #('Calvin' 'hates' 'Suzie') size
 > 3
 
-is equivalent to 
+is equivalent to
 
 
-((Array new: 3) 
-    at: 1 put: 'Calvin'; 
-    at: 2 put: 'hates'; 
+((Array new: 3)
+    at: 1 put: 'Calvin';
+    at: 2 put: 'hates';
     at: 3 put: 'Suzie';
     size)
 > 3
+
+================================================================================
+Slide 16 instead of reading
+
+#('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'
+> #('Calvin' 'loves' 'Suzie')
+
+It should be read:
+
+#('Calvin' 'hates' 'Suzie') at: 2 put: 'loves'; yourself
+> #('Calvin' 'loves' 'Suzie')
+
+or:
+
+col := #('Calvin' 'hates' 'Suzie').
+col at: 2 put: 'loves'.
+col
+> #('Calvin' 'loves' 'Suzie')
+
+because at:put: returns the inserted element and not the resulting collection

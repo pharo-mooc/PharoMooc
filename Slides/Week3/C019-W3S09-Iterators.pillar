@@ -20,7 +20,7 @@ is expressed as
 strings := persons collect: [ :person | person name ]
 ]]]
 
-- Yes in Java 8.0 it is finally simpler 
+- Yes in Java 8.0 it is finally simpler
 [[[
 strings = persons.stream().map(person -> person.getName())
 ]]]
@@ -37,7 +37,7 @@ ${slide:title=A First Iterator - collect:}$
 ]]]
 
 - ==collect:== evaluates the block for each element (using ==value:==)
-- In the block, each element is sent ==abs== (absolute)  
+- In the block, each element is sent ==abs== (absolute)
 - ==collect:== returns a new collection (of the same kind of the receiver) with all results
 - [Think object] We ask the collection to do something for us
 
@@ -204,7 +204,7 @@ To group elements according to a grouping function: ==groupedBy:==
 
 [[[
 #(1 2 3 4 5 6 7) groupedBy: #even
-> a PluggableDictionary(false->#(1 3 5 7) true->#(2 4 6) )
+> a OrderedDictionary(false->#(1 3 5 7) true->#(2 4 6) )
 ]]]
 
 
