@@ -41,11 +41,11 @@
             <p xml:id="p23" begin="00:01:18:01" end="00:01:21:16" region="bottom">and for deciding "canParse" (or cannot)<br/>for a given line.</p>
             <p xml:id="p24" begin="00:01:21:20" end="00:01:26:17" region="bottom">In the "canParse" method here,<br/>we submit a line of text.</p>
             <p xml:id="p25" begin="00:01:27:00" end="00:01:30:11" region="bottom">If the line starts<br/>with an exclamation point,</p>
-            <p xml:id="p26" begin="00:01:30:15" end="00:01:32:23" region="bottom">the canParse method must return True.</p>
+            <p xml:id="p26" begin="00:01:30:15" end="00:01:32:23" region="bottom">the canParse method must return true.</p>
             <p xml:id="p27" begin="00:01:33:02" end="00:01:35:21" region="bottom">The line belongs<br/>to the Section Title class.</p>
             <p xml:id="p28" begin="00:01:36:11" end="00:01:37:23" region="bottom">In the ListItem class,</p>
-            <p xml:id="p29" begin="00:01:38:16" end="00:01:43:23" region="bottom">the canParse method returns True<br/>if the line starts with a dash.</p>
-            <p xml:id="p30" begin="00:01:44:19" end="00:01:48:10" region="bottom">And the canParse line we see here<br/>must always return True.</p>
+            <p xml:id="p29" begin="00:01:38:16" end="00:01:43:23" region="bottom">the canParse method returns true<br/>if the line starts with a dash.</p>
+            <p xml:id="p30" begin="00:01:44:19" end="00:01:48:10" region="bottom">And the canParse line we see here<br/>must always return true.</p>
             <p xml:id="p31" begin="00:01:49:06" end="00:01:54:08" region="bottom">The idea is to write an algorithm<br/>that looks at classes one by one.</p>
             <p xml:id="p32" begin="00:01:54:23" end="00:01:58:03" region="bottom">As soon as one returns<br/>canParse for a given line,</p>
             <p xml:id="p33" begin="00:01:58:21" end="00:02:03:12" region="bottom">we use that class to create<br/>a new instance for that line.</p>
@@ -70,7 +70,7 @@
             <p xml:id="p52" begin="00:03:13:04" end="00:03:16:11" region="bottom">containing SectionTitle,<br/>ListItem, and Text.</p>
             <p xml:id="p53" begin="00:03:17:24" end="00:03:20:13" region="bottom">I want the collection<br/>sorted by priority.</p>
             <p xml:id="p54" begin="00:03:20:17" end="00:03:24:10" region="bottom">The idea is for the text class<br/>to come at the end</p>
-            <p xml:id="p55" begin="00:03:24:17" end="00:03:27:24" region="bottom">because its canParse method<br/>always returns True.</p>
+            <p xml:id="p55" begin="00:03:24:17" end="00:03:27:24" region="bottom">because its canParse method<br/>always returns true.</p>
             <p xml:id="p56" begin="00:03:28:03" end="00:03:31:16" region="bottom">The text class<br/>can parse any line at random.</p>
             <p xml:id="p57" begin="00:03:32:24" end="00:03:36:02" region="bottom">We will test that method<br/>after testing the others.</p>
             <p xml:id="p58" begin="00:03:36:06" end="00:03:39:13" region="bottom">We have the concept<br/>of priority here.</p>
@@ -104,7 +104,7 @@
             <p xml:id="p86" begin="00:05:36:23" end="00:05:41:12" region="bottom">assigned to processing<br/>the "eval" parameter.</p>
             <p xml:id="p87" begin="00:05:41:20" end="00:05:45:14" region="bottom">If "eval" is sent as the first parameter<br/>in a command line,</p>
             <p xml:id="p88" begin="00:05:45:18" end="00:05:47:14" region="bottom">this class has to work.</p>
-            <p xml:id="p89" begin="00:05:48:17" end="00:05:52:14" region="bottom">The isReponsibleFor method<br/>must return True</p>
+            <p xml:id="p89" begin="00:05:48:17" end="00:05:52:14" region="bottom">The isReponsibleFor method<br/>must return true</p>
             <p xml:id="p90" begin="00:05:53:05" end="00:05:54:24" region="bottom">if there is one subclass</p>
             <p xml:id="p91" begin="00:05:55:03" end="00:05:59:23" region="bottom">capable of taking the command line<br/>into account.</p>
             <p xml:id="p92" begin="00:06:01:10" end="00:06:02:19" region="bottom">Underneath, we see</p>

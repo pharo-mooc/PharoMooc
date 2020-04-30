@@ -70,6 +70,37 @@ Log
 	e.g. Dice -> Die
 	cf. https://github.com/pharo-mooc/PharoMooc/commit/a134f6b6c523e77712807f2029ea6b64202b1a94
 -- pass W6
+-- quiz repo migrated to github pharo-mooc/PharoMoocQuiz private repo
+-- fixed quiz 5.3.2 (stream)
+-- integrate subtitles into deploy.sh
+-- fix and remove Subtitles/VerificationLog.txt (Rene Mages reports on subtitles)
+	modified:   Subtitles/W2/C019SD-W2-sous-titres-EN/C019-Videos-GTInspector1-Introduction-V2-HD_720p_4Mbs-3-EN.srt
+	modified:   Subtitles/W2/C019SD-W2-sous-titres-EN/C019-Videos-GTInspector1-Introduction-V2-HD_720p_4Mbs-3-EN.vtt
+	modified:   Subtitles/W2/C019SD-W2-sous-titres-ES/C019-Videos-GTInspector1-Introduction-V2-HD_720p_4Mbs-3-ES.srt
+	modified:   Subtitles/W2/C019SD-W2-sous-titres-ES/C019-Videos-GTInspector1-Introduction-V2-HD_720p_4Mbs-3-ES.vtt
+	modified:   Subtitles/W4/C019SD-W4-sous-titres-EN/C019SD-W4-vtt/EN_C019SD-W4-S6.vtt
+	modified:   Subtitles/W4/C019SD-W4-sous-titres-EN/C019SD-W4-xml/EN_C019SD-W4-S6.xml
+	modified:   Subtitles/W4/C019SD-W4-sous-titres-EN/EN_C019SD-W4-S6.srt
+	modified:   Subtitles/W4/C019SD-W4-sous-titres-EN/EN_C019SD-W4-S6.vtt
+	modified:   Subtitles/W4/C019SD-W4-sous-titres-FR/C019SD-W4-S6-v3-2.srt
+	modified:   Subtitles/W5/C019SD-W5-sous-titres-EN/C019SD-W5-vtt/EN_C019SD-W5-S4.vtt
+	modified:   Subtitles/W5/C019SD-W5-sous-titres-EN/C019SD-W5-vtt/EN_C019SD-W5-S7.vtt
+	modified:   Subtitles/W5/C019SD-W5-sous-titres-EN/EN_C019SD-W5-S4.srt
+	modified:   Subtitles/W5/C019SD-W5-sous-titres-EN/EN_C019SD-W5-S4.vtt
+	modified:   Subtitles/W5/C019SD-W5-sous-titres-EN/EN_C019SD-W5-S4.xml
+	modified:   Subtitles/W5/C019SD-W5-sous-titres-EN/EN_C019SD-W5-S7.srt
+	modified:   Subtitles/W5/C019SD-W5-sous-titres-EN/EN_C019SD-W5-S7.vtt
+	modified:   Subtitles/W5/C019SD-W5-sous-titres-EN/EN_C019SD-W5-S7.xml
+	modified:   Subtitles/W5/C019SD-W5-sous-titres-JA/JA_C019SD-W5-S7.srt
+	modified:   Subtitles/W5/C019SD-W5-sous-titres-JA/JA_C019SD-W5-S7.vtt
+	modified:   Subtitles/W6/C019SD-W6-sous-titres-EN/C019-Videos-ImageChanges2-PharoLauncher-HD_720p_4Mbs-2-EN.vtt
+	modified:   Subtitles/W6/C019SD-W6-sous-titres-EN/C019-Videos-LookAtVersions-HD_720p_4Mbs-2-EN.srt
+	modified:   Subtitles/W6/C019SD-W6-sous-titres-EN/C019-Videos-LookAtVersions-HD_720p_4Mbs-2-EN.vtt
+	modified:   Subtitles/W6/C019SD-W6-sous-titres-ES/C019-Videos-ImageChanges2-PharoLauncher-HD_720p_4Mbs-2-ES.vtt
+	modified:   Subtitles/W6/C019SD-W6-sous-titres-ES/C019-Videos-LookAtVersions-HD_720p_4Mbs-2-ES.srt
+	modified:   Subtitles/W6/C019SD-W6-sous-titres-ES/C019-Videos-LookAtVersions-HD_720p_4Mbs-2-ES.vtt
+	modified:   Subtitles/W6/C019SD-W6-sous-titres-FR/C019-Videos-LookAtVersions-HD_720p_4Mbs-3.srt
+	modified:   Subtitles/W6/C019SD-W6-sous-titres-FR/C019-Videos-LookAtVersions-HD_720p_4Mbs-3.vtt
 
 
 ================================================================================
@@ -96,6 +127,8 @@ Remaining TODOs while REVIEWING SLIDES:
 	J’ai verifie Quentin utilise Iceberg
 	[TODO] Stef: Je vais le reecrire pour utiliser Iceberg
 
+- No FR version of Exercises/Exo-Counter-V2.pillar ?
+
 ================================================================================
 W2 TODOs
 ================================================================================
@@ -114,22 +147,19 @@ W4 TODOs
 
 - where is the repo of the code of Exo-ContactBookManager?
 
-
 ================================================================================
 General TODOs
 ================================================================================
 
-- check quizzes in P8
+- check quizzes in P8 + tests?
+- remove old repo https://gitlab.inria.fr/PharoMooc/newPharoMoocQuiz
 - discuss if we should redo all screenshots of browsers in slides because this is Calypso now in P8
-- write unit tests for all code snippets in slides, exos, challenges, ...
-- integrate subtitles into deploy.sh
 - fix all LogForPharo8/Pharo_mooc_errata.pdf
 - double check TinyBlog
-- fix and remove Subtitles/VerificationLog.txt
-- Migrate Loop book to P8 - TODO Stef: Je dois regarder de le bouquin Learning OOP in Pharo fonctionne sur Pharo80
+- Migrate Loop book to P8 -> TODO Stef: Je dois regarder de le bouquin Learning OOP in Pharo fonctionne sur Pharo80
 - check erratums on FUN because I suspect that there are more on FUN
-
 
 - [NO] migrate to pharo-mooc orga:
 -- https://github.com/SquareBracketAssociates/TinyBlog-EN
 -- https://github.com/SquareBracketAssociates/TinyBlogTutorial
+

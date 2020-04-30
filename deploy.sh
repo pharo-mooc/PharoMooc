@@ -17,6 +17,8 @@ cp -r Exercises/TinyBlog $DEST/
 TINYBLOGFR=../TinyBlog/TinyBlog-FR.pdf
 TINYBLOGEN=../TinyBlog/TinyBlog-EN.pdf
 
+cp -r Subtitles $DEST
+
 DEST=PharoMooc/Week1
 mkdir -p $DEST
 $CPMV $SRC/Slides/Week1/*.pdf $DEST
