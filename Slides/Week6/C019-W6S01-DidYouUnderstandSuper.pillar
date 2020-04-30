@@ -5,7 +5,7 @@
 
 ${slide:title=What You Will Learn}$
 
-Revisit 
+Revisit
 - ==super==
 - Message lookup
 - Class methods
@@ -13,23 +13,23 @@ Revisit
 ${slide:title=A Little Puzzle}$
 
 [[[
-Dice class >> new
+Die class >> new
 
   | inst |
-  inst := super new. 
+  inst := super new.
   inst initialize.
   ^ inst
 ]]]
 
-We execute the following expression: ==Dice new== 
+We execute the following expression: ==Die new==
 
 ${slide:title=Questions}$
 
 [[[
-Dice class >> new
+Die class >> new
 
   | inst |
-  inst := super new. 
+  inst := super new.
   inst initialize.
   ^ inst
 ]]]
@@ -41,10 +41,10 @@ Dice class >> new
 ${slide:title=Hint: super is Not...}$
 
 [[[
-Dice class >> new
+Die class >> new
 
   | inst |
-  inst := super new. 
+  inst := super new.
   inst initialize.
   ^ inst
 ]]]
@@ -55,16 +55,16 @@ Dice class >> new
 ${slide:title=Hint 2: super is the Message Receiver}$
 
 [[[
-Dice class >> new
+Die class >> new
 
   | inst |
-  inst := super new. 
+  inst := super new.
   inst initialize.
   ^ inst
 ]]]
 
-- The message is ==Dice new==
-- So the receiver is the class ==Dice==
+- The message is ==Die new==
+- So the receiver is the class ==Die==
 
 ${slide:title=Sending a Message: Lookup \+ Apply on Receiver}$
 
@@ -78,18 +78,18 @@ ${slide:title=Remember: Method Lookup}$
 ${slide:title=Solution}$
 
 [[[language=smalltalk
-Dice class >> new
+Die class >> new
 
   | inst |
-  inst := super new. 
+  inst := super new.
   inst initialize.
   ^ inst
 ]]]
 
-- ==super== is the receiver: the class ==Dice==
-- Look for ==new== in the superclass of the class ==Dice class== (Pay attention not ==Dice==)
-- Once found we apply to the receiver: ==Dice==
-- We get an instance of the class ==Dice== and send it initialize and return it
+- ==super== is the receiver: the class ==Die==
+- Look for ==new== in the superclass of the class ==Die class== (Pay attention not ==Die==)
+- Once found we apply to the receiver: ==Die==
+- We get an instance of the class ==Die== and send it initialize and return it
 
 ${slide:title=Solution}$
 
@@ -101,15 +101,13 @@ ${slide:title=Summary}$
 - Now you should really understand ==super== :)
 - ==super== is the receiver of the message and the method lookup starts in the superclass of the class  containing the expression
 
-${slide:title=Challenge?}$
+${slide:title=Challenge}$
 
-${slide:title=Challenge!}$
-
-Imagine we have 
+Imagine we have:
 
 [[[
 A >> foo
-   ^ super class == self class 
+   ^ super class == self class
 ]]]
 
 What is the result of ==A new foo== and why?

@@ -35,7 +35,7 @@ ${column:width=60}$
 - But also ""compiled"" classes and ""compiled"" methods
 - Each time we save the image, all objects are saved to disc
 - At startup we get back all the objects we saved
-- PC (program counter) is also saved and restored 
+- PC (program counter) is also saved and restored
 -- frozen execution is restarted at launch time
 
 ${column:width=50}$
@@ -56,7 +56,7 @@ ${slide:title=Change Files: Change Tape}$
 
 ${slide:title=Image/Change Files}$
 
-- A change is associated to an image 
+- A change is associated to an image
 - Image contains all the objects in binary form. Can be executed without the changes file
 - Changes file simply contains the textual representation of the changes made to the image
 
@@ -76,7 +76,7 @@ ${columns}$
 
 ${column:width=40}$
 
-''PharoXX.sources'' 
+''PharoXX.sources''
 - Contains the ''textual'' definition of ""system"" classes and predefined objects
 - Is read-only
 - Created during release of new Pharo versions
@@ -94,7 +94,7 @@ ${columns}$
 
 ${column:width=40}$
 
-During development or code loading 
+During development or code loading
 - New objects are compiled in the image
 - New definitions are added to the changes file
 - Still you can browse the definition of the system class (stored in the ''PharoXX.sources'')
@@ -105,19 +105,18 @@ ${column:width=60}$
 
 ${endColumns}$
 
-${slide:title=New Change Management is Coming}$
+${slide:title=Change Management}$
 
-Pharo change system
-- Getting improved
--- new recording mechanism
--- better replay
--- new tooling
-- Will integrate better with Git and other modern distributed version control systems
-- Offering new ways to produce images 
+- Tools>Code Changes
+-- relies on the changes file and the recording mechanism
+-- support replay changes
+- Tools>Iceberg
+-- Integration with Git and other modern distributed version control systems
+- New ways to produce images (e.g. Bootstrapping)
 
 ${slide:title=Conclusion}$
 
 - Powerful deployment
 - Fast boot-time
 - Support micro commits
-- Will use modern version control
+- Modern version control
