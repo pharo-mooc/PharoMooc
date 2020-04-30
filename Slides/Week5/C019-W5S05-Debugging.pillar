@@ -78,7 +78,7 @@ ${slide:title=Conditional Halt}$
 ==faces== will stop only when invoked from ==printString==
 
 [[[
-Dice >> faces
+Die >> faces
   ...
   Halt if: #printString
 ]]]
@@ -88,12 +88,12 @@ ${slide:title=Conditional Halt}$
 The parameter passed to ==if:== can be a test name too:
 
 [[[
-Dice >> faces
+Die >> faces
   ...
-  Halt if: #testLargeDice
+  Halt if: #testLargeDie
 ]]]
 
-==faces== will stop only when invoked from ==testLargeDice==
+==faces== will stop only when invoked from ==testLargeDie==
 
 ${slide:title=Create Your Own Breakpoints}$
 
@@ -107,7 +107,7 @@ Halt class >> between: minTime and: maxTime
       and: maxTime asTime)
          ifTrue: [ self signal ]
 
-Dice >> faces
+Die >> faces
    ...
    Halt between: '00:00' and: '02:00'
 ]]]
@@ -119,7 +119,3 @@ ${slide:title=What You Should Know}$
 - The debugger is a powerful tool
 - You should communicate with objects
 - Breakpoints are powerful and customizable
-
-% Local Variables:
-% compile-command: "cd ../.. && ./compile.sh --to=Beamer Slides/Week5/C019-W5S05-Debugging.pillar"
-% End:

@@ -78,13 +78,13 @@ ${slide:title=Getting Information}$
 
 [[[
 | pharo |
-pharo := 'pharo5.image' asFileReference.
+pharo := 'pharo.image' asFileReference.
 
 pharo isFile.
 > true
 
 pharo basename
-> 'pharo5.image'
+> 'pharo.image'
 
 pharo extension
 > 'image'
@@ -93,7 +93,7 @@ pharo size
 > 23744868
 
 pharo parent pathString
-> '/home/cassou/Pharo/images/pharo5'
+> '/home/cassou/Pharo/images/pharo'
 ]]]
 
 ${slide:title=Writing to a File}$

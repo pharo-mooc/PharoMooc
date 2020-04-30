@@ -5,7 +5,7 @@ Two little challenges:
 - Second, the web site *http://www.omdbapi.com/* offers an api to get information about movies. For example using ==t== allows one to specify the title of a movie. Define a query to get the poster of =='The Terminator'==.
 
 !!! Hints:
-- Have a look at ==ZnEasy== or ==ZnClient==. 
+- Have a look at ==ZnEasy== or ==ZnClient==.
 - To get the contents of an HTML request, send it the message ==contents==.
 - To parse and convert a string representing JSON into Pharo collection, use the ==STON== class (check the class side).
 - To pass a binding to a request, use the message ==queryAt:put:==.
@@ -15,7 +15,7 @@ Two little challenges:
 +The Poster of Terminator in a Pharo Inspector.>file://figures/Terminator.png|width=80+
 
 
-!!! Solutions 
+!!! Solutions
 
 !!!! Getting the Capitals
 [[[
@@ -29,18 +29,18 @@ Two little challenges:
 
 !!!! Get poster of The Terminator movie
 
-You need a free key to get the solution fully working. Here is a possible way to do it. 
+You need a free key to get the solution fully working. Here is a possible way to do it.
 
 [[[
-(ZnEasy getJpeg: 
+(ZnEasy getJpeg:
 	((STON fromString:
-		(ZnClient new 
+		(ZnClient new
 			url: 'http://www.omdbapi.com/?i=tt3896198&apikey=891bda06';
 			queryAt: 't' put: 'The Terminator';
 			get;
 			contents)
 		) at: #Poster)
-	) asMorph openInHand
+	) asMorph openInWindow
 ]]]
 
 When the service did not require a key we did it that way.
@@ -51,7 +51,4 @@ When the service did not require a key we did it that way.
         queryAt: 't' put: 'The Terminator';
         get;
         contents)) at: #Poster)) inspect
-]]]
-
-	
 ]]]

@@ -1,6 +1,6 @@
 {
   "title":"Powerful Exceptions: an Overview",
-  "slidesid" : "W5S04"	
+  "slidesid" : "W5S04"
 }
 
 ${slide:title=Exceptions}$
@@ -9,7 +9,7 @@ ${slide:title=Exceptions}$
 - Can be resumed, restarted, and signaled as new exception
 - Two important classes:
 -- ==Error== and ==Notification==
-- For more complete reference, read Deep into Pharo 
+- For more complete reference, read Deep into Pharo
 
 ${slide:title=What You Will Learn}$
 
@@ -18,7 +18,7 @@ ${slide:title=What You Will Learn}$
 
 ${slide:title=API Overview}$
 
-- Installing an handler 
+- Installing an handler
 [[[
   [ doSomething ] on: ExceptionClass do: [ :ex | something ]
 ]]]
@@ -44,7 +44,7 @@ Example:
   | x y |
   x := 7.
   y := 0.
-  [ x / y ] 
+  [ x / y ]
       on: ZeroDivide
       do: [ :exception | Transcript show: exception description; cr.
            0 ]
@@ -54,7 +54,7 @@ Example:
 
 ${slide:title=Signaling an Exception}$
 
-To raise an exception: 
+To raise an exception:
 - create an instance of exception
 - send it messages ==signal== or ==signal: aMessage==
 
@@ -80,13 +80,13 @@ SUnit offers ==should:raise:== and ==shouldnt:raise:== to check occurrence of ex
 [[[
 testNameOfMonth
 
-  self assert: (Date nameOfMonth: 1) equals: #January.	
+  self assert: (Date nameOfMonth: 1) equals: #January.
 
-  self 
-    shouldnt: [ Date nameOfMonth: 2 ] 
+  self
+    shouldnt: [ Date nameOfMonth: 2 ]
     raise: SubscriptOutOfBounds.
-  self 
-    should: [ Date nameOfMonth: 13 ] 
+  self
+    should: [ Date nameOfMonth: 13 ]
     raise: SubscriptOutOfBounds.
 ]]]
 
@@ -104,11 +104,11 @@ When you send an unknown message ==Point new strangeAndBizarre==
 [[[
 ProtoObject >> doesNotUnderstand: aMessage
 
-  ^ MessageNotUnderstood new 
+  ^ MessageNotUnderstood new
        message: aMessage;
        receiver: self;
        signal
-]]]	
+]]]
 
 ${slide:title=Deprecation}$
 
@@ -118,7 +118,7 @@ When the deprecation setting is on, a warning is raised when a deprecated method
 [[[
 MenuItem >> title: aString
   "Add a title line at the top of this menu."
-  self deprecated: 'Use method addTitle: instead' on: '29 september' in: #Pharo40. 
+  self deprecated: 'Use method addTitle: instead' on: '29 september' in: #Pharo40.
   self addTitle: aString
 ]]]
 
@@ -188,7 +188,7 @@ ${slide:title=Exception Lookup}$
 - Each process has its own exception environment: an ordered list of active handlers
 - Process starts with an empty list
 - == [ aaaa ] on: Error do: [ bbb ]== adds ==Error,bbb== to the beginning of the list
-- When an exception is signaled, the system sends a message to the first handler 
+- When an exception is signaled, the system sends a message to the first handler
 -- If the handler cannot handle the exception, the next one is asked
 -- If no handler can handle the exception, then the default action is performed
 
@@ -211,11 +211,11 @@ ${slide:title=Returning From an Exception}$
 [ Notification signal. 'Value from protected block' ]
   on: Notification
   do: [ :ex |ex return: 'Value from handler' ]
-  
+
   >  'Value from handler'
 ]]]
 
-We return a different string on normal or notification 
+We return a different string on normal or notification
 
 
 ${slide:title=Resuming from Resumable Exception}$
@@ -227,7 +227,7 @@ ${slide:title=Resuming from Resumable Exception}$
 		on: Notification
 		do: [ :ex | ex resume: 'Value from handler' ]
 
-> 'Value from protected Block'.
+> 'Value from protected block'.
 ]]]
 
 - ==Notification signal== raises an exception
@@ -237,19 +237,19 @@ ${slide:title=Resuming from Resumable Exception}$
 
 ${slide:title=What You Should Know}$
 
-- Exceptions are powerful in Pharo. 
+- Exceptions are powerful in Pharo.
 - Offer a simple API
 Raising
 [[[
 anException signal
 ]]]
-	
-Installing: 
+
+Installing:
 [[[
 [ doSomething ] on: ExceptionClass do: [ :ex | something ]
 ]]]
 - Helpers
--- ==[ doSomething ] ensure: [ alwaysDoThis ]== 
+-- ==[ doSomething ] ensure: [ alwaysDoThis ]==
 -- ==[ doSomething ] ifCurtailed: [ onProblem ]==
 
 
