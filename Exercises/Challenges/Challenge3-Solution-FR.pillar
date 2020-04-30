@@ -5,15 +5,15 @@ Deux petits défis:
 - Deuxièmement, le site *http://www.omdbapi.com/* offre une API pour récupérer des informations sur les films.  Par exemple, en utilisant ==t== nous pouvons donner le titre du film que nous cherchons. Le défi est donc de définir une expression qui récupere le poster du film =='The Terminator'==.
 
 !!! Indices :
-- Jeter un oeil sur les classes ==ZnEasy== ou ==ZnClient==. 
+- Jeter un oeil sur les classes ==ZnEasy== ou ==ZnClient==.
 - Pour obtenir le contenu d'une requête HTML, il suffit de lui envoyer le message ==contents==.
 - Pour convertir une chaine JSON en objets Pharo, utilisez la class ==STON== (N'oubliez pas de regarder le cot\'e class).
 - Pour définir les valeurs des variables dans une requête, utilisez le  message ==queryAt:put:==.
-- Utiliser l'inspecteur est toujours une bonne idée pour explorer les résultats et les objets obtenus. 
+- Utiliser l'inspecteur est toujours une bonne idée pour explorer les résultats et les objets obtenus.
 
 +Le poste de Terminator dans l'inspector Pharo.>file://figures/Terminator.png|width=80+
 
-!!! Solutions 
+!!! Solutions
 
 !!!! Obtenir les capitales
 [[[
@@ -28,21 +28,21 @@ Deux petits défis:
 !!!! Obtenir le poster du film The Terminator
 
 Vous devez obtenir une clé d'access gratuite. Une fois cette clef obtenue
-voici une solution. 
+voici une solution.
 
 [[[
-(ZnEasy getJpeg: 
+(ZnEasy getJpeg:
 	((STON fromString:
-		(ZnClient new 
+		(ZnClient new
 			url: 'http://www.omdbapi.com/?i=tt3896198&apikey=891bda06';
 			queryAt: 't' put: 'The Terminator';
 			get;
 			contents)
 		) at: #Poster)
-	) asMorph openInHand
+	) asMorph openInWindow
 ]]]
 
-Quand le service ne nécessitait pas de clef, la solution suivante fonctionnait. 
+Quand le service ne nécessitait pas de clef, la solution suivante fonctionnait.
 [[[
 (ZnEasy getJpeg: ((STON fromString:
     (ZnClient new

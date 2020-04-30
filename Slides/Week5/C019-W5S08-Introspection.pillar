@@ -1,5 +1,5 @@
 {
-  "title":"Reflection: Basic Introspection", 
+  "title":"Reflection: Basic Introspection",
   "slidesid" : "W5S08"
 }
 
@@ -20,7 +20,7 @@ ${slide:title=What Definitions Say: Reification}$
 
 ${slide:title=Pharo is a Reflective System}$
 
-''A system having itself as application domain and that is causally connected with this domain can be qualified as a reflective system'' Maes'87
+''A system having itself as application domain and that is causally connected with this domain can be qualified as a reflective system'' [Maes'87]
 
 - A reflective system has an internal representation of itself
 - A reflective system is able to act on itself with the ensurance that its representation will be causally connected (i.e. up to date)
@@ -48,13 +48,13 @@ ${slide:title=Accessing/Setting State Example}$
 [[[
 pt := 10@3.
 pt instVarNamed: 'x'.
-> 10 
+> 10
 pt instVarNamed: 'x' put: 33.
 pt
 > 33@3
 ]]]
 
-- Violates encapsulation 
+- Violates encapsulation
 - But this is for tools and during development
 
 ${slide:title=Accessing Class}$
@@ -104,7 +104,7 @@ ${slide:title=Sending a Message by its Name}$
 ${slide:title=Sending a Message by its Name}$
 
 [[[
-Object >> perform: aSymbol 
+Object >> perform: aSymbol
 Object >> perform: aSymbol with: arg
 ]]]
 
@@ -147,5 +147,5 @@ ${slide:title=Summary}$
 
 - Just a part of the reflective power!
 - Everything is an object and can be introspected
-- Grab objects and talk to them 
+- Grab objects and talk to them
 - Have a look at inspector code
