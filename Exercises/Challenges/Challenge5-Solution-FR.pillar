@@ -15,28 +15,29 @@ Par exemple, nous avons fait une recherche avec 'Rue de Paris' et voici quelques
 ]]]
 
 
-!!! Indices : 
+!!! Indices :
 - Nous suggérons de demander au serveur de nous renvoyer du JSON.
 - Pour spécifier le format lors de la requête, il faut mettre la valeur 'jsonv2' pour la variable 'format' dans la requête.
 - Vous pouvez limiter le nombre de résultats en mettant la variable 'limit' à '10' (en utilisant le message ==queryAt:put:==).
 - Pour convertir une chaine JSON en objets Pharo regardez la classe ==STON==.
-- Utiliser le message ==->== pour construire une paire d'objets. 
+- Utiliser le message ==->== pour construire une paire d'objets.
 
 !!! Solution
 
 [[[
 	| query result entries |
 	query := UIManager default request: 'Find location for:'.
-	result := STON fromString: 
+	result := STON fromString:
 			 (ZnClient new
 			 	url: 'http://nominatim.openstreetmap.org/search/', query;
 				queryAt: 'format' put: 'jsonv2';
 				queryAt: 'limit' put: '10';
 				get;
 				contents).
-	(result collect: [ :dct |
-		(dct at: 'display_name') -> 
+	entries := (result collect: [ :dct |
+		(dct at: 'display_name') ->
 			((dct at: 'lat') asNumber @ (dct at: 'lon') asNumber)
-			]) inspect
+			]).
+	entries inspect
 ]]]
 

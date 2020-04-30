@@ -1,6 +1,6 @@
 ! Challenge 5 - Solution
 
-The web site *http://nominatim.openstreetmap.org/* offers a search service *http://nominatim.openstreetmap.org/search/* that when given 
+The web site *http://nominatim.openstreetmap.org/* offers a search service *http://nominatim.openstreetmap.org/search/* that when given
 a street name will return occurrences of such street name, each one with characterizing information such as longitude and latitude.
 In this challenge, you should write an expression that returns a collection of location using for example a pair whose key is the description
 of the location and the value its latitude and longitude.
@@ -14,7 +14,7 @@ For example we did a query with Rue de Paris and we selected two results and the
 }
 ]]]
 
-!!! Hints: 
+!!! Hints:
 - We suggest to ask the server to return JSON.
 - To specify the format, put 'jsonv2' to 'format' in the query.
 - You can also define a limit to the number of results using the parameter 'limit' and put it to '10'.
@@ -26,16 +26,17 @@ For example we did a query with Rue de Paris and we selected two results and the
 [[[
 	| query result entries |
 	query := UIManager default request: 'Find location for:'.
-	result := STON fromString: 
+	result := STON fromString:
 			 (ZnClient new
 			 	url: 'http://nominatim.openstreetmap.org/search/', query;
 				queryAt: 'format' put: 'jsonv2';
 				queryAt: 'limit' put: '10';
 				get;
 				contents).
-	(result collect: [ :dct |
-		(dct at: 'display_name') -> 
+	entries := (result collect: [ :dct |
+		(dct at: 'display_name') ->
 			((dct at: 'lat') asNumber @ (dct at: 'lon') asNumber)
-			]) inspect
+			]).
+	entries inspect
 ]]]
 
