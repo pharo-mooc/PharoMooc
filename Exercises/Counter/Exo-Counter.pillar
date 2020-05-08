@@ -33,10 +33,10 @@ Now we will develop all the mandatory class and methods to support this scenario
 In this part, you will create your first class. In Pharo, a class is defined in a package. You will create a package then a class. The steps we will do are the same ones every time you create a class, so memorize them well. 
 
 
-!!! Create a package
+!!! Create a package.
 Using the Browser create a package. The system will ask you a name, write ==MyCounter==. This new package is then created and added to the list. Figure *@figpackageCreated* shows the result of creating such a package.
 
-!!! Create a class
+!!! Create a class.
 Creating a class requires five steps. They consist basically in editing the class definition template to specify the class you want to create.
 
 
@@ -62,7 +62,7 @@ Now we should compile it. We now have a filled-in class definition for the class
 
 
 Figure *@figclassCreated* illustrates the resulting situation that the browser should show.
-+Class created.>file://figures/CounterClassCreated.png|label=figclassCreated+
++Class created: It inherits from ==Object== class and has one instance variable named ==count==.>file://figures/CounterClassCreated.png|label=figclassCreated+
 
 The tool runs automatically some code critic and some of them are just inaccurate, so do not care for now. 
 
@@ -73,7 +73,7 @@ Counter is a simple concrete class which supports incrementing and decrementing 
 Its API is 
 - decrement, increment
 - count
-Its creation API is message withValue: 
+Its creation API is message startingAt: 
 ]]]
 
 Select menu item 'accept' to store this class comment in the class.
@@ -90,7 +90,7 @@ Therefore, there is no other mechanism to access the instance variable values fr
 
 A method is usually sorted into a protocol. These protocols are just a group of methods without any language semantics, but convey important navigation information for the reader of your class. Although protocols can have any name, Pharo programmers follow certain conventions for naming these protocols. If you define a method and are not sure what protocol it should be in, first go through existing code and try to find a fitting name.
 
-!!! Create a method
+!!! Create a method.
 
 Now let us create the accessor methods for the instance variable ==count==. 
 Start by selecting the class ==Counter== in a browser, and make sure the you are editing the instance side of the class (i.e., we define methods that will be sent to instances) by deselecting the Class side radio button.
@@ -98,7 +98,7 @@ Start by selecting the class ==Counter== in a browser, and make sure the you are
 Click on the instance method tab and define your method. 
 
 Figure *@MethodEditor* shows the method editor ready to define a method.
-+The method editor selected and ready to define a method.>file://figures/CounterClassCommented.png|label=MethodEditor+
++The method editor selected and ready to define a method.>file://figures/MethodEditor.png|label=MethodEditor+
 
 As a general hint, double click at the end of or beginning of the text and start typing your method: this automatically replace your 
 Replace the template with the following method definition:
@@ -125,7 +125,7 @@ You can now test your new method by typing and evaluating the next expression in
 This expression first creates a new instance of ==Counter==, and then sends the message ==count== to it. It retrieves the current value of the counter. This should return ==nil== (the default value for non-initialised instance variables). Afterwards we will create instances with a reasonable default initialisation value.
 
 
-!!! Adding a setter method
+!!! Adding a setter method.
 Another method that is normally used besides the accessor method is a so-called setter method. Such a method is used to change the value of an instance variable from a client. For example, the expression ==Counter new count: 7== first creates a new ==Counter== instance and then sets its value to 7:
 
 The snippets shows that the counter effectively contains its value.
@@ -172,22 +172,48 @@ CounterTest >> testCountIsSetAndRead
 ]]]
 
 Verify that the test passes by executing either pressing the icon in front of the method (as shown by Figure *@FirstGreenTest*) or using the TestRunner available in the Tools menus (selecting your package).
-
-+A first (green) test.>file://figures/FirstGreenTest.png|label=FirstGreenTest+
-
-
-!! Saving your code
-
 Since you have a first green test. This is a good moment to save your work. 
 
 
++Iceberg ''Repositories'' browser on a fresh image indicates that if you want to version modifications to Pharo itself you will have to tell Iceberg where the Pharo clone is located. But you do not care.>file://figures/Save1-EmptyIceberg.png|width=75|label=EmptyIceberg+
 
+!! Saving your code on git with Iceberg
+With Iceberg, we will show you  how to save your code locally then later we will push it to GitHub. 
 
+!!! Open Iceberg.
+ You should the situation depicted by Figure *@EmptyIceberg* which shows the top level Iceberg pane.
+It shows that for now you do not have defined nor loaded any project.
+ It shows the Pharo project and indicates that it could not find its local repository by displaying 'Local repository missing'.
+ You do not have to worry about the Pharo project or repository if you do not want to contribute to Pharo.
+So just go ahead. Since you do not plan to modify and version the Pharo system code, you do not have to worry.
 
+!!! Add and configure a project.
+Press the iconic button Add to create a new project. Pick up 'New Repository' and you should get a configuration pane 
+similar to the one of Figure *@CreateProject*. Here we define the Project named 'MyCounter', give a directory on our disk
+and we indicate that the source should be in the subfolder ==src==.
 
-+Selecting a new kind of repository to the list of possible places to commit the package.>file://figures/CounterAddingRepo.png|label=figSelectingARepo+
++Add and create a project named MyCounter and with the ==src== subfolder.>file://figures/Save2-CreateProject.png|label=CreateProject+
 
-+Editing the repository information.>file://figures/CounterEditingProject.png|label=figAddingARepo+
+!!! Add your package to the project.
+Once added, Iceberg ''Working copy'' browser should show you an empty pane because you did not add any package to your project.
+Click on the Add package iconic button and select the package MyCounter as shown by Figure *@AddingPackage*.
+
++Selecting the Add package iconic button,  add your package MyCounter to your project.>file://figures/Save3-AddingPackage.png|label=AddingPackage+
+
+!!! Commit your changes.
+Once you package is added, Iceberg shows you that you did not commit your code as shown in Figure  *@SaveUncommited*.
+Press the Commit iconic button. Iceberg will show you all the changes that are about to be saved (Figure *@SaveUncommited*).
+Enter a commit message anmd commit
+
++Now Iceberg shows you that you did not commit your code.>file://figures/Save4-UncommitedChanges.png|label=SaveUncommited+
+
++Iceberg shows you the changes about to be commited.>file://figures/Save5-FirstCommit.png|label=SaveUncommited+
+
+!!! Code saved.
+
+Once you have commited, Iceberg indicates that your system and local repository are in sync.
+
++Once you save your change, Iceberg shows you that .>file://figures/Save6-Done.png|label=SaveDone+
 
 !! Adding more messages
 Before implementing the following messages we define first a test.
@@ -216,46 +242,11 @@ Counter >> decrement
    count := count - 1
 ]]]
 
-+Class with green tests.>file://figures/CounterClassTestCreated.png|label=figclassTestCreated+
++Class with more green tests.>file://figures/MoreGreenTests.png|label=figclassTestCreated+
 
-Run your tests they should pass (as shown in Figure *@figclassTestCreated*). Again this is a good moment to save your work. Saving at point where tests are green
-is always a good process. 
-
-
-Stef HERE
-! Saving your work
-
-Several ways to save your work exist. 
-
-- ''Using plain files''. You can save the class or a method by clicking on it and selecting the fileout menu item. You will get a file containing the source code on your hard-disc - This is not the favorite way to save your code. 
-- ''Using a version control system''. It is better to use a version control system. In Pharo you can use Git. Iceberg that helps you managing your code and connection to git repositories. 
-
-In this tutorial we explain the simplest way to get you done. Note that the complete set of Pharo packages is managed via git and hosted on github. You can read the 
-""Pharo by Example"" books *http://books.pharo.org*).
-
-
-
-!!! Saving using Iceberg
-
-Using  you can save your work:
-- ''Locally''. You can store your packages in a local git repository on your disc.
-- ''Remotely''. Using an account on a free server such *http://www.github.com*. You can save your work and share it with others.
-Note each time you load or save a package, this package is also be stored on the folder named 'package-cache' on your hard-disc.
-
-
-!!!! Add a repository.
-Go to *http://www.smalltalkhub.com/* and create a member account then register a new project. You get an HTTP entry that refers to your project. Define a new HTTP repository using the Monticello Browser as shown by Figures *@figSelectingARepo* and *@figAddingARepo*.
-
-Figure *@figSelectingARepo* shows that you package is dirty: this is indicated with the little '*' in front of the packages. 
-
-Example. We are saving our examples into a special team named PharoMooc in the the Counter project so the template is the following one 
-
-
-!!!! Saving your package.
-
-To save your work, simply select your package and the repository you want to save it to and save it using the Save button. This will open a dialog where you can give a comment, version numbers and blessing. From then on, other people can load it from there, in the same way that you would use cvs or other multi-user versioning systems. Saving the image is also a way to save your working environment, but not a way to version and publish it in a way that can be easily shared.
-
-You can of course both publish your package (so that other people can load it, and that you can compare it with other versions, etc.) and save your image (so that next time that you start your image you are in the same working environment).
+Run your tests they should pass (as shown in Figure *@figclassTestCreated*).
+Again this is a good moment to save your work. Saving at point where tests are green is always a good process. 
+To save your changes, you just have to commit them.
 
 
 !! Instance initialization method
@@ -269,13 +260,13 @@ Right now the initial value of our counter is not set as the following expressio
 Let us write a test checking that a newly created instance has 0 as a default value.
 
 [[[
-CounterTest >> testValueAtCreationTimeIsZero
+CounterTest >> testInitialize
    self assert: Counter new count equals: 0
 ]]]
 
 If you run it, it will turn yellow indicating a failure (a situation that you anticipated but that is not correct) - by opposition to an error which is an anticipated situation leading to failed assertion. 
 
-!!! Define an initialize method
+!!! Define an initialize method.
 
 Now we have to write an initialization method that sets a default value of the ==count== instance variable. However, as we mentioned the ==initialize== message is sent to the newly created instance. This means that the ==initialize== method should be defined at the instance side as any method that is sent to an instance of ==Counter== (like ==increment==) and ==decrement==. The ==initialize== method is responsible to set up the instance variable default values.
 
@@ -308,7 +299,7 @@ But better write a test since we will execute it all the time.
 [[[
 TestCounter >> testCounterWellInitialized
 	self 
-		assert: Counter new increment; increment; count 
+		assert: (Counter new increment; increment; count) 
 		equals: 2
 ]]]
 
@@ -378,8 +369,47 @@ We let you define a method for this method. A tip send the message ==printString
 	Counter new printString
 >>> a Counter with value: 0
 ]]]
+
+!! Saving your code on a remote server
+
+Up until now you saved your code on your local disc. We will now show how you can save your code on a remote repository 
+such as the one you can create on GitHub http://github.com or Gitlab.
+
+!!! Create a project on the remote server.
+First you should create a project with the same name than the one of your project. 
+
+!!! Add a remote repository in HTTPS access
+
+Clicking on the Repository iconic button of the ''Working copy'' browser, you get access to the ''Repository'' browser
+open on your project as show in Figure *@Save7RepositoryBrowser*.
+
++A ''Repository'' browser opened on your project.>file://figures/Save7-RepositoryBrowser.png|label=Save7RepositoryBrowser+
+
+Then you just have to add a remote repository using the Add remote iconic button of the ''Repository'' browser. 
+For this we will use the project identification address given by the remote browser. Since we decided to use HTTPS 
+we use https://github.com/Ducasse/MyCounter.git as address as shown in Figure *@Save8GitHubHTTPS* and Figure *@Save9AddRemote*.
+
++GitHub HTTPS address our our project.>file://figures/Save8-GitHubHTTPS.png|label=Save8GitHubHTTPS+
+
++Using the GitHub HTTPS address.>file://figures/Save9-AddRemote.png|label=Save9AddRemote+
+
+
+!!! Push
+As soon as you add a valid server address, Iceberg will show a little red indication on the Push iconic button. 
+This shows that you have changes in your local repository that have not being pushed to your remote repository.
+Now you just have to press the Push iconic button. Iceberg will show you the commits that will be pushed to the server
+as shown in Figure *@Save10CommitsSent*.
+
++Commits sent to the remote repository.>file://figures/Save10-CommitsSent.png|label=Save10CommitsSent+
+
+
+Now you fully saved your code and you will be able to reload from another machine or location. 
+This will enable you to work remotely and collaborately. 
+
+
 !! Conclusion
 
 In this tutorial you learned how to define packages, classes, methods, and define tests.
 The flow of programming that we chose for this first tutorial is similar to most of programming languages.
-In Pharo you can use a different flow that is based on defining a test first, executing it and when the execution raises error to define the corresponding classes, methods, and instance variable often from inside the debugger. We suggest you now to redo the exercise following the second companion video.
+In Pharo you can use a different flow that is based on defining a test first, executing it and when the execution raises error to define the corresponding classes, methods, and instance variable often from inside the debugger. 
+We suggest you now to redo the exercise following the second companion video.
