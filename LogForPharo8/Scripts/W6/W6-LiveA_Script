@@ -1,0 +1,64 @@
+TOOLS USED:
+Finder
+Playground
+
+CODE USED:
+
+Morph new inspect
+
+Date today inspect
+
+(Point>>#degrees) inspect
+
+SCRIPT:
+
+In this video we will look at how we can define specific tabs from within an
+object.
+
+EXAMPLE 1
+---------
+In the Finder, let's look for a pragma containing gtInspector
+
+>> gtInspectorPresentationOrder
+>> Morph >> gtInspectorMorphIn
+
+The Inspector on Morph is what you can see when you do
+
+[[[Playground
+Morph new inspect
+]]]
+
+This will open an inspector with a specific tab "Morph" when you can see the
+aspect the Morph would have.
+
+When looking back at gtInspectorMorphIn, you can see the different parts of the
+tab.
+> title, display and an error handling
+> act to add some actions
+
+EXAMPLE 2
+---------
+Pragmas > Date
+gtInspectorToPreviewIn
+
+We now have two tabs, "Details" and "Calendar" that propose a display of a
+collection and a morph respectively.
+
+EXAMPLE 3
+---------
+[[[Playground
+(Point>>#degrees) inspect
+]]]
+
+We obtain a table of successive bytecodes in the "Raw" tab, look for the
+source code in "Source" or look at the abstract syntax tree in "AST".
+
+[[[Spotter
+CompiledMethod>> gtInspectorSourceIn
+]]]
+
+You can look at the AST as well.
+
+
+So you can look at how the tabs are defined for existing objects and even create
+some for your own objects.

@@ -1,0 +1,34 @@
+TOOLS USED:
+System Browser
+
+CODE USED:
+
+SCRIPT:
+In this video we will look at how we can use refactoring in Pharo. Historically,
+refactorings have been implemented in the ancestor of Pharo and then deployed
+to other mainstream languages. Since 1995, Smalltalk already had a refactoring
+tool. The tool we will look at right now is inspired from the previous tool .
+
+
+Let's open the System Browser to look at the proposed refactoring methods. There
+are several levels of refactoring:
+
+- classes
+- methods
+- code
+
+CLASS REFACTORING:      Class + instance variables + class variables
+METHODS REFACTORING:    Method
+CODE REFACTORING:       Body of the method
+
+RENAME PUSHED UP !!!
+
+
+Now if we rename our beloved Counter to Counter2, a window will present the
+changes this refactoring would create. All occurrences of the class name have
+been changed.
+
+If we rename the increment method -> increment2  the system will try to rename
+the increment method from all the implemented increment in the system whether
+they are in the class Counter or not. This is not the desired behaviour but we
+can get to this point by using a scope around our package.

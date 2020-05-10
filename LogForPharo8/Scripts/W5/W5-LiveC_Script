@@ -1,0 +1,50 @@
+TOOLS USED:
+System Browser
+Debugger
+
+CODE USED:
+
+SCRIPT:
+
+In this video and as an extension to the last one, we will look at how we can
+identify a bug.
+
+Change the definition of decrement to
+[[[
+Counter >> decrement
+  count := count + 1
+]]]
+
+Running the tests again will show that "testDecrement" is failing. The debugger
+can open and be inspected. You can see that count is not equal to the expected
+result.
+
+Now the state of the debugger we are in is too advanced. We would like to look
+at the execution of the expressions before the erroneous one. In order to do
+so, you can use the expression
+
+[[[
+self halt.
+]]]
+
+right after the creation of the counter.
+
+Running the test again will open the debugger not on the result but on the halt
+instruction we just wrote. From now, we can explore the execution pile looking
+for our bug.
+
+OVER and INTO to look where the behaviour is incorrect.
+
+OVER -> INTO count:
+OVER -> INTO decrement  ---> CORRECTION IN THE DEBUGGER
+PROCEED
+
+Halt is still there.
+DEBUG --> REMOVE THE EXPRESSION
+PROCEED
+
+The test is now green!
+
+This video taught you how to place debug code in a piece of code that has a
+suspicious behaviour and how to inspect the execution stack around the
+target methods.

@@ -1,0 +1,100 @@
+TOOLS USED:
+System Browser
+
+CODE USED:
+TestCase subclass: #CounterTest
+  instanceVariableNames: ''
+  classVariableNames: ''
+  package: 'MyCounter'
+
+CounterTest >> testCounterIsSetAndRead
+
+  | c |
+  c := Counter new.
+  c count: 7.
+  self assert: c count equals: 7.
+
+(Counter)
+self class.
+
+Counter >> count: anInteger
+  count := anInteger
+
+SCRIPT:
+We will reimplement the Counter with a different development flow, in a more
+interactive way.
+
+The first thing to do is to create a new package "MyCounter". What will change
+right now is that we will begin by defining the test class.
+
+TestCase subclass: #CounterTest
+  instanceVariableNames: ''
+  classVariableNames: ''
+  package: 'MyCounter'
+
+We will then write our first test, without writing any code beforehand
+
+CounterTest >> testCounterIsSetAndRead
+
+  | c |
+  c := Counter new.
+  c count: 7.
+  self assert: c count equals: 7.
+
+Saving this method, or pressing CMD-S will make a window pop saying that the word
+Counter is not understood. We could see that because the word was written in italic.
+We can choose from a lot of options but what we want to do is to create a new class.
+It will propose a way to define this new class. -> OK
+
+The class Counter is now created. Let's class the test we wrote in a protocol.
+When trying to run it, the test will fail. That is normal! We did not define any
+of the methods we call within it.
+
+If we take a closer look at the error message: the message count sent to Counter
+has not been understood, what do you want to do? If we look at the execution stack,
+the debugger will show us that a message has not been understood and where. From
+the bottom panel, we can see the different variables and their values at the
+corresponding time in the execution stack.
+
+temp c  > click > self class >> Counter
+
+It is clear that we do not have any method inside of the Counter class. Let's press
+the Create option. Choose the class in which you want to define count: (Counter).
+You then have to choose a protocol to define the method under.
+
+The method is defined with the correct signature but the body consists of
+self shouldBeImplemented. This message is used to raise an exception.
+
+From within the debugger:
+
+count: anInteger
+  count := anInteger
+
+Then save it > a window will pop saying count is unknown
+Let's define it as an instance variable. Now looking inside the class, it now
+has a count instance variable.
+
+Once this is done, we can ask the debugger to proceed (to continue the execution).
+Another exception is raised, the message count is not understood. Once again, this
+is normal as we have not defined it.
+> Create > Class Counter > accessing.
+The system proposes directly the accessor with its body to us. We can proceed and
+our test is now green!
+
+Let's fo the same thing with increment
+
+CounterTest >> testIncrement
+
+ | c |
+ c := Counter new.
+ c count: 7.
+ c increment; increment.
+ self assert: c count equals: 9.
+
+ When running the test, it should fail and once again,
+ > Create > Class Counter > operation > count := count + 1
+
+
+ Finally, let's look at a class method:
+
+ TO FINISH
