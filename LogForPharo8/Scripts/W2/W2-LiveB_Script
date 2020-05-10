@@ -1,0 +1,88 @@
+TOOLS USED:
+Playground
+Browser
+
+CODE USED:
+OrderedDictionary new
+  at: 'Time' put: Time now;
+  at: 'Date' put: Date today;
+  at: 'Morph' put: HSVAColorSelectorMorph new;
+  yourself
+
+(Date)
+self browse
+
+(Time)
+self hour
+
+(HSVAColorSelectorMorph)
+self openInWorld
+self selectedColor
+
+SCRIPT:
+We will look closely at a tool called the Inspector in this video. The inspector
+acts as a microscope as it can observe the behaviour of any Pharo object. As the
+system itself is composed of Pharo objects, the Inspector can be used on any
+component of Pharo. Moreover, it can interact with the objects it is observing.
+
+We are now a biologist that is observing a cell culture and can interact with
+them with a scalpel.
+
+The expression I have just prepared is exotic:
+
+OrderedDictionary new
+  at: 'Time' put: Time now;
+  at: 'Date' put: Date today;
+  at: 'Morph' put: HSVAColorSelectorMorph new;
+  yourself
+
+You should not see it in a real system but it is really nice for demo purposes.
+-> Select and Inspect it.
+
+The inspector shows the items of the collection
+-> By clicking on an item another inspector will open on that particular
+   item.
+
+This inspector offers a number of different views that will adapt to the object
+we are observing.
+
+-> RAW: shows the implementation
+    |-> Open a browser on the class OrderedDictionary
+    |-> Show the instance variables (dictionary orderedKeys)
+    |-> The inspector shows the raw values contained within the instance variables
+        |-> Clicking on dictionary shows the raw view of the dictionary
+        |-> Clicking on orderedKeys shows the raw view of the table
+
+-> ITEMS: view offered by OrderedDictionary to visualise best its contents (no
+          need to look into the whole raw information)
+   |-> DO IT MANUALLY within the raw tab dictionary > 6 > association > etc.
+       The inspector will display a navigation helper with dots
+       |-> Show preview
+       |-> Rearrange the views or change focus and size
+   |-> Date, key and value "self browse" (look at the instance variables, those
+       can be found in the inspector as well).
+        |-> Date > details brings another view (year, month, etc.)
+        |-> Each object can decide on how it can be shown in an inspector (another video)
+        |-> Calendar here
+   |-> Same thing with Time
+        |-> Meta tab that shows the different methods (self hour > do it > find it in meta)
+   |-> With Morph, it looks like a way more complex object as it has several tabs
+        |-> Clicking on the morph tab will show how it is displayed
+        |-> self openInWorld > you can then interact with the object
+        |-> self selectedColor
+              |-> Doing Inspect It on this object will open an inspector on a color
+              |-> BUT doing Do It and Go will inject the result in the flow of the
+                  inspector
+        |-> Submorphs tab
+
+-> On the Morph item, open two times the same view on the same object
+    |-> Opening Morph on the right and letting the tree on the left will update
+        the morph on the right as soon as you are pressing on a submorph on the left
+    |-> This makes it really easy to access submorph that would otherwise be hidden
+        in the tree in RAW mode.
+    |-> This type of manipulation can be done on several types of objects such
+        as file system or classes themselves.
+
+Inspector can observe, talk and interact with the objects as you can change them
+on the fly. Any object can give different aspects and views to the inspector to
+display. 

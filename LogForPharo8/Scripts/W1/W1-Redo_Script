@@ -1,0 +1,354 @@
+================================================================================
+PART 1: Class and Accessors
+================================================================================
+
+TOOLS USED:
+System Browser
+Playground
+
+CODE USED:
+Object subclass: #Counter
+    instanceVariablesNames: 'count'
+    classVariableNames: ''
+    package: 'MyCounter'
+---------------------------------------
+Counter >> count
+  ^ count
+---------------------------------------
+Counter >> count: anInteger
+  count := anInteger
+---------------------------------------
+| c |
+c := Counter new.
+c count := 7.
+c count. "7"
+
+SCRIPT:
+Open the System Browser and create a new package. Add package > MyCounter
+Filter our package. Define a class with an instance variable. Compile the code
+by doing ACCEPT (CMD-S), the orange corner should disappear.
+
+The class Counter has been created. The exclamation point means that the class
+is not yet commented (and it should!).
+Let's now define some accessors. The first thing to do is to create a new
+protocol. Let's call it accessing. And we can now write the accessor itself.
+
+Counter >> count
+  ^ count
+
+Compile the method, it should appear on the right. We have our first getter,
+let's write the corresponding setter.
+
+Counter >> count: anInteger
+  count := anInteger
+
+We can now look if our counter is working correctly:
+
+| c |
+c := Counter new.
+c count := 7.
+c count. "7"
+
+We will see how to automate what we just did in the Playground in a test in the
+next part.
+
+
+================================================================================
+PART 2: First tests
+================================================================================
+
+TOOLS USED:
+System Browser
+Playground
+
+CODE USED:
+TestCase subclass: #CounterTest
+  instanceVariablesNames: ''
+  classVariableNames: ''
+  package: 'MyCounter'
+---------------------------------------
+CounterTest >> testCountIsSetAndRead
+| c |
+c := Counter new.
+c count := 7.
+self assert: c count equals: 7.
+---------------------------------------
+CounterTest >> testIncrement
+| c |
+c := Counter new.
+c count := 0.
+c increment ; increment.
+self assert: c count equals: 2.
+---------------------------------------
+CounterTest >> testDecrement
+| c |
+c := Counter new.
+c count := 2.
+c increment ; increment.
+self assert: c count equals: 0.
+---------------------------------------
+Counter >> increment
+   count := count + 1
+---------------------------------------
+Counter >> decrement
+   count := count - 1
+
+SCRIPT:
+Create a new test class.
+
+TestCase subclass: #CounterTest
+  instanceVariablesNames: ''
+  classVariableNames: ''
+  package: 'MyCounter'
+
+Next add a 'test' protocol and create the test method for the accessors.
+
+CounterTest >> testCountIsSetAndRead
+| c |
+c := Counter new.
+c count := 7.
+self assert: c count equals: 7.
+
+Compile the method and the test can be executed by pressing the button.
+The test is green.
+So we can save the image (later we will commit).
+
+For the next test, we will use a test-driven development mindset. We want our counter to
+be able to increment so let's start by writing the corresponding test:
+
+CounterTest >> testIncrement
+| c |
+c := Counter new.
+c count := 0.
+c increment ; increment.
+self assert: c count equals: 2.
+
+Execute the test.
+It is red this is good!
+The test is not working for now as we have not defined the increment method.
+
+Define Protocol operation
+Define the method
+
+Counter >> increment
+   count := count + 1
+
+Execute the test.
+It is green this is good!
+Save the image
+
+CounterTest >> testDecrement
+| c |
+c := Counter new.
+c count := 2.
+c increment ; increment.
+self assert: c count equals: 0.
+
+Execute the test.
+It is red this is good!
+
+Define the method
+
+Counter >> decrement
+   count := count - 1
+
+Execute the test.
+It is green this is good!
+Save the image
+
+We can see that the tests for the methods increment and decrement are
+automatically detected. We can execute them by pushing the button, they are now
+green!
+
+================================================================================
+PART 3: Creating and removing methods
+================================================================================
+
+TOOLS USED:
+System Browser
+
+CODE USED:
+Counter >> decrement
+   count := count - 2
+
+ Counter >> decrement25
+    count := count - 2
+
+SCRIPT:
+Maybe it caught your attention on the last videos of this Redo but the Pharo
+System Browser is a live environment What you might have seen as me deleting
+methods and adding methods out of nowhere are actually pretty easy to understand.
+
+So let us look at the method decrement.
+We modify the method definition
+
+Counter >> decrement
+   count := count - 2
+
+This changes the method because we did not change the method name.
+
+Now when we want to define a new method how do we do it since there is no button
+for that?
+Just type the method or modify an existing one.
+
+Counter >> decrement25
+   count := count - 2
+
+This creates a new method because the method name is new and has not been defined
+in the class.
+
+The template of a method can be overridden simply by writing over it and saving
+(compiling the new method). The same exact process can be used to create a new
+method. There are no 'new method' button. Writing over an already compiled method
+acts as defining a new method (as long as the name is different). However, the
+'remove method' action is mandatory and can be found in the method menu.
+
+================================================================================
+PART 4: Saving code
+================================================================================
+
+TOOLS USED:
+System Browser
+Iceberg
+
+CODE USED:
+/
+
+SCRIPT:
+In order to save our code, we will use Iceberg. This tool is used to provide
+version control over different packages and will handle images and code versions.
+We will not set up a git project but a simple local project.
+We first create a package then from within Iceberg choose the create project
+with local repository.
+Press the + icon to create a. Name it src.
+We can now add our package to the repository and commit locally.
+
+ToQ: once you are done with it we will update the pdf.
+
+================================================================================
+PART 5: Class methods, initialisation and tests
+================================================================================
+
+TOOLS USED:
+System Browser
+Iceberg
+
+CODE USED:
+Counter >> initialize
+  super initialize.
+  count := 0
+---------------------------------------
+TestCounter >> testValueAtCreationIsZero
+self assert: Counter new count equals: 0
+---------------------------------------
+TestCounter >> testCounterStartingAt5
+self assert: (Counter startingAt: 5) count equals: 5
+---------------------------------------
+Counter class >> startingAt: anInteger
+  ^ self new count: anInteger
+
+SCRIPT:
+In this part, we will see how to initialize an object correctly.
+Indeed if we do
+
+Counter new increment we get an error because count is nil.
+
+This is our responsibility to provide well initialized object.
+Pharo offers the initialize method to initialize automaticalluy objects at creation time.
+
+
+Let's first write the test:
+TestCounter >> testValueAtCreationIsZero
+self assert: Counter new count equals: 0
+
+And now in order to make the test become green:
+Counter >> initialize
+  super initialize.
+  count := 0
+
+Now our test passes.
+
+We can also see that
+Counter new increment is working but better write a test
+
+TestCounter >> testCounterWellInitialized
+self assert: Counter new increment; increment; count equals: 2
+
+Now sometimes we would like to have a different way to create instances.
+For example we would like to be able to specifying the value at which the counter is starting at.
+For this we will define and use a class metho.
+write useful class methods and how to use and
+
+The typical use for class methods is to get special instances of the
+class.
+For example with our counter, we might need a counter initialised at 5.
+
+TestCounter >> testCounterStartingAt5
+self assert: (Counter startingAt: 5) count equals: 5
+
+And we can now write the method associated with the test:
+Counter class >> startingAt: anInteger
+  ^ self new count: anInteger
+
+Now we can write another test showing that everything works together.
+
+TestCounter >> testAlternateCreationMethod
+  self assert: ((Counter startingAt: 19) increment ; count) equals: 20
+
+Commit with a nice message.
+
+================================================================================
+PART 6: Changing the printing of our Counter
+================================================================================
+
+TOOLS USED:
+Playground
+System Browser
+Iceberg
+
+CODE USED:
+Counter new.
+
+Counter >> printOn: aStream
+  super printOn: aStream.
+  aStream nextPutAll: ' withValue: ', count printString.
+  aStream cr
+
+SCRIPT:
+Our Counter can be printed on the Playground using the PRINT ON command. What is
+outputted is definitely not useful.
+
+In order to change this, the method we need to look at is the one called by the
+PRINT ON command: "printOn: aStream".
+
+We can overwrite it as follows:
+Counter >> printOn: aStream
+  super printOn: aStream.
+  aStream nextPutAll: ' withValue: ', count printString.
+  aStream cr
+
+where the super printOn: will print the previously seen aCounter, from which we
+add withValue:, the comma is a string concatenation and we finally add the
+count itself (string form).
+
+We let you define a method for this method. A tip send the message printString to Counter new to get its
+string representation.
+
+We can try to print it again: our counter displays everything now.
+SAVE AND COMMIT
+
+================================================================================
+PART 7: History differences
+================================================================================
+
+TOOLS USED:
+Iceberg
+
+CODE USED:
+/
+
+SCRIPT:
+More than simply allowing you to save your package, Iceberg allows you to see
+the differences between the commits of your package. We can see the difference
+between a commit and the image itself or the difference between a commit and
+another commit

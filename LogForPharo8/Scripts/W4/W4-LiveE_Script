@@ -1,0 +1,44 @@
+TOOLS USED:
+Quality Assistant
+Code Critic
+System Browser
+
+CODE USED:
+
+SCRIPT:
+We will look at the automated tools Pharo provide to control your code and its
+quality.
+
+As soon as you are browsing some code in the System Browser, the window panel
+at the bottom will display some suggestions to improve or correct your code.
+Since the base packages and classes of the system are hopefully well formatted,
+let's try to write some examples in our beloved Counter package.
+
+[[[
+MyCounter >> increment
+  self halt.
+  count := count + 1
+]]]
+
+Leaving some debugging code will display some methods in the Code critic window
+Pressing the question mark will display the explanation of the warning. When
+available, the tools will try to correct your example.
+
+[[[
+MyCounter >> increment
+  self undefMethod.
+  count := count + 1
+]]]
+
+Invoking an undefined method will display another message. Using the critic
+browser on the on the package will display all the rules the package respects
+or violates. All the rules can be inspected with their explanations. They are
+based on heuristics and can be broken when building specific pieces of code.
+From within this window, you can point out false positives. You can then Save
+Critics, this will create a manifest that can be versioned. When running the
+code critic again later on, the manifest will be taken in consideration and the
+false positives will be avoided.
+
+In the future those quality rules will be integrated in
+the continuous development process. For example, a Jenkins server will run the
+rules and the manifest automatically.

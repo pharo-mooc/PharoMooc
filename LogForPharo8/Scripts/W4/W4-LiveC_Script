@@ -1,0 +1,24 @@
+TOOLS USED:
+
+CODE USED:
+
+Metacello new
+    baseline: 'ContainersStack';
+    repository: 'github://Ducasse/Containers-Stack/src';
+    load.
+
+SCRIPT:
+
+In Pharo, we can load projects using Metacello. This can be done by executing
+the following piece of code:
+
+Metacello new
+    baseline: 'ContainersStack';
+    repository: 'github://Ducasse/Containers-Stack/src';
+    load.
+
+The project we would like to load is hosted on Github under
+github://Ducasse/Containers-Stack/src
+
+
+Next, we can see the baseline of the project in Iceberg.

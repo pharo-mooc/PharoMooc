@@ -1,0 +1,33 @@
+TOOLS USED:
+Iceberg
+
+CODE USED:
+/
+
+SCRIPT:
+In this video we will look at how we can set up a repository on Github from the
+Iceberg tool.
+
+- First, let's create a repository on Github called MyPharoRepository.
+
+- We will then go over to Pharo and Iceberg in order to clone the repository. The
+first message sent by Icerberg will be that the project is not found. This is
+because our repository is empty. Double-click and press repair to create the
+project meta-data. It is good practice to create an src folder to save the source
+code in.
+
+- You can then do the first commit by going over the commit button.
+
+- We can now create a dummy class and package:
+
+[[[
+Object subclass: #MyPharoClass
+  ...
+  package: 'MyPharoPackage'
+]]]
+
+- We can add this package to the repository by pressing the button Add package
+in the working copy in Iceberg.
+
+- Finally, you can press Push and look over the two commits. Once the push is
+done, you can go back to Github and look at your package.

@@ -1,0 +1,56 @@
+TOOLS USED:
+System Browser
+Debugger
+
+
+CODE USED:
+| c |
+c := Counter new.
+c count: 7.
+c decrement ; decrement.
+
+SCRIPT:
+MyCounter already loaded
+
+The counter tests are up and running. Let's look at how we can use the debugger
+to execute an expression step by step. Let's look at testDecrement and click on
+"Debug Test".
+
+The debugger opens showing the execution stack with a whole lot of messages. The
+first ones are system related and handled by Pharo but looking into the
+"testDecrement".
+
+The window below displays the body of the method highlighted on the stack. The
+window at the bottom displays the values of the different variables contained
+in the environment.
+
+Pressing over will execute the current expression and bring you to the next one
+to be evaluated. The central window can still work as a work environment,
+printing the "Counter new" expression will display an instance of the class
+"Counter".
+
+Arriving on the affectation and pressing over will give an actual value to the
+variable "c". The variable can be inspected as well, we can see that the value
+of the instance variable is still the default one. Now, if you want to look at
+how the "count:" method is implemented, you can press into and dive inside the
+method itself.
+
+Once again, this is still a working environment, you can print and look into
+the variables displayed to check their behaviour. Pressing over again will
+bring you back to the starting point and resume the debugging process.
+
+You can do the same thing with the "decrement" method.
+
+Proceed will stop the debugging process and carry on until completion or an
+error.
+
+A final thing to know is that you can debug anything, even if not defined into
+a method. Using the same piece of code in a Playground can still enable the
+debugger.
+
+[[[
+| c |
+c := Counter new.
+c count: 7.
+c decrement ; decrement.
+]]]

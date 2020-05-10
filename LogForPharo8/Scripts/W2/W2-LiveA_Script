@@ -1,0 +1,49 @@
+TOOLS USED:
+Finder
+System Browser
+
+CODE USED:
+match
+'ab*' . 'abcd' . true
+11 . 2 . 5
+11 . 2 . 5.5
+#(11 22 33) . 4 . 11
+
+SCRIPT:
+Let's look at the Finder to find some information.
+-Look for a method containing "match"
+  |-> Triangle > defined in multiple classes
+
+-Look for classes containing "match"
+  |-> good idea to browse them right after
+
+-Know what you are looking for but don't know its name
+-This is a perfect use of the examples tab with:
+ 'ab*' . 'abcd' . true
+  |-> This will output all methods that return true for the two given arguments
+  |-> Triangle shows all the classes that implements the method and output the result.
+      The class with the * is the one that the most resemblant to the signature
+      and pattern we gave
+
+ 11 . 2 . 5
+  |-> * on Integer, SmallInteger or Number
+
+ 11 . 2 . 5.5
+  |-> / only so it can be really specific
+
+ #(11 22 33) . 4 . 11
+  |-> Executable comment makes you both double check that your query outputted
+      the correct result and gives you an insight on how to use the new method.
+-Look for a particular pragma
+ menu
+ |-> All methods implementing this pragma (help building menu). We can see the
+     class WorldMenu using it (WorldMenu is the main menu when clicking on Pharo
+     background)
+
+-Look for the string 'menu' wherever it is in the system
+  |-> The system will analyse the bodies of all methods within the system
+      (80 000)
+
+Encourage you to use this tool that comes as a dynamic documentation from within
+Pharo. The examples part is extremely powerful and can help you find a method by
+specifying the wanted behaviour.

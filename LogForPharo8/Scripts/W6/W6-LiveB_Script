@@ -1,0 +1,31 @@
+TOOLS USED:
+
+
+CODE USED:
+
+
+SCRIPT:
+
+In this video we will look at how you can setup and customise your Pharo images
+on startup.
+
+Every new Pharo image that you create will go through the execution of a setup
+file.
+
+This setup can be found here:
+
+System > Startup > Version Prefereces Folder > create startup.st
+
+
+And consists of a succession of StartupActions. Each startup action will have a
+name and a piece of code.
+
+We will remove the logo using:
+
+[[[
+StartupPreferencesLoader default executeAtomicItems: {
+	StartupAction
+		name: 'Logo'
+		code: [ PolymorphSystemSettings showDesktopLogo: false] .
+}.
+]]]

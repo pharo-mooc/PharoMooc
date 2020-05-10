@@ -1,0 +1,335 @@
+================================================================================
+REDO PART 1 - DICE TO TESTS
+================================================================================
+TOOLS USED:
+System Browser
+
+CODE USED:
+Object subclass: #Die
+  instanceVariableNames: 'faces'
+  ...
+
+Die >> initialize
+  super initialize.
+  faces := 6.
+
+testInitializeIsOk
+  self assert: Die new faces equals: 6
+
+Die >> roll
+  ^ faces atRandom.
+
+testRolling
+  | d |
+  d := Die new.
+  1000 timesRepeat:
+    [self assert: (d roll between: 1 and: 6)]
+
+DieTest >> testCreationIsOk
+ self assert: (Die withFaces: 20) faces equals: 20
+
+Die class >> withFaces: aNumber
+ | instance |
+ instance := self new.
+ instance faces: aNumber
+
+Die >> faces: aNumber
+  faces := aNumber
+
+Die >> faces
+  ^ faces
+
+SCRIPT:
+In this Redo we will look at how to create a small language to handle expressions
+such as the ones used in Dungeons and Dragons or any roleplaying game.
+
+[[[
+2 D20 + 1 D4
+]]]
+The above expression should represent the result of throwing two D20 and one D4.
+We will implement two classes, one to represent a dice and one to represent a
+dice handle.
+
+We create the Dice package.
+
+Let's first create the Die class:
+[[[
+Object subclass: #Die
+  instanceVariableNames: 'faces'
+  ...
+]]]
+
+We can now add a method to initialise the object. This is done through the
+initialize method:
+[[[Die >> initialize
+  super initialize.
+  faces := 6.
+]]]
+
+Right next to it, we can create a test class:
+[[[
+TestCase subclass: #DieTest
+  instanceVariableNames: 'faces'
+  ...
+]]]
+
+Let's test the above initialisation:
+[[[DieTest >> testInitializeIsOk
+  self assert: Die new faces equals: 6
+]]]
+
+We can classify the method inside a protocol.
+
+
+Now, we will define the method to actually roll a dice. A random behaviour can
+be implemented with the help of the atRandom method. We can add a roll method
+in the operation protocols:
+[[[Die >> roll
+  ^ faces atRandom.
+]]]
+
+Let's write a corresponding test:
+[[[
+testRolling
+  | d |
+  d := Die new.
+  10 timesRepeat:
+    [self assert: (d roll between: 1 and: 6)]
+]]]
+Note that this test is not the best as we are only testing the roll for 6-faces
+dies.
+
+SAVE THE PROJECT
+
+Now we would like to improve the creation interface to make the following test
+become green:
+[[[DieTest >> testCreationIsOk
+ self assert: (Die withFaces: 20) faces equals: 20
+]]]
+
+We need to add a class method named withFaces:
+[[[Die class >> withFaces: aNumber
+ | instance |
+ instance := self new.
+ instance faces: aNumber
+]]]
+
+However in order to implement this method we need the faces accessors:
+[[[Die >> faces: aNumber
+  faces := aNumber
+]]]
+
+[[[Die >> faces
+  ^ faces
+]]]
+
+SAVE THE PROJECT
+
+================================================================================
+REDO PART 2 - DICEHANDLE
+================================================================================
+TOOLS USED:
+Playground
+System Browser
+
+CODE USED:
+
+SCRIPT:
+In this second part of the Redo, we will look at how we can define the behaviour
+of multiple dices all together (or a dice handle). The API we would like in the
+end is the following:
+[[[
+DieHandle new
+  addDie: (Die withFaces: 6);
+  addDie: (Die withFaces: 10);
+  yourself
+]]]
+
+Let's write a test first to specify where we would like to get:
+[[[
+TestCase subclass: #DieHandleTest
+ ...
+]]]
+
+[[[DieHandleTest >> testCreationAdding
+  | handle |
+  handle := DieHandle new
+      addDie: (Die withFaces: 6);
+      addDie: (Die withFaces: 10);
+      yourself.
+  self assert: handle diceNumber equals: 2.
+]]]
+
+Let's follow with another test checking that we can potentially have two times
+the same type of die:
+
+[[[testAddingTwiceTheSameDice
+  | handle |
+  handle := DieHandle new.
+  handle addDie: (Die withFaces: 6).
+  self assert: handle diceNumber equals: 1.
+  handle addDie: (Die withFaces: 6).
+  self assert: handle diceNumber equals: 2.
+]]]
+
+We now need to define the actual DieHandle class:
+[[[
+Object subclass: #DieHandle
+ instanceVariableNames: 'dice'
+ ...
+]]]
+
+[[[DieHandle >> initialize
+  super initialize.
+  dice := OrderedCollection new.
+]]]
+
+[[[DieHandle >> addDie: aDie
+  dice add: aDie
+]]]
+
+[[[DieHandle >> diceNumber
+  ^ dice size
+]]]
+
+[[[DieHandle >> dice: anOrderedCollection
+  dice := anOrderedCollection
+]]]
+
+[[[DieHandle >> dice
+  ^ dice
+]]]
+
+
+The tests are now green!
+
+SAVE THE REPO
+
+We can work on improving the developer experience by changing the feedback
+of the print option on our die handle. Right now, inspecting a die handle will
+not show the values of the different dies inside the dice collection. The way
+to change that is to implement a new printOn: method in the class we want to
+precise the feedback on.
+
+[[[Die >> printOn: aStream
+  super printOn: aStream.
+  aStream nextPutAll: ' (', faces printString, ')'
+]]]
+
+Reopening the inspector shows the new behaviour.
+
+We now have to implement a final method to make our DieHandle work:
+[[[DieHandle >> roll
+  | res |
+  res := 0.
+  die do: [ :each | res := res + die roll ].
+  ^ res
+]]]
+
+Note that there are plenty of ways to implement such a behaviour in Pharo and
+some can take as little as one line.
+
+We can check our roll function in the Inspector, and we need to write a test
+for this behaviour. Before that, let's add a maxValue method to the DieHandle.
+[[[DieHandleTest >> testMaxValue
+  | h |
+  h := DieHandle new
+    addDie: (Die withFaces: 6);
+    addDie: (Die withFaces: 10);
+    yourself.
+  self assert: h maxValue equals: 16
+]]]
+
+[[[DieHandle >> maxValue
+  | res |
+  res := 0.
+  die do: [ :each | res := res + die faces ].
+  ^ res
+]]]
+
+We can now test the proper roll method:
+
+[[[DieHandleTest >> testRoll
+  | h |
+  h := DieHandle new
+    addDie: (Die withFaces: 6);
+    addDie: (Die withFaces: 10);
+    yourself.
+  10 timesRepeat:
+    [ self assert: (h roll between: h diceNumber and: h maxValue) ]
+]]]
+
+SAVE REPO
+
+================================================================================
+REDO PART 3 - EXTENSIONS
+================================================================================
+TOOLS USED:
+
+CODE USED:
+
+SCRIPT:
+
+If you remember from where we started, the end API should look like: 1 D4 + 1 D20.
+What this API suggests is that we should send the message D6 to an Integer.
+
+We need to create an extension of the class Integer. This can be done by
+adding a protocol with the name '*Dice'. The name of the protocol should be in
+grey.
+
+We can now add the method:
+[[[Integer >> D20
+  | handle |
+  handle := DieHandle new.
+  self timesRepeat: [ handle addDie: (Die withFaces: 20) ].
+  ^ handle
+]]]
+
+Let's write a test for that:
+[[[DieHandleTest >> testSimpleHandle
+  self assert: 2 D20 diceNumber equals: 2.
+]]]
+
+Now if we think more about it, maybe we should not copy paste this same exact
+method for each type of existing die but rather call a more general method.
+
+[[[Integer >> D: aNumber
+  | handle |
+  handle := DieHandle new.
+  self timesRepeat: [ handle addDie: (Die withFaces: aNumber) ].
+  ^ handle
+]]]
+
+[[[Integer >> D6
+  ^ self D: 6
+]]]
+
+[[[Integer >> D20
+  ^ self D: 20
+]]]
+
+[[[Integer >> D4
+  ^ self D: 4
+]]]
+
+
+The final requirement we need to implement is the ability to sum handles in order
+to perform 2 D6 + 1 D4.
+
+[[[DiceHandleTest >> testSumming
+  | handle |
+  handle := 2 D20 + 3 D10.
+  self assert: handle diceNumber equals: 5.
+]]]
+
+In order to do so, we need to implement the + method in the DieHandle class:
+[[[DieHandle >> + aDieHandle
+  | handle |
+  handle := self class new.
+  self dice do: [ :each |  handle addDie: each ].
+  aDieHandle dice do: [ :each |  handle addDie: each ].
+  ^ handle
+]]]
+
+The tests should now be green.
+Save the Repo !
