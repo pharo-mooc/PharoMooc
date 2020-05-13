@@ -4,18 +4,18 @@
 
 ! Building A Simple Contact Book Application
 
-In this tutorial, you will develop a simple contact book application with a web interface. It consists of a couple of classes for the model and the UI of the application. Figure *@fig:final* shows the resulting application. As you see it is simple but covers many aspects of defining and deploying a web applications. 
+In this tutorial, you will develop a simple contact book application with a web interface. It consists of a couple of classes for the model and the UI of the application. Figure *@fig:final* shows the resulting application. As you see it is simple but covers many aspects of defining and deploying a web applications.
 
 You will develop the web interface using Seaside (*http://ww.seaside.st>http://www.seaside.st*). Seaside is a powerful web framework
-for developing highly dynamic and complex web application. For more information you can read the book: 'Dynamic Web Development with Seaside' which 
+for developing highly dynamic and complex web application. For more information you can read the book: 'Dynamic Web Development with Seaside' which
 is freely available at *http://book.seaside.st>http://book.seaside.st*. In this little tutorial we will only use some simple server side Seaside behavior. We will use the Twitter Bootstrap library that is fully integrated to Seaside.
 
 
-Note that the presented solution is often simple and we will list ideas of further improvements that you could add. In addition, it is worth to know that Pharo developers often use object descriptions (as done via the Magritte framework) to generate new web components instead of manually developing them. 
+Note that the presented solution is often simple and we will list ideas of further improvements that you could add. In addition, it is worth to know that Pharo developers often use object descriptions (as done via the Magritte framework) to generate new web components instead of manually developing them.
 
 !!!! About development style
 While we love coding test first and coding in the debugger (since it let us go much faster), in this tutorial we will not follow such style
-because it requires a lot of text to mention what to do with the user interface of the Pharo tools. We decided to take a neutral stand point and to let you decide if you code first the tests, if you prefer to go slowly or not. This tutorial presents the mandatory information so that you can get it done. Program it the way you want. 
+because it requires a lot of text to mention what to do with the user interface of the Pharo tools. We decided to take a neutral stand point and to let you decide if you code first the tests, if you prefer to go slowly or not. This tutorial presents the mandatory information so that you can get it done. Program it the way you want.
 
 
 +Screenshot of the finished contact book application.>file://figures/contact-book-final.png|width=80|label=fig:final+
@@ -23,8 +23,8 @@ because it requires a lot of text to mention what to do with the user interface 
 !!!! Getting Seaside
 In this tutorial, we use the Seaside web framework to define the views of our application. Seaside must be loaded in the image to start using it.
 You have several ways to obtain Seaside
-- either you start coding in the default pharo image and when needed you  open the ''Catalog browser'' tool and search for Seaside. Install the stable version. Since Seaside is large it can take a moment. 
--  You can also download a pre-installed version of Seaside available at *https://ci.inria.fr/pharo-contribution/job/Seaside/* but you will need to migrate your code to this new image. This is easy with the code versioning control system: save from the current image to a code repository and load from the Seaside ready image from this repository. We prefer the second version. 
+- either you start coding in the default pharo image and when needed you  open the ''Catalog browser'' tool and search for Seaside. Install the stable version. Since Seaside is large it can take a moment.
+-  You can also download a pre-installed version of Seaside available at *https://ci.inria.fr/pharo-contribution/job/Seaside/* but you will need to migrate your code to this new image. This is easy with the code versioning control system: save from the current image to a code repository and load from the Seaside ready image from this repository. We prefer the second version.
 
 
 
@@ -99,10 +99,10 @@ Contact >> email: aString
    email := aString
 ]]]
 
-Run the test to make sure it passes. It is a good idea to version your code and save the image. 
+Run the test to make sure it passes. It is a good idea to version your code and save the image.
 
-!!!!! Further extensions. 
-You can add some extra logic to make sure that the name is not surrounded by space. In addition handling whether you take care of note about lowercase and uppercase should be addressed. You can use messages such as ==asLowercase== to, for example, store only lowercased strings. 
+!!!!! Further extensions.
+You can add some extra logic to make sure that the name is not surrounded by space. In addition handling whether you take care of note about lowercase and uppercase should be addressed. You can use messages such as ==asLowercase== to, for example, store only lowercased strings.
 
 
 !!! Enhancing Object Textual Interface
@@ -170,8 +170,8 @@ ContactBook >> removeContact: aContact
 
 
 !!!!! Add tests.
-Define some tests to cover the addition and removal of contacts. 
-You will see in particular that the definition for ==removeContact:== is not that robust when we want to remove a contact that is not in the collection: Removing an unexisting contact raises an error. Change the definition of the ==removeContact:== method (check other remove: methods in collection) and define a test that covers this particular aspect. 
+Define some tests to cover the addition and removal of contacts.
+You will see in particular that the definition for ==removeContact:== is not that robust when we want to remove a contact that is not in the collection: Removing an unexisting contact raises an error. Change the definition of the ==removeContact:== method (check other remove: methods in collection) and define a test that covers this particular aspect.
 
 !!! Providing a Default Contact Book
 
@@ -180,27 +180,27 @@ To simplify further development, we define a default contact book with predefine
 [[[
 ContactBook class >> createDefault
    ^ self new
-			addContact: (Contact 
-	  							newNamed: 'Damien Cassou' 
+			addContact: (Contact
+	  							newNamed: 'Damien Cassou'
 								email: 'damien@cassou.me');
-    		addContact: (Contact 
-	  							newNamed: 'Marcus Denker' 
+    		addContact: (Contact
+	  							newNamed: 'Marcus Denker'
 								email: 'marcus.denker@inria.fr');
-      		addContact: (Contact 
-	  							newNamed: 'Tudor Girba' 
+      		addContact: (Contact
+	  							newNamed: 'Tudor Girba'
 								email: 'tudor@tudorgirba.com');
-			addContact: (Contact 
-	  							newNamed: 'Clara Allende' 
+			addContact: (Contact
+	  							newNamed: 'Clara Allende'
 								email: 'clari.allende@gmail.com');
       yourself
 ]]]
 
-Don't forget to comment the class and to save your image and version your code. 
+Don't forget to comment the class and to save your image and version your code.
 
 !! A First Web View
 
-Now that we have the model, we need a web view. We will use Seaside for that. Seaside is a component framework: Seaside web applications are built by aggregating components. Typically, an application consists of a top-level component delegating parts of its rendering to sub-components. 
-Let us define a first simple component. 
+Now that we have the model, we need a web view. We will use Seaside for that. Seaside is a component framework: Seaside web applications are built by aggregating components. Typically, an application consists of a top-level component delegating parts of its rendering to sub-components.
+Let us define first a simple component.
 
 !!! Defining the WAContactBook Component
 
@@ -226,10 +226,10 @@ WAContactBook>>renderContentOn: html
       with: 'My Contact Book'.
 ]]]
 
-The method argument ==html== acts as a canvas that can emit adequate HTML code. Above code asks the heading brush to the canvas and uses it to emit this HTML code: ==<h1>My Contact Book</h1>==. Seaside abstracts you from the details of the syntax of the HTML expressions. 
+The method argument ==html== acts as a canvas that can emit adequate HTML code. Above code asks the heading brush to the canvas and uses it to emit this HTML code: ==<h1>My Contact Book</h1>==. Seaside abstracts you from the details of the syntax of the HTML expressions.
 
 !!!!! Remark.
-It is not a good style to generate component UI using directly HTML commands representing styles (table, section...). Usually developers emit tags that map with css class tags provided by an application designer. We will show you that later. 
+It is not a good style to generate component UI using directly HTML commands representing styles (table, section...). Usually developers emit tags that map with css class tags provided by an application designer. We will show you that later.
 
 !!! Registering our 'App'
 
@@ -291,7 +291,7 @@ This ==contactsDo:== method is not as useless as it might seem. This method hide
 
 Below the title, we want a table containing the contacts of the contact book. For this, we need to change the ==renderContentOn:== method and add a few new messages. We will decompose the behavior in several methods to facilitate understanding.
 
-[[[  
+[[[
 WAContactBook >> renderContentOn: html
    "Main entry point of the view. Render both a title and the list of contacts."
 
@@ -314,7 +314,7 @@ WAContactBook >> renderContactsOn: html
             tableHeading: 'Email' ].
       self contactsDo: [ :contact | self renderContact: contact on: html ] ]
 ]]]
-  
+
 The method ==renderContact:on:== defines the rendering of a single contact in a table row.
 
 [[[
@@ -333,7 +333,7 @@ Refreshing the web browser should now show a list of contacts as can be seen in 
 
 !!Improving the View with Twitter Bootstrap
 
-The rendering can be visually improved by adding some Cascading Style Sheets (CSS). In the following, we use the *Twitter Bootstrap framework>http://getbootstrap.com/* that must be loaded in the image. It is loaded by default in the Seaside distribution. 
+The rendering can be visually improved by adding some Cascading Style Sheets (CSS). In the following, we use the *Twitter Bootstrap framework>http://getbootstrap.com/* that must be loaded in the image. It is loaded by default in the Seaside distribution.
 If not, open the ''Catalog browser'' tool and search for Bootstrap. Install the stable version.
 
 !!! Declaring Twitter Bootstrap Use
@@ -345,7 +345,7 @@ WAContactBook class >> initialize
     (WAAdmin register: self asApplicationAt: 'contacts')
         addLibrary: JQDeploymentLibrary;
         addLibrary: TBSDeploymentLibrary
-]]] 
+]]]
 
 Execute this method manually again:
 
@@ -369,7 +369,7 @@ WAContactBook >> renderContentOn: html
          self renderContactsOn: html ]
 ]]]
 
-[[[	 
+[[[
 WAContactBook >> renderContactsOn: html
    html tbsTable: [
       html tableHead: [
@@ -391,7 +391,7 @@ We now improve the contact book application by displaying photos next to each co
 
 [[[
 Contact >> gravatarUrl
-   ^ 'http://www.gravatar.com/avatar/', (MD5 hashMessage: email trimBoth asLowercase) hex, '.jpg'
+   ^ 'http://www.gravatar.com/avatar/', (MD5 hashMessage: email asString trimBoth asLowercase) hex, '.jpg'
 ]]]
 
 For example, for *marcus.denker@inria.fr*, the Gravatar URL is:
@@ -412,8 +412,8 @@ WAContactBook >> renderContactsOn: html
             tableHeading: 'Photo' ].
       self contactsDo: [ :contact | self renderContact: contact on: html ] ]
 ]]]
-  
-[[[  
+
+[[[
 WAContactBook >> renderContact: aContact on: html
    html tableRow: [
       html
@@ -422,7 +422,7 @@ WAContactBook >> renderContact: aContact on: html
 	 tableData: [ self renderPhotoOf: aContact on: html ] ]
 ]]]
 
-[[[ 
+[[[
 WAContactBook >> renderPhotoOf: aContact on: html
    html image url: aContact gravatarUrl
 ]]]
@@ -444,9 +444,9 @@ WAContactBook >> renderContact: aContact on: html
          tableData: aContact name;
          tableData: aContact email;
          tableData: [ self renderPhotoOf: aContact on: html ];
-	 tableData: [ self renderRemoveButtonForContact: aContact on: html ] 
+	 tableData: [ self renderRemoveButtonForContact: aContact on: html ]]
 ]]]
-[[[	 	 
+[[[
 WAContactBook >> renderRemoveButtonForContact: aContact on: html
    html tbsButton
       beDanger;
@@ -480,17 +480,17 @@ Implementing buttons to add a new contact or edit an existing one is a bit more 
 
 
 !!!! Creating a new Component
-We know create a component to be able to edit a contact. This is typically such task that the use of a system like Magritte can avoid. 
+We know create a component to be able to edit a contact. This is typically such task that the use of a system like Magritte can avoid.
 Create a new subclass of ==WAComponent== which contains a ==contact== instance variable.
 
 [[[
 WAComponent subclass: #WAContact
-   instanceVariableNames: 'contact
+   instanceVariableNames: 'contact'
    classVariableNames: ''
    package: 'ContactBook'
 ]]]
 
-We define a class method ==editContact:== to set the corresponding contact. 
+We define a class method ==editContact:== to set the corresponding contact.
 
 [[[
 WAContact class >> editContact: aContact
@@ -502,8 +502,8 @@ WAContact class >> editContact: aContact
 This time we do not use lazy initialization but we initialize the object by specialising the method ==initialize==.
 [[[
 WAContact >> initialize
-	 super initialize. 
-	 contact := Contact new. 
+	 super initialize.
+	 contact := Contact new.
 ]]]
 
 [[[
@@ -521,18 +521,18 @@ We define a new method ==renderContentOn:== for the class ==WAContact==
 [[[
 WAContact >> renderContentOn: html
    html tbsContainer: [
-      html heading with: Contact Editing'.
+      html heading with: 'Contact Editing'.
       html tbsForm with: [
          self renderFieldsOn: html ] ]
 ]]]
 
-[[[	 
+[[[
 WAContact >> renderFieldsOn: html
     self renderFullnameFieldOn: html.
     self renderEmailFieldOn: html
 ]]]
 
-The method ==renderFullnameFieldOn:== and ==renderEmailFieldOn:== both render a label and an input field. 
+The method ==renderFullnameFieldOn:== and ==renderEmailFieldOn:== both render a label and an input field.
 
 !!!! Fields
 Here is the ==renderFullnameFieldOn:== method:
@@ -564,7 +564,7 @@ WAContact >> renderEmailFieldOn: html
       html emailInput
          tbsFormControl;
          placeholder: 'your@email.eu';
-         callback: [ :email | self contact email: email address ];
+         callback: [ :value | self contact email: value ];
          value: (self contact email ifNil: '') ]
 ]]]
 
@@ -583,7 +583,7 @@ WAContact >> renderContentOn: html
          self renderButtonsOn: html ] ].
 ]]]
 
-Then we define the corresponding methods as follows: 
+Then we define the corresponding methods as follows:
 
 [[[
 WAContact >> renderButtonsOn: html
@@ -604,7 +604,7 @@ WAContact >> renderSubmitButtonOn: html
 ]]]
 
 It is important to see that the callback of the submit button is using the message ==answer:==.
-This message is part of the ==call:== and ==answer:== protocol of Seaside. ==call:== schedules a component 
+This message is part of the ==call:== and ==answer:== protocol of Seaside. ==call:== schedules a component
 and ==answer:== unschedule it and return a value to the caller.
 
 [[[
@@ -615,12 +615,12 @@ WAContact >> renderCancelButtonOn: html
       with: 'Cancel'
 ]]]
 
-In the cancel button, we use ==answer: nil==, since there is no value returned. Still the component (here the editor) should be closed. 
+In the cancel button, we use ==answer: nil==, since there is no value returned. Still the component (here the editor) should be closed.
 
 
-!!! Adding the Add/Edit Buttons to the ContactBook 
+!!! Adding the Add/Edit Buttons to the ContactBook
 
-The last piece of the puzzle is the addition of the add and edit buttons on the contact book component. 
+The last piece of the puzzle is the addition of the add and edit buttons on the contact book component.
 
 !!!! Edit Button
 We start with the edit button, at the end of each contact row in the table:
@@ -634,8 +634,8 @@ WAContactBook >> renderContact: aContact on: html
          tableData: [ self renderPhotoOf: aContact on: html ];
          tableData: [ self renderButtonsForContact: aContact on: html ] ]
 ]]]
- 
-[[[ 
+
+[[[
 WAContactBook >> renderButtonsForContact: aContact on: html
    html tbsButtonGroup: [
          self
@@ -673,7 +673,7 @@ WAContactBook >> renderContentOn: html
 
 The method ==renderGlobalButtonsOn:== defines a simple button.
 
-[[[	 
+[[[
 WAContactBook >> renderGlobalButtonsOn: html
    html tbsButtonGroup: [
       html tbsButton
@@ -682,7 +682,7 @@ WAContactBook >> renderGlobalButtonsOn: html
          with: 'New contact' ]
 ]]]
 
-[[[	 
+[[[
 WAContactBook >> addContact
    (self call: WAContact new)
       ifNotNil: [ :contact | contactBook addContact: contact ]
@@ -695,9 +695,9 @@ You should now get the same result as in Figure *@fig:final*.
 !! About using Bootstrap tags
 @secbootstrapmixin
 
-Now as we mentioned before when using the Seaside tags ==tbs== we are promoting a bad practice. We did so because we did not want to spend time explain CSS and HTML. But you should really change your code. 
+Now as we mentioned before when using the Seaside tags ==tbs== we are promoting a bad practice. We did so because we did not want to spend time explain CSS and HTML. But you should really change your code.
 
-We are adding styling to the places where it should not be and we are breaking the idea that the code and its display should be separated. 
+We are adding styling to the places where it should not be and we are breaking the idea that the code and its display should be separated.
 You can read the following blog to get a deeper view on it:
 *http://ruby.bvision.com/blog/please-stop-embedding-bootstrap-classes-in-your-html*
 
@@ -741,14 +741,7 @@ During this tutorial we defined a simple model and two simple web views. We coul
 
 As you see the current functionality is rather limited, here is a list of possible extensions.
 
-- Add more information to describe a contact. For this we suggest that you use Magritte (Magritte is a framework to describe data and its Seaside extension defines automatically Seaside component). You can read the Magritte chapter in the book as well as the Magritte tutorial available at *https://github.com/SquareBracketAssociates/PharoInProgress*. With Magritte, the components such as our ==WAContact= are automatically generated.
-- Use Twitter mixin class tags instead of hardcoded brushes. 
-- Save and load contacts in an external format such as JSON or STON (STON is a Pharo object notation format. It is by default in Pharo 50).
+- Add more information to describe a contact. For this we suggest that you use Magritte (Magritte is a framework to describe data and its Seaside extension defines automatically Seaside component). You can read the Magritte chapter in the book as well as the Magritte tutorial available at *https://github.com/SquareBracketAssociates/PharoInProgress*. With Magritte, the components such as our ==WAContact== are automatically generated.
+- Use Twitter mixin class tags instead of hardcoded brushes.
+- Save and load contacts in an external format such as JSON or STON (STON is a Pharo object notation format. It is by default since Pharo 50).
 - Save the contacts in a MongoDB using the Voyage framework (Check the chapters available on *http://books.pharo.org*)
-- Deploy your application on *http://www.pharocloud.com* - It usually takes 3 min.
-
-% Local Variables:
-% compile-command: "cd .. && ./compile.sh Exercises/Exo-ContactManager.pillar"
-% End:
-
-%  LocalWords:  Gravatar

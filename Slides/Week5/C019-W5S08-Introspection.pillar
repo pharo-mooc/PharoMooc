@@ -7,20 +7,20 @@
 ${slide:title=What Definitions Say: Reflection}$
 
 ''Reflection is the ability of a program to manipulate as data something representing the state of the program during its own execution.''
-- ""Introspection"" is the ability for a program to ""observe"" and therefore ""reason"" about its own state.
-- ""Intercession"" is the ability for a program to ""modify"" its own execution state or alter its own interpretation or meaning.
+- ""Introspection"" is the ability of a program to ""observe"" and therefore ""reason"" about its own state.
+- ""Intercession"" is the ability of a program to ""modify"" its own execution state or alter its own interpretation or meaning.
 
 
 ${slide:title=What Definitions Say: Reification}$
 
 ""Reification"" is the process to transform implicit to explicit (objects)
-- i.e., getting the stack as an object
-- i.e., getting a class as an object
+- e.g., getting the stack as an object
+- e.g., getting a class as an object
 
 
 ${slide:title=Pharo is a Reflective System}$
 
-''A system having itself as application domain and that is causally connected with this domain can be qualified as a reflective system'' [Maes'87]
+''A system having itself as application domain and that is causally connected with this domain can be qualified as a reflective system'' [Pattie Maes, OOPSLA'87]
 
 - A reflective system has an internal representation of itself
 - A reflective system is able to act on itself with the ensurance that its representation will be causally connected (i.e. up to date)

@@ -21,17 +21,17 @@ ${slide:title='Strings'}$
 
 Delimited by =='==
 [[[
-'eclair au chocolat'	
+'eclair au chocolat'
 ]]]
 
 [[[
 'eclair au chocolat' size
 > 18
 ]]]
- 
+
 [[[
-Character space split: 'eclair au chocolat' 
-> an OrderedCollection('eclair' 'au' 'chocolat')	
+Character space split: 'eclair au chocolat'
+> an OrderedCollection('eclair' 'au' 'chocolat')
 ]]]
 
 ${slide:title=A String: a Collection of Characters}$
@@ -49,10 +49,10 @@ ${slide:title=Quote in Strings}$
 
 - To add a quote in a string with just type it twice
 [[[
-'L''eclair au chocolat' 
+'L''eclair au chocolat'
 ]]]
 
-- Pay attention there is only one element 
+- Pay attention there is only one element
 [[[
 'L''eclair au chocolat' at: 2
 > $'
@@ -111,7 +111,7 @@ Message comma ==#,== copies strings so multiple concatenations can generate usel
 - If this is worth, use a stream to avoid creating multiple intermediary strings
 [[[
 String streamContents: [ :s |
-   s 
+   s
      nextPutAll: 'Calvin';
      nextPutAll: ' & ';
      nextPutAll: 'Hobbes' ]
@@ -129,18 +129,18 @@ ${slide:title=Symbols}$
 ${slide:title=Symbols are Unique}$
 
 
-Two  symbols with the same representation points to the same object 
- 
+Two  symbols with the same representation points to the same object
+
 [[[
 #calvin == #calvin
-> true 
+> true
 ]]]
 
 Two strings with the same representation may be different objects depending on compiler optimisations
 
 ${slide:title=Symbols vs. Strings}$
 
-- A symbol is a read-only and unique object 
+- A symbol is a read-only and unique object
 - A string is a mutable object (for now)
 - Symbols are used as method selectors
 - Symbols are good candidates for identity based dictionaries (==IdentityDictionary==)

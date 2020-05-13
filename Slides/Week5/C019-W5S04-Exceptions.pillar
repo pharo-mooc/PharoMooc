@@ -92,7 +92,7 @@ testNameOfMonth
 
 ${slide:title=Kinds of Exceptions}$
 
-- ==Error==: all errors (subscript, message not understood, division by zero
+- ==Error==: all errors (subscript, message not understood, division by zero)
 - ==Halt==: to stop the execution (and get a debugger)
 - ==Notification==: non fatal exceptions (deprecation, warning, timedout)
 - ==UnhandledError==: when an error occurs and that it is ''not'' trapped
@@ -149,10 +149,10 @@ ${slide:title=Exception Sets}$
 
 Or
 [[[
-  | exceptionSets |
-  exceptionSets := ExceptionSet with: ZeroDivide with: Warning.
+  | exceptionSet |
+  exceptionSet := ExceptionSet with: ZeroDivide with: Warning.
   [do some work]
-      on: exceptionSets
+      on: exceptionSet
       do: [ :ex | what you want ]
 ]]]
 
@@ -197,7 +197,7 @@ ${slide:title=Handling Exception}$
 
 Just for your information ;)
 
-Within an handler ==[ aaa ] on: anExceptionClass do: [ anHandler ]==, we can:
+Within a handler ==[ aaa ] on: anExceptionClass do: [ anHandler ]==, we can:
 - ""Return"" an alternative result for the protected block (==return:==)
 - ""Retry"" the protected block or a different block (==retryUsing:==)
 - ""Resume"" the protected block at the failure point (==resume:==)
