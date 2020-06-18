@@ -9,7 +9,12 @@ En utilisant le server HTTP Zinc fournit avec Pharo récupérer le logo disponib
 
 !!! Solution
 [[[
-(ZnEasy getPng: 'http://pharo.org/files/pharo.png') asMorph openInWorld
+newLogo := (ZnEasy getPng: 'http://pharo.org/files/pharo.png') asMorph openInWorld
 ]]]
 
 +>file://figures/PharoLogo.png|width=80+
+
+Pour supprimer ce nouveau logo:
+[[[
+World removeMorph: newLogo
+]]]
