@@ -1,11 +1,28 @@
 {
-	"title":"Pharo Features (part)"
+	"title":"Pharo Features (part)",
+	"author":"S. Ducasse",
+	"slidesid":"A0"
 }
 
 
 ${slide:title=Outline}$
 
 Pharo benefits from an elegant design that enables a relatively simple implementation of many advanced programming techniques. 
+Thanks Pavel Krivanek for *http:/pharo.org/features*
+
+${columns}$
+
+${column:width=50}$
+
+-  
+- two 
+
+${column:width=50}$
+
+- three 
+- four
+
+${endColumns}$
 
 + >file://figures/LogoPharo.png|width=30+
 
@@ -57,10 +74,34 @@ ${slide:title=Fast resumable exceptions}$
 - Pharo provides advanced exceptions system that can do things like resuming from a raised exception with providing an alternative result so your program can recover from failures.
 - Their fast speed allows them to be used for clean information-flow mechanisms.
 
-${slide:title=Feels different and powerfull}$
+${slide:title=Feels different and powerful}$
 
 - http://www.pharo.org
 
 
+
+${slide:title=List}$
+
+- pure oo and software as objects
+- simple syntax
+- optional fusion Environment/Language
+- atomic object identity swapping
+- Fast resumable exception
+- Advanced run-time reflection
+- Closure with non local returns
+- LIve customizable object
+- run-time class and object migration
+- Advanced multi-platform JITing VM
+- Easy call stack and Continuations
+- Objects as methods
+- AST level code execution
+- Cusotmisable 
+- Traits
+- First class customizable variables
+- First class object layouts
+- Green threads
+- Customisable compiler
+- Moldable tools
+- Strong 
 
 
