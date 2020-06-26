@@ -128,14 +128,16 @@ count: anInteger
 - ==shouldBeImplemented== is just an exception so that the debugger stops again
 
 
-
-${slide:title=Same story}$
+${slide:title=Same story....}$
 
 + >file://figures/XTDD15.png|width=90+
 
 ${slide:title=Smart tools precompile methods}$
 
-+ >file://figures/XTDD16.png|width=90+
++ >file://figures/XTDD16.png|width=70+
+
+- A method with the same name than an attribute...
+- Probably an accessor
 
 ${slide:title=Test is green}$
 
@@ -143,12 +145,21 @@ ${slide:title=Test is green}$
 
 ${slide:title=One Cycle}$
 
-${slide:title=Output}$
+- Run all the tests
+- Ready to commit
+- New test
 
-- Better context
+${slide:title=Stepping back}$
+
+- Avoid guessing when coding
+- Much much better context 
+-- inspecting that specific instance state access
+-- talking to that specific object
 - Inspectable / interactable context
 - Tests are not a side effect artefacts but the driving force
 
+${slide:title=Protip from Smart/Clever Pharo developer}$
 
-
+- Get as fast as possible one object
+- Cristalize your scenario
 
