@@ -108,11 +108,6 @@ Take 5 min and write the definition of ==self== (==this== in Java).
 -- what does ==self== represent?
 -- how is a method looked up when a message is sent to ==self==?
 
-${slide:title=self/this}$
-
-- ==self== represents the receiver of the message
-- ==self== in Pharo, ==this== in Java
-- The method lookup starts in the class of the receiver
 
 ${slide:title=self Always Represents the Receiver}$
 
@@ -162,6 +157,13 @@ Evaluation of ==aB bar==
 #==foo== is found there and executed
 
 ${endColumns}$
+
+${slide:title=self/this}$
+
+- ==self== represents the receiver of the message
+- ==self== in Pharo, ==this== in Java
+- The method lookup starts in the class of the receiver
+
 
 ${slide:title=self Always Represents the Receiver}$
 
