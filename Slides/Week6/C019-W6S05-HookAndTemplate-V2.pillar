@@ -167,14 +167,17 @@ Bag >> postCopy
    contents := contents copy
 ]]]
 
+- ==contents== is a ==Dictionary==
+- ==postCopy== recursively invoke copy on dictionary
 
-${slide:title=postCopy: Deeper copy}$
+${slide:title=Dictionary >> #postCopy: Deeper copy}$
 
 [[[
 Dictionary >> postCopy
    "Must copy the associations, or later store will affect both the original and the copy"
-   array := array collect: [ :association |
-      association ifNotNil: [ association copy ] ]
+   array := array 
+               collect: [ :association |
+                          association ifNotNil: [ association copy ] ]
 ]]]
 
 ${slide:title=Conclusion}$
