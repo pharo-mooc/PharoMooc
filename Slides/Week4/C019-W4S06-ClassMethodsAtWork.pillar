@@ -41,7 +41,7 @@ Parser >> documentClasses
 Parser >> parse: line
    self documentClasses
       detect: [ :subclass |
-         (subclass canParse: aLine)
+         (subclass canParse: line)
             ifTrue: [ ^ subclass newFromLine: line ] ]
 ]]]
 
@@ -83,7 +83,7 @@ ${slide:title=Conclusion}$
 
 - Classes are objects and can be sent messages
 - Method lookup is exactly the same as for all objects:
--- go to the class of the receiver 
+-- go to the class of the receiver
 -- follow inheritance chain
 - More during the lecture ''Understanding Metaclasses''
 - Pharo makes it easy to iterate over subclasses

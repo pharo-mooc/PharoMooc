@@ -63,7 +63,7 @@ ln -s ${TINYBLOGEN} ${DEST}/TinyBlog-EN_Chapter3.pdf
 DEST=PharoMooc/Week4
 mkdir -p $DEST
 $CPMV $SRC/Slides/Week4/*.pdf $DEST
-# $CPMV $SRC/Slides/Week4/*.erratum $DEST
+$CPMV $SRC/Slides/Week4/*.erratum $DEST
 $CPMV $SRC/Exercises/Challenge2-Solution-EN.pdf $DEST
 $CPMV $SRC/Exercises/Challenge2-Solution-FR.pdf $DEST
 $CPMV $SRC/Exercises/Exo-Expressions-Rewriting-Solution.pdf $DEST

@@ -1,0 +1,17 @@
+
+Slide 05:
+
+    Parser >> parse: line
+        self documentClasses
+            detect: [ :subclass |
+                (subclass canParse: aLine)
+                    ifTrue: [ ^ subclass newFromLine: line ] ]
+
+    has been replaced by:
+
+    Parser >> parse: line
+        self documentClasses
+            detect: [ :subclass |
+                (subclass canParse: line)
+                    ifTrue: [ ^ subclass newFromLine: line ] ]
+
