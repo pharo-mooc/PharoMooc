@@ -35,3 +35,11 @@ Metacello new
    repository: 'github://LucFabresse/PharoMooc/src';
    load
 ```
+
+To upload videos
+
+
+```
+ssh mooc
+scp -r final mooc:/var/www/mooc/FinalLive-P8
+```
