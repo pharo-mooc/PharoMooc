@@ -41,9 +41,9 @@ ${slide:title=11 ??? 2 should give 5.5}$
 + >file://figures/Finder2.png|width=90+
 
 
-${slide:title=' '}$
+${slide:title=Customized object interaction/presentations}$
 
-Customized object interaction/presentations
+
 
 
 
@@ -52,9 +52,11 @@ ${slide:title=Inspecting Live a 3D object}$
 + >file://figures/cuboid.png|width=90+
 
 
-${slide:title=''}$
+${slide:title=The views of a file reference}$
 
-The views of a file reference
+- A file reference is just an id in a file system
+- Limited API
+- Quite simple and dry object
 
 
 ${slide:title=Looking at a  file reference}$
@@ -74,16 +76,19 @@ ${slide:title=But I have a file reference: a dull object}$
 
 ${slide:title=Quite boring object}$
 
+- The API is rather simple.
+
 + >file://figures/fileref4.png|width=90+
 
 
-${slide:title=What is this file ref? oh a png}$
+${slide:title=We can see the png :)}$
 
 + >file://figures/fileref5.png|width=90+
 
 
-${slide:title=well a png (contents)}$
+${slide:title=Looking inside that PNG file}$
 
+- May be we want to look inside
 + >file://figures/fileref6.png|width=90+
 
 
@@ -92,11 +97,11 @@ ${slide:title=But still a file reference!}$
 + >file://figures/fileref7.png|width=90+
 
 
-${slide:title=See! an archive.zip}$
+${slide:title=See! An Archive '.zip'}$
 
 + >file://figures/fileref8.png|width=90+
 
-
+Would be nice to see what is inside...
 
 ${slide:title=Kind of clear…}$
 
@@ -105,7 +110,194 @@ ${slide:title=Kind of clear…}$
 
 ${slide:title=An object can expose multiple interactive views!}$
 
+- You can use the best view for your task!
+- You can add views to your domain objects
+
 + >file://figures/fileref10.png|width=90+
+
+${slide:title=It is supra cool but it is not magic}$
+
+
+${slide:title=Implement a pane!}$
+
++ >file://figures/fileref11.png|width=90+
+
+
+
+
+${slide:title=More?}$
+
+${columns}$
+
+${column:width=40}$
+
+
+- Files are boring?
+- What about inside the system?
+
+${column:width=60}$
+
++ >file://figures/voyageaucentre.jpg|width=100+
+
+${endColumns}$
+
+
+
+${slide:title=A class is an object we can inspect}$
+
++ >file://figures/comp1.png|width=90+
+
+
+
+${slide:title=“A class has a method dictionary” they said… let us verify}$
+
++ >file://figures/comp2.png|width=90+
+
+
+
+${slide:title=Dissecting one method object}$
+
++ >file://figures/comp3-0.png|width=90+
+
+
+${slide:title=I do not want to be a compiler!}$
+
++ >file://figures/comp3-1.png|width=90+
+
+
+${slide:title=it looks like a method}$
+
++ >file://figures/comp4.png|width=90+
+
+
+${slide:title=Numbers are not that obscure}$
+
++ >file://figures/comp5.png|width=90+
+
+
+${slide:title=And mapping them to the good abstraction helps}$
+
++ >file://figures/comp6.png|width=90+
+
+
+${slide:title=Yes pushRcvr: 1 means the second field!}$
+
++ >file://figures/comp7.png|width=90+
+
+${slide:title=Pharo pro devs}$
+
+- Get productivity boost
+- Xtreme TDD 
+--write test, 
+--test fails and 
+--code in debugger
+
+${slide:title=Hot update on the fly customizable debugger}$
+
+- Hot code update
+- Recompile on the fly
+- Smart breakpoints (Pharo 90)
+- Scripting (Pharo 90)
+- Plugins
+
+${slide:title=Default}$
+
++ >file://figures/debugger1.png|width=110+
+
+
+${slide:title=With plugins}$
+
++ >file://figures/debugger2.png|width=110+
+
+${slide:title=Domain specific}$
+
++ >file://figures/debugger3.png|width=110+
+
+
+${slide:title=Visualisations}$
+
+The next level
+- Scripting your own interactive visualisations 
+- Roassal by A. Bergel at University of Chile at Santiaho
+- Simply gorgeous Excellent
+- check http://agilevisualisation.com
+
+${slide:title=A simple script}$
+
+${columns}$
+
+${column:width=70}$
+
+[[[
+b := RTMondrian new.
+b shape rectangle
+	withBorder;
+	width: [ :cls | cls numberOfVariables * 5 ];
+	height: [ :cls | cls numberOfMethods ].
+
+b nodes: Collection withAllSubclasses.
+b edges connectToAll: [ :cls | cls subclasses ].
+b layout tree.
+b normalizer
+	normalizeColorAsGray: [ :cls | 
+cls numberOfLinesOfCode ].
+b
+]]]
+
+${column:width=50}$
+
++ >file://figures/roassalsimple.png|width=150+
+
+${endColumns}$
+
+
+${slide:title=Execution of IA generating tests}$
+
++ >file://figures/roassaltestGen.png|width=90+
+
+
+${slide:title=Javascript analysis}$
+
++ >file://figures/roassalHunter.png|width=110+
+
+${slide:title=Android execution}$
+
++ >file://figures/roassalAndroid.png|width=90+
+
+${slide:title=HTTP traffic analysis by beta9}$
+
+*http://youtu.be/rIBbeMdFCys*
+
++ >file://figures/SvenLog.png|width=90+
+
+${slide:title=Probabilistic data structure by oscoco}$
+
+${columns}$
+
+${column:width=40}$
+
+- *https://github.com/osoco/PharoPDS*
+- Defined new data structures
+- And the analysis tools
+
+${column:width=60}$
+
++ >file://figures/tools-Datastructure.png|width=140+
+
+${endColumns}$
+
+${slide:title=Empowering is the right word}$
+
+- Moldable tools are powerful
+- Productivity boost
+- Tried to give you my feeling
+But “The idea of experience does not replace experience.” Alain
+
+
+
+${slide:title=An important meta question}$
+
+How to invent new things with the same tools than any body else?
 
 
 
