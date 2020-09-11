@@ -19,12 +19,16 @@ ${slide:title=Automated Tests are your Life Insurance}$
 - Our brain focuses on the last action
 - You write it once and you run it million times
 - Programming is modeling the world and the world is changing
+
+
+${slide:title=Automated Tests}$
+
 - Tests do not avoid breaking your system
 - But they show what you broke
 
 ${slide:title=Automated Tests Let Software Evolve}$
 
-- Tests make you **bold** in regards of changes
+- Tests make you ""bold"" in regards of changes
 - Tests lower the fear of breaking
 -- You can try and run the tests to get an idea
 -- You can explore... 
@@ -37,10 +41,10 @@ In an automated test, we
 - Check the results: Check that the set contains only one element
 
 
-${slide:title=Set TestCase}$
+${slide:title=Set TestCase in Pharo}$
 
 [[[
-TestCase subclass: # SetTestCase
+TestCase subclass: #SetTestCase
     ...
 ]]]
 
@@ -50,18 +54,35 @@ SetTestCase >> testAdd
   empty := Set new.   "Context"
   empty add: 5.   "Stimulus"
   empty add: 5.
-  self assert: empty size = 1.   "Check"
+  self assert: empty size equals: 1   "Check"
 
 SetTestCase run: #testAdd
 ]]]
 
+${slide:title=Set TestCase in Java}$
 
+[[[
+class  SetTestCase {
+    ...
+	}
+]]]
+
+[[[
+public void testAdd(){ 
+  Set empty = new Set(); //Context
+	
+  empty.add(5);  //Stimulus
+  empty.add(5);
+  
+  assertEquals(empty.size(), 1);   "Check"
+  }
+]]]
 
 ${slide:title=TDD is about the flow}$
 
-- Write test first! Yes
+Write test first! Yes
 
-'Whenever you are tempted to type something into a print statement or a debugger expression, write it as a test instead' - Martin Fowler
+"Whenever you are tempted to type something into a print statement or a debugger expression, write it as a test instead" - Martin Fowler
 
 ${slide:title=About the flow: Write your test}$
 
@@ -75,11 +96,23 @@ CounterTest >> testIncrement
 	self assert: c count equals: 12
 ]]]
 
+[[[
+@Test
+public void testIncrement(){
+	Counter c = new Count();
+	c.setCount(10);
+	c.increment();
+	c.increment();
+	assertEquals(c.getCount(), 12);
+} 
+]]]
+
 
 ${slide:title=About the flow: Run your test}$
 
 - It is red! 
 - Else you increase your test number
+- When you are lucky, use XTDD and enjoy coding in the debugger
 
 
 ${slide:title=About the flow: Make your test pass}$
