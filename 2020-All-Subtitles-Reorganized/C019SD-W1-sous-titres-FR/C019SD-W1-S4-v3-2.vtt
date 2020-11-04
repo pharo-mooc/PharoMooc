@@ -1,0 +1,492 @@
+WEBVTT
+
+00:00:00.300 --> 00:00:03.040 align:middle
+Alors, dans cette séquence, on
+va voir le modèle-objet de Pharo.
+
+00:00:03.240 --> 00:00:05.540 align:middle
+Donc, on va faire un survol
+de tout le modèle-objet pour
+
+00:00:05.740 --> 00:00:08.450 align:middle
+essayer de vous en montrer
+l'élégance et la simplicité.
+
+00:00:08.870 --> 00:00:11.000 align:middle
+Donc l'objectif, c'est
+vraiment de ne pas tout comprendre
+
+00:00:11.200 --> 00:00:12.840 align:middle
+cette fois-ci, puisqu'on
+reviendra sur la plupart de ces
+
+00:00:13.040 --> 00:00:15.880 align:middle
+notions dans les séquences qui vont
+suivre et les prochaines semaines.
+
+00:00:17.190 --> 00:00:20.400 align:middle
+Donc, en Pharo, il n'y a que
+des objets et des messages.
+
+00:00:20.610 --> 00:00:22.000 align:middle
+Donc, il va y avoir
+beaucoup d'objets.
+
+00:00:22.170 --> 00:00:24.940 align:middle
+Des objets pour représenter
+le curseur de la souris, les
+
+00:00:25.140 --> 00:00:28.210 align:middle
+booléens, les tableaux,
+les nombres, les chaînes de
+
+00:00:28.410 --> 00:00:31.060 align:middle
+caractères, les fenêtres,
+les scrollbars, ce que vous
+
+00:00:31.260 --> 00:00:34.430 align:middle
+voulez, voire même le
+compilateur, les objets du système,
+
+00:00:35.370 --> 00:00:38.190 align:middle
+que ce soit les sockets, les polices
+de caractères, les collections, etc.
+
+00:00:38.590 --> 00:00:41.340 align:middle
+Tout ça, ça sera des
+objets et ces objets-là, on va
+
+00:00:41.540 --> 00:00:43.570 align:middle
+pouvoir leur envoyer des
+messages. On va leur envoyer
+
+00:00:43.770 --> 00:00:45.570 align:middle
+différents types de
+messages. Il y en aura plein.
+
+00:00:45.770 --> 00:00:47.380 align:middle
+Par exemple à une
+collection, je pourrai lui envoyer
+
+00:00:47.580 --> 00:00:49.630 align:middle
+message le message size
+pour obtenir sa taille, le
+
+00:00:49.830 --> 00:00:51.500 align:middle
+message +, le message
+ot:put, le message do.
+
+00:00:51.700 --> 00:00:54.420 align:middle
+Donc, des objets et des messages.
+
+00:00:55.850 --> 00:00:59.140 align:middle
+Donc, les messages dénotent
+l'intention du programmeur,
+
+00:00:59.340 --> 00:01:01.320 align:middle
+quand j'envoie un message à
+un objet, je lui demande de
+
+00:01:01.520 --> 00:01:05.360 align:middle
+réaliser un traitement.
+Donc, c'est vraiment une demande
+
+00:01:05.560 --> 00:01:08.670 align:middle
+à l'objet qu'on fait. Et
+l'objet va décider de la méthode
+
+00:01:08.870 --> 00:01:10.510 align:middle
+à exécuter pour
+réaliser ces traitements.
+
+00:01:10.710 --> 00:01:11.470 align:middle
+Donc, c'est le comment.
+
+00:01:11.670 --> 00:01:15.310 align:middle
+Comment réaliser
+l'intention du programmeur en décidant
+
+00:01:15.530 --> 00:01:20.470 align:middle
+quelle méthode à exécuter.
+Donc ensuite, on a un autre
+
+00:01:20.670 --> 00:01:23.200 align:middle
+concept qui est le concept
+de closure, donc c'est les
+
+00:01:23.400 --> 00:01:26.650 align:middle
+fermetures lexicales, ce
+sont des blocks, des sortes de
+
+00:01:27.000 --> 00:01:28.830 align:middle
+méthodes anonymes en Pharo.
+
+00:01:29.530 --> 00:01:30.870 align:middle
+On appelle ça des blocks en Pharo.
+
+00:01:31.070 --> 00:01:33.640 align:middle
+C'est le vocabulaire important.
+
+00:01:33.840 --> 00:01:35.360 align:middle
+Donc, les blocks sont
+délimités par des crochets.
+
+00:01:35.560 --> 00:01:37.910 align:middle
+Par exemple, ici, vous avez un
+exemple: crochet ouvrant, crochet fermant.
+
+00:01:38.220 --> 00:01:40.150 align:middle
+Donc tout ça, c'est
+un block, d'accord?
+
+00:01:40.590 --> 00:01:44.210 align:middle
+Donc on verra, il faut
+considérer ça comme une méthode anonyme.
+
+00:01:46.280 --> 00:01:50.080 align:middle
+Donc, en Pharo, on a un modèle qui
+est très simple et très uniforme.
+
+00:01:50.700 --> 00:01:52.900 align:middle
+Tout est objet, tout
+est instance d'une classe.
+
+00:01:53.580 --> 00:01:55.790 align:middle
+Même les classes et les
+messages sont des objets
+
+00:01:56.000 --> 00:01:59.500 align:middle
+eux-mêmes, et tous les
+calculs se passent par envoi de
+
+00:01:59.700 --> 00:02:04.230 align:middle
+messages à des objets. Donc, on
+parle vraiment d'envoi de messages.
+
+00:02:04.680 --> 00:02:07.890 align:middle
+Donc, c'est le terme
+consacré, et pas d'exécution de
+
+00:02:08.090 --> 00:02:10.820 align:middle
+méthodes, puisque quand on
+envoie un message à un objet,
+
+00:02:11.730 --> 00:02:15.600 align:middle
+il y a un algorithme particulier
+qu'on appelle le method lookup.
+
+00:02:15.800 --> 00:02:19.490 align:middle
+Donc, c'est un algorithme qui va
+sélectionner la bonne méthode à exécuter.
+
+00:02:20.040 --> 00:02:23.660 align:middle
+Donc, les méthodes; en
+fait, elles sont virtuellement
+
+00:02:23.860 --> 00:02:27.890 align:middle
+liées, elles
+acceptent la liaison tardive.
+
+00:02:28.630 --> 00:02:30.930 align:middle
+Donc, j'envoie un message à un objet.
+
+00:02:31.460 --> 00:02:34.800 align:middle
+Et il y a le method lookup qui va
+sélectionner la bonne méthode à exécuter.
+
+00:02:35.000 --> 00:02:37.730 align:middle
+Donc, on reviendra là-dessus
+dans une séquence particulière.
+
+00:02:40.250 --> 00:02:43.480 align:middle
+Donc, le modèle-objet de
+Pharo est le suivant: les
+
+00:02:43.680 --> 00:02:45.440 align:middle
+variables d'instance sont protégées.
+
+00:02:45.640 --> 00:02:47.850 align:middle
+Donc, tous les objets ont
+des variables d'instance et
+
+00:02:48.050 --> 00:02:49.080 align:middle
+elles sont protégées,
+c'est-à-dire qu'elles ne sont
+
+00:02:49.280 --> 00:02:52.760 align:middle
+accessibles que par l'objet
+lui-même, ou alors depuis les
+
+00:02:52.960 --> 00:02:54.830 align:middle
+sous-classes de cet objet.
+
+00:02:56.350 --> 00:02:59.000 align:middle
+Les méthodes sont
+publiques et virtuellement liées.
+
+00:02:59.210 --> 00:03:00.200 align:middle
+Donc, toutes les
+méthodes sont publiques.
+
+00:03:00.400 --> 00:03:02.000 align:middle
+Il n'y a pas de
+mot-clé public en Pharo.
+
+00:03:02.910 --> 00:03:05.540 align:middle
+Et puis Pharo accepte
+l'héritage simple entre classes.
+
+00:03:05.840 --> 00:03:07.800 align:middle
+Donc, une classe ne peut
+avoir qu'une seule super-classe.
+
+00:03:09.680 --> 00:03:12.950 align:middle
+Donc, voici un exemple de
+code qui est le produit en
+
+00:03:13.150 --> 00:03:16.360 align:middle
+croix de deux points: donc
+on a un point 1 et un point
+
+00:03:16.560 --> 00:03:20.900 align:middle
+2, donc je vais multiplier
+le champ X du point 1 par le
+
+00:03:21.100 --> 00:03:23.840 align:middle
+choix Y du point 2 et le
+soustraire à la multiplication
+
+00:03:24.170 --> 00:03:28.290 align:middle
+du champ Y du point 1
+et le champ X du point 2.
+
+00:03:28.490 --> 00:03:32.480 align:middle
+Donc, c'est un exemple de
+calcul qu'on peut réaliser en Pharo.
+
+00:03:34.690 --> 00:03:36.900 align:middle
+Donc, pour créer des
+objets en fait, on va avoir des
+
+00:03:37.100 --> 00:03:40.250 align:middle
+messages particuliers, donc
+par exemple ici, si j'envoie
+
+00:03:40.450 --> 00:03:44.930 align:middle
+le message @ à
+l'entier 10 et que je passe en
+
+00:03:45.130 --> 00:03:48.540 align:middle
+paramètre l'entier 20, ça va
+me créer un point, donc une
+
+00:03:48.740 --> 00:03:49.500 align:middle
+instance de la classe point.
+
+00:03:50.540 --> 00:03:54.410 align:middle
+Donc ici, le nom du message,
+c'est bien @, le receveur du
+
+00:03:54.610 --> 00:03:57.110 align:middle
+message, l'entier qui a
+reçu le message, c'est l'entier
+
+00:03:57.310 --> 00:04:00.540 align:middle
+10, c'était celui qui était
+avant le nom du message, et
+
+00:04:00.740 --> 00:04:03.020 align:middle
+puis l'argument, c'était 20, celui
+qui était après le nom du message.
+
+00:04:04.180 --> 00:04:07.090 align:middle
+Donc, un autre exemple, par
+exemple ici, je vais créer
+
+00:04:07.290 --> 00:04:09.290 align:middle
+une chaîne de caractères,
+on voit le résultat ici c'est
+
+00:04:09.490 --> 00:04:11.900 align:middle
+une chaîne de caractères.
+Et comment cette chaîne de
+
+00:04:12.100 --> 00:04:13.710 align:middle
+caractères a été obtenue ?
+
+00:04:13.910 --> 00:04:16.230 align:middle
+On a utilisé une première
+chaîne de caractères, ici,'Pharo'.
+
+00:04:16.750 --> 00:04:19.040 align:middle
+On lui a envoyé le message, virgule.
+
+00:04:20.030 --> 00:04:23.030 align:middle
+En paramètre de ce
+message, on avait la chaîne de
+
+00:04:23.230 --> 00:04:25.710 align:middle
+caractères'is
+Cool'd'accord qui est ici.
+
+00:04:28.300 --> 00:04:31.180 align:middle
+Et la sémantique du
+message virgule, c'est la
+
+00:04:31.380 --> 00:04:33.000 align:middle
+concaténation de chaines,
+donc les deux chaînes ont été
+
+00:04:33.200 --> 00:04:35.350 align:middle
+collées pour en
+produire une seule concaténée.
+
+00:04:37.120 --> 00:04:40.150 align:middle
+Donc on peut créer des
+objets en instanciant une classe
+
+00:04:40.350 --> 00:04:42.250 align:middle
+directement grâce au
+message new par exemple.
+
+00:04:42.510 --> 00:04:44.580 align:middle
+Donc, si j'ai une classe
+Monster, j'envoie le message
+
+00:04:44.780 --> 00:04:48.460 align:middle
+new, j'obtiens bien une instance de la
+ classe monster donc un objet monstre.
+
+00:04:49.210 --> 00:04:52.260 align:middle
+Je peux créer une instance
+de la classe tableau, Array,
+
+00:04:52.890 --> 00:04:55.690 align:middle
+en spécifiant l'objet new
+et en passant un paramètre.
+
+00:04:55.890 --> 00:04:58.470 align:middle
+Pour passer un paramètre,
+c'est deux points, et puis je
+
+00:04:58.670 --> 00:05:01.430 align:middle
+passe l'entier 6 et j'obtiens
+bien un tableau de taille 6.
+
+00:05:03.320 --> 00:05:05.600 align:middle
+Donc, on peut avoir des
+types de message particulier pour
+
+00:05:05.800 --> 00:05:08.300 align:middle
+créer des objets et je peux
+définir mes propres messages
+
+00:05:08.500 --> 00:05:10.500 align:middle
+sur mes classes
+typiquement, je peux créer une classe
+
+00:05:10.700 --> 00:05:13.150 align:middle
+Tamagotchi avec une
+méthode withHunger.
+
+00:05:16.040 --> 00:05:18.240 align:middle
+Cette méthode-là, je vais
+lui passer l'entier 10, ça
+
+00:05:18.440 --> 00:05:21.170 align:middle
+permet de créer une
+instance de la classe Tamagotchi en
+
+00:05:21.370 --> 00:05:24.640 align:middle
+les passant en
+paramètres. Donc c'est vraiment des
+
+00:05:24.840 --> 00:05:27.810 align:middle
+messages pour spécialiser
+pour la création d'objets.
+
+00:05:29.000 --> 00:05:32.290 align:middle
+Donc, ce qu'on a vu dans
+cette séquence, c'était un
+
+00:05:32.490 --> 00:05:34.190 align:middle
+survol du modèle objet de Pharo.
+
+00:05:34.390 --> 00:05:35.530 align:middle
+L'objectif, ce n'était
+pas de tout comprendre.
+
+00:05:35.730 --> 00:05:37.660 align:middle
+On reviendra sur ces notions
+dans les prochaines séquences.
+
+00:05:38.120 --> 00:05:40.410 align:middle
+Mais ce qu'il est important
+de retenir, c'est qu'il n'y a
+
+00:05:40.610 --> 00:05:41.650 align:middle
+pas de constructeur en Pharo.
+
+00:05:42.010 --> 00:05:43.290 align:middle
+Il n'y a pas de méthode statique.
+
+00:05:43.490 --> 00:05:44.470 align:middle
+Il n'y a pas de déclaration type.
+
+00:05:44.720 --> 00:05:45.600 align:middle
+Il n'y a pas d'interface.
+
+00:05:45.800 --> 00:05:48.600 align:middle
+Il n'y a pas de package,
+de private, de protected.
+
+00:05:48.800 --> 00:05:51.190 align:middle
+Tous les modifieurs que l'on
+rencontre dans les langages AEG.
+
+00:05:51.870 --> 00:05:54.630 align:middle
+Il n'y a pas de type
+paramétré, il n'y a pas de boxing,
+
+00:05:54.830 --> 00:05:58.540 align:middle
+unboxing et vous verrez que c'est
+pourtant un langage extrêmement puissant.
+
+00:06:00.840 --> 00:06:02.660 align:middle
+Donc, en Pharo, tout est objet.
+
+00:06:02.860 --> 00:06:06.480 align:middle
+Tous les calculs se passent
+par envoi de messages à des
+
+00:06:06.680 --> 00:06:11.200 align:middle
+objets, donc les
+méthodes acceptent la liaison
+
+00:06:11.400 --> 00:06:13.460 align:middle
+tardive, d'accord. Donc,
+c'est-à-dire qu'il y a un
+
+00:06:13.660 --> 00:06:15.050 align:middle
+algorithme qu'on appelle
+le method lookup qui va
+
+00:06:15.250 --> 00:06:18.150 align:middle
+sélectionner la bonne méthode à
+exécuter quand un objet reçoit un message.
+
+00:06:19.030 --> 00:06:22.130 align:middle
+Il y a la notion de blocks
+qui sont des méthodes anonymes.
+
+00:06:22.900 --> 00:06:24.700 align:middle
+On verra que c'est
+extrêmement important en Pharo.
+
+00:06:25.230 --> 00:06:29.580 align:middle
+Et puis, on peut envoyer des
+messages particuliers à des
+
+00:06:29.780 --> 00:06:31.050 align:middle
+ classes pour créer des objets.
+

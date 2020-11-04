@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W5-S8</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:00:10" end="00:00:03:14" region="bottom">Hello. In this sequence<br/>we'll be looking at Reflection,</p>
+            <p xml:id="p2" begin="00:00:03:18" end="00:00:08:16" region="bottom">the capacity for Introspection<br/>in Pharo and why it's useful.</p>
+            <p xml:id="p3" begin="00:00:09:15" end="00:00:11:22" region="bottom">A reflective system,</p>
+            <p xml:id="p4" begin="00:00:12:01" end="00:00:15:24" region="bottom">reflection is divided<br/>into 2 major families,</p>
+            <p xml:id="p5" begin="00:00:16:03" end="00:00:18:00" region="bottom">Introspection</p>
+            <p xml:id="p6" begin="00:00:18:04" end="00:00:21:06" region="bottom">is a program's ability<br/>to observe its own state,</p>
+            <p xml:id="p7" begin="00:00:21:10" end="00:00:25:22" region="bottom">Intercession is a program's ability<br/>to modify itself.</p>
+            <p xml:id="p8" begin="00:00:26:01" end="00:00:29:01" region="bottom">To modify its own state<br/>or interpretation.</p>
+            <p xml:id="p9" begin="00:00:30:16" end="00:00:34:14" region="bottom">Reification is a concept that consists</p>
+            <p xml:id="p10" begin="00:00:34:18" end="00:00:39:19" region="bottom">of making explicit (objects) things<br/>that are normally implicit.</p>
+            <p xml:id="p11" begin="00:00:39:23" end="00:00:43:23" region="bottom">For example, the execution stack</p>
+            <p xml:id="p12" begin="00:00:44:02" end="00:00:49:10" region="bottom">in Pharo is explicit,<br/>but can be got as a classic object.</p>
+            <p xml:id="p13" begin="00:00:49:23" end="00:00:55:07" region="bottom">More classically, a class in Pharo<br/>is a totally classic object.</p>
+            <p xml:id="p14" begin="00:00:55:12" end="00:00:58:24" region="bottom">In other languages,<br/>classes aren't objects.</p>
+            <p xml:id="p15" begin="00:01:00:01" end="00:01:02:04" region="bottom">A reflective system, as I said,</p>
+            <p xml:id="p16" begin="00:01:02:08" end="00:01:06:15" region="bottom">has its own representation of itself.</p>
+            <p xml:id="p17" begin="00:01:06:19" end="00:01:09:15" region="bottom">It's capable of representing itself,</p>
+            <p xml:id="p18" begin="00:01:09:19" end="00:01:14:21" region="bottom">and it can act on this representation<br/>to modify itself,</p>
+            <p xml:id="p19" begin="00:01:15:00" end="00:01:19:15" region="bottom">and when it modifies itself<br/>it changes its state and representation.</p>
+            <p xml:id="p20" begin="00:01:19:19" end="00:01:22:15" region="bottom">We call it a "causal connection"</p>
+            <p xml:id="p21" begin="00:01:22:19" end="00:01:25:13" region="bottom">between its representation<br/>and its state.</p>
+            <p xml:id="p22" begin="00:01:25:17" end="00:01:27:18" region="bottom">If we change the state,</p>
+            <p xml:id="p23" begin="00:01:27:22" end="00:01:32:13" region="bottom">the system representation changes<br/>as well as the state of the system.</p>
+            <p xml:id="p24" begin="00:01:33:00" end="00:01:37:02" region="bottom">Why is this interesting?<br/>It's interesting because we'll use</p>
+            <p xml:id="p25" begin="00:01:37:12" end="00:01:41:04" region="bottom">this introspection and intercession</p>
+            <p xml:id="p26" begin="00:01:41:08" end="00:01:43:06" region="bottom">to look inside objects.</p>
+            <p xml:id="p27" begin="00:01:43:10" end="00:01:48:20" region="bottom">I'm defining a collection,<br/>which I make an "OrderedCollection"</p>
+            <p xml:id="p28" begin="00:01:49:17" end="00:01:54:17" region="bottom">then I'll use the Pharo Inspector,<br/>which is a tool,</p>
+            <p xml:id="p29" begin="00:01:54:21" end="00:01:57:24" region="bottom">which can look inside this object.</p>
+            <p xml:id="p30" begin="00:01:58:03" end="00:02:02:05" region="bottom">It's an instance object<br/>of the OrderedCollection class,</p>
+            <p xml:id="p31" begin="00:02:02:09" end="00:02:05:21" region="bottom">as we see here,<br/>it has instance variables,</p>
+            <p xml:id="p32" begin="00:02:06:00" end="00:02:07:18" region="bottom">"first index", "last index",</p>
+            <p xml:id="p33" begin="00:02:07:22" end="00:02:10:15" region="bottom">we have the values of this<br/>object's instance variables</p>
+            <p xml:id="p34" begin="00:02:10:19" end="00:02:15:10" region="bottom">so 1, 12 and then<br/>an array of 12 elements, OK?</p>
+            <p xml:id="p35" begin="00:02:15:14" end="00:02:19:10" region="bottom">We might wonder how<br/>this Inspector tool</p>
+            <p xml:id="p36" begin="00:02:19:14" end="00:02:22:00" region="bottom">is able to look inside objects.</p>
+            <p xml:id="p37" begin="00:02:22:04" end="00:02:25:03" region="bottom">How can it see<br/>the internal state of objects?</p>
+            <p xml:id="p38" begin="00:02:26:15" end="00:02:31:04" region="bottom">It uses introspection methods<br/>to look inside the objects,</p>
+            <p xml:id="p39" begin="00:02:31:08" end="00:02:34:09" region="bottom">There are lots of them,<br/>defined as "objects".</p>
+            <p xml:id="p40" begin="00:02:34:13" end="00:02:37:20" region="bottom">So "instVarAt" allows us to see</p>
+            <p xml:id="p41" begin="00:02:37:24" end="00:02:40:24" region="bottom">an instance invariable<br/>according to its number.</p>
+            <p xml:id="p42" begin="00:02:41:03" end="00:02:44:12" region="bottom">I'll see instance variable<br/>number 1 of this object.</p>
+            <p xml:id="p43" begin="00:02:44:16" end="00:02:49:15" region="bottom">I can modify instance variable number 1<br/>of this object by setting a new value,</p>
+            <p xml:id="p44" begin="00:02:49:19" end="00:02:52:04" region="bottom">or I can access an instance<br/>variable by its name,</p>
+            <p xml:id="p45" begin="00:02:52:08" end="00:02:56:00" region="bottom">or change it by its name,<br/>"instVarNamed put". OK?</p>
+            <p xml:id="p46" begin="00:02:58:08" end="00:03:01:04" region="bottom">Here are some examples.<br/>Typically we create a point,</p>
+            <p xml:id="p47" begin="00:03:01:08" end="00:03:04:22" region="bottom">and then we do...<br/>the point is 10@3</p>
+            <p xml:id="p48" begin="00:03:05:01" end="00:03:07:09" region="bottom">instVarNamed: 'x'.</p>
+            <p xml:id="p49" begin="00:03:07:13" end="00:03:11:19" region="bottom">I'll get the value of the instance<br/>variable called 'x' of this point,</p>
+            <p xml:id="p50" begin="00:03:11:23" end="00:03:14:02" region="bottom">which gives me 10.</p>
+            <p xml:id="p51" begin="00:03:14:06" end="00:03:17:24" region="bottom">Then "instVarNamed: 'x' put:33"</p>
+            <p xml:id="p52" begin="00:03:18:03" end="00:03:21:21" region="bottom">I've changed the value of<br/>the instance variable 'x' of this point.</p>
+            <p xml:id="p53" begin="00:03:22:00" end="00:03:25:17" region="bottom">It's gone from 10 to 33.</p>
+            <p xml:id="p54" begin="00:03:25:21" end="00:03:30:02" region="bottom">I've been able to change<br/>the inner state of an object,</p>
+            <p xml:id="p55" begin="00:03:30:06" end="00:03:34:03" region="bottom">by using introspection and intercession,</p>
+            <p xml:id="p56" begin="00:03:34:07" end="00:03:38:05" region="bottom">particularly intercession,<br/>"instVarNamed put". OK?</p>
+            <p xml:id="p57" begin="00:03:38:09" end="00:03:40:20" region="bottom">The main point is that<br/>we've violated encapsulation.</p>
+            <p xml:id="p58" begin="00:03:40:24" end="00:03:45:14" region="bottom">An external object has modified<br/>this object, without being internal,</p>
+            <p xml:id="p59" begin="00:03:45:18" end="00:03:49:15" region="bottom">so it violates encapsulation<br/>but it's extremely useful</p>
+            <p xml:id="p60" begin="00:03:49:19" end="00:03:52:24" region="bottom">when building tools<br/>and during development.</p>
+            <p xml:id="p61" begin="00:03:53:03" end="00:03:56:21" region="bottom">It's not to be used in the normal<br/>code of an application,</p>
+            <p xml:id="p62" begin="00:03:57:00" end="00:04:00:04" region="bottom">but it's extremely powerful<br/>for building generic tools,</p>
+            <p xml:id="p63" begin="00:04:00:08" end="00:04:02:08" region="bottom">typically code inspectors.</p>
+            <p xml:id="p64" begin="00:04:03:17" end="00:04:07:09" region="bottom">I'll give you another example<br/>of introspection, the class method,</p>
+            <p xml:id="p65" begin="00:04:07:13" end="00:04:11:06" region="bottom">for getting the class of an object.<br/>It's defined in "Object&gt;&gt;class".</p>
+            <p xml:id="p66" begin="00:04:11:10" end="00:04:14:19" region="bottom">I ask this string its class,<br/>it gives me the class string,</p>
+            <p xml:id="p67" begin="00:04:14:23" end="00:04:17:22" region="bottom">this point what is its class,<br/>the class point,</p>
+            <p xml:id="p68" begin="00:04:18:01" end="00:04:21:15" region="bottom">"Smalltalk class",<br/>I can ask the class of the class class.</p>
+            <p xml:id="p69" begin="00:04:21:19" end="00:04:23:21" region="bottom">etcetera, then I add class class...</p>
+            <p xml:id="p70" begin="00:04:24:00" end="00:04:26:14" region="bottom">Basically, I can query the system</p>
+            <p xml:id="p71" begin="00:04:26:18" end="00:04:30:22" region="bottom">by sending the message "class"<br/>to objects to discover their class.</p>
+            <p xml:id="p72" begin="00:04:31:08" end="00:04:34:01" region="bottom">There are many methods<br/>for querying the system.</p>
+            <p xml:id="p73" begin="00:04:34:05" end="00:04:38:09" region="bottom">Here, I take "OrderedCollection"<br/>and send it lots of query messages.</p>
+            <p xml:id="p74" begin="00:04:38:13" end="00:04:41:05" region="bottom">I'll get all of its superclasses,</p>
+            <p xml:id="p75" begin="00:04:41:09" end="00:04:45:13" region="bottom">all of its selectors,<br/>the name of its instance variables,</p>
+            <p xml:id="p76" begin="00:04:45:17" end="00:04:50:17" region="bottom">all of the selectors,<br/>the name of its instance variables,</p>
+            <p xml:id="p77" begin="00:04:50:21" end="00:04:54:03" region="bottom">all of its subclasses, etc...</p>
+            <p xml:id="p78" begin="00:04:54:07" end="00:04:56:04" region="bottom">And all of its lines of code.</p>
+            <p xml:id="p79" begin="00:04:57:08" end="00:05:00:23" region="bottom">All of this allows us to build<br/>top level tools,</p>
+            <p xml:id="p80" begin="00:05:01:02" end="00:05:04:21" region="bottom">such as the navigation system here.</p>
+            <p xml:id="p81" begin="00:05:05:00" end="00:05:09:15" region="bottom">This navigation system lets us<br/>show or browse the system.</p>
+            <p xml:id="p82" begin="00:05:09:19" end="00:05:14:09" region="bottom">For example,<br/>I can see all the classes</p>
+            <p xml:id="p83" begin="00:05:15:11" end="00:05:18:22" region="bottom">that implement the method "#,".</p>
+            <p xml:id="p84" begin="00:05:19:01" end="00:05:21:18" region="bottom">Here we've a window that will open.</p>
+            <p xml:id="p85" begin="00:05:21:22" end="00:05:24:15" region="bottom">We'll see all the implementors of #,</p>
+            <p xml:id="p86" begin="00:05:24:19" end="00:05:29:05" region="bottom">so the class "AbstractFileReference"<br/>implements the method "#,".</p>
+            <p xml:id="p87" begin="00:05:29:09" end="00:05:32:07" region="bottom">I've a list of all the classes<br/>implemented by this method.</p>
+            <p xml:id="p88" begin="00:05:33:22" end="00:05:37:13" region="bottom">Another example,<br/>we'd like to implement</p>
+            <p xml:id="p89" begin="00:05:38:07" end="00:05:41:06" region="bottom">a menu or a button.</p>
+            <p xml:id="p90" begin="00:05:41:10" end="00:05:45:13" region="bottom">By clicking on it, we want to send<br/>a message to the object behind it,</p>
+            <p xml:id="p91" begin="00:05:45:17" end="00:05:48:17" region="bottom">according to the button's name,<br/>for example.</p>
+            <p xml:id="p92" begin="00:05:48:21" end="00:05:53:19" region="bottom">How do I turn a string into a message<br/>to send to an object?</p>
+            <p xml:id="p93" begin="00:05:54:14" end="00:05:59:12" region="bottom">I've an intercession method for that.<br/>"Perform" defined under "object".</p>
+            <p xml:id="p94" begin="00:05:59:16" end="00:06:03:08" region="bottom">I pass it a symbol,<br/>the name of a message to execute,</p>
+            <p xml:id="p95" begin="00:06:03:12" end="00:06:06:09" region="bottom">and it will send this message<br/>to the object in question.</p>
+            <p xml:id="p96" begin="00:06:06:13" end="00:06:10:14" region="bottom">I've a 2nd kind of message,<br/>"perform with".</p>
+            <p xml:id="p97" begin="00:06:10:18" end="00:06:14:24" region="bottom">I can give the name of the symbol,<br/>the name of the method to execute,</p>
+            <p xml:id="p98" begin="00:06:15:03" end="00:06:16:20" region="bottom">and then pass a list of arguments.</p>
+            <p xml:id="p99" begin="00:06:16:24" end="00:06:19:10" region="bottom">An example, if I do "5 factorial"</p>
+            <p xml:id="p100" begin="00:06:19:14" end="00:06:23:07" region="bottom">sending a classic message,<br/>and send the reflective message,</p>
+            <p xml:id="p101" begin="00:06:23:11" end="00:06:28:24" region="bottom">its "5 perform # factorial"<br/>that's a symbol which means,</p>
+            <p xml:id="p102" begin="00:06:29:07" end="00:06:34:17" region="bottom">"Object 5, please execute<br/>or receive the message factorial".</p>
+            <p xml:id="p103" begin="00:06:34:22" end="00:06:39:15" region="bottom">The normal lookup is applied<br/>and these two forms are the same.</p>
+            <p xml:id="p104" begin="00:06:40:06" end="00:06:41:23" region="bottom">Here's another example.</p>
+            <p xml:id="p105" begin="00:06:42:03" end="00:06:44:12" region="bottom">Here we have a code inspector</p>
+            <p xml:id="p106" begin="00:06:44:16" end="00:06:49:15" region="bottom">"Ordered collection", we can see inside<br/>the class "Ordered Collection".</p>
+            <p xml:id="p107" begin="00:06:49:19" end="00:06:54:12" region="bottom">This class contains attributes,</p>
+            <p xml:id="p108" begin="00:06:54:16" end="00:06:57:00" region="bottom">instance variables,<br/>for example "methodDict".</p>
+            <p xml:id="p109" begin="00:06:57:04" end="00:07:01:17" region="bottom">In "methodDict" we see<br/>that the class "OrderedCollection"</p>
+            <p xml:id="p110" begin="00:07:01:21" end="00:07:05:24" region="bottom">comes from "Behaviour"<br/>so it has a "methodDict' here,</p>
+            <p xml:id="p111" begin="00:07:06:03" end="00:07:10:09" region="bottom">an instance of "MethodDictionary"<br/>containing "CompiledMethod".</p>
+            <p xml:id="p112" begin="00:07:10:13" end="00:07:14:09" region="bottom">So we can see<br/>this method dictionary contains</p>
+            <p xml:id="p113" begin="00:07:14:13" end="00:07:17:09" region="bottom">a compiled method here, etc...</p>
+            <p xml:id="p114" begin="00:07:17:13" end="00:07:20:09" region="bottom">another compiled method...<br/>Lots of compiled methods.</p>
+            <p xml:id="p115" begin="00:07:20:21" end="00:07:25:12" region="bottom">We'll be able to ask each<br/>of these compiled methods</p>
+            <p xml:id="p116" begin="00:07:25:23" end="00:07:28:07" region="bottom">for their source code.<br/>If I do "self getSource"</p>
+            <p xml:id="p117" begin="00:07:28:11" end="00:07:30:15" region="bottom">I'll get the source code<br/>of the compiled method.</p>
+            <p xml:id="p118" begin="00:07:30:22" end="00:07:32:05" region="bottom">But we can go further.</p>
+            <p xml:id="p119" begin="00:07:32:10" end="00:07:35:20" region="bottom">A compiled method can be asked<br/>to execute itself directly</p>
+            <p xml:id="p120" begin="00:07:35:24" end="00:07:39:05" region="bottom">with the message,<br/>"valueWithReceiver:arguments".</p>
+            <p xml:id="p121" begin="00:07:39:09" end="00:07:42:05" region="bottom">But watch out!<br/>If I do that, there's no lookup.</p>
+            <p xml:id="p122" begin="00:07:42:09" end="00:07:45:23" region="bottom">Seeing as I already have<br/>a compiled method,</p>
+            <p xml:id="p123" begin="00:07:46:02" end="00:07:48:15" region="bottom">it executes itself directly<br/>without a message.</p>
+            <p xml:id="p124" begin="00:07:48:19" end="00:07:53:13" region="bottom">Here I'll ask the integer class<br/>to get its compiled method "factorial",</p>
+            <p xml:id="p125" begin="00:07:53:17" end="00:07:56:06" region="bottom">which I get from the<br/>class compiled method.</p>
+            <p xml:id="p126" begin="00:07:56:10" end="00:07:59:08" region="bottom">I send it the message,<br/>"valueWithReceiver:arguments".</p>
+            <p xml:id="p127" begin="00:07:59:12" end="00:08:03:05" region="bottom">I pass it the arguments,<br/>the receiver will be 5,</p>
+            <p xml:id="p128" begin="00:08:03:09" end="00:08:06:08" region="bottom">the arguments will be (),<br/>because it's a unary message,</p>
+            <p xml:id="p129" begin="00:08:06:12" end="00:08:08:20" region="bottom">and we'll get the result.</p>
+            <p xml:id="p130" begin="00:08:09:19" end="00:08:14:22" region="bottom">It triggers execution of the<br/>compiled method without lookup.</p>
+            <p xml:id="p131" begin="00:08:15:06" end="00:08:18:09" region="bottom">So to summarize,<br/>reflection is extremely powerful.</p>
+            <p xml:id="p132" begin="00:08:18:14" end="00:08:22:09" region="bottom">We've seen it's something<br/>that allows us to introspect</p>
+            <p xml:id="p133" begin="00:08:22:21" end="00:08:25:06" region="bottom">the whole system<br/>because it represents it</p>
+            <p xml:id="p134" begin="00:08:25:10" end="00:08:26:22" region="bottom">in itself as an object,</p>
+            <p xml:id="p135" begin="00:08:27:01" end="00:08:29:11" region="bottom">but also to modify<br/>the state of the system.</p>
+            <p xml:id="p136" begin="00:08:29:15" end="00:08:33:06" region="bottom">It lets us build tools<br/>in a generic way in all objects.</p>
+            <p xml:id="p137" begin="00:08:33:24" end="00:08:36:10" region="bottom">So you can really talk to objects</p>
+            <p xml:id="p138" begin="00:08:36:14" end="00:08:40:00" region="bottom">with a protocol that's structurally<br/>the same for all objects.</p>
+            <p xml:id="p139" begin="00:08:40:04" end="00:08:43:20" region="bottom">But watch out!<br/>It violates encapsulation.</p>
+            <p xml:id="p140" begin="00:08:43:24" end="00:08:48:02" region="bottom">It isn't used in operational code,<br/>but for tool building.</p>
+            <p xml:id="p141" begin="00:08:48:06" end="00:08:52:21" region="bottom">It facilitates the writing<br/>of code inspectors as we saw,</p>
+            <p xml:id="p142" begin="00:08:53:00" end="00:08:56:14" region="bottom">and you can see how<br/>it's implemented in Pharo.</p>
+        </div>
+    </body>
+</tt>

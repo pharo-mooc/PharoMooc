@@ -1,0 +1,296 @@
+1
+00:00:01,080 --> 00:00:03,400
+In this video,
+I'd like to show you how an
+
+2
+00:00:03,400 --> 00:00:06,950
+object can define tabs displayed
+in the inspector.
+
+3
+00:00:08,430 --> 00:00:10,280
+How will we see that?
+
+4
+00:00:10,580 --> 00:00:12,240
+We're going to use Spotter to do this.
+
+5
+00:00:14,410 --> 00:00:18,240
+In Spotter I remember
+that I search for
+
+6
+00:00:18,240 --> 00:00:22,910
+a #pragma, a method annotation,
+beginning with gt.
+
+7
+00:00:22,910 --> 00:00:27,440
+I know there is "inspector" inside
+so I'm going to look at this.
+
+8
+00:00:30,190 --> 00:00:32,040
+In my inspector I can see there
+are #Pragmas and
+
+9
+00:00:32,040 --> 00:00:34,080
+#Senders, I keep the
+#Pragma.
+
+10
+00:00:35,760 --> 00:00:39,250
+Now I can look for instance at
+
+11
+00:00:39,250 --> 00:00:41,210
+Morph's one.
+
+12
+00:00:41,280 --> 00:00:43,180
+We open the code.
+
+13
+00:00:43,180 --> 00:00:47,450
+This is the one corresponding to..
+You remember, if I do
+
+14
+00:00:47,450 --> 00:00:51,320
+"Inspect", an inspector opens
+and
+
+15
+00:00:52,090 --> 00:00:56,970
+this inspector has this tab,
+
+16
+00:00:57,910 --> 00:00:59,070
+let's compare.
+
+17
+00:01:08,100 --> 00:01:11,240
+You see we create a 'Morph'
+composite, there is
+
+18
+00:01:11,240 --> 00:01:16,170
+a title and there'll be an
+action done with
+
+19
+00:01:16,310 --> 00:01:18,950
+an error management in case
+the 'Morph' wouldn't display well.
+
+20
+00:01:19,290 --> 00:01:21,990
+We convert and display a 'Morph'.
+
+21
+00:01:21,990 --> 00:01:26,840
+You also have "act" which is
+the way for
+
+22
+00:01:28,880 --> 00:01:31,390
+associating operations to
+
+23
+00:01:36,410 --> 00:01:37,060
+this tab.
+
+24
+00:01:37,440 --> 00:01:38,700
+Let's look at another example.
+
+25
+00:01:43,660 --> 00:01:47,980
+Here and there.
+
+26
+00:01:49,270 --> 00:01:50,210
+I want to see "Date".
+
+27
+00:01:56,080 --> 00:01:59,530
+If you remember, we had
+"Date today inspect".
+
+28
+00:02:05,220 --> 00:02:07,690
+We had Details and Calendar.
+
+29
+00:02:09,130 --> 00:02:11,740
+How to create this 'Morph'?
+
+30
+00:02:11,740 --> 00:02:16,520
+You just create the 'Morph'
+by using this message.
+
+31
+00:02:17,570 --> 00:02:20,000
+And Details, how does it work?
+
+32
+00:02:26,990 --> 00:02:29,250
+I ask for the creation of a table,
+I assign it a
+
+33
+00:02:29,250 --> 00:02:34,010
+title, key value, evaluate,
+return
+
+34
+00:02:36,190 --> 00:02:38,730
+the key and compute
+the value.
+
+35
+00:02:41,150 --> 00:02:43,080
+The last example I wanted
+to show you was:
+
+36
+00:02:43,990 --> 00:02:48,990
+what happens when you do the job
+done
+
+37
+00:02:48,990 --> 00:02:53,470
+by a method inspector?
+
+38
+00:02:55,200 --> 00:02:57,930
+You remember, we had a method
+which was
+
+39
+00:02:57,930 --> 00:03:02,200
+Bytecode, at least a table
+containing Bytecode and
+
+40
+00:03:02,200 --> 00:03:05,970
+we had the Source or the
+AST or Bytecode.
+
+41
+00:03:06,150 --> 00:03:10,680
+Let's look at AST. I'm gonna
+ask to my dear
+
+42
+00:03:10,910 --> 00:03:15,640
+Spotter. I'm gonna look for
+Compiled
+
+43
+00:03:15,640 --> 00:03:19,470
+method. Let's consider the Source,
+
+44
+00:03:21,290 --> 00:03:21,970
+it seems good.
+
+45
+00:03:26,410 --> 00:03:28,300
+For the Source, which is this
+panel here, we can
+
+46
+00:03:34,330 --> 00:03:37,240
+see that we define the Source
+and here there is a pharoMethod.
+
+47
+00:03:37,240 --> 00:03:39,450
+I don't know exactly what it
+is but it must tell
+
+48
+00:03:39,450 --> 00:03:42,920
+that it has to create an object
+able to display
+
+49
+00:03:42,920 --> 00:03:45,940
+a Pharo method, by calling
+the Syntaxhighlighter or
+
+50
+00:03:45,940 --> 00:03:50,600
+something like this.
+And if I look at AST,
+
+51
+00:03:50,900 --> 00:03:53,100
+it returns
+
+52
+00:03:56,060 --> 00:03:56,400
+a tree,
+
+53
+00:04:01,340 --> 00:04:04,270
+it returns the AST which will
+be displayed in the tree.
+
+54
+00:04:04,800 --> 00:04:06,710
+The aim is not for you to understand
+precisely
+
+55
+00:04:06,710 --> 00:04:09,480
+how it works, it is to show you
+a little bit
+
+56
+00:04:09,480 --> 00:04:12,020
+the complexity of this thing.
+
+57
+00:04:12,310 --> 00:04:14,820
+You see that in general
+it is not very complicated.
+
+58
+00:04:15,180 --> 00:04:19,060
+Here, it is for the Bytecode,
+the IR is something else.
+
+59
+00:04:19,060 --> 00:04:23,010
+Besides, there is job-related
+logic inside because you
+
+60
+00:04:23,010 --> 00:04:26,890
+have to think about how
+you compute the intermediary
+
+61
+00:04:26,890 --> 00:04:30,630
+representation, etc.
+But it is still something manageable.
+
+62
+00:04:31,990 --> 00:04:33,910
+I wanted to show you this because
+it is nice, you
+
+63
+00:04:33,910 --> 00:04:37,170
+can sometimes do it on your
+job-related objects and
+
+64
+00:04:37,170 --> 00:04:38,260
+it enables you to go faster.

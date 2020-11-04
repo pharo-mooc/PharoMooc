@@ -1,0 +1,902 @@
+﻿1
+00:00:00,650 --> 00:00:02,350
+Buenos días. En esta secuencia
+os hablaré de 
+
+2
+00:00:02,550 --> 00:00:04,520
+Voyage un wrapper
+para bases de datos NoSQL.
+
+3
+00:00:05,900 --> 00:00:07,570
+Veremos un poco que es Voyage.
+
+4
+00:00:08,330 --> 00:00:11,410
+Aqui, el objetivo és el de poder
+crear una verdadera aplicación.
+
+5
+00:00:11,800 --> 00:00:16,310
+Tiny blog, la podréis
+guardar con Voyage en
+
+6
+00:00:16,510 --> 00:00:19,120
+una base de datos Mongo y
+instalarla en un verdadero servidor.
+
+7
+00:00:19,420 --> 00:00:20,920
+La idea, es de enseñarle
+también como
+
+8
+00:00:21,280 --> 00:00:24,340
+guardar objetos fácilmente,
+y hemos elegido esta 
+
+9
+00:00:24,540 --> 00:00:27,320
+solución porque es realmente
+muy sencilla para el curso.
+
+10
+00:00:28,940 --> 00:00:31,000
+MongoDB, de que se trata?
+
+11
+00:00:31,200 --> 00:00:34,250
+MongoDB, son las nuevas
+bases de datos NoSQL  que
+
+12
+00:00:34,450 --> 00:00:38,340
+estan orientadas a documentos.
+Usted dispone de un lenguaje 
+
+13
+00:00:39,510 --> 00:00:42,220
+de consultas incorporado y
+es una de las más populares.
+
+14
+00:00:42,420 --> 00:00:44,420
+También, tiene Couch DB y Riak.
+
+15
+00:00:44,840 --> 00:00:47,750
+De momento, utilizaremos
+MongoDB y Voyage.
+
+16
+00:00:48,350 --> 00:00:49,200
+Que es Voyage?
+
+17
+00:00:49,400 --> 00:00:51,010
+Voyage, es un replicador que
+
+18
+00:00:51,210 --> 00:00:54,750
+tomará los objets y los 
+replicará en MongoDB esto lo
+
+19
+00:00:54,950 --> 00:00:56,370
+hará casi automáticamente para usted.
+
+20
+00:00:56,760 --> 00:01:00,260
+Para aquellos que hayan trabajado
+con Java en hibernate, Voyage, és
+
+21
+00:01:00,460 --> 00:01:03,750
+el equivalente de hibernate para
+MongoDB y claro, esta realizado para Pharo.
+
+22
+00:01:05,380 --> 00:01:07,550
+Cuales son las funcionalidades
+de Voyage?
+
+23
+00:01:07,750 --> 00:01:10,150
+De hecho, Voyage es muy simple,
+nos va a garantizar la identidad de
+
+24
+00:01:10,350 --> 00:01:12,470
+de nuestros objetos cuando se guarden
+en la base de datos y los recargue.
+
+25
+00:01:13,030 --> 00:01:15,570
+Ofrece capacidades para gestionar
+Errores.
+
+26
+00:01:16,150 --> 00:01:20,470
+También dispone de un pool 
+de conexión para que ello 
+
+27
+00:01:20,670 --> 00:01:23,080
+funcione más rápido.
+
+28
+00:01:23,280 --> 00:01:25,120
+Para empezar y enseñaros,
+la primera cosa que haremos
+
+29
+00:01:25,320 --> 00:01:27,000
+es crear un repositorio Mongo
+
+30
+00:01:29,880 --> 00:01:31,520
+con esta expresión.
+
+31
+00:01:32,320 --> 00:01:34,340
+Aquí, és si usted quier acceder
+a su base de datos Mongo
+
+32
+00:01:34,590 --> 00:01:37,930
+Que esta gestiona de modo 
+externo a Pharo.
+
+33
+00:01:38,320 --> 00:01:40,770
+Ahora lo que hacemos a menudo
+es trabajar en modo
+
+34
+00:01:41,000 --> 00:01:44,420
+prototipo, y utilizaremos una
+base de datos Mongo en memoria.
+
+35
+00:01:44,800 --> 00:01:47,000
+A visto la diferencia, aquí se
+encuentra Mongo memory repository.
+
+36
+00:01:48,090 --> 00:01:49,880
+La idea, es que no necesita
+una base de datos Mongo,
+
+37
+00:01:50,080 --> 00:01:52,270
+usted podrá simular su
+aplicación.
+
+38
+00:01:53,080 --> 00:01:56,080
+Y cuando finalmente funcione, 
+entonces podrá cambiar
+
+39
+00:01:56,550 --> 00:01:59,670
+el repositorio en memoria por
+un repositorio verdadero y
+
+40
+00:01:59,870 --> 00:02:04,090
+trabajar con su base exterior, esta
+és una buena practica a utilizar.
+
+41
+00:02:06,180 --> 00:02:10,760
+Para ilustra Mongo, construiremos
+un modelo
+
+42
+00:02:10,960 --> 00:02:14,370
+objeto que se compone de super-heroes
+con super-poderes, con armaduras.
+
+43
+00:02:17,340 --> 00:02:19,450
+Tendrá un ejercicio,
+lo podrá hacer de todas maneras,
+
+44
+00:02:19,650 --> 00:02:21,590
+todo lo que le mostraré durante
+este curso, dispondrá
+
+45
+00:02:21,790 --> 00:02:23,260
+del soporte para poder realizarlo.
+
+46
+00:02:23,730 --> 00:02:26,370
+Y le sugiero de hacerlo porque es
+divertido de codear Superman.
+
+47
+00:02:28,210 --> 00:02:32,330
+Miraremos como funciona Heroes
+y super poderes.
+
+48
+00:02:33,730 --> 00:02:35,490
+Simplificando, tenemos una clase Héros.
+
+49
+00:02:35,750 --> 00:02:39,310
+Tiene un nombre, un nivel
+y luego tiene unos poderes.
+
+50
+00:02:40,190 --> 00:02:42,090
+El nombre, tengo un accesor
+con el nombre.
+
+51
+00:02:42,290 --> 00:02:44,000
+Tengo un setter para introducir
+el nombre.
+
+52
+00:02:44,200 --> 00:02:45,690
+Tengo un nivel parecido aquí.
+
+53
+00:02:46,000 --> 00:02:48,130
+Y los poderes, los gestiono
+de manera conjunta.
+
+54
+00:02:48,330 --> 00:02:51,440
+Así aquí, digo los poderes,
+al inicio si es vacío pongo
+
+55
+00:02:51,640 --> 00:02:55,350
+un conjunto, y cuando pueda
+incorporo un poder, esto
+
+56
+00:02:55,610 --> 00:02:56,670
+añade un poder al conjunto.
+
+57
+00:02:56,870 --> 00:02:59,170
+Así pues, realmente muy simple.
+
+58
+00:03:00,820 --> 00:03:02,810
+Y los poderes,
+de que se trata?
+
+59
+00:03:03,010 --> 00:03:07,880
+De momento, nuestro poder tiene
+simplemente un nombre que
+
+60
+00:03:08,080 --> 00:03:09,060
+podemos poner o no.
+
+61
+00:03:10,310 --> 00:03:13,570
+De Momento, el punto está en
+como lo hago para declarar
+
+62
+00:03:13,770 --> 00:03:17,480
+que las clases de mi dominio
+se guardan en la base?
+
+63
+00:03:17,680 --> 00:03:21,000
+Aquí tenemos el concepto de root class,
+cuales son los puntos de entrada
+
+64
+00:03:21,320 --> 00:03:23,270
+que tendremos en nuestra base
+de datos?
+
+65
+00:03:23,470 --> 00:03:24,870
+Esto puede ser cualquier
+clase del sistema.
+
+66
+00:03:25,830 --> 00:03:26,850
+Como declararemos esto?
+
+67
+00:03:27,050 --> 00:03:30,240
+Lo declararemos con un método
+de clase, insisto
+
+68
+00:03:30,440 --> 00:03:32,090
+en la clase, un método de clase
+que se llama isVoyageRoot.
+
+69
+00:03:32,290 --> 00:03:35,180
+como hacemos para los heroes?
+
+70
+00:03:35,410 --> 00:03:38,560
+Es super fácil, haremos clase
+heroe isVoyage devuelve verdadero.
+
+71
+00:03:39,390 --> 00:03:42,800
+A partir de este momento,
+Voyage sabe que puedo 
+
+72
+00:03:43,000 --> 00:03:45,680
+guardar mis heroes en la 
+base de datos Mongo.
+
+73
+00:03:47,000 --> 00:03:50,420
+Si hacemos Spiderman,
+Spiderman se llama Spiderman,
+
+74
+00:03:50,620 --> 00:03:54,260
+es de nivel épico,
+tiene como super poder una
+
+75
+00:03:54,460 --> 00:03:59,150
+super fuerza, también puede
+escalar los muros y ademas
+
+76
+00:03:59,420 --> 00:04:01,920
+dispone de un instinto de araña.
+
+77
+00:04:02,500 --> 00:04:03,370
+Luego tenemos otro.
+
+78
+00:04:03,570 --> 00:04:08,420
+Aquí veis, lo guardo,
+save, esto muestra a Voyage "OK,
+
+79
+00:04:08,620 --> 00:04:11,130
+tomas un super heroe y lo 
+guardas en tu base.
+
+80
+00:04:11,510 --> 00:04:13,930
+Y de la misma manera con
+Wolverine, habéis comprendido
+
+81
+00:04:14,130 --> 00:04:16,460
+que tiene otras propiedades y
+lo mismo, puedo guardar.
+
+82
+00:04:17,460 --> 00:04:20,260
+Luego si miro a mi base de datos
+Mongo, si hago DB
+
+83
+00:04:20,460 --> 00:04:22,570
+Hero encuentra 0, que és lo que veo?
+
+84
+00:04:22,870 --> 00:04:26,160
+Veo a mi heroe Spiderman
+y que tiene?
+
+85
+00:04:26,360 --> 00:04:29,090
+Aquí justamente se tiene que 
+prestar atención, vemos claramente
+
+86
+00:04:29,290 --> 00:04:34,050
+que tiene su super poder
+que esta perfectamente descrito
+
+87
+00:04:34,360 --> 00:04:37,410
+aquí. Tendrías lo mismo con
+Wolverine, y ect...
+
+88
+00:04:37,790 --> 00:04:40,140
+De acuerdo?
+
+89
+00:04:40,340 --> 00:04:42,250
+Una vez que hacemos esto al 
+nivel de Pharo, podemos hacer
+
+90
+00:04:42,450 --> 00:04:44,830
+un montón de expresiones.
+No entraré en los detalles
+
+91
+00:04:45,030 --> 00:04:48,180
+pero puedo seleccionar a todos
+los puer héroes.
+
+92
+00:04:48,380 --> 00:04:51,240
+Aquí, tendré 
+Spiderman y Wolverine.
+
+93
+00:04:51,760 --> 00:04:54,830
+Puedo decir que quiero encontrar
+los héroes que se llaman Spiderman.
+
+94
+00:04:55,280 --> 00:04:59,670
+Aquí, puedo decir que quiero
+encontrar a todos los super
+
+95
+00:04:59,870 --> 00:05:00,750
+héroes que tienen un nivel épico.
+
+96
+00:05:00,950 --> 00:05:04,930
+Aquí, encontrare mis 2 super héroes.
+
+97
+00:05:06,620 --> 00:05:10,670
+Ahora, me expresaré de forma
+diferente porque de hecho,
+
+98
+00:05:10,870 --> 00:05:14,390
+la base de datos mongo comprende
+Json, así puedo crear json
+
+99
+00:05:14,590 --> 00:05:18,470
+al vuelo y inyectarlo y realizar
+una consulta a la base de json.
+
+100
+00:05:18,670 --> 00:05:23,580
+Aquí, me gustaría conoces al 
+super héroe cuyo nombre
+
+101
+00:05:23,780 --> 00:05:25,670
+es Spiderman pero podéis ver que 
+lo he expresado bajo la forma
+
+102
+00:05:25,870 --> 00:05:29,930
+de Json, y escribiendo  as
+directory me devuelve un diccionario.
+
+103
+00:05:30,730 --> 00:05:32,570
+Puedo hacer lo mismo para
+select as many.
+
+104
+00:05:32,770 --> 00:05:35,700
+Esto dependerá de las consulta, 
+hay consultas mas fáciles de
+
+105
+00:05:35,900 --> 00:05:38,050
+expresar de esta forma que de
+la otra,
+
+106
+00:05:38,250 --> 00:05:40,000
+pero para usted y ahora no 
+tiene más importancia.
+
+107
+00:05:41,220 --> 00:05:44,000
+También podemos realizar consultas
+que son mucho más avanzadas.
+
+108
+00:05:44,200 --> 00:05:48,930
+Puedo decir "Quiero seleccionar
+la mayoría de 
+
+109
+00:05:49,720 --> 00:05:52,750
+super héroes que tienen
+un nivel épico, cuyo nombre se
+
+110
+00:05:52,950 --> 00:05:55,870
+ordena de forma ascendente y
+lo quiero limitar a 10,
+
+111
+00:05:56,090 --> 00:06:00,270
+y quiero empezar en la página 0
+para poder buscar
+
+112
+00:06:00,470 --> 00:06:01,720
+porciones en mi base de datos.
+
+
+113
+00:06:03,120 --> 00:06:05,040
+Esto, cuando lo necesite solo
+tiene que mirar en la documentación.
+
+114
+00:06:06,620 --> 00:06:07,890
+Podemos realizar otras operaciones
+encima.
+
+115
+00:06:08,090 --> 00:06:10,280
+Puedo contar el numero de 
+héroes, lo que esta muy bien.
+
+116
+00:06:10,810 --> 00:06:14,020
+Luego, puedo contar aquellos que
+satisfacen cierta propiedad.
+
+117
+00:06:14,720 --> 00:06:16,820
+Por supuesto, puedo eliminar,
+entonces si aquí hace remove
+
+118
+00:06:17,020 --> 00:06:20,040
+all, no tendrá mas objetos en 
+la base, se debe ser consciente.
+
+119
+00:06:20,610 --> 00:06:23,520
+Aquí, puedo decir "Voy a seleccionar
+uno y luego lo eliminare.
+
+120
+00:06:23,720 --> 00:06:26,650
+Y habría podido eliminar mi 
+heroe de mi base de datos.
+
+121
+00:06:26,850 --> 00:06:30,740
+No es solo las operaciones
+que tienen sentido, digamos.
+
+122
+00:06:32,110 --> 00:06:34,630
+Ahora la cuestión que se plantea
+al fin cuando
+
+123
+00:06:34,830 --> 00:06:38,690
+utilice MongoDB, 
+es lo que llamamos 
+
+124
+00:06:38,890 --> 00:06:41,330
+una raíz de base, y cuando
+definimos una
+
+125
+00:06:41,530 --> 00:06:42,560
+clase como raíz de base?
+
+126
+00:06:43,090 --> 00:06:45,900
+Definimos una clase como 
+raíz de base cuando
+
+127
+00:06:46,100 --> 00:06:46,860
+necesitamos realizar consultas.
+
+128
+00:06:47,060 --> 00:06:49,710
+Esta, es la primera regla;
+realizo una consulta porque
+
+129
+00:06:49,960 --> 00:06:52,130
+he definido mi clase como
+una raíz porque quiero poder
+
+130
+00:06:52,330 --> 00:06:54,020
+acceder a todos los objetos
+de esta clase.
+
+131
+00:06:56,620 --> 00:07:00,380
+El otro punto, es "Quiero 
+compartir objetos entre
+
+132
+00:07:02,370 --> 00:07:05,130
+mis objetos" Así, aquí por
+ejemplo quiero compartir 
+
+133
+00:07:05,330 --> 00:07:07,420
+poderes, porque la frase
+no es muy clara, quiero
+
+134
+00:07:07,620 --> 00:07:10,190
+compartir poderes entre
+mis héroes.
+
+135
+00:07:11,850 --> 00:07:14,750
+En este caso, debería poder
+definir "poderes" como
+
+136
+00:07:14,950 --> 00:07:16,480
+una raíz, así que vamos a ver esto.
+
+137
+00:07:18,100 --> 00:07:20,570
+Si miramos héroes, es realmente
+una raíz en nuestro
+
+138
+00:07:20,770 --> 00:07:22,770
+ejemplo, pero de hecho los 
+poderes también podrían ser
+
+139
+00:07:23,000 --> 00:07:24,190
+una raíz, no hay problema.
+
+140
+00:07:24,560 --> 00:07:28,310
+En Voyage, podemos declarar
+cualquier clase como raíz.
+
+141
+00:07:29,170 --> 00:07:31,790
+Como lo hacemos?
+
+142
+00:07:32,310 --> 00:07:34,350
+Igual que antes, 
+voy a decir que mi clase
+
+143
+00:07:34,550 --> 00:07:39,450
+power, es una raíz.
+Esto quiere decir que
+
+144
+00:07:39,650 --> 00:07:43,500
+creo el poder fly que 
+quiere decir volar y que 
+
+145
+00:07:43,700 --> 00:07:47,590
+lo guardo, se guardara en base;
+la fuerza sobrehumana, lo mismo.
+
+146
+00:07:48,090 --> 00:07:49,590
+Y ahora lo que voy a hacer, 
+podre realizar una 
+
+147
+00:07:49,790 --> 00:07:54,530
+consulta que me dirá "Quiero
+recuperar el poder 
+
+148
+00:07:54,830 --> 00:07:59,120
+También quiero recuperar el poder
+de tener una fuerza sobrehumana.
+
+149
+00:07:59,320 --> 00:08:04,190
+"Y aquí ahora, vuelvo a crear
+Superman diciendo que 
+
+150
+00:08:07,060 --> 00:08:08,630
+he recuperado estos 2 poderes,
+esto quiere decir que solo existe
+
+151
+00:08:08,830 --> 00:08:10,460
+uno en el sistema cada vez
+que guardo.
+
+152
+00:08:11,380 --> 00:08:13,190
+Que esta pasando a nivel de 
+mi base?
+
+153
+00:08:13,600 --> 00:08:17,000
+Es importante, se debe realizar
+un reset para que todo
+
+154
+00:08:18,250 --> 00:08:19,910
+funcione bien. En general, cada
+vez que modifica el
+
+155
+00:08:20,110 --> 00:08:22,130
+el esquema de la base, es necesario
+de utilizar esta expresión.
+
+156
+00:08:22,530 --> 00:08:25,070
+Pero lo que me interesa aquí,
+de enseñarle es que
+
+157
+00:08:26,180 --> 00:08:29,430
+ahora en los poderes de
+Superman, ya no tengo el
+
+158
+00:08:29,630 --> 00:08:33,870
+poder que se ha descrito de
+manera compuesta en el interior.
+
+159
+00:08:34,070 --> 00:08:35,730
+pero tengo una referencia
+hacia un poder.
+
+160
+00:08:36,720 --> 00:08:38,000
+Y aqui, voy a tener otra 
+referencia.
+
+161
+00:08:38,160 --> 00:08:38,920
+Así que, que quiere decir esto?
+
+162
+00:08:39,120 --> 00:08:41,130
+Esto quiere decir que si
+tengo otro super héroe que sabe
+
+163
+00:08:41,330 --> 00:08:45,870
+volar, podre compartir este
+poder en lugar de
+
+164
+00:08:46,070 --> 00:08:49,290
+tener 2. Y esto, esto depende
+de su dominio así que
+
+165
+00:08:49,490 --> 00:08:50,920
+en función del dominio y según
+como usted quiera modelizar
+
+166
+00:08:51,120 --> 00:08:54,230
+su dominio, tendrá que definir
+raíces diferentes.
+
+167
+00:08:54,430 --> 00:08:57,590
+Este, es sobre un ejemplo tonto pero
+solo era para facilitarle la intuición.
+
+168
+00:08:58,520 --> 00:09:02,860
+Si repito, tendrá que definir
+un dominio si usted
+
+169
+00:09:03,060 --> 00:09:05,220
+necesita hacer consultas
+o si quiere 
+
+170
+00:09:05,420 --> 00:09:07,210
+compartir los objetos de esta raíz.
+
+171
+00:09:10,890 --> 00:09:14,180
+Como expresamos las
+relaciones en Voyage?
+
+172
+00:09:14,450 --> 00:09:16,100
+De hecho, és el equivalente
+a las llaves foráneas en las
+
+173
+00:09:16,300 --> 00:09:18,650
+bases de datos relacionales.
+Voyage gestionara
+
+174
+00:09:18,850 --> 00:09:21,360
+automáticamente las referencias
+cíclicas entres sus raíces.
+
+175
+00:09:21,870 --> 00:09:22,680
+Usted no tiene que hacer nada.
+
+176
+00:09:23,240 --> 00:09:25,580
+Por contra debe prestar 
+atención, Voyage no gestiona
+
+177
+00:09:25,780 --> 00:09:28,350
+las referencias cíclicas entre
+objetos compuestos en su 
+
+178
+00:09:28,550 --> 00:09:32,570
+interior. Usted debe
+experimentar y luego 
+
+179
+00:09:32,770 --> 00:09:34,220
+vera que la mayoría de las
+veces cuando tiene raíces
+
+180
+00:09:34,420 --> 00:09:35,280
+usted no tiene ningún problema.
+
+181
+00:09:36,710 --> 00:09:39,070
+Lo que le quería enseñar en
+este curso, es que 
+
+182
+00:09:39,270 --> 00:09:43,360
+podemos guardar muy fácilmente
+objetos en una base de datos Mongo.
+
+183
+00:09:43,710 --> 00:09:46,550
+Si usted quiere conocer mas,
+encontrara un capitulo
+
+184
+00:09:46,750 --> 00:09:48,730
+en el libro Enterprise Pharo,
+Web perspectives que se encuentra
+
+185
+00:09:48,930 --> 00:09:51,720
+en las fuentes del MOOC. De todas
+maneras tendrá un 
+
+186
+00:09:51,920 --> 00:09:54,000
+pequeño tutorial que le 
+acompañara
+
+187
+00:09:54,200 --> 00:09:58,130
+reconstruyendo los super héroes,
+así que lo podrá aprender todo.

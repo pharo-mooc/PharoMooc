@@ -1,0 +1,537 @@
+WEBVTT
+
+00:00:00.400 --> 00:00:05.360 align:middle
+Hola. En este curso,
+Hablaré sobre los streams.
+
+00:00:05.520 --> 00:00:07.840 align:middle
+Es una característica básica de Pharo.
+
+00:00:09.240 --> 00:00:13.480 align:middle
+Veremos qué son los streams, cómo usarlos
+y cuando pueden ser útiles.
+
+00:00:14.880 --> 00:00:16.200 align:middle
+¿Qué es un stream?
+
+00:00:16.360 --> 00:00:17.840 align:middle
+Es un objeto
+
+00:00:18.000 --> 00:00:22.200 align:middle
+que permite iterar
+sobre una colección de elementos,
+
+00:00:22.360 --> 00:00:24.240 align:middle
+una secuencia de elementos
+
+00:00:24.400 --> 00:00:28.040 align:middle
+Esta secuencia podría ser
+una colección en memoria,
+
+00:00:28.800 --> 00:00:34.320 align:middle
+un flujo de red, un archivo, etc.
+
+00:00:36.120 --> 00:00:39.320 align:middle
+Un stream mantiene la posición actual
+en memoria.
+
+00:00:40.000 --> 00:00:44.200 align:middle
+Mientras usa el stream,
+puede avanzar o retroceder,
+
+00:00:44.360 --> 00:00:46.920 align:middle
+leer o escribir elementos
+en el stream
+
+00:00:47.600 --> 00:00:50.760 align:middle
+Una descripción general de la API de los streams.
+
+00:00:50.920 --> 00:00:54.680 align:middle
+Para crear un stream,
+hay algunos objetos
+
+00:00:55.520 --> 00:01:00.200 align:middle
+sobre los cuales puede usar los mensajes
+readStream y writeStream
+
+00:01:01.000 --> 00:01:02.880 align:middle
+para crear streams
+
+00:01:03.040 --> 00:01:06.800 align:middle
+(de un archivo o una colección,
+por ejemplo).
+
+00:01:07.880 --> 00:01:10.480 align:middle
+Puede crear secuencias de esta manera.
+
+00:01:11.760 --> 00:01:16.560 align:middle
+Este mensaje, streamContents:,
+se envía a una colección
+
+00:01:16.720 --> 00:01:19.120 align:middle
+y toma un bloque como parámetro,
+que recibe un stream.
+
+00:01:19.680 --> 00:01:23.840 align:middle
+El uso de un stream dentro de este bloque
+crea una colección
+
+00:01:24.000 --> 00:01:27.800 align:middle
+que sera devuelta por el método.
+
+00:01:27.960 --> 00:01:30.400 align:middle
+Veremos cómo usar este método.
+en el final.
+
+00:01:31.440 --> 00:01:35.160 align:middle
+En este caso, pregunte directamente a una clase,
+
+00:01:35.320 --> 00:01:38.680 align:middle
+ya sea readStream, writeStream,
+o (Read/Write)Stream,
+
+00:01:38.840 --> 00:01:42.640 align:middle
+de crear una nueva instancia
+sobre una colección
+
+00:01:44.840 --> 00:01:50.200 align:middle
+Estos tres métodos pueden leer
+uno o varios elementos
+
+00:01:51.240 --> 00:01:53.320 align:middle
+hasta cierto punto.
+
+00:01:54.080 --> 00:01:56.280 align:middle
+Estos dos elementos
+
+00:01:56.440 --> 00:02:00.640 align:middle
+escriben un elemento o una colección
+de elementos en la secuencia (stream).
+
+00:02:00.800 --> 00:02:04.440 align:middle
+Estos son algunos ejemplos a través de los cuales
+Puedes leer un stream.
+
+00:02:04.600 --> 00:02:06.600 align:middle
+Primero, creamos un stream.
+
+00:02:06.760 --> 00:02:11.640 align:middle
+Estoy creando un stream en lectura
+a partir de una colección
+
+00:02:11.800 --> 00:02:15.760 align:middle
+La colección contiene
+todas las letras entre a y f.
+
+00:02:15.920 --> 00:02:19.840 align:middle
+Hay un carácter
+por cada elemento de la colección.
+
+00:02:20.000 --> 00:02:24.520 align:middle
+Creamos un stream sobre la colección.
+Echaremos un vistazo a los caracteres uno a uno.
+
+00:02:25.360 --> 00:02:27.760 align:middle
+Una vez que el flujo (stream) esté listo,
+
+00:02:28.400 --> 00:02:31.040 align:middle
+puede comenzar
+enviando el mensaje next
+
+00:02:31.200 --> 00:02:34.720 align:middle
+que devolverá el elemento
+situado justo después de la posición actual
+
+00:02:34.880 --> 00:02:36.800 align:middle
+cuando se inicializa el stream.
+
+00:02:36.960 --> 00:02:40.200 align:middle
+La posición actual es 0,
+Al comienzo del stream.
+
+00:02:40.360 --> 00:02:45.120 align:middle
+Next devuelve el primer elemento,
+el cual es el carácter a.
+
+00:02:45.920 --> 00:02:47.880 align:middle
+Si llamo next en este momento,
+
+00:02:48.040 --> 00:02:51.800 align:middle
+Conseguiré un b luego c, uno a la vez.
+
+00:02:51.960 --> 00:02:56.920 align:middle
+Al llamar next, la posición se mueve
+una fila a la vez.
+
+00:02:57.760 --> 00:03:01.440 align:middle
+Si llamo next y obtengo una a,
+
+00:03:01.600 --> 00:03:06.480 align:middle
+Entonces puedo enviar el mensaje upTo:
+un elemento
+
+00:03:06.640 --> 00:03:10.720 align:middle
+Este método devuelve todos los elementos
+que se encuentran entre la posición actual
+
+00:03:10.880 --> 00:03:13.520 align:middle
+y el elemento que entregue como parámetro.
+
+00:03:13.680 --> 00:03:17.040 align:middle
+Con a, estoy en la posición 1.
+
+00:03:17.920 --> 00:03:19.800 align:middle
+Si envío upTo: $d,
+
+00:03:19.960 --> 00:03:23.320 align:middle
+devuelve lo que hay entre
+la posición actual y d:
+
+00:03:23.480 --> 00:03:26.000 align:middle
+b y c
+
+00:03:26.600 --> 00:03:28.720 align:middle
+d es consumido por el stream.
+
+00:03:28.880 --> 00:03:32.440 align:middle
+Significa que el stream
+ahora se encuentra justo después de d.
+
+00:03:32.600 --> 00:03:33.800 align:middle
+d no se devuelve
+
+00:03:34.440 --> 00:03:38.760 align:middle
+stream position
+Devuelve la posición actual.
+
+00:03:38.920 --> 00:03:40.720 align:middle
+La posición comienza en 0.
+
+00:03:40.880 --> 00:03:46.400 align:middle
+0 se encuentra antes del primer elemento:
+0, 1, 2, 3, 4.
+
+00:03:46.560 --> 00:03:49.120 align:middle
+Nos situamos antes de e y después de d.
+
+00:03:50.760 --> 00:03:55.840 align:middle
+Ahora si envío el mensaje upToEnd
+al stream, obtendré todos los elementos
+
+00:03:56.000 --> 00:04:00.040 align:middle
+ubicados entre la posición actual
+y el final de la secuencia:
+
+00:04:00.200 --> 00:04:03.400 align:middle
+eso es e y f
+
+00:04:03.560 --> 00:04:07.520 align:middle
+El stream mantiene una posición actual.
+Que puedo avanzar
+
+00:04:07.680 --> 00:04:09.360 align:middle
+gracias a algunos métodos.
+
+00:04:09.520 --> 00:04:11.680 align:middle
+También puede escribir en un stream.
+
+00:04:11.840 --> 00:04:14.240 align:middle
+El primer paso es crear el stream.
+
+00:04:15.880 --> 00:04:19.840 align:middle
+Con Array new: 6,
+Creo una tabla vacía de tamaño 6.
+
+00:04:20.640 --> 00:04:24.240 align:middle
+Envío el mensaje writeStream
+para crear un stream en esta tabla
+
+00:04:24.400 --> 00:04:27.600 align:middle
+para poder llenarlo gradualmente
+gracias a mi stream
+
+00:04:27.760 --> 00:04:30.320 align:middle
+Yo guardo el stream
+en la variable stream.
+
+00:04:30.480 --> 00:04:33.280 align:middle
+Empiezo enviando el mensaje nextPut: 1
+
+00:04:33.440 --> 00:04:38.360 align:middle
+que toma un elemento y lo agrega
+a la posición actual del stream.
+
+00:04:38.520 --> 00:04:43.800 align:middle
+Mi tabla ahora contiene 1
+seguido de cinco celdas vacías.
+
+00:04:46.280 --> 00:04:50.320 align:middle
+El mensaje nextPutAll:
+toma una colección de objetos
+
+00:04:50.480 --> 00:04:53.360 align:middle
+que se anexan al stream.
+
+00:04:54.240 --> 00:04:57.800 align:middle
+Después de enviar nextPutAll: al stream,
+
+00:04:58.600 --> 00:05:01.000 align:middle
+Obtengo una matriz que contiene 1,
+
+00:05:01.880 --> 00:05:04.480 align:middle
+resultado del mensaje nextPut: anterior,
+
+00:05:04.640 --> 00:05:06.880 align:middle
+seguido de 4 8 2 6 7,
+
+00:05:09.240 --> 00:05:11.120 align:middle
+El resultado de nextPutAll:.
+
+00:05:11.280 --> 00:05:14.880 align:middle
+Los streams son especialmente útiles
+y eficaces
+
+00:05:15.040 --> 00:05:18.560 align:middle
+para leer
+y escribir colecciones de objetos.
+
+00:05:19.400 --> 00:05:21.600 align:middle
+También puedo escribir y leer los archivos.
+
+00:05:21.760 --> 00:05:25.200 align:middle
+Estoy mostrando un ejemplo de cómo escribir
+
+00:05:25.360 --> 00:05:27.440 align:middle
+en un archivo nuevo que no todavía no existe.
+
+00:05:29.880 --> 00:05:32.480 align:middle
+En el string (cadena de caracteres),
+Introduzco el nombre del archivo.
+
+00:05:33.640 --> 00:05:39.360 align:middle
+Al enviar al string
+el mensaje asFileReference,
+
+00:05:39.520 --> 00:05:41.720 align:middle
+creo una referencia a un archivo.
+
+00:05:41.880 --> 00:05:46.040 align:middle
+Este es un archivo que aún no existe,
+pero ya puedo obtener una referencia a el.
+
+00:05:46.640 --> 00:05:49.440 align:middle
+Tengo una referencia a un archivo, hello.txt.
+
+00:05:50.720 --> 00:05:52.680 align:middle
+Envío el mensaje writeStream
+
+00:05:54.120 --> 00:05:55.440 align:middle
+al archivo
+
+00:05:55.600 --> 00:06:00.760 align:middle
+para obtener una secuencia de escritura
+relacionado con este archivo inexistente.
+
+00:06:00.920 --> 00:06:05.240 align:middle
+Tan pronto como escribas en el stream,
+el archivo se creara
+
+00:06:06.240 --> 00:06:11.480 align:middle
+Ahora que tengo un stream, envío
+el mensaje nextPutAll: con una cadena (string).
+
+00:06:11.640 --> 00:06:16.720 align:middle
+Este mensaje escribe un carácter
+a la vez, cada elemento de la cadena.
+
+00:06:16.880 --> 00:06:19.400 align:middle
+"h" luego "e" luego "l", etc.
+
+00:06:20.560 --> 00:06:21.560 align:middle
+En el final,
+
+00:06:23.320 --> 00:06:24.960 align:middle
+Cierro el stream
+
+00:06:25.120 --> 00:06:29.720 align:middle
+para decirle al sistema operativo
+terminé de escribir en el archivo
+
+00:06:29.880 --> 00:06:33.360 align:middle
+y puede escribir todo
+en el sistema de almacenamiento
+
+00:06:33.520 --> 00:06:37.360 align:middle
+y cierre el puntero del archivo.
+
+00:06:37.520 --> 00:06:42.400 align:middle
+Ahora que escribí en el archivo,
+Puedo leerlo.
+
+00:06:42.560 --> 00:06:46.720 align:middle
+El nombre del archivo
+
+00:06:46.880 --> 00:06:48.680 align:middle
+se muestra como una cadena.
+
+00:06:50.880 --> 00:06:56.200 align:middle
+Con asFileReference, puedo crear
+una referencia a este archivo
+
+00:06:57.800 --> 00:06:59.440 align:middle
+Con readStream,
+
+00:06:59.600 --> 00:07:02.240 align:middle
+Puedo abrir un flujo de lectura,
+
+00:07:02.400 --> 00:07:06.160 align:middle
+una corriente leída
+cuando se trata de este archivo.
+
+00:07:07.840 --> 00:07:10.680 align:middle
+Con next, me entrega
+el primer elemento de la secuencia.
+
+00:07:10.840 --> 00:07:14.920 align:middle
+Escribí "¡Hello, Pharo!".
+El primer elemento es "H".
+
+00:07:15.600 --> 00:07:19.000 align:middle
+Con UpToEnd, obtengo todos los caracteres
+
+00:07:19.160 --> 00:07:22.400 align:middle
+entre la posición actual,
+Después de "H" y antes de "e",
+
+00:07:22.560 --> 00:07:25.840 align:middle
+y el final del archivo.
+
+00:07:26.000 --> 00:07:28.800 align:middle
+¡Obtengo "ello Pharo!" sin "H"
+
+00:07:28.960 --> 00:07:33.160 align:middle
+que ya tengo gracias al next anterior.
+
+00:07:33.320 --> 00:07:36.960 align:middle
+Uno puede crear colecciones
+usando streams
+
+00:07:37.120 --> 00:07:39.880 align:middle
+Es útil cuando quieres
+para crear colecciones
+
+00:07:40.040 --> 00:07:44.320 align:middle
+y necesitas código para elegir
+qué incluir gradualmente en ellos.
+
+00:07:45.480 --> 00:07:48.680 align:middle
+Quiero crear una OrderedCollection
+
+00:07:50.840 --> 00:07:53.160 align:middle
+enviando mensajes a un stream.
+
+00:07:53.320 --> 00:07:56.240 align:middle
+A partir de la clase OrderedCollection,
+
+00:07:56.960 --> 00:07:58.640 align:middle
+creo una nueva instancia
+
+00:07:59.240 --> 00:08:01.760 align:middle
+que convierto en un writeStream.
+
+00:08:02.520 --> 00:08:06.280 align:middle
+Gracias al mensaje nextPut:,
+Agrego 1 en
+ el stream.
+
+00:08:06.440 --> 00:08:10.200 align:middle
+Si escribo stream contents,
+
+00:08:10.360 --> 00:08:13.440 align:middle
+Obtengo una instancia
+de la clase OrderedCollection
+
+00:08:13.600 --> 00:08:15.520 align:middle
+que contiene solo el valor 1.
+
+00:08:16.240 --> 00:08:19.720 align:middle
+Estas tres expresiones
+Se puede simplificar, como se muestra a continuación.
+
+00:08:20.720 --> 00:08:23.240 align:middle
+Puede enviar el mensaje streamContents:
+
+00:08:23.400 --> 00:08:26.960 align:middle
+a la clase en la que estamos interesados,
+que es OrderedCollection.
+
+00:08:27.120 --> 00:08:29.960 align:middle
+Envío contenido stream:
+a la OrderedCollection
+
+00:08:30.120 --> 00:08:35.000 align:middle
+Lo paso un bloque como parámetro
+que toma una secuencia como parámetro.
+
+00:08:35.160 --> 00:08:39.160 align:middle
+Dentro del bloque, uso el stream
+para completar gradualmente la colección.
+
+00:08:39.320 --> 00:08:41.760 align:middle
+Cuando el bloque termine,
+Recibo una colección
+
+00:08:42.320 --> 00:08:46.120 align:middle
+En el bloque, escribo stream nextPut: 1.
+
+00:08:46.880 --> 00:08:49.720 align:middle
+Agrego 1 a la secuencia.
+
+00:08:49.880 --> 00:08:51.880 align:middle
+Se agrega a la colección.
+
+00:08:52.040 --> 00:08:55.880 align:middle
+Cuando streamContents: se cierra,
+cuando esta expresión termine,
+
+00:08:56.040 --> 00:08:58.840 align:middle
+Obtendré una OrderedCollection
+que contiene 1
+
+00:08:59.000 --> 00:09:03.720 align:middle
+"streamContents:" es útil
+para crear colecciones desde cero.
+
+00:09:04.400 --> 00:09:07.600 align:middle
+En el curso,
+Aprendimos sobre la API de Stream.
+
+00:09:07.760 --> 00:09:11.920 align:middle
+Hay muchos métodos que puede aprender
+explorando las clases
+
+00:09:12.080 --> 00:09:14.280 align:middle
+Utilizando el navegador de código Nautilus.
+
+00:09:14.440 --> 00:09:18.560 align:middle
+Un stream puede leer
+y escribir en colecciones, en memoria,
+
+00:09:18.720 --> 00:09:22.480 align:middle
+archivos, la red, etc.
+
+00:09:23.640 --> 00:09:26.160 align:middle
+Un stream mantiene una posición actual.
+
+00:09:27.040 --> 00:09:31.440 align:middle
+La posición actual separa el pasado.
+de los elementos futuros.
+
+00:09:31.600 --> 00:09:36.000 align:middle
+Cada vez que escribe o lee desde
+el stream, la posición actual cambia.
+
+00:09:37.200 --> 00:09:40.480 align:middle
+Los streams también pueden ayudar
+a crear nuevas colecciones
+

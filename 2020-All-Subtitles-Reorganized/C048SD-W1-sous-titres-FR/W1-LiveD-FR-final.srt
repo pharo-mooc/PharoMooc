@@ -1,0 +1,307 @@
+1
+00:00:00,040 --> 00:00:00,080
+"Raccourcis clavier"
+
+2
+00:00:00,120 --> 00:00:00,160
+Quentin Ducasse.
+
+3
+00:00:02,920 --> 00:00:03,720
+-Bonjour à tous.
+
+4
+00:00:04,040 --> 00:00:07,640
+Cette vidéo sera une présentation
+des différents raccourcis clavier
+
+5
+00:00:07,960 --> 00:00:10,080
+qui existent pour les différentes
+fonctionnalités de Pharo,
+
+6
+00:00:10,400 --> 00:00:12,640
+notamment d'exécution des expressions.
+
+7
+00:00:13,320 --> 00:00:14,480
+Tout d'abord, ce qu'on va faire,
+
+8
+00:00:14,800 --> 00:00:18,480
+c'est vérifier que vous ayez
+une petite aide qui soit activée.
+
+9
+00:00:18,800 --> 00:00:20,600
+Pour ce faire, on va aller dans Pharo,
+
+10
+00:00:23,360 --> 00:00:24,400
+Settings.
+
+11
+00:00:25,400 --> 00:00:29,280
+Une fois dans Settings, vous allez
+chercher ici "shortcut reminder",
+
+12
+00:00:30,640 --> 00:00:36,120
+appuyer sur Entrée
+et vérifier qu'il est bien activé,
+
+13
+00:00:36,440 --> 00:00:39,040
+donc que cette case-ci est bien cochée.
+
+14
+00:00:39,480 --> 00:00:42,120
+À quoi cela sert-il ?
+Je vais vous montrer tout de suite.
+
+15
+00:00:42,440 --> 00:00:44,080
+Donc, si maintenant
+on rouvre un playground,
+
+16
+00:00:44,400 --> 00:00:45,920
+on va dans Tools, Playground
+
+17
+00:00:46,680 --> 00:00:49,200
+et qu'on écrit, par exemple, 1+2...
+
+18
+00:00:51,000 --> 00:00:52,760
+Ça va être notre première expression.
+
+19
+00:00:53,840 --> 00:00:57,600
+Si jamais on veut Print it, ce sera ici.
+
+20
+00:00:57,920 --> 00:01:00,200
+On peut voir que c'est brigué.
+Le raccourci est spécifié ici.
+
+21
+00:01:00,520 --> 00:01:01,520
+Mais si on clique dessus,
+
+22
+00:01:01,840 --> 00:01:04,880
+on aura le raccourci
+qui sera présenté en bas à gauche.
+
+23
+00:01:05,200 --> 00:01:08,520
+Ça peut être utile, si vous avez
+des actions que vous faites à répétition,
+
+24
+00:01:08,840 --> 00:01:12,080
+vous aurez un retour direct
+et une explication du raccourci.
+
+25
+00:01:12,400 --> 00:01:16,640
+Ça veut dire qu'au lieu de sélectionner
+et de faire clic droit et Print it,
+
+26
+00:01:16,960 --> 00:01:19,400
+on peut tout simplement, déjà,
+double-cliquer
+
+27
+00:01:19,720 --> 00:01:23,480
+et faire Cmd+P
+pour afficher le résultat.
+
+28
+00:01:23,800 --> 00:01:25,560
+Donc, Print it affiche le résultat.
+
+29
+00:01:25,880 --> 00:01:27,520
+Si je fais Do it...
+
+30
+00:01:28,880 --> 00:01:30,440
+Do it, je n'ai aucun retour.
+
+31
+00:01:31,320 --> 00:01:35,360
+C'est parce que ça va exécuter votre
+expression sans imprimer le résultat.
+
+32
+00:01:35,680 --> 00:01:39,280
+Donc ici, l'expression, tout ce qui nous
+intéressait était d'afficher le résultat.
+
+33
+00:01:39,600 --> 00:01:43,320
+Maintenant, si on utilise une autre
+expression comme "Workspace open",
+
+34
+00:01:43,640 --> 00:01:47,360
+qu'on utilise celle-là
+et que maintenant, on fait Do it,
+
+35
+00:01:47,680 --> 00:01:51,400
+donc soit clic droit, Do it
+ou alors vous pouvez faire Cmd+D,
+
+36
+00:01:52,240 --> 00:01:53,680
+le workspace est ouvert.
+
+37
+00:01:54,000 --> 00:01:57,200
+Donc, le Do it ne va pas
+vous imprimer le résultat.
+
+38
+00:01:57,520 --> 00:01:59,800
+Il ne va pas nous montrer
+que c'est un workspace.
+
+39
+00:02:00,120 --> 00:02:02,520
+Par exemple,
+si je fais Cmd+P, Print it,
+
+40
+00:02:02,840 --> 00:02:05,160
+il va nous montrer
+que c'est "a Workspace"
+
+41
+00:02:06,240 --> 00:02:07,480
+et il l'a exécuté.
+
+42
+00:02:08,280 --> 00:02:13,040
+Maintenant, les deux autres méthodes
+d'exécution qui sont importantes
+
+43
+00:02:13,360 --> 00:02:15,080
+sont donc Inspect it.
+
+44
+00:02:15,400 --> 00:02:18,000
+Ça va ouvrir
+un inspecteur sur le résultat.
+
+45
+00:02:18,600 --> 00:02:23,520
+L'inspecteur est un outil
+qui permet de naviguer dans une instance.
+
+46
+00:02:23,840 --> 00:02:30,880
+Par exemple, ici, on aura un inspecteur
+sur un Smallinteger qui est 3.
+
+47
+00:02:31,200 --> 00:02:34,160
+On pourra se promener dedans
+donc voir que self 3,
+
+48
+00:02:35,280 --> 00:02:37,840
+différentes explications dans lesquelles
+vous pouvez vous promener
+
+49
+00:02:38,160 --> 00:02:42,240
+et en apprendre plus
+sur cette instance, sur le résultat.
+
+50
+00:02:43,320 --> 00:02:45,240
+Une autre chose
+que vous pouvez faire, c'est...
+
+51
+00:02:45,560 --> 00:02:49,280
+Donc, déjà pour ce Inspect it,
+le raccourci, c'est Cmd+I,
+
+52
+00:02:49,600 --> 00:02:52,640
+donc vous pouvez simplement sélectionner,
+faire Cmd+I.
+
+53
+00:02:52,960 --> 00:02:55,160
+Ça va vous ouvrir l'inspecteur
+sur ce résultat.
+
+54
+00:02:55,480 --> 00:02:58,160
+Une des dernières choses que
+vous pouvez faire, c'est Do it and go.
+
+55
+00:02:58,480 --> 00:03:01,120
+Do it and go, ça va faire un Do it,
+
+56
+00:03:01,440 --> 00:03:05,200
+mais ça va aussi ouvrir un inspecteur
+dans la fenêtre dans laquelle vous êtes
+
+57
+00:03:06,400 --> 00:03:08,680
+pour pouvoir aller inspecter le résultat.
+
+58
+00:03:09,000 --> 00:03:11,160
+Donc si on fait ça
+sur le "Workspace open",
+
+59
+00:03:11,480 --> 00:03:13,440
+qu'on fait Do it and go ou Cmd+G,
+
+60
+00:03:14,920 --> 00:03:18,160
+ça va donc nous ouvrir le workspace
+pour la partie Do it
+
+61
+00:03:18,480 --> 00:03:21,680
+et le go,
+ça va nous présenter l'inspecteur
+
+62
+00:03:23,240 --> 00:03:25,200
+sur ce workspace,
+dans la fenêtre d'à-côté.
+
+63
+00:03:26,480 --> 00:03:29,120
+Ce sont quelques raccourcis
+importants à connaître.
+
+64
+00:03:29,440 --> 00:03:31,600
+Je vous conseille d'activer
+le shortcut reminder.
+
+65
+00:03:31,920 --> 00:03:34,960
+Ça va vous afficher
+en bas à gauche de l'écran
+
+66
+00:03:36,280 --> 00:03:38,920
+les différents raccourcis des actions
+que vous utilisez à la souris.

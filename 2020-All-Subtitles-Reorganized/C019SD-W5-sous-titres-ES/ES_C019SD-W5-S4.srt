@@ -1,0 +1,821 @@
+﻿1
+00:00:00,520 --> 00:00:03,800
+Hola. Durante esta clase
+Te mostraré excepciones,
+
+2
+00:00:03,960 --> 00:00:06,400
+que son realmente potentes en Pharo.
+Te daré una descripción general.
+
+3
+00:00:06,600 --> 00:00:09,160
+¿Qué podemos hacer con las excepciones?
+Podemos reanudarlos,
+
+4
+00:00:09,520 --> 00:00:11,840
+reiniciarlos,
+Señales como nuevas excepciones.
+
+5
+00:00:12,000 --> 00:00:16,240
+Solo voy a mostrarte
+cosas que serán útiles de una manera práctica
+
+6
+00:00:16,400 --> 00:00:17,840
+cuando primero usa excepciones,
+
+7
+00:00:18,000 --> 00:00:20,840
+pero es importante que sepas
+que esto no es todo
+
+8
+00:00:21,000 --> 00:00:24,600
+Hay 2 tipos de excepciones,
+"Errores", que a menudo son fatales
+
+9
+00:00:24,760 --> 00:00:27,680
+y "notificaciones"
+que podemos decir que no necesitamos,
+
+10
+00:00:27,840 --> 00:00:29,160
+Son solo para referencia.
+
+11
+00:00:30,320 --> 00:00:32,800
+Entonces, si te interesa leer
+
+12
+00:00:32,960 --> 00:00:35,800
+una referencia completa sobre las excepciones
+
+13
+00:00:35,960 --> 00:00:39,640
+hay un capítulo entero en el libro,
+"Deep Into Pharo",
+
+14
+00:00:39,800 --> 00:00:45,040
+que está en el sitio web de MOOC
+y disponible en línea gratis.
+
+15
+00:00:45,600 --> 00:00:50,640
+Entonces, ¿qué vas a aprender?
+Para levantar y atrapar excepciones,
+
+16
+00:00:50,800 --> 00:00:54,400
+y algunos buenos métodos de ayuda
+Podemos usar todos los días.
+
+17
+00:00:54,960 --> 00:00:55,800
+Así que básicamente,
+
+18
+00:00:56,000 --> 00:00:58,440
+todo sobre esta clase
+esta en esta pagina
+
+19
+00:00:58,800 --> 00:01:02,360
+Vas a instalar un controlador
+para atrapar una excepción,
+
+20
+00:01:02,520 --> 00:01:03,480
+los señalarás,
+
+21
+00:01:03,640 --> 00:01:08,280
+y tendremos 2 agradables mensajes,
+que son "asegurar" y "si están restringidos"
+
+22
+00:01:09,400 --> 00:01:11,280
+Entonces echemos un vistazo.
+
+23
+00:01:11,840 --> 00:01:14,680
+Imagine que yo quería
+para atrapar una excepción.
+
+24
+00:01:14,840 --> 00:01:16,880
+Es el mensaje "on:do".
+
+25
+00:01:17,040 --> 00:01:20,120
+Hago un bloqueo, si tengo una acción,
+cuando tengo una acción,
+
+26
+00:01:20,280 --> 00:01:23,160
+si alguna vez tengo una excepción,
+¿qué debo hacer?
+
+27
+00:01:23,320 --> 00:01:27,280
+"Algo" y aquí está la excepción,
+que se pasa en argumento.
+
+28
+00:01:27,920 --> 00:01:31,520
+Si miramos un ejemplo
+de cero división,
+
+29
+00:01:31,680 --> 00:01:34,960
+si hago 7 dividido por 0 ...
+
+30
+00:01:35,600 --> 00:01:38,120
+cuando tengo una división cero,
+¿Que tengo que hacer?
+
+31
+00:01:38,280 --> 00:01:41,640
+Voy a escribir:"Cuidado,
+hay una división cero ".
+
+32
+00:01:41,800 --> 00:01:47,160
+Lo que hay que notar aquí es que
+una instancia de la clase Exception
+
+33
+00:01:48,360 --> 00:01:49,840
+ha sido pasado como un argumento,
+
+34
+00:01:50,000 --> 00:01:52,600
+y podré cuestionarlo
+y enviarle mensajes,
+
+35
+00:01:52,760 --> 00:01:54,680
+porque las excepciones
+Son objetos en Pharo.
+
+36
+00:01:54,840 --> 00:01:56,600
+Enviaré mensajes en mis excepciones.
+
+37
+00:01:56,760 --> 00:02:00,400
+Hacer algo y me mostrará 0.
+
+38
+00:02:00,800 --> 00:02:02,920
+Entonces, ¿cómo planteamos una excepción?
+
+39
+00:02:03,240 --> 00:02:07,400
+Básicamente, creamos una excepción
+y le enviamos el mensaje de señal.
+
+40
+00:02:07,560 --> 00:02:10,840
+Entonces aquí, cuando queremos dar
+una advertencia que hago, "Advertencia nueva".
+
+41
+00:02:11,000 --> 00:02:15,240
+Yo creo una excepción, la personalizo,
+Puse el mensaje que quiero dentro,
+
+42
+00:02:15,400 --> 00:02:16,760
+y envíe el mensaje de señal.
+
+43
+00:02:16,920 --> 00:02:21,000
+Cuando tengo una excepción
+para poder preguntar al autor,
+
+44
+00:02:21,160 --> 00:02:23,000
+escribiendo el método,
+
+45
+00:02:23,160 --> 00:02:24,720
+entonces tendrás otra API,
+
+46
+00:02:24,880 --> 00:02:28,240
+porque es "AuthorNameRequest"
+que define esta API,
+
+47
+00:02:28,400 --> 00:02:30,440
+así que he pasado "Stef"
+entonces haré "señal".
+
+48
+00:02:30,600 --> 00:02:33,080
+Lo que suele pasar
+es que las clases
+
+49
+00:02:33,240 --> 00:02:38,040
+proponer atajos para evitar
+tener que crear, entonces estoy enviando
+
+50
+00:02:38,200 --> 00:02:41,640
+"OutOfMemory", esa es la clase.
+Envío el mensaje de señal a la clase.
+
+51
+00:02:41,800 --> 00:02:44,800
+Normalmente, con advertencias,
+No lo hago "Advertencia nueva, bla, bla ..."
+
+52
+00:02:44,960 --> 00:02:48,840
+Hago "señal de advertencia" con el texto,
+porque es más corto,
+
+53
+00:02:49,000 --> 00:02:51,160
+pero eso depende de sus excepciones.
+
+54
+00:02:51,720 --> 00:02:56,800
+Entonces, ya que nos gusta ágil
+programación con pruebas unitarias,
+
+55
+00:02:57,000 --> 00:03:00,080
+y la programación basada en pruebas,
+
+56
+00:03:00,240 --> 00:03:04,440
+¿Cómo podemos probar que una excepción
+se plantea en SUnit?
+
+57
+00:03:04,600 --> 00:03:08,840
+Vamos a usar "no debería aumentar"
+y "debería subir".
+
+58
+00:03:09,000 --> 00:03:10,440
+Leamos esto juntos.
+
+59
+00:03:10,600 --> 00:03:13,640
+Quiero decir aquí,
+"Cuidado, no quiero
+
+60
+00:03:13,800 --> 00:03:15,840
+"una excepción a ser planteada,
+
+61
+00:03:16,000 --> 00:03:18,240
+"para que sea un SubscriptOutOfBounds.
+
+62
+00:03:18,400 --> 00:03:21,640
+"Si creo una fecha en febrero".
+
+63
+00:03:21,800 --> 00:03:25,200
+Ahora, si quiero probar
+que debería tener un error
+
+64
+00:03:25,360 --> 00:03:29,040
+cuando creo una fecha en el mes 13,
+
+65
+00:03:29,200 --> 00:03:32,240
+algo que no suele obtener,
+en tu sueldo,
+
+66
+00:03:32,400 --> 00:03:35,560
+entonces usaré "debería subir",
+
+67
+00:03:35,720 --> 00:03:37,080
+que significa "cuidado,
+
+68
+00:03:37,240 --> 00:03:40,960
+"si crea una fecha en un mes 13,
+Levantaré un error ".
+
+69
+00:03:41,120 --> 00:03:44,000
+Eso te permite crear la prueba de unidad,
+
+70
+00:03:44,160 --> 00:03:46,280
+mientras controla las excepciones.
+
+71
+00:03:46,440 --> 00:03:48,400
+Es una digresión, pero es importante
+
+72
+00:03:48,560 --> 00:03:51,120
+para saber que hay estos
+2 pequeños métodos de ayuda.
+
+73
+00:03:52,120 --> 00:03:54,360
+Entonces, ¿qué son las excepciones en Pharo?
+
+74
+00:03:54,560 --> 00:03:56,040
+Hay errores:
+
+75
+00:03:56,200 --> 00:03:59,360
+"mensaje no entendido"
+"subíndice", "división por cero",
+
+76
+00:03:59,520 --> 00:04:03,280
+usted tiene "alto", que veremos
+cuando llegamos a la depuración.
+
+77
+00:04:03,440 --> 00:04:04,840
+Puedes poner un punto de quiebre,
+
+78
+00:04:05,000 --> 00:04:07,480
+que se detendrá
+Ejecución del sistema.
+
+79
+00:04:07,640 --> 00:04:10,760
+Tienes notificaciones,
+todo no fatal,
+
+80
+00:04:10,920 --> 00:04:15,400
+por lo que una desaprobación,
+"no use este método, use otro",
+
+81
+00:04:15,560 --> 00:04:16,880
+advertencias y tiempo de espera.
+
+82
+00:04:17,040 --> 00:04:19,760
+Una cosa buena es,
+tienes un mensaje de error
+
+83
+00:04:19,920 --> 00:04:22,240
+que describe errores no controlados.
+
+84
+00:04:22,400 --> 00:04:25,240
+Esto es lo que plantea el depurador.
+
+85
+00:04:25,400 --> 00:04:28,680
+Normalmente no lo usamos,
+pero es solo para decirte
+
+86
+00:04:28,840 --> 00:04:31,360
+que errores no controlados
+También son una clase de error.
+
+87
+00:04:32,080 --> 00:04:34,720
+Las excepciones son objetos reales.
+
+88
+00:04:34,920 --> 00:04:37,920
+Si observamos cómo
+mensaje "doesNotUnderstand"
+
+89
+00:04:38,120 --> 00:04:41,600
+está definido, puedes verlo
+en ProtoObject con su navegador Pharo,
+
+90
+00:04:41,760 --> 00:04:43,920
+lo haces, "messageNotUnderstood new",
+
+91
+00:04:44,080 --> 00:04:48,960
+Envío un mensaje al destinatario,
+que es el objeto y dar una señal.
+
+92
+00:04:49,120 --> 00:04:53,480
+Recibe esta señal cuando envía
+"punto nuevo strangeAndBizarre".
+
+93
+00:04:53,640 --> 00:04:56,160
+No se conoce como mensaje,
+"strangeAndBizarre"
+
+94
+00:04:56,320 --> 00:04:57,920
+por lo que creará esta excepción.
+
+95
+00:04:59,440 --> 00:05:01,880
+Tenemos desaprobación,
+por ejemplo, lo que significa,
+
+96
+00:05:02,040 --> 00:05:05,040
+si usas una API
+que evoluciona con el tiempo
+
+97
+00:05:05,200 --> 00:05:08,200
+y que Pharo ha decidido
+ya no es válido,
+
+98
+00:05:08,360 --> 00:05:09,520
+de hecho...
+
+99
+00:05:09,680 --> 00:05:15,000
+¿Cómo lo hacemos en Pharo?
+Decimos:"desaprobado:encendido:en"
+
+100
+00:05:15,160 --> 00:05:17,360
+Aquí, he elegido un claro ejemplo,
+
+101
+00:05:17,520 --> 00:05:19,680
+"menú, artículo, título"
+y que dice?
+
+102
+00:05:19,840 --> 00:05:23,880
+"Usa el método addTitle
+en lugar de "título".
+
+103
+00:05:25,200 --> 00:05:26,960
+¿Cómo se implementa?
+
+104
+00:05:27,120 --> 00:05:30,480
+Se implementa
+de la siguiente manera:"en desuso",
+
+105
+00:05:30,640 --> 00:05:33,960
+esto, "crea una excepción",
+
+106
+00:05:34,120 --> 00:05:35,280
+que se llama "desaprobación"
+
+107
+00:05:35,440 --> 00:05:39,960
+dentro de la cual lo pasaré
+"método, explicación, en, en"
+
+108
+00:05:40,120 --> 00:05:42,680
+que le dará una señal.
+Entonces es solo para mostrarte que
+
+109
+00:05:42,840 --> 00:05:46,800
+"desaprobación", "messageNotUnderstood",
+son excepciones que creamos y aumentamos.
+
+110
+00:05:48,320 --> 00:05:52,080
+Entonces, esto es solo un detalle,
+puedes tener conjuntos de excepciones.
+
+111
+00:05:52,240 --> 00:05:54,960
+Puede decir:"Si tengo ZeroDivide,
+y tengo advertencia,
+
+112
+00:05:55,120 --> 00:05:59,080
+o tengo advertencia,
+vas a poder,
+
+113
+00:05:59,240 --> 00:06:02,800
+para contener las excepciones con una coma "
+que creará un conjunto de excepciones,
+
+114
+00:06:02,960 --> 00:06:06,200
+permitiéndote decir,
+"Quiero reaccionar ante todas estas excepciones".
+
+115
+00:06:06,360 --> 00:06:11,000
+Es muy raro que se use,
+es solo para completar.
+
+116
+00:06:11,720 --> 00:06:14,840
+Ahora vamos a mirar
+algunos métodos muy prácticos,
+
+117
+00:06:15,520 --> 00:06:17,320
+que a menudo usamos.
+
+118
+00:06:17,480 --> 00:06:20,680
+¿Cómo puedo asegurarme de que
+una expresión siempre se ejecuta,
+
+119
+00:06:20,840 --> 00:06:24,360
+incluso si el programa falla de antemano?
+
+120
+00:06:24,520 --> 00:06:27,320
+Entonces, la idea es "garantizar".
+¿Qué hace "asegurar"?
+
+121
+00:06:27,480 --> 00:06:29,120
+Haces algo,
+
+122
+00:06:29,280 --> 00:06:33,520
+y te garantizo que el otro bloque
+será ejecutado.
+
+123
+00:06:33,680 --> 00:06:38,800
+Es muy poderoso
+Te permite cerrar archivos automáticamente.
+
+124
+00:06:39,400 --> 00:06:43,160
+Eso es lo que vemos en SpyOn,
+para el profiler Pharo.
+
+125
+00:06:43,320 --> 00:06:46,680
+Hay una clase en eso.
+Yo digo:"Estoy comenzando a perfilar".
+
+126
+00:06:46,840 --> 00:06:49,640
+Ejecuto el bloque que quiero perfilar
+
+127
+00:06:49,800 --> 00:06:52,160
+y me garantizo
+Dejaré de perfilar,
+
+128
+00:06:52,320 --> 00:06:55,200
+incluso si me has pasado
+un bloque con un error
+
+129
+00:06:55,400 --> 00:06:57,480
+Hay otro ayudante
+
+130
+00:06:57,680 --> 00:07:00,000
+que es muy lindo
+que es como puedo asegurarme
+
+131
+00:07:00,160 --> 00:07:04,680
+una expresión solo se ejecuta
+si el programa falla?
+
+132
+00:07:05,440 --> 00:07:09,320
+Lo que voy a hacer es decir,
+"Haces algo si alguna vez
+
+133
+00:07:09,480 --> 00:07:13,880
+"sucede algo extraño,
+Quiero que ejecute este código ".
+
+134
+00:07:14,040 --> 00:07:16,680
+Aquí he tomado un ejemplo
+en "espera", que es realmente
+
+135
+00:07:16,840 --> 00:07:20,800
+muy bajo nivel, lo que te permite
+para cambiar la programación del procesador.
+
+136
+00:07:21,520 --> 00:07:26,800
+Yo digo:"Ahí está el sistema,
+programar un semáforo "
+
+137
+00:07:26,960 --> 00:07:30,320
+Hago una operación y si alguna vez
+algo no funciona,
+
+138
+00:07:30,480 --> 00:07:32,520
+el sistema garantiza
+
+139
+00:07:32,680 --> 00:07:36,160
+que lo eliminaré del programador.
+
+140
+00:07:36,320 --> 00:07:40,080
+Estos métodos son realmente prácticos,
+porque son muy poderosos
+
+141
+00:07:40,480 --> 00:07:45,280
+Te he dado una diapositiva para explicarte.
+cómo funciona el método de búsqueda,
+
+142
+00:07:45,440 --> 00:07:47,120
+Además del libro.
+
+143
+00:07:47,320 --> 00:07:48,480
+Ahora...
+
+144
+00:07:48,680 --> 00:07:50,440
+solo para tu información,
+
+145
+00:07:50,600 --> 00:07:53,600
+las cosas que podemos hacer
+con excepciones en Pharo,
+
+146
+00:07:53,760 --> 00:07:59,160
+puedes devolver un resultado alternativo,
+puedes volver a intentarlo, de hecho.
+
+147
+00:07:59,320 --> 00:08:01,320
+Puedes cambiar la ejecución
+del programa y diga:
+
+148
+00:08:01,480 --> 00:08:05,320
+"Actuar como si
+la excepción no sucedió ".
+
+149
+00:08:05,480 --> 00:08:07,800
+Puedo reanudar
+
+150
+00:08:07,960 --> 00:08:11,600
+Puedo decir:"No, no quiero tratar
+con esta excepción en este nivel,
+
+151
+00:08:11,760 --> 00:08:13,280
+"Quiero tratar con él más arriba".
+
+152
+00:08:13,440 --> 00:08:14,920
+Puedo renunciar a una excepción,
+
+153
+00:08:15,080 --> 00:08:18,840
+"No, has planteado esta excepción
+pero es viejo, quiero uno nuevo "
+
+154
+00:08:19,000 --> 00:08:19,880
+con resignal
+
+155
+00:08:20,040 --> 00:08:23,520
+Cuando lo necesites significa
+sabes lo que estás haciendo,
+
+156
+00:08:23,680 --> 00:08:28,400
+y has leído el capítulo,
+así que ten en cuenta que existe.
+
+157
+00:08:28,600 --> 00:08:30,520
+Esto fue solo para mostrarte.
+
+158
+00:08:30,720 --> 00:08:33,600
+Quiero devolver otro valor
+De una excepción, hago "return",
+
+159
+00:08:33,760 --> 00:08:38,160
+y puedes ver que aquí,
+Tuve mi bloqueo que me dio este valor.
+
+160
+00:08:38,320 --> 00:08:41,400
+Hice una excepción y, al final,
+
+161
+00:08:41,560 --> 00:08:45,400
+Es este valor el que se devolvió.
+Eso es con "retorno".
+
+162
+00:08:45,560 --> 00:08:48,400
+Ahora, con "curriculum vitae"
+lo que vas a tener,
+
+163
+00:08:48,560 --> 00:08:50,920
+"curriculum vitae" es ...
+
+164
+00:08:51,080 --> 00:08:54,240
+Tengo mi excepción que se plantea aquí,
+
+165
+00:08:54,400 --> 00:08:58,560
+y lo que veo es que,
+En mi excepción, cuando hago "resume",
+
+166
+00:08:58,720 --> 00:09:02,120
+no se devuelve este valor,
+Es el próximo valor, entonces digo,
+
+167
+00:09:02,280 --> 00:09:07,360
+"Continuar después del punto de excepción",
+así que empieza de nuevo desde aquí,
+
+168
+00:09:07,520 --> 00:09:10,120
+y eso me dará este valor.
+
+169
+00:09:11,240 --> 00:09:14,000
+Entonces, si miramos
+lo que deberías saber:
+
+170
+00:09:14,200 --> 00:09:16,960
+Las excepciones son poderosas en Pharo,
+Vale genial.
+
+171
+00:09:17,120 --> 00:09:20,840
+Hay una API muy simple,
+es "señal" para plantear una excepción,
+
+172
+00:09:21,000 --> 00:09:22,720
+"on:do" para atraparlos,
+
+173
+00:09:22,880 --> 00:09:27,880
+y usted tiene que "garantizar" para garantizar
+que esta expresión siempre se ejecuta,
+
+174
+00:09:28,040 --> 00:09:30,280
+si tengo un problema aquí o no,
+
+175
+00:09:30,440 --> 00:09:32,720
+y hay esta expresión,
+con "ifCurtailed",
+
+176
+00:09:32,880 --> 00:09:35,720
+que ejecutará "onProblem"
+Si tengo un problema en "doSomething".
+
+177
+00:09:35,880 --> 00:09:38,760
+Esto es todo lo que necesitas saber
+Para comenzar con excepciones.

@@ -1,0 +1,317 @@
+﻿1
+00:00:00,480 --> 00:00:05,200
+Hello. Today we are going to examine
+a very interesting subtlety
+
+2
+00:00:05,360 --> 00:00:07,720
+that you can apply in your programs.
+
+3
+00:00:07,880 --> 00:00:11,640
+To start with, we'll quickly review
+the dice program.
+
+4
+00:00:11,800 --> 00:00:16,520
+If you recall, in this exercise
+we defined the dice class in order
+
+5
+00:00:16,680 --> 00:00:20,840
+to define instances of this class
+and represent various dice faces.
+
+6
+00:00:21,000 --> 00:00:24,920
+We defined a class called DiceHandle.
+
+7
+00:00:25,360 --> 00:00:29,440
+Then we implemented
+the "plus" method
+
+8
+00:00:29,600 --> 00:00:31,320
+on the DiceHandle class,
+
+9
+00:00:31,480 --> 00:00:34,840
+to add DiceHandles
+and construct a new DiceHandle.
+
+10
+00:00:35,000 --> 00:00:37,600
+This is the code for this class.
+
+11
+00:00:37,760 --> 00:00:40,680
+We have DiceHandle new.
+
+12
+00:00:40,840 --> 00:00:42,920
+We create a new DiceHandle,
+
+13
+00:00:43,080 --> 00:00:46,680
+to which we add the dice
+of the receiver class
+
+14
+00:00:46,840 --> 00:00:48,200
+and the setting,
+
+15
+00:00:48,360 --> 00:00:52,040
+and we return this handle
+at the end of the method. Okay?
+
+16
+00:00:53,280 --> 00:00:57,960
+In this sequence we will see
+the difference,
+
+17
+00:00:58,120 --> 00:01:02,200
+in this "+" method,
+between writing DiceHandle new
+
+18
+00:01:02,360 --> 00:01:04,840
+and self class new.
+
+19
+00:01:05,000 --> 00:01:07,560
+And we'll see why
+one technique is better.
+
+20
+00:01:08,160 --> 00:01:09,840
+Here is the problem.
+
+21
+00:01:10,200 --> 00:01:15,440
+If I create a DiceHandle subclass
+called MemoDiceHandle,
+
+22
+00:01:16,080 --> 00:01:20,720
+and I want to add MemoDiceHandles,
+
+23
+00:01:20,880 --> 00:01:24,280
+with the "+" method,
+which is inherited from DiceHandle,
+
+24
+00:01:24,440 --> 00:01:28,600
+the result is an instance
+of the DiceHandle class.
+
+25
+00:01:28,760 --> 00:01:30,880
+Not of the MemoDiceHandle class.
+
+26
+00:01:31,040 --> 00:01:33,840
+This is a problem
+because when we add elements,
+
+27
+00:01:34,000 --> 00:01:36,720
+we want to get
+the same type of element back.
+
+28
+00:01:36,880 --> 00:01:38,400
+How do we do this?
+
+29
+00:01:38,560 --> 00:01:40,080
+Solution No. 1.
+
+30
+00:01:40,480 --> 00:01:42,960
+I change the implementation
+
+31
+00:01:43,120 --> 00:01:46,080
+of the "+" method
+on the DiceHandle class.
+
+32
+00:01:46,560 --> 00:01:48,080
+The "+" method, okay?
+
+33
+00:01:48,240 --> 00:01:53,280
+And I simply add this method:
+self handleClass.
+
+34
+00:01:53,440 --> 00:01:58,320
+Instead of defining
+the instance variable I wish to obtain,
+
+35
+00:01:58,480 --> 00:02:02,160
+I use a method
+that I call handleClass.
+
+36
+00:02:02,320 --> 00:02:05,160
+In DiceHandle,
+the DiceHandle class is returned,
+
+37
+00:02:05,320 --> 00:02:09,800
+and in the MemoDiceHandle subclass,
+MemoDiceHandle is returned.
+
+38
+00:02:10,160 --> 00:02:14,480
+So by simply
+redefining the handleClass method,
+
+39
+00:02:14,640 --> 00:02:19,720
+we obtain the correct instance
+when we add elements.
+
+40
+00:02:21,120 --> 00:02:25,280
+If we execute the same code,
+
+41
+00:02:25,440 --> 00:02:30,520
+using MemoDiceHandle instead,
+we get an instance of MemoDiceHandle,
+
+42
+00:02:30,680 --> 00:02:33,680
+because I redefined
+the handleClass method
+
+43
+00:02:33,840 --> 00:02:38,280
+in the MemoDiceHandle class.
+We got an instance of the subclass.
+
+44
+00:02:38,440 --> 00:02:42,160
+So we attained our objective.
+
+45
+00:02:42,760 --> 00:02:46,200
+The problem is that
+
+46
+00:02:46,360 --> 00:02:51,680
+each time we add a subclass
+to DiceHandle,
+
+47
+00:02:51,840 --> 00:02:54,240
+we must redefine
+the handleClass method.
+
+48
+00:02:54,400 --> 00:02:59,600
+If you don't, the "+" method will never
+return the correct class instance.
+
+49
+00:02:59,760 --> 00:03:03,720
+This is tedious.
+You must constantly redefine the method.
+
+50
+00:03:03,880 --> 00:03:05,080
+There are better ways.
+
+51
+00:03:05,600 --> 00:03:09,000
+Here's Solution No. 2.
+
+52
+00:03:09,160 --> 00:03:13,200
+Using the "+" method in DiceHandle,
+this time we will write:
+
+53
+00:03:13,360 --> 00:03:16,160
+self class new.
+
+54
+00:03:17,000 --> 00:03:20,680
+I'll ask the current receiver
+for its class,
+
+55
+00:03:20,840 --> 00:03:22,640
+in order to get an instance.
+
+56
+00:03:22,800 --> 00:03:27,240
+In fact, self class always returns
+the class of the receiver.
+
+57
+00:03:27,400 --> 00:03:29,360
+If it's the instance of a subclass,
+
+58
+00:03:29,520 --> 00:03:33,520
+it will return the correct class.
+For example, MemoDiceHandle.
+
+59
+00:03:33,680 --> 00:03:37,840
+We get instances of the same kind
+as that of the receiver.
+
+60
+00:03:38,520 --> 00:03:40,480
+As a conclusion,
+
+61
+00:03:40,640 --> 00:03:42,400
+as you saw,
+
+62
+00:03:42,800 --> 00:03:47,040
+when you send the message "+"
+to a DiceHandle,
+
+63
+00:03:47,200 --> 00:03:52,080
+if you set the name of the class
+you want an instance for,
+
+64
+00:03:52,240 --> 00:03:56,760
+in a sense you prevent yourself
+from creating subclasses.
+
+65
+00:03:56,920 --> 00:04:01,400
+But with self class new, "+" returns
+an instance of the receiver.
+
+66
+00:04:01,560 --> 00:04:03,280
+Of the potential subclass.
+
+67
+00:04:03,440 --> 00:04:06,920
+So it's much better to use
+self class new,
+
+68
+00:04:07,080 --> 00:04:09,480
+to directly get
+
+69
+00:04:10,120 --> 00:04:14,720
+an instance of the class
+according to the type of receiver.

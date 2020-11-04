@@ -1,0 +1,283 @@
+1
+00:00:00,200 --> 00:00:03,290
+Bonjour. Dans cette séquence,
+nous allons parler du return.
+
+2
+00:00:04,460 --> 00:00:09,110
+Comment peut-on retourner
+une valeur d'un block ou d'une
+
+3
+00:00:09,310 --> 00:00:12,630
+méthode? Quelles sont les
+valeurs de retour par défaut?
+
+4
+00:00:13,630 --> 00:00:16,290
+Il y a 4 cas à étudier.
+
+5
+00:00:16,490 --> 00:00:21,140
+Une méthode qui utilise le
+chapeau pour faire un return,
+
+6
+00:00:21,340 --> 00:00:22,820
+une méthode qui n'utilise
+pas le chapeau pour faire un
+
+7
+00:00:23,020 --> 00:00:25,850
+return, un block qui
+utilise le chapeau pour faire un
+
+8
+00:00:26,050 --> 00:00:29,680
+return et un block qui n'utilise
+pas le chapeau pour faire un return.
+
+9
+00:00:30,000 --> 00:00:33,590
+Dans une méthode, si on
+utilise le chapeau pour retourner
+
+10
+00:00:33,790 --> 00:00:38,540
+une valeur, ici ce return
+
+11
+00:00:39,230 --> 00:00:44,110
+va retourner une valeur en
+particulier et va quitter
+
+12
+00:00:44,310 --> 00:00:45,070
+la méthode.
+
+13
+00:00:46,410 --> 00:00:51,290
+Si je ne mets pas le chapeau, par
+défaut la méthode à la fin retourne self.
+
+14
+00:00:53,670 --> 00:00:56,200
+Cette partie-là est optionnelle
+et en général on ne la mettra pas.
+
+15
+00:00:57,010 --> 00:01:01,580
+La valeur de retour d'un block est
+la valeur de sa dernière expression.
+
+16
+00:01:02,320 --> 00:01:05,900
+Dans le cadre de ce block
+là, entre ici et ici, j'ai un
+
+17
+00:01:06,100 --> 00:01:08,540
+block qui prend comme
+paramètre une valeur x.
+
+18
+00:01:09,210 --> 00:01:14,060
+J'ajoute 33 à x.
+
+19
+00:01:14,260 --> 00:01:17,250
+Le résultat de cette
+expression x plus 33 n'est pas
+
+20
+00:01:17,450 --> 00:01:21,490
+utilisé, donc est effacé et
+à l'instruction suivante, je
+
+21
+00:01:21,690 --> 00:01:25,490
+fais x plus 2, donc j'ajoute 2
+à ma valeur x, et comme c'est
+
+22
+00:01:25,690 --> 00:01:29,200
+la dernière expression
+du bloc, sa valeur c'est
+
+23
+00:01:31,000 --> 00:01:33,880
+celle qui représentera la
+valeur de retour du block.
+
+24
+00:01:35,190 --> 00:01:39,580
+Mon block value: 5, ça ça
+veut dire j'exécute mon block
+
+25
+00:01:40,000 --> 00:01:42,230
+avec x prenant la valeur 5.
+
+26
+00:01:42,610 --> 00:01:44,450
+Donc je calcule 33 plus 5.
+
+27
+00:01:45,210 --> 00:01:47,570
+Le résultat de ce calcul
+est effacé, il ne sert à rien.
+
+28
+00:01:48,060 --> 00:01:52,030
+5 plus 2 me donne la
+valeur 7 qui est utilisée comme
+
+29
+00:01:52,230 --> 00:01:53,230
+valeur de retour du block.
+
+30
+00:01:53,650 --> 00:01:57,280
+Et donc l'ensemble de cette
+expression a pour valeur 7.
+
+31
+00:01:59,700 --> 00:02:02,380
+Si j'utilise le
+chapeau dans un block,
+
+32
+00:02:05,880 --> 00:02:09,340
+le comportement est
+complètement différent d'une méthode.
+
+33
+00:02:10,350 --> 00:02:13,290
+Ici, disons qu'on ne va pas
+s'attendre à ce que le block
+
+34
+00:02:13,490 --> 00:02:17,000
+se coupe, mais c'est la
+méthode qui va se couper.
+
+35
+00:02:17,870 --> 00:02:21,490
+Si je regarde l'exemple de
+la méthode factorielle dans la
+
+36
+00:02:21,690 --> 00:02:26,220
+ classe Intenger, le return qui est
+
+37
+00:02:26,420 --> 00:02:30,830
+ici et celui qui est là, ces 2
+return coupent l'exécution de la méthode.
+
+38
+00:02:32,750 --> 00:02:36,800
+Donc si self, si le receveur
+est égal à 0 lors de l'exécution
+
+39
+00:02:37,000 --> 00:02:41,550
+de la méthode factorielle,
+le block est exécuté et 1 est
+
+40
+00:02:41,750 --> 00:02:44,420
+retourné immédiatement
+et la méthode se coupe.
+
+41
+00:02:44,620 --> 00:02:46,010
+Donc, la méthode retourne 1.
+
+42
+00:02:47,110 --> 00:02:49,560
+Donc le return ne sert pas à
+couper le bloc mais à couper
+
+43
+00:02:49,760 --> 00:02:51,250
+la méthode qui englobe le block.
+
+44
+00:02:52,720 --> 00:02:55,680
+Dans le deuxième exemple,
+si self est plus grand que 0,
+
+45
+00:02:56,660 --> 00:03:01,240
+alors on calcule avec un
+appel récursif et on retourne le
+
+46
+00:03:01,440 --> 00:03:02,460
+résultat de cet appel immédiatement.
+
+47
+00:03:02,670 --> 00:03:06,880
+Donc la méthode ne continue pas à
+s'exécuter si self est plus grand que 0.
+
+48
+00:03:08,060 --> 00:03:11,000
+Dans les autres cas, si
+on arrive à la troisième
+
+49
+00:03:11,200 --> 00:03:13,550
+instruction, on lève une
+erreur ça veut dire que le
+
+50
+00:03:14,040 --> 00:03:16,590
+receveur est un nombre négatif.
+
+51
+00:03:16,790 --> 00:03:21,300
+Ce que vous devez retenir,
+c'est que le chapeau permet de
+
+52
+00:03:21,890 --> 00:03:24,860
+quitter la méthode, que le
+chapeau se trouve dans la
+
+53
+00:03:25,060 --> 00:03:27,840
+méthode ou dans un block
+qui se trouve dans la méthode,
+
+54
+00:03:28,050 --> 00:03:30,650
+le chapeau quitte
+systématiquement la méthode et retourne
+
+55
+00:03:31,050 --> 00:03:33,050
+une valeur
+spécifiée après le chapeau.
+
+56
+00:03:34,370 --> 00:03:37,010
+Par défaut, une
+méthode retourne self.
+
+57
+00:03:38,220 --> 00:03:40,770
+Mettre return self à la fin
+d'une méthode ne sert à rien
+
+58
+00:03:41,000 --> 00:03:43,460
+puisque c'est la valeur qui est
+retournée par défaut systématiquement.
+
+59
+00:03:45,800 --> 00:03:50,090
+Et un block retourne la
+valeur de sa dernière expression.
+

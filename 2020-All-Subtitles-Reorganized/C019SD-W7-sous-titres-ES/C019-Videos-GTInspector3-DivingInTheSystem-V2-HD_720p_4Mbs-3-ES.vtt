@@ -1,0 +1,615 @@
+WEBVTT
+
+00:00:01.540 --> 00:00:03.650 align:middle
+En este video,
+Me gustaría mostrarte
+
+00:00:03.817 --> 00:00:08.710 align:middle
+cómo podemos usar el inspector
+navegar y
+
+00:00:08.877 --> 00:00:09.620 align:middle
+entender el interior de
+el sistema.
+
+00:00:10.880 --> 00:00:15.020 align:middle
+El inspector es como
+un microscopio
+
+00:00:15.187 --> 00:00:17.910 align:middle
+eso nos permitirá ir
+y explora el interior de
+
+00:00:18.077 --> 00:00:21.190 align:middle
+del sistema pero también, como si
+podríamos enviar sondas
+
+00:00:21.357 --> 00:00:22.860 align:middle
+para modificar el sistema
+Es como si estuviésemos
+
+00:00:23.027 --> 00:00:26.940 align:middle
+un biólogo que de hecho está manipulando
+bacterias y hacerlas reaccionar.
+
+00:00:27.800 --> 00:00:32.240 align:middle
+Entonces nos divertiremos explorando
+que son "Smalltalk globals".
+
+00:00:34.910 --> 00:00:37.470 align:middle
+De hecho, este es el espacio de nombre,
+es decir, el lugar donde
+
+00:00:37.637 --> 00:00:40.050 align:middle
+todas las clases de Pharo están almacenadas.
+
+00:00:41.770 --> 00:00:44.000 align:middle
+Entonces es un diccionario,
+el diccionario del sistema es
+
+00:00:44.167 --> 00:00:48.180 align:middle
+un diccionario. Lo que es interesante es
+eso, con el inspector,
+
+00:00:48.630 --> 00:00:53.540 align:middle
+de miro al inspector, es
+
+00:00:53.707 --> 00:00:56.240 align:middle
+una gran mesa con
+
+00:01:00.080 --> 00:01:00.860 align:middle
+valores dentro
+
+00:01:01.027 --> 00:01:02.410 align:middle
+Entonces, por ejemplo, si elijo ...
+No lo sé…
+
+00:01:02.577 --> 00:01:06.770 align:middle
+Breakpoint, veo eso en mi
+mesa que tengo
+
+00:01:07.680 --> 00:01:11.840 align:middle
+una clave que contiene al menos un objeto
+eso contiene
+
+00:01:12.710 --> 00:01:14.350 align:middle
+Este objeto, que contiene un
+clave de valor
+
+00:01:14.517 --> 00:01:16.190 align:middle
+¿Qué es interesante con el
+inspector es eso
+
+00:01:16.357 --> 00:01:20.390 align:middle
+aquí, por ejemplo, veo
+que en el elemento 2
+
+00:01:20.557 --> 00:01:22.370 align:middle
+En la mesa, ¿qué tengo?
+
+00:01:22.537 --> 00:01:24.150 align:middle
+Tengo lo que llamamos
+una variable global
+
+00:01:24.317 --> 00:01:26.150 align:middle
+Entonces, una variable global, ¿qué
+¿Lo es?
+
+00:01:26.317 --> 00:01:28.350 align:middle
+Es un objeto compuesto por
+una clave y un valor
+
+00:01:29.220 --> 00:01:33.040 align:middle
+La clave, si hago clic en ella,
+ver
+
+00:01:33.207 --> 00:01:37.870 align:middle
+que es un ByteSymbol
+que representa el nombre y si
+
+00:01:38.037 --> 00:01:42.720 align:middle
+Retrocedo y miro la
+
+00:01:42.887 --> 00:01:44.820 align:middle
+valor, aquí tendré una clase.
+
+00:01:45.000 --> 00:01:47.520 align:middle
+Entonces vamos a entrar
+las clases.
+
+00:01:48.000 --> 00:01:49.230 align:middle
+Aquí regreso al principio.
+
+00:01:50.460 --> 00:01:54.790 align:middle
+El nuevo inspector Pharo,
+
+00:01:55.670 --> 00:01:59.440 align:middle
+llamado GT Inspector,
+después de los desarrolladores
+
+00:01:59.607 --> 00:02:03.380 align:middle
+equipo que lo desarrolló para Pharo,
+propondrá
+
+00:02:03.547 --> 00:02:05.220 align:middle
+pestañas dedicadas
+
+00:02:06.610 --> 00:02:08.570 align:middle
+En el diccionario del sistema,
+qué pestañas específicas
+
+00:02:08.737 --> 00:02:12.210 align:middle
+¿Tengo? Tengo la pestaña
+mostrando los pares
+
+00:02:12.377 --> 00:02:17.240 align:middle
+clave / valor para mis clases,
+
+00:02:17.407 --> 00:02:18.220 align:middle
+o solo conseguiré las llaves.
+
+00:02:18.387 --> 00:02:20.340 align:middle
+Las llaves son un poco menos
+interesante desde que
+
+00:02:20.507 --> 00:02:25.270 align:middle
+solo tendrá los nombres de las clases
+
+00:02:25.437 --> 00:02:26.070 align:middle
+en cuestión.
+
+00:02:26.237 --> 00:02:28.720 align:middle
+Algo lindo también es que
+esta
+
+00:02:28.887 --> 00:02:33.170 align:middle
+inspector, ves que puedo
+navegar, eso significa ...
+
+00:02:33.337 --> 00:02:34.730 align:middle
+Tomemos un ejemplo ...
+
+00:02:35.270 --> 00:02:39.410 align:middle
+He navegado, voy de un objeto
+a otro por
+
+00:02:39.620 --> 00:02:42.390 align:middle
+seleccionando una ruta en el
+estructura en cuestion
+
+00:02:42.940 --> 00:02:44.900 align:middle
+Si considero la clave, por ejemplo,
+si considero
+
+00:02:45.067 --> 00:02:47.600 align:middle
+el valor, aquí obtengo el
+clase y si en esto
+
+00:02:47.767 --> 00:02:49.420 align:middle
+clase, entro en su
+diccionario de métodos ...
+
+00:02:49.790 --> 00:02:53.730 align:middle
+Desde el diccionario de métodos,
+Podria ir a un
+
+00:02:53.897 --> 00:02:54.840 align:middle
+método compilado, etc.
+
+00:02:55.007 --> 00:02:58.960 align:middle
+Realmente navego y con
+esta herramienta, puedo
+
+00:02:59.127 --> 00:03:03.810 align:middle
+limitar la vista de lo que quiero
+para ver o por ejemplo ver todo el flujo.
+
+00:03:04.510 --> 00:03:08.540 align:middle
+Pero lo bueno es que
+Tambien puedo agregar
+
+00:03:08.940 --> 00:03:11.530 align:middle
+Una nueva rama en mi flujo.
+
+00:03:12.130 --> 00:03:14.570 align:middle
+Eso es lo que vamos a hacer
+aquí. Entonces imaginemos eso
+
+00:03:14.737 --> 00:03:16.300 align:middle
+Minimizo, vuelvo al comienzo.
+
+00:03:18.070 --> 00:03:22.560 align:middle
+Aquí, finalmente, imaginemos
+Me digo a mí mismo:"Soy
+
+00:03:22.727 --> 00:03:24.530 align:middle
+interesado por la clase de puntos ".
+
+00:03:24.920 --> 00:03:26.600 align:middle
+Sé que normalmente puedo
+acceso
+
+00:03:26.767 --> 00:03:29.050 align:middle
+la clase de punto haciendo "Smalltalk global"
+en el punto.
+
+00:03:29.217 --> 00:03:31.890 align:middle
+Entonces, aquí lo hago y lo digo
+
+00:03:32.057 --> 00:03:36.670 align:middle
+ejecútelo y abra un
+
+00:03:36.837 --> 00:03:39.280 align:middle
+inspector en el inspector real.
+
+00:03:41.340 --> 00:03:45.270 align:middle
+Y aquí, de repente,
+si nos fijamos en
+
+00:03:45.437 --> 00:03:50.230 align:middle
+la navegación, hice
+una ramificación
+
+00:03:50.580 --> 00:03:52.230 align:middle
+entre la navegación que tuve y
+a quien quiero ir.
+
+00:03:54.440 --> 00:03:56.380 align:middle
+Entonces esto es bueno, significa que
+puedes escribir
+
+00:03:56.547 --> 00:03:59.330 align:middle
+muchas expresiones
+y comienza a navegar.
+
+00:04:00.760 --> 00:04:01.750 align:middle
+Entonces, ¿qué vemos?
+
+00:04:02.120 --> 00:04:04.520 align:middle
+Vemos la clase de puntos como un objeto.
+
+00:04:04.760 --> 00:04:09.000 align:middle
+De hecho, el inspector nos muestra
+
+00:04:09.167 --> 00:04:12.400 align:middle
+que hay pestañas específicas
+a las clases
+
+00:04:12.860 --> 00:04:17.490 align:middle
+Entonces aquí, la pestaña "Raw" muestra
+
+00:04:17.657 --> 00:04:20.030 align:middle
+nosotros que se define la clase Point
+en el
+
+00:04:20.197 --> 00:04:23.760 align:middle
+Categoría de kernel, tiene una
+entorno, apunta
+
+00:04:24.010 --> 00:04:28.960 align:middle
+el mismo espacio, este es el
+formato de codificación de
+
+00:04:29.127 --> 00:04:30.470 align:middle
+instancias, tiene un diseño.
+
+00:04:30.637 --> 00:04:35.520 align:middle
+En resumen, este es el Pharo
+implementación de lo que es una clase.
+
+00:04:36.220 --> 00:04:38.920 align:middle
+Ahora, lo que es realmente bueno con
+este inspector es
+
+00:04:39.087 --> 00:04:41.810 align:middle
+que puedo ver, por ejemplo aquí
+la definición,
+
+00:04:42.000 --> 00:04:46.790 align:middle
+los comentarios y hay otros
+pestañas como todas las referencias.
+
+00:04:46.957 --> 00:04:49.550 align:middle
+Entonces, si hago clic en la referencia,
+aquí veré
+
+00:04:49.717 --> 00:04:54.610 align:middle
+ese punto realmente se usa
+
+00:04:54.777 --> 00:04:56.000 align:middle
+en el método @.
+
+00:04:57.200 --> 00:04:59.540 align:middle
+Miro una vez más,
+esta es la cruda
+
+00:04:59.920 --> 00:05:02.500 align:middle
+versión de la información
+que es un objeto que representa
+
+00:05:02.667 --> 00:05:05.630 align:middle
+un método y aquí su fuente,
+así que cada vez que puedo
+
+00:05:05.797 --> 00:05:07.790 align:middle
+elige cuál es el mejor
+
+00:05:07.957 --> 00:05:09.770 align:middle
+representación para la tarea
+Estoy haciendo.
+
+00:05:10.440 --> 00:05:11.700 align:middle
+Entonces vamos hacia atrás.
+
+00:05:13.440 --> 00:05:16.810 align:middle
+Si miro
+
+00:05:18.740 --> 00:05:21.950 align:middle
+mi clase, aquí me gustaría
+para entrar en el diccionario de métodos.
+
+00:05:22.117 --> 00:05:25.660 align:middle
+¿Qué es el diccionario de métodos?
+
+00:05:25.827 --> 00:05:27.930 align:middle
+Es un diccionario con una clave
+que es el nombre de la
+
+00:05:28.097 --> 00:05:31.870 align:middle
+método y un valor que es
+un método compilado,
+
+00:05:32.037 --> 00:05:35.490 align:middle
+una instancia de CompileMethod.
+Entonces, si miraba el crudo
+
+00:05:35.657 --> 00:05:37.730 align:middle
+aspecto, ves que es
+un poco más molesto
+
+00:05:38.680 --> 00:05:43.540 align:middle
+porque tendría que
+Entender cómo están
+
+00:05:43.707 --> 00:05:45.820 align:middle
+implementó los diccionarios de métodos
+a fin de que
+
+00:05:46.000 --> 00:05:47.940 align:middle
+interactuar con ellos, mientras que aquí
+No es lo que me interesa,
+
+00:05:48.107 --> 00:05:49.420 align:middle
+Quiero ver un método compilado.
+
+00:05:49.930 --> 00:05:51.460 align:middle
+Entonces, para ver un método compilado,
+
+00:05:51.627 --> 00:05:54.670 align:middle
+Elijo grados por ejemplo,
+y yo
+
+00:05:54.837 --> 00:05:57.570 align:middle
+navegar y, de repente
+Obtengo un CompileMethod
+
+00:05:58.270 --> 00:06:01.280 align:middle
+Un CompileMethod es un objeto
+que, una vez más,
+
+00:06:01.447 --> 00:06:05.610 align:middle
+propone diferentes formas de ser
+mostrado por el inspector.
+
+00:06:06.810 --> 00:06:10.300 align:middle
+Aquí ves un método compilado,
+
+00:06:10.467 --> 00:06:13.700 align:middle
+De hecho, este es un marco de datos,
+una mesa
+
+00:06:13.867 --> 00:06:17.570 align:middle
+un poco específico, contiene
+Bytecode,
+
+00:06:17.737 --> 00:06:19.810 align:middle
+y literales Que son los
+literales
+
+00:06:20.100 --> 00:06:21.790 align:middle
+En el código, cada vez
+tienes
+
+00:06:21.957 --> 00:06:25.620 align:middle
+asFloat, arcTan,
+grados o RadianToDegrees,
+
+00:06:27.900 --> 00:06:30.100 align:middle
+Necesita ser almacenado en alguna parte.
+
+00:06:31.000 --> 00:06:33.820 align:middle
+Se almacena aquí, ya ves,
+al principio
+
+00:06:37.780 --> 00:06:38.413 align:middle
+del método compilado
+
+00:06:38.580 --> 00:06:39.213 align:middle
+¿Qué hace el Bytecode?
+
+00:06:39.380 --> 00:06:41.880 align:middle
+Se refiere a esos objetos
+
+00:06:42.047 --> 00:06:43.830 align:middle
+para ponerlos en la pila
+e invoca los métodos.
+
+00:06:44.000 --> 00:06:45.860 align:middle
+Entonces, aquí es lo que podemos
+Veamos, por ejemplo, si nos fijamos en
+
+00:06:46.027 --> 00:06:49.810 align:middle
+la vista, minimizo esto,
+si miramos el código Bytecode
+
+00:06:50.000 --> 00:06:51.400 align:middle
+vista, que hace?
+
+00:06:51.567 --> 00:06:55.470 align:middle
+Realiza PushRcvr, por lo que pone 0
+en la pila y hacer lo mismo.
+
+00:06:55.637 --> 00:06:56.900 align:middle
+¿A que corresponde?
+
+00:06:57.240 --> 00:06:58.870 align:middle
+Si miramos un poco de cerca,
+
+00:07:03.330 --> 00:07:06.700 align:middle
+Lo muestro dos veces,
+este modo de visualización es
+
+00:07:06.867 --> 00:07:08.690 align:middle
+realmente muy útil,
+mira lo que podemos hacer:
+
+00:07:08.857 --> 00:07:11.910 align:middle
+si ahora quiero ver
+
+00:07:12.077 --> 00:07:16.880 align:middle
+la fuente, elijo
+Bytecode allí y
+
+00:07:17.047 --> 00:07:20.350 align:middle
+y fuente aquí, esas expresiones
+se corresponden entre sí,
+
+00:07:20.517 --> 00:07:21.900 align:middle
+mira que se muestra
+
+00:07:22.690 --> 00:07:23.480 align:middle
+Entonces esto es genial.
+
+00:07:23.890 --> 00:07:27.260 align:middle
+Significa que puedo hacer un empuje de
+la instancia del receptor
+
+00:07:27.427 --> 00:07:30.920 align:middle
+variable 0, puse 0 en la pila
+
+00:07:31.087 --> 00:07:33.700 align:middle
+y envío el mensaje igual.
+
+00:07:34.560 --> 00:07:36.390 align:middle
+Y aquí, es genial porque
+medio
+
+00:07:36.557 --> 00:07:38.670 align:middle
+que la persona que está haciendo
+el
+
+00:07:38.837 --> 00:07:42.230 align:middle
+el compilador puede ver que el Bytecode
+Él produjo
+
+00:07:42.397 --> 00:07:45.740 align:middle
+corresponde a la estructura del código.
+
+00:07:45.940 --> 00:07:50.220 align:middle
+De la misma manera, él puede fácilmente
+
+00:07:50.387 --> 00:07:54.780 align:middle
+mira eso...
+Yo retrocedo ...
+
+00:07:58.320 --> 00:08:00.590 align:middle
+Si estoy en la parte superior y hago clic
+en sí mismo,
+
+00:08:04.900 --> 00:08:07.700 align:middle
+aquí obtengo mis 2 compilados
+métodos
+
+00:08:10.930 --> 00:08:13.000 align:middle
+Obtengo mis 2 métodos compilados
+y de hecho
+
+00:08:13.167 --> 00:08:16.920 align:middle
+Me gustaría ver
+si tengo
+
+00:08:18.680 --> 00:08:20.510 align:middle
+un árbol de sintaxis abstracto,
+un aumento de resumen
+
+00:08:20.677 --> 00:08:23.490 align:middle
+sintaxis y la fuente.
+También puedo explorar dentro.
+
+00:08:23.657 --> 00:08:26.630 align:middle
+Aquí, por ejemplo, en mi árbol
+que puede ser
+
+00:08:26.797 --> 00:08:31.420 align:middle
+complicado para este método,
+si abro todo, puedo ver
+
+00:08:31.587 --> 00:08:35.270 align:middle
+que si selecciono el temporal
+
+00:08:36.780 --> 00:08:41.610 align:middle
+Hora variable, selecciono
+
+00:08:42.410 --> 00:08:44.030 align:middle
+la mordedura del código a la cual
+se refiere.
+
+00:08:44.197 --> 00:08:46.510 align:middle
+Esto también es genial.
+Una vez más si
+
+00:08:46.677 --> 00:08:50.760 align:middle
+Miro esto ... el mensaje
+que envía igual a X
+
+00:08:50.927 --> 00:08:54.000 align:middle
+con 0 como argumento, esto es
+esta pequeña parte del árbol
+
+00:08:54.440 --> 00:08:55.820 align:middle
+correspondiente a esta parte aquí.
+
+00:08:57.530 --> 00:09:01.860 align:middle
+El inspector me permite
+administrar, en
+
+00:09:02.027 --> 00:09:04.670 align:middle
+representación textual de árbol
+por ejemplo,
+
+00:09:04.837 --> 00:09:06.880 align:middle
+las selecciones que tengo del árbol
+nodos
+
+00:09:08.000 --> 00:09:12.120 align:middle
+Esto constituye una gran herramienta
+por ejemplo para ayudar
+
+00:09:12.287 --> 00:09:13.400 align:middle
+personas que desarrollan el compilador Pharo.
+
+00:09:14.080 --> 00:09:16.220 align:middle
+Puedes encontrar este enfoque.
+para
+
+00:09:16.387 --> 00:09:20.460 align:middle
+cada dominio, incluso para tu
+objetos de dominio
+
+00:09:20.627 --> 00:09:24.060 align:middle
+puedes extender el inspector,
+
+00:09:24.420 --> 00:09:27.680 align:middle
+para proponer facetas y
+vistas que tienen sentido.
+

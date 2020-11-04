@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W5-S3</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:00:15" end="00:00:01:16" region="bottom">Hello, everyone.</p>
+            <p xml:id="p2" begin="00:00:01:20" end="00:00:04:10" region="bottom">Today we're talking about<br/>errors frequently made</p>
+            <p xml:id="p3" begin="00:00:04:14" end="00:00:08:09" region="bottom">by Pharo developers including myself.</p>
+            <p xml:id="p4" begin="00:00:08:13" end="00:00:12:13" region="bottom">We'll see how to find and fix<br/>common mistakes faster.</p>
+            <p xml:id="p5" begin="00:00:13:14" end="00:00:16:07" region="bottom">Here we have a bit of code.</p>
+            <p xml:id="p6" begin="00:00:16:11" end="00:00:20:00" region="bottom">When it's executed, a debugger opens</p>
+            <p xml:id="p7" begin="00:00:21:02" end="00:00:24:22" region="bottom">and tells us that the message<br/>"self" has been sent to an object</p>
+            <p xml:id="p8" begin="00:00:25:01" end="00:00:27:17" region="bottom">and this object doesn't<br/>understand the message "self".</p>
+            <p xml:id="p9" begin="00:00:27:21" end="00:00:32:10" region="bottom">We might say that "self"<br/>isn't a message that's sent very often,</p>
+            <p xml:id="p10" begin="00:00:32:14" end="00:00:36:03" region="bottom">so there's probably a mistake<br/>somewhere in the code.</p>
+            <p xml:id="p11" begin="00:00:36:07" end="00:00:38:17" region="bottom">Taking a little look at it,</p>
+            <p xml:id="p12" begin="00:00:39:21" end="00:00:41:20" region="bottom">we see there's a period missing,</p>
+            <p xml:id="p13" begin="00:00:42:19" end="00:00:45:20" region="bottom">and so the execution<br/>is happening as though</p>
+            <p xml:id="p14" begin="00:00:45:24" end="00:00:50:09" region="bottom">"self" was a message sent<br/>as a result of "DiceHandle new".</p>
+            <p xml:id="p15" begin="00:00:50:13" end="00:00:53:16" region="bottom">Since the DiceHandle class<br/>doesn't have a "self" method,</p>
+            <p xml:id="p16" begin="00:00:53:20" end="00:00:56:00" region="bottom">the debugger opens.</p>
+            <p xml:id="p17" begin="00:00:57:14" end="00:01:02:06" region="bottom">So the solution is to add this period<br/>at the end of the first line.</p>
+            <p xml:id="p18" begin="00:01:03:18" end="00:01:06:15" region="bottom">Another problem we often see</p>
+            <p xml:id="p19" begin="00:01:06:19" end="00:01:11:23" region="bottom">is messages that shouldn't theoretically<br/>be combined that are combined.</p>
+            <p xml:id="p20" begin="00:01:12:02" end="00:01:16:07" region="bottom">So here we have an error saying<br/>that "includes:ifTrue doesn't exist".</p>
+            <p xml:id="p21" begin="00:01:16:11" end="00:01:19:10" region="bottom">"Includes" exists,"ifTrue" exists,<br/>"Includes:IfTrue" doesn't.</p>
+            <p xml:id="p22" begin="00:01:19:14" end="00:01:21:14" region="bottom">Looking closer,</p>
+            <p xml:id="p23" begin="00:01:21:22" end="00:01:24:18" region="bottom">we realise that indeed</p>
+            <p xml:id="p24" begin="00:01:24:22" end="00:01:27:06" region="bottom">the message is being sent<br/>"includes:ifTrue"</p>
+            <p xml:id="p25" begin="00:01:27:18" end="00:01:32:03" region="bottom">to receiver "x" with 2 parameters,<br/>"33" and a block,</p>
+            <p xml:id="p26" begin="00:01:32:08" end="00:01:34:08" region="bottom">and that doesn't work.</p>
+            <p xml:id="p27" begin="00:01:34:12" end="00:01:36:15" region="bottom">When Pharo sees a key word,</p>
+            <p xml:id="p28" begin="00:01:36:19" end="00:01:39:03" region="bottom">it tries to see<br/>all the subsequent key words.</p>
+            <p xml:id="p29" begin="00:01:39:07" end="00:01:41:22" region="bottom">It takes them all<br/>and considers it as one message.</p>
+            <p xml:id="p30" begin="00:01:42:01" end="00:01:44:04" region="bottom">So what's missing here</p>
+            <p xml:id="p31" begin="00:01:44:08" end="00:01:45:23" region="bottom">is a pair of parenthesis to say</p>
+            <p xml:id="p32" begin="00:01:46:02" end="00:01:49:12" region="bottom">that the message "ifTrue" is sent<br/>as a result of "x includes:33".</p>
+            <p xml:id="p33" begin="00:01:50:13" end="00:01:54:11" region="bottom">In the same way,<br/>"assert:includes does not exist",</p>
+            <p xml:id="p34" begin="00:01:54:15" end="00:01:57:19" region="bottom">what we wanted to do was<br/>"assert on the result of includes",</p>
+            <p xml:id="p35" begin="00:01:57:23" end="00:02:01:11" region="bottom">so the parentheses are missing here.</p>
+            <p xml:id="p36" begin="00:02:02:01" end="00:02:05:17" region="bottom">Don't hesitate to put parentheses<br/>when you have</p>
+            <p xml:id="p37" begin="00:02:05:22" end="00:02:09:07" region="bottom">multiple keyword messages<br/>in the same expression,</p>
+            <p xml:id="p38" begin="00:02:09:11" end="00:02:13:05" region="bottom">to delimit them, because Pharo<br/>will try to group keywords together</p>
+            <p xml:id="p39" begin="00:02:13:09" end="00:02:16:04" region="bottom">and consider it to be one message.</p>
+            <p xml:id="p40" begin="00:02:16:10" end="00:02:18:15" region="bottom">In this example,</p>
+            <p xml:id="p41" begin="00:02:19:02" end="00:02:23:08" region="bottom">we want to have a collection<br/>of numbers in Numbers,</p>
+            <p xml:id="p42" begin="00:02:23:12" end="00:02:27:18" region="bottom">and for the moment,<br/>there's only one number there, 35.</p>
+            <p xml:id="p43" begin="00:02:27:22" end="00:02:33:00" region="bottom">However, if we see what's in numbers,<br/>its not a collection, it's the number.</p>
+            <p xml:id="p44" begin="00:02:33:04" end="00:02:35:21" region="bottom">It's the number 35, so there's a problem.</p>
+            <p xml:id="p45" begin="00:02:37:05" end="00:02:41:06" region="bottom">In the same way, in this code,</p>
+            <p xml:id="p46" begin="00:02:41:10" end="00:02:45:03" region="bottom">if I send the message "new"<br/>to the Dice class</p>
+            <p xml:id="p47" begin="00:02:45:07" end="00:02:47:10" region="bottom">I get the number 6</p>
+            <p xml:id="p48" begin="00:02:47:15" end="00:02:49:05" region="bottom">rather than a 6-sided die.</p>
+            <p xml:id="p49" begin="00:02:49:15" end="00:02:52:05" region="bottom">It's the same problem in both examples.</p>
+            <p xml:id="p50" begin="00:02:52:09" end="00:02:54:09" region="bottom">If we look more closely,</p>
+            <p xml:id="p51" begin="00:02:54:13" end="00:02:57:22" region="bottom">adding "yourself" after "add"</p>
+            <p xml:id="p52" begin="00:02:58:01" end="00:02:59:13" region="bottom">will correct the problem. Why?</p>
+            <p xml:id="p53" begin="00:02:59:18" end="00:03:02:07" region="bottom">Because "add" returns its settings.</p>
+            <p xml:id="p54" begin="00:03:03:00" end="00:03:05:14" region="bottom">So "OrderedCollection new add: 35"</p>
+            <p xml:id="p55" begin="00:03:05:18" end="00:03:07:23" region="bottom">returns 35.</p>
+            <p xml:id="p56" begin="00:03:08:02" end="00:03:12:00" region="bottom">If we add the string to "yourself"<br/>we're sure to get the receiver at the end</p>
+            <p xml:id="p57" begin="00:03:12:04" end="00:03:14:05" region="bottom">and Numbers will be<br/>a collection of numbers.</p>
+            <p xml:id="p58" begin="00:03:14:21" end="00:03:15:24" region="bottom">So the solution here</p>
+            <p xml:id="p59" begin="00:03:16:04" end="00:03:20:16" region="bottom">is to add "yourself"<br/>at the end of each message.</p>
+            <p xml:id="p60" begin="00:03:21:14" end="00:03:22:17" region="bottom">Here's another problem.</p>
+            <p xml:id="p61" begin="00:03:22:22" end="00:03:26:00" region="bottom">Here we have a Book class<br/>in "Borrow" method.</p>
+            <p xml:id="p62" begin="00:03:26:04" end="00:03:29:05" region="bottom">When we execute, we get the message</p>
+            <p xml:id="p63" begin="00:03:29:09" end="00:03:32:01" region="bottom">that "nil does not understand ifFalse".</p>
+            <p xml:id="p64" begin="00:03:32:05" end="00:03:35:24" region="bottom">So we send the message<br/>"ifFalse" here to nil.</p>
+            <p xml:id="p65" begin="00:03:36:03" end="00:03:38:11" region="bottom">What does that mean?<br/>It means that in library</p>
+            <p xml:id="p66" begin="00:03:38:15" end="00:03:41:09" region="bottom">at the value nil, which has<br/>the default value of all the variables,</p>
+            <p xml:id="p67" begin="00:03:41:13" end="00:03:46:09" region="bottom">we can say that probably<br/>"inLibrary" has never been initialized.</p>
+            <p xml:id="p68" begin="00:03:46:13" end="00:03:51:11" region="bottom">We have to put a default value<br/>in that variable.</p>
+            <p xml:id="p69" begin="00:03:51:15" end="00:03:53:24" region="bottom">It's pretty easy to correct</p>
+            <p xml:id="p70" begin="00:03:54:03" end="00:03:56:06" region="bottom">by adding the method "initialize",</p>
+            <p xml:id="p71" begin="00:03:56:10" end="00:04:01:22" region="bottom">which from the creation of each<br/>instance of the Book class</p>
+            <p xml:id="p72" begin="00:04:02:01" end="00:04:04:12" region="bottom">will put the value "True"</p>
+            <p xml:id="p73" begin="00:04:04:16" end="00:04:07:07" region="bottom">in the instance variable in Library.</p>
+            <p xml:id="p74" begin="00:04:07:16" end="00:04:09:17" region="bottom">Except that if we execute this code now,</p>
+            <p xml:id="p75" begin="00:04:09:22" end="00:04:12:07" region="bottom">we'll get another error message,</p>
+            <p xml:id="p76" begin="00:04:12:11" end="00:04:16:20" region="bottom">"Class True<br/>does not understand ifFalse".</p>
+            <p xml:id="p77" begin="00:04:17:13" end="00:04:21:05" region="bottom">Where does this come from?<br/>It's because, what we put here,</p>
+            <p xml:id="p78" begin="00:04:21:09" end="00:04:23:01" region="bottom">is a class.</p>
+            <p xml:id="p79" begin="00:04:23:05" end="00:04:25:10" region="bottom">It's not a Boolean, it's a class.</p>
+            <p xml:id="p80" begin="00:04:26:01" end="00:04:29:09" region="bottom">The Boolean is "true" with a small "t".</p>
+            <p xml:id="p81" begin="00:04:30:12" end="00:04:34:22" region="bottom">Classes generally have a capital letter,</p>
+            <p xml:id="p82" begin="00:04:35:01" end="00:04:37:07" region="bottom">so "True" with a capital is a class,</p>
+            <p xml:id="p83" begin="00:04:37:11" end="00:04:41:06" region="bottom">and "true" with a small "t"<br/>is the unique instance of the True class.</p>
+            <p xml:id="p84" begin="00:04:42:00" end="00:04:43:23" region="bottom">Here's another problem.</p>
+            <p xml:id="p85" begin="00:04:44:06" end="00:04:46:21" region="bottom">In the "roll" method<br/>in the Dice class we expect,</p>
+            <p xml:id="p86" begin="00:04:47:00" end="00:04:49:19" region="bottom">when we roll a Dice, to get a number</p>
+            <p xml:id="p87" begin="00:04:49:23" end="00:04:52:13" region="bottom">between 1 and the number<br/>of faces on the die,</p>
+            <p xml:id="p88" begin="00:04:52:17" end="00:04:56:07" region="bottom">except that here,<br/>when we roll the die we get a die</p>
+            <p xml:id="p89" begin="00:04:56:11" end="00:05:00:05" region="bottom">and not the face we landed on.</p>
+            <p xml:id="p90" begin="00:05:01:05" end="00:05:05:13" region="bottom">The method I just showed you<br/>is equivalent to the method below.</p>
+            <p xml:id="p91" begin="00:05:05:20" end="00:05:10:19" region="bottom">This means that by default, a method<br/>that returns nothing returns "self".</p>
+            <p xml:id="p92" begin="00:05:11:17" end="00:05:15:17" region="bottom">This means our "roll" method,<br/>when executed, returns the die</p>
+            <p xml:id="p93" begin="00:05:15:21" end="00:05:18:09" region="bottom">and not the result of sending "roll"...</p>
+            <p xml:id="p94" begin="00:05:20:01" end="00:05:24:03" region="bottom">Not the result of sending "atRandom"<br/>to the "faces" collection.</p>
+            <p xml:id="p95" begin="00:05:24:23" end="00:05:27:09" region="bottom">So the same problem<br/>in a slightly different example.</p>
+            <p xml:id="p96" begin="00:05:27:20" end="00:05:31:05" region="bottom">Here, we're creating a new method,</p>
+            <p xml:id="p97" begin="00:05:31:09" end="00:05:33:10" region="bottom">in the Dice class,</p>
+            <p xml:id="p98" begin="00:05:33:14" end="00:05:35:02" region="bottom">so in Dice class,</p>
+            <p xml:id="p99" begin="00:05:35:06" end="00:05:39:10" region="bottom">we want to make a new method<br/>to create instances in the Dice class,</p>
+            <p xml:id="p100" begin="00:05:39:14" end="00:05:43:03" region="bottom">which initializes by default<br/>the number of faces at zero.</p>
+            <p xml:id="p101" begin="00:05:44:03" end="00:05:46:22" region="bottom">If we send the message "new"<br/>to the Dice class,</p>
+            <p xml:id="p102" begin="00:05:47:01" end="00:05:49:12" region="bottom">what we'll get is the Dice class itself</p>
+            <p xml:id="p103" begin="00:05:49:16" end="00:05:52:03" region="bottom">rather than a new instance<br/>of the Dice class.</p>
+            <p xml:id="p104" begin="00:05:53:01" end="00:05:54:02" region="bottom">So in both cases,</p>
+            <p xml:id="p105" begin="00:05:54:07" end="00:05:56:19" region="bottom">the fact that there's no return<br/>in "return self"</p>
+            <p xml:id="p106" begin="00:05:56:23" end="00:06:01:06" region="bottom">and "self" by default is the receiver,<br/>in the case of a class method</p>
+            <p xml:id="p107" begin="00:06:01:10" end="00:06:02:19" region="bottom">"self" is the class.</p>
+            <p xml:id="p108" begin="00:06:03:05" end="00:06:04:23" region="bottom">To correct these 2 problems,</p>
+            <p xml:id="p109" begin="00:06:05:14" end="00:06:09:13" region="bottom">we just have to add the caret ^<br/>to return to a specific value.</p>
+            <p xml:id="p110" begin="00:06:11:05" end="00:06:12:04" region="bottom">Next problem,</p>
+            <p xml:id="p111" begin="00:06:12:15" end="00:06:15:12" region="bottom">if this code is executed,</p>
+            <p xml:id="p112" begin="00:06:15:16" end="00:06:20:13" region="bottom">the system seems to be frozen<br/>and nothing else happens.</p>
+            <p xml:id="p113" begin="00:06:20:17" end="00:06:23:09" region="bottom">It's impossible to interact with Pharo.</p>
+            <p xml:id="p114" begin="00:06:23:24" end="00:06:25:03" region="bottom">What causes this problem?</p>
+            <p xml:id="p115" begin="00:06:25:11" end="00:06:29:00" region="bottom">It comes from the fact that<br/>we're implementing a new method</p>
+            <p xml:id="p116" begin="00:06:29:04" end="00:06:31:23" region="bottom">in Dice class.</p>
+            <p xml:id="p117" begin="00:06:33:05" end="00:06:36:07" region="bottom">"Self" is Dice</p>
+            <p xml:id="p118" begin="00:06:36:11" end="00:06:40:24" region="bottom">and so "self new"<br/>will call itself recursively.</p>
+            <p xml:id="p119" begin="00:06:41:08" end="00:06:42:17" region="bottom">The intention here</p>
+            <p xml:id="p120" begin="00:06:43:07" end="00:06:46:16" region="bottom">is to use the creation<br/>of instance by default</p>
+            <p xml:id="p121" begin="00:06:46:20" end="00:06:48:14" region="bottom">defined in the Dice superclass,</p>
+            <p xml:id="p122" begin="00:06:48:18" end="00:06:51:10" region="bottom">and then add things<br/>in relation to that.</p>
+            <p xml:id="p123" begin="00:06:51:14" end="00:06:53:23" region="bottom">By writing like this,<br/>we have an infinite loop,</p>
+            <p xml:id="p124" begin="00:06:54:16" end="00:06:57:17" region="bottom">so we need to replace<br/>"self" with "super"</p>
+            <p xml:id="p125" begin="00:06:57:21" end="00:07:01:18" region="bottom">to request the implementation<br/>of the superclass.</p>
+            <p xml:id="p126" begin="00:07:03:00" end="00:07:04:22" region="bottom">What you should know,</p>
+            <p xml:id="p127" begin="00:07:06:13" end="00:07:08:09" region="bottom">we all make lots of mistakes.</p>
+            <p xml:id="p128" begin="00:07:08:13" end="00:07:11:15" region="bottom">The ones I've shown you<br/>are very frequently made</p>
+            <p xml:id="p129" begin="00:07:11:19" end="00:07:13:20" region="bottom">by all Pharo developers,</p>
+            <p xml:id="p130" begin="00:07:13:24" end="00:07:17:22" region="bottom">so there are things we find<br/>very frequently:</p>
+            <p xml:id="p131" begin="00:07:18:01" end="00:07:20:09" region="bottom">missing periods,</p>
+            <p xml:id="p132" begin="00:07:20:13" end="00:07:22:06" region="bottom">parentheses,</p>
+            <p xml:id="p133" begin="00:07:22:10" end="00:07:24:12" region="bottom">missing carets ^,</p>
+            <p xml:id="p134" begin="00:07:24:16" end="00:07:26:04" region="bottom">and "yourself".</p>
+            <p xml:id="p135" begin="00:07:26:21" end="00:07:29:20" region="bottom">Try to use the debugger<br/>as much as you can to find</p>
+            <p xml:id="p136" begin="00:07:30:00" end="00:07:33:07" region="bottom">the root of problems.<br/>It will really help you.</p>
+            <p xml:id="p137" begin="00:07:33:11" end="00:07:36:01" region="bottom">Don't close it as soon as it opens.</p>
+            <p xml:id="p138" begin="00:07:36:05" end="00:07:39:13" region="bottom">You'll be missing out<br/>on a way to fix problems.</p>
+        </div>
+    </body>
+</tt>

@@ -1,0 +1,321 @@
+WEBVTT
+
+00:00:00.560 --> 00:00:04.240 align:middle
+En este curso, estudiaremos
+Booleanos y condiciones en Pharo.
+
+00:00:04.960 --> 00:00:09.160 align:middle
+Hay dos objetos booleanos:
+verdadero y falso.
+
+00:00:09.320 --> 00:00:12.480 align:middle
+true es la única instancia
+de la clase Verdadero.
+
+00:00:12.640 --> 00:00:15.440 align:middle
+false es la única instancia
+de la clase Falso.
+
+00:00:15.600 --> 00:00:20.640 align:middle
+Enviaremos mensajes a estos objetos.
+para establecer operaciones booleanas
+
+00:00:20.800 --> 00:00:24.160 align:middle
+o estructuras alternativas
+como ifTrue:IfFalse:, etc.
+
+00:00:24.320 --> 00:00:26.280 align:middle
+Estudiaremos esto.
+
+00:00:26.920 --> 00:00:29.880 align:middle
+En el primer ejemplo de esta diapositiva,
+
+00:00:30.040 --> 00:00:34.240 align:middle
+envias el mensaje &
+un operador binario,
+
+00:00:34.400 --> 00:00:35.720 align:middle
+al objeto falso
+
+00:00:35.880 --> 00:00:38.520 align:middle
+Le pasa un parámetro,
+que es todo esto
+
+00:00:38.680 --> 00:00:42.320 align:middle
+Es una expresión entre paréntesis,
+(1 error:'crazy').
+
+00:00:42.480 --> 00:00:45.480 align:middle
+Esta expresión desencadena un error.
+
+00:00:45.640 --> 00:00:50.280 align:middle
+Puede ver la evaluación de esto
+Toda la expresión desencadena un error.
+
+00:00:50.440 --> 00:00:53.600 align:middle
+¿Por qué? Porque el operando
+también ha sido evaluado
+
+00:00:53.760 --> 00:00:56.280 align:middle
+en esta expresión booleana.
+
+00:00:57.560 --> 00:01:01.000 align:middle
+El operando ha sido evaluado,
+de ahí el error.
+
+00:01:01.160 --> 00:01:05.640 align:middle
+Si quiere obtener la versión perezosa
+de los operadores booleanos,
+
+00:01:05.800 --> 00:01:10.960 align:middle
+debe usar el método and:
+de la clase booleana.
+
+00:01:11.120 --> 00:01:13.440 align:middle
+Este método toma un bloque
+como un parámetro
+
+00:01:13.600 --> 00:01:18.000 align:middle
+Los bloques comienzan con [ y terminan con ].
+
+00:01:18.160 --> 00:01:21.320 align:middle
+Contienen expresiones,
+pero la definición de un bloque
+
+00:01:21.480 --> 00:01:24.800 align:middle
+no dispara
+la ejecución de sus expresiones.
+
+00:01:24.960 --> 00:01:28.640 align:middle
+Por ahora, éstas expresiones
+no se evalúan
+
+00:01:28.800 --> 00:01:31.600 align:middle
+Es solo si el primer operando
+es verdadero o falso
+
+00:01:32.320 --> 00:01:35.600 align:middle
+que el bloque pasado como un parámetro
+es evaluado
+
+00:01:35.760 --> 00:01:39.880 align:middle
+En el segundo ejemplo,
+Tiene false and: un bloque.
+
+00:01:40.040 --> 00:01:45.440 align:middle
+Devuelve falso sin evaluar
+el bloque pasado como un parámetro.
+
+00:01:45.960 --> 00:01:49.360 align:middle
+Es un operador perezoso típico
+pero construido usando bloques.
+
+00:01:51.400 --> 00:01:55.160 align:middle
+En Pharo, los condicionales
+(if, false, while, etc.)
+
+00:01:55.320 --> 00:01:59.160 align:middle
+son siempre mensajes
+enviados a booleanos o bloques.
+
+00:02:00.080 --> 00:02:01.800 align:middle
+Tomemos otro ejemplo:
+
+00:02:01.960 --> 00:02:06.960 align:middle
+el mensaje ifTrue:ifFalse:, la típica
+alternativa de cualquier lenguaje de programación.
+
+00:02:07.120 --> 00:02:09.280 align:middle
+Pero en Pharo, en realidad es un mensaje:
+
+00:02:09.440 --> 00:02:13.440 align:middle
+Puedo enviar el mensaje ifTrue:ifFalse
+a un objeto booleano
+
+00:02:13.600 --> 00:02:16.480 align:middle
+Esta expresión devuelve un booleano.
+
+00:02:17.840 --> 00:02:22.760 align:middle
+Paso dos bloques como parámetros
+de este mensaje:
+
+00:02:22.920 --> 00:02:26.560 align:middle
+se evalúa un bloque
+si el receptor booleano es verdadero,
+
+00:02:26.720 --> 00:02:29.480 align:middle
+el otro si el receptor es falso.
+
+00:02:30.560 --> 00:02:33.200 align:middle
+Cuidado: el mensaje si es ifTrue:ifFalse:
+
+00:02:33.360 --> 00:02:37.000 align:middle
+es muy utilizado por Pharo:
+está en el corazón del sistema.
+
+00:02:37.160 --> 00:02:42.320 align:middle
+Es tan importante
+que ha sido muy optimizado
+
+00:02:42.480 --> 00:02:46.480 align:middle
+para ser eficiente sin hacer lento a
+todo el sistema
+
+00:02:47.800 --> 00:02:51.160 align:middle
+Hablemos de nuevo
+sobre la implementación booleana en Pharo:
+
+00:02:51.320 --> 00:02:53.360 align:middle
+es extremadamente elegante
+
+00:02:53.520 --> 00:02:59.000 align:middle
+los objetos true y false son ambos
+instancias de las clases True y False
+
+00:02:59.160 --> 00:03:01.400 align:middle
+que heredan de la clase Boolean.
+
+00:03:01.560 --> 00:03:04.760 align:middle
+Cada una de estas clases
+define un conjunto de métodos
+
+00:03:04.920 --> 00:03:07.640 align:middle
+para devolver el comportamiento esperado.
+
+00:03:07.800 --> 00:03:13.080 align:middle
+Le daremos más información
+sobre esta elegante implementación
+
+00:03:13.240 --> 00:03:15.200 align:middle
+en una lección adicional.
+
+00:03:16.640 --> 00:03:19.560 align:middle
+Regresando al mensaje ifTrue:ifFalse:
+
+00:03:19.720 --> 00:03:23.200 align:middle
+hay diferentes versiones
+de estos mensajes
+
+00:03:23.360 --> 00:03:28.040 align:middle
+Hay una versión con solo if True:
+con un bloque como parámetro
+
+00:03:28.960 --> 00:03:31.760 align:middle
+para devolver solo la primera parte
+de la alternativa
+
+00:03:31.920 --> 00:03:34.960 align:middle
+El mensaje ifTrue:ifFalse
+toma dos bloques
+
+00:03:35.120 --> 00:03:39.480 align:middle
+para devolver una alternativa
+cuando el booleano es verdadero o falso.
+
+00:03:40.520 --> 00:03:43.720 align:middle
+Hay varios ejemplos aquí.
+
+00:03:43.880 --> 00:03:46.480 align:middle
+Este solo envía el mensaje ifTrue:
+
+00:03:46.640 --> 00:03:49.960 align:middle
+con solo un bloque para ejecutar
+si la expresión es verdadera
+
+00:03:50.120 --> 00:03:53.080 align:middle
+En este ejemplo,
+hay un bloque para ejecutar:
+
+00:03:53.240 --> 00:03:55.920 align:middle
+este si el receptor booleano
+es verdadero,
+
+00:03:56.080 --> 00:03:58.320 align:middle
+esa si es falso
+
+00:04:00.960 --> 00:04:02.960 align:middle
+Hay dos mensajes diferentes.
+
+00:04:03.120 --> 00:04:05.120 align:middle
+Es lo mismo con ifFalse:
+
+00:04:05.280 --> 00:04:08.760 align:middle
+cuando se trata de las clases
+Boolean, True y False.
+
+00:04:10.400 --> 00:04:15.560 align:middle
+Hay otros tipos de mensajes
+disponible para expresar las condiciones.
+
+00:04:15.720 --> 00:04:18.360 align:middle
+Por ejemplo,
+hay ifEmpty:ifNotempty:
+
+00:04:18.520 --> 00:04:20.600 align:middle
+que puedo enviar a una colección.
+
+00:04:20.760 --> 00:04:23.920 align:middle
+Con ifEmpty : paso un bloque.
+
+00:04:24.920 --> 00:04:29.200 align:middle
+El bloque se evalúa solo si el
+La colección del receptor está o no está vacía.
+
+00:04:29.960 --> 00:04:34.480 align:middle
+ifNotEmpty:es la condición opuesta.
+
+00:04:34.640 --> 00:04:38.240 align:middle
+Si la colección no está vacía,
+entonces ejecutas el bloque.
+
+00:04:38.400 --> 00:04:40.920 align:middle
+Pero hay un problema adicional:
+
+00:04:41.080 --> 00:04:45.080 align:middle
+este bloque toma un argumento
+como un parámetro
+
+00:04:45.240 --> 00:04:47.680 align:middle
+que es la colección no vacía.
+
+00:04:47.840 --> 00:04:51.880 align:middle
+La colección podría ser el resultado
+de un cálculo muy complejo.
+
+00:04:52.040 --> 00:04:54.520 align:middle
+Puede consultar una vez más
+la coleccion
+
+00:04:54.680 --> 00:04:58.600 align:middle
+Si la colección no está vacía,
+se pasa como parámetro del bloque.
+
+00:04:58.760 --> 00:05:01.320 align:middle
+Puede ser usado
+en las expresiones del bloque.
+
+00:05:02.160 --> 00:05:03.920 align:middle
+En esta sesión,
+
+00:05:04.080 --> 00:05:06.800 align:middle
+vimos que los booleanos
+son objetos normales en Pharo
+
+00:05:06.960 --> 00:05:10.800 align:middle
+y las instancias de las clases True
+y False que heredan de la clase Booleans.
+
+00:05:10.960 --> 00:05:12.560 align:middle
+Puede enviarles mensajes.
+
+00:05:12.720 --> 00:05:18.240 align:middle
+Estos mensajes definen
+todas las construcciones de alternativas
+
+00:05:18.400 --> 00:05:21.520 align:middle
+o de posibles condiciones en Pharo.
+
+00:05:21.680 --> 00:05:26.440 align:middle
+En otros idiomas, preferiría ser
+estructuras en el compilador.
+

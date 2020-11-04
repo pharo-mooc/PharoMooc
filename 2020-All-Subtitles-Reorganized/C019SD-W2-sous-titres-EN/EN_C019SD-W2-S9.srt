@@ -1,0 +1,232 @@
+﻿1
+00:00:00,840 --> 00:00:03,400
+In this session, I'd like you to focus
+
+2
+00:00:03,560 --> 00:00:06,320
+on the use of parentheses and brackets.
+
+3
+00:00:06,480 --> 00:00:08,520
+Don't mix them up.
+
+4
+00:00:09,160 --> 00:00:12,480
+Parentheses change the priority
+of an execution
+
+5
+00:00:12,640 --> 00:00:15,040
+in expressions or in code,
+
+6
+00:00:15,200 --> 00:00:17,760
+while brackets define blocks.
+
+7
+00:00:17,920 --> 00:00:22,840
+When the expressions in a block
+are defined, they are not executed.
+
+8
+00:00:23,000 --> 00:00:27,160
+You control the execution: you must send
+the message value to the block
+
+9
+00:00:27,320 --> 00:00:29,960
+to trigger the execution
+of its expressions.
+
+10
+00:00:31,960 --> 00:00:36,760
+Let's talk again
+about when you must use brackets.
+
+11
+00:00:36,920 --> 00:00:38,960
+You use them around expressions
+
+12
+00:00:39,120 --> 00:00:44,600
+if you don't know
+whether they will be executed:
+
+13
+00:00:45,280 --> 00:00:49,320
+for instance, do they use if? Do they
+belong to the branch of a deviation?
+
+14
+00:00:50,440 --> 00:00:53,440
+You also use brackets
+
+15
+00:00:53,600 --> 00:00:57,040
+if you don't know how many times
+you must execute
+
+16
+00:00:58,200 --> 00:01:01,760
+the expressions a block contains.
+
+17
+00:01:02,760 --> 00:01:07,120
+For instance:
+n timesRepeat: [self doSomething]
+
+18
+00:01:07,280 --> 00:01:11,840
+self doSomething
+is encapsulated in a block.
+
+19
+00:01:12,480 --> 00:01:18,080
+Why? Because you must
+execute its expressions several times.
+
+20
+00:01:18,240 --> 00:01:22,840
+You must put them in a block to send it
+the message value several times.
+
+21
+00:01:25,840 --> 00:01:29,680
+Another example: this time,
+I send the message ifTrue:.
+
+22
+00:01:29,840 --> 00:01:32,000
+Depending on the receiver,
+
+23
+00:01:32,160 --> 00:01:36,240
+depending on whether this expression
+is true or false,
+
+24
+00:01:36,920 --> 00:01:41,120
+you execute or don't execute
+the expression self doSomething.
+
+25
+00:01:41,280 --> 00:01:46,120
+I can't use parentheses since if needed,
+it won't be executed at all.
+
+26
+00:01:47,120 --> 00:01:48,840
+If you put it in a block,
+
+27
+00:01:49,000 --> 00:01:52,640
+you can decide
+whether you send it the message value.
+
+28
+00:01:55,080 --> 00:01:59,240
+This is the same thing
+but with whileTrue:.
+
+29
+00:01:59,400 --> 00:02:04,120
+It's the same with the receiver block
+and the block passed as a parameter.
+
+30
+00:02:04,280 --> 00:02:10,040
+Depending on whether the evaluation
+returns the Boolean true or false,
+
+31
+00:02:10,200 --> 00:02:14,280
+you must execute once, several times,
+or even not at all
+
+32
+00:02:14,440 --> 00:02:18,000
+the expression self doSomething:
+it must be put in a block.
+
+33
+00:02:19,400 --> 00:02:22,240
+Let's do a small exercise.
+
+34
+00:02:23,160 --> 00:02:26,400
+If I give you
+the two following expressions,
+
+35
+00:02:26,560 --> 00:02:30,360
+repeat from 1 to: n self doSomething,
+
+36
+00:02:30,520 --> 00:02:33,040
+should I use parentheses or brackets?
+
+37
+00:02:33,200 --> 00:02:36,800
+If I write x ifEmpty: self doSomething,
+
+38
+00:02:36,960 --> 00:02:39,520
+should I use parentheses or brackets?
+
+39
+00:02:41,720 --> 00:02:43,440
+I'll give you the answers.
+
+40
+00:02:44,360 --> 00:02:46,920
+In both cases, you should use brackets.
+
+41
+00:02:47,080 --> 00:02:51,600
+In the first case,
+if you want to repeat self doSomething,
+
+42
+00:02:51,760 --> 00:02:55,360
+you have to send the message value
+to this block several times.
+
+43
+00:02:56,080 --> 00:02:59,000
+In the second case, x ifEmpty:,
+
+44
+00:02:59,160 --> 00:03:04,360
+if x isn't empty,
+you shouldn't execute self doSomething.
+
+45
+00:03:04,520 --> 00:03:07,560
+If x is empty, you have to.
+
+46
+00:03:07,720 --> 00:03:10,280
+To sum up, we saw in this course
+
+47
+00:03:10,440 --> 00:03:13,720
+that you shouldn't mix up
+parentheses and brackets.
+
+48
+00:03:13,880 --> 00:03:19,120
+Parentheses are about changing the order
+of computation in an expression.
+
+49
+00:03:19,280 --> 00:03:23,800
+Brackets are about freezing
+
+50
+00:03:23,960 --> 00:03:27,040
+expressions
+
+51
+00:03:27,200 --> 00:03:31,400
+and to control their execution
+or even to execute them several times.

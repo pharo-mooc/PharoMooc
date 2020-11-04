@@ -1,0 +1,645 @@
+﻿1
+00:00:00,560 --> 00:00:04,040
+This course explores
+another advanced feature.
+
+2
+00:00:04,200 --> 00:00:07,080
+I want to show you how we can transform
+
+3
+00:00:07,280 --> 00:00:10,560
+the execution stack into an object,
+on demand.
+
+4
+00:00:11,200 --> 00:00:15,600
+The aim is to give you intuitive tools
+without going into details.
+
+5
+00:00:17,080 --> 00:00:19,840
+We can manipulate
+and navigate the stack,
+
+6
+00:00:20,040 --> 00:00:23,160
+and modify it,
+but we'll focus on navigating.
+
+7
+00:00:23,600 --> 00:00:28,400
+There are two chapters
+you can read on this subject.
+
+8
+00:00:28,640 --> 00:00:31,640
+They are the chapters on blocks
+
+9
+00:00:31,840 --> 00:00:35,080
+and exceptions
+in the book <i>Deep into Pharo</i>.
+
+10
+00:00:35,280 --> 00:00:39,280
+They're worth reading
+as they give clear explanations.
+
+11
+00:00:39,520 --> 00:00:43,400
+In Pharo, the Context class
+also represents the stack.
+
+12
+00:00:44,600 --> 00:00:45,600
+So,
+
+13
+00:00:46,280 --> 00:00:50,160
+we'll use a scenario
+that is already in your debugger.
+
+14
+00:00:50,400 --> 00:00:55,000
+Here, a message you sent is not found
+because you didn't define it,
+
+15
+00:00:55,200 --> 00:00:57,520
+while you execute a unitary test.
+
+16
+00:00:57,840 --> 00:01:02,720
+In the debugger, you answer
+that you want to create a method.
+
+17
+00:01:02,920 --> 00:01:06,040
+It compiles and installs it
+in the class.
+
+18
+00:01:06,200 --> 00:01:07,920
+Then it reexecutes it.
+
+19
+00:01:08,080 --> 00:01:12,560
+This method raises an exception
+since the system is not magic!
+
+20
+00:01:12,720 --> 00:01:16,200
+It sends you
+the shouldBeImplemented message
+
+21
+00:01:16,360 --> 00:01:19,440
+telling you to edit
+the method in the debugger.
+
+22
+00:01:19,640 --> 00:01:21,440
+You implement the method,
+
+23
+00:01:21,840 --> 00:01:26,000
+you recompile the method on the spot,
+then select "proceed"
+
+24
+00:01:26,600 --> 00:01:28,080
+to resume the program.
+
+25
+00:01:28,920 --> 00:01:32,360
+There are two key points
+in this scenario.
+
+26
+00:01:32,920 --> 00:01:36,280
+Firstly, we recompile
+the method on the fly.
+
+27
+00:01:36,640 --> 00:01:40,080
+Several times,
+but that's the compiler's job.
+
+28
+00:01:40,920 --> 00:01:44,920
+Secondly, and importantly,
+we modify the execution stack
+
+29
+00:01:45,080 --> 00:01:48,840
+in order to inject new chunks of stack,
+
+30
+00:01:49,040 --> 00:01:53,200
+which allow us to continue the program
+after an error.
+
+31
+00:01:53,440 --> 00:01:58,600
+It's not just a matter of reifying
+the stack, or making it an object.
+
+32
+00:01:58,760 --> 00:02:03,640
+It's not just a formal exercise,
+it can enhance user experience
+
+33
+00:02:03,920 --> 00:02:05,560
+and create new tools.
+
+34
+00:02:05,720 --> 00:02:10,640
+It's also used in Seaside
+to utilize web applications.
+
+35
+00:02:11,080 --> 00:02:15,720
+Pharo usually has a C stack,
+the virtual machine's own stack.
+
+36
+00:02:16,040 --> 00:02:19,360
+On demand, we can turn this
+into a live object.
+
+37
+00:02:19,520 --> 00:02:25,440
+What's interesting is that we can
+navigate and modify this object.
+
+38
+00:02:25,760 --> 00:02:30,200
+By modify, I mean that
+when we change this Pharo object,
+
+39
+00:02:30,400 --> 00:02:34,400
+it will change the implicit C stack,
+so it's very powerful.
+
+40
+00:02:35,800 --> 00:02:41,280
+It also supports all exceptions,
+so I recommend reading those chapters.
+
+41
+00:02:41,560 --> 00:02:44,080
+We navigate the stack for exceptions
+
+42
+00:02:44,440 --> 00:02:47,920
+to search for block catches,
+
+43
+00:02:49,920 --> 00:02:51,800
+known as exception handlers.
+
+44
+00:02:52,000 --> 00:02:57,200
+In addition, this ability
+to transform the stack into an object
+
+45
+00:02:57,400 --> 00:02:59,840
+allows us to create continuations
+
+46
+00:03:00,040 --> 00:03:04,400
+and web servers, such as for
+functional languages like Scheme.
+
+47
+00:03:05,320 --> 00:03:09,080
+To explain how this works,
+we can look at the variable
+
+48
+00:03:09,200 --> 00:03:13,640
+called thisContext,
+one of Pharo's three pseudovariables.
+
+49
+00:03:14,160 --> 00:03:17,360
+These are self, super, and thisContext.
+
+50
+00:03:17,920 --> 00:03:22,600
+When you ask for thisContext's value,
+it returns the execution stack.
+
+51
+00:03:22,920 --> 00:03:27,400
+That's what you see
+when you open the debugger.
+
+52
+00:03:27,640 --> 00:03:31,840
+The execution stack is displayed,
+based on thisContext.
+
+53
+00:03:32,200 --> 00:03:36,280
+As an exercise, you can define a method
+
+54
+00:03:36,400 --> 00:03:39,360
+in which you insert "halt."
+
+55
+00:03:39,520 --> 00:03:44,400
+The debugger will pop up,
+but you can also type "thisContext"
+
+56
+00:03:45,440 --> 00:03:50,040
+and an inspector will open
+on the execution stack itself.
+
+57
+00:03:50,600 --> 00:03:53,800
+Now I'll show you two examples
+
+58
+00:03:53,920 --> 00:03:56,400
+of how we use thisContext.
+
+59
+00:03:56,680 --> 00:04:02,360
+The first is deprecation,
+used when we want to change API.
+
+60
+00:04:02,640 --> 00:04:08,560
+As a programmer, we edit the method
+and use the message "deprecated"
+
+61
+00:04:08,720 --> 00:04:13,640
+with "on" and "in," as I explained
+in the course on exceptions.
+
+62
+00:04:14,680 --> 00:04:19,760
+Here we want to express
+the message "Use bar."
+
+63
+00:04:20,080 --> 00:04:23,840
+And what will the deprecation display?
+
+64
+00:04:24,000 --> 00:04:26,840
+It will show the user the message
+
+65
+00:04:27,040 --> 00:04:30,200
+"Message foo is deprecated in Pharo."
+
+66
+00:04:30,360 --> 00:04:33,920
+It's important to note that as a user,
+
+67
+00:04:34,200 --> 00:04:36,600
+I did not declare the method used,
+
+68
+00:04:36,840 --> 00:04:40,920
+but the system identified foo
+as the method caller.
+
+69
+00:04:42,080 --> 00:04:46,640
+As you can see, we don't use foo
+in the arguments of deprecated
+
+70
+00:04:47,320 --> 00:04:48,920
+or in the method caller.
+
+71
+00:04:49,080 --> 00:04:51,840
+So, how is this implemented?
+
+72
+00:04:52,600 --> 00:04:54,280
+The message "deprecated"
+
+73
+00:04:55,920 --> 00:04:58,040
+is an exception, "Deprecation."
+
+74
+00:04:58,200 --> 00:05:03,160
+The system takes the arguments,
+anExplanationString, and so on,
+
+75
+00:05:03,320 --> 00:05:07,800
+and adds the expression
+"thisContext sender method."
+
+76
+00:05:08,160 --> 00:05:13,920
+ThisContext is the stack at the time
+of execution of the deprecated method.
+
+77
+00:05:15,720 --> 00:05:19,320
+Now, using sender
+we can access the method caller.
+
+78
+00:05:20,000 --> 00:05:23,200
+That will give us foo,
+which was our example.
+
+79
+00:05:23,600 --> 00:05:25,560
+Then we ask for the method.
+
+80
+00:05:25,720 --> 00:05:29,800
+ThisContext sender method
+returns the compiled method,
+
+81
+00:05:29,920 --> 00:05:31,640
+which is an object,
+
+82
+00:05:31,800 --> 00:05:35,080
+named A>>foo.
+
+83
+00:05:35,280 --> 00:05:39,720
+So, the exception uses what it needs
+to be able to extract
+
+84
+00:05:39,920 --> 00:05:43,840
+the method selector
+and create a clearer message.
+
+85
+00:05:44,280 --> 00:05:49,600
+It's used to make messages
+easier for users to understand,
+
+86
+00:05:49,800 --> 00:05:54,040
+without forcing the programmer
+to hard-code the message source.
+
+87
+00:05:54,320 --> 00:05:59,040
+Now I'll show you
+another very powerful function.
+
+88
+00:06:01,640 --> 00:06:05,280
+Often when debugging,
+we want to insert a breakpoint
+
+89
+00:06:05,400 --> 00:06:08,760
+in a method that is heavily used.
+
+90
+00:06:09,360 --> 00:06:13,320
+You may simply want to debug
+your version of the program
+
+91
+00:06:13,440 --> 00:06:15,720
+without halting the whole system.
+
+92
+00:06:15,920 --> 00:06:21,040
+Conditions like "halt once"
+will interrupt the system once,
+
+93
+00:06:21,200 --> 00:06:25,680
+but what you want
+is to halt execution only if the method
+
+94
+00:06:25,920 --> 00:06:29,000
+has been called by another method.
+
+95
+00:06:29,640 --> 00:06:32,840
+How does a programmer express this?
+
+96
+00:06:33,040 --> 00:06:37,400
+We express that we only want to halt
+if foo has been called
+
+97
+00:06:37,600 --> 00:06:40,520
+by the method testSetInitialized.
+
+98
+00:06:41,520 --> 00:06:44,280
+How do we implement this?
+
+99
+00:06:44,440 --> 00:06:47,200
+Usually, this method must not be halted.
+
+100
+00:06:47,760 --> 00:06:52,760
+You can open the code in Pharo
+to see how it's implemented.
+
+101
+00:06:52,920 --> 00:06:54,840
+So, halt throws an exception
+
+102
+00:06:55,400 --> 00:06:57,640
+by showing the message "If:."
+
+103
+00:06:57,840 --> 00:07:00,160
+We have several argument options.
+
+104
+00:07:00,320 --> 00:07:05,080
+In a case involving a symbol,
+we pose a query to confirm it's true.
+
+105
+00:07:05,320 --> 00:07:10,200
+We look to see if the call chain
+contains the symbol.
+
+106
+00:07:10,400 --> 00:07:11,400
+Let's check.
+
+107
+00:07:12,360 --> 00:07:15,360
+Let's look at the method that comes up.
+
+108
+00:07:16,000 --> 00:07:19,800
+Suppose that we have a test
+that is named
+
+109
+00:07:20,840 --> 00:07:22,200
+testSetInitialized.
+
+110
+00:07:23,800 --> 00:07:25,280
+It's an argument here.
+
+111
+00:07:26,200 --> 00:07:31,400
+First, the method will retrieve
+the execution stack, or context,
+
+112
+00:07:32,720 --> 00:07:35,560
+which is a synonym for execution stack.
+
+113
+00:07:35,760 --> 00:07:41,080
+So we use Context to access the stack,
+then we add whileFalse.
+
+114
+00:07:41,200 --> 00:07:44,920
+Note that we're not at the top
+of the execution stack,
+
+115
+00:07:45,160 --> 00:07:48,080
+where there is no sender invoking us.
+
+116
+00:07:48,440 --> 00:07:52,280
+At the top of the stack,
+the sender is nil.
+
+117
+00:07:52,600 --> 00:07:56,160
+In a case where the sender is not nil,
+
+118
+00:07:56,520 --> 00:07:59,400
+we move between sections of the stack.
+
+119
+00:07:59,560 --> 00:08:02,920
+We can picture
+the areas of stack like this,
+
+120
+00:08:03,200 --> 00:08:06,040
+and we travel upwards using sender,
+
+121
+00:08:06,840 --> 00:08:07,920
+each time.
+
+122
+00:08:09,080 --> 00:08:12,080
+Now we need to see if the selector...
+
+123
+00:08:12,200 --> 00:08:15,520
+Somewhere in this area,
+we should see the test
+
+124
+00:08:16,680 --> 00:08:18,320
+asking the question
+
+125
+00:08:18,840 --> 00:08:23,080
+if this stack's call symbol
+matches where we intend to halt.
+
+126
+00:08:23,200 --> 00:08:26,400
+We ask if we have been called
+by testSet.
+
+127
+00:08:26,640 --> 00:08:31,200
+If so, we stop and mark a signal
+because the class is an exception.
+
+128
+00:08:32,000 --> 00:08:36,320
+It's important to understand
+that this is difficult to implement
+
+129
+00:08:36,440 --> 00:08:39,760
+in a language
+that does not reify the stack.
+
+130
+00:08:40,080 --> 00:08:44,640
+Here you see it in five lines,
+even if it seems hard to understand.
+
+131
+00:08:44,840 --> 00:08:49,560
+It's compact and powerful,
+and only possible through reification.
+
+132
+00:08:50,160 --> 00:08:55,640
+ThisContext is rarely used
+as it is an advanced feature.
+
+133
+00:08:55,920 --> 00:08:59,160
+But it is very important
+for new innovations,
+
+134
+00:08:59,320 --> 00:09:02,080
+such as tools, as shown by these tests,
+
+135
+00:09:02,840 --> 00:09:05,560
+which are facilitated by this language.
+
+136
+00:09:05,720 --> 00:09:09,080
+It's also used
+to represent continuations.
+
+137
+00:09:09,400 --> 00:09:12,600
+Seaside's creator used it
+in Pharo's ancestor
+
+138
+00:09:12,760 --> 00:09:16,280
+to manipulate the stack
+to represent continuations.
+
+139
+00:09:16,400 --> 00:09:21,840
+This is the basis of the call-and-answer
+mechanism in Seaside.
+
+140
+00:09:22,280 --> 00:09:27,280
+Here you have an advanced feature
+of Pharo to play around with.

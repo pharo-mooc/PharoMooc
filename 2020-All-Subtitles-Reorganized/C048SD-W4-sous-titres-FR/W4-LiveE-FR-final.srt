@@ -1,0 +1,350 @@
+1
+00:00:04,000 --> 00:00:04,800
+-Bonjour à tous.
+
+2
+00:00:05,120 --> 00:00:07,280
+On va s'intéresser
+à la critique de code automatique
+
+3
+00:00:07,600 --> 00:00:08,720
+qui est intégrée à Pharo.
+
+4
+00:00:09,040 --> 00:00:11,840
+On va réutiliser pour ça
+le package "MyCounter"
+
+5
+00:00:12,160 --> 00:00:14,440
+qu'on a développé
+dans le redo numéro deux.
+
+6
+00:00:14,760 --> 00:00:17,760
+Vous pouvez voir qu'on a toujours
+nos tests, nos méthodes.
+
+7
+00:00:18,080 --> 00:00:20,720
+La critique de code automatique,
+c'est ce qu'on a, par exemple,
+
+8
+00:00:21,040 --> 00:00:22,960
+ici : j'ai modifié
+la méthode "increment".
+
+9
+00:00:23,280 --> 00:00:25,720
+On a une méthode
+qui n'est pas définie, qu'on appelle.
+
+10
+00:00:26,040 --> 00:00:28,400
+Vous pouvez voir un panneau
+"attention" sur le côté gauche
+
+11
+00:00:28,720 --> 00:00:30,680
+qui vous indique
+que ça n'a pas fonctionné.
+
+12
+00:00:31,000 --> 00:00:34,000
+Et vous avez aussi
+des explications en dessous :
+
+13
+00:00:34,320 --> 00:00:36,440
+"Super and self Messages
+sent but not implemented"
+
+14
+00:00:36,760 --> 00:00:38,560
+et "Messages sent but not implemented."
+
+15
+00:00:38,880 --> 00:00:41,600
+Ça veut dire qu'il ne comprend pas
+la méthode indéfinie.
+
+16
+00:00:41,920 --> 00:00:43,400
+C'est normal, on ne l'a pas définie.
+
+17
+00:00:43,720 --> 00:00:46,040
+Vous pouvez avoir plus d'informations
+sur ces warnings.
+
+18
+00:00:46,360 --> 00:00:47,920
+Par exemple,
+celui-là, il va vous dire
+
+19
+00:00:48,240 --> 00:00:50,640
+que si le message
+envoyé à self ou super
+
+20
+00:00:50,960 --> 00:00:52,040
+existe dans la hiérarchie,
+
+21
+00:00:52,360 --> 00:00:54,120
+il n'existe pas,
+car on ne l'a pas défini.
+
+22
+00:00:54,440 --> 00:00:56,680
+Pareil ici, le message est envoyé,
+mais pas implémenté.
+
+23
+00:00:57,000 --> 00:00:58,720
+Et ce que vous pouvez faire
+d'intéressant,
+
+24
+00:00:59,040 --> 00:01:01,920
+c'est, par exemple,
+pas avec cette méthode-là...
+
+25
+00:01:02,240 --> 00:01:04,280
+Mais si on appelle, par exemple,
+"self halt",
+
+26
+00:01:04,600 --> 00:01:07,400
+qui est un appel au débogueur,
+et qu'on sauve,
+
+27
+00:01:07,720 --> 00:01:10,480
+on va avoir un message en warning
+qui va apparaître aussi :
+
+28
+00:01:10,800 --> 00:01:12,760
+"Debugging code left in methods",
+
+29
+00:01:13,080 --> 00:01:15,200
+donc il nous reste du code de débogage.
+
+30
+00:01:15,520 --> 00:01:19,720
+On voit l'explication, il reste
+des breakpoints, logging statements.
+
+31
+00:01:20,040 --> 00:01:22,400
+On a, cette fois-ci,
+l'option de le réparer directement.
+
+32
+00:01:22,720 --> 00:01:24,720
+On peut regarder ce qui va se passer.
+
+33
+00:01:25,040 --> 00:01:27,280
+Si on le répare automatiquement,
+on a la recherche de mots
+
+34
+00:01:27,600 --> 00:01:28,720
+sur la méthode "increments"
+
+35
+00:01:29,040 --> 00:01:32,280
+et il va supprimer la ligne
+qui fait appel à ce segment.
+
+36
+00:01:32,600 --> 00:01:35,600
+Très bien, maintenant, on va remettre
+notre méthode qui n'est pas définie
+
+37
+00:01:35,920 --> 00:01:39,720
+et on va utiliser la critique de code
+directement sur notre package.
+
+38
+00:01:40,040 --> 00:01:42,200
+Pour ce faire,
+vous faites clic droit dessus
+
+39
+00:01:42,520 --> 00:01:44,960
+et vous allez dans Browse critiques.
+
+40
+00:01:45,280 --> 00:01:47,880
+Browse critiques
+va nous ouvrir un Critic Browser
+
+41
+00:01:48,200 --> 00:01:50,000
+qui contient une liste de règles
+
+42
+00:01:50,320 --> 00:01:52,360
+qu'il va mettre en application
+sur notre package
+
+43
+00:01:52,680 --> 00:01:54,080
+pour voir si elles sont respectées.
+
+44
+00:01:54,400 --> 00:01:55,760
+Il y a pas mal de règles.
+
+45
+00:01:56,080 --> 00:02:00,920
+Ici, elles n'ont pas été utilisées,
+puisqu'on ne s'en sert pas.
+
+46
+00:02:01,240 --> 00:02:04,280
+Mais on peut voir, par exemple,
+qu'il y a des soucis, des bugs.
+
+47
+00:02:04,600 --> 00:02:08,040
+Ça, ce sont les deux warnings
+qu'on a pu voir tout à l'heure.
+
+48
+00:02:08,360 --> 00:02:11,560
+Et vous avez la possibilité,
+à l'aide de ce Critic Browser,
+
+49
+00:02:11,880 --> 00:02:14,560
+de définir les faux positifs,
+de marquer comme faux.
+
+50
+00:02:14,880 --> 00:02:17,040
+On va dire que cette règle,
+on sait que c'est faux,
+
+51
+00:02:17,360 --> 00:02:18,720
+donc on la marque comme fausse.
+
+52
+00:02:19,040 --> 00:02:22,560
+Il faut cliquer ici
+pour la marquer comme fausse.
+
+53
+00:02:22,880 --> 00:02:24,200
+Vous avez aussi la possibilité
+
+54
+00:02:24,520 --> 00:02:26,320
+de sauver ces critiques pour plus tard,
+
+55
+00:02:26,640 --> 00:02:29,600
+de conserver les faux positifs
+que vous avez annotés pour plus tard.
+
+56
+00:02:29,920 --> 00:02:31,800
+Vous pouvez le faire en cliquant ici.
+
+57
+00:02:32,120 --> 00:02:34,280
+Ça nous le met dans Manifests,
+très bien.
+
+58
+00:02:34,600 --> 00:02:37,480
+Vous pouvez voir, si on retourne
+dans le System Browser,
+
+59
+00:02:37,800 --> 00:02:39,960
+qu'une nouvelle classe
+a fait son apparition
+
+60
+00:02:40,280 --> 00:02:43,360
+qui, si on regarde du côté classe,
+va avoir les règles,
+
+61
+00:02:43,680 --> 00:02:46,440
+et qui nous permet
+de sauvegarder les règles
+
+62
+00:02:46,760 --> 00:02:48,360
+qu'on a pu établir sur notre package.
+
+63
+00:02:48,680 --> 00:02:50,440
+Ça, ça va vous permettre
+de le versionner,
+
+64
+00:02:50,760 --> 00:02:53,040
+et ça va aussi
+vous permettre de l'intégrer
+
+65
+00:02:53,360 --> 00:02:54,720
+à un site de développement continu
+
+66
+00:02:55,040 --> 00:02:57,480
+pour pouvoir lancer
+la vérification de ce Manifest
+
+67
+00:02:57,800 --> 00:02:59,640
+à chaque fois
+que vous changez votre code
+
+68
+00:02:59,960 --> 00:03:01,960
+et de vérifier
+que les règles ont été respectées.
+
+69
+00:03:02,280 --> 00:03:06,200
+Voilà, c'est une explication
+sur les outils que vous pouvez avoir
+
+70
+00:03:06,520 --> 00:03:08,600
+en dessous de votre code,
+qui l'analysent directement,
+
+71
+00:03:08,920 --> 00:03:10,880
+et un outil plus large
+qui analyse votre package
+
+72
+00:03:11,200 --> 00:03:12,840
+pour voir les règles
+qui sont respectées.
+
+73
+00:03:13,160 --> 00:03:15,280
+Vous pouvez sauvegarder cet outil
+dans un Manifest
+
+74
+00:03:15,600 --> 00:03:18,680
+et le versionner, l'intégrer dans
+un site de développement continu.

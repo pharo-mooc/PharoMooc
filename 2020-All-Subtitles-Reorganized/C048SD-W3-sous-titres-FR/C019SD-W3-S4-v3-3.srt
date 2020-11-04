@@ -1,0 +1,588 @@
+1
+00:00:00,580 --> 00:00:03,590
+Alors dans cette séquence
+on va revisiter la syntaxe
+
+2
+00:00:03,790 --> 00:00:05,400
+Pharo, c'est-à-dire
+qu'on va la revoir quasiment
+
+3
+00:00:05,600 --> 00:00:08,500
+entièrement sur un exemple
+concret, l'exemple d'une l'application
+
+4
+00:00:08,700 --> 00:00:11,170
+toute simple: http
+donc issue du monde réel.
+
+5
+00:00:11,920 --> 00:00:13,620
+On va analyser le code
+et revoir tous les points
+
+6
+00:00:13,820 --> 00:00:15,930
+syntaxiques de Pharo à
+travers cette analyse.
+
+7
+00:00:16,770 --> 00:00:17,830
+Donc cette application, là voici.
+
+8
+00:00:18,150 --> 00:00:21,250
+C'est une application Web
+ classique qui va nous afficher
+
+9
+00:00:21,450 --> 00:00:22,470
+des informations sur des livres.
+
+10
+00:00:23,370 --> 00:00:25,410
+Donc je vous donne un
+premier exemple donc on va utiliser
+
+11
+00:00:25,610 --> 00:00:28,900
+le framework Zinc, c'est un
+framework http qu'on reverra
+
+12
+00:00:29,100 --> 00:00:32,430
+dans la suite des cours, qui
+permet d'effectuer qu'il y a
+
+13
+00:00:32,630 --> 00:00:34,380
+2 parties: une partie
+client et une partie serveur qui
+
+14
+00:00:34,580 --> 00:00:37,000
+permet d'effectuer des
+requêtes et caetera, http.
+
+15
+00:00:37,690 --> 00:00:41,310
+Donc ici, un premier point, on
+peut voir que ZnClient, c'est
+
+16
+00:00:41,510 --> 00:00:44,160
+une classe donc ça commence
+par un Z majuscule comme on l'a
+
+17
+00:00:44,360 --> 00:00:46,580
+vu dans une précédente
+séquence, les noms de classe, les
+
+18
+00:00:46,780 --> 00:00:48,630
+noms de variables globales
+commencent par une lettre majuscule.
+
+19
+00:00:49,090 --> 00:00:51,490
+Donc ZnClient est une
+ classe, on lui envoie le message
+
+20
+00:00:51,850 --> 00:00:54,630
+"New" ici à cette classe.
+Cela va nous créer une nouvelle
+
+21
+00:00:54,830 --> 00:00:58,220
+instance de ZnClient. A
+cette nouvelle instance, on va
+
+22
+00:00:58,420 --> 00:01:01,300
+lui envoyer un premier
+message qui est url qui est un
+
+23
+00:01:01,500 --> 00:01:03,620
+paramètre, donc ici qui
+est une chaîne de caractères.
+
+24
+00:01:04,140 --> 00:01:07,840
+Et puis on va utiliser la
+cascade, donc je vous rappelle
+
+25
+00:01:08,040 --> 00:01:08,960
+le point virgule à la fin.
+
+26
+00:01:09,270 --> 00:01:11,620
+C'est-à-dire qu'au même
+receveur, on va lui envoyer un
+
+27
+00:01:11,820 --> 00:01:13,450
+nouveau message qui s'appelle get.
+
+28
+00:01:15,330 --> 00:01:19,000
+Ce bout de code en fait ici
+permet de simuler exactement
+
+29
+00:01:19,200 --> 00:01:21,450
+ce que ferait votre
+navigateur, quand vous lui rentrez l'url
+
+30
+00:01:21,650 --> 00:01:25,790
+et qu'on appuie sur entrée,
+si je tape url et que j'appuie
+
+31
+00:01:26,000 --> 00:01:28,000
+sur entrée, en fait on
+contacte le serveur de cette
+
+32
+00:01:28,200 --> 00:01:32,270
+application web et ça nous rend
+une réponse http en l'occurrence
+
+33
+00:01:32,470 --> 00:01:34,480
+les informations sur un
+livre donné, et pas n'importe
+
+34
+00:01:34,680 --> 00:01:36,070
+quel livre le livre numéro 1.
+
+35
+00:01:38,400 --> 00:01:40,780
+Donc je vous donne un
+autre exemple ici, une deuxième
+
+36
+00:01:41,000 --> 00:01:44,120
+requête construite avec
+Pharo et ZnClient, donc toujours
+
+37
+00:01:44,320 --> 00:01:48,240
+pareil on instancie un
+objet ZnClient, on lui envoie un
+
+38
+00:01:48,440 --> 00:01:50,190
+ensemble de messages en
+utilisant des cascades.
+
+39
+00:01:50,780 --> 00:01:53,670
+Et puis, on peut voir en
+fait quelque chose qu'on avait
+
+40
+00:01:53,870 --> 00:01:57,190
+déjà vu, c'est que en Pharo on a
+des keywords messages c'est-à-dire
+
+41
+00:01:57,390 --> 00:02:02,220
+que le nom de la méthode,
+c'est formAt: put:, donc
+
+42
+00:02:02,420 --> 00:02:06,190
+ça c'est équivalent avec
+une syntaxe Java classique à
+
+43
+00:02:06,390 --> 00:02:09,880
+FormAtput, donc le nom de
+méthode tout collé et je passe
+
+44
+00:02:10,080 --> 00:02:12,440
+tous les arguments entre parenthèses.
+
+45
+00:02:15,790 --> 00:02:19,610
+Donc là je vous montre sur
+ce slide le code complet de
+
+46
+00:02:19,810 --> 00:02:22,870
+cette petite application
+web, construite avec Zinc.
+
+47
+00:02:25,650 --> 00:02:27,750
+Je vais vous présenter
+maintenant certains morceaux de ce
+
+48
+00:02:27,950 --> 00:02:30,630
+code point par point. Tout
+d'abord par exemple, on a une
+
+49
+00:02:30,830 --> 00:02:33,180
+première partie qui correspond
+à la configuration du serveur.
+
+50
+00:02:33,620 --> 00:02:37,690
+Donc on a en premier lieu
+ici sur la première ligne des
+
+51
+00:02:37,890 --> 00:02:40,860
+déclarations de variables
+locales qui commencent par des
+
+52
+00:02:41,060 --> 00:02:42,530
+lettres minuscules, je vous rappelle.
+
+53
+00:02:43,310 --> 00:02:46,440
+Donc books teapot, deux
+variables locales qui sont dans
+
+54
+00:02:46,640 --> 00:02:48,370
+des barres verticales.
+
+55
+00:02:48,570 --> 00:02:50,670
+Ensuite, on a des affectations.
+
+56
+00:02:50,870 --> 00:02:53,310
+Donc ici, on a une
+première affectation 2:= en Pharo.
+
+57
+00:02:55,720 --> 00:02:59,430
+On peut avoir des symboles,
+donc le point numéro 3 on a
+
+58
+00:02:59,630 --> 00:03:04,310
+#port qui est ici dans le
+code donc qui correspond à un
+
+59
+00:03:04,510 --> 00:03:08,000
+symbole, donc c'est une chaîne unique
+qui ne sera créée qu'une seule fois.
+
+60
+00:03:09,200 --> 00:03:12,920
+On a des messages qui sont
+envoyés à la classe teapot, là
+
+61
+00:03:13,120 --> 00:03:14,680
+par exemple, on a la
+ classe qui est ici.
+
+62
+00:03:15,590 --> 00:03:17,850
+Et puis, je vais lui
+envoyer le message configure.
+
+63
+00:03:18,150 --> 00:03:21,000
+Donc configure: je vous
+rappelle le 2 points c'est pour
+
+64
+00:03:21,200 --> 00:03:25,510
+marquer la présence d'un
+argument qu'on va envoyer dans
+
+65
+00:03:25,830 --> 00:03:30,010
+cette méthode. Et là
+l'argument commence par une
+
+66
+00:03:30,710 --> 00:03:33,150
+accolade et se termine
+ici par une accolade.
+
+67
+00:03:33,620 --> 00:03:37,160
+Donc ce qu'il y a entre
+accolades c'est un tableau dynamique.
+
+68
+00:03:39,420 --> 00:03:41,410
+Tout ce qui est entre
+accolades, en fait on va évaluer
+
+69
+00:03:41,610 --> 00:03:43,930
+chacune des expressions
+séparées par des points dans ce
+
+70
+00:03:44,130 --> 00:03:46,560
+tableau-là, et on va
+construire un tableau avec le
+
+71
+00:03:46,760 --> 00:03:47,910
+résultat de chacune des expressions.
+
+72
+00:03:49,340 --> 00:03:51,490
+On voit qu'il y a qu'un seul
+argument dans la méthode configure.
+
+73
+00:03:52,000 --> 00:03:56,460
+Et puis à l'intérieur de ce tableau
+
+74
+00:03:56,660 --> 00:04:01,340
+dynamique entre accolades,
+on va utiliser ici la flèche
+
+75
+00:04:01,540 --> 00:04:03,540
+qui va permettre de
+construire des objets association.
+
+76
+00:04:04,090 --> 00:04:05,540
+C'est une clé, une valeur.
+
+77
+00:04:10,940 --> 00:04:14,110
+Pour faire marcher le
+serveur, on ne va pas seulement
+
+78
+00:04:14,310 --> 00:04:17,050
+définir la configuration du
+serveur, on va aussi définir
+
+79
+00:04:17,250 --> 00:04:18,690
+des roots, ce qu'on
+appelle des roots.
+
+80
+00:04:19,270 --> 00:04:21,800
+Je vous explique sur un
+exemple plus petit, donc un
+
+81
+00:04:22,000 --> 00:04:25,000
+extrait de code du code
+complet. Si je veux dans mon
+
+82
+00:04:25,200 --> 00:04:26,830
+application, être
+capable de traiter des urls qui
+
+83
+00:04:27,030 --> 00:04:31,860
+ressemblent à ça, qui se
+terminent par books/1, si je
+
+84
+00:04:32,060 --> 00:04:35,040
+veux les informations du
+livre no 1 par exemple, donc je
+
+85
+00:04:35,240 --> 00:04:37,100
+vais définir ce qu'on
+appelle une route dans mon
+
+86
+00:04:37,300 --> 00:04:41,330
+application Zinc, je vais
+dire quand je reçois une
+
+87
+00:04:41,530 --> 00:04:45,920
+requête de type GET qui
+commence par /books/ et puis
+
+88
+00:04:46,120 --> 00:04:49,560
+quelque chose qui est un
+entier, vous voyez ici id qui
+
+89
+00:04:49,760 --> 00:04:52,450
+est un entier, alors
+exécute ce block de code.
+
+90
+00:04:52,650 --> 00:04:54,370
+Donc un block, je vous
+rappelle ça commence par un
+
+91
+00:04:54,570 --> 00:04:59,000
+crochet, ça termine par un
+crochet, c'est une méthode
+
+92
+00:04:59,200 --> 00:05:01,340
+anonyme qui peut prendre un
+paramètre, en l'occurrence
+
+93
+00:05:01,540 --> 00:05:03,710
+ici il y a un paramètre
+qui s'appelle request qui
+
+94
+00:05:03,910 --> 00:05:07,660
+commence par: et qui est
+séparé par une barre verticale.
+
+95
+00:05:09,040 --> 00:05:11,890
+Et ensuite le corps du
+block, toutes les expressions qui
+
+96
+00:05:12,090 --> 00:05:14,240
+sont dedans, ici il n'y en
+a qu'une expression c'est
+
+97
+00:05:14,440 --> 00:05:19,040
+celle-là, donc on va
+envoyer le message At à l'objet
+
+98
+00:05:19,240 --> 00:05:24,150
+books, Ok, et puis on veut quel
+
+99
+00:05:25,430 --> 00:05:27,810
+livre dans la collection de livres.
+
+100
+00:05:28,090 --> 00:05:30,150
+En fait on veut le livre qui
+correspond à l'id qui a été
+
+101
+00:05:30,350 --> 00:05:31,440
+passé en paramètre dans l'url.
+
+102
+00:05:32,030 --> 00:05:33,490
+Je vais demander à la requête.
+
+103
+00:05:33,900 --> 00:05:37,000
+La variable qui est ici
+c'est bien le paramètre du block
+
+104
+00:05:37,200 --> 00:05:39,950
+qui était défini au début.
+Je vais récupérer l'élément
+
+105
+00:05:40,150 --> 00:05:42,580
+qui s'appelle id
+dans cette requête ici.
+
+106
+00:05:43,100 --> 00:05:44,910
+Je vais convertir cet
+élément, souvenez-vous c'était un
+
+107
+00:05:45,110 --> 00:05:47,040
+entier, je le convertis
+en chaîne de caractères.
+
+108
+00:05:47,580 --> 00:05:51,140
+Et puis ça va me permettre
+de récupérer le livre no 1.
+
+109
+00:05:52,750 --> 00:05:56,370
+En conclusion, on a revu
+tous les points syntaxiques de
+
+110
+00:05:56,570 --> 00:05:58,170
+Pharo dans cette séquence.
+
+111
+00:05:58,630 --> 00:06:00,930
+L'objectif c'était vraiment
+de s'intéresser à la syntaxe.
+
+112
+00:06:01,270 --> 00:06:04,450
+Mais on a pu en même temps
+redécouvrir cette syntaxe sur
+
+113
+00:06:04,650 --> 00:06:07,040
+un package qui est assez
+intéressant, qui est vraiment
+
+114
+00:06:07,240 --> 00:06:08,850
+rigolo et fun à
+ programmer qui est Teapot.
+
+115
+00:06:09,290 --> 00:06:10,840
+Vous pouvez aller le
+découvrir par vous-même et le
+
+116
+00:06:11,040 --> 00:06:14,410
+ charger depuis Smalltalkhub.
+Donc ça permet de construire
+
+117
+00:06:14,610 --> 00:06:16,700
+facilement des
+applications http, on l'a vu le très
+
+118
+00:06:16,900 --> 00:06:21,200
+simplement, et en fait c'est un
+package qui est construit au-dessus de Zinc.
+
+119
+00:06:21,400 --> 00:06:25,000
+Et Zinc, c'est une des
+bibliothèques très solides qui
+
+120
+00:06:25,200 --> 00:06:29,000
+existent en Pharo pour
+faire des applications Web plus
+
+121
+00:06:29,200 --> 00:06:32,000
+complexes, comme on le verra
+dans les séquences suivantes.
+

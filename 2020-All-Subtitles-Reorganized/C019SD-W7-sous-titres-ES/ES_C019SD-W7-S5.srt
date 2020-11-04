@@ -1,0 +1,560 @@
+﻿1
+00:00:00,720 --> 00:00:05,880
+Hola, este video explicará
+una característica importante de Pharo,
+
+2
+00:00:06,080 --> 00:00:07,920
+el gancho doNotUnderstand.
+
+3
+00:00:08,080 --> 00:00:13,400
+Seguramente ya habrás visto una ventana
+de Debugger con este mensaje.
+
+4
+00:00:13,920 --> 00:00:16,840
+¿De dónde viene
+y, para qué sirve?
+
+5
+00:00:17,280 --> 00:00:20,080
+Veamos un ejemplo.
+
+6
+00:00:20,400 --> 00:00:22,280
+Tenemos el objeto node1.
+
+7
+00:00:22,640 --> 00:00:27,520
+Enviaremos a este objeto
+el mensaje coucou: stef.
+
+8
+00:00:28,280 --> 00:00:31,280
+Desde el nodo1,
+seguimos el método de búsqueda
+
+9
+00:00:31,840 --> 00:00:33,920
+hasta la clase del objeto.
+
+10
+00:00:34,200 --> 00:00:37,720
+No encontramos el método coucou
+en esta clase.
+
+11
+00:00:37,920 --> 00:00:42,320
+Entonces, vamos a la superclase,
+pero tampoco está allí.
+
+12
+00:00:42,720 --> 00:00:45,520
+El sistema virtual nos informa
+
+13
+00:00:45,800 --> 00:00:51,040
+que no puede encontrar un método coincidente,
+por lo que reifica el mensaje.
+
+14
+00:00:51,200 --> 00:00:56,440
+Discutimos sobre la reificación en el video
+de introspección y reflexión.
+
+15
+00:00:56,920 --> 00:01:02,640
+Reificar significa representar
+un concepto implícito como un objeto.
+
+16
+00:01:02,920 --> 00:01:04,520
+Aquí, es un mensaje.
+
+17
+00:01:04,920 --> 00:01:07,920
+Creamos un objeto
+para representar el mensaje
+
+18
+00:01:08,080 --> 00:01:10,400
+Es una instancia de la clase Message.
+
+19
+00:01:10,680 --> 00:01:15,000
+El sistema virtual reenviará un mensaje
+
+20
+00:01:15,200 --> 00:01:17,320
+al objeto node1.
+
+21
+00:01:17,760 --> 00:01:22,800
+Envía el mensaje doesNotUnderstand,
+pasando el objeto como un parámetro.
+
+22
+00:01:22,920 --> 00:01:27,000
+Esta es una nueva ejecución.
+del algoritmo de búsqueda.
+
+23
+00:01:27,200 --> 00:01:32,440
+El sistema no encontrará el
+método doesNotUnderstand en la clase Node.
+
+24
+00:01:32,720 --> 00:01:37,640
+Entonces regresa
+para buscar en la superclase.
+
+25
+00:01:37,840 --> 00:01:40,920
+Encuentra el método, abreviado a DNU.
+
+26
+00:01:41,160 --> 00:01:44,440
+Ahora puede ejecutar el método.
+
+27
+00:01:47,080 --> 00:01:49,920
+DoesNotUnstandstand es un mensaje
+
+28
+00:01:50,200 --> 00:01:53,840
+que la maquina virtual
+envía a los objetos
+
+29
+00:01:54,280 --> 00:01:56,280
+cuando un mensaje ha fallado.
+
+30
+00:01:57,080 --> 00:02:00,680
+Todas las clases pueden redefinir este método
+
+31
+00:02:01,280 --> 00:02:06,800
+para darle un comportamiento específico
+cuando no se comprende un mensaje.
+
+32
+00:02:07,320 --> 00:02:09,840
+Este método es una herramienta importante
+
+33
+00:02:10,320 --> 00:02:13,800
+que nos permite construir muchas características.
+
+34
+00:02:14,080 --> 00:02:17,440
+Se usa en la delegación automática,
+
+35
+00:02:17,720 --> 00:02:20,520
+programación distribuida, y así sucesivamente.
+
+36
+00:02:21,400 --> 00:02:25,080
+Aquí veremos algunos
+usos de doesNotUnderstand.
+
+37
+00:02:25,720 --> 00:02:30,400
+Supongamos que queremos redirigir
+todos nuestros mensajes a un objeto diferente.
+
+38
+00:02:31,640 --> 00:02:37,200
+En una delegación simple, creo
+un objeto que almacena el objetivo,
+
+39
+00:02:37,400 --> 00:02:39,320
+donde se enviarán los mensajes.
+
+40
+00:02:39,520 --> 00:02:42,200
+Redefino el método doesNotUnderstand.
+
+41
+00:02:42,400 --> 00:02:45,560
+Toma el objeto aMessage
+como parámetro,
+
+42
+00:02:45,760 --> 00:02:49,280
+que contiene el selector del mensaje fallido.
+
+43
+00:02:49,680 --> 00:02:53,400
+Entonces puedo preguntarle a este
+mensaje que se reenvie.
+
+44
+00:02:53,760 --> 00:02:59,920
+Uso "sendTo: self target",
+que es la variable de instancia.
+
+45
+00:03:00,520 --> 00:03:03,320
+Reenvío el mensaje a otro objeto.
+
+46
+00:03:04,320 --> 00:03:07,400
+Ten cuidado, esta es una función poderosa
+
+47
+00:03:07,920 --> 00:03:12,400
+que puede interferir con
+la legibilidad del código.
+
+48
+00:03:12,760 --> 00:03:15,160
+Como se explica aquí.
+
+49
+00:03:16,000 --> 00:03:20,360
+El código mostrará
+quien finalmente recibe el mensaje.
+
+50
+00:03:20,920 --> 00:03:23,680
+Es muy útil para construir herramientas
+
+51
+00:03:24,080 --> 00:03:28,080
+y mecanismos avanzados.
+
+52
+00:03:29,720 --> 00:03:33,720
+Otro ejemplo que veremos
+es LoggingProxy.
+
+53
+00:03:33,920 --> 00:03:36,320
+La idea básica aquí
+
+54
+00:03:36,560 --> 00:03:40,400
+es crear un objeto mínimo
+que contiene pocos métodos,
+
+55
+00:03:40,600 --> 00:03:44,360
+y personalizar
+su doesNotUnderstand:.
+
+56
+00:03:44,800 --> 00:03:48,840
+Luego intercambiaremos un objeto de dominio
+
+57
+00:03:49,400 --> 00:03:53,920
+con este proxy, u objeto mínimo,
+usando "become".
+
+58
+00:03:54,840 --> 00:03:58,840
+Primero, creamos un objeto proxy.
+
+59
+00:03:59,360 --> 00:04:02,840
+Le damos un "subject" al objeto proxy,
+
+60
+00:04:03,080 --> 00:04:06,560
+que es el objeto
+vamos a reemplazar,
+
+61
+00:04:07,400 --> 00:04:08,560
+o el objetivo.
+
+62
+00:04:08,840 --> 00:04:14,720
+Agregamos InvocationCount para incrementar
+el contador con cada mensaje
+
+63
+00:04:15,400 --> 00:04:20,760
+Ponemos el contador al inicializar en 0,
+ya que no ha recibido mensajes.
+
+64
+00:04:20,920 --> 00:04:25,400
+Luego agregamos el "subjet",
+que es lo que será reemplazado.
+
+65
+00:04:26,520 --> 00:04:29,760
+Ahora redefinimos
+el método DNU en este proxy.
+
+66
+00:04:29,920 --> 00:04:33,360
+Cada vez que un nuevo mensaje
+no se entiende,
+
+67
+00:04:33,560 --> 00:04:38,840
+su recepción aparece en el Transcript,
+y el contador se incrementa.
+
+68
+00:04:39,200 --> 00:04:43,400
+Luego reenviamos el mensaje
+al sujeto objetivo.
+
+69
+00:04:44,080 --> 00:04:47,600
+Como antes,
+redirigimos el mensaje a otra parte.
+
+70
+00:04:48,800 --> 00:04:52,920
+Para sendTo, como ves
+en la implementación de la clase Message,
+
+71
+00:04:53,080 --> 00:04:57,400
+simplemente utilizamos el método
+"perform:withArguments:" .
+
+72
+00:04:57,640 --> 00:05:01,440
+Ya explicamos esto
+en un curso anterior.
+
+73
+00:05:02,920 --> 00:05:05,160
+Veamos un ejemplo.
+
+74
+00:05:06,200 --> 00:05:09,520
+¿Cómo utilizamos este LoggingProxy?
+
+75
+00:05:10,000 --> 00:05:13,280
+Vamos a crear una instancia,
+el objeto punto.
+
+76
+00:05:14,040 --> 00:05:16,680
+Luego usaremos "become"
+
+77
+00:05:17,040 --> 00:05:20,200
+para que todo lo que apunte
+a este punto
+
+78
+00:05:20,680 --> 00:05:24,280
+inadvertidamente
+señale a LoggingProxy,
+
+79
+00:05:25,520 --> 00:05:27,320
+al que instanciamos.
+
+80
+00:05:27,760 --> 00:05:30,760
+Ahora, si enviamos mensajes
+al objeto punto,
+
+81
+00:05:30,920 --> 00:05:36,600
+observando que "become" es
+una instancia de LoggingProxy,
+
+82
+00:05:36,840 --> 00:05:39,200
+cada vez que le enviemos un mensaje,
+
+83
+00:05:39,840 --> 00:05:42,000
+se mostrará en el Transcript
+
+84
+00:05:42,720 --> 00:05:45,320
+y se incrementará el contador.
+
+85
+00:05:46,000 --> 00:05:48,800
+Esto es lo que hicimos
+en doesNotUnderstand.
+
+86
+00:05:49,040 --> 00:05:53,200
+Al final,
+el contador muestra un valor de 3.
+
+87
+00:05:54,440 --> 00:05:57,840
+Hay limites a esta
+variante de proxy,
+
+88
+00:05:58,000 --> 00:06:00,200
+como se ve en el último ejemplo.
+
+89
+00:06:00,520 --> 00:06:06,440
+Por ejemplo, no podemos capturar
+mensajes que un objeto envía a sí mismo.
+
+90
+00:06:06,640 --> 00:06:07,840
+Eso se vuelve complicado.
+
+91
+00:06:08,040 --> 00:06:14,160
+No podemos usar "become" con clases,
+ya que los modelos reflexivos tienen limitaciones.
+
+92
+00:06:14,720 --> 00:06:18,720
+También es arriesgado cuando el proxy
+y el objeto a reemplazar
+
+93
+00:06:18,920 --> 00:06:21,400
+ambos entienden el mismo mensaje.
+
+94
+00:06:21,760 --> 00:06:24,600
+Cuando envío el mensaje al proxy,
+
+95
+00:06:24,840 --> 00:06:28,360
+responderá,
+en lugar de capturarlo con DNU
+
+96
+00:06:28,560 --> 00:06:31,520
+y transferirlo
+al objeto de destino.
+
+97
+00:06:32,280 --> 00:06:37,000
+Pharo tiene otras variantes de proxys
+más poderosas que atrapan todo,
+
+98
+00:06:37,160 --> 00:06:42,200
+pero son más complejos
+que este simple ejemplo.
+
+99
+00:06:42,800 --> 00:06:46,760
+Otro ejemplo
+de cómo aplicar esta técnica
+
+100
+00:06:47,080 --> 00:06:53,280
+es generar dinámicamente accesors,
+o incluso métodos.
+
+101
+00:06:53,840 --> 00:06:58,400
+Aquí he redefinido
+el método doesNotUnderstand.
+
+102
+00:06:58,800 --> 00:07:01,200
+Veo que se ha recibido un mensaje,
+
+103
+00:07:01,400 --> 00:07:06,200
+entonces pruebo si tengo en la instancia
+variables que incluyen el mensaje.
+
+104
+00:07:06,400 --> 00:07:11,200
+Si es así, genero un nuevo método
+usando "compile"
+
+105
+00:07:11,560 --> 00:07:14,040
+para definir un nuevo método para la clase.
+
+106
+00:07:16,360 --> 00:07:19,600
+Esto devolverá
+el valor de la variable.
+
+107
+00:07:19,760 --> 00:07:23,600
+Aquí estoy generando
+el read-accessor de la variable.
+
+108
+00:07:24,080 --> 00:07:28,560
+Si el mensaje enviado
+no coincide con el nombre
+
+109
+00:07:28,920 --> 00:07:32,840
+de una variable de instancia,
+envío super doesNotUnderstand.
+
+110
+00:07:33,400 --> 00:07:38,400
+Esto nos permite crear
+read-accessors automáticamente,
+
+111
+00:07:38,920 --> 00:07:41,840
+dependiendo de
+si han sido llamados o no.
+
+112
+00:07:42,760 --> 00:07:45,280
+En conclusión,
+
+113
+00:07:45,400 --> 00:07:47,920
+Hemos visto cómo usar objetos mínimos.
+
+114
+00:07:48,080 --> 00:07:51,640
+No son instancias directas
+de la clase Object,
+
+115
+00:07:51,840 --> 00:07:54,040
+pero de la clase ProtoObject.
+
+116
+00:07:54,200 --> 00:07:56,920
+Pueden ser la base de proxies.
+
+117
+00:07:57,200 --> 00:08:01,400
+Al redefinir el método
+doesNotUnderstand, podemos capturar
+
+118
+00:08:01,920 --> 00:08:07,800
+la existencia de un mensaje fallido
+y luego redirigirlo.
+
+119
+00:08:08,320 --> 00:08:13,840
+Es un gancho poderoso que proporciona
+la base de muchas herramientas en Pharo.
+
+120
+00:08:14,560 --> 00:08:18,000
+Pero debes ser muy cuidadoso
+cuando lo usas.
+
+121
+00:08:18,280 --> 00:08:21,760
+Solo se debe usar cuando sea necesario.
+
+122
+00:08:22,080 --> 00:08:27,320
+No lo uses en el código de dominio todavía,
+es una técnica muy avanzada.

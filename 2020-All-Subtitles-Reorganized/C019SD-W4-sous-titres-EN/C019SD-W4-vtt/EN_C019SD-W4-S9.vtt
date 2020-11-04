@@ -1,0 +1,468 @@
+﻿WEBVTT
+
+00:00:00.680 --> 00:00:03.920 align:middle
+Hello! In this sequence,
+we'll learn more about Seaside,
+
+00:00:04.080 --> 00:00:06.400 align:middle
+especially the part
+that generates HTML.
+
+00:00:07.560 --> 00:00:10.680 align:middle
+You recall that all Seaside components
+
+00:00:10.840 --> 00:00:13.640 align:middle
+respond
+to "renderContentOn" messages.
+
+00:00:14.120 --> 00:00:18.640 align:middle
+This message is what enables us
+to generate the appropriate HTML code.
+
+00:00:19.000 --> 00:00:22.360 align:middle
+This method has a parameter
+named HTML.
+
+00:00:23.120 --> 00:00:27.000 align:middle
+It is an object instance
+of the WAHtmlCanvas class or subclass.
+
+00:00:27.240 --> 00:00:31.760 align:middle
+It is dedicated, offering the programmer
+an API to generate valid HTML.
+
+00:00:32.120 --> 00:00:34.720 align:middle
+Our counter code is here.
+
+00:00:34.880 --> 00:00:39.880 align:middle
+The html object here is used to generate
+headings, anchors, spaces, etc.
+
+00:00:40.920 --> 00:00:44.400 align:middle
+Today's sequence
+goes further into this language.
+
+00:00:46.160 --> 00:00:50.400 align:middle
+The dedicated language
+is made up of "brushes."
+
+00:00:50.880 --> 00:00:55.720 align:middle
+Each brush is dedicated to generating
+a particular HTML tag.
+
+00:00:56.120 --> 00:00:59.280 align:middle
+The API is object-oriented.
+
+00:01:01.240 --> 00:01:05.080 align:middle
+Its very construction,
+using message-sending to objects,
+
+00:01:05.400 --> 00:01:09.080 align:middle
+guarantees the validity
+of the HTML code,
+
+00:01:09.320 --> 00:01:12.600 align:middle
+unless we have made
+a messaging error.
+
+00:01:15.000 --> 00:01:18.520 align:middle
+Here's an example,
+using the dedicated language.
+
+00:01:19.160 --> 00:01:22.120 align:middle
+I send the html object
+the message "div"
+
+00:01:22.360 --> 00:01:24.160 align:middle
+which will render one object.
+
+00:01:24.880 --> 00:01:28.280 align:middle
+This object is a brush
+dedicated to generating
+
+00:01:29.520 --> 00:01:31.480 align:middle
+html div codes.
+
+00:01:31.640 --> 00:01:34.120 align:middle
+It includes the "id" message,
+
+00:01:34.640 --> 00:01:36.520 align:middle
+and the message "with."
+
+00:01:37.040 --> 00:01:41.720 align:middle
+This generates a div with the attribute
+id = title.
+
+00:01:41.920 --> 00:01:47.720 align:middle
+The character string identified
+as Title will be part of the div.
+
+00:01:49.320 --> 00:01:53.240 align:middle
+I can generate
+more complex things.
+
+00:01:54.200 --> 00:01:56.800 align:middle
+The beginning is the same:
+html div id list.
+
+00:01:57.080 --> 00:01:59.040 align:middle
+This is my div line.
+
+00:01:59.760 --> 00:02:02.560 align:middle
+But I can put lots of other tags
+inside the div.
+
+00:02:02.880 --> 00:02:07.400 align:middle
+Instead of sending a character string
+to "with," I send a script.
+
+00:02:07.920 --> 00:02:11.080 align:middle
+Within that script,
+I can reuse my html object
+
+00:02:11.320 --> 00:02:13.800 align:middle
+and other brushes
+to generate other tags.
+
+00:02:13.960 --> 00:02:16.360 align:middle
+With "html span class item"
+
+00:02:16.520 --> 00:02:21.080 align:middle
+I generate a span
+with a class attribute and content.
+
+00:02:24.360 --> 00:02:26.600 align:middle
+Now I can use loops.
+
+00:02:26.960 --> 00:02:29.800 align:middle
+This DSL is as powerful as Pharo.
+
+00:02:29.960 --> 00:02:34.120 align:middle
+Here, I generate an unorderedList.
+
+00:02:35.240 --> 00:02:37.160 align:middle
+It's abbreviated "ul."
+
+00:02:38.040 --> 00:02:40.360 align:middle
+It has an id list attribute.
+
+00:02:40.520 --> 00:02:43.880 align:middle
+I have list items
+inside the unordered list.
+
+00:02:44.120 --> 00:02:45.720 align:middle
+They are here.
+
+00:02:46.080 --> 00:02:49.000 align:middle
+Only I generated them
+using a loop.
+
+00:02:49.480 --> 00:02:52.360 align:middle
+I have a "to do 1 to 5" loop.
+
+00:02:53.200 --> 00:02:56.600 align:middle
+A classic Pharo loop.
+I generate 5 list items
+
+00:02:57.000 --> 00:03:00.640 align:middle
+with an attribute
+class... item...
+
+00:03:00.800 --> 00:03:03.640 align:middle
+followed by the name
+of each list item.
+
+00:03:03.920 --> 00:03:06.680 align:middle
+I have concatenated the loop cursor.
+
+00:03:08.040 --> 00:03:10.080 align:middle
+Item 1, Item 2, Item 3, etc.
+
+00:03:12.600 --> 00:03:14.680 align:middle
+We can go one notch farther,
+
+00:03:14.840 --> 00:03:17.760 align:middle
+and code
+for a different class selector CSS
+
+00:03:18.480 --> 00:03:20.440 align:middle
+for each list item,
+
+00:03:20.880 --> 00:03:23.600 align:middle
+depending on an odd or even loop cursor.
+
+00:03:24.400 --> 00:03:28.480 align:middle
+Typically, here, for example,
+I use the message .class: if:
+
+00:03:28.960 --> 00:03:33.120 align:middle
+That means "add this class
+if the following condition is true."
+
+00:03:33.320 --> 00:03:36.960 align:middle
+Here's the one for "even."
+
+00:03:37.320 --> 00:03:41.040 align:middle
+You can see that in the generated code,
+the first list item
+
+00:03:41.480 --> 00:03:43.400 align:middle
+has this particular class CSS.
+
+00:03:43.800 --> 00:03:44.880 align:middle
+"itemodd."
+
+00:03:45.040 --> 00:03:48.720 align:middle
+The second item has this CSS class:
+even.
+
+00:03:49.040 --> 00:03:52.080 align:middle
+This one is even, this one is odd,
+etc., etc.
+
+00:03:52.800 --> 00:03:54.880 align:middle
+The syntax is concise.
+
+00:03:55.200 --> 00:03:59.200 align:middle
+It packs all the power of Pharo
+to generate HTML using a DSL.
+
+00:04:00.720 --> 00:04:03.360 align:middle
+Another feature
+of this dedicated language
+
+00:04:03.520 --> 00:04:04.640 align:middle
+is extensibility.
+
+00:04:04.800 --> 00:04:07.720 align:middle
+It is easy to make it support
+modern CSS frameworks
+
+00:04:07.880 --> 00:04:10.240 align:middle
+like Bootstrap, for example.
+
+00:04:10.760 --> 00:04:12.920 align:middle
+This CSS framework
+uses CSS classes
+
+00:04:13.160 --> 00:04:16.680 align:middle
+to generate attractive HTML elements,
+
+00:04:16.840 --> 00:04:19.440 align:middle
+like green or blue backgrounds, etc.
+
+00:04:20.080 --> 00:04:23.200 align:middle
+How do we go about
+extending the dedicated language?
+
+00:04:23.360 --> 00:04:26.680 align:middle
+We have special brushes
+like the one here.
+
+00:04:27.000 --> 00:04:30.880 align:middle
+They all have a "tbs" prefix,
+meaning "twitter bootstrap."
+
+00:04:31.160 --> 00:04:34.560 align:middle
+I send the message "tbsAlert"
+to my HTML object.
+
+00:04:34.880 --> 00:04:38.440 align:middle
+That means "generate an HTML div
+or element
+
+00:04:38.600 --> 00:04:41.680 align:middle
+"compliant with
+the Twitter Bootstrap framework."
+
+00:04:43.440 --> 00:04:48.840 align:middle
+Many brushes will refer
+to the TBS framework.
+
+00:04:49.000 --> 00:04:52.720 align:middle
+I can render Twitter buttons
+with "tbsButton."
+
+00:04:52.880 --> 00:04:55.320 align:middle
+And TBS button groups, this way.
+
+00:04:55.480 --> 00:05:00.960 align:middle
+You can see that these three buttons
+all belong to one group.
+
+00:05:02.480 --> 00:05:06.840 align:middle
+To return to the example
+of the counter, from last session:
+
+00:05:07.200 --> 00:05:08.960 align:middle
+We defined a simple counter.
+
+00:05:09.240 --> 00:05:12.400 align:middle
+Now I'll make
+a Twitter Bootstrap version of it.
+
+00:05:12.600 --> 00:05:16.760 align:middle
+It's very easy. I make a subclass
+of my earlier counter,
+
+00:05:16.920 --> 00:05:18.840 align:middle
+called "WATwitterCounter."
+
+00:05:19.560 --> 00:05:22.320 align:middle
+I go to the "class" side
+
+00:05:24.400 --> 00:05:25.760 align:middle
+of this class
+
+00:05:26.120 --> 00:05:29.520 align:middle
+and define the method
+"initialize," which specifies:
+
+00:05:29.680 --> 00:05:34.280 align:middle
+"this component will be using
+the TBS development library."
+
+00:05:34.600 --> 00:05:39.320 align:middle
+Here is TBSDevelopmentLibrary
+and JQDevelopmentLibrary.
+
+00:05:39.800 --> 00:05:42.600 align:middle
+Those are Javascript
+and CSS frameworks.
+
+00:05:45.960 --> 00:05:49.880 align:middle
+Next, I'll return to the instance side
+of this class.
+
+00:05:50.040 --> 00:05:52.600 align:middle
+I'll define a new
+renderContentOn method,
+
+00:05:52.760 --> 00:05:54.960 align:middle
+redefining the preceding one.
+
+00:05:55.240 --> 00:05:58.040 align:middle
+All my brushes will begin with tbs.
+
+00:05:58.680 --> 00:06:02.080 align:middle
+"tbsButtonGroup," "tbsButton,"
+etc., etc.
+
+00:06:02.440 --> 00:06:05.000 align:middle
+But this doesn't change
+my regular code,
+
+00:06:05.160 --> 00:06:08.560 align:middle
+still consisting of callbacks
+with "self increase"
+
+00:06:09.320 --> 00:06:11.080 align:middle
+and "self decrease."
+
+00:06:11.360 --> 00:06:13.000 align:middle
+It doesn't change a thing.
+
+00:06:14.080 --> 00:06:18.280 align:middle
+The only parts that use TBS
+are the HTML rendering brushes.
+
+00:06:19.640 --> 00:06:22.440 align:middle
+Now we'll see
+what my new counter looks like.
+
+00:06:22.600 --> 00:06:26.520 align:middle
+The plus and minus buttons
+are together in my Button Group.
+
+00:06:26.680 --> 00:06:29.160 align:middle
+And counter value is displayed
+on a badge,
+
+00:06:29.400 --> 00:06:31.440 align:middle
+in this Bootstrap version.
+
+00:06:34.560 --> 00:06:37.680 align:middle
+You can go even farther,
+beyond Bootstrap.
+
+00:06:37.840 --> 00:06:40.920 align:middle
+You can define your own style rules.
+
+00:06:41.080 --> 00:06:44.240 align:middle
+For example, here, I decided to say
+
+00:06:44.840 --> 00:06:48.200 align:middle
+that I want all "odd" elements
+
+00:06:48.720 --> 00:06:50.800 align:middle
+to be in the "odd" class.
+
+00:06:51.640 --> 00:06:56.400 align:middle
+Every time I render the counter value
+here, as a TBS badge...
+
+00:06:56.880 --> 00:07:00.920 align:middle
+That is, the counter value
+will be displayed...
+
+00:07:01.480 --> 00:07:05.120 align:middle
+But I'm adding the CSS class "odd"
+
+00:07:05.640 --> 00:07:07.840 align:middle
+only if the value is odd.
+
+00:07:10.760 --> 00:07:14.600 align:middle
+The CSS class is added
+only if this condition is true.
+
+00:07:16.200 --> 00:07:18.600 align:middle
+I defined the CSS class "odd"
+
+00:07:18.760 --> 00:07:21.800 align:middle
+by defining the method "style"
+on my counter.
+
+00:07:21.960 --> 00:07:25.800 align:middle
+It will render a character string
+according to CSS style rules.
+
+00:07:25.960 --> 00:07:29.080 align:middle
+".odd color: red"
+will make the counter red
+
+00:07:29.440 --> 00:07:30.480 align:middle
+for odd numbers.
+
+00:07:31.360 --> 00:07:32.360 align:middle
+To sum up:
+
+00:07:32.920 --> 00:07:37.200 align:middle
+A web application is a root component.
+Seaside is a root component.
+
+00:07:37.760 --> 00:07:42.200 align:middle
+All components can be rendered
+in HTML using renderContentOn.
+
+00:07:42.440 --> 00:07:47.280 align:middle
+And we have a dedicated language
+that is powerful and extensible.
+
+00:07:47.800 --> 00:07:52.120 align:middle
+It enables us to generate HTML
+easily, using brushes,
+
+00:07:52.680 --> 00:07:57.280 align:middle
+and an extensibility that supports
+existing CSS frameworks
+
+00:07:57.440 --> 00:07:59.520 align:middle
+like Bootstrap, JQuery, UI, etc.
+
+00:08:00.800 --> 00:08:04.720 align:middle
+You can take advantage
+of Pharo's scripting powers like loops,
+
+00:08:05.200 --> 00:08:07.840 align:middle
+to generate arrays of elements
+easily.

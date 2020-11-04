@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W5-S4</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:00:13" end="00:00:03:20" region="bottom">Hi. During this class<br/>I'll be showing you exceptions,</p>
+            <p xml:id="p2" begin="00:00:03:24" end="00:00:06:10" region="bottom">which are really powerful in Pharo.<br/>I'll give you an overview.</p>
+            <p xml:id="p3" begin="00:00:06:15" end="00:00:09:04" region="bottom">What can we do with exceptions?<br/>We can resume them,</p>
+            <p xml:id="p4" begin="00:00:09:13" end="00:00:11:21" region="bottom">restart them,<br/>signal them as new exceptions.</p>
+            <p xml:id="p5" begin="00:00:12:00" end="00:00:16:06" region="bottom">I'm only going to show you<br/>things that will be useful in a practical way</p>
+            <p xml:id="p6" begin="00:00:16:10" end="00:00:17:21" region="bottom">when first using exceptions,</p>
+            <p xml:id="p7" begin="00:00:18:00" end="00:00:20:21" region="bottom">but it's important that you know<br/>that this isn't everything.</p>
+            <p xml:id="p8" begin="00:00:21:00" end="00:00:24:15" region="bottom">There are 2 kinds of exceptions,<br/>"Errors", which are often fatal</p>
+            <p xml:id="p9" begin="00:00:24:19" end="00:00:27:17" region="bottom">and "notifications"<br/>which we can say we don't need,</p>
+            <p xml:id="p10" begin="00:00:27:21" end="00:00:29:04" region="bottom">they're just for reference.</p>
+            <p xml:id="p11" begin="00:00:30:08" end="00:00:32:20" region="bottom">So, if you're interested in reading</p>
+            <p xml:id="p12" begin="00:00:32:24" end="00:00:35:20" region="bottom">a complete reference on exceptions</p>
+            <p xml:id="p13" begin="00:00:35:24" end="00:00:39:16" region="bottom">there's a whole chapter in the book,<br/>"Deep Into Pharo",</p>
+            <p xml:id="p14" begin="00:00:39:20" end="00:00:45:01" region="bottom">which is on the MOOC website<br/>and available free online.</p>
+            <p xml:id="p15" begin="00:00:45:15" end="00:00:50:16" region="bottom">So, what are you going to learn?<br/>To raise and trap exceptions,</p>
+            <p xml:id="p16" begin="00:00:50:20" end="00:00:54:10" region="bottom">and some nice helper methods<br/>we can use every day.</p>
+            <p xml:id="p17" begin="00:00:54:24" end="00:00:55:20" region="bottom">So basically,</p>
+            <p xml:id="p18" begin="00:00:56:00" end="00:00:58:11" region="bottom">everything about this class<br/>is on this page.</p>
+            <p xml:id="p19" begin="00:00:58:20" end="00:01:02:09" region="bottom">You're going to install a handler<br/>to trap an exception,</p>
+            <p xml:id="p20" begin="00:01:02:13" end="00:01:03:12" region="bottom">you'll signal them,</p>
+            <p xml:id="p21" begin="00:01:03:16" end="00:01:08:07" region="bottom">and we'll have 2 nice messages,<br/>which are "ensure" and "ifCurtailed"</p>
+            <p xml:id="p22" begin="00:01:09:10" end="00:01:11:07" region="bottom">So, let's take a look.</p>
+            <p xml:id="p23" begin="00:01:11:21" end="00:01:14:17" region="bottom">Imagine that I wanted<br/>to trap an exception.</p>
+            <p xml:id="p24" begin="00:01:14:21" end="00:01:16:22" region="bottom">It's the "on: do:" message.</p>
+            <p xml:id="p25" begin="00:01:17:01" end="00:01:20:03" region="bottom">I make a block, if I've an action,<br/>when I have an action,</p>
+            <p xml:id="p26" begin="00:01:20:07" end="00:01:23:04" region="bottom">if ever I have an exception,<br/>what do I do?</p>
+            <p xml:id="p27" begin="00:01:23:08" end="00:01:27:07" region="bottom">"Something" and here is the exception,<br/>which is passed in argument.</p>
+            <p xml:id="p28" begin="00:01:27:23" end="00:01:31:13" region="bottom">If we look at an example<br/>of zero division,</p>
+            <p xml:id="p29" begin="00:01:31:17" end="00:01:34:24" region="bottom">if I do 7 divided by 0...</p>
+            <p xml:id="p30" begin="00:01:35:15" end="00:01:38:03" region="bottom">when I have a zero divide,<br/>what do I have to do?</p>
+            <p xml:id="p31" begin="00:01:38:07" end="00:01:41:16" region="bottom">I'll write, "Watch out,<br/>there's a zero divide."</p>
+            <p xml:id="p32" begin="00:01:41:20" end="00:01:47:04" region="bottom">The thing to notice here is that<br/>an instance of the Exception class</p>
+            <p xml:id="p33" begin="00:01:48:09" end="00:01:49:21" region="bottom">has been passed as an argument,</p>
+            <p xml:id="p34" begin="00:01:50:00" end="00:01:52:15" region="bottom">and I'll be able to question it<br/>and send it messages,</p>
+            <p xml:id="p35" begin="00:01:52:19" end="00:01:54:17" region="bottom">because exceptions<br/>are objects in Pharo.</p>
+            <p xml:id="p36" begin="00:01:54:21" end="00:01:56:15" region="bottom">I'll send messages in my exceptions</p>
+            <p xml:id="p37" begin="00:01:56:19" end="00:02:00:10" region="bottom">to do something and it will show me 0.</p>
+            <p xml:id="p38" begin="00:02:00:20" end="00:02:02:23" region="bottom">So how do we raise an exception?</p>
+            <p xml:id="p39" begin="00:02:03:06" end="00:02:07:10" region="bottom">Basically, we create an exception<br/>and we send it the signal message.</p>
+            <p xml:id="p40" begin="00:02:07:14" end="00:02:10:21" region="bottom">So here, when we want to give<br/>a warning I do, "Warning new".</p>
+            <p xml:id="p41" begin="00:02:11:00" end="00:02:15:06" region="bottom">I create an exception, customise it,<br/>I put the message I want inside,</p>
+            <p xml:id="p42" begin="00:02:15:10" end="00:02:16:19" region="bottom">and send the Signal message.</p>
+            <p xml:id="p43" begin="00:02:16:23" end="00:02:21:00" region="bottom">When I've an exception<br/>to be able to ask the author,</p>
+            <p xml:id="p44" begin="00:02:21:04" end="00:02:23:00" region="bottom">writing the method,</p>
+            <p xml:id="p45" begin="00:02:23:04" end="00:02:24:18" region="bottom">then you'll have another API,</p>
+            <p xml:id="p46" begin="00:02:24:22" end="00:02:28:06" region="bottom">because it's "AuthorNameRequest"<br/>that defines this API,</p>
+            <p xml:id="p47" begin="00:02:28:10" end="00:02:30:11" region="bottom">so I've passed "Stef"<br/>then I'll do "signal".</p>
+            <p xml:id="p48" begin="00:02:30:15" end="00:02:33:02" region="bottom">What usually happens<br/>is that the classes</p>
+            <p xml:id="p49" begin="00:02:33:06" end="00:02:38:01" region="bottom">propose shortcuts to avoid<br/>having to create, so I'm sending</p>
+            <p xml:id="p50" begin="00:02:38:05" end="00:02:41:16" region="bottom">"OutOfMemory", that's the class.<br/>I send the signal message to the class.</p>
+            <p xml:id="p51" begin="00:02:41:20" end="00:02:44:20" region="bottom">Normally, with warnings,<br/>I don't do "Warning new, blah, blah..."</p>
+            <p xml:id="p52" begin="00:02:44:24" end="00:02:48:21" region="bottom">I do "Warning signal" with the text,<br/>because it's shorter,</p>
+            <p xml:id="p53" begin="00:02:49:00" end="00:02:51:04" region="bottom">but that depends on your exceptions.</p>
+            <p xml:id="p54" begin="00:02:51:18" end="00:02:56:20" region="bottom">So, since we like agile<br/>programming with unit tests,</p>
+            <p xml:id="p55" begin="00:02:57:00" end="00:03:00:02" region="bottom">and test-driven programming,</p>
+            <p xml:id="p56" begin="00:03:00:06" end="00:03:04:11" region="bottom">how can we test that an exception<br/>is raised in SUnit?</p>
+            <p xml:id="p57" begin="00:03:04:15" end="00:03:08:21" region="bottom">We're going to use "shouldn't raise"<br/>and "should raise".</p>
+            <p xml:id="p58" begin="00:03:09:00" end="00:03:10:11" region="bottom">Let's read this together.</p>
+            <p xml:id="p59" begin="00:03:10:15" end="00:03:13:16" region="bottom">I want to say here,<br/>"Look out, I don't want</p>
+            <p xml:id="p60" begin="00:03:13:20" end="00:03:15:21" region="bottom">"an exception to be raised,</p>
+            <p xml:id="p61" begin="00:03:16:00" end="00:03:18:06" region="bottom">"for it to be a SubscriptOutOfBounds.</p>
+            <p xml:id="p62" begin="00:03:18:10" end="00:03:21:16" region="bottom">"if I create a date in February".</p>
+            <p xml:id="p63" begin="00:03:21:20" end="00:03:25:05" region="bottom">Now, if I want to test<br/>that I should have an error</p>
+            <p xml:id="p64" begin="00:03:25:09" end="00:03:29:01" region="bottom">when I create a date in the 13th month,</p>
+            <p xml:id="p65" begin="00:03:29:05" end="00:03:32:06" region="bottom">something you don't usually get,<br/>in your pay,</p>
+            <p xml:id="p66" begin="00:03:32:10" end="00:03:35:14" region="bottom">then I'll use "should raise",</p>
+            <p xml:id="p67" begin="00:03:35:18" end="00:03:37:02" region="bottom">which means, "Watch out,</p>
+            <p xml:id="p68" begin="00:03:37:06" end="00:03:40:24" region="bottom">"if you create a date in a 13th month,<br/>I'll raise an error".</p>
+            <p xml:id="p69" begin="00:03:41:03" end="00:03:44:00" region="bottom">That allows you to create the unit test,</p>
+            <p xml:id="p70" begin="00:03:44:04" end="00:03:46:07" region="bottom">while controlling exceptions.</p>
+            <p xml:id="p71" begin="00:03:46:11" end="00:03:48:10" region="bottom">It's a digression, but it's important</p>
+            <p xml:id="p72" begin="00:03:48:14" end="00:03:51:03" region="bottom">to know there are these<br/>2 little helper methods.</p>
+            <p xml:id="p73" begin="00:03:52:03" end="00:03:54:09" region="bottom">So, what are exceptions in Pharo?</p>
+            <p xml:id="p74" begin="00:03:54:14" end="00:03:56:01" region="bottom">There are errors:</p>
+            <p xml:id="p75" begin="00:03:56:05" end="00:03:59:09" region="bottom">"message not understood",<br/>"subscript", "division by zero",</p>
+            <p xml:id="p76" begin="00:03:59:13" end="00:04:03:07" region="bottom">you have "halt", which we'll look at<br/>when we come to debugging.</p>
+            <p xml:id="p77" begin="00:04:03:11" end="00:04:04:21" region="bottom">You can put a break point,</p>
+            <p xml:id="p78" begin="00:04:05:00" end="00:04:07:12" region="bottom">which will stop<br/>execution of the system.</p>
+            <p xml:id="p79" begin="00:04:07:16" end="00:04:10:19" region="bottom">You have notifications,<br/>everything non fatal,</p>
+            <p xml:id="p80" begin="00:04:10:23" end="00:04:15:10" region="bottom">so a deprecation,<br/>"don't use this method, use another",</p>
+            <p xml:id="p81" begin="00:04:15:14" end="00:04:16:22" region="bottom">warnings and timedout.</p>
+            <p xml:id="p82" begin="00:04:17:01" end="00:04:19:19" region="bottom">One nice thing is,<br/>you have an error message</p>
+            <p xml:id="p83" begin="00:04:19:23" end="00:04:22:06" region="bottom">which describes unhandled errors.</p>
+            <p xml:id="p84" begin="00:04:22:10" end="00:04:25:06" region="bottom">This is what raises the debugger.</p>
+            <p xml:id="p85" begin="00:04:25:10" end="00:04:28:17" region="bottom">We don't normally use it,<br/>but it's just to tell you</p>
+            <p xml:id="p86" begin="00:04:28:21" end="00:04:31:09" region="bottom">that unhandled errors<br/>are also a class of error.</p>
+            <p xml:id="p87" begin="00:04:32:02" end="00:04:34:18" region="bottom">Exceptions are real objects.</p>
+            <p xml:id="p88" begin="00:04:34:23" end="00:04:37:23" region="bottom">If we look at how the<br/>"doesNotUnderstand" message</p>
+            <p xml:id="p89" begin="00:04:38:03" end="00:04:41:15" region="bottom">is defined, you can see it<br/>in ProtoObject with your Pharo browser,</p>
+            <p xml:id="p90" begin="00:04:41:19" end="00:04:43:23" region="bottom">you do, "messageNotUnderstood new",</p>
+            <p xml:id="p91" begin="00:04:44:02" end="00:04:48:24" region="bottom">I send a message to the receiver,<br/>which is the object, and give a signal.</p>
+            <p xml:id="p92" begin="00:04:49:03" end="00:04:53:12" region="bottom">You get this signal when you send<br/>"point new strangeAndBizarre".</p>
+            <p xml:id="p93" begin="00:04:53:16" end="00:04:56:04" region="bottom">It's not known as a message,<br/>"strangeAndBizarre"</p>
+            <p xml:id="p94" begin="00:04:56:08" end="00:04:57:23" region="bottom">so it will create this exception.</p>
+            <p xml:id="p95" begin="00:04:59:11" end="00:05:01:22" region="bottom">We have deprecation,<br/>for example, which means,</p>
+            <p xml:id="p96" begin="00:05:02:01" end="00:05:05:01" region="bottom">if you use an API<br/>which evolves over time</p>
+            <p xml:id="p97" begin="00:05:05:05" end="00:05:08:05" region="bottom">and which Pharo has decided<br/>is no longer valid,</p>
+            <p xml:id="p98" begin="00:05:08:09" end="00:05:09:13" region="bottom">in fact...</p>
+            <p xml:id="p99" begin="00:05:09:17" end="00:05:15:00" region="bottom">How do we do that in Pharo?<br/>We say, "deprecated: on: in"</p>
+            <p xml:id="p100" begin="00:05:15:04" end="00:05:17:09" region="bottom">Here, I've chosen a clear example,</p>
+            <p xml:id="p101" begin="00:05:17:13" end="00:05:19:17" region="bottom">"menu, item, title"<br/>and what does it say?</p>
+            <p xml:id="p102" begin="00:05:19:21" end="00:05:23:22" region="bottom">"Use the method addTitle<br/>instead of "title".</p>
+            <p xml:id="p103" begin="00:05:25:05" end="00:05:26:24" region="bottom">How is it implemented?</p>
+            <p xml:id="p104" begin="00:05:27:03" end="00:05:30:12" region="bottom">It's implemented<br/>in the following way: "deprecated",</p>
+            <p xml:id="p105" begin="00:05:30:16" end="00:05:33:24" region="bottom">this, "create an exception",</p>
+            <p xml:id="p106" begin="00:05:34:03" end="00:05:35:07" region="bottom">which is called "deprecation"</p>
+            <p xml:id="p107" begin="00:05:35:11" end="00:05:39:24" region="bottom">within which I'll pass it<br/>"method, explanation, on, in",</p>
+            <p xml:id="p108" begin="00:05:40:03" end="00:05:42:17" region="bottom">which will give a signal.<br/>So it's just to show you that</p>
+            <p xml:id="p109" begin="00:05:42:21" end="00:05:46:20" region="bottom">"deprecation", "messageNotUnderstood",<br/>are exceptions we create and raise.</p>
+            <p xml:id="p110" begin="00:05:48:08" end="00:05:52:02" region="bottom">So this is just a detail,<br/>you can have exception sets.</p>
+            <p xml:id="p111" begin="00:05:52:06" end="00:05:54:24" region="bottom">You can say, "If I have ZeroDivide,<br/>and I have Warning,</p>
+            <p xml:id="p112" begin="00:05:55:03" end="00:05:59:02" region="bottom">or I have Warning,<br/>you're going to be able,</p>
+            <p xml:id="p113" begin="00:05:59:06" end="00:06:02:20" region="bottom">to contain the exceptions with a comma",<br/>which will create an exception set,</p>
+            <p xml:id="p114" begin="00:06:02:24" end="00:06:06:05" region="bottom">allowing you to say,<br/>"I want to react to all these exceptions".</p>
+            <p xml:id="p115" begin="00:06:06:09" end="00:06:11:00" region="bottom">It's very rarely used,<br/>it's just for completeness.</p>
+            <p xml:id="p116" begin="00:06:11:18" end="00:06:14:21" region="bottom">Now we're going to look at<br/>some very handy methods,</p>
+            <p xml:id="p117" begin="00:06:15:13" end="00:06:17:08" region="bottom">which we often use.</p>
+            <p xml:id="p118" begin="00:06:17:12" end="00:06:20:17" region="bottom">How can I ensure that<br/>an expression is always executed,</p>
+            <p xml:id="p119" begin="00:06:20:21" end="00:06:24:09" region="bottom">even if the program fails beforehand?</p>
+            <p xml:id="p120" begin="00:06:24:13" end="00:06:27:08" region="bottom">So the idea is "ensure".<br/>What does "ensure" do?</p>
+            <p xml:id="p121" begin="00:06:27:12" end="00:06:29:03" region="bottom">You do something,</p>
+            <p xml:id="p122" begin="00:06:29:07" end="00:06:33:13" region="bottom">and I guarantee that the other block<br/>will be executed.</p>
+            <p xml:id="p123" begin="00:06:33:17" end="00:06:38:20" region="bottom">It's very powerful,<br/>it lets you to close files automatically.</p>
+            <p xml:id="p124" begin="00:06:39:10" end="00:06:43:04" region="bottom">That's what we see in SpyOn,<br/>for the Pharo profiler.</p>
+            <p xml:id="p125" begin="00:06:43:08" end="00:06:46:17" region="bottom">There's a class on it.<br/>I say, " I'm starting profiling",</p>
+            <p xml:id="p126" begin="00:06:46:21" end="00:06:49:16" region="bottom">I execute the block I want to profile</p>
+            <p xml:id="p127" begin="00:06:49:20" end="00:06:52:04" region="bottom">and I guarantee myself<br/>I'll stop profiling,</p>
+            <p xml:id="p128" begin="00:06:52:08" end="00:06:55:05" region="bottom">even if you've passed me<br/>a block with an error.</p>
+            <p xml:id="p129" begin="00:06:55:10" end="00:06:57:12" region="bottom">There's another helper</p>
+            <p xml:id="p130" begin="00:06:57:17" end="00:07:00:00" region="bottom">which is really nice,<br/>which is how can I ensure</p>
+            <p xml:id="p131" begin="00:07:00:04" end="00:07:04:17" region="bottom">an expression is executed only<br/>if the program fails?</p>
+            <p xml:id="p132" begin="00:07:05:11" end="00:07:09:08" region="bottom">What I'll do is I'll say,<br/>"You do something if ever</p>
+            <p xml:id="p133" begin="00:07:09:12" end="00:07:13:22" region="bottom">"something strange happens,<br/>I want you to execute this code".</p>
+            <p xml:id="p134" begin="00:07:14:01" end="00:07:16:17" region="bottom">Here I've taken an example<br/>in "wait", which is really</p>
+            <p xml:id="p135" begin="00:07:16:21" end="00:07:20:20" region="bottom">very low level, which allows you<br/>to change the processor scheduling.</p>
+            <p xml:id="p136" begin="00:07:21:13" end="00:07:26:20" region="bottom">I say, "There's the system,<br/>schedule a semaphore,"</p>
+            <p xml:id="p137" begin="00:07:26:24" end="00:07:30:08" region="bottom">I do an operation and if ever<br/>something doesn't work,</p>
+            <p xml:id="p138" begin="00:07:30:12" end="00:07:32:13" region="bottom">the system guarantees</p>
+            <p xml:id="p139" begin="00:07:32:17" end="00:07:36:04" region="bottom">that I'll remove it from the scheduler.</p>
+            <p xml:id="p140" begin="00:07:36:08" end="00:07:40:02" region="bottom">These methods are really handy,<br/>because they're very powerful.</p>
+            <p xml:id="p141" begin="00:07:40:12" end="00:07:45:07" region="bottom">I've given you a slide to explain<br/>how the method lookup works,</p>
+            <p xml:id="p142" begin="00:07:45:11" end="00:07:47:03" region="bottom">in addition to the book.</p>
+            <p xml:id="p143" begin="00:07:47:08" end="00:07:48:12" region="bottom">Now...</p>
+            <p xml:id="p144" begin="00:07:48:17" end="00:07:50:11" region="bottom">just for your information,</p>
+            <p xml:id="p145" begin="00:07:50:15" end="00:07:53:15" region="bottom">the things we can do<br/>with exceptions in Pharo,</p>
+            <p xml:id="p146" begin="00:07:53:19" end="00:07:59:04" region="bottom">you can return an alternative result,<br/>you can retry, in fact.</p>
+            <p xml:id="p147" begin="00:07:59:08" end="00:08:01:08" region="bottom">You can change the execution<br/>of the program and say,</p>
+            <p xml:id="p148" begin="00:08:01:12" end="00:08:05:08" region="bottom">"Act as though<br/>the exception didn't happen".</p>
+            <p xml:id="p149" begin="00:08:05:12" end="00:08:07:20" region="bottom">I can resume,</p>
+            <p xml:id="p150" begin="00:08:07:24" end="00:08:11:15" region="bottom">I can say, "No, I don't want to deal<br/>with this exception at this level,</p>
+            <p xml:id="p151" begin="00:08:11:19" end="00:08:13:07" region="bottom">"I want to deal with it higher up".</p>
+            <p xml:id="p152" begin="00:08:13:11" end="00:08:14:23" region="bottom">I can resignal an exception,</p>
+            <p xml:id="p153" begin="00:08:15:02" end="00:08:18:21" region="bottom">"No, you raised this exception<br/>but it's old, I want a new one"</p>
+            <p xml:id="p154" begin="00:08:19:00" end="00:08:19:22" region="bottom">with resignal.</p>
+            <p xml:id="p155" begin="00:08:20:01" end="00:08:23:13" region="bottom">When you need this it means<br/>you know what you're doing,</p>
+            <p xml:id="p156" begin="00:08:23:17" end="00:08:28:10" region="bottom">and you've read the chapter,<br/>so just be aware that it exists.</p>
+            <p xml:id="p157" begin="00:08:28:15" end="00:08:30:13" region="bottom">This was just to show you.</p>
+            <p xml:id="p158" begin="00:08:30:18" end="00:08:33:15" region="bottom">I want to return another value<br/>from an exception, I do "return",</p>
+            <p xml:id="p159" begin="00:08:33:19" end="00:08:38:04" region="bottom">and you can see that here,<br/>I had my block which gave me this value.</p>
+            <p xml:id="p160" begin="00:08:38:08" end="00:08:41:10" region="bottom">I raised an exception, and in the end,</p>
+            <p xml:id="p161" begin="00:08:41:14" end="00:08:45:10" region="bottom">it's this value that was returned.<br/>That's with "return".</p>
+            <p xml:id="p162" begin="00:08:45:14" end="00:08:48:10" region="bottom">Now, with "resume",<br/>what you're going to have,</p>
+            <p xml:id="p163" begin="00:08:48:14" end="00:08:50:23" region="bottom">"resume" is...</p>
+            <p xml:id="p164" begin="00:08:51:02" end="00:08:54:06" region="bottom">I've my exception which is raised here,</p>
+            <p xml:id="p165" begin="00:08:54:10" end="00:08:58:14" region="bottom">and what I see is that,<br/>in my exception, when I do "resume",</p>
+            <p xml:id="p166" begin="00:08:58:18" end="00:09:02:03" region="bottom">it's not this value that's returned,<br/>it's the next value, so I say,</p>
+            <p xml:id="p167" begin="00:09:02:07" end="00:09:07:09" region="bottom">"Continue after the exception point",<br/>so start again from here,</p>
+            <p xml:id="p168" begin="00:09:07:13" end="00:09:10:03" region="bottom">and that will give me this value.</p>
+            <p xml:id="p169" begin="00:09:11:06" end="00:09:14:00" region="bottom">So now if we look at<br/>what you should know:</p>
+            <p xml:id="p170" begin="00:09:14:05" end="00:09:16:24" region="bottom">exceptions are powerful in Pharo,<br/>OK, great.</p>
+            <p xml:id="p171" begin="00:09:17:03" end="00:09:20:21" region="bottom">There's a very simple API,<br/>it's "signal" to raise an exception,</p>
+            <p xml:id="p172" begin="00:09:21:00" end="00:09:22:18" region="bottom">"on: do:" to trap them,</p>
+            <p xml:id="p173" begin="00:09:22:22" end="00:09:27:22" region="bottom">and you have "ensure" to guarantee<br/>that this expression is always executed,</p>
+            <p xml:id="p174" begin="00:09:28:01" end="00:09:30:07" region="bottom">if I have a problem here or not,</p>
+            <p xml:id="p175" begin="00:09:30:11" end="00:09:32:18" region="bottom">and there's this expression,<br/>with "ifCurtailed",</p>
+            <p xml:id="p176" begin="00:09:32:22" end="00:09:35:18" region="bottom">which will execute "onProblem"<br/>if I've a problem in "doSomething".</p>
+            <p xml:id="p177" begin="00:09:35:22" end="00:09:38:19" region="bottom">That's all you need to know<br/>to get started with exceptions.</p>
+        </div>
+    </body>
+</tt>

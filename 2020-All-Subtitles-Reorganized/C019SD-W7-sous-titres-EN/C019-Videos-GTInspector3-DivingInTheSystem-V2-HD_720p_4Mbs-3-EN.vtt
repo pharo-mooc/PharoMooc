@@ -1,0 +1,615 @@
+WEBVTT
+
+00:00:01.540 --> 00:00:03.650 align:middle
+In this video, 
+I’d like to show you
+
+00:00:03.817 --> 00:00:08.710 align:middle
+how we can use the inspector
+to navigate and
+
+00:00:08.877 --> 00:00:09.620 align:middle
+understand the inside of 
+the system.
+
+00:00:10.880 --> 00:00:15.020 align:middle
+The inspector is like 
+a microscope
+
+00:00:15.187 --> 00:00:17.910 align:middle
+that will enable us to go
+and explore the inside of
+
+00:00:18.077 --> 00:00:21.190 align:middle
+of the system but also, as if
+we could send probes 
+
+00:00:21.357 --> 00:00:22.860 align:middle
+to modify the system.
+It is as if we were
+
+00:00:23.027 --> 00:00:26.940 align:middle
+a biologist which is in fact manipulating 
+bacterias and making them react.
+
+00:00:27.800 --> 00:00:32.240 align:middle
+So we are gonna have fun exploring
+what are "Smalltalk globals".
+
+00:00:34.910 --> 00:00:37.470 align:middle
+In fact, this is the name space,
+it is to say, the place where
+
+00:00:37.637 --> 00:00:40.050 align:middle
+all Pharo classes are stored.
+
+00:00:41.770 --> 00:00:44.000 align:middle
+So it is a dictionary,
+the system dictionary is
+
+00:00:44.167 --> 00:00:48.180 align:middle
+a dictionary. What is interesting is
+that, with the inspector,
+
+00:00:48.630 --> 00:00:53.540 align:middle
+of I look the inspector, it is
+
+00:00:53.707 --> 00:00:56.240 align:middle
+a big table with
+
+00:01:00.080 --> 00:01:00.860 align:middle
+values inside.
+
+00:01:01.027 --> 00:01:02.410 align:middle
+So for example, if I choose…
+I don’t know… 
+
+00:01:02.577 --> 00:01:06.770 align:middle
+Breakpoint, I see that in my 
+table I have
+
+00:01:07.680 --> 00:01:11.840 align:middle
+a key containing at least an object
+that contains
+
+00:01:12.710 --> 00:01:14.350 align:middle
+this object, that contains a
+value key.
+
+00:01:14.517 --> 00:01:16.190 align:middle
+What is interesting with the
+inspector is that
+
+00:01:16.357 --> 00:01:20.390 align:middle
+here, for instance, I see
+that at element 2
+
+00:01:20.557 --> 00:01:22.370 align:middle
+in the table, what do I have?
+
+00:01:22.537 --> 00:01:24.150 align:middle
+I have what we call
+a global variable.
+
+00:01:24.317 --> 00:01:26.150 align:middle
+So a global variable, what
+is it?
+
+00:01:26.317 --> 00:01:28.350 align:middle
+It is an object composed of 
+a key and a value.
+
+00:01:29.220 --> 00:01:33.040 align:middle
+The key, if I click on it, I
+see 
+
+00:01:33.207 --> 00:01:37.870 align:middle
+that it is a ByteSymbol
+representing the name, and if
+
+00:01:38.037 --> 00:01:42.720 align:middle
+I go backward and I look at the
+
+00:01:42.887 --> 00:01:44.820 align:middle
+value, here I will have a class.
+
+00:01:45.000 --> 00:01:47.520 align:middle
+So we are going to go inside
+the classes.
+
+00:01:48.000 --> 00:01:49.230 align:middle
+Here I go back to the beginning.
+
+00:01:50.460 --> 00:01:54.790 align:middle
+The new Pharo inspector, 
+
+00:01:55.670 --> 00:01:59.440 align:middle
+named GT Inspector,
+after the developers
+
+00:01:59.607 --> 00:02:03.380 align:middle
+team who developed it for Pharo, 
+will propose
+
+00:02:03.547 --> 00:02:05.220 align:middle
+dedicated tabs.
+
+00:02:06.610 --> 00:02:08.570 align:middle
+On the system dictionary,
+what specific tabs 
+
+00:02:08.737 --> 00:02:12.210 align:middle
+do I have? I have the tab
+showing the pairs
+
+00:02:12.377 --> 00:02:17.240 align:middle
+key/value for my classes,
+
+00:02:17.407 --> 00:02:18.220 align:middle
+or I will only get the keys.
+
+00:02:18.387 --> 00:02:20.340 align:middle
+The keys are a little less
+interesting since I
+
+00:02:20.507 --> 00:02:25.270 align:middle
+will only have the classes names
+
+00:02:25.437 --> 00:02:26.070 align:middle
+in question.
+
+00:02:26.237 --> 00:02:28.720 align:middle
+Something nice also is that
+this  
+
+00:02:28.887 --> 00:02:33.170 align:middle
+inspector, you see that I can
+either browse, that means…
+
+00:02:33.337 --> 00:02:34.730 align:middle
+let’s take an example…
+
+00:02:35.270 --> 00:02:39.410 align:middle
+I have browsed, I go from an object
+to another by
+
+00:02:39.620 --> 00:02:42.390 align:middle
+selecting a path in the 
+structure in question.
+
+00:02:42.940 --> 00:02:44.900 align:middle
+If I consider the key for example,
+if I consider
+
+00:02:45.067 --> 00:02:47.600 align:middle
+the value, here I get the
+class and if on this
+
+00:02:47.767 --> 00:02:49.420 align:middle
+class, I go into its
+methods dictionary…
+
+00:02:49.790 --> 00:02:53.730 align:middle
+From the methods dictionary,
+I could go on a
+
+00:02:53.897 --> 00:02:54.840 align:middle
+compiled method etc.
+
+00:02:55.007 --> 00:02:58.960 align:middle
+I really browse and with
+this tool, I can
+
+00:02:59.127 --> 00:03:03.810 align:middle
+limit the view of what I want 
+to see or for example view all the flow.
+
+00:03:04.510 --> 00:03:08.540 align:middle
+But what is nice, it is that
+I can also add
+
+00:03:08.940 --> 00:03:11.530 align:middle
+a new branch in my flow.
+
+00:03:12.130 --> 00:03:14.570 align:middle
+That’s what we are going to do 
+here. So let’s imagine that
+
+00:03:14.737 --> 00:03:16.300 align:middle
+I minimize, I go back to the start.
+
+00:03:18.070 --> 00:03:22.560 align:middle
+Here finally, let’s imagine
+I say to myself: “I am
+
+00:03:22.727 --> 00:03:24.530 align:middle
+interested by the point class.”
+
+00:03:24.920 --> 00:03:26.600 align:middle
+I know that normally I can
+access
+
+00:03:26.767 --> 00:03:29.050 align:middle
+the point class by doing ”Smalltalk global"
+at #Point.
+
+00:03:29.217 --> 00:03:31.890 align:middle
+So here, I do it and I tell it
+
+00:03:32.057 --> 00:03:36.670 align:middle
+execute it and open an
+
+00:03:36.837 --> 00:03:39.280 align:middle
+inspector in the actual inspector.
+
+00:03:41.340 --> 00:03:45.270 align:middle
+And here, all of a sudden,
+if we look at
+
+00:03:45.437 --> 00:03:50.230 align:middle
+the navigation, I made
+a branching
+
+00:03:50.580 --> 00:03:52.230 align:middle
+between the navigation I had and
+the one I want to go to.
+
+00:03:54.440 --> 00:03:56.380 align:middle
+So this is nice, it means that
+you can type
+
+00:03:56.547 --> 00:03:59.330 align:middle
+lots of expressions
+and begin to the navigation.
+
+00:04:00.760 --> 00:04:01.750 align:middle
+So here, what do we see?
+
+00:04:02.120 --> 00:04:04.520 align:middle
+We see the point class as an object.
+
+00:04:04.760 --> 00:04:09.000 align:middle
+In fact, the inspector shows us
+
+00:04:09.167 --> 00:04:12.400 align:middle
+that there are tabs specific 
+to classes.
+
+00:04:12.860 --> 00:04:17.490 align:middle
+So here, the “Raw” tab shows
+
+00:04:17.657 --> 00:04:20.030 align:middle
+us that the Point class is defined
+in the
+
+00:04:20.197 --> 00:04:23.760 align:middle
+Kernel category, it has an 
+environment, it points on
+
+00:04:24.010 --> 00:04:28.960 align:middle
+the same space, this is the 
+encoding format of its
+
+00:04:29.127 --> 00:04:30.470 align:middle
+instances, it has a layout.
+
+00:04:30.637 --> 00:04:35.520 align:middle
+In short, this is the Pharo
+implementation of what a class is.
+
+00:04:36.220 --> 00:04:38.920 align:middle
+Now, what is really nice with 
+this inspector, it is 
+
+00:04:39.087 --> 00:04:41.810 align:middle
+that I can see, for example here
+the definition,
+
+00:04:42.000 --> 00:04:46.790 align:middle
+the comments and there are other
+tabs such as all the references.
+
+00:04:46.957 --> 00:04:49.550 align:middle
+So if I click on the reference,
+here I will see
+
+00:04:49.717 --> 00:04:54.610 align:middle
+that Point is really used
+
+00:04:54.777 --> 00:04:56.000 align:middle
+in the @ method.
+
+00:04:57.200 --> 00:04:59.540 align:middle
+I take a look once more,
+this is the raw
+
+00:04:59.920 --> 00:05:02.500 align:middle
+version of the information
+which is an object representing
+
+00:05:02.667 --> 00:05:05.630 align:middle
+a method and here its Source,
+so each time I can
+
+00:05:05.797 --> 00:05:07.790 align:middle
+choose which is the best
+
+00:05:07.957 --> 00:05:09.770 align:middle
+representation for the task
+I am doing.
+
+00:05:10.440 --> 00:05:11.700 align:middle
+So let's go backward.
+
+00:05:13.440 --> 00:05:16.810 align:middle
+If I look at
+
+00:05:18.740 --> 00:05:21.950 align:middle
+my class, here I would like 
+to go into the methods dictionary.
+
+00:05:22.117 --> 00:05:25.660 align:middle
+What is the methods dictionary?
+
+00:05:25.827 --> 00:05:27.930 align:middle
+It is a dictionary with a key
+which is the name of the
+
+00:05:28.097 --> 00:05:31.870 align:middle
+method and a value which is 
+a compiled method, 
+
+00:05:32.037 --> 00:05:35.490 align:middle
+an instance of CompileMethod.
+So if I looked at the raw
+
+00:05:35.657 --> 00:05:37.730 align:middle
+aspect, you see that it is
+a little more annoying
+
+00:05:38.680 --> 00:05:43.540 align:middle
+because I would have to
+understand how are
+
+00:05:43.707 --> 00:05:45.820 align:middle
+implemented the methods dictionaries
+in order to
+
+00:05:46.000 --> 00:05:47.940 align:middle
+interact with them, whereas here
+it is not what I'm interested in,
+
+00:05:48.107 --> 00:05:49.420 align:middle
+I want to look at a compiled method.
+
+00:05:49.930 --> 00:05:51.460 align:middle
+So to see a compiled method,
+
+00:05:51.627 --> 00:05:54.670 align:middle
+I choose degrees for instance, 
+and I
+
+00:05:54.837 --> 00:05:57.570 align:middle
+browse and all of a sudden
+I get a CompileMethod.
+
+00:05:58.270 --> 00:06:01.280 align:middle
+A CompileMethod is an object
+which, once again, 
+
+00:06:01.447 --> 00:06:05.610 align:middle
+proposes different ways to be
+displayed by the inspector.
+
+00:06:06.810 --> 00:06:10.300 align:middle
+Here you see a compiled method,
+
+00:06:10.467 --> 00:06:13.700 align:middle
+in fact this is a data framework,
+a table
+
+00:06:13.867 --> 00:06:17.570 align:middle
+a little bit specific, it contains
+Bytecode, 
+
+00:06:17.737 --> 00:06:19.810 align:middle
+and literals. What are the 
+literals?
+
+00:06:20.100 --> 00:06:21.790 align:middle
+In the code, each time 
+you have
+
+00:06:21.957 --> 00:06:25.620 align:middle
+asFloat, arcTan,
+degrees or RadianToDegrees,
+
+00:06:27.900 --> 00:06:30.100 align:middle
+it needs to be stored somewhere.
+
+00:06:31.000 --> 00:06:33.820 align:middle
+It is stored here, you see,
+at the beginning
+
+00:06:37.780 --> 00:06:38.413 align:middle
+of the compiled method.
+
+00:06:38.580 --> 00:06:39.213 align:middle
+What does the Bytecode do?
+
+00:06:39.380 --> 00:06:41.880 align:middle
+It refers to those objects
+
+00:06:42.047 --> 00:06:43.830 align:middle
+in order to put them in the stack
+and invoke the methods.
+
+00:06:44.000 --> 00:06:45.860 align:middle
+So here, this is what we can 
+see for example, if we look at
+
+00:06:46.027 --> 00:06:49.810 align:middle
+the view, I minimize this,
+if we look at the Bytecode
+
+00:06:50.000 --> 00:06:51.400 align:middle
+view, what does it do?
+
+00:06:51.567 --> 00:06:55.470 align:middle
+It does PushRcvr, so it puts 0
+on the stack and do equal.
+
+00:06:55.637 --> 00:06:56.900 align:middle
+What does it correspond to?
+
+00:06:57.240 --> 00:06:58.870 align:middle
+If we look a little bit closely,
+
+00:07:03.330 --> 00:07:06.700 align:middle
+I display it twice, 
+this display mode is
+
+00:07:06.867 --> 00:07:08.690 align:middle
+really very useful,
+look at what we can do:
+
+00:07:08.857 --> 00:07:11.910 align:middle
+if now I want to see
+
+00:07:12.077 --> 00:07:16.880 align:middle
+the source, I choose
+Bytecode there and
+
+00:07:17.047 --> 00:07:20.350 align:middle
+and source here, those expressions 
+correspond with each other,
+
+00:07:20.517 --> 00:07:21.900 align:middle
+look it is displayed.
+
+00:07:22.690 --> 00:07:23.480 align:middle
+So this is great.
+
+00:07:23.890 --> 00:07:27.260 align:middle
+It means I can make a push of
+the receiver instance 
+
+00:07:27.427 --> 00:07:30.920 align:middle
+variable 0, I put 0 on the stack
+
+00:07:31.087 --> 00:07:33.700 align:middle
+and I send the equal message.
+
+00:07:34.560 --> 00:07:36.390 align:middle
+And here, it is great because it 
+means
+
+00:07:36.557 --> 00:07:38.670 align:middle
+that the person who is making
+the 
+
+00:07:38.837 --> 00:07:42.230 align:middle
+compiler can see that the Bytecode
+he produced
+
+00:07:42.397 --> 00:07:45.740 align:middle
+corresponds to the code structure.
+
+00:07:45.940 --> 00:07:50.220 align:middle
+In the same way, he can easily
+
+00:07:50.387 --> 00:07:54.780 align:middle
+see that...
+I go backward...
+
+00:07:58.320 --> 00:08:00.590 align:middle
+If I am at the top and I click
+on Self,
+
+00:08:04.900 --> 00:08:07.700 align:middle
+here I get my 2 compiled 
+methods.
+
+00:08:10.930 --> 00:08:13.000 align:middle
+I get my 2 compiled methods
+and in fact
+
+00:08:13.167 --> 00:08:16.920 align:middle
+I'd like to see 
+if I have
+
+00:08:18.680 --> 00:08:20.510 align:middle
+an abstract syntax tree,
+an increase of abstract
+
+00:08:20.677 --> 00:08:23.490 align:middle
+syntax and the source.
+I can also browse inside.
+
+00:08:23.657 --> 00:08:26.630 align:middle
+Here for example, in my tree
+which can be 
+
+00:08:26.797 --> 00:08:31.420 align:middle
+complicated for this method,
+if I open all, I can see
+
+00:08:31.587 --> 00:08:35.270 align:middle
+that if I select the temporary
+
+00:08:36.780 --> 00:08:41.610 align:middle
+variable Time, I select
+
+00:08:42.410 --> 00:08:44.030 align:middle
+the bite of code to which
+it refers.
+
+00:08:44.197 --> 00:08:46.510 align:middle
+This is great too.
+Once more if
+
+00:08:46.677 --> 00:08:50.760 align:middle
+I look at this... The message
+that sends equal to X
+
+00:08:50.927 --> 00:08:54.000 align:middle
+with 0 as an argument, this is 
+this little part of the tree
+
+00:08:54.440 --> 00:08:55.820 align:middle
+corresponding to this part here.
+
+00:08:57.530 --> 00:09:01.860 align:middle
+The inspector enables me to 
+manage, in the 
+
+00:09:02.027 --> 00:09:04.670 align:middle
+tree textual representation
+for example,
+
+00:09:04.837 --> 00:09:06.880 align:middle
+the selections I have of the tree
+nodes.
+
+00:09:08.000 --> 00:09:12.120 align:middle
+This constitute a great tool
+for example to help 
+
+00:09:12.287 --> 00:09:13.400 align:middle
+people who develop Pharo compiler.
+
+00:09:14.080 --> 00:09:16.220 align:middle
+You can find this approach
+for
+
+00:09:16.387 --> 00:09:20.460 align:middle
+each domain, so even for your
+domain objects 
+
+00:09:20.627 --> 00:09:24.060 align:middle
+you can extend the inspector,
+
+00:09:24.420 --> 00:09:27.680 align:middle
+in order to propose facets and
+views which make sense.
+

@@ -1,0 +1,432 @@
+WEBVTT
+
+00:00:00.510 --> 00:00:03.470 align:middle
+Bonjour à tous. Dans cette
+séquence, nous allons nous
+
+00:00:03.670 --> 00:00:05.790 align:middle
+arrêter un petit peu sur
+les méthodes de classe.
+
+00:00:06.350 --> 00:00:10.550 align:middle
+Nous avons vu que les
+méthodes de classe sont des
+
+00:00:10.790 --> 00:00:12.950 align:middle
+méthodes normales, comme les autres.
+
+00:00:14.000 --> 00:00:17.220 align:middle
+En général, elles servent à
+créer de nouvelles instances
+
+00:00:18.000 --> 00:00:19.760 align:middle
+mais on peut s'en servir
+aussi pour d'autres choses.
+
+00:00:20.310 --> 00:00:23.800 align:middle
+On va voir 2 exemples à quoi des
+méthodes de classe peuvent servir.
+
+00:00:24.920 --> 00:00:28.840 align:middle
+Imaginons qu'on souhaite
+écrire un programme qui prend ce
+
+00:00:29.040 --> 00:00:33.040 align:middle
+texte-là en paramètre et qui crée
+
+00:00:34.020 --> 00:00:38.910 align:middle
+une structure. L'idée c'est
+que si une ligne commence par
+
+00:00:39.110 --> 00:00:41.620 align:middle
+un point d'exclamation, on
+considère que c'est un titre.
+
+00:00:42.280 --> 00:00:45.460 align:middle
+Si une ligne commence par un
+tiret, on considère que c'est
+
+00:00:45.950 --> 00:00:48.010 align:middle
+un item dans une liste.
+
+00:00:49.180 --> 00:00:51.920 align:middle
+Si ça commence par tiret
+tiret ou plus de tirets, on
+
+00:00:52.120 --> 00:00:54.490 align:middle
+considère que c'est un
+sous-élément d'une liste.
+
+00:00:55.750 --> 00:00:57.720 align:middle
+Autrement on considère
+que c'est un paragraphe.
+
+00:00:58.620 --> 00:01:02.820 align:middle
+On souhaite écrire un
+ programme qui prend ça en entrée et
+
+00:01:03.070 --> 00:01:06.520 align:middle
+qui instancie les classes
+que vous voyez là, donc les
+
+00:01:06.720 --> 00:01:07.760 align:middle
+sous-classes de document et item.
+
+00:01:10.110 --> 00:01:13.670 align:middle
+On souhaite aussi, dans
+cette conception, que chaque
+
+00:01:13.870 --> 00:01:16.500 align:middle
+sous-classe document et
+item soient responsables de
+
+00:01:16.700 --> 00:01:19.810 align:middle
+parser les lignes et de
+décider si elles peuvent parser
+
+00:01:20.010 --> 00:01:23.050 align:middle
+ou pas une ligne donnée.
+Donc, si je regarde la méthode
+
+00:01:23.400 --> 00:01:28.310 align:middle
+canParse ici, on lui
+donne une ligne de texte.
+
+00:01:28.580 --> 00:01:30.610 align:middle
+Si cette ligne commence par
+un point d'exclamation, la
+
+00:01:30.810 --> 00:01:32.700 align:middle
+méthode canParse doit
+retourner vraie parce qu'on se
+
+00:01:32.900 --> 00:01:34.100 align:middle
+trouve dans la classe SectionTitle.
+
+00:01:36.470 --> 00:01:39.620 align:middle
+Dans la classe listeItem,
+la méthode can parse doit
+
+00:01:39.820 --> 00:01:42.470 align:middle
+retourner vraie si la ligne
+commence par un tiret, si la
+
+00:01:42.670 --> 00:01:44.170 align:middle
+ligne passée en
+paramètre commence par un tiret.
+
+00:01:44.840 --> 00:01:49.330 align:middle
+Et la méthode canParse, qui est ici,
+nous retournera systématiquement vraie.
+
+00:01:49.530 --> 00:01:53.150 align:middle
+L'idée c'est d'écrire un
+algorithme qui va regarder les
+
+00:01:53.350 --> 00:01:56.420 align:middle
+ classes une par une, et dès
+qu'il y en a une qui retourne
+
+00:01:56.620 --> 00:01:59.920 align:middle
+canParse pour une ligne
+donnée, on va utiliser cette
+
+00:02:00.120 --> 00:02:03.220 align:middle
+ classe-là pour en faire une nouvelle
+instance par rapport à cette ligne.
+
+00:02:04.580 --> 00:02:06.750 align:middle
+Donc, ça c'est le but de la
+méthode can parse et le but
+
+00:02:06.950 --> 00:02:10.130 align:middle
+de la méthode new from line,
+ça prend aussi une ligne en
+
+00:02:10.330 --> 00:02:13.440 align:middle
+paramètres, une ligne de
+texte en paramètres sauf que ça
+
+00:02:13.640 --> 00:02:16.010 align:middle
+va retourner une instance
+de la classe dans laquelle ça
+
+00:02:16.210 --> 00:02:18.470 align:middle
+vient d'être implémenté.
+
+00:02:18.670 --> 00:02:21.920 align:middle
+Donc, si j'envoie le
+message newFromLine à la classe
+
+00:02:22.120 --> 00:02:24.920 align:middle
+SectionTitle avec une
+chaîne de caractères qui commence
+
+00:02:25.120 --> 00:02:29.170 align:middle
+par un point
+d'exclamation, la méthode newFromLine va
+
+00:02:29.370 --> 00:02:31.000 align:middle
+retourner une instance
+de la classe SectionTitle.
+
+00:02:32.410 --> 00:02:33.550 align:middle
+Alors, comment ça se passe ?
+
+00:02:34.000 --> 00:02:36.300 align:middle
+C'est la classe Parser qui
+va être responsable de faire
+
+00:02:36.500 --> 00:02:38.820 align:middle
+ce travail-là et de
+chercher parmi les sous-classes de
+
+00:02:39.020 --> 00:02:41.360 align:middle
+documentItem quelle est celle
+qui va être responsable d'une
+
+00:02:41.560 --> 00:02:42.320 align:middle
+ligne en particulier.
+
+00:02:42.890 --> 00:02:45.750 align:middle
+La classe Parser possède
+une méthode document classes
+
+00:02:45.950 --> 00:02:50.790 align:middle
+dont la mission est de retourner la
+
+00:02:51.000 --> 00:02:52.860 align:middle
+liste des
+sous-classes de documentItem.
+
+00:02:53.060 --> 00:02:56.100 align:middle
+Donc, ça va retourner une
+collection qui contient cette
+
+00:02:56.300 --> 00:02:57.060 align:middle
+ classe-là, cette
+ classe-là et cette classe-là.
+
+00:02:58.710 --> 00:03:01.950 align:middle
+Pour ce faire, on envoie le
+message "allSupclasses" à "DocumentItem".
+
+00:03:02.150 --> 00:03:04.440 align:middle
+"allSup classes", c'est une
+méthode qui existe déjà dans
+
+00:03:04.640 --> 00:03:06.750 align:middle
+le système Pharo, qui
+retourne la liste des sous-classes
+
+00:03:07.750 --> 00:03:08.510 align:middle
+d'une classe donnée.
+
+00:03:09.920 --> 00:03:13.280 align:middle
+Là, en faisant ça,
+j'obtiens directement une collection
+
+00:03:13.480 --> 00:03:14.240 align:middle
+qui contient
+SectionTitle, listItem et Text.
+
+00:03:14.440 --> 00:03:15.290 align:middle
+Cette collection-la, je veux la trier
+
+00:03:19.400 --> 00:03:23.680 align:middle
+par priorité. L'idée
+c'est que la classe Text doit
+
+00:03:23.880 --> 00:03:27.100 align:middle
+arriver à la fin parce que sa
+méthode canParse retourne toujours vraie.
+
+00:03:28.200 --> 00:03:31.680 align:middle
+Donc, la classe Text peut
+parser n'importe quelle ligne.
+
+00:03:33.050 --> 00:03:35.570 align:middle
+On testera ça après
+avoir testé les autres.
+
+00:03:36.240 --> 00:03:39.290 align:middle
+On a cette notion de priorité, ici.
+
+00:03:41.250 --> 00:03:44.910 align:middle
+On voit que beaucoup de
+méthodes sont soulignées.
+
+00:03:45.320 --> 00:03:50.080 align:middle
+Si je souligne les méthodes
+ici, ça indique que ce sont
+
+00:03:50.280 --> 00:03:51.240 align:middle
+des méthodes de classe.
+
+00:03:52.720 --> 00:03:56.200 align:middle
+Pour exécuter ces méthodes-là, il
+faut envoyer des messages aux classes.
+
+00:03:56.570 --> 00:04:00.350 align:middle
+Il faut que j'envoie le
+message "CanParse" à la classe
+
+00:04:00.550 --> 00:04:04.470 align:middle
+section title pour savoir si
+la classe SectionTitle peut
+
+00:04:04.670 --> 00:04:05.470 align:middle
+parser une ligne donnée.
+
+00:04:08.290 --> 00:04:12.690 align:middle
+La méthode Parse de la classe
+parser prend une ligne en paramètres.
+
+00:04:12.890 --> 00:04:15.080 align:middle
+On va regarder dans
+l'ensemble des sous-classes de
+
+00:04:15.280 --> 00:04:17.820 align:middle
+documentItem s'il y a une
+ classe qui est capable de
+
+00:04:18.020 --> 00:04:21.240 align:middle
+parser cette ligne-là, et
+si c'est le cas, va créer une
+
+00:04:21.440 --> 00:04:25.560 align:middle
+instance de cette classe. Le
+message détecte envoyer une
+
+00:04:25.760 --> 00:04:29.350 align:middle
+collection permet de trouver un
+
+00:04:30.740 --> 00:04:33.070 align:middle
+élément d'une collection
+parmi N suivant un prédicat.
+
+00:04:33.270 --> 00:04:37.520 align:middle
+Maintenant, on va s'intéresser
+à un autre exemple d'utilisation
+
+00:04:37.720 --> 00:04:38.570 align:middle
+de méthodes de classe.
+
+00:04:39.360 --> 00:04:43.730 align:middle
+On va s'intéresser à la lecture de
+paramètres de lignes de commande.
+
+00:04:44.530 --> 00:04:47.690 align:middle
+Donc, l'idée ici, c'est
+qu'on veut un programme qui s'il
+
+00:04:47.890 --> 00:04:50.580 align:middle
+reçoit des paramètres, qui
+va regarder quels sont les
+
+00:04:50.780 --> 00:04:53.190 align:middle
+paramètres et faire quelque chose
+différemment en fonction des paramètres.
+
+00:04:53.430 --> 00:04:56.790 align:middle
+Le premier paramètre
+indique l'action à exécuter.
+
+00:04:57.730 --> 00:04:59.510 align:middle
+Et ce qu'on va faire
+dans la conception de ce
+
+00:04:59.710 --> 00:05:02.010 align:middle
+ programme-là, c'est qu'on va
+avoir une classe par type d'action.
+
+00:05:02.690 --> 00:05:07.050 align:middle
+L'action eval va être représentée par
+une classe, eval CommandLineHandler.
+
+00:05:07.250 --> 00:05:11.940 align:middle
+Quelle est l'action
+effectuée lorsque le
+
+00:05:12.660 --> 00:05:14.750 align:middle
+paramètre eval est présent ?
+
+00:05:14.950 --> 00:05:17.870 align:middle
+Ce qu'on va faire c'est
+qu'on va exécuter ce code-là, on
+
+00:05:18.070 --> 00:05:20.060 align:middle
+va interpréter cette
+chaîne de caractères-là comme du
+
+00:05:20.260 --> 00:05:23.570 align:middle
+code Pharo et retourner le
+résultat de ces expressions.
+
+00:05:24.820 --> 00:05:27.250 align:middle
+Le nombre qui est ici est le
+résultat de l'expression 10 factorial.
+
+00:05:27.940 --> 00:05:30.720 align:middle
+Comment est-ce qu'on implémente ça ?
+
+00:05:30.920 --> 00:05:34.530 align:middle
+On a une classe
+CommandLineHandler, une classe
+
+00:05:34.730 --> 00:05:37.350 align:middle
+EvaluateCommandHandler qui
+est une sous-classe dont le
+
+00:05:37.550 --> 00:05:41.310 align:middle
+but va être de
+traiter le paramètre eval.
+
+00:05:41.510 --> 00:05:44.300 align:middle
+Donc si le paramètre eval
+est envoyé comme premier
+
+00:05:44.500 --> 00:05:47.200 align:middle
+paramètre en ligne de commande, c'est
+cette classe-là qui doit travailler.
+
+00:05:48.730 --> 00:05:53.590 align:middle
+Donc, la méthode
+isResponsibleFor doit retourner Vraie si
+
+00:05:54.000 --> 00:05:58.120 align:middle
+une sous-classe est capable
+de prendre en compte la ligne
+
+00:05:59.680 --> 00:06:04.070 align:middle
+de commande. On voit,
+en-dessous, exactement le même
+
+00:06:04.270 --> 00:06:07.410 align:middle
+mécanisme qu'on a vu
+dans l'exemple précédent.
+
+00:06:08.040 --> 00:06:11.450 align:middle
+Là encore, on utilise des
+méthodes de classe et on envoie
+
+00:06:11.650 --> 00:06:16.510 align:middle
+des messages à des classes pour faire
+autre chose que créer des instances.
+
+00:06:17.620 --> 00:06:21.700 align:middle
+Donc on a vu 2 utilisations
+possibles des méthodes de classes.
+
+00:06:22.710 --> 00:06:24.680 align:middle
+Les méthodes de classe sont
+la plupart du temps utilisées
+
+00:06:24.880 --> 00:06:27.170 align:middle
+pour créer de nouvelles
+instances, mais elles peuvent
+
+00:06:27.370 --> 00:06:29.280 align:middle
+aussi être
+utilisées dans d'autres cas.
+

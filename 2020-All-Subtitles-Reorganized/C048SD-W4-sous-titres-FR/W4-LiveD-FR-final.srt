@@ -1,0 +1,466 @@
+1
+00:00:03,480 --> 00:00:04,240
+-Bonjour à tous.
+
+2
+00:00:04,560 --> 00:00:06,800
+Dans cette vidéo,
+on va s'intéresser aux refactorings
+
+3
+00:00:07,120 --> 00:00:09,960
+et à leur application à plusieurs
+niveaux dans un environnement Pharo.
+
+4
+00:00:10,280 --> 00:00:14,280
+Les refactorings ont été introduits
+dans Smalltalk en 1995
+
+5
+00:00:14,600 --> 00:00:16,960
+et vous permettent
+de gérer les méthodes,
+
+6
+00:00:17,280 --> 00:00:20,080
+classes et liens entre eux
+sans avoir à réécrire de code.
+
+7
+00:00:20,400 --> 00:00:22,880
+Tout d'abord, pour regarder
+les refactorings sur les classes,
+
+8
+00:00:23,200 --> 00:00:24,680
+on va s'intéresser à notre Counter
+
+9
+00:00:25,000 --> 00:00:28,080
+qu'on a chargé
+depuis le redo de la semaine 2.
+
+10
+00:00:28,400 --> 00:00:30,800
+Vous pouvez voir
+que les tests sont toujours verts.
+
+11
+00:00:31,120 --> 00:00:32,960
+Si on fait clic droit sur notre classe,
+
+12
+00:00:33,280 --> 00:00:35,240
+on va avoir, déjà, le Rename,
+
+13
+00:00:35,560 --> 00:00:37,360
+qui est un des refactorings
+les plus utiles,
+
+14
+00:00:37,680 --> 00:00:39,040
+qui a sa catégorie à part.
+
+15
+00:00:39,360 --> 00:00:41,040
+On va aussi avoir
+d'autres refactorings,
+
+16
+00:00:41,360 --> 00:00:43,400
+par exemple pour ajouter,
+insérer une sous-classe,
+
+17
+00:00:43,720 --> 00:00:46,440
+changer la classe de package, etc.
+
+18
+00:00:46,760 --> 00:00:49,840
+On va simplement
+le renommer "Counter2", "OK".
+
+19
+00:00:50,160 --> 00:00:52,360
+Vous pouvez voir qu'ici,
+il n'y a eu aucun incident.
+
+20
+00:00:52,680 --> 00:00:54,960
+Les tests sont redevenus gris,
+il y a eu des changements.
+
+21
+00:00:55,280 --> 00:00:57,160
+Dans les tests,
+on peut voir que, maintenant,
+
+22
+00:00:57,480 --> 00:01:00,800
+toutes les occurrences de "Counter"
+ont été changées en "Counter2".
+
+23
+00:01:01,120 --> 00:01:03,000
+On les réexécute,
+les tests marchent toujours.
+
+24
+00:01:03,320 --> 00:01:04,880
+C'est un des niveaux de refactoring.
+
+25
+00:01:05,200 --> 00:01:07,520
+Maintenant, on va s'intéresser
+aux niveaux de refactoring
+
+26
+00:01:07,840 --> 00:01:08,920
+sur les méthodes.
+
+27
+00:01:09,240 --> 00:01:11,320
+Par exemple,
+on va aller vers "increment",
+
+28
+00:01:11,640 --> 00:01:13,320
+et, si on fait clic droit dessus,
+
+29
+00:01:13,640 --> 00:01:15,480
+on peut voir
+qu'on a toujours notre Rename,
+
+30
+00:01:15,800 --> 00:01:17,840
+mais on a beaucoup plus
+d'autres refactorings.
+
+31
+00:01:18,160 --> 00:01:20,320
+"Push up", "Push down",
+ça vous permet de déplacer
+
+32
+00:01:20,640 --> 00:01:22,880
+votre méthode
+dans la hiérarchie de classe.
+
+33
+00:01:23,200 --> 00:01:26,240
+Vous pouvez ajouter un argument,
+déplacer la méthode du côté classe,
+
+34
+00:01:26,560 --> 00:01:29,240
+la changer de package,
+l'enlever, etc.
+
+35
+00:01:29,560 --> 00:01:31,680
+Nous, ce qu'on va faire,
+c'est la renommer.
+
+36
+00:01:32,000 --> 00:01:34,760
+Si on renomme notre méthode
+"increment" en "increment2"
+
+37
+00:01:35,080 --> 00:01:38,240
+et qu'on clique sur "Rename",
+on va avoir un warning qui s'ouvre,
+
+38
+00:01:38,560 --> 00:01:40,480
+parce qu'on va modifier
+neuf implémenteurs.
+
+39
+00:01:40,800 --> 00:01:43,920
+Là, on n'a qu'un implémenteur
+d'increments, il y a un souci.
+
+40
+00:01:44,240 --> 00:01:47,040
+Je vous rappelle que le raccourci
+pour aller voir les implémenteurs,
+
+41
+00:01:47,360 --> 00:01:49,080
+c'est Cmd+M.
+
+42
+00:01:49,400 --> 00:01:51,040
+Il y a neuf implémenteurs d'increments,
+
+43
+00:01:51,360 --> 00:01:53,120
+et il y en a dans des packages,
+des classes
+
+44
+00:01:53,440 --> 00:01:56,440
+qui ne nous intéressent pas
+et qu'on n'a pas envie de changer.
+
+45
+00:01:56,760 --> 00:01:58,440
+Donc, pour limiter les actions
+
+46
+00:01:58,760 --> 00:02:00,640
+qu'on va avoir sur notre petit package,
+
+47
+00:02:00,960 --> 00:02:02,600
+on va créer une scope.
+
+48
+00:02:02,920 --> 00:02:04,800
+Soit on fait clic droit,
+"Set up scope"
+
+49
+00:02:05,120 --> 00:02:06,160
+avec seulement ce package,
+
+50
+00:02:06,480 --> 00:02:08,840
+soit on peut cliquer
+sur le bouton "Scoped View".
+
+51
+00:02:09,160 --> 00:02:11,840
+Maintenant,
+quand on fait clic droit, "Rename",
+
+52
+00:02:12,160 --> 00:02:14,320
+on change notre "increment"
+en "increment2",
+
+53
+00:02:14,640 --> 00:02:15,640
+on clique sur "Rename".
+
+54
+00:02:15,960 --> 00:02:18,480
+Cette fenêtre s'ouvre
+et nous présente tous les changements
+
+55
+00:02:18,800 --> 00:02:22,040
+que ce refactoring va induire.
+
+56
+00:02:22,360 --> 00:02:25,960
+Donc, on va avoir la création
+de la méthode "increment2"
+
+57
+00:02:26,280 --> 00:02:27,800
+dans la classe "Counter2",
+
+58
+00:02:28,120 --> 00:02:30,080
+on va avoir un changement dans le test,
+
+59
+00:02:30,400 --> 00:02:32,640
+qui va passer de "increment"
+à "increment2",
+
+60
+00:02:32,960 --> 00:02:35,240
+et la méthode "increment" de base
+va être supprimée.
+
+61
+00:02:35,560 --> 00:02:36,960
+C'est exactement ce qu'on veut.
+
+62
+00:02:37,280 --> 00:02:38,760
+Donc, on va cliquer sur "Apply".
+
+63
+00:02:39,080 --> 00:02:41,000
+Notre méthode "increment2"
+a été changée ici.
+
+64
+00:02:41,320 --> 00:02:43,760
+On voit qu'elle a été changée ici.
+On peut relancer le test.
+
+65
+00:02:44,080 --> 00:02:45,800
+On a maintenant
+deux appels à "increment2".
+
+66
+00:02:46,120 --> 00:02:47,320
+C'est extrêmement pratique.
+
+67
+00:02:47,640 --> 00:02:50,360
+Un autre niveau de refactoring,
+c'est sur les protocoles.
+
+68
+00:02:50,680 --> 00:02:54,120
+Donc, on peut aussi renommer,
+en rajouter un,
+
+69
+00:02:54,440 --> 00:02:57,000
+et vous pouvez
+catégoriser toutes les méthodes
+
+70
+00:02:57,320 --> 00:02:58,560
+qui n'ont pas été catégorisées
+
+71
+00:02:58,880 --> 00:03:01,680
+ou enlever les protocoles
+qui ne catégorisent aucune méthode.
+
+72
+00:03:02,000 --> 00:03:03,920
+Ça peut arriver
+si vous avez tagué les méthodes
+
+73
+00:03:04,240 --> 00:03:06,920
+et que vous les avez supprimées
+sans supprimer le protocole associé.
+
+74
+00:03:07,240 --> 00:03:09,520
+Un dernier niveau de refactoring
+qui est intéressant
+
+75
+00:03:09,840 --> 00:03:12,080
+et qu'on va regarder dans ce test-là,
+
+76
+00:03:12,400 --> 00:03:15,160
+c'est qu'on peut sélectionner,
+surligner
+
+77
+00:03:15,480 --> 00:03:18,160
+une partie du corps de la méthode,
+
+78
+00:03:18,480 --> 00:03:20,800
+faire clic droit,
+aller dans "Source code",
+
+79
+00:03:21,120 --> 00:03:24,440
+et là, vous pouvez voir qu'on va
+avoir aussi des refactorings,
+
+80
+00:03:24,760 --> 00:03:26,200
+"Rename", "Add argument", etc.
+
+81
+00:03:26,520 --> 00:03:29,040
+Un refactoring qui peut être
+intéressant, c'est "Extract Method",
+
+82
+00:03:29,360 --> 00:03:30,880
+qui va prendre ce petit bout de code.
+
+83
+00:03:31,200 --> 00:03:34,760
+On clique sur "Extract Method",
+on l'appelle "startingAt5".
+
+84
+00:03:35,080 --> 00:03:35,840
+"Rename".
+
+85
+00:03:36,160 --> 00:03:37,880
+Vous pouvez voir
+que la méthode a été créée.
+
+86
+00:03:38,200 --> 00:03:39,320
+Là, ce n'est pas utile,
+
+87
+00:03:39,640 --> 00:03:41,640
+on va créer une méthode
+dans notre classe de test.
+
+88
+00:03:41,960 --> 00:03:43,000
+Ce n'est pas recommandé.
+
+89
+00:03:43,320 --> 00:03:45,320
+Mais vous pouvez voir
+que cette méthode-là
+
+90
+00:03:45,640 --> 00:03:48,200
+va maintenant faire ce qu'on avait
+surligné tout à l'heure,
+
+91
+00:03:48,520 --> 00:03:51,720
+et elle a été remplacée
+par "self"et le nom de la méthode
+
+92
+00:03:52,040 --> 00:03:53,520
+dans ce bout de code source.
+
+93
+00:03:53,840 --> 00:03:57,560
+Voilà, vous avez vu
+quatre niveaux de refactorings
+
+94
+00:03:57,880 --> 00:03:59,280
+qui sont extrêmement intéressants.
+
+95
+00:03:59,600 --> 00:04:01,520
+Je vous encourage
+à apprendre à les utiliser
+
+96
+00:04:01,840 --> 00:04:05,120
+et à ne pas hésiter à vous en servir,
+car ça va accélérer...
+
+97
+00:04:05,440 --> 00:04:08,320
+Au lieu de devoir supprimer
+puis réécrire votre méthode,
+
+98
+00:04:08,640 --> 00:04:09,800
+vous n'avez qu'à la renommer,
+
+99
+00:04:10,120 --> 00:04:13,320
+vous pouvez la déplacer du côté classe,
+la changer de package, de classe.
+
+100
+00:04:13,640 --> 00:04:16,400
+C'est vraiment quelque chose
+que je vous encourage à utiliser.

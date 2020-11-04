@@ -1,0 +1,644 @@
+1
+00:00:01,280 --> 00:00:05,040
+-Dans ce cours, on verra la différence
+entre les méthodes et les messages.
+
+2
+00:00:05,360 --> 00:00:08,320
+On a vu précédemment
+qu'une méthode,
+
+3
+00:00:08,640 --> 00:00:10,680
+c'est une séquence nommée d'instructions.
+
+4
+00:00:11,000 --> 00:00:14,880
+Là, j'ai une méthode que j'ai imaginée
+pour faire des crêpes.
+
+5
+00:00:15,200 --> 00:00:18,120
+En fait, une méthode,
+c'est comme une recette de cuisine.
+
+6
+00:00:18,440 --> 00:00:21,240
+Je vais avoir une suite d'instructions
+à suivre et à exécuter.
+
+7
+00:00:21,560 --> 00:00:24,880
+Pour faire des crêpes, je vais mettre des
+œufs, du lait, du sucre et de la farine
+
+8
+00:00:25,200 --> 00:00:26,240
+et j'obtiens des crêpes.
+
+9
+00:00:26,560 --> 00:00:28,400
+C'est ma recette de cuisine
+pour faire les crêpes.
+
+10
+00:00:28,720 --> 00:00:31,680
+C'est aussi la méthode makeCrepes.
+C'est la même chose.
+
+11
+00:00:32,600 --> 00:00:35,800
+Si on regarde,
+toutes les instances d'une classe
+
+12
+00:00:36,120 --> 00:00:38,520
+vont partager le même comportement.
+
+13
+00:00:38,840 --> 00:00:41,840
+En fait, quand je vais envoyer
+un message à une instance,
+
+14
+00:00:42,160 --> 00:00:43,440
+je vais chercher dans la classe.
+
+15
+00:00:43,760 --> 00:00:46,440
+La classe contient toutes les méthodes
+pour ces instances.
+
+16
+00:00:46,760 --> 00:00:48,560
+Donc, cette méthode-là sera exécutée.
+
+17
+00:00:49,760 --> 00:00:50,800
+Là, quand je cherche,
+
+18
+00:00:51,120 --> 00:00:53,360
+j'envoie un message
+à une instance de la classe rectangle.
+
+19
+00:00:53,680 --> 00:00:57,920
+Je vais chercher la méthode aire
+qui est associée au message
+
+20
+00:00:58,240 --> 00:01:01,920
+dans la classe rectangle et
+je l'exécute sur le receveur du message.
+
+21
+00:01:03,120 --> 00:01:06,640
+Une méthode, en fait,
+c'est ce que je disais.
+
+22
+00:01:06,960 --> 00:01:11,760
+Elle définit le comportement.
+C'est une suite d'instructions.
+
+23
+00:01:12,080 --> 00:01:15,000
+Elle a un nom qui est souvent
+en relation avec le message.
+
+24
+00:01:15,320 --> 00:01:19,840
+En Pharo, c'est le nom qui déterminera
+la méthode qu'on devra exécuter.
+
+25
+00:01:20,160 --> 00:01:23,560
+Dans d'autres langages, c'est un peu
+différent mais c'est le même principe.
+
+26
+00:01:23,880 --> 00:01:26,920
+La méthode, elle,
+comme je le montre sur le schéma,
+
+27
+00:01:27,240 --> 00:01:31,200
+va pouvoir accéder
+à l'état propre de l'objet.
+
+28
+00:01:31,520 --> 00:01:34,640
+C'est une particularité,
+alors que le message est extérieur.
+
+29
+00:01:34,960 --> 00:01:38,720
+J'envoie un message à un objet.
+Je ne me préoccupe pas des valeurs.
+
+30
+00:01:39,040 --> 00:01:41,080
+Je n'ai pas accès
+aux valeurs internes de l'objet.
+
+31
+00:01:41,400 --> 00:01:43,320
+C'est la méthode qui, elle,
+est proche des données.
+
+32
+00:01:44,880 --> 00:01:50,960
+On a vu qu'une méthode,
+c'est comment on va faire une opération.
+
+33
+00:01:51,280 --> 00:01:55,160
+Comment on va répondre à un message.
+Et un message, c'est le quoi.
+
+34
+00:01:55,480 --> 00:01:59,560
+Donc, les messages, c'est quoi faire
+et les méthodes, c'est comment.
+
+35
+00:02:01,280 --> 00:02:03,840
+Donc, si on regarde
+les différences qu'on a,
+
+36
+00:02:04,160 --> 00:02:06,520
+le message va être extérieur à l'objet.
+
+37
+00:02:06,880 --> 00:02:09,800
+La méthode va être vraiment intérieure.
+Elle pourra accéder aux données.
+
+38
+00:02:10,120 --> 00:02:14,080
+Le message est plus abstrait,
+dans ce sens-là et moins opérationnel.
+
+39
+00:02:14,400 --> 00:02:17,280
+On veut que la chose soit faite
+et non pas savoir comment elle est faite.
+
+40
+00:02:17,600 --> 00:02:19,960
+Ça a une influence, après,
+sur l'encapsulation.
+
+41
+00:02:20,280 --> 00:02:22,240
+Je reviendrai plus tard là-dessus.
+
+42
+00:02:23,000 --> 00:02:25,960
+Donc le message, lui, va juste être :
+
+43
+00:02:26,280 --> 00:02:28,480
+"J'envoie un message à un objet
+avec les paramètres
+
+44
+00:02:28,800 --> 00:02:30,560
+et je m'attends à ce que ça soit exécuté.
+
+45
+00:02:30,880 --> 00:02:33,680
+J'attends que l'objet réalise
+ce pour quoi je l'ai invoqué."
+
+46
+00:02:36,280 --> 00:02:41,200
+Ce qu'il faut voir, c'est que les
+méthodes sont recherchées dynamiquement.
+
+47
+00:02:41,520 --> 00:02:44,040
+Là, j'ai deux exemples d'illustration.
+
+48
+00:02:44,360 --> 00:02:47,640
+Je vous ai montré l'exemple dans
+un cours précédent avec les animaux.
+
+49
+00:02:47,960 --> 00:02:52,800
+Je vais envoyer le même message
+à différentes instances d'objets
+
+50
+00:02:53,120 --> 00:02:55,520
+qui sont d'instances
+de différentes classes.
+
+51
+00:02:55,920 --> 00:03:00,960
+Quand j'envoie le message "angry" à un
+chien, je cherche dans la classe chien.
+
+52
+00:03:01,280 --> 00:03:04,680
+Quand j'envoie un message "angry"
+à un chat, je vais dans la classe chat.
+
+53
+00:03:05,000 --> 00:03:10,480
+J'ai la même chose, par exemple,
+sur les formes mathématiques.
+
+54
+00:03:11,280 --> 00:03:14,040
+Quand je demande
+quelle est l'aire à un rectangle,
+
+55
+00:03:14,360 --> 00:03:19,840
+je m'attends à ce que la classe Rectangle
+implémente cette fonctionnalité-là
+
+56
+00:03:20,160 --> 00:03:22,800
+et me dise que c'est la longueur
+multipliée par la largeur.
+
+57
+00:03:23,120 --> 00:03:26,560
+Pour le cercle, je voudrais bien avoir
+Pi R² et ce genre de choses.
+
+58
+00:03:26,880 --> 00:03:31,920
+Donc là, on voit bien que les méthodes
+vont dépendre des instances...
+
+59
+00:03:32,920 --> 00:03:34,800
+Les méthodes exécutées
+vont dépendre des instances
+
+60
+00:03:35,120 --> 00:03:36,240
+qui sont receveurs du message.
+
+61
+00:03:36,560 --> 00:03:41,600
+Sur cet exemple-là, on pourrait avoir
+une liste qui contient des formes,
+
+62
+00:03:41,920 --> 00:03:44,880
+à la fois des rectangles,
+des carrés et des cercles
+
+63
+00:03:45,200 --> 00:03:47,600
+et on pourrait faire la somme des aires
+
+64
+00:03:47,920 --> 00:03:53,800
+en envoyant le message "aire"
+à chacun des objets de cette liste.
+
+65
+00:03:54,120 --> 00:03:55,360
+Je n'ai pas à distinguer...
+
+66
+00:03:55,680 --> 00:03:58,320
+"J'ai un rectangle ?
+J'ai un carré ou un cercle ?"
+
+67
+00:03:58,640 --> 00:04:01,280
+J'ai simplement à envoyer le message
+à chaque forme
+
+68
+00:04:01,600 --> 00:04:04,720
+en lui disant : "Calcule ton aire"
+et que cette aire soit calculée.
+
+69
+00:04:05,040 --> 00:04:08,520
+C'est le pouvoir de la liaison tardive.
+On va voir ça aussi.
+
+70
+00:04:09,840 --> 00:04:12,240
+Donc, la liaison tardive, c'est l'idée
+
+71
+00:04:12,560 --> 00:04:17,160
+que la méthode qui sera exécutée
+sera déterminée lors de l'exécution,
+
+72
+00:04:18,360 --> 00:04:21,480
+que la bonne méthode
+sera exécutée par rapport à ça.
+
+73
+00:04:22,720 --> 00:04:25,720
+C'est la différence entre
+la programmation procédurale
+
+74
+00:04:26,040 --> 00:04:27,480
+et la programmation objet.
+
+75
+00:04:27,800 --> 00:04:31,280
+En programmation objet,
+on n'écrira pas de test.
+
+76
+00:04:31,600 --> 00:04:33,360
+On va juste donner des ordres.
+
+77
+00:04:33,680 --> 00:04:38,160
+Et le mécanisme de sélection des méthodes
+va se réaliser automatiquement
+
+78
+00:04:38,480 --> 00:04:42,520
+et exécuter la bonne méthode,
+donc celle qui correspond au receveur.
+
+79
+00:04:43,920 --> 00:04:46,240
+Ce mécanisme s'appelle
+la liaison tardive.
+
+80
+00:04:46,560 --> 00:04:49,920
+La liaison tardive, "late binding"
+en anglais, qu'est-ce que ça signifie ?
+
+81
+00:04:50,240 --> 00:04:51,640
+Lors de la compilation,
+
+82
+00:04:51,960 --> 00:04:54,440
+je ne connais pas le code
+qui va être exécuté.
+
+83
+00:04:54,760 --> 00:04:58,840
+Je sais que je vais devoir rechercher
+la méthode lors de l'exécution.
+
+84
+00:04:59,160 --> 00:05:01,000
+Des techniques d'optimisation font
+
+85
+00:05:01,320 --> 00:05:02,720
+que la deuxième fois
+qu'on cherche la même chose,
+
+86
+00:05:03,040 --> 00:05:07,240
+on la trouve plus rapidement, etc.,
+mais la liaison tardive
+
+87
+00:05:07,560 --> 00:05:10,800
+est un mécanisme fondateur
+et fondamental de la programmation objet.
+
+88
+00:05:12,000 --> 00:05:14,520
+Je voudrais qu'on regarde
+l'encapsulation des données.
+
+89
+00:05:14,840 --> 00:05:18,080
+Je vous ai dit qu'un objet
+a des données qui lui sont propres
+
+90
+00:05:18,400 --> 00:05:20,160
+et des méthodes
+qui sont partagées par la classe.
+
+91
+00:05:20,480 --> 00:05:22,920
+Conceptuellement, on peut penser
+qu'un objet est un patatoïde
+
+92
+00:05:23,240 --> 00:05:26,120
+avec des données, au milieu,
+des méthodes et des messages, dehors.
+
+93
+00:05:26,440 --> 00:05:28,360
+J'enverrai des messages.
+Ça exécutera des méthodes.
+
+94
+00:05:28,680 --> 00:05:32,400
+Ces méthodes ont accès à des données.
+À quoi sert cette distinction ?
+
+95
+00:05:32,720 --> 00:05:36,680
+On voit sur le transparent suivant
+que l'encapsulation...
+
+96
+00:05:37,000 --> 00:05:41,800
+Moi, en tant que client, j'ignore
+comment c'est implémenté à l'intérieur.
+
+97
+00:05:42,120 --> 00:05:44,520
+Elle va me permettre de changer
+
+98
+00:05:44,840 --> 00:05:48,440
+et d'avoir des objets qui me proposent
+la même interface, le même message,
+
+99
+00:05:48,760 --> 00:05:50,160
+mais qui ont
+des implémentations différentes.
+
+100
+00:05:50,480 --> 00:05:53,160
+Là, par exemple,
+on a deux implémentations différentes
+
+101
+00:05:53,480 --> 00:05:55,160
+de comment on calcule
+l'aire d'un rectangle.
+
+102
+00:05:55,480 --> 00:05:57,520
+D'un point de vue de client,
+ça ne m'intéresse pas.
+
+103
+00:05:57,840 --> 00:05:59,680
+L'information
+n'est pas intéressante pour moi.
+
+104
+00:06:00,000 --> 00:06:02,040
+Je veux,
+quand j'envoie mon message "aire",
+
+105
+00:06:02,360 --> 00:06:06,240
+recevoir la bonne aire
+et qu'elle soit bien calculée.
+
+106
+00:06:06,560 --> 00:06:11,840
+Maintenant, je peux avoir deux objets
+qui me proposent une méthode aire
+
+107
+00:06:12,160 --> 00:06:14,360
+et qu'elles soient implémentées
+différemment.
+
+108
+00:06:14,680 --> 00:06:18,240
+Ça me permettra de faire évoluer
+mes applications dans le temps
+
+109
+00:06:18,560 --> 00:06:19,800
+sans avoir à tout réécrire.
+
+110
+00:06:20,120 --> 00:06:24,920
+Il se trouve que là, tout le code client
+qui était basé sur la méthode aire
+
+111
+00:06:25,240 --> 00:06:26,320
+est réutilisable.
+
+112
+00:06:26,640 --> 00:06:28,720
+Que je mette un objet
+
+113
+00:06:29,040 --> 00:06:31,240
+dont l'implémentation
+est celle du haut ou celle du bas,
+
+114
+00:06:31,560 --> 00:06:33,800
+qui sont deux implémentations
+différentes, ce n'est pas grave.
+
+115
+00:06:34,120 --> 00:06:36,600
+Ça signifie que le code client
+va continuer à marcher.
+
+116
+00:06:36,920 --> 00:06:40,200
+Donc, il pourra évoluer
+sur un plus long terme
+
+117
+00:06:40,520 --> 00:06:42,360
+et je n'ai pas à recompiler
+tout le système.
+
+118
+00:06:44,240 --> 00:06:47,080
+Donc, l'encapsulation des données
+est très importante,
+
+119
+00:06:47,400 --> 00:06:50,040
+car elle permettra
+une pérennisation, une évolution
+
+120
+00:06:50,360 --> 00:06:53,200
+et de cacher des détails
+qui ne sont pas opportuns.
+
+121
+00:06:54,160 --> 00:06:57,280
+Ce sont de très bonnes propriétés
+de la programmation objet.
+
+122
+00:06:58,680 --> 00:07:00,560
+En résumé, je vous ai montré
+
+123
+00:07:00,880 --> 00:07:02,800
+que les méthodes
+sont des séquences d'instructions.
+
+124
+00:07:03,120 --> 00:07:05,920
+Les messages représentent des ordres.
+
+125
+00:07:06,240 --> 00:07:08,880
+À partir de ces ordres,
+les méthodes seront exécutées.
+
+126
+00:07:09,200 --> 00:07:13,600
+Les méthodes sont partagées
+entre toutes les instances des classes.
+
+127
+00:07:14,400 --> 00:07:18,600
+On peut avoir différentes méthodes
+ayant le même nom.
+
+128
+00:07:18,920 --> 00:07:20,720
+Ce n'est pas un problème
+entre différentes classes.
+
+129
+00:07:21,040 --> 00:07:24,120
+Et je peux envoyer le même message
+à différents objets
+
+130
+00:07:24,440 --> 00:07:26,840
+qui exécuteront
+des méthodes différentes.
+
+131
+00:07:27,160 --> 00:07:30,640
+À cela s'ajoute le fait que j'aie
+cette distance par rapport aux données
+
+132
+00:07:30,960 --> 00:07:34,800
+et à la prise de décision
+de comment j'ai encodé mon calcul
+
+133
+00:07:35,120 --> 00:07:39,320
+qui fait que je pourrai faire évoluer
+mes objets sans impacter mes clients.
+
+134
+00:07:39,640 --> 00:07:44,080
+Toutes ces propriétés sont fondamentales
+et liées à la liaison dynamique.

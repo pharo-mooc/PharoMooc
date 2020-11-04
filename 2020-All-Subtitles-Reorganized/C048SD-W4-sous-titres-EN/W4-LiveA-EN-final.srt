@@ -1,0 +1,519 @@
+1
+00:00:05,720 --> 00:00:07,760
+-Hi. In this video,
+we are going to have a look
+
+2
+00:00:08,080 --> 00:00:11,360
+at how you can manage and version
+your code using Pharo,
+
+3
+00:00:11,680 --> 00:00:17,400
+and more precisely, its tool, Iceberg,
+coupled with GitHub, for example.
+
+4
+00:00:17,920 --> 00:00:21,560
+What we will do in this video
+is learn how to use Iceberg
+
+5
+00:00:21,880 --> 00:00:25,640
+which you can find under your Pharo
+environment in Tools, then Iceberg,
+
+6
+00:00:25,960 --> 00:00:28,240
+or use the shortcut Cmd+O+I.
+
+7
+00:00:29,160 --> 00:00:32,280
+You can see there all the different
+repositories, loaded or not,
+
+8
+00:00:32,600 --> 00:00:35,120
+that are known by the system.
+Here, we have got Pharo,
+
+9
+00:00:35,440 --> 00:00:40,280
+and we will have to add a new repository
+that we will define right now in GitHub.
+
+10
+00:00:40,600 --> 00:00:44,240
+If I switch over to GitHub...
+If you do not have a GitHub account,
+
+11
+00:00:44,560 --> 00:00:47,800
+I really encourage you to create one
+because it is extremely useful
+
+12
+00:00:48,120 --> 00:00:53,400
+to store and version your code.
+It will be more productive altogether.
+
+13
+00:00:54,600 --> 00:00:59,960
+You can go over to the Repositories tab
+and then click on New, the green button.
+
+14
+00:01:01,080 --> 00:01:05,520
+We will choose the name
+"MyPharoRepository",
+
+15
+00:01:06,120 --> 00:01:12,720
+and we will say that it is
+"A small Pharo repository".
+
+16
+00:01:13,400 --> 00:01:19,080
+Let it public. I do not need any of that
+so let us go over to Create repository.
+
+17
+00:01:19,400 --> 00:01:22,880
+We can see that we have got
+the MyPharoRepository.
+
+18
+00:01:23,200 --> 00:01:28,120
+It is completely empty.
+We will try to load that into Iceberg
+
+19
+00:01:28,440 --> 00:01:29,560
+and see what happens.
+
+20
+00:01:29,880 --> 00:01:32,680
+If I go back to my Pharo environment,
+in Iceberg,
+
+21
+00:01:33,000 --> 00:01:34,480
+I can click on Add.
+
+22
+00:01:35,200 --> 00:01:39,400
+You have different options.
+What we did was Clone from github.com
+
+23
+00:01:39,720 --> 00:01:44,000
+because we created the package there.
+The owner name, I will put my name.
+
+24
+00:01:44,320 --> 00:01:49,280
+The project name.
+I name it "MyPharoRepository".
+
+25
+00:01:49,600 --> 00:01:55,560
+And we will use HTTPS as a protocol.
+Basically, SSH...
+
+26
+00:01:55,880 --> 00:01:58,560
+You can use SSH if you create your keys
+
+27
+00:01:58,880 --> 00:02:01,520
+and then explain to Pharo
+where to find them.
+
+28
+00:02:01,840 --> 00:02:05,000
+But for now we will stick to HTTPS.
+Press Ok.
+
+29
+00:02:05,320 --> 00:02:07,880
+It is cloning
+the repository from GitHub,
+
+30
+00:02:08,200 --> 00:02:10,480
+and it says "No project found".
+But that is fine
+
+31
+00:02:10,800 --> 00:02:13,560
+because our project
+was empty to begin with.
+
+32
+00:02:13,880 --> 00:02:15,760
+So it is actually normal.
+
+33
+00:02:16,080 --> 00:02:19,560
+One thing is that you can see
+that you have got a small star on the left
+
+34
+00:02:19,880 --> 00:02:21,000
+and the name written in green.
+
+35
+00:02:21,320 --> 00:02:24,840
+This means that there are some changes
+that have not been saved or committed.
+
+36
+00:02:25,440 --> 00:02:30,240
+Altogether,
+Iceberg is quite a smart tool.
+
+37
+00:02:30,560 --> 00:02:33,720
+So, if you have got something written
+in red in the Status bar,
+
+38
+00:02:34,040 --> 00:02:37,120
+it can be handled
+pretty nicely by the tool itself.
+
+39
+00:02:37,440 --> 00:02:38,520
+If you double-click on that,
+
+40
+00:02:38,840 --> 00:02:42,200
+it will open
+the Working copy of MyPharoRepository.
+
+41
+00:02:43,520 --> 00:02:46,360
+Since the status is red,
+you can go over to Repair.
+
+42
+00:02:46,680 --> 00:02:52,640
+The changes that Iceberg
+wishes to make to your package
+
+43
+00:02:52,960 --> 00:02:55,480
+will be listed from the most likely
+to the least likely.
+
+44
+00:02:55,800 --> 00:02:58,360
+Basically, this means
+Create project meta-data
+
+45
+00:02:58,680 --> 00:03:00,880
+will be the thing we might want to do.
+
+46
+00:03:01,200 --> 00:03:05,400
+We will have an explanation
+below the different choices.
+
+47
+00:03:06,800 --> 00:03:11,080
+It is a good idea to read it
+in order to know what you are doing.
+
+48
+00:03:11,680 --> 00:03:14,640
+This way it will send data
+to the repository to add meta-data:
+
+49
+00:03:14,960 --> 00:03:19,160
+a .project file, meta information
+such as source code directory,
+
+50
+00:03:19,480 --> 00:03:22,560
+project name and so on.
+So this is what we actually need.
+
+51
+00:03:22,880 --> 00:03:24,000
+Let's press Ok.
+
+52
+00:03:24,320 --> 00:03:27,640
+This is how projects will be edited.
+It is good practice to add.
+
+53
+00:03:27,960 --> 00:03:33,120
+Click on the name of your project,
+go to the +. Write "src".
+
+54
+00:03:33,920 --> 00:03:35,480
+Ok. And click on the src.
+
+55
+00:03:35,800 --> 00:03:39,120
+This will make src
+the actual root directory for your code
+
+56
+00:03:39,440 --> 00:03:44,600
+and this is good practice.
+Leave the format to Tonel. Go to Ok.
+
+57
+00:03:44,920 --> 00:03:52,000
+And we can commit our first change.
+So, basically, "Adding meta data".
+
+58
+00:03:52,800 --> 00:03:53,640
+Commit.
+
+59
+00:03:54,080 --> 00:03:58,040
+This is our first change.
+The next thing we are going to do
+
+60
+00:03:58,360 --> 00:04:01,720
+is actually create a class
+and add it to our package.
+
+61
+00:04:02,320 --> 00:04:05,960
+Go over to our System Browser.
+
+62
+00:04:07,120 --> 00:04:14,040
+Create a class named "MyPharoClass"
+under the package "MyPharoPackage".
+
+63
+00:04:14,520 --> 00:04:15,640
+Let's save it.
+
+64
+00:04:15,960 --> 00:04:18,920
+It is extremely simple,
+we will not put anything inside.
+
+65
+00:04:19,680 --> 00:04:22,360
+You can go over to our repository,
+double-click on it.
+
+66
+00:04:22,680 --> 00:04:25,320
+This time, we would like to add
+a package to this repository.
+
+67
+00:04:25,640 --> 00:04:31,520
+Go to Add packages,
+select MyPharo package, click on Add.
+
+68
+00:04:32,640 --> 00:04:35,680
+You can see that it is still green
+with a small star on the left.
+
+69
+00:04:36,000 --> 00:04:40,400
+This means that there are some changes
+that we have to either save or discard.
+
+70
+00:04:40,720 --> 00:04:43,400
+In this case,
+we would like to commit them.
+
+71
+00:04:43,720 --> 00:04:49,080
+So, what you can do is press Commit.
+You go over there and press Commit.
+
+72
+00:04:49,400 --> 00:04:57,880
+What we will do is write a comment:
+"First class MyPharoClass".
+
+73
+00:04:58,640 --> 00:05:00,240
+We will say Commit.
+
+74
+00:05:01,440 --> 00:05:02,280
+Ok.
+
+75
+00:05:02,720 --> 00:05:04,400
+Now, what you can see,
+since the beginning,
+
+76
+00:05:04,720 --> 00:05:09,600
+we have had this small red dot on
+the top right corner of the Push button.
+
+77
+00:05:09,920 --> 00:05:14,880
+This means that, for now, our GitHub
+package, if I refresh the page,
+
+78
+00:05:15,200 --> 00:05:20,160
+is still empty because
+we have not pushed anything to it.
+
+79
+00:05:20,480 --> 00:05:23,400
+We have made all the changes in local,
+in our working copy.
+
+80
+00:05:23,720 --> 00:05:27,760
+So, what we will do is push.
+A window will open,
+
+81
+00:05:28,080 --> 00:05:31,120
+showing the different commits
+that you are actually going to push.
+
+82
+00:05:31,440 --> 00:05:33,360
+You can look inside those commits.
+For example,
+
+83
+00:05:33,680 --> 00:05:35,800
+the difference between
+this one and this one
+
+84
+00:05:36,120 --> 00:05:41,280
+is that we are adding the PharoClass
+within the PharoPackage.
+
+85
+00:05:41,600 --> 00:05:43,440
+That is great. Just press Push.
+
+86
+00:05:44,160 --> 00:05:48,520
+Since we are using HTTPS,
+we have to provide the credentials.
+
+87
+00:05:48,840 --> 00:05:52,160
+You have to write your GitHub
+username and password.
+
+88
+00:05:53,280 --> 00:05:56,720
+You can store them if you do not want
+to do this step again in the future,
+
+89
+00:05:57,040 --> 00:06:00,360
+and you are still using HTTPS. Press Ok.
+
+90
+00:06:01,080 --> 00:06:04,760
+This will push everything to origin.
+Origin will be on GitHub.
+
+91
+00:06:05,080 --> 00:06:06,760
+You can see that everything
+is up to date,
+
+92
+00:06:07,080 --> 00:06:11,640
+the small dot on the top right corner
+of the Push button has disappeared.
+
+93
+00:06:11,960 --> 00:06:13,400
+We can close that.
+
+94
+00:06:14,240 --> 00:06:19,200
+Close that and go over to GitHub.
+If I refresh the page,
+
+95
+00:06:19,520 --> 00:06:23,240
+you can see that we have now
+the .project meta-data,
+
+96
+00:06:23,560 --> 00:06:27,480
+the src directory.
+And if I go inside the src directory,
+
+97
+00:06:27,800 --> 00:06:31,520
+you can see that we have got
+the PharoPackage with the properties.
+
+98
+00:06:31,840 --> 00:06:33,880
+If I go inside that,
+we have got our PharoClass.
+
+99
+00:06:34,200 --> 00:06:35,800
+Everything is there.
+
+100
+00:06:36,400 --> 00:06:39,560
+A good thing you can do is add a README
+
+101
+00:06:39,880 --> 00:06:43,560
+because this will help people understand
+what your package is actually doing.
+
+102
+00:06:43,880 --> 00:06:46,840
+Within this README,
+as you will see in the next video,
+
+103
+00:06:47,160 --> 00:06:50,680
+you can put a small script
+to load your package
+
+104
+00:06:51,000 --> 00:06:53,400
+without going through GitHub
+and create a baseline.
+
+105
+00:06:53,720 --> 00:06:59,400
+Basically, I will encourage you to use
+Iceberg and GitHub or GitLab or anything
+
+106
+00:06:59,720 --> 00:07:02,960
+to version your code
+and store it somewhere,
+
+107
+00:07:03,280 --> 00:07:09,160
+because Iceberg will really help you
+do that and control your code,
+
+108
+00:07:09,480 --> 00:07:13,400
+and keep a version history.
+Please use it, it will really help you.

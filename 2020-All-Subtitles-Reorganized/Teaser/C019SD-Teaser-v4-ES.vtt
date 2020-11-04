@@ -1,0 +1,197 @@
+WEBVTT
+
+00:00:08.450 --> 00:00:11.110 align:middle
+Si eres un principante o
+un experto en la programación orientada a objetos
+
+00:00:11.110 --> 00:00:13.970 align:middle
+te va a encantar este MOOC porque
+va a cambiar la manera en que programas con objetos.
+
+00:00:14.190 --> 00:00:17.310 align:middle
+Soy Stéphane Ducasse, con
+Luc Fabresse y Damien Cassou,
+
+00:00:17.310 --> 00:00:19.090 align:middle
+te vamos a presentar este
+MOOC sobre Pharo.
+
+00:00:19.290 --> 00:00:19.970 align:middle
+¿Qué es Pharo?
+
+00:00:19.980 --> 00:00:22.970 align:middle
+Pharo es un lenguaje dinámico y puro
+que te ofrecerá
+
+00:00:22.971 --> 00:00:25.490 align:middle
+una experiencia de desarrollo única
+en la cual vas a estar
+
+00:00:25.490 --> 00:00:27.459 align:middle
+en constante interacción
+con objetos vivos.
+
+00:00:27.460 --> 00:00:30.900 align:middle
+Pharo es un lenguaje y un ambiente
+en la tradición de Smalltalk.
+
+00:00:30.900 --> 00:00:35.640 align:middle
+Es divertido de usar,
+elegante y muy poderoso.
+
+00:00:36.080 --> 00:00:37.600 align:middle
+¿Por qué digo que
+Pharo es elegante?
+
+00:00:37.600 --> 00:00:40.590 align:middle
+De hecho, es muy simple:
+su sintaxis completa, e insisto
+
+00:00:40.590 --> 00:00:43.529 align:middle
+en “completa”, puede ser escrita
+en una tarjeta postal y su modelo
+
+00:00:43.530 --> 00:00:46.900 align:middle
+de objetos escrito en 4 lineas.
+Además, Pharo y su ambiente estan
+
+00:00:46.900 --> 00:00:50.220 align:middle
+escritos en Pharo mismo exclusivamente
+con objetos y mensajes.
+
+00:00:50.550 --> 00:00:53.310 align:middle
+Todos estos puntos hacen a Pharo
+muy facil para aprender y
+
+00:00:53.310 --> 00:00:55.670 align:middle
+una vez que hayas entendido la sintaxis,
+vas a tener acceso a
+
+00:00:55.670 --> 00:00:58.400 align:middle
+el mundo entero de Pharo, dado que esta
+escrito en Pharo mismo.
+
+00:00:58.630 --> 00:01:00.780 align:middle
+Por eso Pharo es
+usado en alrededor de treinta
+
+00:01:00.780 --> 00:01:03.700 align:middle
+universidades alrededor del mundo
+para enseñar la programación orientada a objetos.
+
+00:01:05.430 --> 00:01:07.700 align:middle
+En este MOOC, vas a
+descubrir por qué Pharo es divertido.
+
+00:01:08.240 --> 00:01:10.820 align:middle
+De hecho, cuando programas en Pharo,
+estas inmerso en un mundo de
+
+00:01:10.820 --> 00:01:13.230 align:middle
+objetos vivos. Cada vez
+que el programador modifica
+
+00:01:13.230 --> 00:01:16.610 align:middle
+su código, la animación 3D cambia
+y puede ver inmediatamente
+
+00:01:16.610 --> 00:01:17.200 align:middle
+el resultado de su programa.
+
+00:01:18.240 --> 00:01:21.080 align:middle
+En Pharo, el programador modifica continuamente
+objetos con feedback inmediato.
+
+00:01:21.250 --> 00:01:24.630 align:middle
+Estos objetos pueden representar
+applicaciones web, graficos en 2D,
+
+00:01:24.760 --> 00:01:27.630 align:middle
+en 3D, redes,
+o hasta código mismo.
+
+00:01:28.090 --> 00:01:30.400 align:middle
+Verás que en Pharo
+todo es un objeto.
+
+00:01:30.820 --> 00:01:32.930 align:middle
+En este MOOC, vas a descubrir
+que Pharo es tambien un poderoso
+
+00:01:32.930 --> 00:01:36.370 align:middle
+lenguaje, usado en empresas.
+
+00:01:36.640 --> 00:01:38.550 align:middle
+Y puedes descubrir
+varios casos de éxito
+
+33 align:middle
+00:01:38,550 --> 00:01:39,590
+en el sitio web de Pharo.
+
+00:01:41.770 --> 00:01:44.520 align:middle
+En este MOOC, vamos tambien a
+presentar el stack web de Pharo.
+
+00:01:44.530 --> 00:01:46.850 align:middle
+y como este stack revoluciona
+la manera en que las aplicaciones web
+
+00:01:46.850 --> 00:01:49.340 align:middle
+son diseñadas.
+Durante este MOOC, vas a deployar
+
+00:01:49.340 --> 00:01:51.590 align:middle
+una aplicación web escrita
+completamente en Pharo.
+
+00:01:51.780 --> 00:01:54.450 align:middle
+Mas allá de esto, vamos a revisitar
+principios fundamentales
+
+00:01:54.450 --> 00:01:57.560 align:middle
+de la programación ilustrando
+como Pharo hace uso de ellos.
+
+00:01:58.020 --> 00:02:00.460 align:middle
+Vamos a presentar algunos coding idioms
+y patrones de diseño
+
+00:02:00.460 --> 00:02:01.620 align:middle
+para diseñar mejor applicaciones web.
+
+00:02:02.220 --> 00:02:04.540 align:middle
+Tales conceptos pueden ser aplicados
+en cualquier lenguaje orientado a objetos
+
+00:02:04.590 --> 00:02:05.250 align:middle
+mas allá de Pharo.
+
+00:02:06.400 --> 00:02:08.750 align:middle
+Además, vas a tener acceso a
+varios recursos como
+
+00:02:08.750 --> 00:02:11.370 align:middle
+el libro “Pharo por ejemplo” que esta
+disponible en el sitio web de Pharo.
+
+00:02:11.620 --> 00:02:14.480 align:middle
+Para los mas experimentados de ustedes,
+este MOOC va a proveerles una nueva
+
+00:02:14.480 --> 00:02:17.200 align:middle
+vision de los principios fundamentales
+de la programación orientada a objetos
+
+00:02:17.430 --> 00:02:19.540 align:middle
+(i.e. enlace tardío
+y polimorfismo).
+
+00:02:20.020 --> 00:02:23.520 align:middle
+A través de este MOOC ven y
+descubre o redescubre la programación
+
+00:02:23.520 --> 00:02:25.900 align:middle
+orientada a objetos en un mundo diferente,
+el mundo de Pharo...
+

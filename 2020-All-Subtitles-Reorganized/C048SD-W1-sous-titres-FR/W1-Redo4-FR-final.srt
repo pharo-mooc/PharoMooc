@@ -1,0 +1,241 @@
+1
+00:00:03,000 --> 00:00:05,880
+-Bonjour à tous.
+Nous sommes dans la partie 4 du redo.
+
+2
+00:00:06,200 --> 00:00:07,720
+Dans cette partie, on va regarder
+
+3
+00:00:08,040 --> 00:00:12,000
+comment créer une sauvegarde du package
+créé dans les versions précédentes,
+
+4
+00:00:12,320 --> 00:00:14,640
+et comment garder
+un historique des changements faits
+
+5
+00:00:14,960 --> 00:00:16,760
+sur le code présent dans le package.
+
+6
+00:00:17,080 --> 00:00:20,040
+On remarque que le package
+qu'on a créé précédemment, MyCounter,
+
+7
+00:00:21,160 --> 00:00:24,760
+n'est sauvegardé nulle part,
+car on a cette étoile rouge présente.
+
+8
+00:00:25,080 --> 00:00:27,040
+Pour remédier à ça,
+on va utiliser un outil,
+
+9
+00:00:27,360 --> 00:00:30,400
+donc dans l'onglet Tools,
+qui s'appelle Iceberg,
+
+10
+00:00:30,720 --> 00:00:34,200
+qui est un outil de version control
+et de gestion de packages.
+
+11
+00:00:34,880 --> 00:00:37,760
+Donc, pour rajouter notre package,
+on va aller dans Add.
+
+12
+00:00:38,080 --> 00:00:42,600
+On va créer un nouveau repository
+qu'on va appeler MyCounter,
+
+13
+00:00:43,120 --> 00:00:45,640
+qui va nous créer localement.
+
+14
+00:00:45,960 --> 00:00:47,320
+On presse OK.
+
+15
+00:00:47,880 --> 00:00:49,240
+Notre repository est là.
+
+16
+00:00:49,560 --> 00:00:54,680
+Maintenant, on peut double-cliquer dessus
+et on voit qu'il est plutôt vide.
+
+17
+00:00:55,000 --> 00:00:58,240
+Pour ajouter un package,
+on va cliquer sur le + vert,
+
+18
+00:00:58,560 --> 00:01:05,000
+Add package, et on va sélectionner
+MyCounter, le package qu'on va ajouter.
+
+19
+00:01:06,320 --> 00:01:07,920
+Notre package vient d'être ajouté,
+
+20
+00:01:08,240 --> 00:01:10,400
+mais certains changements
+n'ont pas été commités.
+
+21
+00:01:10,720 --> 00:01:12,320
+Si vous êtes familiers avec Git,
+
+22
+00:01:12,640 --> 00:01:15,640
+ça signifie que les changements n'ont pas
+été rajoutés dans votre version.
+
+23
+00:01:15,960 --> 00:01:17,200
+On clique sur Commit.
+
+24
+00:01:18,240 --> 00:01:20,480
+On peut voir tous les changements
+qui ont été faits dans le package.
+
+25
+00:01:20,800 --> 00:01:24,520
+Ça, c'est l'ajout de notre classe,
+de nos méthodes,
+
+26
+00:01:24,840 --> 00:01:27,640
+de notre classe de test
+et des fichiers propres au système,
+
+27
+00:01:27,960 --> 00:01:29,840
+donc .project et .properties.
+
+28
+00:01:30,160 --> 00:01:34,320
+Donc, on va l'appeler
+"initial commit of Counter".
+
+29
+00:01:35,960 --> 00:01:40,880
+"Increment
+and decrement methods tested".
+
+30
+00:01:41,800 --> 00:01:44,160
+C'est bien de donner un commentaire
+intéressant à notre commit
+
+31
+00:01:44,480 --> 00:01:46,800
+pour pouvoir le retrouver
+si jamais on a besoin de revenir.
+
+32
+00:01:47,120 --> 00:01:48,240
+Donc, on le commit.
+
+33
+00:01:48,560 --> 00:01:51,280
+Voilà. Notre package est up-to-date,
+
+34
+00:01:51,600 --> 00:01:54,440
+ça veut dire qu'il est sauvegardé
+localement et à jour.
+
+35
+00:01:54,920 --> 00:01:57,040
+Maintenant,
+si on veut rajouter une méthode
+
+36
+00:01:57,360 --> 00:02:00,880
+comme "increment2" qui va rajouter 2...
+
+37
+00:02:02,040 --> 00:02:02,960
+On sauvegarde.
+
+38
+00:02:03,280 --> 00:02:04,800
+La méthode est bien créée.
+
+39
+00:02:05,120 --> 00:02:08,080
+On peut voir que des changements
+n'ont pas été commités.
+
+40
+00:02:08,400 --> 00:02:12,680
+Pour remédier à ça,
+on reclique sur le tick vert, Commit.
+
+41
+00:02:13,000 --> 00:02:15,840
+On voit qu'il veut nous rajouter
+la méthode "increment2".
+
+42
+00:02:17,000 --> 00:02:23,240
+On va pouvoir le commenter en disant :
+"Added increment2".
+
+43
+00:02:23,960 --> 00:02:24,800
+Commit.
+
+44
+00:02:25,280 --> 00:02:28,240
+Et notre package est bien à jour.
+
+45
+00:02:29,120 --> 00:02:31,920
+Vous avez vu
+comment créer et sauvegarder
+
+46
+00:02:32,240 --> 00:02:35,080
+les différents changements que vous
+pouvez faire sur un package ou plusieurs.
+
+47
+00:02:35,400 --> 00:02:37,720
+Dans notre cas, on n'en a ajouté qu'un,
+mais on peut en ajouter plusieurs.
+
+48
+00:02:38,040 --> 00:02:39,360
+On peut sauvegarder ces changements
+
+49
+00:02:39,680 --> 00:02:41,840
+et c'est intéressant
+d'avoir accès à l'historique,
+
+50
+00:02:42,160 --> 00:02:45,000
+car on va pouvoir revenir
+sur une ancienne version
+
+51
+00:02:45,320 --> 00:02:48,320
+si jamais on n'est pas d'accord avec
+un changement qui a été fait à un moment
+
+52
+00:02:48,640 --> 00:02:50,480
+dans le développement de notre package.

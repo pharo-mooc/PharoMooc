@@ -1,0 +1,342 @@
+1
+00:00:00,490 --> 00:00:05,430
+Bonjour à tous. Dans cette
+cinquième séquence sur l'héritage
+
+2
+00:00:06,140 --> 00:00:10,250
+et le Lookup, nous allons
+parler de l'envoi de messages
+
+3
+00:00:10,650 --> 00:00:12,910
+et de l'algorithme de Lookup
+dans le cadre des métaclasses.
+
+4
+00:00:13,500 --> 00:00:14,470
+Alors en Pharo tout est objet.
+
+5
+00:00:16,560 --> 00:00:20,230
+Les objets peuvent recevoir
+des messages, donc puisque
+
+6
+00:00:20,430 --> 00:00:24,130
+tout est objet les classes
+sont des objets, et puisque
+
+7
+00:00:24,330 --> 00:00:26,910
+les objets peuvent
+recevoir des messages les classes
+
+8
+00:00:27,110 --> 00:00:28,070
+peuvent recevoir des messages aussi.
+
+9
+00:00:28,520 --> 00:00:33,210
+Le mécanisme d'envoi de
+messages est exactement le même
+
+10
+00:00:33,790 --> 00:00:36,700
+que le receveur soit un
+objet quelconque ou une classe.
+
+11
+00:00:37,380 --> 00:00:40,930
+Donc il n'y a qu'une seule
+façon de chercher une méthode
+
+12
+00:00:41,130 --> 00:00:43,490
+quand un message est envoyé,
+c'est l'algorithme de Lookup
+
+13
+00:00:43,930 --> 00:00:48,000
+qu'on a vu et revu dans
+les séquences précédentes.
+
+14
+00:00:49,250 --> 00:00:52,360
+Donc maintenant je vais
+prendre l'exemple d'un envoi de
+
+15
+00:00:52,560 --> 00:00:54,200
+message sur une classe.
+
+16
+00:00:56,270 --> 00:00:59,930
+Bon il faut bien comprendre
+que puisque les classes sont
+
+17
+00:01:00,130 --> 00:01:04,380
+des objets et que tous les
+objets sont liés à une classe,
+
+18
+00:01:04,580 --> 00:01:07,230
+donc tous les objets sont
+instance d'une classe, donc là
+
+19
+00:01:07,470 --> 00:01:09,940
+aNode est une
+instance de la classe Node.
+
+20
+00:01:10,140 --> 00:01:15,050
+Puisque la classe Node est un objet,
+
+21
+00:01:16,250 --> 00:01:18,720
+la classe Node est
+instance d'une classe.
+
+22
+00:01:19,790 --> 00:01:22,560
+On appelle cette classe Node class.
+
+23
+00:01:22,890 --> 00:01:26,000
+Donc aNode est une
+instance de la classe Node et la
+
+24
+00:01:26,200 --> 00:01:29,630
+ classe Node est un objet qui est
+une instance de la classe Node class.
+
+25
+00:01:30,880 --> 00:01:35,000
+Là vous pouvez vous demander
+puisque c'est ça Node class
+
+26
+00:01:35,200 --> 00:01:38,320
+est une classe, cette classe
+est un objet donc c'est une
+
+27
+00:01:38,520 --> 00:01:42,670
+instance d'une classe, et de quelle
+ classe Node class est-elle instance.
+
+28
+00:01:42,870 --> 00:01:46,820
+Et vous verrez ça dans une
+séquence suivante, la séquence
+
+29
+00:01:47,020 --> 00:01:47,780
+sur les métaclasses.
+
+30
+00:01:48,210 --> 00:01:49,860
+Donc quelques exemples.
+
+31
+00:01:50,910 --> 00:01:55,740
+Ici on a un objet
+aWorkstation, instance d'une classe
+
+32
+00:01:56,200 --> 00:01:58,400
+Workstation, qui est une
+sous- classe de Node qui est une
+
+33
+00:01:58,600 --> 00:02:01,860
+sous-classe d'Object. Donc
+ici il faut faire attention
+
+34
+00:02:02,060 --> 00:02:06,220
+aux flèches, ici cette
+flèche avec un triangle vide
+
+35
+00:02:07,060 --> 00:02:08,820
+indique une
+relation de sous-classage.
+
+36
+00:02:09,420 --> 00:02:11,700
+Donc Node est une
+sous-classe de Object.
+
+37
+00:02:11,900 --> 00:02:14,230
+Workstation est une
+sous-classe de Node.
+
+38
+00:02:15,170 --> 00:02:18,700
+Cette flèche avec un
+triangle plein qu'on représente
+
+39
+00:02:18,900 --> 00:02:23,700
+parfois de cette façon-là aussi,
+indique une relation d'instanciation.
+
+40
+00:02:24,340 --> 00:02:28,310
+Donc aWorkstation est une
+instance de Workstation et
+
+41
+00:02:28,510 --> 00:02:29,900
+Workstation est une
+instance de workstation Class.
+
+42
+00:02:30,900 --> 00:02:34,090
+De la même façon object
+une instance de Object Class.
+
+43
+00:02:34,670 --> 00:02:37,420
+Si j'envoie un message à
+l'objet aWorkstation, l'algorithme
+
+44
+00:02:37,620 --> 00:02:41,760
+de Lookup cherche dans
+la classe de aWorkstation
+
+45
+00:02:43,400 --> 00:02:45,920
+puis remonte un dans les
+super classes jusqu'à ce qu'il
+
+46
+00:02:46,120 --> 00:02:48,340
+trouve une méthode correspondante.
+
+47
+00:02:48,780 --> 00:02:52,000
+Eh bien c'est exactement le
+même mécanisme qui s'applique
+
+48
+00:02:52,460 --> 00:02:55,410
+si j'envoie un message
+à la classe Workstation.
+
+49
+00:02:56,730 --> 00:03:01,270
+Donc par exemple si
+j'envoie le message New à
+
+50
+00:03:01,470 --> 00:03:03,520
+Workstation, l'algorithme
+de Lookup va chercher dans la
+
+51
+00:03:03,720 --> 00:03:05,840
+ classe de Workstation,
+c'est-à-dire Workstation Class,
+
+52
+00:03:06,040 --> 00:03:07,900
+pour une méthode
+qui s'appellerait New.
+
+53
+00:03:08,620 --> 00:03:11,410
+S'il la trouve ici elle est
+exécutée, si l'algorithme de
+
+54
+00:03:11,610 --> 00:03:14,380
+Lookup ne la trouve pas ici
+il va chercher dans la super
+
+55
+00:03:14,580 --> 00:03:17,890
+ classe, s'il ne la trouve pas ici
+il va chercher dans la super classe.
+
+56
+00:03:19,130 --> 00:03:21,330
+Et caetera, cette
+hiérarchie continue.
+
+57
+00:03:23,040 --> 00:03:26,180
+Donc je vous laisse ce
+slide-là pour revoir l'envoi de
+
+58
+00:03:26,380 --> 00:03:29,550
+messages sur les objets
+standards et sur les classes qui
+
+59
+00:03:29,750 --> 00:03:30,680
+sont aussi des objets standards.
+
+60
+00:03:31,760 --> 00:03:32,890
+Ce que vous devez retenir.
+
+61
+00:03:33,480 --> 00:03:36,060
+Une classe qui est un
+objet comme les autres.
+
+62
+00:03:37,160 --> 00:03:38,830
+On peut envoyer des
+messages à des objets donc on peut
+
+63
+00:03:39,030 --> 00:03:40,000
+envoyer des messages à des classes.
+
+64
+00:03:40,170 --> 00:03:45,000
+L'algorithme de Lookup
+est exactement le même
+
+65
+00:03:45,200 --> 00:03:45,960
+dans les 2 cas.
+
+66
+00:03:47,750 --> 00:03:49,870
+L'algorithme de Lookup va
+commencer par chercher quelle
+
+67
+00:03:50,070 --> 00:03:52,590
+est la classe du
+receveur, puis va remonter dans la
+
+68
+00:03:52,790 --> 00:03:56,350
+hiérarchie donc en visitant
+les super classes, jusqu'à
+
+69
+00:03:56,550 --> 00:03:58,070
+trouver une méthode
+correspondante au message.
+
+70
+00:03:58,640 --> 00:04:01,120
+Vous en saurez plus sur
+les métaclasses en suivant la
+
+71
+00:04:01,320 --> 00:04:02,460
+séquence Understanding Metaclasses.
+

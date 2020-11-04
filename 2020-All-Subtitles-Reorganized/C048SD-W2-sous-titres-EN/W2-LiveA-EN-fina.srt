@@ -1,0 +1,443 @@
+1
+00:00:03,960 --> 00:00:04,760
+-Hello, everyone.
+
+2
+00:00:05,080 --> 00:00:07,960
+In this video, we are going to look
+at a tool called the Finder.
+
+3
+00:00:08,280 --> 00:00:13,120
+We can find it under the Pharo menu,
+then Tools, then Finder.
+
+4
+00:00:14,400 --> 00:00:19,680
+This Finder helps you find methods
+or anything from within Pharo.
+
+5
+00:00:20,000 --> 00:00:22,560
+We can look for example at "match",
+
+6
+00:00:22,880 --> 00:00:26,480
+any method that would have
+a string "match" in its name.
+
+7
+00:00:26,800 --> 00:00:29,720
+We can look at that in Selectors,
+press Search.
+
+8
+00:00:30,160 --> 00:00:33,800
+Here, you can have all the methods
+that have "match" in their name.
+
+9
+00:00:34,120 --> 00:00:36,120
+"addMatchingExpression", etc.
+
+10
+00:00:36,520 --> 00:00:38,640
+You can see that between parentheses,
+
+11
+00:00:38,960 --> 00:00:41,800
+you have the name of the class
+that implements the method
+
+12
+00:00:42,120 --> 00:00:43,120
+with the name there.
+
+13
+00:00:43,440 --> 00:00:44,200
+For example,
+
+14
+00:00:44,800 --> 00:00:48,640
+this method "addMatchingExpression"
+is defined from within this class
+
+15
+00:00:48,960 --> 00:00:51,280
+and when you have the small triangle
+to the side,
+
+16
+00:00:51,600 --> 00:00:54,520
+this means that several classes
+implement the same method
+
+17
+00:00:54,960 --> 00:00:57,200
+or at least a method with the same name.
+
+18
+00:00:57,520 --> 00:00:58,680
+This is the case here.
+
+19
+00:00:59,000 --> 00:01:01,640
+We have two classes
+that implement the method there.
+
+20
+00:01:02,400 --> 00:01:03,360
+We can browse them.
+
+21
+00:01:03,680 --> 00:01:04,560
+By simply clicking here,
+
+22
+00:01:04,880 --> 00:01:07,080
+we can see the difference
+between the two methods
+
+23
+00:01:07,400 --> 00:01:09,600
+or we can even press the button Browse
+
+24
+00:01:10,120 --> 00:01:13,760
+to look at the method and class
+in detail from within the System Browser.
+
+25
+00:01:14,480 --> 00:01:16,640
+There, we are on the correct package,
+class
+
+26
+00:01:16,960 --> 00:01:18,960
+and on the same method as there.
+
+27
+00:01:19,720 --> 00:01:21,360
+While this is useful,
+
+28
+00:01:21,840 --> 00:01:25,440
+often we are looking
+for a behavior more than a name.
+
+29
+00:01:25,760 --> 00:01:27,440
+What I mean is that, for example,
+
+30
+00:01:27,760 --> 00:01:32,760
+if we want a string "ab*"
+and another string "abcd"
+
+31
+00:01:33,080 --> 00:01:37,360
+to be fed to a method
+and then obtain "true",
+
+32
+00:01:37,840 --> 00:01:41,760
+we can look at this
+from within the Examples tab.
+
+33
+00:01:42,800 --> 00:01:45,040
+There we have it,
+we have all the methods that,
+
+34
+00:01:45,360 --> 00:01:49,720
+with the given parameters,
+the two strings, have output "true".
+
+35
+00:01:50,040 --> 00:01:53,320
+For example, we might be interested
+in the "match" method.
+
+36
+00:01:53,640 --> 00:01:56,760
+If we look at all the classes
+that define "match",
+
+37
+00:01:58,040 --> 00:02:00,520
+There is one other small star
+on the left.
+
+38
+00:02:00,840 --> 00:02:05,960
+This is the one that, with the exact same
+arguments as the one we put there,
+
+39
+00:02:06,280 --> 00:02:07,520
+has output "true".
+
+40
+00:02:07,840 --> 00:02:09,640
+This might be the one
+we are interested in.
+
+41
+00:02:10,320 --> 00:02:12,400
+This string was an example
+
+42
+00:02:12,720 --> 00:02:14,720
+and we can look at it with another one,
+
+43
+00:02:15,040 --> 00:02:20,400
+for example "11", "2",
+and we want it to output "5".
+
+44
+00:02:21,040 --> 00:02:22,240
+If we search for that,
+
+45
+00:02:22,560 --> 00:02:25,040
+we can see that we have got
+this division there
+
+46
+00:02:25,360 --> 00:02:29,440
+that has been defined "Integer"
+and "Number" or "SmallInteger"
+
+47
+00:02:29,760 --> 00:02:32,240
+and that outputs the exact same result.
+
+48
+00:02:32,560 --> 00:02:35,640
+But then, if we write "5.5"
+and search for that,
+
+49
+00:02:36,360 --> 00:02:40,800
+we can see that only
+the classic division has been output
+
+50
+00:02:41,120 --> 00:02:43,200
+on "Fraction" or "Number".
+
+51
+00:02:44,240 --> 00:02:46,480
+This is where it has output something
+
+52
+00:02:46,800 --> 00:02:49,880
+with the exact same signature
+as the one we gave it.
+
+53
+00:02:50,680 --> 00:02:55,320
+Now, we can look for other things as well
+if we write "Menu" and look for pragmas.
+
+54
+00:02:56,000 --> 00:02:58,120
+These are
+all the different pragmas found.
+
+55
+00:02:58,640 --> 00:03:02,360
+If we look at, for example,
+the pragma "menuOrder"
+
+56
+00:03:02,680 --> 00:03:04,880
+and then go to any of those methods,
+
+57
+00:03:05,320 --> 00:03:08,120
+then we have the classes
+they are defined in.
+
+58
+00:03:08,440 --> 00:03:13,120
+So, pragmas are this type of strings
+
+59
+00:03:13,440 --> 00:03:15,280
+that are used by the system
+in another way
+
+60
+00:03:15,600 --> 00:03:17,080
+because we can do queries in them,
+
+61
+00:03:17,400 --> 00:03:20,720
+for example, for graphic interfaces
+or things like that,
+
+62
+00:03:21,040 --> 00:03:22,240
+we can look for that as well.
+
+63
+00:03:22,560 --> 00:03:25,840
+Finally, if we want to look
+at the String menu
+
+64
+00:03:26,160 --> 00:03:27,480
+from anywhere in the system,
+
+65
+00:03:27,800 --> 00:03:29,160
+we can press the Source button.
+
+66
+00:03:29,480 --> 00:03:31,280
+This will take a while
+
+67
+00:03:31,600 --> 00:03:36,280
+because it is inspecting the body, name,
+every method and class in the system.
+
+68
+00:03:36,600 --> 00:03:37,360
+But right now,
+
+69
+00:03:37,680 --> 00:03:41,920
+we can see that all these contain
+either the word "menu" in their name
+
+70
+00:03:42,240 --> 00:03:43,400
+or in their...
+
+71
+00:03:43,720 --> 00:03:47,000
+For example here, this is the name
+of a class, "PragmaMenu".
+
+72
+00:03:47,640 --> 00:03:49,720
+We can see the same thing here,
+
+73
+00:03:50,040 --> 00:03:52,040
+we can see that "menu" is called there.
+
+74
+00:03:52,360 --> 00:03:55,720
+So, this will look inside all the classes
+and all the methods of a system
+
+75
+00:03:56,040 --> 00:03:59,520
+and output everything
+that has "menu" in it.
+
+76
+00:03:59,840 --> 00:04:03,680
+This was the video for the Finder
+because it is an extremely powerful tool,
+
+77
+00:04:04,000 --> 00:04:06,440
+especially coupled with examples.
+
+78
+00:04:07,080 --> 00:04:10,920
+A last thing I would like to show you
+are executable commands.
+
+79
+00:04:11,240 --> 00:04:14,360
+Let's look at, for example, this one.
+
+80
+00:04:14,800 --> 00:04:19,240
+If we feed a parameter being an array,
+then 4,
+
+81
+00:04:19,640 --> 00:04:21,440
+it should output the first element.
+
+82
+00:04:21,760 --> 00:04:25,320
+This means that it will go 1, 2, 3
+and then come back at the beginning
+
+83
+00:04:25,640 --> 00:04:27,000
+to get the first element.
+
+84
+00:04:27,320 --> 00:04:29,680
+Let's search for that
+by picking Examples.
+
+85
+00:04:30,600 --> 00:04:32,760
+We can see
+that this is the method "atWrap",
+
+86
+00:04:33,080 --> 00:04:35,040
+an "Array"
+or "SequenceableCollection".
+
+87
+00:04:35,360 --> 00:04:37,280
+From within the body of this method,
+
+88
+00:04:37,600 --> 00:04:40,720
+you can see
+that this is a normal command
+
+89
+00:04:41,040 --> 00:04:44,960
+and this one has another color
+because you can execute it.
+
+90
+00:04:45,760 --> 00:04:50,360
+This means that this expression there
+should output "22".
+
+91
+00:04:50,720 --> 00:04:52,720
+We can look at that
+by simply highlighting it
+
+92
+00:04:53,040 --> 00:04:54,400
+then pressing Cmd+P.
+
+93
+00:04:55,480 --> 00:04:58,360
+There, you can see that it output "22".
+
+94
+00:04:58,840 --> 00:05:01,480
+This is a good way
+to look inside methods
+
+95
+00:05:01,800 --> 00:05:02,760
+and see how they work
+
+96
+00:05:03,080 --> 00:05:05,080
+coupled with the examples.
+
+97
+00:05:05,960 --> 00:05:10,160
+That was a video on the Finder
+that I really encourage you to use.

@@ -1,0 +1,442 @@
+﻿WEBVTT
+
+00:00:00.560 --> 00:00:04.680 align:middle
+Today we're going to review
+something you've already learned,
+
+00:00:04.840 --> 00:00:07.120 align:middle
+but I really want to bring it home.
+
+00:00:07.280 --> 00:00:09.920 align:middle
+Characters, Strings and Symbols.
+
+00:00:10.920 --> 00:00:14.560 align:middle
+What you will learn
+is how to handle characters,
+
+00:00:14.720 --> 00:00:16.360 align:middle
+how strings are represented,
+
+00:00:16.520 --> 00:00:19.160 align:middle
+and what a symbol is in relation
+to a string.
+
+00:00:19.520 --> 00:00:21.960 align:middle
+Let's take it from the start:
+Characters.
+
+00:00:22.120 --> 00:00:25.920 align:middle
+In Pharo,
+characters start with dollar sign,
+
+00:00:26.200 --> 00:00:28.600 align:middle
+followed by a letter.
+
+00:00:28.880 --> 00:00:32.680 align:middle
+This is to represent literal characters.
+
+00:00:33.200 --> 00:00:36.960 align:middle
+Non-printable characters
+that do not have a form
+
+00:00:37.120 --> 00:00:40.720 align:middle
+use space, tab or carriage return,
+
+00:00:40.880 --> 00:00:42.920 align:middle
+which jumps to a new line.
+
+00:00:43.080 --> 00:00:46.200 align:middle
+We send a message
+to this character class
+
+00:00:46.360 --> 00:00:47.920 align:middle
+to get this character.
+
+00:00:49.960 --> 00:00:51.160 align:middle
+Now for strings.
+
+00:00:51.320 --> 00:00:54.720 align:middle
+Strings of characters
+are delimited by single quotes.
+
+00:00:54.880 --> 00:00:56.880 align:middle
+This character right here.
+
+00:00:57.040 --> 00:01:00.320 align:middle
+Here we have the string:
+'eclair au chocolat'.
+
+00:01:00.480 --> 00:01:02.440 align:middle
+It starts here and ends here.
+
+00:01:02.680 --> 00:01:05.520 align:middle
+We can send it a message,
+for example, size.
+
+00:01:05.680 --> 00:01:08.400 align:middle
+And it sends back "18".
+
+00:01:08.560 --> 00:01:11.760 align:middle
+Indeed, this string
+contains 18 characters.
+
+00:01:12.240 --> 00:01:14.320 align:middle
+We can even play with this string.
+
+00:01:14.480 --> 00:01:16.880 align:middle
+I can say character space split.
+
+00:01:17.120 --> 00:01:21.440 align:middle
+This means I will cut up this string
+according to spaces,
+
+00:01:21.600 --> 00:01:25.040 align:middle
+and I get an OrderedCollection
+with 3 elements.
+
+00:01:25.200 --> 00:01:28.160 align:middle
+The string was cut up into 3 elements.
+
+00:01:28.960 --> 00:01:34.000 align:middle
+Strings of characters
+are collections like any other in Pharo.
+
+00:01:34.160 --> 00:01:37.440 align:middle
+A string is really
+a collection of characters,
+
+00:01:37.600 --> 00:01:41.120 align:middle
+but the string class will inherit
+from the collection class.
+
+00:01:41.560 --> 00:01:44.360 align:middle
+So I can use all of the classic methods.
+
+00:01:44.520 --> 00:01:49.120 align:middle
+Remember,
+we have common collection classes.
+
+00:01:49.280 --> 00:01:52.960 align:middle
+For example, "at:"
+for all the indexed collections.
+
+00:01:53.120 --> 00:01:55.240 align:middle
+'eclair au chocolat' at: 1
+
+00:01:55.400 --> 00:01:59.160 align:middle
+means I want element "1"
+of this collection and I get "e".
+
+00:01:59.520 --> 00:02:01.480 align:middle
+It corresponds to this "e".
+
+00:02:02.480 --> 00:02:06.560 align:middle
+I can also use "do:" which runs through
+the elements of a collection.
+
+00:02:06.720 --> 00:02:09.320 align:middle
+And after every loop, the block setting
+
+00:02:09.480 --> 00:02:13.960 align:middle
+equals the first element
+of the collection, then the second, etc.
+
+00:02:14.120 --> 00:02:15.640 align:middle
+One small subtlety.
+
+00:02:15.800 --> 00:02:19.720 align:middle
+Since strings of characters
+are delimited by single quotes,
+
+00:02:19.880 --> 00:02:22.200 align:middle
+if I want to put code in a string,
+
+00:02:22.360 --> 00:02:24.960 align:middle
+the trick is to use two quotes,
+side by side.
+
+00:02:25.120 --> 00:02:29.960 align:middle
+This means I want to insert one quote
+into my string of characters...
+
+00:02:30.120 --> 00:02:32.440 align:middle
+But be careful, the subtlety is that
+
+00:02:32.600 --> 00:02:35.640 align:middle
+it counts as only
+one element in the string.
+
+00:02:35.800 --> 00:02:39.720 align:middle
+For example:
+'L''eclair au chocolat' at: 2
+
+00:02:39.880 --> 00:02:42.560 align:middle
+means I want element 2
+of this collection.
+
+00:02:42.720 --> 00:02:45.040 align:middle
+And it sends back the quote character.
+
+00:02:45.200 --> 00:02:49.160 align:middle
+And if I ask for at: 3
+I get the "e" that is here.
+
+00:02:49.320 --> 00:02:54.640 align:middle
+So even if I enter two single quotes,
+they count as one.
+
+00:02:56.800 --> 00:03:01.240 align:middle
+Strings of characters
+are treated like any other collection.
+
+00:03:01.400 --> 00:03:05.440 align:middle
+I can say that I want
+the last element of a string.
+
+00:03:05.600 --> 00:03:10.320 align:middle
+If I ask for "str at: str size"
+I get the very last element.
+
+00:03:10.480 --> 00:03:13.960 align:middle
+Don't forget, in Pharo
+strings begin with index value 1,
+
+00:03:14.120 --> 00:03:17.400 align:middle
+therefore the last element
+is the size of the string.
+
+00:03:17.640 --> 00:03:22.320 align:middle
+Or we can simply use
+"last" to recover the last element.
+
+00:03:22.840 --> 00:03:26.200 align:middle
+To generate strings,
+there are various techniques.
+
+00:03:26.360 --> 00:03:29.760 align:middle
+The easiest one
+is the conversion method.
+
+00:03:29.920 --> 00:03:33.560 align:middle
+I convert a symbol into
+a string of characters with asString.
+
+00:03:33.720 --> 00:03:36.960 align:middle
+Or else I can send
+printString to any object.
+
+00:03:37.120 --> 00:03:41.200 align:middle
+This will give me
+a string representation of the object.
+
+00:03:42.400 --> 00:03:46.240 align:middle
+Or I can generate a creation method
+directly from a collection.
+
+00:03:46.400 --> 00:03:49.840 align:middle
+Remember, you can send weeds
+to any collection class
+
+00:03:50.000 --> 00:03:54.640 align:middle
+to generate a new collection that
+automatically contains certain objects.
+
+00:03:54.800 --> 00:03:56.600 align:middle
+If I use String with: $A,
+
+00:03:56.760 --> 00:04:00.520 align:middle
+I get a string
+that contains one single character: "A."
+
+00:04:00.680 --> 00:04:02.120 align:middle
+For concatenation,
+
+00:04:02.280 --> 00:04:05.640 align:middle
+you've already seen this,
+we use the "comma" message.
+
+00:04:05.800 --> 00:04:09.640 align:middle
+I send "," to a string
+and run it through another string
+
+00:04:09.800 --> 00:04:13.800 align:middle
+to create a new string that is
+the concatenation of the two.
+
+00:04:14.560 --> 00:04:16.160 align:middle
+Nonetheless, be careful.
+
+00:04:16.320 --> 00:04:19.400 align:middle
+If I take the same example,
+you must understand
+
+00:04:19.560 --> 00:04:23.440 align:middle
+that I generated
+intermediate versions that are useless.
+
+00:04:23.600 --> 00:04:27.440 align:middle
+So I have this first message
+that was sent
+
+00:04:27.600 --> 00:04:30.120 align:middle
+to this string, with this value.
+
+00:04:30.280 --> 00:04:34.600 align:middle
+We have a first concatenation string
+that was generated.
+
+00:04:34.920 --> 00:04:38.800 align:middle
+This concatenation sent the message
+"," with this value,
+
+00:04:38.960 --> 00:04:41.680 align:middle
+and another string was created:
+The final result.
+
+00:04:41.840 --> 00:04:45.280 align:middle
+An intermediate string
+we haven't seen was generated,
+
+00:04:45.440 --> 00:04:48.680 align:middle
+and it makes you lose time
+in your calculations.
+
+00:04:48.840 --> 00:04:51.560 align:middle
+You had a session on benchmarking.
+
+00:04:51.720 --> 00:04:55.840 align:middle
+You can use benchmarking
+to really see what's going on
+
+00:04:56.000 --> 00:04:59.240 align:middle
+and whether it wouldn't be
+worthwhile to use a stream.
+
+00:04:59.400 --> 00:05:02.000 align:middle
+I generate a string of characters
+
+00:05:02.160 --> 00:05:06.000 align:middle
+and I say that I will define
+a streamContent with :s
+
+00:05:06.160 --> 00:05:11.320 align:middle
+And I can directly send strings to this
+stream to generate the final string.
+
+00:05:11.480 --> 00:05:14.200 align:middle
+This way, I avoid intermediary strings.
+
+00:05:14.360 --> 00:05:16.760 align:middle
+Now for symbols.
+
+00:05:16.920 --> 00:05:21.200 align:middle
+Syntactically speaking,
+symbols start with a hashtag,
+
+00:05:21.360 --> 00:05:23.120 align:middle
+then a string of characters.
+
+00:05:23.280 --> 00:05:24.880 align:middle
+This is a literal symbol.
+
+00:05:25.040 --> 00:05:29.760 align:middle
+It's a kind of string, but be careful,
+they're unique in the system.
+
+00:05:29.920 --> 00:05:33.200 align:middle
+If I write hashtag "blah blah"
+anywhere in my program,
+
+00:05:33.360 --> 00:05:36.320 align:middle
+anywhere else
+in the program this appears,
+
+00:05:36.480 --> 00:05:38.760 align:middle
+I'm designating the same object.
+
+00:05:38.920 --> 00:05:40.680 align:middle
+It's the same instance.
+
+00:05:41.400 --> 00:05:43.640 align:middle
+So symbols are unique.
+
+00:05:43.800 --> 00:05:48.480 align:middle
+Here we have #calvin == #calvin
+and it sends back true.
+
+00:05:48.640 --> 00:05:50.120 align:middle
+It's the same object.
+
+00:05:50.280 --> 00:05:53.760 align:middle
+This is not the case for strings.
+For strings, it depends.
+
+00:05:53.920 --> 00:05:57.000 align:middle
+It depends on
+the compiler's optimizations.
+
+00:05:57.400 --> 00:06:01.440 align:middle
+So this is the real difference
+between symbols and strings.
+
+00:06:01.600 --> 00:06:05.360 align:middle
+A symbol is solely in read-only.
+
+00:06:05.520 --> 00:06:08.600 align:middle
+Symbols cannot be modified,
+you must create a new one.
+
+00:06:08.760 --> 00:06:13.080 align:middle
+It's a unique object,
+so it always points to the same object.
+
+00:06:13.240 --> 00:06:17.440 align:middle
+Strings are mutable objects,
+you can modify their content.
+
+00:06:17.600 --> 00:06:22.440 align:middle
+It says "for now" because
+this point is under discussion.
+
+00:06:24.080 --> 00:06:26.440 align:middle
+Symbols are often used as
+
+00:06:27.560 --> 00:06:30.320 align:middle
+method selectors.
+
+00:06:31.480 --> 00:06:35.160 align:middle
+And symbols
+are good candidates for keys
+
+00:06:35.320 --> 00:06:37.160 align:middle
+in dictionaries,
+
+00:06:37.320 --> 00:06:39.080 align:middle
+namely identityDictionary.
+
+00:06:39.240 --> 00:06:40.560 align:middle
+You remember this?
+
+00:06:40.720 --> 00:06:43.160 align:middle
+We compare elements,
+
+00:06:43.320 --> 00:06:48.600 align:middle
+and we are easily able
+to calculate hashes starting with a symbol,
+
+00:06:48.760 --> 00:06:51.200 align:middle
+in order to generate it in a dictionary.
+
+00:06:52.680 --> 00:06:56.360 align:middle
+The important thing to remember
+from this session,
+
+00:06:56.520 --> 00:07:00.120 align:middle
+is that strings
+are like any other collection.
+
+00:07:00.280 --> 00:07:03.360 align:middle
+And that symbols are unique,
+
+00:07:03.520 --> 00:07:06.320 align:middle
+in read-only mode, and immutable.

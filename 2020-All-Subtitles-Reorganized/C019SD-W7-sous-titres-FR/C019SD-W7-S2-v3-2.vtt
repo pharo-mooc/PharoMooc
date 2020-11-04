@@ -1,0 +1,499 @@
+WEBVTT
+
+00:00:00.410 --> 00:00:02.520 align:middle
+Bonjour. Dans ce cours on
+va aborder un point qui n'est
+
+00:00:02.720 --> 00:00:05.750 align:middle
+pas souvent abordé dans
+les cours de Pharo qui sont:
+
+00:00:05.950 --> 00:00:09.210 align:middle
+Comment est-ce qu'on définit
+des objets de taille variable?
+
+00:00:09.410 --> 00:00:13.800 align:middle
+Si on regarde, on voit qu'on utilise
+déjà des objets de taille variable.
+
+00:00:14.000 --> 00:00:18.060 align:middle
+Quand je veux créer un
+tableau avec cette expression-là,
+
+00:00:18.260 --> 00:00:20.350 align:middle
+je vais créer un
+tableau ayant 10 éléments.
+
+00:00:20.550 --> 00:00:22.530 align:middle
+Là, ils sont tous mis à 1
+000, mais avec cette même
+
+00:00:22.730 --> 00:00:26.800 align:middle
+expression-là, je vais
+créer un tableau qui aura 5
+
+00:00:28.120 --> 00:00:31.560 align:middle
+éléments. Donc on voit que
+la classe "Tableaux" crée des
+
+00:00:31.760 --> 00:00:33.600 align:middle
+instances qui sont
+de taille variable.
+
+00:00:34.110 --> 00:00:36.310 align:middle
+Et pour le moment, on ne vous a pas
+expliqué comment vous pouviez faire.
+
+00:00:36.510 --> 00:00:38.550 align:middle
+Si je vous donnais ça comme
+exercice, vous ne sauriez pas le faire.
+
+00:00:39.480 --> 00:00:41.870 align:middle
+Donc, ce qu'on va voir dans
+ce cours, rapidement, c'est
+
+00:00:42.070 --> 00:00:44.890 align:middle
+comment on définit des
+ classes dont les instances ont des
+
+00:00:45.090 --> 00:00:48.880 align:middle
+tailles variables, comment
+on instancie de tels objets et
+
+00:00:49.080 --> 00:00:51.780 align:middle
+comment on accède à
+ces tailles variables.
+
+00:00:52.940 --> 00:00:54.120 align:middle
+Commençons par le premier point.
+
+00:00:55.600 --> 00:00:56.520 align:middle
+En fait c'est très simple.
+
+00:00:57.600 --> 00:00:59.880 align:middle
+On va utiliser le message
+"variableSubclass" au lieu du
+
+00:01:00.080 --> 00:01:02.300 align:middle
+message "subclass" dans
+la définition de classe.
+
+00:01:02.600 --> 00:01:04.740 align:middle
+Là, j'ai copié la
+définition de la classe "Tableaux".
+
+00:01:05.220 --> 00:01:06.440 align:middle
+Vous voyez que
+j'utilise "variableSubclass",
+
+00:01:06.640 --> 00:01:11.580 align:middle
+"instanceVariableNames",
+et caetera., pour créer ma
+
+00:01:11.780 --> 00:01:14.770 align:middle
+ classe. Alors que
+normalement, quand vous avez défini la
+
+00:01:15.000 --> 00:01:19.880 align:middle
+ classe "Counter" ou la
+ classe "D", de toute façon
+
+00:01:20.080 --> 00:01:21.030 align:middle
+vous n'aviez utilisé que "subclass".
+
+00:01:22.010 --> 00:01:24.890 align:middle
+Donc avec cette
+définition-là, les instances que vous
+
+00:01:25.090 --> 00:01:27.370 align:middle
+allez créer ont des
+tailles variables.
+
+00:01:27.570 --> 00:01:29.090 align:middle
+On va prendre un exemple
+débile: imaginons qu'on veuille
+
+00:01:29.290 --> 00:01:32.380 align:middle
+faire un point un peu
+étrange avec 2 variables d'instance
+
+00:01:33.090 --> 00:01:37.000 align:middle
+X et Y comme un point et une
+variable, une zone variable,
+
+00:01:37.200 --> 00:01:40.250 align:middle
+on mettrait cette
+définition-là. Qu'est-ce que ça crée?
+
+00:01:40.450 --> 00:01:41.930 align:middle
+Ça créerai des objets qui
+ont cet aspect-là, en fait.
+
+00:01:42.130 --> 00:01:45.650 align:middle
+Ce qui veut dire que
+j'aurais une valeur pour X, une
+
+00:01:45.850 --> 00:01:49.760 align:middle
+valeur pour Y, et une
+zone variable par instance.
+
+00:01:50.000 --> 00:01:53.630 align:middle
+Je pourrais avoir une autre
+instance qui a aussi X, Y,
+
+00:01:53.830 --> 00:01:58.460 align:middle
+avec 10 ici, puis 20 là,
+et là 100 et là 200 par
+
+00:01:58.660 --> 00:02:02.680 align:middle
+exemple, et là avec une
+autre taille variable où je peux
+
+00:02:02.880 --> 00:02:03.660 align:middle
+mettre différents objets.
+
+00:02:04.840 --> 00:02:07.720 align:middle
+Donc ce qu'on voit, c'est
+que les instances d'une classe
+
+00:02:07.920 --> 00:02:09.470 align:middle
+qui permet d'avoir des
+instances de taille variable ont
+
+00:02:10.000 --> 00:02:12.900 align:middle
+une zone indexée, qui vient
+s'ajouter après les variables
+
+00:02:13.100 --> 00:02:15.420 align:middle
+d'instance qui sont
+nommées, comme X Y.
+
+00:02:15.770 --> 00:02:18.000 align:middle
+Et elle est implicite et il
+n'y en a qu'une par classe
+
+00:02:18.820 --> 00:02:20.540 align:middle
+pour des problèmes
+d'implémentation, sinon on ne saurait
+
+00:02:20.740 --> 00:02:23.820 align:middle
+pas comment ça grandit. Donc
+voilà, vous avez vu comment
+
+00:02:24.020 --> 00:02:27.890 align:middle
+on crée des classes dont les
+instances ont une taille variable.
+
+00:02:28.860 --> 00:02:30.880 align:middle
+Maintenant, comment on les
+instancie, on l'a déjà vu tout
+
+00:02:31.080 --> 00:02:32.900 align:middle
+au début du cours mais on
+va regarder, et comment on
+
+00:02:33.100 --> 00:02:34.190 align:middle
+accède à cette taille variable.
+
+00:02:36.340 --> 00:02:40.190 align:middle
+En fait, on les instancie en
+utilisant le message "New:".
+
+00:02:41.070 --> 00:02:43.000 align:middle
+Ce qui est important
+c'est le message "New:".
+
+00:02:43.180 --> 00:02:46.310 align:middle
+On a vu ça dans le cours sur les
+collections mais c'est bien de le rappeler.
+
+00:02:46.720 --> 00:02:49.480 align:middle
+Là ça nous donne: "OK, je
+veux créer un objet de taille
+
+00:02:49.680 --> 00:02:52.680 align:middle
+variable et la taille
+variable de cet objet est spécifiée
+
+00:02:52.880 --> 00:02:54.390 align:middle
+par la valeur max
+qui est donnée ici".
+
+00:02:54.720 --> 00:02:58.060 align:middle
+Donc là, je crée un objet, un
+tableau, qui aura 4 éléments.
+
+00:03:02.000 --> 00:03:04.180 align:middle
+Comment je vais accéder
+à cette taille variable?
+
+00:03:04.820 --> 00:03:08.200 align:middle
+Je vais accéder avec les
+messages "At" et "at put" que
+
+00:03:08.400 --> 00:03:10.760 align:middle
+vous avez vus sur les
+tableaux. Et ça, ça va marcher pour
+
+00:03:10.960 --> 00:03:13.680 align:middle
+tous les objets qui
+ont une taille variable.
+
+00:03:14.320 --> 00:03:17.510 align:middle
+Donc là, si je mets "At 2",
+ici je vais mettre "Lulu".
+
+00:03:21.180 --> 00:03:23.870 align:middle
+Si je regarde et que
+j'accède à la valeur 1, ça va me
+
+00:03:24.070 --> 00:03:26.530 align:middle
+rendre 1 000, c'est normal.
+Et si je regarde quelle est
+
+00:03:26.730 --> 00:03:29.550 align:middle
+la valeur 2, ça me donnera "Lulu".
+
+00:03:30.100 --> 00:03:34.900 align:middle
+Donc, en fait, il y a un
+mapping entre les tableaux et
+
+00:03:35.100 --> 00:03:38.060 align:middle
+les objets à taille
+variable en utilisant "at put" et
+
+00:03:38.260 --> 00:03:40.580 align:middle
+"New" parce que ce
+protocole-là, d'API, va fonctionner
+
+00:03:40.780 --> 00:03:44.610 align:middle
+pour les Array et pour tous
+les objets dont on voudrait
+
+00:03:44.810 --> 00:03:47.270 align:middle
+qu'ils aient une taille
+variable, plus "Variable Size".
+
+00:03:50.110 --> 00:03:52.430 align:middle
+Finalement, je ne vous ai
+pas appris grand-chose dans ce
+
+00:03:52.630 --> 00:03:54.280 align:middle
+cours, je vous ai juste
+montré comment on définissait la
+
+00:03:54.480 --> 00:03:56.350 align:middle
+ classe "Array" et comment
+ça se généralise à d'autres
+
+00:03:56.550 --> 00:03:58.160 align:middle
+objets, parce que vous
+connaissiez déjà le protocole.
+
+00:03:59.850 --> 00:04:01.860 align:middle
+Donc finalement, si on
+regarde dans Pharo, on a des
+
+00:04:02.060 --> 00:04:05.850 align:middle
+objets ou des classes qui ont ce
+qu'on appelle des formes différentes.
+
+00:04:06.070 --> 00:04:09.690 align:middle
+On va avoir des classes qui
+n'ont que des variables d'instance
+
+00:04:09.890 --> 00:04:14.070 align:middle
+nommées, comme le Counter
+avec 40 ou la classe D avec le
+
+00:04:14.270 --> 00:04:18.150 align:middle
+nombre de faces. Après, on
+va avoir des classes qui ont
+
+00:04:18.350 --> 00:04:22.740 align:middle
+seulement une zone variable ou
+indexée, comme la classe "Array".
+
+00:04:22.940 --> 00:04:26.090 align:middle
+Et puis après, on va voir les autres
+qui peuvent être un mélange des deux.
+
+00:04:27.000 --> 00:04:30.090 align:middle
+Donc là on a quelques
+contraintes, on peut faire ça,mais
+
+00:04:30.290 --> 00:04:31.280 align:middle
+c'est un petit peu plus subtil.
+
+00:04:31.480 --> 00:04:34.550 align:middle
+Ça veut dire qu'on peut
+maintenant décider quel est le
+
+00:04:34.750 --> 00:04:36.650 align:middle
+type de classe variable.
+Là, je ne veux aller dans les
+
+00:04:36.850 --> 00:04:38.030 align:middle
+détails je veux juste
+vous donner l'intention.
+
+00:04:38.360 --> 00:04:41.750 align:middle
+Je peux dire que la classe,
+la partie variable, va être
+
+00:04:41.950 --> 00:04:46.610 align:middle
+juste des pointeurs sur
+des objets, ou des bytes
+
+00:04:46.860 --> 00:04:50.610 align:middle
+ou des words. On a besoin de ça
+parce que parfois, pour s'interfacer
+
+00:04:50.810 --> 00:04:52.810 align:middle
+avec le monde extérieur, on a
+besoin de pouvoir spécifier.
+
+00:04:53.010 --> 00:04:55.380 align:middle
+Moi, je veux une taille, et
+je veux dans cette taille,
+
+00:04:55.580 --> 00:04:58.640 align:middle
+mettre des pointeurs sur des
+objets qui ont une certaine forme.
+
+00:04:59.240 --> 00:05:02.870 align:middle
+Cette partie est vraiment avancée,
+mais c'est juste pour vous montrer.
+
+00:05:03.070 --> 00:05:06.360 align:middle
+Donc vous, souvent, vous allez
+rester dans ce monde-là, avec subclass.
+
+00:05:06.730 --> 00:05:09.170 align:middle
+De temps en temps, vous
+allez utiliser variableSubclass.
+
+00:05:10.700 --> 00:05:13.620 align:middle
+Et par exemple, Bitmap, qui est
+l'objet qui représente l'écran,
+
+00:05:14.820 --> 00:05:19.600 align:middle
+est vraiment un objet qui a
+une zone variable qui sont
+
+00:05:19.800 --> 00:05:23.220 align:middle
+des Word. C'était juste
+pour vous dire que ça existe.
+
+00:05:24.120 --> 00:05:27.260 align:middle
+Le système, comme je vous
+l'ai dit, est un système
+
+00:05:27.460 --> 00:05:29.700 align:middle
+réflexif, on peut lui
+poser des questions.
+
+00:05:29.920 --> 00:05:32.580 align:middle
+Vous pouvez donc très bien
+demander, en utilisant ces
+
+00:05:32.780 --> 00:05:36.010 align:middle
+méthodes-là, si c'est une
+taille fixe, si c'est une
+
+00:05:36.940 --> 00:05:39.160 align:middle
+taille variable, si ce
+sont des pointeurs, si ce sont
+
+00:05:39.360 --> 00:05:41.570 align:middle
+plutôt des bytes qui
+sont stockés, et caetera.
+
+00:05:41.770 --> 00:05:45.470 align:middle
+Donc on a toute l'API pour
+pouvoir demander de quelle
+
+00:05:45.670 --> 00:05:48.360 align:middle
+sorte sont les classes.
+C'est comme ça qu'on a fait cette
+
+00:05:48.560 --> 00:05:49.740 align:middle
+liste, en faisant des
+queries dans le système.
+
+00:05:51.240 --> 00:05:55.920 align:middle
+Maintenant, il y a une
+contrainte: les classes définies
+
+00:05:56.750 --> 00:06:00.580 align:middle
+en utilisant subclass peuvent avoir
+n'importe quelle sorte de sous-classe.
+
+00:06:00.780 --> 00:06:04.560 align:middle
+Ça veut dire que si j'ai
+des points avec X Y, je vais
+
+00:06:04.760 --> 00:06:08.140 align:middle
+pouvoir mettre une
+sous-classe qui va être Z, ou une
+
+00:06:08.340 --> 00:06:12.240 align:middle
+sous-classe qui va être X
+Y plus une taille variable.
+
+00:06:14.520 --> 00:06:19.400 align:middle
+Quand vous voulez faire une
+sous-classe d'une classe qui
+
+00:06:19.600 --> 00:06:23.690 align:middle
+est déjà une variable, vous
+pouvez utiliser exclusivement
+
+00:06:24.430 --> 00:06:26.470 align:middle
+des classes qui sont
+variables, c'est comme ça.
+
+00:06:26.910 --> 00:06:29.080 align:middle
+Le système qui construit les
+ classes va vérifier et dire
+
+00:06:29.280 --> 00:06:30.530 align:middle
+"Non, c'est incompatible,
+je ne peux pas le faire".
+
+00:06:30.730 --> 00:06:33.830 align:middle
+Pourquoi? Parce que lui a
+besoin de savoir qu'il n'y a
+
+00:06:34.030 --> 00:06:35.880 align:middle
+qu'une zone et
+traiter les contraintes.
+
+00:06:36.080 --> 00:06:37.600 align:middle
+Donc, de toute façon, le
+système vous dira que ce n'est
+
+00:06:37.800 --> 00:06:40.170 align:middle
+pas possible de le créer. C'était
+juste pour vous dire que ça existe.
+
+00:06:41.610 --> 00:06:43.940 align:middle
+Donc, ce que vous devez
+savoir finalement maintenant, c'est
+
+00:06:45.860 --> 00:06:49.610 align:middle
+comment on définit des
+ classes dont les instances ont une
+
+00:06:49.810 --> 00:06:54.230 align:middle
+taille variable, comment on
+les instancie, avec New:, et
+
+00:06:56.890 --> 00:06:59.780 align:middle
+comment on y accède avec
+les protocoles qui sont les
+
+00:07:00.000 --> 00:07:01.820 align:middle
+protocoles que vous
+avez vus sur les tableaux.
+

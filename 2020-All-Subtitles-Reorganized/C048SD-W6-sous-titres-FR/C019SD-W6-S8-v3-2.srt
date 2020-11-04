@@ -1,0 +1,484 @@
+1
+00:00:00,590 --> 00:00:02,250
+Bonjour. Dans cette
+séquence on va revenir sur quelque
+
+2
+00:00:02,450 --> 00:00:04,170
+chose encore, que vous
+avez des déjà vue dans les
+
+3
+00:00:04,370 --> 00:00:06,730
+séquences précédentes,
+mais on va réenfoncer le clou,
+
+4
+00:00:07,170 --> 00:00:10,560
+donc sur les tableaux
+littéraux et les tableaux
+
+5
+00:00:10,760 --> 00:00:12,110
+dynamiques, donc la
+différence entre les 2.
+
+6
+00:00:13,180 --> 00:00:15,900
+Donc ce que vous allez
+apprendre c'est vraiment que l'es
+
+7
+00:00:16,100 --> 00:00:17,330
+tableaux littéraux ne
+sont pas créés par envoi de
+
+8
+00:00:17,530 --> 00:00:22,160
+messages, les tableaux dynamiques
+sont vraiment créés à l'exécution,
+
+9
+00:00:22,360 --> 00:00:24,920
+grâce à des envois de
+messages, mais que tous les 2 dans
+
+10
+00:00:25,120 --> 00:00:26,720
+les 2 cas sont des
+instances de la classe Array.
+
+11
+00:00:26,920 --> 00:00:29,460
+Donc c'est juste 2 méthodes de
+création de tableaux différents.
+
+12
+00:00:30,300 --> 00:00:33,170
+Donc vous vous souvenez,
+pour créer un tableau literal on
+
+13
+00:00:33,390 --> 00:00:37,000
+utilise la syntaxe Dièse
+parenthèse et, puis au milieu je
+
+14
+00:00:37,200 --> 00:00:40,080
+peux mettre n'importe quel
+objet sous sa forme textuelle.
+
+15
+00:00:40,570 --> 00:00:44,240
+Donc l'entier 45, la
+Chaîne de caractères "Milou", le
+
+16
+00:00:44,440 --> 00:00:48,190
+nombre 1 300, le booléen true
+et puis ici un symbole #tintin.
+
+17
+00:00:48,870 --> 00:00:52,250
+D'accord. Donc si je
+demande la classe à ce tableau, sa
+
+18
+00:00:52,450 --> 00:00:55,070
+ classe à cet objet
+littéral, il me rend bien "Array".
+
+19
+00:00:55,270 --> 00:00:56,270
+Donc c'est bien une
+instance de la classe Array.
+
+20
+00:00:57,060 --> 00:01:00,740
+Donc la version dynamique,
+le pendant dynamique de ce
+
+21
+00:01:00,940 --> 00:01:04,210
+tableau literal, la voici, d'accord.
+
+22
+00:01:04,410 --> 00:01:06,650
+Donc pour créer un
+tableau long je prends la classe
+
+23
+00:01:06,850 --> 00:01:09,450
+Array, je vais en créer une
+instance, là c'est grâce à la
+
+24
+00:01:09,650 --> 00:01:10,410
+méthode "with with with with".
+
+25
+00:01:10,610 --> 00:01:13,260
+D'accord, que je vais
+envoyer avec tous les paramètres et
+
+26
+00:01:13,460 --> 00:01:16,460
+ça me crée bien un tableau,
+d'accord, une instance de la
+
+27
+00:01:16,660 --> 00:01:18,360
+ classe Array qui est
+complètement équivalente à celle du dessus.
+
+28
+00:01:18,710 --> 00:01:21,610
+C'est juste 2 manières de
+créer des objets différentes.
+
+29
+00:01:22,740 --> 00:01:25,550
+Alors la version dynamique, je vous
+en montre encore une nouvelle version.
+
+30
+00:01:25,860 --> 00:01:29,590
+Donc j'aurais pu créer ici
+un tableau manuellement, en
+
+31
+00:01:29,790 --> 00:01:33,000
+envoyant un message "new" à la
+ classe "Array" et puis j'aurais
+
+32
+00:01:33,200 --> 00:01:36,510
+pu faire des "at put",
+d'accord, pour remplir les cases
+
+33
+00:01:36,710 --> 00:01:39,430
+du tableau et puis retourner
+le tableau in fine, d'accord.
+
+34
+00:01:39,630 --> 00:01:41,770
+C'est encore une manière de
+créer un tableau dynamiquement.
+
+35
+00:01:42,710 --> 00:01:46,120
+Mais en fait on a une
+syntaxe particulière qui est du
+
+36
+00:01:46,320 --> 00:01:51,170
+sucre syntaxique en fait,
+avec les accolades, d'accord.
+
+37
+00:01:51,370 --> 00:01:52,760
+Donc les accolades, ça
+me permet juste d'écrire
+
+38
+00:01:53,000 --> 00:01:55,420
+exactement ce que j'ai
+écrit dans la version du dessus
+
+39
+00:01:55,620 --> 00:01:59,150
+ici, mais plus rapidement.
+Donc de façon plus concise.
+
+40
+00:02:00,180 --> 00:02:01,520
+Qui est
+complètement équivalente aussi.
+
+41
+00:02:02,170 --> 00:02:05,770
+Donc c'est-à-dire, je vais
+utiliser des accolades et je
+
+42
+00:02:06,000 --> 00:02:07,830
+vais mettre des
+expressions, un ensemble d'expressions,
+
+43
+00:02:08,030 --> 00:02:10,800
+séparé par des points qui vont
+être évalués pour créer la collection.
+
+44
+00:02:11,770 --> 00:02:16,410
+Donc la grosse différence
+entre un tableau literal et un
+
+45
+00:02:16,610 --> 00:02:20,270
+tableau créé
+dynamiquement, grâce aux accolades, la
+
+46
+00:02:20,470 --> 00:02:24,100
+voici, c'est que je prends
+une expression par exemple, je
+
+47
+00:02:24,300 --> 00:02:25,600
+dis, je vous donne l'exemple ici.
+
+48
+00:02:25,800 --> 00:02:27,750
+Je prends une
+variable, j'initialise à 12.
+
+49
+00:02:28,460 --> 00:02:31,810
+Et je veux créer un
+tableau ici et je mets Dièse
+
+50
+00:02:32,010 --> 00:02:35,200
+parenthèse, donc c'est un
+tableau literal, je fais "a + 1.
+
+51
+00:02:35,440 --> 00:02:37,900
+13" ça va me rendre
+le tableau suivant.
+
+52
+00:02:38,870 --> 00:02:41,030
+D'accord. Donc c'est un
+tableau qui va contenir le
+
+53
+00:02:41,230 --> 00:02:43,770
+symbole "a" le symbole
+"+", l'entier "1", le symbole.
+
+54
+00:02:44,520 --> 00:02:47,530
+et l'entier 13. Je fais la
+même chose ici avec un tableau
+
+55
+00:02:47,730 --> 00:02:51,690
+dynamique : a =12 { A + 1.
+
+56
+00:02:51,890 --> 00:02:56,000
+13} et j'obtiens un
+tableau à 2 éléments,
+
+57
+00:02:56,610 --> 00:02:59,000
+13 et 13. Pourquoi ?
+
+58
+00:02:59,450 --> 00:03:04,250
+Parce que a+1 a été évalué
+comme une expression d'accord.
+
+59
+00:03:04,450 --> 00:03:08,240
+Donc ça a a vaut 12, plus
+1, 13 donc on a bien évalué
+
+60
+00:03:08,440 --> 00:03:11,150
+chacune des expressions
+séparées par des points avant de
+
+61
+00:03:11,350 --> 00:03:12,110
+construire le tableau.
+
+62
+00:03:13,000 --> 00:03:15,080
+Donc la grosse différence,
+elle est vraiment ici, c'est
+
+63
+00:03:15,280 --> 00:03:17,000
+ça qui est important,
+c'est que quand j'utilise les
+
+64
+00:03:17,200 --> 00:03:19,700
+accolades, ça exécute les
+expressions, alors que j'utilise
+
+65
+00:03:19,900 --> 00:03:23,160
+Dièse parenthèses à un
+tableau literal, les expressions à
+
+66
+00:03:23,360 --> 00:03:25,210
+l'intérieur ne sont
+pas du tout exécutées.
+
+67
+00:03:26,180 --> 00:03:30,560
+Et pourquoi? Parce que c'est
+le compilateur qui va créer
+
+68
+00:03:31,000 --> 00:03:34,600
+le tableau quand c'est dans
+le cas d'un tableau literal.
+
+69
+00:03:35,220 --> 00:03:39,110
+Donc je vous en montre ici, un
+autre exemple un peu plus compliqué.
+
+70
+00:03:39,340 --> 00:03:42,000
+Donc ici je fais Dièse
+parenthèse et puis je réutilise
+
+71
+00:03:42,300 --> 00:03:45,480
+des parenthèses à l'intérieur.
+Donc là c'est un point, d'accord,
+
+72
+00:03:46,000 --> 00:03:48,670
+et puis je réutilise des
+parenthèses à l'intérieur, et caetera.
+
+73
+00:03:49,060 --> 00:03:51,610
+On voit qu'en fait il n'y a
+rien qui a été interprété au
+
+74
+00:03:51,810 --> 00:03:54,690
+moment dans ce tableau
+littéral, d'accord, puisqu'il a
+
+75
+00:03:54,890 --> 00:03:58,450
+été créé à la compilation
+par le compilateur et donc on a
+
+76
+00:03:58,650 --> 00:04:03,120
+un tableau qui contient
+des sous- tableaux, d'accord,
+
+77
+00:04:03,320 --> 00:04:04,210
+vous les voyez ici.
+
+78
+00:04:05,490 --> 00:04:09,900
+OK. Donc le premier
+sous-tableau contient "10", le
+
+79
+00:04:10,630 --> 00:04:13,630
+symbole "arobase" et
+l'entier "20" et caetera.
+
+80
+00:04:14,230 --> 00:04:15,000
+D'accord.
+
+81
+00:04:15,190 --> 00:04:17,330
+Donc pour preuve si je
+demande l'élément "1" de ce
+
+82
+00:04:17,530 --> 00:04:19,130
+tableau, je récupère bien un tableau.
+
+83
+00:04:19,600 --> 00:04:22,360
+Donc dès que je vais
+mettre des parenthèses dans un
+
+84
+00:04:22,560 --> 00:04:24,670
+tableau literal, ça va
+créer des sous-tableaux.
+
+85
+00:04:26,380 --> 00:04:29,610
+Donc en résumé ce qu'il
+faut retenir c'est qu'on a une
+
+86
+00:04:29,810 --> 00:04:32,480
+seule sorte de tableau en
+Pharo, c'est-à dire que la
+
+87
+00:04:32,680 --> 00:04:34,060
+ classe "Array" et les
+instances de la classe "Array".
+
+88
+00:04:34,620 --> 00:04:37,080
+Mais on a plusieurs façons
+d'instancier cette classe
+
+89
+00:04:37,280 --> 00:04:38,300
+Array, de créer des tableaux.
+
+90
+00:04:38,760 --> 00:04:42,470
+Donc on a une première forme qui
+est la syntaxe littérale, # ().
+
+91
+00:04:42,840 --> 00:04:44,370
+Attention, les tableaux
+vont être créés par le
+
+92
+00:04:44,570 --> 00:04:46,510
+compilateur au
+moment de la compilation.
+
+93
+00:04:47,440 --> 00:04:50,540
+On a la forme dynamique la
+plus simple, "Array new", j'envoie
+
+94
+00:04:50,740 --> 00:04:52,190
+le message new à la classe
+array, donc je vais créer
+
+95
+00:04:52,390 --> 00:04:53,580
+dynamiquement le tableau.
+
+96
+00:04:53,780 --> 00:04:56,830
+Et on a une forme plus
+compacte syntaxiquement, mais qui
+
+97
+00:04:57,030 --> 00:05:01,040
+est aussi dynamique, avec
+les accolades, { ouvrante et }
+
+98
+00:05:01,240 --> 00:05:03,390
+fermante, où vais mettre des
+expressions séparées par des
+
+99
+00:05:03,590 --> 00:05:05,320
+points, qui seront évaluées
+pour construire le tableau.
+

@@ -1,0 +1,174 @@
+WEBVTT
+
+00:00:01.350 --> 00:00:04.550 align:middle
+このビデオでは
+Nautilusでの小技をお見せします。
+
+00:00:06.450 --> 00:00:09.370 align:middle
+ちなみに
+Nautilus(ノーチラス)は
+
+00:00:09.370 --> 00:00:11.500 align:middle
+ジュール・ベルヌの「海底2万海里」
+に出てくる潜水艦の名前です。
+
+00:00:11.500 --> 00:00:14.420 align:middle
+Nautilus は海中を航海できるので
+
+00:00:14.420 --> 00:00:15.490 align:middle
+Pharo にとてもとてもピッタリなのです。
+
+00:00:16.920 --> 00:00:18.430 align:middle
+OrderedCollection クラスを見てみましょう。
+
+00:00:25.260 --> 00:00:28.070 align:middle
+Collection-Sequenceable パッケージで
+定義されています。
+
+00:00:30.040 --> 00:00:32.500 align:middle
+このパッケージには
+システムのコアなクラスがいくつか入っています。
+
+00:00:32.500 --> 00:00:36.400 align:middle
+Array(配列)クラスやInterval(区間)や
+LinkedList(連結リスト)があります。
+
+00:00:36.960 --> 00:00:40.070 align:middle
+このパッケージを見れば
+
+00:00:40.070 --> 00:00:42.840 align:middle
+OrderedCollection クラスがあり
+そのサブクラスに SortedCollectionがあります。
+
+00:00:42.840 --> 00:00:47.280 align:middle
+ほかには
+
+00:00:47.280 --> 00:00:51.390 align:middle
+グラフィカルには表示されませんが
+
+00:00:52.380 --> 00:00:55.800 align:middle
+OrderedCollection は
+SequenceableCollection のサブクラスです。
+
+15 align:middle
+00:00:57,920 --> 00:00:59,820
+ときどき
+
+00:00:59.820 --> 00:01:02.390 align:middle
+スーパークラスの中だけを
+辿って見たいことがあります。
+
+00:01:02.390 --> 00:01:04.410 align:middle
+どのメソッドが再定義されているかとか
+そういうことです。
+
+00:01:06.160 --> 00:01:09.510 align:middle
+そのためには
+Inheritance をクリックしてください。
+
+00:01:13.110 --> 00:01:16.120 align:middle
+つまり階層を見るのです。
+OrderedCollectionのスーパークラスの
+
+00:01:17.140 --> 00:01:20.430 align:middle
+SequenceableCollection と
+その階層が見えます。
+
+00:01:23.450 --> 00:01:26.550 align:middle
+また、OrderedCollectionのサブクラスで
+他のパッケージに格納されている
+
+00:01:26.990 --> 00:01:29.950 align:middle
+他のサブクラスが見えます。
+そして
+
+00:01:29.950 --> 00:01:32.210 align:middle
+SortedCollection はOrderedCollectionの
+サブクラスだとわかります。
+
+00:01:33.050 --> 00:01:37.660 align:middle
+黒字で表示されているので
+これは
+
+00:01:37.660 --> 00:01:40.210 align:middle
+OrderedCollectionと同じパッケージです。
+
+00:01:41.190 --> 00:01:46.090 align:middle
+同じようにブラウズして
+
+00:01:46.090 --> 00:01:47.850 align:middle
+他のパッケージに格納されている
+メソッドを見ることができます。
+
+00:01:50.490 --> 00:01:55.230 align:middle
+ここで
+スーパークラスを見ている時に
+
+00:01:55.230 --> 00:01:56.890 align:middle
+このモードを選択するのをやめたら
+どうなるでしょう？
+
+00:01:57.340 --> 00:02:00.330 align:middle
+そのクラスのパッケージが見えます。
+
+00:02:00.650 --> 00:02:03.450 align:middle
+つまり、SequenceableCollection クラスが
+
+00:02:03.450 --> 00:02:04.440 align:middle
+Collection-Abstract パッケージに
+格納されています。
+
+00:02:05.470 --> 00:02:08.180 align:middle
+ではここでもう一度
+Inheritanceを見たらどうでしょう。
+
+00:02:08.180 --> 00:02:12.490 align:middle
+SequenceableCollection の
+全てのサブクラスと全てのスーパークラスが
+
+00:02:12.490 --> 00:02:13.480 align:middle
+見えます。
+
+36 align:middle
+00:02:14,570 --> 00:02:17,990
+SequenceableCollection は
+
+00:02:17.990 --> 00:02:20.640 align:middle
+同じパッケージのCollection を継承して
+
+00:02:20.640 --> 00:02:25.260 align:middle
+同じパッケージの ArrayedCollectionを定義しています。
+
+00:02:25.260 --> 00:02:27.490 align:middle
+階層がとても大きいことがわかります。
+
+00:02:27.490 --> 00:02:30.620 align:middle
+OrderedCollection を探さなければなりません。
+OrderedCollection はここにありました。
+
+00:02:30.650 --> 00:02:34.190 align:middle
+さて
+また OrderedCollection を選択して
+
+00:02:34.190 --> 00:02:36.700 align:middle
+また Inheritance をクリックしたら
+
+00:02:36.700 --> 00:02:39.390 align:middle
+元のパッケージである
+Sequenceable に戻ります。
+
+00:02:40.860 --> 00:02:42.440 align:middle
+スタート地点に戻りました。
+
+00:02:43.810 --> 00:02:46.670 align:middle
+ここでお見せしたのは
+Nautilus を使って
+
+00:02:46.670 --> 00:02:50.260 align:middle
+パッケージを無視して
+継承に従ってブラウズできることです。
+
+00:02:50.610 --> 00:02:54.130 align:middle
+ただし今どのパッケージをブラウズしているか
+表示しながら。
+

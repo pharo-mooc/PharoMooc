@@ -1,0 +1,355 @@
+1
+00:00:00,840 --> 00:00:00,880
+"Redo: Package,
+Classes and Methods"
+
+2
+00:00:01,640 --> 00:00:01,680
+Quentin Ducasse.
+
+3
+00:00:02,880 --> 00:00:03,760
+-Hello, everyone.
+
+4
+00:00:04,080 --> 00:00:05,600
+In this first redo,
+
+5
+00:00:05,920 --> 00:00:08,240
+we are going to look
+at how to create a package,
+
+6
+00:00:08,560 --> 00:00:10,520
+how to create a class within the package,
+
+7
+00:00:10,840 --> 00:00:12,280
+and how to define some methods
+
+8
+00:00:12,600 --> 00:00:15,080
+and see if everything
+is working correctly.
+
+9
+00:00:15,760 --> 00:00:19,160
+First, you can open the Pharo menu.
+
+10
+00:00:19,800 --> 00:00:21,760
+Then you go to the Tools,
+
+11
+00:00:22,080 --> 00:00:23,080
+and System Browser.
+
+12
+00:00:23,400 --> 00:00:25,400
+There, you can see all the packages
+
+13
+00:00:25,720 --> 00:00:27,320
+that are loaded
+within your image,
+
+14
+00:00:27,640 --> 00:00:29,680
+so there are quite a lot.
+
+15
+00:00:30,000 --> 00:00:34,280
+Since we want to create a new one,
+we can right-click on any of them
+
+16
+00:00:34,840 --> 00:00:37,120
+and just go to New package,
+
+17
+00:00:37,560 --> 00:00:42,280
+say "MyCounter", press "OK".
+
+18
+00:00:43,520 --> 00:00:45,640
+Our package has been created there
+
+19
+00:00:46,040 --> 00:00:49,280
+but since we do not really want
+to see all the other ones,
+
+20
+00:00:49,600 --> 00:00:53,160
+we can just filter them out
+to "MyCounter".
+
+21
+00:00:54,000 --> 00:00:57,800
+There, our package is there,
+it is quite empty
+
+22
+00:00:58,400 --> 00:01:00,920
+and we have a template
+to create a class
+
+23
+00:01:01,240 --> 00:01:04,600
+so it will be a subclass
+of the class "Object"
+
+24
+00:01:05,200 --> 00:01:06,240
+and we can name it there.
+
+25
+00:01:06,560 --> 00:01:08,320
+Let's name it "Counter"
+
+26
+00:01:08,960 --> 00:01:12,680
+and we can attribute
+an instance variable to it
+
+27
+00:01:13,000 --> 00:01:15,000
+so let's go with "count".
+
+28
+00:01:16,400 --> 00:01:19,360
+Then, we can see
+that there is this orange triangle
+
+29
+00:01:19,680 --> 00:01:20,760
+in the top right corner.
+
+30
+00:01:21,080 --> 00:01:23,680
+This means that your method
+has not been compiled
+
+31
+00:01:24,000 --> 00:01:27,840
+and in order to do so,
+you can right-click and go to "Accept"
+
+32
+00:01:28,200 --> 00:01:30,360
+or press the shortcut Cmd+S.
+
+33
+00:01:30,680 --> 00:01:31,920
+Let's just accept.
+
+34
+00:01:32,960 --> 00:01:35,040
+There it is,
+our class has been created
+
+35
+00:01:35,360 --> 00:01:38,680
+but there is a red exclamation mark
+on the right side.
+
+36
+00:01:39,440 --> 00:01:41,160
+This means that there is no comment.
+
+37
+00:01:41,480 --> 00:01:43,200
+As you can see there,
+there is a comment,
+
+38
+00:01:43,520 --> 00:01:47,440
+but it is simply recommendations
+on how to comment your class.
+
+39
+00:01:48,160 --> 00:01:52,800
+You are encouraged to do it
+but we are not going to do it right now.
+
+40
+00:01:53,360 --> 00:01:55,640
+We are just going to do
+the right method,
+
+41
+00:01:55,960 --> 00:01:58,440
+so let's just go this tab right here.
+
+42
+00:01:59,080 --> 00:02:00,280
+Let's double-click
+
+43
+00:02:00,600 --> 00:02:04,920
+and write some accessors
+to our instance variable.
+
+44
+00:02:05,240 --> 00:02:07,200
+So, let's go to "count".
+
+45
+00:02:07,920 --> 00:02:09,160
+This will be the getter.
+
+46
+00:02:09,480 --> 00:02:12,560
+Let's just write
+the "count" instance variable.
+
+47
+00:02:13,480 --> 00:02:17,800
+The orange triangle is there,
+so press Cmd+S.
+
+48
+00:02:19,120 --> 00:02:20,600
+Our method is there.
+
+49
+00:02:21,280 --> 00:02:24,680
+Now, if we want to make the setter,
+
+50
+00:02:25,000 --> 00:02:28,600
+let's just count and pass it an integer.
+
+51
+00:02:29,480 --> 00:02:33,800
+And the "count" variable should now
+
+52
+00:02:34,400 --> 00:02:35,920
+get the value of this integer
+
+53
+00:02:36,240 --> 00:02:39,320
+so we can just write this like that.
+
+54
+00:02:40,280 --> 00:02:42,480
+Compile it again, Cmd+S.
+
+55
+00:02:43,240 --> 00:02:45,840
+We have our two accessors.
+
+56
+00:02:46,280 --> 00:02:47,640
+They have been put
+
+57
+00:02:47,960 --> 00:02:50,400
+into the "accessing" protocol
+automatically
+
+58
+00:02:50,720 --> 00:02:52,040
+and this is correct.
+
+59
+00:02:52,360 --> 00:02:56,840
+Now, let's see if we can make
+all those work.
+
+60
+00:02:57,160 --> 00:03:00,160
+Let's go to another tool
+called the Playground.
+
+61
+00:03:00,480 --> 00:03:03,400
+Let's just go to the Pharo menu,
+to Tools,
+
+62
+00:03:04,000 --> 00:03:05,320
+then Playground.
+
+63
+00:03:06,160 --> 00:03:12,280
+And from there, we can create
+a temporary variable that we call c.
+
+64
+00:03:13,800 --> 00:03:15,160
+We can make it a counter
+
+65
+00:03:15,480 --> 00:03:18,800
+so "c = Counter new".
+
+66
+00:03:19,760 --> 00:03:24,160
+And now, we want
+the count instance variable to be 7.
+
+67
+00:03:25,360 --> 00:03:30,080
+And in order to see if this chain
+has common effects,
+
+68
+00:03:30,400 --> 00:03:32,800
+we can just call the getter "c count".
+
+69
+00:03:33,480 --> 00:03:34,600
+In order to see everything,
+
+70
+00:03:34,920 --> 00:03:37,480
+we can double-click at the end
+so it selects everything
+
+71
+00:03:37,800 --> 00:03:41,880
+and then press Cmd+P
+or just right-click and go to "Print it".
+
+72
+00:03:42,640 --> 00:03:44,720
+We can see that this is 7,
+
+73
+00:03:45,040 --> 00:03:48,360
+this is the value we attributed to
+the instance variable so it is correct.
+
+74
+00:03:48,760 --> 00:03:49,720
+In this video,
+
+75
+00:03:50,040 --> 00:03:52,800
+we saw how to create a package,
+a class,
+
+76
+00:03:53,120 --> 00:03:55,440
+some accessor methods
+
+77
+00:03:56,000 --> 00:03:58,560
+and how we can visualize it
+in the Playground,
+
+78
+00:03:59,240 --> 00:04:00,760
+but this behavior right here,
+
+79
+00:04:01,080 --> 00:04:03,040
+we might want to put this into test
+
+80
+00:04:03,360 --> 00:04:05,640
+and we will see that
+in the next part of the redo.

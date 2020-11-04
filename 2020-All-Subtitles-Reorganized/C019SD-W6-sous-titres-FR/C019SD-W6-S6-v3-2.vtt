@@ -1,0 +1,651 @@
+WEBVTT
+
+00:00:00.390 --> 00:00:04.100 align:middle
+Salut. Dans ce cours,
+j'aimerais aborder avec vous
+
+00:00:04.780 --> 00:00:07.820 align:middle
+comment l'exécution de Pharo
+fonctionne et quelles sortes
+
+00:00:08.020 --> 00:00:11.050 align:middle
+de fichiers sont
+utilisés et où et quand.
+
+00:00:11.250 --> 00:00:13.000 align:middle
+Parce que pour le moment,
+vous avez dû utiliser Pharo,
+
+00:00:13.310 --> 00:00:15.570 align:middle
+vous avez eu un point
+images, un point source et un point
+
+00:00:15.770 --> 00:00:18.270 align:middle
+change, ça doit être
+complètement obscur pour vous, ça
+
+00:00:18.470 --> 00:00:20.940 align:middle
+fonctionne très bien mais là
+j'aimerais vous expliquer ce
+
+00:00:21.140 --> 00:00:23.280 align:middle
+que ça fait exactement, de
+façon à ce que vous évitiez de
+
+00:00:23.480 --> 00:00:24.940 align:middle
+faire des bêtises dans le
+futur et que vous contrôliez un
+
+00:00:25.140 --> 00:00:26.020 align:middle
+peu mieux votre système.
+
+00:00:27.440 --> 00:00:30.800 align:middle
+En gros, le système
+d'exécution de Pharo, c'est une
+
+00:00:31.000 --> 00:00:33.000 align:middle
+machine virtuelle qui
+exécute du code compilé.
+
+00:00:33.440 --> 00:00:37.620 align:middle
+La machine virtuelle est
+spécifique à une plateforme et
+
+00:00:38.160 --> 00:00:41.000 align:middle
+il y a des VM qui existent
+pour Mac OSX, Windows, Linux,
+
+00:00:41.200 --> 00:00:43.330 align:middle
+différentes
+versions, iOS, ARM, Androïd.
+
+00:00:45.290 --> 00:00:49.810 align:middle
+C'est le modèle d'exécution
+de C sharp, de Java, c'est
+
+00:00:50.010 --> 00:00:51.050 align:middle
+exactement le même dans Pharo.
+
+00:00:52.620 --> 00:00:55.490 align:middle
+Et on a ce qu'on appelle
+une compilation multiple, ça
+
+00:00:55.690 --> 00:00:57.910 align:middle
+veut dire que le code que
+vous écrivez en Pharo est
+
+00:00:58.110 --> 00:01:01.000 align:middle
+compilé vers du bytecode. Le
+bytecode, c'est un ensemble
+
+00:01:01.200 --> 00:01:03.810 align:middle
+d'instructions qui est
+indépendant de la plateforme, et
+
+00:01:04.010 --> 00:01:06.790 align:middle
+la matière virtuelle va
+transformer dynamiquement ce
+
+00:01:07.000 --> 00:01:08.840 align:middle
+bytecode en
+assembleur lors de l'exécution.
+
+00:01:09.820 --> 00:01:11.620 align:middle
+Voilà comment fonctionne
+Pharo, c'est pareil que dans les
+
+00:01:11.820 --> 00:01:14.410 align:middle
+autres langages objet de base.
+
+00:01:16.120 --> 00:01:17.770 align:middle
+La machine
+virtuelle, c'est le fichier.
+
+00:01:18.000 --> 00:01:20.470 align:middle
+Suivant votre OS, ça va être
+le fichier qui est en point exe.
+
+00:01:20.720 --> 00:01:22.330 align:middle
+Sur Mac, ça va être en point app.
+
+00:01:22.530 --> 00:01:26.240 align:middle
+Ce sont des machines
+virtuelles que l'on peut exécuter de
+
+00:01:26.440 --> 00:01:29.750 align:middle
+2 manières, soit avec une
+instruction aux command-line,
+
+00:01:30.500 --> 00:01:33.380 align:middle
+soit en mode interactif, ça
+veut dire avec une interface
+
+00:01:33.580 --> 00:01:36.340 align:middle
+graphique, ça dépend. Par
+exemple sur Linux, quand on
+
+00:01:36.540 --> 00:01:39.830 align:middle
+utilise Pharo sur un serveur, on va
+utiliser souvent en mode command-line.
+
+00:01:41.260 --> 00:01:42.690 align:middle
+La machine virtuelle, c'est ce
+que je disais tout à l'heure,
+
+00:01:42.890 --> 00:01:46.430 align:middle
+elle prend du code compilé,
+elle génère de l'assembleur au vol.
+
+00:01:46.630 --> 00:01:50.670 align:middle
+Maintenant, le code compilé
+est packagé, stocké dans ce
+
+00:01:50.870 --> 00:01:51.680 align:middle
+qu'on appelle une image.
+
+00:01:52.390 --> 00:01:55.570 align:middle
+C'est un snapshot aussi, c'est
+un système de virtualisation.
+
+00:01:55.770 --> 00:01:58.390 align:middle
+En fait, l'image représente
+un système de virtualisation
+
+00:01:58.590 --> 00:02:00.000 align:middle
+pour les objets Pharo.
+On va voir ça juste après.
+
+00:02:01.120 --> 00:02:03.810 align:middle
+La machine virtuelle, elle,
+pour s'exécuter n'a besoin
+
+00:02:04.010 --> 00:02:07.440 align:middle
+que de l'image parce que
+c'est là où le code est compilé
+
+00:02:08.000 --> 00:02:09.950 align:middle
+et où sont les objets.
+
+00:02:10.740 --> 00:02:13.000 align:middle
+A côté de la machine
+virtuelle, on a 3 fichiers.
+
+00:02:13.560 --> 00:02:16.520 align:middle
+On a le fichier image, le
+fichier change et le fichier source.
+
+00:02:16.720 --> 00:02:19.000 align:middle
+Je vais vous expliquer chacun de ces
+fichiers et quels rôles ils jouent.
+
+00:02:20.540 --> 00:02:24.830 align:middle
+Le fichier image, c'est une sorte
+de cache qui contient des objets.
+
+00:02:25.390 --> 00:02:27.730 align:middle
+Il contient des objets
+tout simples: les points, les
+
+00:02:27.930 --> 00:02:30.690 align:middle
+chaînes, tout ce qu'on va manipuler.
+
+00:02:31.050 --> 00:02:34.580 align:middle
+Mais il contient aussi
+les méthodes compilées et en
+
+00:02:34.780 --> 00:02:37.090 align:middle
+particulier aussi les
+ classes qui ont été compilées.
+
+00:02:37.670 --> 00:02:40.680 align:middle
+À chaque fois que vous allez
+sauver votre image, tous les
+
+00:02:40.880 --> 00:02:42.010 align:middle
+objets sont sauvés sur disque.
+
+00:02:43.000 --> 00:02:45.470 align:middle
+L'image, c'est vraiment un
+système de virtualisation
+
+00:02:45.670 --> 00:02:50.350 align:middle
+avant l'heure et au
+démarrage, tous vos objets qui ont
+
+00:02:50.550 --> 00:02:53.190 align:middle
+été ça sérialisés sur disque
+vont être remis en mémoire,
+
+00:02:53.670 --> 00:02:56.840 align:middle
+en particulier le pointeur
+de programme va aussi être
+
+00:02:57.040 --> 00:03:01.750 align:middle
+sauvé et rétabli exactement
+à l'endroit où il était avant
+
+00:03:01.950 --> 00:03:02.710 align:middle
+que vous sauviez.
+
+00:03:03.780 --> 00:03:06.510 align:middle
+Ce qu'il faut voir c'est
+que vous avez un OS, vous avez
+
+00:03:06.710 --> 00:03:10.030 align:middle
+la machine virtuelle, et sur
+cette machine virtuelle vous
+
+00:03:10.230 --> 00:03:14.060 align:middle
+avez ce système qui est en
+fait un espace mémoire dans
+
+00:03:14.260 --> 00:03:17.690 align:middle
+lequel vos objets vivent et que vous
+allez pouvoir sauver sur disque ou pas.
+
+00:03:18.730 --> 00:03:22.120 align:middle
+Et lui contient des objets
+compilés, c'est pour ça que j'ai
+
+00:03:22.320 --> 00:03:24.380 align:middle
+mis des petits 1 et 0 sur le dessin.
+
+00:03:25.460 --> 00:03:27.170 align:middle
+A côté de ça vous
+avez le fichier change.
+
+00:03:27.370 --> 00:03:31.120 align:middle
+En fait c'est un fichier qui
+contient des enregistrements.
+
+00:03:32.240 --> 00:03:35.430 align:middle
+Tout ce que vous faites
+dans Pharo est loggé, est écrit
+
+00:03:35.630 --> 00:03:38.530 align:middle
+dans une sorte de
+grande cassette virtuelle qui
+
+00:03:38.800 --> 00:03:41.000 align:middle
+représente toutes les
+additions, les modifications, tout
+
+00:03:41.200 --> 00:03:43.060 align:middle
+ce que vous avez fait. C'est
+comme Big Brother mais c'est
+
+00:03:43.260 --> 00:03:46.080 align:middle
+pour Pharo et donc on peut
+s'amuser, on peut l'utiliser
+
+00:03:46.280 --> 00:03:49.700 align:middle
+pour rejouer certaines
+séquences parce que c'est une
+
+00:03:49.900 --> 00:03:52.650 align:middle
+cassette qui contient des
+enregistrements qui sont des
+
+00:03:52.850 --> 00:03:57.740 align:middle
+actions qui modifient
+Pharo. Un fichier changes
+
+00:03:58.020 --> 00:03:59.750 align:middle
+est associé à un fichier image.
+
+00:04:00.790 --> 00:04:02.220 align:middle
+En particulier, à quoi ça sert ?
+
+00:04:02.420 --> 00:04:05.220 align:middle
+Quand vous allez définir une
+nouvelle classe, le code de
+
+00:04:05.420 --> 00:04:09.560 align:middle
+la classe n'est pas stocké
+dans le fichier image, il est
+
+00:04:09.760 --> 00:04:14.610 align:middle
+stocké dans le fichier
+changes et si vous dissociez les
+
+00:04:14.810 --> 00:04:16.930 align:middle
+2, vous allez peut-être
+perdre votre définition de code.
+
+00:04:17.130 --> 00:04:19.000 align:middle
+Le programme va continuer à
+s'exécuter mais vous allez
+
+00:04:19.200 --> 00:04:22.200 align:middle
+peut-être perdre le source
+code de votre application.
+
+00:04:23.570 --> 00:04:28.300 align:middle
+Si on regarde, j'ai mon
+image qui contient mon bytecode,
+
+00:04:30.000 --> 00:04:33.320 align:middle
+mes objets compilés et à
+côté de ça, j'ai mon fichier
+
+00:04:33.520 --> 00:04:35.110 align:middle
+changes qui contient
+une liste de changements.
+
+00:04:35.310 --> 00:04:36.730 align:middle
+Là par exemple je dis "Ah
+ben tiens, on a ajouté la
+
+00:04:36.930 --> 00:04:38.490 align:middle
+ classe Counter, on a
+ajouté la méthode increase, la
+
+00:04:38.690 --> 00:04:42.430 align:middle
+méthode decrease et on a fait la
+même chose sur d'autres classes.
+
+00:04:42.950 --> 00:04:46.350 align:middle
+" On a des outils qui
+permettent de rejouer ces changements-là.
+
+00:04:47.040 --> 00:04:48.840 align:middle
+Vous avez peut-être vu
+dans Pharo qu'on a aussi la
+
+00:04:49.040 --> 00:04:51.070 align:middle
+possibilité de browser
+différentes versions de méthodes.
+
+00:04:51.420 --> 00:04:53.540 align:middle
+Les outils qui utilisent
+différentes versions de méthodes
+
+00:04:53.740 --> 00:04:56.760 align:middle
+utilisent le point
+changes. J'ai mis ces pointillés
+
+00:04:57.360 --> 00:05:00.230 align:middle
+autour de ce couple parce
+que c'est très important de
+
+00:05:00.430 --> 00:05:04.200 align:middle
+garder le point changes et
+le point image synchronisés.
+
+00:05:04.510 --> 00:05:07.340 align:middle
+N'allez pas vous amuser à éditer avec
+emacs à l'intérieur du point changes.
+
+00:05:08.090 --> 00:05:10.300 align:middle
+Vous pouvez le faire mais ce
+n'est pas très intéressant,
+
+00:05:10.720 --> 00:05:12.070 align:middle
+parce que vous allez
+casser votre point changes.
+
+00:05:13.650 --> 00:05:15.620 align:middle
+L'image va continuer à
+fonctionner parce qu'elle s'en
+
+00:05:15.820 --> 00:05:18.320 align:middle
+sert juste, quand on est en
+mode de développement, pour
+
+00:05:18.520 --> 00:05:20.750 align:middle
+nous montrer de l'information.
+Mais c'est dommage, ne le faites pas.
+
+00:05:21.580 --> 00:05:25.240 align:middle
+De manière générale, j'ouvre
+une parenthèse, une image c'est
+
+00:05:25.440 --> 00:05:27.000 align:middle
+vraiment quelque chose de très cosy.
+
+00:05:27.290 --> 00:05:28.930 align:middle
+Vous êtes en train de
+ programmer, il y a quelqu'un qui
+
+00:05:29.130 --> 00:05:30.550 align:middle
+vous interrompt, vous
+sauvez votre image, vous allez
+
+00:05:30.750 --> 00:05:32.870 align:middle
+boire un café, vous
+relancez votre image, vous êtes
+
+00:05:33.070 --> 00:05:37.160 align:middle
+exactement dans la même
+situation. Vous avez complètement
+
+00:05:37.360 --> 00:05:40.620 align:middle
+stocké l'état de
+votre système sur disque.
+
+00:05:40.820 --> 00:05:42.730 align:middle
+Vous pouvez faire ça et
+ revenir dans 3 ans, et 3 ans en
+
+00:05:42.930 --> 00:05:45.000 align:middle
+arrière vous aurez
+exactement le même état que celui dans
+
+00:05:45.200 --> 00:05:46.190 align:middle
+lequel vous étiez 3 ans en arrière.
+
+00:05:46.890 --> 00:05:48.400 align:middle
+Le problème, c'est que d'un
+point de vue généologiciel,
+
+00:05:48.600 --> 00:05:49.710 align:middle
+ce n'est pas une bonne pratique.
+
+00:05:49.910 --> 00:05:52.010 align:middle
+Ça veut dire que c'est très
+bien de l'utiliser pour du
+
+00:05:52.210 --> 00:05:56.060 align:middle
+développement et du
+prototypage, utilisez un système de
+
+00:05:56.260 --> 00:05:59.170 align:middle
+version de contrôle, on a
+Monticello qui est un système
+
+00:05:59.370 --> 00:06:01.590 align:middle
+de version de contrôle qui
+est écrit en Pharo, il y a des
+
+00:06:01.790 --> 00:06:04.470 align:middle
+back end pour Git pour
+sauver votre code, vous le sauvez
+
+00:06:04.670 --> 00:06:08.350 align:middle
+dans un système de version
+de contrôle, et après vous
+
+00:06:08.550 --> 00:06:11.910 align:middle
+allez utiliser un serveur
+d'intégration comme Jenkins ou
+
+00:06:12.110 --> 00:06:14.760 align:middle
+Travis pour construire vos images à
+chaque fois que vous allez démarrer.
+
+00:06:16.410 --> 00:06:19.430 align:middle
+Souvent les gens qui arrivent
+sur Pharo confondent ces 2 choses.
+
+00:06:19.770 --> 00:06:21.880 align:middle
+Les images sont super
+pratiques quand on est en mode
+
+00:06:22.080 --> 00:06:25.590 align:middle
+développement, quand on
+veut faire du développement un
+
+00:06:25.790 --> 00:06:28.840 align:middle
+peu structuré et contrôler
+un peu, il faut absolument
+
+00:06:29.040 --> 00:06:32.680 align:middle
+utiliser des outils
+ classiques qui fonctionnent très bien
+
+00:06:32.880 --> 00:06:34.770 align:middle
+parce qu'en fait, on est en
+mode prototype dans certains,
+
+00:06:35.150 --> 00:06:37.960 align:middle
+quand on arrive à un point,
+on va sauver sur un système
+
+00:06:38.160 --> 00:06:39.930 align:middle
+de version et on va pouvoir
+accéder à toutes nos versions
+
+00:06:40.130 --> 00:06:43.190 align:middle
+depuis l'environnement.
+Il y a des vidéos qui vous
+
+00:06:43.390 --> 00:06:45.390 align:middle
+montreront ça ou qui vous
+ont déjà montré ça sur la
+
+00:06:45.590 --> 00:06:47.250 align:middle
+ classe Counter par exemple.
+
+00:06:47.750 --> 00:06:50.460 align:middle
+Il reste un troisième
+fichier dont je n'ai pas parlé qui
+
+00:06:50.660 --> 00:06:51.640 align:middle
+s'appelle le fichier source.
+
+00:06:52.060 --> 00:06:55.350 align:middle
+En fait, le fichier source, c'est un
+fichier changes un peu particulier.
+
+00:06:55.590 --> 00:06:59.540 align:middle
+Il va contenir toutes les
+définitions du système à l'instant T0.
+
+00:06:59.740 --> 00:07:01.880 align:middle
+A chaque fois que vous
+avez une nouvelle version de
+
+00:07:02.080 --> 00:07:03.560 align:middle
+Pharo, il y a un nouveau
+fichier point changes, et vous
+
+00:07:04.000 --> 00:07:06.580 align:middle
+voyez que ce fichier va
+contenir les définitions des
+
+00:07:06.780 --> 00:07:09.750 align:middle
+tableaux, les définitions
+des ensembles, toutes les
+
+00:07:09.950 --> 00:07:13.000 align:middle
+méthodes qui sont définies
+sur toutes les librairies
+
+00:07:14.580 --> 00:07:19.500 align:middle
+corps de Pharo. En général,
+ce fichier source vous allez
+
+00:07:19.700 --> 00:07:23.110 align:middle
+le partager et il est en
+read-only, alors que le fichier
+
+00:07:23.310 --> 00:07:25.780 align:middle
+change il y en a un par
+image et il est en écriture.
+
+00:07:26.950 --> 00:07:29.890 align:middle
+Si on regarde là ce que je
+vous montre, c'est un état du
+
+00:07:30.090 --> 00:07:33.600 align:middle
+système où on a commencé
+avec une nouvelle version de
+
+00:07:33.800 --> 00:07:37.000 align:middle
+Pharo 4 qui
+correspondait en fait à ce monde-là,
+
+00:07:39.160 --> 00:07:41.600 align:middle
+et tout d'un coup vous avez
+défini de nouvelles classes.
+
+00:07:41.800 --> 00:07:44.020 align:middle
+Là, j'ai défini la classe
+Node, donc j'ai créé des
+
+00:07:44.220 --> 00:07:47.480 align:middle
+nouveaux objets à
+l'intérieur de mon aspect binaire.
+
+00:07:47.780 --> 00:07:52.320 align:middle
+Et dans le fichier changes
+associé à mon image, j'ai eu
+
+00:07:52.520 --> 00:07:55.460 align:middle
+des nouveaux
+enregistrements qui ont été écrits ici.
+
+00:07:56.520 --> 00:07:58.320 align:middle
+Comme je vous ai dit que ce
+fichier-là, de toute façon il
+
+00:07:58.520 --> 00:08:01.910 align:middle
+était read-only, et lui il est write.
+
+00:08:03.020 --> 00:08:05.930 align:middle
+Vous voyez encore une
+fois, on va dire que
+
+00:08:06.130 --> 00:08:08.050 align:middle
+conceptuellement, ce sont
+2 fichiers qui fonctionnent
+
+00:08:08.250 --> 00:08:10.010 align:middle
+ensemble, l'image et le changes.
+
+00:08:10.550 --> 00:08:13.660 align:middle
+J'espère que ça a un peu
+clarifié les rôles de ces 3 fichiers.
+
+00:08:14.600 --> 00:08:16.860 align:middle
+Maintenant ce qu'il faut
+savoir, c'est qu'on est en train
+
+00:08:17.060 --> 00:08:20.700 align:middle
+de mettre en place un
+nouveau mécanisme de gestion de
+
+00:08:20.900 --> 00:08:23.500 align:middle
+cette cassette, de façon
+à pouvoir récupérer plus
+
+00:08:23.700 --> 00:08:25.700 align:middle
+facilement quand vous avez
+un crash ou que vous voulez
+
+00:08:25.900 --> 00:08:27.770 align:middle
+rejouer et voir toutes les
+versions de votre système.
+
+00:08:28.490 --> 00:08:30.100 align:middle
+Dans le futur, il va y
+avoir une bien meilleure
+
+00:08:30.300 --> 00:08:34.660 align:middle
+intégration avec Git, et
+aussi de meilleures façons de
+
+00:08:34.860 --> 00:08:36.610 align:middle
+produire des images de
+manière industrielle.
+

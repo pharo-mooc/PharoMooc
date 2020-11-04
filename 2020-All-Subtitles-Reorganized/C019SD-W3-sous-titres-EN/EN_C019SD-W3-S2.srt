@@ -1,0 +1,590 @@
+﻿1
+00:00:00,440 --> 00:00:02,600
+Hello. In the previous session,
+
+2
+00:00:02,760 --> 00:00:06,880
+we saw how to implement
+the Booleans: not and or.
+
+3
+00:00:07,040 --> 00:00:11,960
+The third question remains:
+why on earth did we ask these questions?
+
+4
+00:00:12,120 --> 00:00:13,880
+That's what we will study.
+
+5
+00:00:14,760 --> 00:00:20,120
+Let's review the implementation.
+For not, there were two objects.
+
+6
+00:00:20,280 --> 00:00:22,400
+We had true and false.
+
+7
+00:00:22,560 --> 00:00:25,440
+They were instances
+of the classes True and False.
+
+8
+00:00:25,600 --> 00:00:27,200
+When we sent a message not,
+
+9
+00:00:27,360 --> 00:00:31,640
+we queried their respective classes
+and we executed the methods.
+
+10
+00:00:32,560 --> 00:00:34,080
+So no problems here.
+
+11
+00:00:35,120 --> 00:00:37,240
+As I said,
+
+12
+00:00:37,400 --> 00:00:39,720
+if you look at what you're doing:
+
+13
+00:00:39,880 --> 00:00:42,920
+first, let the receiver decide.
+
+14
+00:00:43,080 --> 00:00:46,080
+It means you don't take any decisions,
+
+15
+00:00:46,240 --> 00:00:49,320
+but you send a message
+which will resolve itself.
+
+16
+00:00:49,480 --> 00:00:53,840
+So these two heuristic functions were:
+let the receiver decide;
+
+17
+00:00:54,000 --> 00:00:57,320
+and do not ask but tell to do things.
+
+18
+00:00:57,480 --> 00:00:58,960
+I'll mention this again.
+
+19
+00:00:59,120 --> 00:01:02,480
+Now let's look at the exercise itself.
+
+20
+00:01:03,080 --> 00:01:04,720
+So what's this all about?
+
+21
+00:01:04,880 --> 00:01:08,240
+You will never implement Booleans
+in your life,
+
+22
+00:01:08,400 --> 00:01:10,080
+at least I hope so.
+
+23
+00:01:10,240 --> 00:01:13,000
+Is it really totally useless?
+
+24
+00:01:13,160 --> 00:01:15,920
+What are the underlying lessons?
+
+25
+00:01:16,080 --> 00:01:19,240
+I think it's very important
+to ask you this question:
+
+26
+00:01:19,400 --> 00:01:23,600
+yes, the implementation is like that,
+but then what's this all about?
+
+27
+00:01:24,560 --> 00:01:29,360
+In fact, it shows
+that whenever I use message sends,
+
+28
+00:01:29,520 --> 00:01:33,640
+whenever I send a message,
+I have some sort of case statement.
+
+29
+00:01:35,000 --> 00:01:38,800
+You will also find these
+in C programming, etc.
+
+30
+00:01:39,880 --> 00:01:42,840
+Sending a message
+is about multiple choices.
+
+31
+00:01:44,160 --> 00:01:46,880
+What's interesting is:
+when you send a message,
+
+32
+00:01:47,040 --> 00:01:50,720
+in the end, it's more than a case
+because it's a dynamic case.
+
+33
+00:01:50,880 --> 00:01:54,960
+In fact, it depends on the loaded
+classes and on the created instances.
+
+34
+00:01:55,720 --> 00:01:58,640
+Actually, when you program in Java,
+
+35
+00:01:58,800 --> 00:02:02,040
+you would often write x.f()
+
+36
+00:02:02,200 --> 00:02:04,080
+to invoke the method f.
+
+37
+00:02:04,240 --> 00:02:07,240
+What I am explaining to you now is:
+this period
+
+38
+00:02:08,000 --> 00:02:09,560
+is a choice operator.
+
+39
+00:02:10,840 --> 00:02:12,600
+It's really crucial
+
+40
+00:02:13,400 --> 00:02:15,360
+that this choice is dynamic.
+
+41
+00:02:15,520 --> 00:02:17,800
+We didn't often tell you about it,
+
+42
+00:02:17,960 --> 00:02:22,960
+but this is actually
+what is strongly exemplified here.
+
+43
+00:02:23,120 --> 00:02:25,840
+To summarize, when you send a message,
+
+44
+00:02:26,000 --> 00:02:29,360
+it really functions
+like a dynamic case statement
+
+45
+00:02:29,520 --> 00:02:33,120
+in the sense that it depends
+on the loaded classes.
+
+46
+00:02:33,280 --> 00:02:36,440
+This Boolean example
+has two instances and two classes;
+
+47
+00:02:36,600 --> 00:02:39,600
+even with 50 of them,
+it'd work the same way.
+
+48
+00:02:40,320 --> 00:02:43,920
+Whenever you send a message
+to the virtual machine
+
+49
+00:02:44,080 --> 00:02:47,400
+- since Pharo has one
+like Java or C# -
+
+50
+00:02:47,560 --> 00:02:50,520
+the virtual machine's execution tool
+
+51
+00:02:50,680 --> 00:02:54,400
+selects the right method
+depending on the receiver's class.
+
+52
+00:02:54,560 --> 00:02:58,160
+So sending a message
+is a choice operator.
+
+53
+00:02:58,320 --> 00:03:00,520
+And each time you use a condition,
+
+54
+00:03:00,680 --> 00:03:04,360
+you replace this process
+
+55
+00:03:04,520 --> 00:03:07,920
+implemented in the choice-making
+virtual machine.
+
+56
+00:03:08,800 --> 00:03:11,400
+So the solutions with not show
+
+57
+00:03:11,560 --> 00:03:13,560
+that you should use the choice
+
+58
+00:03:13,720 --> 00:03:17,240
+given by the virtual machine
+to implement programs.
+
+59
+00:03:17,400 --> 00:03:19,720
+You don't need to use any ifs
+
+60
+00:03:19,880 --> 00:03:24,240
+because sending a message means
+an if or a condition.
+
+61
+00:03:24,400 --> 00:03:26,920
+The question you might ask now:
+
+62
+00:03:27,080 --> 00:03:31,160
+what if I had expressed the initial
+exercise in a totally different way?
+
+63
+00:03:31,320 --> 00:03:35,160
+What if I had said, "Can you implement
+Not in the Boolean class,
+
+64
+00:03:35,320 --> 00:03:37,000
+or Or in the Boolean class?"
+
+65
+00:03:37,160 --> 00:03:39,400
+This solution wouldn't have worked.
+
+66
+00:03:40,200 --> 00:03:42,720
+That's strange.
+What does it mean?
+
+67
+00:03:42,880 --> 00:03:45,680
+Having one or several classes
+greatly impacts
+
+68
+00:03:45,840 --> 00:03:48,400
+the way I design my applications.
+
+69
+00:03:49,120 --> 00:03:50,120
+Indeed,
+
+70
+00:03:51,440 --> 00:03:56,560
+classes play the role
+of branches or choices.
+
+71
+00:03:56,720 --> 00:03:59,080
+So if you have a choice
+to choose yogurt,
+
+72
+00:03:59,240 --> 00:04:03,200
+but there's only one pot in the shop,
+you will choose this yogurt.
+
+73
+00:04:03,360 --> 00:04:04,400
+It's the same.
+
+74
+00:04:04,560 --> 00:04:06,520
+It means your class represents
+
+75
+00:04:07,520 --> 00:04:09,440
+a case in your inheritance tree.
+
+76
+00:04:09,600 --> 00:04:10,880
+What does it imply?
+
+77
+00:04:11,040 --> 00:04:14,040
+It implies that when I look at a design
+
+78
+00:04:14,200 --> 00:04:17,160
+with a big fat class full of methods,
+
+79
+00:04:17,320 --> 00:04:20,920
+I could express it
+as a hierarchy instead.
+
+80
+00:04:21,080 --> 00:04:25,280
+This design is better
+because it's more modular.
+
+81
+00:04:25,440 --> 00:04:29,680
+I can easily
+add another choice if I want.
+
+82
+00:04:29,840 --> 00:04:32,760
+I can extend a choice and say:
+"This wasn't bad.
+
+83
+00:04:32,920 --> 00:04:35,960
+"I can refine it to have a new one."
+
+84
+00:04:36,120 --> 00:04:38,880
+Moreover, it can reduce complexity:
+
+85
+00:04:39,040 --> 00:04:43,840
+I can focus only on one class, not
+on something with so many conditions.
+
+86
+00:04:44,800 --> 00:04:49,000
+So on the one hand,
+we have a choice operator;
+
+87
+00:04:49,160 --> 00:04:52,640
+and on the other hand,
+something that expresses choices.
+
+88
+00:04:52,800 --> 00:04:57,640
+When you put them together,
+you get good-quality OOP.
+
+89
+00:04:57,800 --> 00:05:00,040
+What's even better
+
+90
+00:05:00,200 --> 00:05:03,520
+is that when you look
+at the solution with hierarchies,
+
+91
+00:05:03,680 --> 00:05:07,120
+it becomes even better
+because I can package the solutions.
+
+92
+00:05:07,280 --> 00:05:11,480
+It means I can package this as core,
+and that this is a plug-in.
+
+93
+00:05:11,640 --> 00:05:14,640
+I will tell my client,
+"If you want this feature,
+
+94
+00:05:14,800 --> 00:05:17,720
+"you just need to download this plug-in
+and pay me."
+
+95
+00:05:17,880 --> 00:05:20,360
+I will load this code dynamically.
+
+96
+00:05:20,520 --> 00:05:23,760
+When I create an instance of this class,
+
+97
+00:05:25,400 --> 00:05:27,840
+when I send my message Operation here,
+
+98
+00:05:28,520 --> 00:05:31,840
+the plug-in's code will be executed
+in the system.
+
+99
+00:05:32,000 --> 00:05:36,440
+To us, that's the essence of OOP.
+
+100
+00:05:36,600 --> 00:05:40,120
+I send a message
+and will select the right method.
+
+101
+00:05:40,960 --> 00:05:45,040
+And I will use the fact that I know
+the system selects the right method
+
+102
+00:05:45,200 --> 00:05:47,960
+to get even more elegant
+implementations.
+
+103
+00:05:48,120 --> 00:05:50,320
+What have we learned?
+
+104
+00:05:50,480 --> 00:05:55,040
+We've learned that sending a message
+lets the receiver decide and choose.
+
+105
+00:05:55,200 --> 00:05:58,400
+Client does not have to decide.
+
+106
+00:05:58,560 --> 00:06:00,760
+Client code is more declarative.
+
+107
+00:06:00,920 --> 00:06:04,800
+There are no conditions. I give orders:
+do this, do that, open, close;
+
+108
+00:06:04,960 --> 00:06:09,280
+not, "Do you belong to this class?
+Are you ready to be closed?"
+
+109
+00:06:09,440 --> 00:06:12,520
+Different receivers
+may be substituted dynamically.
+
+110
+00:06:12,680 --> 00:06:15,840
+We will see about this later,
+but it's implied.
+
+111
+00:06:16,560 --> 00:06:20,240
+So most of the time,
+try to avoid writing ifs.
+
+112
+00:06:21,240 --> 00:06:23,560
+Use objects and messages when you can.
+
+113
+00:06:23,720 --> 00:06:27,760
+It's not always the case,
+but use them at least when you can.
+
+114
+00:06:29,280 --> 00:06:31,880
+The execution engine,
+the virtual machine,
+
+115
+00:06:32,040 --> 00:06:37,120
+acts as a conditional switch
+each time you send a message.
+
+116
+00:06:37,680 --> 00:06:39,000
+So use it.
+
+117
+00:06:39,160 --> 00:06:41,960
+You can also have fun
+typing the AntiifCampaign.
+
+118
+00:06:42,120 --> 00:06:46,800
+Programmers launched this campaign
+to make people stop writing ifs.
+
+119
+00:06:48,760 --> 00:06:50,960
+So what have we learned in this session?
+
+120
+00:06:51,120 --> 00:06:53,280
+Two things: when I write x.f(),
+
+121
+00:06:53,440 --> 00:06:57,720
+either in Java or in Pharo,
+
+122
+00:06:58,600 --> 00:07:02,400
+I make a choice:
+I choose the method f
+
+123
+00:07:02,560 --> 00:07:06,080
+that must be executed
+depending on the receiver.
+
+124
+00:07:06,840 --> 00:07:08,640
+So I have this choice operator
+
+125
+00:07:08,800 --> 00:07:12,000
+and a hierarchy
+which represents potential choices.
+
+126
+00:07:12,160 --> 00:07:16,560
+So it's really a skeleton
+thanks to which choices can be made.
+
+127
+00:07:16,720 --> 00:07:20,800
+As a result, I have no conditionals.
+and more extensible programs.
+
+128
+00:07:21,800 --> 00:07:24,480
+This is the end of the first session
+
+129
+00:07:24,640 --> 00:07:27,160
+about object designs in Pharo.
+
+130
+00:07:28,160 --> 00:07:30,520
+And we will see more
+in the next sessions.

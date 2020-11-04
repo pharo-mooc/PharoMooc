@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W4-S8</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:00:14" end="00:00:01:09" region="bottom">Hello.</p>
+            <p xml:id="p2" begin="00:00:01:15" end="00:00:04:22" region="bottom">This sequence covers<br/>the Seaside web framework,</p>
+            <p xml:id="p3" begin="00:00:05:04" end="00:00:08:06" region="bottom">an innovative way<br/>of building web apps in Pharo.</p>
+            <p xml:id="p4" begin="00:00:08:12" end="00:00:12:05" region="bottom">Seaside is powerful and flexible.</p>
+            <p xml:id="p5" begin="00:00:12:12" end="00:00:17:06" region="bottom">It is based on the concept<br/>of reusable, stateful components,</p>
+            <p xml:id="p6" begin="00:00:17:15" end="00:00:21:13" region="bottom">on top of a stateless protocol,<br/>HTTP, in Web applications.</p>
+            <p xml:id="p7" begin="00:00:22:15" end="00:00:26:01" region="bottom">Seaside is secure by default,<br/>of course.</p>
+            <p xml:id="p8" begin="00:00:26:05" end="00:00:29:05" region="bottom">It integrates<br/>all the latest Web 2.0 techniques,</p>
+            <p xml:id="p9" begin="00:00:29:09" end="00:00:31:19" region="bottom">like Ajax, etc.,<br/>and REST architectures.</p>
+            <p xml:id="p10" begin="00:00:33:01" end="00:00:36:05" region="bottom">This is the Seaside URL.</p>
+            <p xml:id="p11" begin="00:00:36:23" end="00:00:42:03" region="bottom">You can refer to it for documentation<br/>like the free online Seaside book.</p>
+            <p xml:id="p12" begin="00:00:42:10" end="00:00:45:14" region="bottom">It also offers a set<br/>of Seaside tutorials.</p>
+            <p xml:id="p13" begin="00:00:45:22" end="00:00:49:13" region="bottom">Lastly, you can ask questions<br/>on the Seaside mailing list.</p>
+            <p xml:id="p14" begin="00:00:49:20" end="00:00:54:20" region="bottom">An active community will reply<br/>to any questions you may have.</p>
+            <p xml:id="p15" begin="00:00:56:08" end="00:00:59:23" region="bottom">A little history: Seaside<br/>has been in production since 2002.</p>
+            <p xml:id="p16" begin="00:01:00:02" end="00:01:01:16" region="bottom">It is actively maintained.</p>
+            <p xml:id="p17" begin="00:01:01:23" end="00:01:04:13" region="bottom">The Seaside framework is the basis</p>
+            <p xml:id="p18" begin="00:01:05:02" end="00:01:07:20" region="bottom">for many Pharo success stories.</p>
+            <p xml:id="p19" begin="00:01:07:24" end="00:01:11:05" region="bottom">Those stories are online<br/>on the Pharo site, pharo.org.</p>
+            <p xml:id="p20" begin="00:01:11:16" end="00:01:15:16" region="bottom">As you'll see,<br/>there are many web projects,</p>
+            <p xml:id="p21" begin="00:01:16:01" end="00:01:18:13" region="bottom">and most use the Seaside framework.</p>
+            <p xml:id="p22" begin="00:01:18:24" end="00:01:23:24" region="bottom">As I was saying,<br/>Seaside is a web framework</p>
+            <p xml:id="p23" begin="00:01:24:05" end="00:01:26:17" region="bottom">centered on the component concept.</p>
+            <p xml:id="p24" begin="00:01:26:21" end="00:01:30:10" region="bottom">These components<br/>are reusable and stateful.</p>
+            <p xml:id="p25" begin="00:01:30:16" end="00:01:35:22" region="bottom">It has a domain-specific language<br/>to render the components in HTML.</p>
+            <p xml:id="p26" begin="00:01:36:14" end="00:01:39:04" region="bottom">The rules for composing<br/>these components</p>
+            <p xml:id="p27" begin="00:01:39:11" end="00:01:43:04" region="bottom">will be covered in a later sequence.</p>
+            <p xml:id="p28" begin="00:01:43:20" end="00:01:46:19" region="bottom">A web application<br/>is just a root component.</p>
+            <p xml:id="p29" begin="00:01:46:23" end="00:01:51:04" region="bottom">Seaside makes it possible<br/>to debug applications on the fly,</p>
+            <p xml:id="p30" begin="00:01:51:16" end="00:01:53:09" region="bottom">in the Pharo debugger.</p>
+            <p xml:id="p31" begin="00:01:53:18" end="00:01:56:21" region="bottom">In a later sequence of this course,<br/>you will learn</p>
+            <p xml:id="p32" begin="00:01:57:03" end="00:02:01:02" region="bottom">how to use metadata<br/>to generate forms automatically.</p>
+            <p xml:id="p33" begin="00:02:02:17" end="00:02:05:07" region="bottom">These are some of the examples</p>
+            <p xml:id="p34" begin="00:02:05:11" end="00:02:10:02" region="bottom">of web applications built with Seaside,<br/>in production since 2002.</p>
+            <p xml:id="p35" begin="00:02:10:16" end="00:02:12:14" region="bottom">I'll zoom in on a few of them.</p>
+            <p xml:id="p36" begin="00:02:12:18" end="00:02:16:05" region="bottom">This application makes extensive use<br/>of graphs,</p>
+            <p xml:id="p37" begin="00:02:16:09" end="00:02:20:08" region="bottom">and other interlocking components<br/>that make a complex application.</p>
+            <p xml:id="p38" begin="00:02:20:23" end="00:02:25:17" region="bottom">Here's another example of an application<br/>you can find on Pharo's website.</p>
+            <p xml:id="p39" begin="00:02:26:01" end="00:02:28:21" region="bottom">It features reporting tables</p>
+            <p xml:id="p40" begin="00:02:29:00" end="00:02:32:11" region="bottom">that are quite complex,<br/>interlocking with each other.</p>
+            <p xml:id="p41" begin="00:02:32:22" end="00:02:36:11" region="bottom">That can be built very simply<br/>with the Seaside framework.</p>
+            <p xml:id="p42" begin="00:02:38:03" end="00:02:41:09" region="bottom">The main concept in Seaside<br/>is the component.</p>
+            <p xml:id="p43" begin="00:02:41:17" end="00:02:44:20" region="bottom">A component is a subclass<br/>of WAComponent</p>
+            <p xml:id="p44" begin="00:02:44:24" end="00:02:47:03" region="bottom">supplied by the Seaside framework.</p>
+            <p xml:id="p45" begin="00:02:47:18" end="00:02:50:13" region="bottom">A component is reusable<br/>and stateful.</p>
+            <p xml:id="p46" begin="00:02:50:17" end="00:02:55:01" region="bottom">It can be rendered in HTML<br/>in the form of &lt;div&gt;, etc.</p>
+            <p xml:id="p47" begin="00:02:55:24" end="00:03:00:11" region="bottom">In Seaside, a web application<br/>has a root component -</p>
+            <p xml:id="p48" begin="00:03:00:19" end="00:03:02:18" region="bottom">in this case, WACounter,</p>
+            <p xml:id="p49" begin="00:03:02:23" end="00:03:06:02" region="bottom">saved in the system<br/>as a web application.</p>
+            <p xml:id="p50" begin="00:03:06:06" end="00:03:10:10" region="bottom">It will be named "Counter," and<br/>accessible as such, from the URL.</p>
+            <p xml:id="p51" begin="00:03:11:01" end="00:03:14:14" region="bottom">Here's an example of<br/>my Counter application, in the URL.</p>
+            <p xml:id="p52" begin="00:03:14:19" end="00:03:17:21" region="bottom">It's a component<br/>rendered in HTML, here.</p>
+            <p xml:id="p53" begin="00:03:18:05" end="00:03:21:21" region="bottom">The value of the counter is zero.<br/>We have two links, here.</p>
+            <p xml:id="p54" begin="00:03:22:04" end="00:03:25:06" region="bottom">You click on ++<br/>to increase the counter value,</p>
+            <p xml:id="p55" begin="00:03:25:12" end="00:03:28:05" region="bottom">and on --<br/>to decrease the value.</p>
+            <p xml:id="p56" begin="00:03:29:04" end="00:03:32:18" region="bottom">The code for implementing<br/>this application is very simple.</p>
+            <p xml:id="p57" begin="00:03:33:00" end="00:03:36:13" region="bottom">I create a subclass<br/>of WAComponent: WACounter.</p>
+            <p xml:id="p58" begin="00:03:36:17" end="00:03:39:04" region="bottom">It has an instance variable<br/>named count.</p>
+            <p xml:id="p59" begin="00:03:39:19" end="00:03:43:12" region="bottom">The initialization method<br/>sets the counter to 0.</p>
+            <p xml:id="p60" begin="00:03:44:01" end="00:03:47:20" region="bottom">One method increases the value,<br/>the other decreases it.</p>
+            <p xml:id="p61" begin="00:03:48:16" end="00:03:51:18" region="bottom">Now we need the HTML part,</p>
+            <p xml:id="p62" begin="00:03:52:00" end="00:03:54:13" region="bottom">so the counter is rendered in HTML.</p>
+            <p xml:id="p63" begin="00:03:54:17" end="00:03:57:13" region="bottom">All we have to do<br/>is endow it with a method,</p>
+            <p xml:id="p64" begin="00:03:57:17" end="00:03:59:20" region="bottom">renderContentOn,<br/>a parameter.</p>
+            <p xml:id="p65" begin="00:04:00:09" end="00:04:03:04" region="bottom">The parameter will help us<br/>generate the HTML code.</p>
+            <p xml:id="p66" begin="00:04:04:13" end="00:04:08:07" region="bottom">Here's the example, with the addition<br/>of "renderContentOn"</p>
+            <p xml:id="p67" begin="00:04:08:13" end="00:04:09:22" region="bottom">to the counter class.</p>
+            <p xml:id="p68" begin="00:04:10:01" end="00:04:14:07" region="bottom">I use this parameter,<br/>a conventional Pharo object.</p>
+            <p xml:id="p69" begin="00:04:15:09" end="00:04:19:02" region="bottom">It's an instance of the class<br/>WAHtmlCanvas, supplied by Seaside.</p>
+            <p xml:id="p70" begin="00:04:19:10" end="00:04:23:13" region="bottom">I send messages to this object<br/>to generate the HTML code,</p>
+            <p xml:id="p71" begin="00:04:23:17" end="00:04:25:23" region="bottom">and a heading<br/>and an anchor, or link.</p>
+            <p xml:id="p72" begin="00:04:26:09" end="00:04:29:04" region="bottom">The "callback" message<br/>enables me to specify</p>
+            <p xml:id="p73" begin="00:04:29:08" end="00:04:32:14" region="bottom">a block of code to execute<br/>when I click on the link.</p>
+            <p xml:id="p74" begin="00:04:32:18" end="00:04:35:13" region="bottom">Here, when I click on the link<br/>called ++,</p>
+            <p xml:id="p75" begin="00:04:35:17" end="00:04:38:08" region="bottom">the "self increase" method<br/>is executed.</p>
+            <p xml:id="p76" begin="00:04:38:14" end="00:04:43:23" region="bottom">Clicking on -- prompts the execution<br/>of the "self decrease" method.</p>
+            <p xml:id="p77" begin="00:04:44:11" end="00:04:45:10" region="bottom">It's so simple.</p>
+            <p xml:id="p78" begin="00:04:46:22" end="00:04:51:21" region="bottom">If an error occurs when I click<br/>on a link; i.e., in a callback,</p>
+            <p xml:id="p79" begin="00:04:52:00" end="00:04:56:15" region="bottom">I knowingly have inserted<br/>a "halt" point. It could be an error.</p>
+            <p xml:id="p80" begin="00:04:57:01" end="00:05:00:06" region="bottom">I've inserted a halt point<br/>in the decrease method.</p>
+            <p xml:id="p81" begin="00:05:00:15" end="00:05:05:03" region="bottom">"Self" will halt if the counter<br/>is decreased below zero.</p>
+            <p xml:id="p82" begin="00:05:05:13" end="00:05:08:06" region="bottom">That will bring up the debugger.</p>
+            <p xml:id="p83" begin="00:05:09:01" end="00:05:12:11" region="bottom">As you see,<br/>if I do this in my web application,</p>
+            <p xml:id="p84" begin="00:05:12:15" end="00:05:14:12" region="bottom">the debugger is displayed here.</p>
+            <p xml:id="p85" begin="00:05:14:16" end="00:05:19:11" region="bottom">Here's the program's application stack,<br/>with the method "RenderContentOn"</p>
+            <p xml:id="p86" begin="00:05:20:03" end="00:05:22:18" region="bottom">and the decrease, here.</p>
+            <p xml:id="p87" begin="00:05:23:15" end="00:05:25:12" region="bottom">We did stop on haltIf.</p>
+            <p xml:id="p88" begin="00:05:25:20" end="00:05:28:17" region="bottom">I can modify the code right here,</p>
+            <p xml:id="p89" begin="00:05:29:00" end="00:05:30:14" region="bottom">press "Proceed,"</p>
+            <p xml:id="p90" begin="00:05:30:24" end="00:05:34:01" region="bottom">and my application<br/>will receive the HTML response</p>
+            <p xml:id="p91" begin="00:05:34:05" end="00:05:36:02" region="bottom">as if nothing had happened.</p>
+            <p xml:id="p92" begin="00:05:39:02" end="00:05:42:20" region="bottom">Another problem in Web applications<br/>is the "back" button.</p>
+            <p xml:id="p93" begin="00:05:43:06" end="00:05:45:12" region="bottom">When the user clicks on "back,"</p>
+            <p xml:id="p94" begin="00:05:45:16" end="00:05:48:15" region="bottom">it desynchronizes<br/>the server and client.</p>
+            <p xml:id="p95" begin="00:05:48:24" end="00:05:53:16" region="bottom">Imagine I increase the counter 5 times.<br/>Now it reads "5" on my screen.</p>
+            <p xml:id="p96" begin="00:05:53:22" end="00:05:57:15" region="bottom">Then I click on the back button<br/>in my browser.</p>
+            <p xml:id="p97" begin="00:05:57:23" end="00:05:59:21" region="bottom">The counter now reads 4.</p>
+            <p xml:id="p98" begin="00:06:00:00" end="00:06:03:13" region="bottom">But the server isn't updated<br/>about my back-button click.</p>
+            <p xml:id="p99" begin="00:06:03:17" end="00:06:08:16" region="bottom">So if I click again on ++,<br/>the screen will display a 6.</p>
+            <p xml:id="p100" begin="00:06:09:07" end="00:06:13:08" region="bottom">The problem is, the server side<br/>thought we were still on 5.</p>
+            <p xml:id="p101" begin="00:06:13:16" end="00:06:14:20" region="bottom">5+1 = 6.</p>
+            <p xml:id="p102" begin="00:06:15:08" end="00:06:18:13" region="bottom">Seaside makes it very easy<br/>to handle the back button.</p>
+            <p xml:id="p103" begin="00:06:18:17" end="00:06:22:04" region="bottom">We define a new method<br/>on the counter class: "states."</p>
+            <p xml:id="p104" begin="00:06:22:15" end="00:06:26:14" region="bottom">It will return the array<br/>for which the state is to be preserved</p>
+            <p xml:id="p105" begin="00:06:26:18" end="00:06:28:13" region="bottom">when the back button is hit.</p>
+            <p xml:id="p106" begin="00:06:28:17" end="00:06:32:09" region="bottom">In this case, it is only<br/>the object self: the counter.</p>
+            <p xml:id="p107" begin="00:06:33:05" end="00:06:36:16" region="bottom">Now, if I press "back,"<br/>and then click on ++,</p>
+            <p xml:id="p108" begin="00:06:36:22" end="00:06:38:17" region="bottom">I should see 5 again.</p>
+            <p xml:id="p109" begin="00:06:41:16" end="00:06:46:07" region="bottom">Callbacks are actually<br/>blocks of code</p>
+            <p xml:id="p110" begin="00:06:46:13" end="00:06:49:01" region="bottom">that contain all of Pharo's power.</p>
+            <p xml:id="p111" begin="00:06:49:09" end="00:06:53:11" region="bottom">I can write any Pharo code<br/>in this callback.</p>
+            <p xml:id="p112" begin="00:06:54:01" end="00:06:56:24" region="bottom">I took a more complex example<br/>here.</p>
+            <p xml:id="p113" begin="00:06:57:06" end="00:07:01:04" region="bottom">I can use an alternative "if"<br/>to say if I increase the counter + 1</p>
+            <p xml:id="p114" begin="00:07:01:08" end="00:07:05:05" region="bottom">or + 2, depending on whether<br/>the count is odd or even.</p>
+            <p xml:id="p115" begin="00:07:05:19" end="00:07:11:18" region="bottom">For even numbers, the counter<br/>will increase faster than for odd.</p>
+            <p xml:id="p116" begin="00:07:12:14" end="00:07:17:00" region="bottom">As you see, Pharo<br/>is really a powerful language</p>
+            <p xml:id="p117" begin="00:07:17:04" end="00:07:18:23" region="bottom">in these callback blocks.</p>
+            <p xml:id="p118" begin="00:07:21:14" end="00:07:25:21" region="bottom">To return to the preceding example,<br/>if I click on ++ here,</p>
+            <p xml:id="p119" begin="00:07:26:06" end="00:07:30:18" region="bottom">it brings me to a new window,</p>
+            <p xml:id="p120" begin="00:07:31:23" end="00:07:35:15" region="bottom">telling me it is an even number.</p>
+            <p xml:id="p121" begin="00:07:36:20" end="00:07:40:14" region="bottom">Next, I'll show you<br/>how to write a greeter application.</p>
+            <p xml:id="p122" begin="00:07:40:18" end="00:07:43:04" region="bottom">The user enters his first name.</p>
+            <p xml:id="p123" begin="00:07:43:10" end="00:07:47:18" region="bottom">He types it in here,<br/>and when he clicks on "Say Hello,"</p>
+            <p xml:id="p124" begin="00:07:48:16" end="00:07:52:17" region="bottom">we want to display a string<br/>of characters: "Hi" and the user name</p>
+            <p xml:id="p125" begin="00:07:53:01" end="00:07:55:04" region="bottom">he entered in the beginning, here.</p>
+            <p xml:id="p126" begin="00:07:56:19" end="00:08:01:15" region="bottom">It's very easy to code for that<br/>in Seaside.</p>
+            <p xml:id="p127" begin="00:08:01:24" end="00:08:05:04" region="bottom">I create a subclass Component<br/>of the class Greeter.</p>
+            <p xml:id="p128" begin="00:08:05:09" end="00:08:07:06" region="bottom">The instance variable<br/>is Username.</p>
+            <p xml:id="p129" begin="00:08:07:10" end="00:08:10:06" region="bottom">The method renderContentOn<br/>I'm showing you here</p>
+            <p xml:id="p130" begin="00:08:10:22" end="00:08:14:02" region="bottom">displays the field "Username."</p>
+            <p xml:id="p131" begin="00:08:14:06" end="00:08:15:23" region="bottom">The next line is textinput.</p>
+            <p xml:id="p132" begin="00:08:16:03" end="00:08:20:17" region="bottom">That's the text field you saw before,<br/>where the user writes "Bob."</p>
+            <p xml:id="p133" begin="00:08:20:21" end="00:08:22:13" region="bottom">I will have one callback.</p>
+            <p xml:id="p134" begin="00:08:22:19" end="00:08:26:06" region="bottom">This time, it is a block<br/>with a parameter, "value."</p>
+            <p xml:id="p135" begin="00:08:26:19" end="00:08:30:21" region="bottom">The value parameter of this block<br/>will be the string of characters</p>
+            <p xml:id="p136" begin="00:08:31:09" end="00:08:33:12" region="bottom">the user entered.</p>
+            <p xml:id="p137" begin="00:08:33:20" end="00:08:36:07" region="bottom">We can store it<br/>in the instance variable</p>
+            <p xml:id="p138" begin="00:08:36:11" end="00:08:39:00" region="bottom">of the Greeter component<br/>UserName.</p>
+            <p xml:id="p139" begin="00:08:39:13" end="00:08:42:24" region="bottom">Next, when the "submit" button<br/>is clicked,</p>
+            <p xml:id="p140" begin="00:08:43:08" end="00:08:48:01" region="bottom">I'm going to call a new component,<br/>using the command selfinform.</p>
+            <p xml:id="p141" begin="00:08:48:05" end="00:08:51:13" region="bottom">I tell it to display the string<br/>"Hi, Bob."</p>
+            <p xml:id="p142" begin="00:08:51:23" end="00:08:56:12" region="bottom">I concatenate the character string "Hi"<br/>with the text entered as UserName.</p>
+            <p xml:id="p143" begin="00:09:00:01" end="00:09:03:19" region="bottom">I hope those of you who are used<br/>to coding web applications</p>
+            <p xml:id="p144" begin="00:09:03:23" end="00:09:06:08" region="bottom">noticed that Seaside<br/>does not require</p>
+            <p xml:id="p145" begin="00:09:06:19" end="00:09:11:20" region="bottom">manual request parsing to find<br/>parameters in requests or URLs.</p>
+            <p xml:id="p146" begin="00:09:11:24" end="00:09:16:13" region="bottom">It does not require XML configuration<br/>files, or indeed, files or pages.</p>
+            <p xml:id="p147" begin="00:09:16:23" end="00:09:20:06" region="bottom">I did not say anything<br/>about links to the next page.</p>
+            <p xml:id="p148" begin="00:09:20:16" end="00:09:23:12" region="bottom">The only thing I talked about<br/>was components:</p>
+            <p xml:id="p149" begin="00:09:23:16" end="00:09:25:08" region="bottom">objects and messages.</p>
+            <p xml:id="p150" begin="00:09:25:16" end="00:09:27:04" region="bottom">I talked about callbacks</p>
+            <p xml:id="p151" begin="00:09:27:08" end="00:09:32:04" region="bottom">and the ability to debug live,<br/>using the Pharo debugger.</p>
+            <p xml:id="p152" begin="00:09:33:09" end="00:09:36:24" region="bottom">In sum, it's easy to build<br/>web applications in Seaside.</p>
+            <p xml:id="p153" begin="00:09:37:05" end="00:09:41:24" region="bottom">There is one root component.<br/>Components can be combined</p>
+            <p xml:id="p154" begin="00:09:42:06" end="00:09:44:10" region="bottom">to build more complex applications.</p>
+            <p xml:id="p155" begin="00:09:44:15" end="00:09:48:00" region="bottom">A component renders itself<br/>in HTML with renderContentOn.</p>
+            <p xml:id="p156" begin="00:09:48:17" end="00:09:51:24" region="bottom">We have an extensible<br/>domain-specific language</p>
+            <p xml:id="p157" begin="00:09:52:06" end="00:09:55:06" region="bottom">that generates HTML code<br/>for each component.</p>
+            <p xml:id="p158" begin="00:09:55:10" end="00:09:58:17" region="bottom">We'll cover that in greater detail<br/>in the next video.</p>
+        </div>
+    </body>
+</tt>

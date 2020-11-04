@@ -1,0 +1,628 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:02.910 align:middle
+Saludos. Así que bienvenidos
+a este curso.
+
+00:00:03.320 --> 00:00:05.930 align:middle
+Aqui, os mostraré estos dos
+aspectos, aunque no en profundidad,
+
+00:00:06.130 --> 00:00:07.890 align:middle
+de todas maneras los realizará
+
+00:00:08.090 --> 00:00:11.420 align:middle
+con los ejercicios de Tiny blog.
+
+00:00:11.620 --> 00:00:13.160 align:middle
+La questión és, que podemos hacer
+una vez que disponemos
+
+00:00:13.360 --> 00:00:16.070 align:middle
+de datos que hemos descrito
+para realizar desarrollo Web?
+
+00:00:16.440 --> 00:00:19.450 align:middle
+I como realiza REST  Seaside,
+que es uno de los
+
+00:00:19.650 --> 00:00:20.460 align:middle
+frameworks para
+realizar REST con Pharo.
+
+00:00:20.660 --> 00:00:22.010 align:middle
+Verá, es
+relativemente elegante.
+
+00:00:22.380 --> 00:00:24.230 align:middle
+Así que empezemos con el primer sujeto.
+
+00:00:24.740 --> 00:00:27.940 align:middle
+Magritte es un framework
+que parte de la hipotesis de decir
+
+00:00:28.140 --> 00:00:31.360 align:middle
+que si usted describe sus datos,
+entonces, a partir de aqui,
+
+00:00:31.560 --> 00:00:33.190 align:middle
+podra hacer cosa que estaran
+basadas en estos datos.
+
+00:00:33.550 --> 00:00:35.350 align:middle
+Podra generar por ejemplo
+formularios,
+
+00:00:35.550 --> 00:00:38.000 align:middle
+interfaces graficas.
+I esto és lo que le mostraré.
+
+00:00:38.190 --> 00:00:39.680 align:middle
+Aqui en particular,
+en el curso, le mostraré
+
+00:00:39.880 --> 00:00:42.000 align:middle
+como podemos generar componentes
+
+00:00:42.200 --> 00:00:44.030 align:middle
+Seaside, que le permitiran
+de construir
+
+00:00:44.230 --> 00:00:45.680 align:middle
+aplicaciones Web más rapidamente.
+
+00:00:46.450 --> 00:00:49.180 align:middle
+Ok si vemos, por ejemplo,
+que tenemos una clase, la clase Address.
+
+00:00:49.380 --> 00:00:51.720 align:middle
+Esto són direcciones en Suiza.
+
+00:00:51.920 --> 00:00:53.050 align:middle
+Que és una dirección?
+
+00:00:53.250 --> 00:00:57.820 align:middle
+És una calle, un lugar,
+un codigo postal y un
+
+00:00:58.020 --> 00:00:58.780 align:middle
+canton por ejemplo.
+
+00:00:59.760 --> 00:01:04.390 align:middle
+Tengo una instancia que describe
+una calle en particular, así 
+
+00:01:04.590 --> 00:01:05.480 align:middle
+que nada del otro mundo.
+
+00:01:05.680 --> 00:01:07.200 align:middle
+Solo de la programación, estandard.
+
+00:01:07.480 --> 00:01:10.590 align:middle
+Ahora lo que Magritte realizará,
+Magritte describirá los campos
+
+00:01:10.790 --> 00:01:12.950 align:middle
+de esta clase de la manera
+siguiente.
+
+00:01:13.150 --> 00:01:14.950 align:middle
+Tendremos una cadena de descripciones
+que nos dirá:
+
+00:01:15.150 --> 00:01:16.290 align:middle
+esto, és el nombre de la calle.
+
+00:01:16.600 --> 00:01:19.800 align:middle
+Pues, lo que és mas interesante
+és la descripcion del codigo postal.
+
+00:01:20.000 --> 00:01:22.040 align:middle
+Un codigo postal Suizo,
+en primer lugar decimos que 
+
+00:01:22.240 --> 00:01:25.270 align:middle
+una dirección no és valida si
+el codigo postal no esta especificado.
+
+00:01:25.470 --> 00:01:27.560 align:middle
+Si no especifico el codigo postal
+dire que la direccion no és valida
+
+00:01:27.760 --> 00:01:30.400 align:middle
+I en Suiza los codigos postales
+
+00:01:30.600 --> 00:01:34.000 align:middle
+estan entre 1.000 y 9.999.
+
+00:01:34.190 --> 00:01:38.120 align:middle
+Aqui, lo describiremos en la
+descripción y podremos
+
+00:01:38.320 --> 00:01:40.250 align:middle
+tener en cuenta esta información
+para realizar
+
+00:01:40.450 --> 00:01:41.720 align:middle
+la validación automatica de 
+formularios.
+
+00:01:42.000 --> 00:01:45.050 align:middle
+Luego para el lugar diremos que
+és un campo requerido y 
+
+00:01:45.250 --> 00:01:48.450 align:middle
+más tarde que se trata de una plaza.
+Otra cosa és que por ejemplo
+
+00:01:48.650 --> 00:01:50.690 align:middle
+Suiza, tiene 26
+cantones, lo que diremos és que
+
+00:01:50.930 --> 00:01:53.740 align:middle
+el canton ésta enumerado,
+és por eso que elegimos una 
+
+00:01:53.940 --> 00:01:56.370 align:middle
+single option description,
+y és un campo requerido, queremos que
+
+00:01:56.570 --> 00:01:58.740 align:middle
+sea a elegir y que las opciones
+sean listadas.
+
+00:01:58.940 --> 00:02:01.630 align:middle
+Así que facilitaremos la lista, 
+que enumera todos los cantones
+
+00:02:01.830 --> 00:02:03.270 align:middle
+Suizos, no podrá haber otro.
+
+00:02:03.880 --> 00:02:06.870 align:middle
+Una vez hayamos hecho esto que
+podremos hacer con Magritte?
+
+00:02:07.070 --> 00:02:09.740 align:middle
+¿Tanbién como lo describimos en Pharo?
+
+00:02:10.000 --> 00:02:13.210 align:middle
+Lo haremos de esta manera, diremos: 
+tengo una descripcion Street.
+
+00:02:13.410 --> 00:02:15.670 align:middle
+la descripcion Street,
+és una stream description (flujo).
+
+00:02:15.870 --> 00:02:20.030 align:middle
+Tiene esta etiqueta, esta prioridad.
+
+00:02:20.310 --> 00:02:23.680 align:middle
+Por los nombres, dire:
+que és una descripción de nombres.
+
+00:02:25.050 --> 00:02:27.600 align:middle
+Tendre otra prioridad, una etiqueta.
+
+00:02:27.800 --> 00:02:31.720 align:middle
+Voy a decir que és requerida y luego
+facilitare mis valores finales.
+
+00:02:32.550 --> 00:02:33.780 align:middle
+Ahora que puedo hacer con esto?
+
+00:02:34.000 --> 00:02:35.620 align:middle
+La primera de las cosas que 
+puedo realizar, no entraré en 
+
+00:02:35.820 --> 00:02:37.280 align:middle
+el detalle del codigo, pero 
+lo que puedo realizar,
+
+00:02:37.480 --> 00:02:39.040 align:middle
+puedo escribir un pequeño
+programa que és en realidad
+
+00:02:39.240 --> 00:02:41.100 align:middle
+un interprete, que me generara
+reportes.
+
+00:02:41.540 --> 00:02:43.850 align:middle
+Esto quire decir que aqui, 
+con una dirección, tomo
+
+00:02:44.050 --> 00:02:46.770 align:middle
+una dirección, tengo este pequeño
+programa que me permitirá
+
+00:02:47.510 --> 00:02:51.330 align:middle
+por ejemple un pequeño reporte: 
+la calle se llama
+
+00:02:51.530 --> 00:02:56.200 align:middle
+Schutzenmattstrasse. La población
+
+00:02:56.400 --> 00:02:59.460 align:middle
+será Berna, el canton es
+Berna y el codigo postal 2012.
+
+00:02:59.660 --> 00:03:02.910 align:middle
+Así que podre utilizar el
+he hecho de que mis datos
+
+00:03:03.110 --> 00:03:06.200 align:middle
+están descritos para 
+poder generar reportes.
+
+00:03:06.940 --> 00:03:09.000 align:middle
+Esto és lo menos que podemos hacer.
+
+00:03:09.360 --> 00:03:13.220 align:middle
+Así que lo que haremos ahora
+con Seaside,
+
+00:03:13.420 --> 00:03:14.950 align:middle
+crearemos un componente visual Web.
+
+00:03:15.490 --> 00:03:19.490 align:middle
+Aqui, digo: tu eres un 
+objeto dirección, te quiero ver
+
+00:03:19.690 --> 00:03:20.500 align:middle
+como un componente.
+
+00:03:20.700 --> 00:03:22.180 align:middle
+Así que esto generará 
+esta parte.
+
+00:03:24.820 --> 00:03:27.460 align:middle
+Incorporaré una forma para 
+realizar la validación,
+
+00:03:27.660 --> 00:03:29.050 align:middle
+lo que me incorporara, Save y Cancel.
+
+00:03:30.350 --> 00:03:32.750 align:middle
+Y realizaré una llamada así que
+la mostraré en la pantalla.
+
+00:03:33.390 --> 00:03:35.020 align:middle
+Así que aqui lo que podeis ver
+
+00:03:35.220 --> 00:03:38.810 align:middle
+és que no he manipulado, no he utilizado 
+ni tan siquiera el DSL de Seaside para
+
+00:03:39.010 --> 00:03:41.590 align:middle
+describir mis componentes Web,
+que se generan automaticamente.
+
+00:03:42.250 --> 00:03:43.190 align:middle
+Y esto és supe.
+
+00:03:44.000 --> 00:03:45.860 align:middle
+Me gustaria enseñaros,
+por ejemplo, que la sociedad
+
+00:03:46.060 --> 00:03:50.070 align:middle
+Cuve, qui és una sociedad que se ocupa
+de la gestion de carteras en US,
+
+00:03:50.270 --> 00:03:52.470 align:middle
+todo lo que veis en la pantalla
+se ha realizado con
+
+00:03:52.670 --> 00:03:55.620 align:middle
+Seaside y con Magritte.
+Todos los reportes se generan
+
+00:03:55.820 --> 00:04:00.400 align:middle
+automaticamente. Y esto, és realmente
+una ganancia de productividad muy seria.
+
+00:04:01.640 --> 00:04:05.050 align:middle
+Así que la idea de este curso,
+és de facilitarle la 
+
+00:04:05.250 --> 00:04:07.600 align:middle
+intuicion de que podemos hacer
+cuando tenemos los 
+
+00:04:07.800 --> 00:04:11.190 align:middle
+datos que estan descritos
+y en particular para
+
+00:04:11.390 --> 00:04:13.000 align:middle
+la generación de componentes Web.
+
+00:04:13.950 --> 00:04:15.510 align:middle
+Así que los realizará en Tiny blog.
+
+00:04:15.810 --> 00:04:17.240 align:middle
+Ahora lo que le mostraré
+és que Seaside
+
+00:04:19.260 --> 00:04:22.430 align:middle
+tiene tambien una capa REST,
+para poder comunicar
+
+00:04:22.630 --> 00:04:25.260 align:middle
+cliente/servidor sin tener que
+pasar por componentes
+
+00:04:25.460 --> 00:04:29.830 align:middle
+visuales, así que la integración de
+REST en Seaside es realmente elegante.
+
+00:04:30.120 --> 00:04:33.070 align:middle
+De hecho anotaremos objetos de 
+nuestro dominio y
+
+00:04:33.270 --> 00:04:37.070 align:middle
+tendremos una conversión entre
+los parametros de URL y los
+
+00:04:37.270 --> 00:04:38.460 align:middle
+metodos de Pharo Smalltalk.
+
+00:04:39.910 --> 00:04:40.670 align:middle
+¿Pues como lo realizamos?
+
+00:04:41.730 --> 00:04:44.540 align:middle
+Para que se haga una idea de 
+la complejidad, de hecho lo que
+
+00:04:44.740 --> 00:04:48.040 align:middle
+hacemos és que definiremos lo 
+que llamamos un filtro,
+
+00:04:48.240 --> 00:04:51.620 align:middle
+aqui defino Tiny blog REST fulFilter
+que és una subclase de
+
+00:04:51.820 --> 00:04:55.010 align:middle
+WARestfulfilter, sin importancia.
+
+00:04:55.210 --> 00:04:57.660 align:middle
+Y la cosa interesante és que
+incorporaré un filtro
+
+00:04:57.860 --> 00:05:00.360 align:middle
+cuando creo mi aplicacion
+aqui abajo.
+
+00:05:00.560 --> 00:05:02.240 align:middle
+Esto de todas maneras lo 
+vera en el ejercicio.
+
+00:05:03.070 --> 00:05:05.170 align:middle
+Y ahora, imaginemos que,
+por ejemplo, quiero disponer
+
+00:05:05.370 --> 00:05:09.920 align:middle
+de la lista de todos los blogs
+del servidor Tiny blog.
+
+00:05:11.110 --> 00:05:12.050 align:middle
+Como expresaré esto?
+
+00:05:12.250 --> 00:05:13.700 align:middle
+Lo voy a expresar de la manera
+siguiente.
+
+00:05:13.900 --> 00:05:18.270 align:middle
+Definiré un metodo en la clase
+Restfulfilter,
+
+00:05:19.200 --> 00:05:23.800 align:middle
+que se llamará listAll, que 
+de hecho se corresponde al lapiz
+
+00:05:24.150 --> 00:05:25.220 align:middle
+que utilizaré.
+
+00:05:26.330 --> 00:05:31.000 align:middle
+Y le digo: tu tienes un 
+acceso para el protocolo rest
+
+00:05:31.230 --> 00:05:32.930 align:middle
+y me generaras un texto en 
+el formato Json.
+
+00:05:33.480 --> 00:05:34.760 align:middle
+Aqui, escribiré lo que voy ha
+hacer.
+
+00:05:34.960 --> 00:05:37.150 align:middle
+Aqui, le pido: de crearme un
+stream (flujo) Pharo.
+
+00:05:38.150 --> 00:05:41.180 align:middle
+En este stream tomaré todos los
+blogs que estan
+
+00:05:41.380 --> 00:05:44.190 align:middle
+disponibles, tomaré cada uno de
+los bloques, puede ver
+
+00:05:44.390 --> 00:05:46.700 align:middle
+un iterador más.
+Tomaré cada uno de los blogs
+
+00:05:46.900 --> 00:05:49.030 align:middle
+y luego lo convertiré en 
+Javascript y 
+
+00:05:49.230 --> 00:05:50.270 align:middle
+los separaré con comas.
+
+00:05:51.400 --> 00:05:53.660 align:middle
+Así que obtengo lo que queria.
+
+00:05:53.860 --> 00:05:57.370 align:middle
+Ahora me gustaria hacer una cosa
+un poco más avancada.
+
+00:05:58.020 --> 00:06:00.620 align:middle
+Imaginemos que quiero encontrar
+un blog.
+
+00:06:00.820 --> 00:06:03.450 align:middle
+Quiero que me facilite el blog
+que se corresponde a un titulo.
+
+00:06:04.510 --> 00:06:07.590 align:middle
+Aqui utilizaré, por ejemplo,
+el post y luego
+
+00:06:07.790 --> 00:06:11.320 align:middle
+dire: quiero este blog post
+facilitando el titulo al lado.
+
+00:06:11.520 --> 00:06:12.940 align:middle
+Como lo haré?
+
+00:06:13.140 --> 00:06:15.390 align:middle
+Definiré un metodo post
+que toma un titulo con parametros,
+
+00:06:15.590 --> 00:06:18.140 align:middle
+y incorporo la nocion de camino.
+
+00:06:18.340 --> 00:06:21.300 align:middle
+Así que diré:
+cuidado, cuando en la URL tenga
+
+00:06:21.500 --> 00:06:26.330 align:middle
+http y alguna cosa
+post con otra cosa aqui,
+
+00:06:26.530 --> 00:06:29.690 align:middle
+esta otra cosa sera el titulo
+y és lo que vemos aqui
+
+00:06:29.890 --> 00:06:32.390 align:middle
+entre parentesis.
+
+00:06:35.650 --> 00:06:37.240 align:middle
+Y aqui, de la misma manera,
+digo, cuidado voy a
+
+00:06:37.440 --> 00:06:39.390 align:middle
+producir este texto en
+formato Json.
+
+00:06:40.160 --> 00:06:43.010 align:middle
+Así que puede ver, aqui, lo que
+hago és que llamo a las
+
+00:06:43.210 --> 00:06:44.290 align:middle
+funcionalidades de Tiny blog.
+
+00:06:44.490 --> 00:06:47.240 align:middle
+Pregunto: tienes un post
+con un titula que está
+
+00:06:47.440 --> 00:06:49.430 align:middle
+definido con parametros?
+
+00:06:49.630 --> 00:06:51.620 align:middle
+Si. Si está vacio, muestro un 
+error sino lo que hago,
+
+00:06:51.820 --> 00:06:56.000 align:middle
+és incorporarlo a mi stream 
+y entrego mi stream.
+
+00:06:56.170 --> 00:06:59.000 align:middle
+Hay más cosas, que le mostraré
+rapidamente.
+
+00:06:59.180 --> 00:07:01.050 align:middle
+Si quiero hacer una busqueda
+sera igual.
+
+00:07:01.760 --> 00:07:05.940 align:middle
+Si en mi URL, 
+
+00:07:06.440 --> 00:07:08.540 align:middle
+tecleo "search title" y entrego
+un valor,
+
+00:07:09.060 --> 00:07:12.570 align:middle
+automaticamente sera encontrado,
+igual con mi titulo.
+
+00:07:12.770 --> 00:07:13.930 align:middle
+Así que tendre mi titulo aquí.
+
+00:07:15.530 --> 00:07:19.930 align:middle
+voilà, la manera de realizar
+REST en Seaside.
+
+00:07:20.130 --> 00:07:22.170 align:middle
+Esto quiere decir que con
+Seaside puede tener
+
+00:07:22.370 --> 00:07:24.160 align:middle
+componentes graficos, y 
+tanbien tiene la
+
+00:07:24.360 --> 00:07:26.930 align:middle
+la posibilidad de exponer
+las funcionalidades de su
+
+00:07:27.130 --> 00:07:28.710 align:middle
+dominio a traves de una API REST.
+
+00:07:29.020 --> 00:07:33.000 align:middle
+Solamente le he mostrado get
+pero de hecho usted dispone
+
+00:07:33.200 --> 00:07:36.700 align:middle
+de una API, con todas las
+funcionalidades REST
+
+00:07:36.900 --> 00:07:39.190 align:middle
+disponibles, comme
+delete, post, get y las demas.
+
+00:07:40.410 --> 00:07:41.790 align:middle
+Tanbien le he mostrado que
+Seaside,
+
+00:07:42.000 --> 00:07:44.100 align:middle
+junto a Magritte, le permite
+de construir
+
+00:07:44.300 --> 00:07:47.230 align:middle
+formularios muy potentes y
+de forma rapida y 
+
+00:07:47.430 --> 00:07:48.480 align:middle
+que estan muy bien integrados.
+
+00:07:49.150 --> 00:07:51.670 align:middle
+Tanbien, dispone de otra
+solucion para hacer REST.
+
+163 align:middle
+00:07:51,870 --> 00:07:54,220
+La gente utiliza a menudo
+Teapot, que és una sobrecapa
+
+00:07:54.420 --> 00:07:57.430 align:middle
+de Zinc para hacer REST,
+par construir prototipos de manera
+
+00:07:57.630 --> 00:08:00.260 align:middle
+rapida, para comprobar si su
+API REST funciona.
+
+00:08:00.960 --> 00:08:03.150 align:middle
+Con el, usted tanbien puede
+divertirse, es un pequeño
+
+00:08:03.350 --> 00:08:06.180 align:middle
+paquete que dispone de documentación
+en el libro Pharo Web Enterprise.
+

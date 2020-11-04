@@ -1,0 +1,352 @@
+1
+00:00:02,480 --> 00:00:04,160
+Salut, j'aimerais vous
+montrer comment on utilise le
+
+2
+00:00:04,327 --> 00:00:05,690
+Finder pour trouver de l'information.
+
+3
+00:00:06,110 --> 00:00:08,010
+Donc le Finder c'est un
+outil que vous allez trouver dans
+
+4
+00:00:08,177 --> 00:00:09,550
+le menu Tools, donc Finder.
+
+5
+00:00:10,890 --> 00:00:14,470
+Imaginons que je veuille
+chercher maintenant une méthode
+
+6
+00:00:14,637 --> 00:00:16,750
+qui s'appelle match.
+Je tape son nom, match.
+
+7
+00:00:18,640 --> 00:00:20,160
+Et là, je choisis Selectors.
+
+8
+00:00:21,270 --> 00:00:23,060
+Donc maintenant là, je
+vois toutes les méthodes qui
+
+9
+00:00:23,227 --> 00:00:28,000
+contiennent le mot
+match avec le code ici.
+
+10
+00:00:28,157 --> 00:00:30,680
+Donc comme j'avais mis les
+fontes en très gros, on va
+
+11
+00:00:30,847 --> 00:00:33,470
+essayer de retailler un petit peu.
+
+12
+00:00:33,960 --> 00:00:36,460
+Donc maintenant vous voyez
+que quand il y a un petit
+
+13
+00:00:36,627 --> 00:00:38,300
+triangle devant, ça veut
+dire que cette méthode-là elle
+
+14
+00:00:38,467 --> 00:00:41,930
+est définie sur plusieurs classes,
+et que je peux lire ce genre de chose.
+
+15
+00:00:43,350 --> 00:00:45,450
+Donc là c'était pour les méthodes,
+donc il y en a quand même pas mal.
+
+16
+00:00:46,260 --> 00:00:48,280
+On peut chercher des choses
+mais ce n'est pas forcément idéal.
+
+17
+00:00:50,250 --> 00:00:52,000
+Maintenant ce qu'on peut
+faire, c'est qu'on peut chercher
+
+18
+00:00:52,480 --> 00:00:57,000
+les classes qui contiennent match,
+donc là on voit toutes nos classes.
+
+19
+00:00:59,000 --> 00:01:02,230
+Le mieux après c'est de débrowser
+en utilisant le browser de code.
+
+20
+00:01:03,670 --> 00:01:04,880
+Maintenant, il y a
+beaucoup mieux à faire.
+
+21
+00:01:05,150 --> 00:01:07,240
+Souvent ce qu'on sait, c'est
+qu'on sait ce qu'on cherche
+
+22
+00:01:07,407 --> 00:01:08,410
+mais on ne sait pas
+comment l'exprimer.
+
+23
+00:01:09,260 --> 00:01:11,390
+Donc là, moi je sais que
+j'aimerais savoir est-ce qu'il y
+
+24
+00:01:11,557 --> 00:01:16,520
+a une méthode qui me dit si ab match
+
+25
+00:01:16,810 --> 00:01:20,380
+abcd, par exemple. Donc
+je dis, je donne ab*abcd
+
+26
+00:01:21,790 --> 00:01:23,360
+et je dis ça doit me
+rendre vrai, si ça match.
+
+27
+00:01:25,060 --> 00:01:29,710
+Et je choisis Examples,
+et là j'obtiens toutes les
+
+28
+00:01:29,877 --> 00:01:33,270
+méthodes qui ont rendu Vrai.
+
+29
+00:01:33,640 --> 00:01:34,850
+Alors je vais vous
+expliquer ce qu'on voit.
+
+30
+00:01:35,130 --> 00:01:36,790
+Donc là, je vois que
+supérieur fonctionne aussi.
+
+31
+00:01:36,957 --> 00:01:38,380
+Ah, j'ai match qui a
+l'air intéressante.
+
+32
+00:01:40,250 --> 00:01:42,510
+Là, ce que me montre le
+système, ce sont toutes les
+
+33
+00:01:42,677 --> 00:01:45,230
+ classes qui définissent
+la méthode match, mais en
+
+34
+00:01:45,397 --> 00:01:47,630
+particulier celle avec la
+petite étoile, c'est celle dont
+
+35
+00:01:47,797 --> 00:01:49,200
+la méthode a rendu Vrai.
+
+36
+00:01:50,150 --> 00:01:53,080
+Donc maintenant, on peut
+faire d'autres exemples.
+
+37
+00:01:53,247 --> 00:01:56,000
+Par exemple, si je cherche
+qu'est-ce qui étant donnés 11,
+
+38
+00:01:56,167 --> 00:01:59,810
+2 me rend 5. Là je vais avoir
+
+39
+00:02:01,440 --> 00:02:06,300
+// et je vois que ce qu'il y a
+
+40
+00:02:06,467 --> 00:02:08,930
+de rendu vrai c'est défini
+sur Integer, donc c'est cette
+
+41
+00:02:09,097 --> 00:02:11,750
+méthode-là ou sur Number
+qui est cette méthode-là.
+
+42
+00:02:13,820 --> 00:02:15,820
+Donc si je fais pareil, de
+la même manière, je me dis:
+
+43
+00:02:16,000 --> 00:02:19,100
+maintenant, je veux 5,5.
+Je n'ai plus que diviser.
+
+44
+00:02:19,420 --> 00:02:20,390
+Donc c'est très pratique.
+
+45
+00:02:21,700 --> 00:02:23,350
+Donc maintenant, il y a
+une autre fonction qu'on peut
+
+46
+00:02:23,517 --> 00:02:26,910
+utiliser, on peut chercher
+par exemple quelles sont tous
+
+47
+00:02:27,077 --> 00:02:30,040
+les Pragmas, donc les
+Pragmas se sont des annotations
+
+48
+00:02:31,530 --> 00:02:33,210
+dans le système. Donc si je
+regarde qu'est-ce que c'est
+
+49
+00:02:33,377 --> 00:02:34,920
+qu'une annotation,
+c'est ça par exemple.
+
+50
+00:02:35,400 --> 00:02:38,910
+Voilà, là j'ai annoté ma
+méthode avec un Pragma qui s'appelle
+
+51
+00:02:39,077 --> 00:02:41,460
+Menu, et le système va
+pouvoir faire des query dessus
+
+52
+00:02:41,627 --> 00:02:44,780
+pour construire les menus.
+Et donc en tapant Menu ici, en
+
+53
+00:02:44,947 --> 00:02:49,890
+sélectionnant Pragma,
+j'accède à toutes les Pragmas du
+
+54
+00:02:50,057 --> 00:02:52,910
+système qui
+contiennent le mot menu en fait.
+
+55
+00:02:55,600 --> 00:02:57,320
+Donc là, on voit qu'il y en
+a 2 par exemple, 2 Pragmas.
+
+56
+00:02:58,820 --> 00:03:02,400
+Donc le worldMenu
+typiquement, celui qui est affiché
+
+57
+00:03:02,567 --> 00:03:07,420
+quand on est ici, il est
+défini par le Pragma menu.
+
+58
+00:03:07,587 --> 00:03:10,670
+Donc on voit, voilà, worldMenu.
+
+59
+00:03:12,850 --> 00:03:17,000
+Le screenShotCommand
+par exemple. HelpOn.
+
+60
+00:03:17,137 --> 00:03:19,520
+On voit tout ces menus.
+
+61
+00:03:22,000 --> 00:03:25,200
+Donc maintenant, ce qu'on
+peut aussi faire avec le
+
+62
+00:03:25,690 --> 00:03:28,490
+Finder, c'est de
+chercher toutes les méthodes qui
+
+63
+00:03:28,657 --> 00:03:33,000
+contiennent la chaîne
+"Menu" quel que soit l'endroit où
+
+64
+00:03:33,167 --> 00:03:36,340
+elle se situe. Donc là, je vais le
+faire, ça prend un petit peu de temps.
+
+65
+00:03:37,150 --> 00:03:39,650
+Donc là ce qui se passe,
+c'est que le système va scanner
+
+66
+00:03:39,817 --> 00:03:41,230
+vraiment tout le corps de
+toutes les méthodes, il y en a
+
+67
+00:03:41,397 --> 00:03:45,320
+80 000 dans Pharo, ou un peu
+plus, et nous montrer le résultat.
+
+68
+00:03:46,880 --> 00:03:48,500
+Donc là, c'est vraiment
+une recherche textuelle.
+
+69
+00:03:50,700 --> 00:03:52,260
+Donc ce qui est intéressant
+des fois c'est quand on voit
+
+70
+00:03:52,427 --> 00:03:54,600
+un menu ou quand on voit quelque chose
+de graphique qu'on veut le retrouver.
+
+71
+00:03:55,420 --> 00:03:58,900
+Donc là, vous avez toutes
+les méthodes qui contiennent le
+
+72
+00:03:59,067 --> 00:04:03,300
+mot Menu, aussi bien dans
+le nom que, prenons une autre
+
+73
+00:04:03,467 --> 00:04:07,080
+chose, que là ici ou encore ici.
+

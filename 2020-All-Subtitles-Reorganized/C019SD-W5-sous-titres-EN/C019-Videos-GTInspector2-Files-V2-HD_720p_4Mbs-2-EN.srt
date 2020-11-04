@@ -1,0 +1,472 @@
+1
+00:00:02,030 --> 00:00:03,770
+In this video, I will 
+show you one very nice
+
+2
+00:00:03,937 --> 00:00:06,700
+facet of Pharo,
+its inspector.
+
+3
+00:00:07,170 --> 00:00:10,610
+An inspector is a tool
+that enables to interact
+
+4
+00:00:10,777 --> 00:00:14,190
+with objects, and to discuss 
+with them in a lively way.
+
+5
+00:00:15,250 --> 00:00:17,690
+Let’s try on the file system.
+
+6
+00:00:19,520 --> 00:00:21,450
+For example, if I do “File system
+
+7
+00:00:24,330 --> 00:00:29,130
+working directory", I will
+
+8
+00:00:29,297 --> 00:00:32,190
+get all the files that are, for 
+instance, at my image’s root,
+
+9
+00:00:32,357 --> 00:00:33,870
+so we will get all those files.
+
+10
+00:00:35,030 --> 00:00:39,610
+Let’s have a look. If I do
+“Inspect”,
+
+11
+00:00:40,030 --> 00:00:41,240
+I open an inspector.
+
+12
+00:00:41,870 --> 00:00:43,240
+Here I have an inspector.
+
+13
+00:00:45,430 --> 00:00:47,690
+This is the new Pharo inspector
+developed
+
+14
+00:00:47,857 --> 00:00:51,730
+by the GT team, it has
+
+15
+00:00:51,897 --> 00:00:53,140
+very interesting features.
+
+16
+00:00:53,307 --> 00:00:56,740
+Let’s begin to look at the tab
+
+17
+00:00:58,330 --> 00:00:59,640
+called “Raw”.
+
+18
+00:00:59,807 --> 00:01:03,880
+The “Raw” tab is the old 
+inspector. What will
+
+19
+00:01:04,047 --> 00:01:04,850
+it show?
+
+20
+00:01:05,017 --> 00:01:08,000
+It shows the object data, the
+object instance variables
+
+21
+00:01:08,167 --> 00:01:09,710
+such as defined in the class.
+
+22
+00:01:10,420 --> 00:01:12,480
+I can interact with it.
+
+23
+00:01:12,647 --> 00:01:15,930
+I can, for instance,
+ask for all the entries.
+
+24
+00:01:16,530 --> 00:01:20,940
+Here I get all the entries,
+or give me all the
+
+25
+00:01:21,107 --> 00:01:25,850
+directories, for instance,
+here I get all the directories.
+
+26
+00:01:27,880 --> 00:01:31,380
+If we look at the object class,
+if I do “self
+
+27
+00:01:31,547 --> 00:01:36,240
+browse", what do I see? 
+
+28
+00:01:36,407 --> 00:01:40,430
+This view shows me the values
+
+29
+00:01:41,250 --> 00:01:44,450
+for the object, the instance
+variables that
+
+30
+00:01:44,617 --> 00:01:46,100
+have been defined in the class
+that way.
+
+31
+00:01:47,520 --> 00:01:49,820
+It enables me to look inside.
+
+32
+00:01:50,000 --> 00:01:54,650
+For instance, here I can see
+that the “Path” is actually
+
+33
+00:01:55,350 --> 00:01:59,530
+composed of this object “self”,
+and I can see it
+
+34
+00:01:59,697 --> 00:02:03,660
+here. I am still in raw mode, 
+and
+
+35
+00:02:03,827 --> 00:02:04,800
+I can browse inside.
+
+36
+00:02:05,000 --> 00:02:07,550
+If I do this, I am actually
+going to look at
+
+37
+00:02:07,717 --> 00:02:09,780
+the User string and that kind of thing.
+
+38
+00:02:09,947 --> 00:02:13,280
+Here I essentially violate 
+the encapsulation.
+
+39
+00:02:15,210 --> 00:02:18,250
+The system will look at
+the introspective behavior,
+
+40
+00:02:18,417 --> 00:02:21,290
+it will show me the fields
+values.
+
+41
+00:02:23,000 --> 00:02:23,920
+This view is very useful.
+
+42
+00:02:24,087 --> 00:02:28,540
+But now the new inspector
+does more things.
+
+43
+00:02:28,707 --> 00:02:33,310
+This means that each object can
+show to the user
+
+44
+00:02:34,150 --> 00:02:38,820
+different facets of how it
+is represented.
+
+45
+00:02:40,700 --> 00:02:44,880
+By default, every object 
+has the raw facet.
+
+46
+00:02:45,300 --> 00:02:47,900
+There is also the Meta facet,
+which is
+
+47
+00:02:48,067 --> 00:02:49,310
+what enables to browse the class.
+
+48
+00:02:49,477 --> 00:02:51,380
+We can browse quickly the class,
+for instance, like this.
+
+49
+00:02:52,150 --> 00:02:55,330
+Normally, it’s just useful
+when you are in the navigation
+
+50
+00:02:55,590 --> 00:03:00,440
+flow, when you need to know
+directly without opening
+
+51
+00:03:00,607 --> 00:03:01,350
+another browser.
+
+52
+00:03:01,650 --> 00:03:03,140
+But the most important are
+those other tabs.
+
+53
+00:03:03,307 --> 00:03:08,090
+Here for example, 
+
+54
+00:03:08,257 --> 00:03:11,640
+the inspector knowing that 
+we have a reference,
+
+55
+00:03:13,470 --> 00:03:17,730
+a directory, shows everything
+contained in the directory.
+
+56
+00:03:17,900 --> 00:03:19,690
+It is what I showed you there
+when I did this.
+
+57
+00:03:20,270 --> 00:03:21,960
+Here, we get the same thing.
+
+58
+00:03:26,190 --> 00:03:31,140
+Now, we can browse inside
+
+59
+00:03:31,307 --> 00:03:32,180
+this file system.
+
+60
+00:03:32,347 --> 00:03:36,090
+If I choose Ston, this is an equivalent
+of Json in Pharo,
+
+61
+00:03:36,460 --> 00:03:40,920
+once more I get a
+
+62
+00:03:41,087 --> 00:03:45,780
+reference inside the file
+system, which is
+
+63
+00:03:46,280 --> 00:03:51,110
+this file here,
+I get an access on
+
+64
+00:03:51,277 --> 00:03:52,500
+the file called 
+
+65
+00:03:52,667 --> 00:03:57,270
+meta-inf.ston. And now the
+inspector is 
+
+66
+00:03:57,437 --> 00:04:00,390
+smart and tells me “I will
+show you its content if you want.”
+
+67
+00:04:01,000 --> 00:04:02,940
+I look at its content and 
+it appears I have 
+
+68
+00:04:03,107 --> 00:04:06,020
+a content, I don’t know exactly
+what it is for, but it is a content.
+
+69
+00:04:07,210 --> 00:04:11,070
+In the same way, I can 
+browse the sub-folders.
+
+70
+00:04:11,237 --> 00:04:14,950
+Here, if I choose 
+package-cash, this is the place where
+
+71
+00:04:15,117 --> 00:04:16,180
+packages are stored by default.
+
+72
+00:04:16,347 --> 00:04:19,160
+Indeed, this is still an object 
+of the file system
+
+73
+00:04:19,327 --> 00:04:21,760
+but it shows me its content.
+
+74
+00:04:22,540 --> 00:04:26,880
+If I look into Data, I can see
+
+75
+00:04:30,210 --> 00:04:33,740
+one png. If I click on 
+this png, I will browse.
+
+76
+00:04:34,040 --> 00:04:36,760
+Here, you see there are other tabs.
+
+77
+00:04:38,030 --> 00:04:38,680
+
+78
+00:04:39,500 --> 00:04:41,540
+If I click on Content,
+
+79
+00:04:41,707 --> 00:04:44,550
+the png as stored in a binary
+format on my disk.
+
+80
+00:04:47,300 --> 00:04:50,460
+As it is a png, 
+the inspector shows me a preview
+
+81
+00:04:50,627 --> 00:04:53,570
+of what the png contains.
+
+82
+00:04:53,737 --> 00:04:55,140
+If I look at the script.st,
+
+83
+00:04:55,307 --> 00:04:58,510
+for example, I will have
+different panes.
+
+84
+00:04:58,677 --> 00:05:00,740
+Here there are two, I don’t 
+know exactly why
+
+85
+00:05:00,907 --> 00:05:03,150
+but there is one with
+syntax highlighting and the other
+
+86
+00:05:03,317 --> 00:05:05,400
+one without, showing the
+content once more. 
+
+87
+00:05:06,050 --> 00:05:09,470
+If it is a .zip file, it
+is even better because when I
+
+88
+00:05:09,637 --> 00:05:14,520
+on it, the zip content is
+encoded and 
+
+89
+00:05:14,687 --> 00:05:19,100
+compressed but the items,
+at this point, are
+
+90
+00:05:19,267 --> 00:05:22,920
+interpreted. Here I can 
+browse directly 
+
+91
+00:05:24,240 --> 00:05:26,080
+my objects and in the same
+way recursively.
+
+92
+00:05:29,730 --> 00:05:34,300
+That was to show you that the 
+Pharo inspector 
+
+93
+00:05:34,467 --> 00:05:37,400
+is really a very powerful tool
+for interacting 
+
+94
+00:05:37,567 --> 00:05:42,160
+precisely with objects, 
+moreover as each object
+
+95
+00:05:42,327 --> 00:05:45,430
+determines a representation
+or a set of
+
+96
+00:05:45,597 --> 00:05:48,840
+meaningful representations
+for us to
+
+97
+00:05:49,007 --> 00:05:51,270
+interact with it and to be 
+the most efficient, 
+
+98
+00:05:51,550 --> 00:05:53,820
+this enables to build very quickly
+little tools.
+
+99
+00:05:54,000 --> 00:05:56,940
+Here you have a small file systems
+browser, why?
+
+100
+00:05:57,107 --> 00:05:59,270
+Because when you browse and
+inspect 
+
+101
+00:05:59,510 --> 00:06:01,890
+the file system, sometimes you
+want to know
+
+102
+00:06:02,057 --> 00:06:02,840
+exactly what you are inspecting.

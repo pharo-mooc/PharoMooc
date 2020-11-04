@@ -1,0 +1,182 @@
+WEBVTT
+
+00:00:01.350 --> 00:00:04.550 align:middle
+In this video, I’d like to show 
+you a tip with Nautilus.
+
+00:00:06.450 --> 00:00:09.370 align:middle
+And just for you to know: 
+Nautilus is the submarine name
+
+00:00:09.370 --> 00:00:11.500 align:middle
+in Jules Verne’s “20 000 
+Leagues Under the Sea” 
+
+00:00:11.500 --> 00:00:14.420 align:middle
+Nautilus enables to navigate
+under the seas so it suits
+
+00:00:14.420 --> 00:00:15.490 align:middle
+very very well to Pharo.
+
+00:00:16.920 --> 00:00:18.430 align:middle
+Let’s have a look to the
+OrderedCollection class.
+
+00:00:25.260 --> 00:00:28.070 align:middle
+It is defined in the
+Collection-Sequenceable package.
+
+00:00:30.040 --> 00:00:32.500 align:middle
+In this package, there are several
+core classes of the system.
+
+00:00:32.500 --> 00:00:36.400 align:middle
+There is the Array class, 
+the Interval class, LinkedList class.
+
+00:00:36.960 --> 00:00:40.070 align:middle
+I can see that in the package
+there is
+
+00:00:40.070 --> 00:00:42.840 align:middle
+the OrderedCollection class which
+has a sub-class, SortedCollection.
+
+00:00:42.840 --> 00:00:47.280 align:middle
+Now what I can also see,
+
+00:00:47.280 --> 00:00:51.390 align:middle
+which is not expressed in
+a graphical way,
+
+00:00:52.380 --> 00:00:55.800 align:middle
+it is that OrderedCollection is
+a sub-class of SequenceableCollection.
+
+00:00:57.920 --> 00:00:59.820 align:middle
+Sometimes, I would like to
+
+00:00:59.820 --> 00:01:02.390 align:middle
+navigate inside the super-class
+in order to see which
+
+00:01:02.390 --> 00:01:04.410 align:middle
+methods are redefined or 
+this kind of thing.
+
+00:01:06.160 --> 00:01:09.510 align:middle
+To do this, I click on
+Inheritance.
+
+00:01:13.110 --> 00:01:16.120 align:middle
+Hence, I see the hierarchy, 
+I see the super-class
+
+00:01:17.140 --> 00:01:20.430 align:middle
+of OrderedCollection,
+SequenceableCollection and its hierarchy.
+
+00:01:23.450 --> 00:01:26.550 align:middle
+I also see that there are other sub-classes
+of OrderedCollection
+
+00:01:26.990 --> 00:01:29.950 align:middle
+in other packages,
+and I see that
+
+00:01:29.950 --> 00:01:32.210 align:middle
+SortedCollection is a sub-class
+of OrderedCollection,
+
+00:01:33.050 --> 00:01:37.660 align:middle
+this is in black, I am 
+still in the package 
+
+00:01:37.660 --> 00:01:40.210 align:middle
+containing OrderedCollection.
+
+00:01:41.190 --> 00:01:46.090 align:middle
+So, like this, I can browse, 
+and see
+
+00:01:46.090 --> 00:01:47.850 align:middle
+the methods which are 
+in other packages.
+
+00:01:50.490 --> 00:01:55.230 align:middle
+Now, if I unselect
+this mode while I’m on
+
+00:01:55.230 --> 00:01:56.890 align:middle
+the super-class,
+what will I see?
+
+00:01:57.340 --> 00:02:00.330 align:middle
+I will see the class package.
+
+00:02:00.650 --> 00:02:03.450 align:middle
+So, the SequenceableCollection
+class is in the
+
+00:02:03.450 --> 00:02:04.440 align:middle
+Collection-Abstract package.
+
+00:02:05.470 --> 00:02:08.180 align:middle
+So now if I ask again to see the
+inheritance,
+
+00:02:08.180 --> 00:02:12.490 align:middle
+I will see all the 
+sub-classes and super-classes 
+
+00:02:12.490 --> 00:02:13.480 align:middle
+inheritance of
+SequenceableCollection.
+
+00:02:14.570 --> 00:02:17.990 align:middle
+I see that
+SequenceableCollection inherits from
+
+00:02:17.990 --> 00:02:20.640 align:middle
+Collection in the same package, 
+that it defines in the same
+
+00:02:20.640 --> 00:02:25.260 align:middle
+package ArrayedCollection.
+I see that the hierarchy is
+
+00:02:25.260 --> 00:02:27.490 align:middle
+is quite big, so normally
+I should find
+
+00:02:27.490 --> 00:02:30.620 align:middle
+somewhere
+OrderedCollection, and OrderedCollection is here.
+
+00:02:30.650 --> 00:02:34.190 align:middle
+Now if I select again
+OrderedCollection and I
+
+00:02:34.190 --> 00:02:36.700 align:middle
+click again on Inheritance,
+I will go back into
+
+00:02:36.700 --> 00:02:39.390 align:middle
+the original package, Sequenceable.
+
+00:02:40.860 --> 00:02:42.440 align:middle
+And we are back to the start.
+
+00:02:43.810 --> 00:02:46.670 align:middle
+What you’ve seen there is 
+that Nautilus will
+
+00:02:46.670 --> 00:02:50.260 align:middle
+enable you to browse
+the inheritance ignoring
+
+00:02:50.610 --> 00:02:54.130 align:middle
+packages, while showing
+in which package you are browsing. 
+

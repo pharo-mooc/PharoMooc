@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W5-S5</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:00:14" end="00:00:01:09" region="bottom">Hello everyone.</p>
+            <p xml:id="p2" begin="00:00:01:13" end="00:00:04:20" region="bottom">In this sequence we're going<br/>to quickly present the debugger,</p>
+            <p xml:id="p3" begin="00:00:04:24" end="00:00:09:09" region="bottom">and the notion of breakpoints,<br/>the different breakpoints in Pharo.</p>
+            <p xml:id="p4" begin="00:00:09:15" end="00:00:11:14" region="bottom">What you'll see is that</p>
+            <p xml:id="p5" begin="00:00:11:19" end="00:00:14:19" region="bottom">the system is alive<br/>and that we can communicate,</p>
+            <p xml:id="p6" begin="00:00:14:23" end="00:00:18:01" region="bottom">we have to communicate<br/>with it and its objects.</p>
+            <p xml:id="p7" begin="00:00:18:21" end="00:00:22:00" region="bottom">We don't work with source code,<br/>we work with objects,</p>
+            <p xml:id="p8" begin="00:00:22:04" end="00:00:25:13" region="bottom">which have a state,<br/>and receive and send messages.</p>
+            <p xml:id="p9" begin="00:00:26:19" end="00:00:29:05" region="bottom">Don't be afraid of using the debugger.</p>
+            <p xml:id="p10" begin="00:00:29:09" end="00:00:33:12" region="bottom">We can code in debugger,<br/>inspect the program while it's running...</p>
+            <p xml:id="p11" begin="00:00:33:23" end="00:00:37:09" region="bottom">It's a powerful and really useful tool.</p>
+            <p xml:id="p12" begin="00:00:37:23" end="00:00:41:01" region="bottom">I know several developers,<br/>myself included,</p>
+            <p xml:id="p13" begin="00:00:41:05" end="00:00:45:09" region="bottom">who have a tendency<br/>to develop directly in debuggers.</p>
+            <p xml:id="p14" begin="00:00:45:13" end="00:00:49:11" region="bottom">So a great deal of code<br/>is written in debuggers rather than</p>
+            <p xml:id="p15" begin="00:00:49:15" end="00:00:51:07" region="bottom">in a code browser.</p>
+            <p xml:id="p16" begin="00:00:51:11" end="00:00:54:01" region="bottom">The advantage of that is,<br/>while you're writing the code,</p>
+            <p xml:id="p17" begin="00:00:54:05" end="00:00:58:10" region="bottom">you've access to the method settings,<br/>to the objects, to the variables.</p>
+            <p xml:id="p18" begin="00:00:58:14" end="00:01:00:24" region="bottom">You can see it all and test it.</p>
+            <p xml:id="p19" begin="00:01:01:03" end="00:01:04:16" region="bottom">You've all the data to hand<br/>to be able to test it</p>
+            <p xml:id="p20" begin="00:01:04:20" end="00:01:06:09" region="bottom">while writing the code.</p>
+            <p xml:id="p21" begin="00:01:06:23" end="00:01:10:07" region="bottom">The debugger looks like this.</p>
+            <p xml:id="p22" begin="00:01:10:11" end="00:01:14:14" region="bottom">There's a title bar<br/>indicating the error message.</p>
+            <p xml:id="p23" begin="00:01:14:18" end="00:01:16:23" region="bottom">Here's the "stack", the call stack,</p>
+            <p xml:id="p24" begin="00:01:17:02" end="00:01:20:05" region="bottom">that's to say the call method.<br/>Here we can see that</p>
+            <p xml:id="p25" begin="00:01:20:09" end="00:01:24:11" region="bottom">this method, "performTest"<br/>has called the method "testSumming",</p>
+            <p xml:id="p26" begin="00:01:24:15" end="00:01:27:15" region="bottom">which has called the method "place",</p>
+            <p xml:id="p27" begin="00:01:27:19" end="00:01:32:10" region="bottom">which has raised the problem<br/>"DoesNotUnderstand".</p>
+            <p xml:id="p28" begin="00:01:33:17" end="00:01:37:18" region="bottom">Here we have the code<br/>of the area that's selected here.</p>
+            <p xml:id="p29" begin="00:01:37:22" end="00:01:41:11" region="bottom">What's selected here is the method<br/>plus the DiceHandle class,</p>
+            <p xml:id="p30" begin="00:01:41:15" end="00:01:44:12" region="bottom">so it appears in the lower window.</p>
+            <p xml:id="p31" begin="00:01:44:16" end="00:01:48:16" region="bottom">And right at the bottom<br/>we have different variables,</p>
+            <p xml:id="p32" begin="00:01:48:20" end="00:01:50:19" region="bottom">all the variables accessible</p>
+            <p xml:id="p33" begin="00:01:50:23" end="00:01:53:18" region="bottom">within the context<br/>of the execution underway,</p>
+            <p xml:id="p34" begin="00:01:53:22" end="00:01:56:12" region="bottom">in order to modify the variables,</p>
+            <p xml:id="p35" begin="00:01:56:16" end="00:01:59:21" region="bottom">to inspect the objects, etc...</p>
+            <p xml:id="p36" begin="00:02:00:10" end="00:02:04:00" region="bottom">It's a group of actions<br/>in that area that allows us</p>
+            <p xml:id="p37" begin="00:02:04:04" end="00:02:08:07" region="bottom">to restart the execution<br/>of the method or dive into the code</p>
+            <p xml:id="p38" begin="00:02:08:11" end="00:02:10:19" region="bottom">or see line by line what's happening.</p>
+            <p xml:id="p39" begin="00:02:11:10" end="00:02:14:22" region="bottom">When a debugger opens,<br/>closing it won't solve the problem.</p>
+            <p xml:id="p40" begin="00:02:15:04" end="00:02:17:14" region="bottom">It's much easier to open the debugger,</p>
+            <p xml:id="p41" begin="00:02:17:18" end="00:02:21:05" region="bottom">to look inside in detail<br/>at what's causing the problem</p>
+            <p xml:id="p42" begin="00:02:21:09" end="00:02:24:03" region="bottom">and inspect the call stack and objects,</p>
+            <p xml:id="p43" begin="00:02:24:07" end="00:02:26:06" region="bottom">and fix the problem in debugger</p>
+            <p xml:id="p44" begin="00:02:26:10" end="00:02:30:01" region="bottom">rather than close it and then<br/>guess why debugger opened.</p>
+            <p xml:id="p45" begin="00:02:31:12" end="00:02:34:21" region="bottom">The debugger is your best friend.</p>
+            <p xml:id="p46" begin="00:02:35:00" end="00:02:37:14" region="bottom">It allows you to communicate<br/>with all the context objects,</p>
+            <p xml:id="p47" begin="00:02:37:18" end="00:02:42:11" region="bottom">whether it's the settings,<br/>the instance variables, etc...</p>
+            <p xml:id="p48" begin="00:02:42:15" end="00:02:47:01" region="bottom">To check the state of all the variables<br/>and even modify this state.</p>
+            <p xml:id="p49" begin="00:02:48:00" end="00:02:51:14" region="bottom">To send messages to check<br/>the state of certain objects</p>
+            <p xml:id="p50" begin="00:02:51:18" end="00:02:54:11" region="bottom">or check how they're reacting.</p>
+            <p xml:id="p51" begin="00:02:55:02" end="00:02:59:04" region="bottom">We can, of course, modify the methods<br/>on the call stack, saved,</p>
+            <p xml:id="p52" begin="00:02:59:08" end="00:03:02:04" region="bottom">and continue with the new code<br/>without any problem,</p>
+            <p xml:id="p53" begin="00:03:02:08" end="00:03:06:23" region="bottom">all without restarting<br/>execution from scratch.</p>
+            <p xml:id="p54" begin="00:03:07:10" end="00:03:10:03" region="bottom">So if a method fails,<br/>we correct the method,</p>
+            <p xml:id="p55" begin="00:03:10:07" end="00:03:14:02" region="bottom">we restart execution of the method<br/>and the program continues.</p>
+            <p xml:id="p56" begin="00:03:15:00" end="00:03:16:05" region="bottom">One way of debugging</p>
+            <p xml:id="p57" begin="00:03:17:01" end="00:03:19:06" region="bottom">that's very frequently used</p>
+            <p xml:id="p58" begin="00:03:19:17" end="00:03:22:10" region="bottom">is showing things on the console.</p>
+            <p xml:id="p59" begin="00:03:22:14" end="00:03:27:05" region="bottom">We can see that this is really</p>
+            <p xml:id="p60" begin="00:03:27:09" end="00:03:31:18" region="bottom">a poor way of debugging,<br/>because you have to modify</p>
+            <p xml:id="p61" begin="00:03:32:08" end="00:03:37:12" region="bottom">all the methods you want traces in,<br/>and then modify them again</p>
+            <p xml:id="p62" begin="00:03:37:16" end="00:03:40:15" region="bottom">to remove them when the problem's fixed.</p>
+            <p xml:id="p63" begin="00:03:40:19" end="00:03:44:10" region="bottom">And then you have to know,<br/>or have an idea, where the problem...</p>
+            <p xml:id="p64" begin="00:03:44:14" end="00:03:47:17" region="bottom">Where the problem might lie,<br/>or where it comes from,</p>
+            <p xml:id="p65" begin="00:03:47:21" end="00:03:52:11" region="bottom">to know where to put the line<br/>and what to show.</p>
+            <p xml:id="p66" begin="00:03:52:19" end="00:03:57:06" region="bottom">The other way of doing this<br/>is using breakpoints.</p>
+            <p xml:id="p67" begin="00:03:57:17" end="00:04:01:23" region="bottom">A breakpoint is a place in the code<br/>where we'll indicate</p>
+            <p xml:id="p68" begin="00:04:02:02" end="00:04:06:01" region="bottom">to Pharo that it has to stop<br/>next time it passes this place.</p>
+            <p xml:id="p69" begin="00:04:06:05" end="00:04:09:14" region="bottom">So the most simple breakpoint<br/>is "Halt now".</p>
+            <p xml:id="p70" begin="00:04:09:18" end="00:04:13:20" region="bottom">Send the message "now"<br/>to the object "Halt", which is a class,</p>
+            <p xml:id="p71" begin="00:04:13:24" end="00:04:17:09" region="bottom">which will immediately stop execution.</p>
+            <p xml:id="p72" begin="00:04:17:13" end="00:04:19:13" region="bottom">From there, a debugger will open.</p>
+            <p xml:id="p73" begin="00:04:19:17" end="00:04:23:19" region="bottom">We can see line by line what's happening,<br/>the state of the program, etc...</p>
+            <p xml:id="p74" begin="00:04:24:08" end="00:04:27:13" region="bottom">So, "Halt now" pauses the program...</p>
+            <p xml:id="p75" begin="00:04:27:17" end="00:04:30:03" region="bottom">we can restart it,<br/>but for now it's paused...</p>
+            <p xml:id="p76" begin="00:04:30:07" end="00:04:33:22" region="bottom">and opens a debugger with<br/>the current state of the application.</p>
+            <p xml:id="p77" begin="00:04:34:01" end="00:04:36:03" region="bottom">So, "Halt now" is very good,</p>
+            <p xml:id="p78" begin="00:04:36:07" end="00:04:40:03" region="bottom">unless you put it in a method<br/>that's executed constantly,</p>
+            <p xml:id="p79" begin="00:04:40:08" end="00:04:43:05" region="bottom">including by the system itself.</p>
+            <p xml:id="p80" begin="00:04:43:09" end="00:04:48:03" region="bottom">You can have dozens<br/>of debuggers opening</p>
+            <p xml:id="p81" begin="00:04:48:07" end="00:04:52:13" region="bottom">if you put a "Halt now" in a place<br/>used by an opening debugger.</p>
+            <p xml:id="p82" begin="00:04:52:23" end="00:04:55:20" region="bottom">So you put "Halt now"<br/>in the debugger's code.</p>
+            <p xml:id="p83" begin="00:04:55:24" end="00:04:57:10" region="bottom">If the debugger opens,</p>
+            <p xml:id="p84" begin="00:04:57:14" end="00:04:59:11" region="bottom">it will execute "Halt now" itself,</p>
+            <p xml:id="p85" begin="00:04:59:15" end="00:05:04:05" region="bottom">which will open another debugger, etc,<br/>recursively, and pause your system.</p>
+            <p xml:id="p86" begin="00:05:04:13" end="00:05:07:19" region="bottom">In this case, we use "Halt once",</p>
+            <p xml:id="p87" begin="00:05:07:23" end="00:05:12:13" region="bottom">which, once "Halt once" is activated,<br/>stops once, pauses once,</p>
+            <p xml:id="p88" begin="00:05:12:17" end="00:05:17:06" region="bottom">and all the subsequent passages through<br/>"Halt once" won't pause the program.</p>
+            <p xml:id="p89" begin="00:05:18:13" end="00:05:22:03" region="bottom">So we write "Halt once"<br/>anywhere in the code,</p>
+            <p xml:id="p90" begin="00:05:23:22" end="00:05:26:05" region="bottom">we activate it, once,</p>
+            <p xml:id="p91" begin="00:05:26:09" end="00:05:28:07" region="bottom">we execute the program,</p>
+            <p xml:id="p92" begin="00:05:28:11" end="00:05:31:17" region="bottom">a debugger opens and<br/>"Halt once" is immediately disabled.</p>
+            <p xml:id="p93" begin="00:05:32:09" end="00:05:35:06" region="bottom">Another possibility is to stop<br/>after a number of iterations.</p>
+            <p xml:id="p94" begin="00:05:35:16" end="00:05:38:14" region="bottom">We might stop after the 10th iteration</p>
+            <p xml:id="p95" begin="00:05:38:18" end="00:05:42:02" region="bottom">if we know that an element<br/>in a collection that interests us</p>
+            <p xml:id="p96" begin="00:05:42:06" end="00:05:44:20" region="bottom">is in 10th position.<br/>It's not necessarily worth</p>
+            <p xml:id="p97" begin="00:05:44:24" end="00:05:47:22" region="bottom">debugging the 9<br/>previous times for nothing,</p>
+            <p xml:id="p98" begin="00:05:48:01" end="00:05:51:00" region="bottom">so we stop at the 10th iteration.</p>
+            <p xml:id="p99" begin="00:05:52:01" end="00:05:56:07" region="bottom">Another possibility is to stop<br/>when a particular condition</p>
+            <p xml:id="p100" begin="00:05:56:13" end="00:05:59:23" region="bottom">is true, so for that we have "Halt if".</p>
+            <p xml:id="p101" begin="00:06:00:02" end="00:06:02:01" region="bottom">"Halt if" either takes</p>
+            <p xml:id="p102" begin="00:06:02:06" end="00:06:04:05" region="bottom">a symbol indicating a method,</p>
+            <p xml:id="p103" begin="00:06:04:10" end="00:06:07:12" region="bottom">which has to be in the call stack<br/>for the debugger to open,</p>
+            <p xml:id="p104" begin="00:06:07:16" end="00:06:11:07" region="bottom">meaning that,<br/>if I put "Halt if:printString"</p>
+            <p xml:id="p105" begin="00:06:11:11" end="00:06:15:23" region="bottom">the Dice&gt;&gt;faces code has to be called</p>
+            <p xml:id="p106" begin="00:06:16:02" end="00:06:18:00" region="bottom">from the printString method</p>
+            <p xml:id="p107" begin="00:06:18:04" end="00:06:20:05" region="bottom">for the breakpoint</p>
+            <p xml:id="p108" begin="00:06:20:13" end="00:06:23:03" region="bottom">to activate and the program to pause.</p>
+            <p xml:id="p109" begin="00:06:23:18" end="00:06:25:09" region="bottom">"If" can also take a block.</p>
+            <p xml:id="p110" begin="00:06:25:13" end="00:06:28:08" region="bottom">We can put any<br/>bit of code in the block,</p>
+            <p xml:id="p111" begin="00:06:28:12" end="00:06:32:17" region="bottom">if it evaluates to true,<br/>to make the debugger stop,</p>
+            <p xml:id="p112" begin="00:06:32:22" end="00:06:35:02" region="bottom">for it not to open<br/>and the program to continue.</p>
+            <p xml:id="p113" begin="00:06:35:08" end="00:06:38:21" region="bottom">Since the tests in Pharo<br/>are methods in the call stack,</p>
+            <p xml:id="p114" begin="00:06:39:00" end="00:06:42:21" region="bottom">you can put the test number,<br/>so that a bit of code only stops</p>
+            <p xml:id="p115" begin="00:06:43:00" end="00:06:45:10" region="bottom">when it's executed from a test.</p>
+            <p xml:id="p116" begin="00:06:45:24" end="00:06:49:14" region="bottom">All of these methods,<br/>"now", "once", "onCount" and "if",</p>
+            <p xml:id="p117" begin="00:06:50:06" end="00:06:53:00" region="bottom">are methods in Halt class.</p>
+            <p xml:id="p118" begin="00:06:53:04" end="00:06:56:18" region="bottom">You can study the code,<br/>see what the code's done to it,</p>
+            <p xml:id="p119" begin="00:06:56:22" end="00:06:59:22" region="bottom">and you can also add your own methods,</p>
+            <p xml:id="p120" begin="00:07:00:01" end="00:07:03:19" region="bottom">add your own kind of breakpoint<br/>according to your needs.</p>
+            <p xml:id="p121" begin="00:07:03:23" end="00:07:06:06" region="bottom">So in the example below,</p>
+            <p xml:id="p122" begin="00:07:06:10" end="00:07:11:02" region="bottom">I've coded a breakpoint,<br/>called "between: and"</p>
+            <p xml:id="p123" begin="00:07:11:06" end="00:07:14:07" region="bottom">which only stops the program</p>
+            <p xml:id="p124" begin="00:07:14:11" end="00:07:19:08" region="bottom">when it's in between<br/>"minTime" and "maxTime".</p>
+            <p xml:id="p125" begin="00:07:20:10" end="00:07:23:20" region="bottom">So this program will only stop,</p>
+            <p xml:id="p126" begin="00:07:23:24" end="00:07:27:16" region="bottom">the debugger will only open,<br/>between midnight and 2am.</p>
+            <p xml:id="p127" begin="00:07:27:20" end="00:07:31:06" region="bottom">You should know that<br/>the debugger is a very powerful tool.</p>
+            <p xml:id="p128" begin="00:07:31:14" end="00:07:35:07" region="bottom">There are a lot of breakpoints<br/>already defined in the system.</p>
+            <p xml:id="p129" begin="00:07:35:11" end="00:07:37:19" region="bottom">You can add as many as you like.</p>
+            <p xml:id="p130" begin="00:07:37:23" end="00:07:41:09" region="bottom">To add a breakpoint,<br/>modify one method, the debugger opens,</p>
+            <p xml:id="p131" begin="00:07:41:13" end="00:07:44:06" region="bottom">and you can see line by line<br/>what's happening.</p>
+            <p xml:id="p132" begin="00:07:45:03" end="00:07:48:18" region="bottom">The breakpoints are really powerful</p>
+            <p xml:id="p133" begin="00:07:48:22" end="00:07:52:11" region="bottom">and you shouldn't hesitate<br/>to use them or the debuggers.</p>
+        </div>
+    </body>
+</tt>

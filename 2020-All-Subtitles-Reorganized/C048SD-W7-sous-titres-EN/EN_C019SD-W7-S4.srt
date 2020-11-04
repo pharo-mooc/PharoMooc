@@ -1,0 +1,848 @@
+﻿1
+00:00:00,480 --> 00:00:04,600
+This video will focus
+on an advanced aspect of Pharo,
+
+2
+00:00:04,800 --> 00:00:10,800
+which is the reflective operations
+needed for the live programming we use.
+
+3
+00:00:11,680 --> 00:00:16,680
+We will look at what happens
+when we recompile a class.
+
+4
+00:00:17,040 --> 00:00:20,080
+And we'll explain
+the reflective operations
+
+5
+00:00:20,200 --> 00:00:24,720
+needed for implementing
+live programming.
+
+6
+00:00:24,920 --> 00:00:26,560
+Here's a typical case.
+
+7
+00:00:26,720 --> 00:00:30,320
+We usually start by defining a class,
+
+8
+00:00:30,600 --> 00:00:34,640
+then we add methods
+and create instances for this class.
+
+9
+00:00:35,160 --> 00:00:40,400
+Then we redefine the class
+and add new instance variables.
+
+10
+00:00:41,200 --> 00:00:45,640
+So, what do we do with the instances
+that already existed
+
+11
+00:00:46,160 --> 00:00:48,440
+when there was one less attribute?
+
+12
+00:00:48,680 --> 00:00:53,920
+We must set up a mechanism
+to migrate these instances
+
+13
+00:00:54,280 --> 00:00:57,360
+over to the new version of the class.
+
+14
+00:00:57,640 --> 00:00:59,160
+Then we keep working.
+
+15
+00:00:59,600 --> 00:01:03,200
+After that, we will look at operations
+
+16
+00:01:04,440 --> 00:01:09,160
+that enable dynamic class redefinition,
+method recompilation,
+
+17
+00:01:09,600 --> 00:01:11,040
+and which allow for
+
+18
+00:01:11,400 --> 00:01:15,160
+an automatic and transparent
+migration of instances
+
+19
+00:01:15,360 --> 00:01:18,200
+to the new version of the class.
+
+20
+00:01:18,520 --> 00:01:22,560
+To do this, we need to
+collect all the class instances.
+
+21
+00:01:22,840 --> 00:01:28,280
+Then we need to switch over
+everything that used these objects
+
+22
+00:01:28,840 --> 00:01:31,920
+and assign their pointers
+to new objects.
+
+23
+00:01:32,400 --> 00:01:33,400
+Okay?
+
+24
+00:01:34,160 --> 00:01:38,920
+First, how do we collect
+all the instances of a class?
+
+25
+00:01:39,400 --> 00:01:43,560
+If we send the allInstances message
+to a class,
+
+26
+00:01:43,800 --> 00:01:47,320
+it shows all the objects
+that are its instances.
+
+27
+00:01:47,640 --> 00:01:51,440
+It's a collection
+of all the standard objects.
+
+28
+00:01:51,640 --> 00:01:57,800
+If we send it to Window class,
+we get a collection of Window objects.
+
+29
+00:01:58,280 --> 00:02:02,760
+We can retrieve the first element
+and send a "close" message,
+
+30
+00:02:02,920 --> 00:02:06,840
+since the "close" method
+is defined in the Window class.
+
+31
+00:02:07,360 --> 00:02:11,840
+Another reflective primitive
+is pointersTo.
+
+32
+00:02:12,160 --> 00:02:16,920
+If we send this message to an object,
+we access the collection
+
+33
+00:02:17,400 --> 00:02:21,000
+of all objects that store
+a reference to the object.
+
+34
+00:02:21,200 --> 00:02:23,040
+This is very useful
+
+35
+00:02:23,200 --> 00:02:27,320
+when we want to swap objects.
+
+36
+00:02:29,560 --> 00:02:34,080
+The primitive for swapping pointers
+is "become."
+
+37
+00:02:34,600 --> 00:02:39,760
+The idea is to enable us
+to exchange two objects.
+
+38
+00:02:41,160 --> 00:02:43,840
+We want to swap them symmetrically.
+
+39
+00:02:44,200 --> 00:02:48,200
+Everything that pointed to this object
+in the system,
+
+40
+00:02:48,720 --> 00:02:51,160
+in this case we have two pointers,
+
+41
+00:02:51,360 --> 00:02:55,840
+will be inverted so that the elements
+now point to this object.
+
+42
+00:02:57,280 --> 00:03:01,720
+We break the links for the pointers
+that were on this side,
+
+43
+00:03:02,280 --> 00:03:04,080
+so they switch objects.
+
+44
+00:03:06,360 --> 00:03:11,680
+"Become" means to invert all pointers
+in the system symmetrically.
+
+45
+00:03:13,280 --> 00:03:15,080
+Here's an example.
+
+46
+00:03:15,320 --> 00:03:17,600
+I create a point 1,
+
+47
+00:03:17,800 --> 00:03:22,320
+which points to the object point 0@0
+and a variable pt2,
+
+48
+00:03:22,840 --> 00:03:25,320
+which also points to the object 0@0.
+
+49
+00:03:25,560 --> 00:03:29,560
+Plus a variable pt3
+that points to the point 100@100.
+
+50
+00:03:29,800 --> 00:03:33,200
+Then I write the primitive
+pt1 become: pt3.
+
+51
+00:03:34,160 --> 00:03:38,680
+Everything that pointed to the object
+denoted by the variable pt1
+
+52
+00:03:38,920 --> 00:03:41,440
+will now point to point 3.
+
+53
+00:03:42,200 --> 00:03:44,400
+That is, all the pointers to pt1.
+
+54
+00:03:44,600 --> 00:03:49,760
+We see that the variable pt2
+pointed to the same object as pt1,
+
+55
+00:03:49,920 --> 00:03:54,400
+and now it points to
+that which was referenced by pt3.
+
+56
+00:03:54,760 --> 00:04:00,440
+As for pt3, since it's symmetrical,
+it will point to what pt1 pointed to.
+
+57
+00:04:00,640 --> 00:04:01,760
+Up the top.
+
+58
+00:04:02,800 --> 00:04:06,080
+And pt1 points to what pt3 pointed to.
+
+59
+00:04:06,280 --> 00:04:10,000
+The pointers have thus been swapped
+symmetrically.
+
+60
+00:04:11,200 --> 00:04:14,800
+The asymmetrical variant
+is becomeForward.
+
+61
+00:04:15,440 --> 00:04:18,400
+It indicates
+that we want to swap pointers.
+
+62
+00:04:18,640 --> 00:04:23,360
+Everything that pointed to this object
+will swap over to that object.
+
+63
+00:04:24,080 --> 00:04:28,400
+But not the contrary.
+Pointers to this object stay the same.
+
+64
+00:04:31,520 --> 00:04:34,640
+Here's another example using points.
+
+65
+00:04:35,280 --> 00:04:39,640
+When we execute a becomeForward,
+
+66
+00:04:39,920 --> 00:04:45,080
+we see that it impacts on pt1 and pt2.
+
+67
+00:04:45,600 --> 00:04:48,640
+Pt3 was not affected
+by the becomeForward,
+
+68
+00:04:48,840 --> 00:04:53,000
+and those that pointed
+to this object are unchanged.
+
+69
+00:04:55,400 --> 00:04:59,840
+Another reflective primitive
+is adoptInstance.
+
+70
+00:05:00,200 --> 00:05:02,640
+This changes an object's class.
+
+71
+00:05:02,840 --> 00:05:07,920
+We ask a class to adopt a new instance,
+passed as a parameter.
+
+72
+00:05:08,560 --> 00:05:13,400
+Changing a class is a very powerful,
+but rather limited, tool.
+
+73
+00:05:13,640 --> 00:05:17,520
+It's essential
+that the object's original class
+
+74
+00:05:18,160 --> 00:05:19,840
+in this case, anInstance,
+
+75
+00:05:20,040 --> 00:05:24,680
+is compatible with the format
+of the target class.
+
+76
+00:05:25,440 --> 00:05:29,160
+You can't just swap any object.
+
+77
+00:05:29,360 --> 00:05:31,840
+Sometimes it's indexed, etcetera.
+
+78
+00:05:32,080 --> 00:05:36,000
+The format of an object
+is very important.
+
+79
+00:05:36,680 --> 00:05:40,640
+Let's look at
+what a class is in essence.
+
+80
+00:05:40,920 --> 00:05:43,360
+A class is essentially a format.
+
+81
+00:05:43,640 --> 00:05:47,200
+A format specifies the number
+of instance variables
+
+82
+00:05:47,400 --> 00:05:52,520
+and the type of variables,
+as we explained in an earlier course.
+
+83
+00:05:52,840 --> 00:05:56,000
+It has a superclass
+and a method dictionary.
+
+84
+00:05:56,840 --> 00:06:01,680
+Here we have Behavior class,
+which is a superclass
+
+85
+00:06:02,080 --> 00:06:07,520
+of Class class,
+which defines basic class behavior.
+
+86
+00:06:08,160 --> 00:06:11,000
+It's the basic minimum for a class.
+
+87
+00:06:11,200 --> 00:06:14,720
+So, a class has a superclass,
+a method dictionary,
+
+88
+00:06:14,840 --> 00:06:18,200
+and format specifications.
+
+89
+00:06:19,200 --> 00:06:24,440
+I'll now summarize
+all the reflective behavior features
+
+90
+00:06:25,000 --> 00:06:27,360
+that we've discussed so far,
+
+91
+00:06:28,440 --> 00:06:33,440
+which give certain instances
+behavior that is specific to them.
+
+92
+00:06:34,760 --> 00:06:37,800
+I'll explain the code as we go along.
+
+93
+00:06:38,000 --> 00:06:42,400
+We'll create an instance
+of Behavior class on these three lines.
+
+94
+00:06:42,640 --> 00:06:44,280
+Remember, it's a class.
+
+95
+00:06:44,640 --> 00:06:50,080
+I create an instance of the class,
+which I name Behavior.
+
+96
+00:06:51,600 --> 00:06:54,400
+That gives me an object named Behavior.
+
+97
+00:06:55,040 --> 00:07:00,600
+I indicate that this object
+inherits from Model class.
+
+98
+00:07:02,000 --> 00:07:03,000
+Like this.
+
+99
+00:07:03,680 --> 00:07:08,080
+I set the format
+of this object Behavior.
+
+100
+00:07:08,600 --> 00:07:12,400
+Then I create an instance
+of Model class here.
+
+101
+00:07:14,520 --> 00:07:16,360
+It's an object named Model.
+
+102
+00:07:17,200 --> 00:07:20,080
+Here is the important line in this code.
+
+103
+00:07:20,760 --> 00:07:23,920
+I'll change the class
+of this object Model
+
+104
+00:07:24,080 --> 00:07:28,920
+to become a class of the object
+passed as a parameter, named Behavior.
+
+105
+00:07:29,200 --> 00:07:34,400
+I break the link
+and make it an instance of this class.
+
+106
+00:07:34,800 --> 00:07:37,400
+This is a subclass of Model class.
+
+107
+00:07:38,800 --> 00:07:43,400
+Now I can compile
+a new method in this class.
+
+108
+00:07:43,600 --> 00:07:47,400
+I compile with the method foo,
+which returns 2.
+
+109
+00:07:48,840 --> 00:07:51,840
+I'm doing this in the object Behavior.
+
+110
+00:07:53,560 --> 00:07:55,280
+As we can see here,
+
+111
+00:07:55,560 --> 00:07:59,840
+if I send the message foo
+to the object Model over here,
+
+112
+00:08:01,000 --> 00:08:02,160
+like this,
+
+113
+00:08:02,760 --> 00:08:04,160
+it will return 2.
+
+114
+00:08:04,640 --> 00:08:06,720
+This follows the lookup method.
+
+115
+00:08:07,400 --> 00:08:09,040
+I send the foo message.
+
+116
+00:08:09,200 --> 00:08:14,600
+The object Model searches for the method
+in its class, the object Behavior,
+
+117
+00:08:14,800 --> 00:08:17,360
+and successfully finds the method.
+
+118
+00:08:17,760 --> 00:08:19,160
+It works perfectly.
+
+119
+00:08:19,920 --> 00:08:24,080
+But if I create a new instance
+of Model class,
+
+120
+00:08:25,200 --> 00:08:26,200
+like this,
+
+121
+00:08:26,560 --> 00:08:28,360
+and I send the message foo,
+
+122
+00:08:29,360 --> 00:08:33,360
+an error is indicated
+by MessageNotUnderstood.
+
+123
+00:08:33,640 --> 00:08:35,800
+Because if I apply ToLookUp,
+
+124
+00:08:36,080 --> 00:08:39,080
+I look in the object's class,
+Model class,
+
+125
+00:08:39,320 --> 00:08:43,920
+but I don't find the foo method
+in its dictionary or its superclasses.
+
+126
+00:08:45,040 --> 00:08:51,040
+This advanced mechanism
+allows us to endow a specific instance
+
+127
+00:08:51,520 --> 00:08:54,040
+of Model class with a behavior.
+
+128
+00:08:54,200 --> 00:08:57,840
+Let's apply this to Set class
+to make it clearer.
+
+129
+00:08:58,040 --> 00:09:01,280
+I create set1, an instance of Set class.
+
+130
+00:09:01,800 --> 00:09:05,720
+The Set class method dictionary
+contains the method add:.
+
+131
+00:09:06,400 --> 00:09:11,520
+For a specific instance of Set class,
+I want to change the method add:,
+
+132
+00:09:11,720 --> 00:09:15,360
+which has a specific behavior
+for a specific set.
+
+133
+00:09:15,520 --> 00:09:18,400
+So, I create an "anonymous" class here.
+
+134
+00:09:18,840 --> 00:09:22,920
+It's a specific class that inherits
+from Set class.
+
+135
+00:09:23,280 --> 00:09:25,200
+Here is its inheritance.
+
+136
+00:09:25,600 --> 00:09:31,160
+The object set2 is an instance
+of this "anonymous" class.
+
+137
+00:09:31,720 --> 00:09:37,000
+In its method dictionary,
+I'll redefine the method add:
+
+138
+00:09:37,320 --> 00:09:40,640
+by giving it a particular behavior.
+
+139
+00:09:40,920 --> 00:09:45,800
+Now, if I send the message add:
+to the object set2,
+
+140
+00:09:46,080 --> 00:09:48,400
+this method will be selected,
+
+141
+00:09:48,800 --> 00:09:52,320
+and it will have a specific,
+different behavior
+
+142
+00:09:53,600 --> 00:09:58,040
+from the method add: here
+if we had sent the message to this set.
+
+143
+00:09:58,280 --> 00:10:03,360
+So, we have two sets that react
+differently to the message add:.
+
+144
+00:10:03,680 --> 00:10:07,080
+Here is the code
+to conduct this exercise.
+
+145
+00:10:07,400 --> 00:10:11,280
+Just like before, I create a class
+
+146
+00:10:11,640 --> 00:10:13,800
+as an instance of Behavior class.
+
+147
+00:10:14,080 --> 00:10:16,840
+I set the superclass at Set class.
+
+148
+00:10:17,400 --> 00:10:18,640
+I set the format.
+
+149
+00:10:18,840 --> 00:10:23,600
+I compile the method add:
+in this anonymous class.
+
+150
+00:10:24,080 --> 00:10:29,360
+I'm redefining the method add:
+that is defined in Set class.
+
+151
+00:10:30,080 --> 00:10:36,080
+I use "Transcript show" to display
+the execution of the method add:.
+
+152
+00:10:36,400 --> 00:10:40,680
+Then I call "super" to execute
+the method add: in Set class.
+
+153
+00:10:41,360 --> 00:10:45,720
+Now we'll test this code
+by creating a first set.
+
+154
+00:10:45,920 --> 00:10:48,600
+I have Set class here.
+
+155
+00:10:50,280 --> 00:10:54,280
+I create the first instance
+of this class, named Set.
+
+156
+00:10:55,080 --> 00:10:57,040
+I send it the message add:.
+
+157
+00:10:58,920 --> 00:11:03,760
+I send add: 1, which uses
+the method add: from Set class.
+
+158
+00:11:05,240 --> 00:11:08,720
+If I ask for Set class here,
+I'll get Set.
+
+159
+00:11:09,400 --> 00:11:13,160
+But now I'll execute this primitive
+you see here.
+
+160
+00:11:13,600 --> 00:11:16,200
+I ask the object Set to change classes
+
+161
+00:11:16,400 --> 00:11:21,160
+and to use Behavior class from earlier,
+which is a subclass
+
+162
+00:11:22,080 --> 00:11:23,760
+of Set class.
+
+163
+00:11:24,360 --> 00:11:28,400
+So, it changes and becomes
+an instance of Set class,
+
+164
+00:11:28,680 --> 00:11:32,000
+which has a new version
+of the method add:.
+
+165
+00:11:32,280 --> 00:11:37,920
+Now, if I send the message
+add: 2 to this object,
+
+166
+00:11:38,360 --> 00:11:43,280
+it will select the method add:
+from the object Behavior,
+
+167
+00:11:43,560 --> 00:11:45,720
+and it will execute this code.
+
+168
+00:11:46,280 --> 00:11:48,920
+We can check in the Transcript
+
+169
+00:11:49,760 --> 00:11:53,280
+if the method has been executed.
+
+170
+00:11:53,640 --> 00:11:57,400
+It will eventually be executed,
+
+171
+00:11:57,640 --> 00:12:02,040
+since we also use "super"
+for the method add: from Set class.
+
+172
+00:12:02,840 --> 00:12:07,840
+This allows us to spy
+on instances selected in Set,
+
+173
+00:12:08,080 --> 00:12:09,560
+using this line here.
+
+174
+00:12:11,200 --> 00:12:12,400
+To conclude,
+
+175
+00:12:12,600 --> 00:12:19,200
+all these reflective operations
+allow us to create very innovative tools.
+
+176
+00:12:19,440 --> 00:12:23,840
+We can test out
+and implement new features
+
+177
+00:12:24,080 --> 00:12:29,400
+thanks to these reflective primitives,
+which promote language extensibility.
+
+178
+00:12:30,200 --> 00:12:34,080
+But there's a golden rule
+when using reflection.
+
+179
+00:12:34,320 --> 00:12:38,800
+You must not use it inappropriately
+in domain code.
+
+180
+00:12:39,040 --> 00:12:44,720
+We limit the use
+of reflective codes in domain code.
+
+181
+00:12:45,080 --> 00:12:49,200
+Reflection can violate
+the encapsulation of objects.
+
+182
+00:12:49,840 --> 00:12:51,000
+It can really...
+
+183
+00:12:51,440 --> 00:12:54,640
+It can overstep
+object programming rules,
+
+184
+00:12:54,840 --> 00:12:58,520
+and is therefore reserved
+for constructing tools.

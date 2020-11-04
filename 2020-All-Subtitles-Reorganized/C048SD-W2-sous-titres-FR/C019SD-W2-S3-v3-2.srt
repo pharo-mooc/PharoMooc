@@ -1,0 +1,679 @@
+1
+00:00:00,590 --> 00:00:03,420
+Dans ce cours, nous allons
+aborder la manière de composer
+
+2
+00:00:03,620 --> 00:00:06,450
+des messages et de voir comment
+marche la précédence, c'est-à-dire
+
+3
+00:00:06,650 --> 00:00:08,250
+qui prend le pas par
+rapport à un autre.
+
+4
+00:00:10,470 --> 00:00:12,150
+Si on regarde, la question
+qui se pose c'est "Qu'est-ce
+
+5
+00:00:12,350 --> 00:00:15,130
+qui se passe quand j'ai une
+séquence de messages unaires?"
+
+6
+00:00:15,340 --> 00:00:19,600
+Là, j'ai écrit l'expression
+suivante "1000 factorial class name".
+
+7
+00:00:19,800 --> 00:00:22,840
+Il se trouve que ça
+s'exécute exactement de la même
+
+8
+00:00:23,040 --> 00:00:24,700
+manière que si j'avais mis
+toutes ces parenthèses et on
+
+9
+00:00:24,900 --> 00:00:26,340
+voit que c'est embêtant
+d'avoir toutes ces parenthèses.
+
+10
+00:00:27,050 --> 00:00:28,950
+Ce que le système va faire,
+c'est que quand vous avez des
+
+11
+00:00:29,150 --> 00:00:31,370
+messages qui sont d'un
+même niveau, ça veut dire
+
+12
+00:00:31,570 --> 00:00:34,460
+binaires, unaires ou à
+mots-clefs, ça marche dans les
+
+13
+00:00:34,660 --> 00:00:37,440
+trois cas, il va toujours
+les évaluer de gauche à droite.
+
+14
+00:00:37,640 --> 00:00:40,460
+Là, je vais envoyer le
+message factoriel à 1000.
+
+15
+00:00:40,660 --> 00:00:44,000
+Après, je vais envoyer le message
+ classe aux résultats de factoriel.
+
+16
+00:00:44,280 --> 00:00:48,190
+Et après, je vais
+envoyer de message name à ce
+
+17
+00:00:50,180 --> 00:00:51,810
+nouvel objet et je vais
+obtenir LargePositiveInteger.
+
+18
+00:00:54,370 --> 00:00:56,210
+Pour votre info, factoriel 1000,
+c'est quand même un gros nombre.
+
+19
+00:00:56,410 --> 00:00:58,750
+Vous pouvez aussi essayer
+avec factoriel 10000 si vous en
+
+20
+00:00:58,950 --> 00:01:00,860
+avez envie, c'est un
+tout petit peu plus long.
+
+21
+00:01:02,240 --> 00:01:05,200
+Là ce que l'on voit, ça
+veut dire qu'on a des messages,
+
+22
+00:01:05,400 --> 00:01:08,070
+on a des parenthèses pour
+exécuter des expressions en
+
+23
+00:01:08,270 --> 00:01:10,540
+premier lieu, ensuite les
+messages unaires, ensuite les
+
+24
+00:01:10,740 --> 00:01:12,460
+messages binaires, les
+messages à mots-clefs et après
+
+25
+00:01:12,660 --> 00:01:15,000
+quand il y a égalité, on
+fait de gauche à droite.
+
+26
+00:01:16,210 --> 00:01:17,130
+Regardons un exemple.
+
+27
+00:01:17,950 --> 00:01:22,380
+Là, j'ai un message
+unaire, squared, et un
+
+28
+00:01:22,580 --> 00:01:24,340
+message binaire, +.
+
+29
+00:01:24,690 --> 00:01:26,880
+Donc, c'est le
+message unaire qui gagne.
+
+30
+00:01:27,220 --> 00:01:31,920
+Donc, j'envoie d'abord
+squared et, en plus, en deuxième
+
+31
+00:01:32,120 --> 00:01:33,630
+lieu, j'envoie le message +.
+
+32
+00:01:34,000 --> 00:01:36,610
+Et donc j'obtiens
+bien 11, c'est correct.
+
+33
+00:01:37,540 --> 00:01:40,630
+Maintenant, là j'ai un autre
+cas de figure, je vais lever
+
+34
+00:01:40,830 --> 00:01:44,220
+à la puissance, raisedTo,
+j'ai un message binaire et un
+
+35
+00:01:44,420 --> 00:01:46,910
+message à mot-clef, donc c'est
+le message binaire qui gagne.
+
+36
+00:01:47,270 --> 00:01:50,680
+Premièrement, ça va me faire
+5 puis après, je vais faire
+
+37
+00:01:51,070 --> 00:01:53,040
+raisedTo, ça me
+rend 32, c'est correct.
+
+38
+00:01:54,470 --> 00:01:59,040
+Là, c'est un exemple un peu
+plus funky, les couleurs en
+
+39
+00:01:59,240 --> 00:02:01,330
+Pharo sont des objets,
+donc j'ai la classe couleur.
+
+40
+00:02:01,840 --> 00:02:06,190
+Là, j'ai trois messages
+unaires, j'ai gray, white et black.
+
+41
+00:02:06,590 --> 00:02:10,910
+Et j'ai deux messages
+binaires, j'ai = et -.
+
+42
+00:02:12,000 --> 00:02:12,740
+Qu'est-ce qui va se passer ?
+
+43
+00:02:12,940 --> 00:02:15,900
+Le système va d'abord
+exécuter tous les messages unaires.
+
+44
+00:02:17,210 --> 00:02:21,170
+Je vais obtenir la couleur gray, la
+couleur white et la couleur black.
+
+45
+00:02:21,660 --> 00:02:25,250
+Là donc, il faut que,
+maintenant, j'envoie des messages,
+
+46
+00:02:25,450 --> 00:02:28,290
+il me reste à choisir entre
+le message - et le message =.
+
+47
+00:02:29,760 --> 00:02:33,730
+Là, je vais envoyer
+message moins à l'objet gray avec
+
+48
+00:02:33,930 --> 00:02:36,720
+comme argument white, ça va
+me donner la couleur black.
+
+49
+00:02:37,470 --> 00:02:39,820
+Après, je vais comparer mes
+deux couleurs et ça me donne
+
+50
+00:02:40,020 --> 00:02:43,600
+que black = black, donc c'est vrai.
+
+51
+00:02:43,800 --> 00:02:47,760
+Donc là, c'est plus un
+exemple pour vous montrer qu'on
+
+52
+00:02:47,960 --> 00:02:50,360
+peut aussi faire de la
+conversion automatique avec Pharo,
+
+53
+00:02:50,640 --> 00:02:52,840
+c'est une sorte de
+clin d'œil un petit peu.
+
+54
+00:02:54,000 --> 00:02:58,780
+J'ai cette expression 1
+ class maxVal + 1, donc j'ai deux
+
+55
+00:02:59,000 --> 00:03:02,130
+messages unaires, class et
+maxVal, et puis j'ai un message binaire.
+
+56
+00:03:03,850 --> 00:03:05,490
+Comment ça
+s'exécute cette expression?
+
+57
+00:03:05,920 --> 00:03:09,040
+Je vais envoyer le message
+ classe au petit entier 1, il
+
+58
+00:03:09,240 --> 00:03:11,490
+me dit "Ben oui, tu es un
+petit entier puisque tu es 1",
+
+59
+00:03:11,690 --> 00:03:12,750
+c'est quand même très optimisé.
+
+60
+00:03:13,680 --> 00:03:16,660
+Et maintenant, je vais
+envoyer à la classe, puisque c'est
+
+61
+00:03:16,860 --> 00:03:18,950
+le résultat de 1 classe, je
+vais lui envoyer le message maxVal.
+
+62
+00:03:19,150 --> 00:03:20,300
+Qu'est-ce que c'est
+que le message maxVal?
+
+63
+00:03:20,930 --> 00:03:23,650
+C'est quel est le plus
+grand nombre que tu peux encoder
+
+64
+00:03:23,850 --> 00:03:25,430
+sur un petit entier,
+c'est ça ce que ça veut dire.
+
+65
+00:03:25,850 --> 00:03:30,020
+Et donc là ça me rend ce nombre à
+quelques chiffres qui finit par 23.
+
+66
+00:03:31,150 --> 00:03:36,000
+Et à ce nombre maintenant, je
+vais lui envoyer le message plus 1.
+
+67
+00:03:39,110 --> 00:03:42,370
+Je n’obtiens forcément pas un
+petit entier, puisque ça, c'est
+
+68
+00:03:42,570 --> 00:03:44,840
+la valeur qui tient sur un
+petit entier, donc ça sera
+
+69
+00:03:45,150 --> 00:03:46,890
+forcément quelque chose qui
+n'est pas un petit entier.
+
+70
+00:03:47,300 --> 00:03:52,060
+Là finalement, je lui demande
+"Qu'est-ce que c'est la classe de ce nombre?"
+
+71
+00:03:52,260 --> 00:03:54,950
+Je mets des parenthèses,
+j'envoie class et ça me dit que
+
+72
+00:03:55,240 --> 00:03:58,490
+c'est un
+LargePositiveInteger. Celui-là, c'est le plus
+
+73
+00:03:58,690 --> 00:04:01,870
+grand des petits entiers et
+celui-là, c'est le plus petit
+
+74
+00:04:02,070 --> 00:04:06,560
+des grands entiers. Là,
+j'ai mis des parenthèses parce
+
+75
+00:04:06,760 --> 00:04:09,510
+que si je n'avais pas mis de
+parenthèses, class aurait été envoyé à 1.
+
+76
+00:04:09,710 --> 00:04:11,330
+Ce n'est pas ce que je
+veux, je veux envoyer class aux
+
+77
+00:04:11,530 --> 00:04:12,510
+résultats de cette expression.
+
+78
+00:04:15,890 --> 00:04:19,840
+Imaginons là, j'ai créé un
+rectangle et je veux obtenir
+
+79
+00:04:20,040 --> 00:04:22,210
+le point en bas à
+droite du rectangle.
+
+80
+00:04:22,480 --> 00:04:24,610
+J'ai écrit ça, je
+l'exécute, ça plante.
+
+81
+00:04:24,810 --> 00:04:27,530
+Le système me dit "Je ne
+comprends pas: 100 ne comprend
+
+82
+00:04:27,730 --> 00:04:29,700
+pas le message
+bottomRight " Pourquoi?
+
+83
+00:04:30,100 --> 00:04:34,460
+Parce que bottomRight, c'est
+un message unaire et il est
+
+84
+00:04:34,660 --> 00:04:37,910
+exécuté avant tous les autres, donc
+il est envoyé à 100, son receveur.
+
+85
+00:04:39,480 --> 00:04:41,390
+Mais 100 ne comprend pas
+cette api puisque c'est de l'api
+
+86
+00:04:41,590 --> 00:04:43,930
+de la classe rectangle. Donc
+là, je suis obligé de mettre
+
+87
+00:04:44,130 --> 00:04:45,780
+des parenthèses, ce que j'ai
+fait ici dans cette expression.
+
+88
+00:04:46,750 --> 00:04:48,200
+Comment ça se passe ?
+
+89
+00:04:48,810 --> 00:04:51,170
+L'expression parenthésée est
+exécutée en premier, dans l'expression
+
+90
+00:04:51,370 --> 00:04:55,600
+parenthésée, j'ai deux
+messages binaires qui sont
+
+91
+00:04:55,800 --> 00:04:57,750
+exécutés qui me créent des points.
+
+92
+00:04:57,950 --> 00:04:59,270
+Donc, j'ai mes deux
+points qui sont créés.
+
+93
+00:04:59,470 --> 00:05:02,220
+J'envoie le message extent à un
+point qui me crée un rectangle.
+
+94
+00:05:02,420 --> 00:05:05,910
+L'idée, c'est que j'ai un
+point 0,0 et puis après je lui
+
+95
+00:05:06,110 --> 00:05:10,950
+passe extent, c'est 100,100, donc
+
+96
+00:05:11,150 --> 00:05:12,170
+ça va me donner ce rectangle-là.
+
+97
+00:05:12,370 --> 00:05:15,160
+Et maintenant, je lui
+demande quelle est la valeur.
+
+98
+00:05:15,360 --> 00:05:17,440
+BottomRight à la fin vient
+d'envoyer un rectangle et il
+
+99
+00:05:17,640 --> 00:05:21,930
+me donne la valeur du point qui est
+ici et qui est bien le point 100,100.
+
+100
+00:05:27,160 --> 00:05:28,530
+Ce que je vous ai dit dans
+Pharo, c'est que c'était très
+
+101
+00:05:28,730 --> 00:05:30,310
+simple: en fait, il
+n'y a que des messages.
+
+102
+00:05:30,580 --> 00:05:33,150
+Donc, + est un message comme
+les autres, il n'y a pas de
+
+103
+00:05:33,350 --> 00:05:35,620
+précédence mathématique.
+L'avantage, c'est qu'on peut
+
+104
+00:05:35,820 --> 00:05:38,270
+utiliser + pour faire des
+domaines spécifiques languages,
+
+105
+00:05:38,590 --> 00:05:41,390
+on peut utiliser + entre des
+objets qui n'ont rien à voir
+
+106
+00:05:41,590 --> 00:05:44,310
+avec des objets
+mathématiques. Typiquement en Java, vous
+
+107
+00:05:44,510 --> 00:05:46,000
+ne pouvez pas le faire. En
+C++, vous pouvez le faire
+
+108
+00:05:46,200 --> 00:05:47,370
+quand vous
+redéfinissez des opérateurs.
+
+109
+00:05:47,570 --> 00:05:52,440
+En Pharo, la solution,
+c'était + est un message
+
+110
+00:05:52,640 --> 00:05:55,530
+comme les autres. C'est
+un choix de simplicité.
+
+111
+00:05:55,730 --> 00:05:59,300
+Par contre, il y a un
+prix, c'est qu'il n'y a pas de
+
+112
+00:05:59,500 --> 00:06:00,260
+précédence mathématique.
+
+113
+00:06:03,030 --> 00:06:07,610
+Dans cette expression, j'ai deux
+opérateurs ou deux messages binaires.
+
+114
+00:06:09,180 --> 00:06:10,410
+J'exécute de gauche à droite.
+
+115
+00:06:12,290 --> 00:06:14,560
+Je fais 5 et puis ça me rend
+50 et ce n'est pas ce qu'on
+
+116
+00:06:14,760 --> 00:06:17,540
+m'a appris à l'école. Pour
+obtenir ça, je vais devoir
+
+117
+00:06:17,740 --> 00:06:20,470
+désambiguïser, donc je vais utiliser
+des parenthèses autour de multiplié.
+
+118
+00:06:21,420 --> 00:06:23,530
+Donc effectivement, il
+faut faire attention quand on
+
+119
+00:06:23,730 --> 00:06:26,770
+manipule des opérations
+arithmétiques dans Pharo parce
+
+120
+00:06:27,000 --> 00:06:28,930
+que les opérateurs
+mathématiques sont juste des messages.
+
+121
+00:06:30,220 --> 00:06:33,390
+Un autre exemple, si je
+fais 1/3 + 2/3, je ne vais pas
+
+122
+00:06:33,590 --> 00:06:37,200
+obtenir ce qu'il faut
+parce que le système va d'abord
+
+123
+00:06:37,400 --> 00:06:41,230
+exécuter cette expression-là
+puisque ça va de gauche à droite.
+
+124
+00:06:41,520 --> 00:06:43,690
+Donc maintenant, si je mets des
+parenthèses, j'obtiens bien le bon résultat.
+
+125
+00:06:44,000 --> 00:06:46,900
+Là, j'ai vraiment un point
+intéressant à soulever, c'est
+
+126
+00:06:47,100 --> 00:06:49,720
+que j'obtiens le petit
+entier 1 quand je fais 1/3 + 2/3.
+
+127
+00:06:49,920 --> 00:06:53,590
+Je n'obtiens pas 1,0 quelque
+chose ou je n'obtiens pas 0,999.
+
+128
+00:06:55,740 --> 00:06:58,960
+C'est des fractions, elles sont
+exactes et j'obtiens des calculs exacts.
+
+129
+00:07:00,170 --> 00:07:03,810
+En résumé, on aura vu qu'il
+y a trois sortes de messages,
+
+130
+00:07:04,010 --> 00:07:07,240
+maintenant vous devez le savoir:
+unaires, binaires et à mots-clefs.
+
+131
+00:07:07,800 --> 00:07:11,230
+On exécute de manière
+prioritaire les parenthèses
+
+132
+00:07:11,460 --> 00:07:12,910
+unaires, binaires et à mots-clefs.
+
+133
+00:07:13,110 --> 00:07:17,180
+Quand on est à égalité, si j'ai deux
+
+134
+00:07:17,690 --> 00:07:20,330
+messages unaires, je vais
+le faire de gauche à droite.
+
+135
+00:07:21,010 --> 00:07:23,260
+Il n'y a pas de précédence
+mathématique parce que les
+
+136
+00:07:23,710 --> 00:07:25,840
+messages mathématiques sont
+juste des messages comme les autres.
+
+137
+00:07:26,730 --> 00:07:29,560
+Et ce qui est différent d'avec
+la plupart des langages, c'est
+
+138
+00:07:29,760 --> 00:07:31,760
+que les arguments sont
+placés à l'intérieur de la
+
+139
+00:07:31,960 --> 00:07:33,040
+ structure comme dans beetween: and:
+

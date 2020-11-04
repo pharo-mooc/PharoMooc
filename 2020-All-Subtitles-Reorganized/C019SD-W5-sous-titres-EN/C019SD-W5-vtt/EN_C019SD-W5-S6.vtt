@@ -1,0 +1,669 @@
+﻿WEBVTT
+
+00:00:00.520 --> 00:00:04.840 align:middle
+Hello, in this sequence we'll look
+at the SUnit test framework in Pharo,
+
+00:00:05.000 --> 00:00:08.720 align:middle
+which allow us to write unit tests,
+as you're going to see.
+
+00:00:08.880 --> 00:00:13.200 align:middle
+A test framework is used
+to support Agile development.
+
+00:00:13.360 --> 00:00:16.560 align:middle
+The idea is to do incremental
+development and to test
+
+00:00:16.720 --> 00:00:18.720 align:middle
+your code regularly to check
+
+00:00:18.880 --> 00:00:23.240 align:middle
+that in modifying it we haven't broken
+a property or invariant in the code.
+
+00:00:23.400 --> 00:00:25.240 align:middle
+We want to be prepared for changes.
+
+00:00:25.400 --> 00:00:28.160 align:middle
+We write tests then we modify our codes
+
+00:00:28.320 --> 00:00:30.520 align:middle
+then we can re-execute the tests
+
+00:00:30.680 --> 00:00:33.680 align:middle
+to check we haven't broken or modified
+anything we shouldn't have.
+
+00:00:33.880 --> 00:00:38.520 align:middle
+Automated tests are very important
+in supporting this kind of programming.
+
+00:00:38.680 --> 00:00:42.680 align:middle
+The SUnit framework is
+a special framework for writing tests.
+
+00:00:42.840 --> 00:00:46.400 align:middle
+It makes them easier to write.
+It's in 4 classes, it's very simple.
+
+00:00:46.560 --> 00:00:48.960 align:middle
+It was originally
+developed by Kent Beck,
+
+00:00:49.120 --> 00:00:52.960 align:middle
+and has inspired numerous tests
+in other languages,
+
+00:00:53.120 --> 00:00:55.040 align:middle
+like JUnit, for example.
+
+00:00:55.840 --> 00:00:57.440 align:middle
+So, what is a test?
+
+00:00:57.600 --> 00:01:00.080 align:middle
+There are 3 steps to writing a test:
+
+00:01:00.240 --> 00:01:04.960 align:middle
+Step one, we create a context,
+for example, an empty set.
+
+00:01:05.120 --> 00:01:07.480 align:middle
+Step two, I create a stimulus,
+
+00:01:07.640 --> 00:01:11.960 align:middle
+here, so I try to insert
+an element twice
+
+00:01:12.120 --> 00:01:14.840 align:middle
+in the set I've just created,
+
+00:01:15.000 --> 00:01:18.760 align:middle
+and step three,
+I test the result that I get,
+
+00:01:18.920 --> 00:01:23.160 align:middle
+which means that I wait until
+the set only contains one element.
+
+00:01:23.320 --> 00:01:26.960 align:middle
+A set object can only contain
+an element once.
+
+00:01:27.120 --> 00:01:28.680 align:middle
+It can't contain it twice.
+
+00:01:28.840 --> 00:01:32.520 align:middle
+Then I test the result,
+hoping the variant isn't broken.
+
+00:01:33.120 --> 00:01:35.320 align:middle
+Here's an example.
+To write a test...
+
+00:01:35.480 --> 00:01:40.760 align:middle
+I have to write a TestCase subclass.
+I'll call this one "SetTestCase".
+
+00:01:40.920 --> 00:01:44.480 align:middle
+It's to test the sets.
+I define the method, "testAdd".
+
+00:01:44.640 --> 00:01:47.240 align:middle
+All the methods begin with "test".
+
+00:01:47.400 --> 00:01:48.960 align:middle
+Then I set up the context,
+
+00:01:49.120 --> 00:01:52.200 align:middle
+I create an instance
+of the Set class, which is empty,
+
+00:01:52.360 --> 00:01:55.840 align:middle
+I add 2 elements,
+the same element twice...
+
+00:01:56.000 --> 00:01:59.240 align:middle
+I try and add the same element twice
+
+00:01:59.400 --> 00:02:03.360 align:middle
+to the bundle,
+so 5 twice, here and here.
+
+00:02:03.520 --> 00:02:06.000 align:middle
+Then I test it, I've "check" here,
+
+00:02:06.160 --> 00:02:08.600 align:middle
+I use "assert" to do this,
+
+00:02:09.920 --> 00:02:12.840 align:middle
+where I check that the size of my set
+
+00:02:13.000 --> 00:02:16.480 align:middle
+is 1, that I've succeeded
+in only adding the element once.
+
+00:02:16.640 --> 00:02:19.320 align:middle
+I can start the test thanks to this...
+
+00:02:20.720 --> 00:02:24.280 align:middle
+Thanks to this expression,
+so my test will reveal
+
+00:02:24.440 --> 00:02:28.760 align:middle
+if the variance, if "assert",
+the expression passed here, is true.
+
+00:02:29.560 --> 00:02:30.880 align:middle
+All the methods that begin
+
+00:02:31.080 --> 00:02:34.960 align:middle
+with the string "test" represent a test,
+
+00:02:35.120 --> 00:02:39.640 align:middle
+and will be automatically executed
+by the test runner tool.
+
+00:02:40.440 --> 00:02:44.480 align:middle
+We'll see that all the results,
+all the executions of the test method
+
+00:02:44.640 --> 00:02:48.040 align:middle
+produce a result.
+All these results are collected,
+
+00:02:48.200 --> 00:02:52.560 align:middle
+and they're collected within
+a class instance object, TestResult.
+
+00:02:54.120 --> 00:02:55.760 align:middle
+I'll give you another example.
+
+00:02:55.920 --> 00:02:59.920 align:middle
+In this example, we've the test method,
+its name begins with "test"
+
+00:03:00.080 --> 00:03:03.560 align:middle
+in lowercase, and this
+is the name of this method,
+
+00:03:03.720 --> 00:03:07.240 align:middle
+"AdjacentRunsWithEquals
+AttributesAreMerged"
+
+00:03:07.400 --> 00:03:12.960 align:middle
+So we've the context here,
+we've created an object.
+
+00:03:13.120 --> 00:03:14.720 align:middle
+Here we've a stimulus.
+
+00:03:14.880 --> 00:03:18.640 align:middle
+We've tried to send the message
+"addLast times"
+
+00:03:18.800 --> 00:03:22.760 align:middle
+to this object 3 times,
+the 1st time with
+
+00:03:22.920 --> 00:03:26.880 align:middle
+the settings here,
+and a 2nd time, the same settings
+
+00:03:27.040 --> 00:03:28.640 align:middle
+the 2nd and 3rd time.
+
+00:03:28.800 --> 00:03:31.560 align:middle
+We test here, it's the check,
+
+00:03:31.720 --> 00:03:35.760 align:middle
+that this element is size 2.
+All right?
+
+00:03:35.960 --> 00:03:40.960 align:middle
+We weren't able to add the same
+element several times adjacently.
+
+00:03:41.720 --> 00:03:46.320 align:middle
+In the execution of a test,
+several scenarios can occur.
+
+00:03:46.640 --> 00:03:50.720 align:middle
+One scenario is what we call
+a "failure", meaning that
+
+00:03:50.880 --> 00:03:53.720 align:middle
+one of the assertions,
+a variant we thought was true,
+
+00:03:53.880 --> 00:03:56.560 align:middle
+which should be true is false,
+in which case
+
+00:03:56.720 --> 00:04:01.560 align:middle
+the test which contains "failure"
+
+00:04:01.720 --> 00:04:03.600 align:middle
+is an anticipated problem.
+
+00:04:03.760 --> 00:04:09.240 align:middle
+We expected that, potentially,
+this error would be present.
+
+00:04:09.600 --> 00:04:13.160 align:middle
+After that, an error is a condition
+we didn't check for.
+
+00:04:13.320 --> 00:04:17.240 align:middle
+It's something that happens,
+an exception that's raised,
+
+00:04:17.400 --> 00:04:20.480 align:middle
+which we didn't expect
+when writing the test.
+
+00:04:20.640 --> 00:04:22.480 align:middle
+They're 2 very different cases.
+
+00:04:23.120 --> 00:04:27.640 align:middle
+What do we do in a test
+when we want to check
+
+00:04:28.480 --> 00:04:32.000 align:middle
+that a bit of code
+raises an exception?
+
+00:04:32.160 --> 00:04:36.680 align:middle
+For example, I want to check
+that "set new remove: 1"
+
+00:04:36.840 --> 00:04:40.120 align:middle
+this bit of code,
+will raise the exception "NotFound".
+
+00:04:40.280 --> 00:04:42.520 align:middle
+If I do "Set new", it's an empty set.
+
+00:04:42.680 --> 00:04:44.640 align:middle
+I'm trying to take an element
+from an empty set.
+
+00:04:44.800 --> 00:04:47.600 align:middle
+It doesn't make sense.
+It will raise the exception "NotFound"
+
+00:04:47.760 --> 00:04:50.800 align:middle
+and in my test I use "should raise".
+
+00:04:50.960 --> 00:04:53.600 align:middle
+I pass a block
+and in my evaluation of the block,
+
+00:04:53.760 --> 00:04:55.240 align:middle
+if an exception is raised,
+
+00:04:55.400 --> 00:04:59.440 align:middle
+and the exception is NotFound,
+the test will be green, will be OK.
+
+00:05:00.920 --> 00:05:02.280 align:middle
+I can also test the reverse,
+
+00:05:02.440 --> 00:05:04.680 align:middle
+that a bit of code doesn't
+raise an exception.
+
+00:05:04.840 --> 00:05:08.440 align:middle
+Here I use the method
+"self shouldn't raise".
+
+00:05:08.600 --> 00:05:12.880 align:middle
+So this bit of code shouldn't
+raise the exception "NotFound".
+
+00:05:14.000 --> 00:05:16.960 align:middle
+We might, when writing lots of tests,
+
+00:05:17.120 --> 00:05:19.480 align:middle
+realise that there are duplicates
+
+00:05:19.640 --> 00:05:21.600 align:middle
+when writing the context of the test.
+
+00:05:21.920 --> 00:05:23.880 align:middle
+For example,
+here I've written another test
+
+00:05:24.040 --> 00:05:26.120 align:middle
+for the sets, a "testOccurrences".
+
+00:05:26.280 --> 00:05:31.800 align:middle
+We see that here, in the context,
+I'm going to recreate a new empty set.
+
+00:05:31.960 --> 00:05:35.120 align:middle
+Each time I write a test, I open a set,
+
+00:05:35.280 --> 00:05:37.880 align:middle
+and each time I'll do
+"Set new" in the context.
+
+00:05:38.040 --> 00:05:41.920 align:middle
+We'd like not to repeat this line
+every time in all of our tests.
+
+00:05:42.080 --> 00:05:45.120 align:middle
+To not have to repeat them,
+to be able to factor it out
+
+00:05:45.280 --> 00:05:48.080 align:middle
+somewhere else, we have a solution.
+
+00:05:48.240 --> 00:05:52.280 align:middle
+The SUnit solution
+is to use the method "setUp"
+
+00:05:52.440 --> 00:05:57.160 align:middle
+to factor out all the initializations
+before execution of a test.
+
+00:05:57.320 --> 00:05:59.680 align:middle
+So what actually happens is,
+
+00:05:59.840 --> 00:06:02.280 align:middle
+at the moment a test is executed,
+just before a test,
+
+00:06:02.440 --> 00:06:05.560 align:middle
+therefore a method starting
+with the test string, is executed,
+
+00:06:05.720 --> 00:06:08.760 align:middle
+we'll trigger execution
+of the method "setUp",
+
+00:06:08.960 --> 00:06:11.200 align:middle
+and specify the context.
+
+00:06:11.360 --> 00:06:15.320 align:middle
+During the test we'll use the stimuli
+
+00:06:15.480 --> 00:06:17.280 align:middle
+and the check, the assertions,
+
+00:06:17.440 --> 00:06:20.200 align:middle
+and at the end
+of the execution of the test
+
+00:06:20.360 --> 00:06:22.360 align:middle
+whether it fails or not,
+
+00:06:22.520 --> 00:06:24.880 align:middle
+we'll execute the method "tearDown",
+
+00:06:25.040 --> 00:06:26.960 align:middle
+which will allow us to clean up
+
+00:06:27.120 --> 00:06:29.520 align:middle
+all the resources that
+should be released.
+
+00:06:29.680 --> 00:06:33.360 align:middle
+If we look at the execution
+of several test methods, it's easy,
+
+00:06:33.520 --> 00:06:35.400 align:middle
+we'll have the execution of "setUp"
+
+00:06:35.560 --> 00:06:37.720 align:middle
+the first test method executed here,
+
+00:06:37.880 --> 00:06:41.360 align:middle
+the execution of "tearDown" to clean,
+a new execution of "setUp"
+
+00:06:41.520 --> 00:06:44.720 align:middle
+the execution of a new test,
+"tearDown", "setUp",
+
+00:06:44.880 --> 00:06:47.760 align:middle
+the execution of a test
+and "tearDown'.
+
+00:06:47.920 --> 00:06:50.960 align:middle
+This allows us to factorize
+implementation of the context,
+
+00:06:51.120 --> 00:06:55.040 align:middle
+and clean up resources in two methods,
+"setUp" and "tearDown".
+
+00:06:56.240 --> 00:06:58.560 align:middle
+What does it look like?
+
+00:06:58.720 --> 00:07:01.440 align:middle
+In our example,
+if I take "SetTestCase"
+
+00:07:01.600 --> 00:07:04.640 align:middle
+I can put in place
+"define setUp method",
+
+00:07:04.800 --> 00:07:07.320 align:middle
+in which I write,
+"empty :=Set new",
+
+00:07:07.480 --> 00:07:11.840 align:middle
+so "empty" becomes an instance
+variable of "SetTestCase",
+
+00:07:12.520 --> 00:07:14.560 align:middle
+and then in my test,
+in my test method,
+
+00:07:14.720 --> 00:07:18.080 align:middle
+I can directly use
+the instance variable "empty",
+
+00:07:18.240 --> 00:07:21.880 align:middle
+which was correctly initialized,
+because before execution
+
+00:07:22.040 --> 00:07:26.800 align:middle
+of "testOccurence"
+the method "setUp" was executed.
+
+00:07:29.680 --> 00:07:33.040 align:middle
+If we look at the organisation
+of the classes
+
+00:07:33.200 --> 00:07:37.600 align:middle
+within the core of SUnit,
+as I said, there are only 4 classes:
+
+00:07:37.760 --> 00:07:41.440 align:middle
+so one test case,
+which is nothing more nor less
+
+00:07:41.600 --> 00:07:43.560 align:middle
+than a test that verifies
+that certain conditions,
+
+00:07:43.720 --> 00:07:47.000 align:middle
+are true in a given context,
+so one test case has
+
+00:07:47.960 --> 00:07:50.280 align:middle
+one "setUp" method
+one "tearDown" method
+
+00:07:50.440 --> 00:07:52.840 align:middle
+and then a group of test methods.
+
+00:07:53.000 --> 00:07:57.480 align:middle
+We write a "new" all the time,
+the subclasses of the test case.
+
+00:07:57.640 --> 00:08:00.520 align:middle
+These test cases are combined
+
+00:08:00.680 --> 00:08:05.080 align:middle
+in a "TestSuite",
+
+00:08:05.240 --> 00:08:08.560 align:middle
+and we can launch the execution
+of a complete suite.
+
+00:08:08.720 --> 00:08:11.640 align:middle
+When we launch the execution
+of a suite we get a result,
+
+00:08:11.800 --> 00:08:16.040 align:middle
+and this result is an instance
+of "testResult" here,
+
+00:08:16.200 --> 00:08:19.120 align:middle
+which tells us
+how many tests have passed,
+
+00:08:19.280 --> 00:08:22.800 align:middle
+how many tests have been executed,
+how many have potentially
+
+00:08:23.480 --> 00:08:26.240 align:middle
+met with failures and errors.
+
+00:08:27.160 --> 00:08:29.560 align:middle
+We also have the notion
+of "TestResource"
+
+00:08:29.720 --> 00:08:33.960 align:middle
+which allows us to define
+the TestResources for a whole suite.
+
+00:08:36.040 --> 00:08:39.760 align:middle
+A TestCase, as I said,
+represents one test.
+
+00:08:39.920 --> 00:08:44.040 align:middle
+It's one method starting with "test"
+defined in a subclass, TestCase.
+
+00:08:45.360 --> 00:08:47.360 align:middle
+A TestSuite is a group of tests.
+
+00:08:47.520 --> 00:08:52.320 align:middle
+It's all the TestCase methods
+defined in one or several classes.
+
+00:08:52.480 --> 00:08:56.880 align:middle
+And a TestResult will be a result
+of several test executions.
+
+00:08:58.160 --> 00:09:02.040 align:middle
+A TestResource
+is an object that will enable
+
+00:09:02.600 --> 00:09:05.120 align:middle
+the initialization
+of a group of resources,
+
+00:09:05.280 --> 00:09:07.520 align:middle
+which are costly
+to initialize in normal time,
+
+00:09:07.680 --> 00:09:10.280 align:middle
+and which we only want to
+initialize once for a group of tests.
+
+00:09:10.440 --> 00:09:14.400 align:middle
+We set up a TestResource, initialize
+it once and execute lots of tests,
+
+00:09:14.560 --> 00:09:17.440 align:middle
+and then we can release it at the end.
+
+00:09:17.640 --> 00:09:20.320 align:middle
+What you should know
+
+00:09:20.800 --> 00:09:24.520 align:middle
+is how to write tests.
+Writing tests is extremely simple,
+
+00:09:24.680 --> 00:09:27.480 align:middle
+you just have to write a subclass
+of the TestCase class,
+
+00:09:27.640 --> 00:09:31.240 align:middle
+define the methods in it
+which begin with "test",
+
+00:09:31.400 --> 00:09:33.440 align:middle
+and then set up a context inside it,
+
+00:09:33.600 --> 00:09:36.960 align:middle
+send the stimuli and test
+the assertions, which should be true.
+
+00:09:37.800 --> 00:09:39.720 align:middle
+We'll reuse the contexts,
+
+00:09:39.880 --> 00:09:42.240 align:middle
+so you can reuse the contexts
+through several test methods,
+
+00:09:42.400 --> 00:09:45.640 align:middle
+by factorizing them
+in a SetUp method for example.
+
+00:09:47.000 --> 00:09:52.080 align:middle
+To summarize, in this sequence
+we've seen the SUnit test framework,
+
+00:09:52.240 --> 00:09:54.360 align:middle
+which is extremely simple to use,
+
+00:09:54.520 --> 00:09:57.560 align:middle
+and extremely efficient
+for setting up Agile developments.
+
+00:09:57.720 --> 00:10:01.520 align:middle
+I strongly urge you to use them,
+defining tests is very easy.
+
+00:10:01.680 --> 00:10:04.840 align:middle
+The big advantage is that when
+you've created one test
+
+00:10:05.000 --> 00:10:10.400 align:middle
+you can run it a million times
+and it's really handy for making sure
+
+00:10:10.560 --> 00:10:13.360 align:middle
+that your code still works,
+even if you've changed things,
+
+00:10:13.520 --> 00:10:16.640 align:middle
+and edge effects have occured,
+you can detect them
+
+00:10:16.800 --> 00:10:20.720 align:middle
+if you've been up-to-date
+enough in the tests you've written.
+
+00:10:20.880 --> 00:10:25.320 align:middle
+You can go further in creating tests
+by using dot frameworks,
+
+00:10:25.480 --> 00:10:28.640 align:middle
+typically Mock frameworks
+like BabyMock, etc...
+
+00:10:28.840 --> 00:10:33.440 align:middle
+to have different
+styles of test and test writing.
+
+00:10:34.480 --> 00:10:38.720 align:middle
+I encourage you to use and create
+a lot of tests in your program.

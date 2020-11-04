@@ -1,0 +1,647 @@
+1
+00:00:01,400 --> 00:00:04,720
+-In this lecture, I want to discuss
+methods and messages,
+
+2
+00:00:05,040 --> 00:00:06,560
+and their differences.
+
+3
+00:00:07,120 --> 00:00:10,680
+A method is a named sequence
+of instructions.
+
+4
+00:00:11,000 --> 00:00:17,240
+I defined a method that is "makeCrepes",
+and it is like a recipe:
+
+5
+00:00:17,560 --> 00:00:20,600
+you take eggs,
+you put milk, flour and sugar,
+
+6
+00:00:20,920 --> 00:00:22,720
+and then, you get crepes out of that.
+
+7
+00:00:23,040 --> 00:00:29,520
+So, a method is really
+a named sequence of instructions
+
+8
+00:00:29,840 --> 00:00:33,440
+that will be executed
+in reaction to a message.
+
+9
+00:00:33,760 --> 00:00:37,080
+So, what we see
+is that all the instances of a class
+
+10
+00:00:37,400 --> 00:00:38,560
+share the same behavior
+
+11
+00:00:38,880 --> 00:00:43,520
+because this behavior
+is defined as a method in a class.
+
+12
+00:00:43,840 --> 00:00:48,520
+So, when I send a message
+to an instance of the class Rectangle
+
+13
+00:00:48,840 --> 00:00:51,200
+when I send the message "area",
+for example,
+
+14
+00:00:51,520 --> 00:00:54,160
+I will look for the method
+in the class of the receiver,
+
+15
+00:00:54,480 --> 00:00:55,880
+so in the class Rectangle.
+
+16
+00:00:56,200 --> 00:01:01,040
+And then, I will apply this definition,
+this method on the receiver.
+
+17
+00:01:01,360 --> 00:01:03,920
+And then, the method
+will use the specific data
+
+18
+00:01:04,240 --> 00:01:07,440
+of the instance
+that receive the message.
+
+19
+00:01:07,760 --> 00:01:12,240
+And that is why the methods are shared
+among all the instances of a class.
+
+20
+00:01:14,640 --> 00:01:17,480
+So, if we step back,
+a method has a name.
+
+21
+00:01:17,800 --> 00:01:19,920
+It defines a procedure,
+
+22
+00:01:20,240 --> 00:01:23,600
+how to define a process
+and a computation.
+
+23
+00:01:24,680 --> 00:01:28,480
+In addition, it accesses
+the private data of the object.
+
+24
+00:01:28,800 --> 00:01:30,360
+This is really important.
+
+25
+00:01:30,680 --> 00:01:32,400
+Compared to a message,
+
+26
+00:01:32,720 --> 00:01:35,440
+a method has access
+to the private data of the object.
+
+27
+00:01:35,760 --> 00:01:39,360
+It will either use it
+for the computation or modify it.
+
+28
+00:01:41,520 --> 00:01:43,360
+So, if we check, on the one hand,
+
+29
+00:01:43,680 --> 00:01:46,600
+we have messages,
+that look like orders.
+
+30
+00:01:46,920 --> 00:01:50,400
+So, we declare
+what we want the object to do.
+
+31
+00:01:50,720 --> 00:01:51,880
+And on the other hand, methods,
+
+32
+00:01:52,200 --> 00:01:54,560
+that are how the object
+should perform the computation
+
+33
+00:01:54,880 --> 00:01:56,280
+in reaction to the message.
+
+34
+00:01:58,240 --> 00:02:00,440
+What you see
+is that the message is not aware
+
+35
+00:02:00,760 --> 00:02:03,040
+of the external structure of the object.
+
+36
+00:02:03,360 --> 00:02:04,840
+In fact, this is not really important
+
+37
+00:02:05,160 --> 00:02:08,040
+for the client
+that sends a message to an object.
+
+38
+00:02:08,360 --> 00:02:16,720
+And methods, on the other side,
+have access to the object's data.
+
+39
+00:02:18,200 --> 00:02:19,520
+In addition,
+
+40
+00:02:20,520 --> 00:02:24,200
+methods are looked up dynamically,
+depending on the class of the receiver.
+
+41
+00:02:24,520 --> 00:02:27,000
+Here are two examples
+to illustrate this point.
+
+42
+00:02:27,320 --> 00:02:30,200
+One that we already saw
+in the previous lecture.
+
+43
+00:02:30,520 --> 00:02:33,520
+Imagine that we have cats,
+dogs and fish.
+
+44
+00:02:33,840 --> 00:02:36,960
+When I send a message to a cat,
+I will look in the class "cat",
+
+45
+00:02:37,280 --> 00:02:42,040
+and I will apply the behavior
+that is associated with the method
+
+46
+00:02:42,360 --> 00:02:43,800
+to the instance "cat".
+
+47
+00:02:44,120 --> 00:02:47,560
+So, all the instances of the class "cat"
+share the same behavior,
+
+48
+00:02:47,880 --> 00:02:50,440
+but this behavior
+is different from the one of the dog.
+
+49
+00:02:50,760 --> 00:02:53,560
+And this is the same for shapes.
+
+50
+00:02:53,880 --> 00:02:56,280
+You can imagine
+that you have geometrical shapes
+
+51
+00:02:56,600 --> 00:02:58,960
+like rectangles, circles and squares,
+
+52
+00:02:59,280 --> 00:03:02,920
+and that you want to compute
+the area of one of those.
+
+53
+00:03:03,240 --> 00:03:05,840
+Here, when I send
+the message "area" to a circle,
+
+54
+00:03:06,160 --> 00:03:08,120
+I want to have
+the computation based on circles
+
+55
+00:03:08,440 --> 00:03:10,520
+to be executed on my instance.
+
+56
+00:03:10,840 --> 00:03:12,720
+And this is
+what the late binding is doing.
+
+57
+00:03:13,040 --> 00:03:15,880
+This means that I will look
+in the class of the receiver
+
+58
+00:03:16,200 --> 00:03:17,720
+to find the corresponding methods.
+
+59
+00:03:18,040 --> 00:03:23,200
+Now, what is more important
+is that I can have a list of shapes
+
+60
+00:03:23,520 --> 00:03:27,560
+and I do not have to check upfront
+whether it is a rectangle or a square.
+
+61
+00:03:27,880 --> 00:03:32,160
+What I can do, if I have a figure
+composed of multiple shapes,
+
+62
+00:03:32,480 --> 00:03:36,120
+and if I want to know
+the total area of the diagram,
+
+63
+00:03:36,440 --> 00:03:38,920
+I can just sum up really fast
+
+64
+00:03:39,240 --> 00:03:41,840
+by sending the message "area"
+to all the shapes.
+
+65
+00:03:42,160 --> 00:03:45,240
+As a client, I do not have
+to distinguish between them.
+
+66
+00:03:45,560 --> 00:03:47,440
+I will just send the message "area",
+
+67
+00:03:47,760 --> 00:03:52,040
+which will then be dispatched
+to the class.
+
+68
+00:03:52,360 --> 00:03:54,880
+This means that if you have
+two rectangles and a circle,
+
+69
+00:03:55,200 --> 00:03:59,960
+then, I will execute twice the method
+"rectangle area" for the rectangles
+
+70
+00:04:00,280 --> 00:04:05,240
+and once the method "area"
+for the circle.
+
+71
+00:04:07,640 --> 00:04:09,040
+This is late binding.
+
+72
+00:04:09,360 --> 00:04:12,800
+Late binding is the notion
+
+73
+00:04:14,040 --> 00:04:15,200
+that as a client,
+
+74
+00:04:16,160 --> 00:04:18,920
+I do not have to know
+
+75
+00:04:19,240 --> 00:04:22,080
+the type or the class of the receiver.
+
+76
+00:04:22,400 --> 00:04:24,800
+I just have to declare
+that I want to do an action.
+
+77
+00:04:25,120 --> 00:04:26,720
+And then, the system, dynamically,
+
+78
+00:04:27,040 --> 00:04:31,200
+will find the corresponding method
+and execute it for each receiver.
+
+79
+00:04:31,520 --> 00:04:33,000
+And that is really powerful.
+
+80
+00:04:34,760 --> 00:04:37,840
+The term "late binding"
+
+81
+00:04:38,160 --> 00:04:40,360
+means that at compilation time,
+
+82
+00:04:40,680 --> 00:04:43,440
+we do not know exactly
+what code will be executed.
+
+83
+00:04:43,760 --> 00:04:46,880
+It will be selected
+during execution of the program.
+
+84
+00:04:47,200 --> 00:04:48,120
+And this is super powerful
+
+85
+00:04:48,440 --> 00:04:51,200
+because it means
+that I can potentially load code,
+
+86
+00:04:51,520 --> 00:04:53,440
+I can create objects on the fly,
+
+87
+00:04:53,760 --> 00:04:58,120
+and based on these creations,
+their behavior will be executed.
+
+88
+00:04:58,440 --> 00:05:01,240
+This is something that you do not know
+at compilation time,
+
+89
+00:05:01,560 --> 00:05:02,640
+when you write your program.
+
+90
+00:05:02,960 --> 00:05:06,440
+But when the program is executed,
+the correct method will be found.
+
+91
+00:05:06,760 --> 00:05:08,280
+Now, I want to stress something.
+
+92
+00:05:08,600 --> 00:05:13,400
+We have this vision of the object
+where the data is private.
+
+93
+00:05:13,720 --> 00:05:17,720
+The methods can access this private data.
+The messages do not really care.
+
+94
+00:05:18,040 --> 00:05:22,040
+They just talk to the object,
+
+95
+00:05:22,360 --> 00:05:25,720
+and then, the methods will execute
+and access the data.
+
+96
+00:05:26,040 --> 00:05:29,120
+This is an important property
+which is called "encapsulation".
+
+97
+00:05:29,440 --> 00:05:31,240
+What is data encapsulation?
+
+98
+00:05:31,560 --> 00:05:35,720
+From the client's point of view,
+the details are hidden from me.
+
+99
+00:05:36,040 --> 00:05:40,000
+And this is important because it means
+
+100
+00:05:40,320 --> 00:05:42,480
+that I can have
+two different implementations
+
+101
+00:05:42,800 --> 00:05:45,240
+of the same functionality
+
+102
+00:05:45,560 --> 00:05:50,360
+and that I do not care if they change
+as soon as I get the same.
+
+103
+00:05:50,680 --> 00:05:55,320
+Here is an example
+with two different ways to compute area.
+
+104
+00:05:55,640 --> 00:05:58,160
+Imagine that you have
+two different classes of rectangles,
+
+105
+00:05:58,480 --> 00:06:01,240
+with one that is optimized
+and one that is not optimized,
+
+106
+00:06:01,560 --> 00:06:02,440
+for example.
+
+107
+00:06:02,760 --> 00:06:05,680
+Then, as a client,
+it does not matter to me.
+
+108
+00:06:06,000 --> 00:06:09,960
+The only thing I want is
+when I send the message "area"
+
+109
+00:06:10,280 --> 00:06:12,840
+to one of the rectangles,
+I get the correct answer.
+
+110
+00:06:13,160 --> 00:06:16,000
+The way it is implemented
+is not my concern.
+
+111
+00:06:16,320 --> 00:06:17,840
+This is the concern of the methods.
+
+112
+00:06:18,160 --> 00:06:21,080
+This means that object encapsulation
+is really important,
+
+113
+00:06:21,400 --> 00:06:23,480
+because with late binding,
+
+114
+00:06:23,800 --> 00:06:26,280
+it means that my program
+can evolve over time.
+
+115
+00:06:26,600 --> 00:06:29,280
+I can substitute an object
+with another one
+
+116
+00:06:29,600 --> 00:06:32,880
+that fulfills the same API,
+that offers the same responsibility,
+
+117
+00:06:33,200 --> 00:06:34,760
+but that can do it in a different way.
+
+118
+00:06:35,080 --> 00:06:37,840
+This means that this way,
+I can build modular systems.
+
+119
+00:06:38,160 --> 00:06:41,080
+From that perspective,
+late binding and object encapsulation
+
+120
+00:06:41,400 --> 00:06:45,200
+are really powerful because they support
+the evolution of systems.
+
+121
+00:06:46,080 --> 00:06:49,400
+In summary, what you should remember
+is that on the one hand,
+
+122
+00:06:49,720 --> 00:06:51,560
+we have messages
+that are sent to objects,
+
+123
+00:06:51,880 --> 00:06:53,520
+that are abstract, they are orders.
+
+124
+00:06:53,840 --> 00:06:55,720
+And on the other hand,
+you have methods,
+
+125
+00:06:56,040 --> 00:06:59,560
+that are sequences of instructions
+that are executed
+
+126
+00:06:59,880 --> 00:07:02,800
+and can have access
+to the data of the object,
+
+127
+00:07:03,120 --> 00:07:05,680
+and that take care of the details.
+
+128
+00:07:06,000 --> 00:07:09,200
+Then, in addition, late binding
+will select the correct methods
+
+129
+00:07:09,520 --> 00:07:10,520
+when we send a message.
+
+130
+00:07:10,840 --> 00:07:12,760
+This means
+that I can have multiple objects
+
+131
+00:07:13,080 --> 00:07:17,840
+with the same API or interface
+that will reply to the same message,
+
+132
+00:07:18,160 --> 00:07:19,560
+that can be mixed together.
+
+133
+00:07:19,880 --> 00:07:22,320
+And me, as a client,
+I do not have to worry about that.
+
+134
+00:07:22,640 --> 00:07:24,880
+I do not have to check
+if this the correct object.
+
+135
+00:07:25,200 --> 00:07:28,040
+You send a message
+and the system will automatically select
+
+136
+00:07:28,360 --> 00:07:29,600
+the correct method for you.
+
+137
+00:07:29,920 --> 00:07:31,560
+It means that, from that perspective,
+
+138
+00:07:31,880 --> 00:07:34,720
+your object will be able
+to evolve over time
+
+139
+00:07:35,040 --> 00:07:37,160
+and you will have
+a more modular system.

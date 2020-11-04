@@ -1,0 +1,331 @@
+1
+00:00:03,560 --> 00:00:05,640
+-We are in part 5 of the redo
+
+2
+00:00:05,960 --> 00:00:08,720
+and we are looking at how to initialize
+our objects correctly.
+
+3
+00:00:09,040 --> 00:00:10,800
+What we did in the previous parts
+
+4
+00:00:11,120 --> 00:00:13,840
+was calling "new"
+to the class we want to instantiate
+
+5
+00:00:14,320 --> 00:00:20,280
+and then attributing manually the values
+we want to the instance variables.
+
+6
+00:00:20,920 --> 00:00:22,080
+Let's see what happens
+
+7
+00:00:22,400 --> 00:00:24,320
+if we simply call "c increment"
+right now.
+
+8
+00:00:25,800 --> 00:00:28,200
+Let's just do it, Cmd+P.
+
+9
+00:00:28,840 --> 00:00:31,080
+Okay, so "+ was sent to nil".
+
+10
+00:00:31,400 --> 00:00:33,120
+This means that "count" by default,
+
+11
+00:00:33,440 --> 00:00:35,560
+which we have not initialized
+in any way,
+
+12
+00:00:35,880 --> 00:00:39,080
+will have as value "nil",
+which Pharo chose for us.
+
+13
+00:00:39,880 --> 00:00:42,440
+This is not
+the most useful default value
+
+14
+00:00:42,760 --> 00:00:45,280
+and imagine we could put "0".
+
+15
+00:00:45,720 --> 00:00:48,040
+Let's write a test
+that would cover this case.
+
+16
+00:00:48,360 --> 00:00:49,800
+We will not need...
+
+17
+00:00:50,120 --> 00:00:53,440
+Let's rename it first, "testInitialize".
+
+18
+00:00:54,560 --> 00:00:56,520
+We will not need these two lines.
+
+19
+00:00:57,320 --> 00:00:58,720
+We want right after creation
+
+20
+00:00:59,040 --> 00:01:02,320
+that the "count" instance variable
+is equal to 0.
+
+21
+00:01:03,040 --> 00:01:04,960
+Let's save this. Okay.
+
+22
+00:01:05,640 --> 00:01:07,280
+Now, if we initialize it,
+
+23
+00:01:07,720 --> 00:01:09,160
+let's run the test.
+
+24
+00:01:09,480 --> 00:01:11,800
+It fails because we have not
+changed anything
+
+25
+00:01:12,120 --> 00:01:13,880
+and the default value is still "nil".
+
+26
+00:01:15,120 --> 00:01:18,560
+In order to change it,
+we have to define an "Initialize" method.
+
+27
+00:01:19,480 --> 00:01:22,520
+This method is called
+at the creation of any object
+
+28
+00:01:22,840 --> 00:01:28,360
+so it is good practice to call
+the superclass initialization methods
+
+29
+00:01:28,680 --> 00:01:31,200
+and then implement the behavior
+we wanted to have,
+
+30
+00:01:31,520 --> 00:01:33,560
+so "count" is equal to 0.
+
+31
+00:01:35,200 --> 00:01:36,880
+Okay, save this.
+
+32
+00:01:37,200 --> 00:01:40,200
+The test method has been detected.
+Let's run it.
+
+33
+00:01:41,200 --> 00:01:42,520
+It is working so this is great.
+
+34
+00:01:42,840 --> 00:01:47,640
+We have the default behavior of putting
+the instance variable count to 0.
+
+35
+00:01:48,040 --> 00:01:53,040
+Now, imagine we want
+to have a value of 5 at creation.
+
+36
+00:01:53,920 --> 00:01:56,240
+We could change the "initialize" method
+
+37
+00:01:56,640 --> 00:01:59,480
+but we would like to keep this one
+as default.
+
+38
+00:02:00,200 --> 00:02:04,760
+We can write a class method
+that would handle this for us.
+
+39
+00:02:05,080 --> 00:02:06,360
+Let's write a test.
+
+40
+00:02:07,080 --> 00:02:10,720
+Let's write the "testStartingAt5".
+
+41
+00:02:13,200 --> 00:02:17,960
+Instead of "new",
+we will call it "startingAt: 5".
+
+42
+00:02:18,560 --> 00:02:21,760
+We want to assert
+that the count would equal 5.
+
+43
+00:02:22,600 --> 00:02:23,760
+Okay, let's save this.
+
+44
+00:02:24,080 --> 00:02:27,520
+The method is not detected,
+but it is normal. Let's run it.
+
+45
+00:02:28,320 --> 00:02:32,120
+Okay, "Instance of Counter class
+did not understand #startingAt".
+
+46
+00:02:32,560 --> 00:02:35,960
+We have to implement the class method
+"startingAt" in the Counter.
+
+47
+00:02:37,160 --> 00:02:40,840
+In order to implement a class method,
+you go to the class you want.
+
+48
+00:02:41,240 --> 00:02:44,160
+"Inst. side",
+that is where we are right now.
+
+49
+00:02:44,480 --> 00:02:45,640
+Let's go to "Class side"
+
+50
+00:02:46,760 --> 00:02:50,920
+and implement "startingAt: anInteger".
+
+51
+00:02:52,040 --> 00:02:57,800
+Okay and we want to write:
+"self new count: anInteger".
+
+52
+00:02:58,440 --> 00:03:00,840
+This means a new counter will be created
+
+53
+00:03:01,160 --> 00:03:05,000
+and the instance variable will be
+the integer we will provide.
+
+54
+00:03:05,760 --> 00:03:09,080
+Let's save this
+and now if we run our tests,
+
+55
+00:03:09,720 --> 00:03:11,600
+they are all green. Cool.
+
+56
+00:03:11,920 --> 00:03:16,880
+Let's write a final test
+that handles most of our functions.
+
+57
+00:03:17,520 --> 00:03:21,680
+We will call it "StartingAt5Increment".
+
+58
+00:03:23,320 --> 00:03:25,040
+We will start at 5,
+
+59
+00:03:25,360 --> 00:03:29,720
+but we will just add
+an increment step right there
+
+60
+00:03:30,520 --> 00:03:33,200
+and then call "count"
+on the incremented counter.
+
+61
+00:03:33,520 --> 00:03:37,320
+This should be 5 incremented, so 6.
+
+62
+00:03:38,920 --> 00:03:39,840
+Let's see.
+
+63
+00:03:40,240 --> 00:03:41,960
+If we run all our tests,
+
+64
+00:03:42,800 --> 00:03:45,200
+the six ran and the six passed.
+
+65
+00:03:45,520 --> 00:03:48,160
+This is a great time
+to commit your changes.
+
+66
+00:03:48,480 --> 00:03:51,640
+We will go to the Iceberg Working copy,
+
+67
+00:03:51,960 --> 00:03:52,960
+press Commit
+
+68
+00:03:53,600 --> 00:03:54,400
+and write...
+
+69
+00:03:55,400 --> 00:04:01,120
+"Initialization methods (tested)".
+
+70
+00:04:02,280 --> 00:04:03,320
+Let's commit that.
+
+71
+00:04:04,080 --> 00:04:07,160
+We learned
+how to initialize correctly your objects
+
+72
+00:04:07,480 --> 00:04:08,920
+with a default behavior
+
+73
+00:04:09,240 --> 00:04:12,880
+and provide class methods
+to have more examples
+
+74
+00:04:13,200 --> 00:04:15,640
+of working instances
+for classes you want.

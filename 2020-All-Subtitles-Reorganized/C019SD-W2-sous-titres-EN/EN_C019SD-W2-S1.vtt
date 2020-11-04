@@ -1,0 +1,482 @@
+﻿WEBVTT
+
+00:00:07.040 --> 00:00:10.440 align:middle
+Hello. This week,
+we'll get to the heart of the matter,
+
+00:00:10.600 --> 00:00:12.160 align:middle
+about syntax especially.
+
+00:00:12.320 --> 00:00:17.560 align:middle
+This class will be mostly about dealing
+with the messages of Pharo's syntax,
+
+00:00:17.720 --> 00:00:19.560 align:middle
+which is most of Pharo.
+
+00:00:20.400 --> 00:00:23.840 align:middle
+In Pharo, there are three main things:
+
+00:00:24.000 --> 00:00:28.040 align:middle
+objects, messages,
+and closures called blocks.
+
+00:00:28.200 --> 00:00:30.200 align:middle
+There'll be a course about blocks.
+
+00:00:30.360 --> 00:00:33.640 align:middle
+You can cover almost
+the entire syntax of Pharo with this.
+
+00:00:33.800 --> 00:00:37.360 align:middle
+Pharo's syntax stems
+from that of Smalltalk
+
+00:00:37.520 --> 00:00:40.760 align:middle
+which was designed
+to teach children how to program.
+
+00:00:40.920 --> 00:00:44.400 align:middle
+It's about writing programs
+which are like short sentences
+
+00:00:44.560 --> 00:00:46.040 align:middle
+a child might write.
+
+00:00:46.200 --> 00:00:49.320 align:middle
+It's also about minimizing
+the number of parentheses.
+
+00:00:49.480 --> 00:00:50.960 align:middle
+We'll see how it works.
+
+00:00:52.040 --> 00:00:56.320 align:middle
+For instance,
+let's take a tile on openstreetmap.
+
+00:00:56.480 --> 00:00:59.520 align:middle
+I want to open it in a graphic window.
+
+00:00:59.680 --> 00:01:02.400 align:middle
+This is an example of the syntax.
+
+00:01:02.560 --> 00:01:06.000 align:middle
+I use parentheses
+because I want to get a png file first.
+
+00:01:06.160 --> 00:01:09.520 align:middle
+I convert the png file
+into a Pharo graphic object
+
+00:01:09.680 --> 00:01:14.920 align:middle
+before opening it in a window: do it
+with Pharo and you'll get the result.
+
+00:01:15.080 --> 00:01:18.200 align:middle
+It'll probably be water
+as there are many water tiles.
+
+00:01:19.120 --> 00:01:23.040 align:middle
+In Pharo's syntax,
+there are three types of messages
+
+00:01:23.200 --> 00:01:26.240 align:middle
+to minimize the number of parentheses.
+
+00:01:26.400 --> 00:01:30.480 align:middle
+There are unary, binary,
+and keyword messages.
+
+00:01:30.640 --> 00:01:31.880 align:middle
+Let's see about them.
+
+00:01:32.520 --> 00:01:37.040 align:middle
+With unary messages, you have
+one receiver then the method's name.
+
+00:01:37.200 --> 00:01:41.600 align:middle
+With binary messages, one receiver,
+the selector, then an argument.
+
+00:01:41.760 --> 00:01:46.880 align:middle
+With keyword messages, one receiver,
+then one argument or arguments.
+
+00:01:47.040 --> 00:01:51.000 align:middle
+You can distinguish them
+thanks to the colon here.
+
+00:01:51.160 --> 00:01:52.560 align:middle
+We'll study this.
+
+00:01:53.560 --> 00:01:57.960 align:middle
+What is the use
+of these three types of messages?
+
+00:01:58.120 --> 00:01:59.840 align:middle
+You can differentiate them.
+
+00:02:00.000 --> 00:02:02.480 align:middle
+It changes the way
+programs are executed.
+
+00:02:02.640 --> 00:02:06.800 align:middle
+You always execute
+what's between parentheses first;
+
+00:02:06.960 --> 00:02:09.880 align:middle
+then unary messages;
+then binary; then keywords.
+
+00:02:10.040 --> 00:02:13.760 align:middle
+When at the same level,
+you use the same order,
+
+00:02:13.920 --> 00:02:15.480 align:middle
+from left to right.
+
+00:02:17.640 --> 00:02:20.800 align:middle
+Let's see about unary messages:
+
+00:02:20.960 --> 00:02:25.000 align:middle
+if I ask small integer 1 what
+its class is, it'll return SmallInteger.
+
+00:02:25.680 --> 00:02:29.040 align:middle
+This will be your homework
+for next week:
+
+00:02:29.200 --> 00:02:33.160 align:middle
+if I send the message not to the Boolean
+false, I get the Boolean true.
+
+00:02:33.720 --> 00:02:36.520 align:middle
+If I query the class Date
+for today's date,
+
+00:02:36.680 --> 00:02:40.480 align:middle
+it'll return 24 May 2009, for instance,
+which is a Date Object.
+
+00:02:40.640 --> 00:02:43.320 align:middle
+If I send the message pi
+to the class Float,
+
+00:02:43.480 --> 00:02:46.240 align:middle
+it'll return a representation
+of the object pi.
+
+00:02:47.640 --> 00:02:49.720 align:middle
+I don't know whether you noticed,
+
+00:02:49.880 --> 00:02:54.040 align:middle
+but I sent messages to objects
+
+00:02:54.200 --> 00:02:57.520 align:middle
+as well as messages to classes
+in the exact same way.
+
+00:02:57.680 --> 00:03:01.680 align:middle
+I didn't say: "It's a class.
+Careful, you have to do something."
+
+00:03:01.840 --> 00:03:06.560 align:middle
+I send the message class to the small
+integer, it returns the class.
+
+00:03:06.720 --> 00:03:10.880 align:middle
+I send the message today
+to the class Date, it returns a date.
+
+00:03:11.040 --> 00:03:12.240 align:middle
+Nothing fancy.
+
+00:03:12.400 --> 00:03:14.760 align:middle
+In Pharo, classes are also objects.
+
+00:03:14.920 --> 00:03:19.400 align:middle
+Messages sent to classes are processed
+like messages to instances.
+
+00:03:19.560 --> 00:03:21.320 align:middle
+Which makes complete sense.
+
+00:03:22.600 --> 00:03:24.360 align:middle
+I have an example for you.
+
+00:03:24.520 --> 00:03:28.000 align:middle
+This exercise isn't related to syntax.
+It's just to have fun.
+
+00:03:28.720 --> 00:03:32.760 align:middle
+I thought it would be fun to determine
+what are all the methods
+
+00:03:34.040 --> 00:03:37.640 align:middle
+implemented in the class Point.
+It's a unary message. I can say:
+
+00:03:37.800 --> 00:03:42.280 align:middle
+"class Point, return all your methods
+and the message names you understand."
+
+00:03:42.440 --> 00:03:45.240 align:middle
+It'll return a long list
+with all the messages.
+
+00:03:45.880 --> 00:03:48.560 align:middle
+See how easily you can build tools?
+
+00:03:48.720 --> 00:03:50.840 align:middle
+If I put this in a list,
+
+00:03:51.400 --> 00:03:54.920 align:middle
+I'll get a list
+with all the messages the class returns.
+
+00:03:55.080 --> 00:03:57.400 align:middle
+That's how the browser you'll use works.
+
+00:03:57.960 --> 00:04:02.160 align:middle
+Let's refine this:
+I'd like to query the system
+
+00:04:02.320 --> 00:04:05.520 align:middle
+for all the unary selectors
+of the class Point.
+
+00:04:05.680 --> 00:04:09.240 align:middle
+I write it like this:
+"Class Point, list all your selectors."
+
+00:04:09.400 --> 00:04:12.560 align:middle
+It'll return an array, a collection.
+
+00:04:12.720 --> 00:04:15.120 align:middle
+I write that I want to select...
+
+00:04:15.960 --> 00:04:18.080 align:middle
+This is a keyword message.
+
+00:04:18.240 --> 00:04:21.960 align:middle
+I want to select among the selectors
+those which are unary.
+
+00:04:22.120 --> 00:04:24.560 align:middle
+There's a query called #isUnary.
+
+00:04:24.720 --> 00:04:28.800 align:middle
+It's a message about method names
+which selects such things.
+
+00:04:28.960 --> 00:04:33.280 align:middle
+This is a small footnote in the syntax.
+
+00:04:33.440 --> 00:04:37.520 align:middle
+You'll learn about it in the course
+about iterators, select: being one.
+
+00:04:37.680 --> 00:04:40.920 align:middle
+It's very elegant:
+I can query the system in one line.
+
+00:04:41.800 --> 00:04:43.480 align:middle
+Back to the subject at hand.
+
+00:04:44.160 --> 00:04:48.120 align:middle
+There are binary messages:
+they are composed of anObject,
+
+00:04:48.280 --> 00:04:50.280 align:middle
+aBinarySelector, anArgument.
+
+00:04:50.440 --> 00:04:55.560 align:middle
+Binary selectors are a combination
+of these incomprehensible things:
+
+00:04:55.720 --> 00:04:57.240 align:middle
+%, |...
+
+00:04:58.120 --> 00:05:02.960 align:middle
+What can't be understood is binary.
+What looks like math is binary.
+
+00:05:03.880 --> 00:05:06.800 align:middle
+For instance, I send the message +
+to the object 1
+
+00:05:06.960 --> 00:05:10.520 align:middle
+with the object 2 as argument.
+It returns 3, which is great.
+
+00:05:10.680 --> 00:05:14.080 align:middle
+&gt; is a binary message.
+
+00:05:14.240 --> 00:05:17.880 align:middle
+@ is also a binary message
+(it creates points).
+
+00:05:18.040 --> 00:05:21.200 align:middle
+String concatenation with a comma
+is a binary message.
+
+00:05:21.360 --> 00:05:23.760 align:middle
+I write: 'Black chocolate','is good'
+
+00:05:23.920 --> 00:05:27.360 align:middle
+I get the string 'Black chocolate
+is good'. Which is true.
+
+00:05:27.520 --> 00:05:30.480 align:middle
+About keyword messages...
+
+00:05:30.640 --> 00:05:33.520 align:middle
+People often find them frustrating
+
+00:05:34.120 --> 00:05:37.800 align:middle
+when they're used
+to a Java-like or C-like syntax,
+
+00:05:37.960 --> 00:05:42.240 align:middle
+with a period, parentheses,
+and a comma in the middle.
+
+00:05:42.400 --> 00:05:44.520 align:middle
+But we do it like this: in the middle.
+
+00:05:46.640 --> 00:05:50.040 align:middle
+What you have to see in this example
+is that the message is:
+
+00:05:50.200 --> 00:05:55.360 align:middle
+kayword1keyword2.
+
+00:05:58.440 --> 00:06:02.760 align:middle
+The message is full.
+It's composed of two parts.
+
+00:06:05.840 --> 00:06:09.440 align:middle
+It's time to test yourself.
+I'll give you a couple seconds.
+
+00:06:09.600 --> 00:06:15.480 align:middle
+What are these messages?
+What types do they belong to?
+
+00:06:15.640 --> 00:06:18.320 align:middle
+The first has no argument:
+it must be unary.
+
+00:06:18.480 --> 00:06:20.360 align:middle
+The second too.
+
+00:06:20.520 --> 00:06:22.960 align:middle
+There's a colon: it must be a keyword.
+
+00:06:23.120 --> 00:06:26.840 align:middle
+There's something with a comma
+I don't understand: it's binary.
+
+00:06:27.000 --> 00:06:31.080 align:middle
+It's weird: it's binary.
+There's no argument: it's unary.
+
+00:06:31.240 --> 00:06:33.720 align:middle
+There's a colon: it's a keyword.
+
+00:06:33.880 --> 00:06:36.160 align:middle
+It might seem difficult, but...
+
+00:06:36.320 --> 00:06:38.200 align:middle
+This is the solution.
+
+00:06:38.800 --> 00:06:40.080 align:middle
+For example,
+
+00:06:40.240 --> 00:06:43.600 align:middle
+let's imagine I want to change
+the x value of a point.
+
+00:06:43.760 --> 00:06:47.320 align:middle
+This is a point. It's a binary message.
+
+00:06:48.000 --> 00:06:50.400 align:middle
+I write setX: with an argument.
+
+00:06:50.560 --> 00:06:53.360 align:middle
+It returns a point
+in which 2 has been changed.
+
+00:06:53.920 --> 00:06:55.880 align:middle
+It doesn't look so hard, does it?
+
+00:06:56.960 --> 00:07:00.800 align:middle
+Now with the message at:put:.
+I have an array.
+
+00:07:04.040 --> 00:07:08.200 align:middle
+It contains strings:
+'Calvin' 'hates' 'Suzie'.
+
+00:07:08.840 --> 00:07:12.120 align:middle
+I want to change the second element.
+
+00:07:12.280 --> 00:07:15.960 align:middle
+I write at: 2 put: 'loves'.
+
+00:07:16.120 --> 00:07:18.760 align:middle
+This is 2. So 'loves' comes here.
+
+00:07:18.920 --> 00:07:21.120 align:middle
+About arrays, you can see
+
+00:07:21.280 --> 00:07:24.600 align:middle
+the method is called at:put:.
+
+00:07:24.760 --> 00:07:28.240 align:middle
+This method changes the value
+of a collection at a given index.
+
+00:07:28.400 --> 00:07:33.160 align:middle
+As you can see, collections
+start at 1 in Pharo, not at 0.
+
+00:07:33.320 --> 00:07:35.920 align:middle
+I want the second element,
+so I count: 1, 2.
+
+00:07:36.080 --> 00:07:38.360 align:middle
+You don't have to subtract anything.
+
+00:07:40.520 --> 00:07:46.080 align:middle
+I'll give another example
+of keyword messages:
+
+00:07:46.240 --> 00:07:49.640 align:middle
+when I ask whether 12,
+which is an integer,
+
+00:07:49.800 --> 00:07:51.920 align:middle
+is between 10 and 20,
+
+00:07:52.960 --> 00:07:57.680 align:middle
+it's the message between: and:.
+
+00:07:58.840 --> 00:08:03.520 align:middle
+In the syntax, it would be the same as:
+12.between
+
+00:08:05.280 --> 00:08:08.520 align:middle
+And(10,20).
+
+00:08:10.400 --> 00:08:13.680 align:middle
+I think I've focused on this enough.
+
+00:08:14.560 --> 00:08:16.560 align:middle
+There are three types of messages:
+
+00:08:16.720 --> 00:08:19.920 align:middle
+unary, binary, and keywords.
+
+00:08:20.960 --> 00:08:22.000 align:middle
+That's all.

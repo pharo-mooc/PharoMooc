@@ -1,0 +1,529 @@
+WEBVTT
+
+00:00:00.400 --> 00:00:03.560 align:middle
+Hello. In this sequence
+we'll be looking at Reflection,
+
+00:00:03.720 --> 00:00:08.640 align:middle
+the capacity for Introspection
+in Pharo and why it's useful.
+
+00:00:09.600 --> 00:00:11.880 align:middle
+A reflective system,
+
+00:00:12.040 --> 00:00:15.960 align:middle
+reflection is divided
+into 2 major families,
+
+00:00:16.120 --> 00:00:18.000 align:middle
+Introspection
+
+00:00:18.160 --> 00:00:21.240 align:middle
+is a program's ability
+to observe its own state,
+
+00:00:21.400 --> 00:00:25.880 align:middle
+Intercession is a program's ability
+to modify itself.
+
+00:00:26.040 --> 00:00:29.040 align:middle
+To modify its own state
+or interpretation.
+
+00:00:30.640 --> 00:00:34.560 align:middle
+Reification is a concept that consists
+
+00:00:34.720 --> 00:00:39.760 align:middle
+of making explicit (objects) things
+that are normally implicit.
+
+00:00:39.920 --> 00:00:43.920 align:middle
+For example, the execution stack
+
+00:00:44.080 --> 00:00:49.400 align:middle
+in Pharo is explicit,
+but can be got as a classic object.
+
+00:00:49.920 --> 00:00:55.280 align:middle
+More classically, a class in Pharo
+is a totally classic object.
+
+00:00:55.480 --> 00:00:58.960 align:middle
+In other languages,
+classes aren't objects.
+
+00:01:00.040 --> 00:01:02.160 align:middle
+A reflective system, as I said,
+
+00:01:02.320 --> 00:01:06.600 align:middle
+has its own representation of itself.
+
+00:01:06.760 --> 00:01:09.600 align:middle
+It's capable of representing itself,
+
+00:01:09.760 --> 00:01:14.840 align:middle
+and it can act on this representation
+to modify itself,
+
+00:01:15.000 --> 00:01:19.600 align:middle
+and when it modifies itself
+it changes its state and representation.
+
+00:01:19.760 --> 00:01:22.600 align:middle
+We call it a "causal connection"
+
+00:01:22.760 --> 00:01:25.520 align:middle
+between its representation
+and its state.
+
+00:01:25.680 --> 00:01:27.720 align:middle
+If we change the state,
+
+00:01:27.880 --> 00:01:32.520 align:middle
+the system representation changes
+as well as the state of the system.
+
+00:01:33.000 --> 00:01:37.080 align:middle
+Why is this interesting?
+It's interesting because we'll use
+
+00:01:37.480 --> 00:01:41.160 align:middle
+this introspection and intercession
+
+00:01:41.320 --> 00:01:43.240 align:middle
+to look inside objects.
+
+00:01:43.400 --> 00:01:48.800 align:middle
+I'm defining a collection,
+which I make an "OrderedCollection"
+
+00:01:49.680 --> 00:01:54.680 align:middle
+then I'll use the Pharo Inspector,
+which is a tool,
+
+00:01:54.840 --> 00:01:57.960 align:middle
+which can look inside this object.
+
+00:01:58.120 --> 00:02:02.200 align:middle
+It's an instance object
+of the OrderedCollection class,
+
+00:02:02.360 --> 00:02:05.840 align:middle
+as we see here,
+it has instance variables,
+
+00:02:06.000 --> 00:02:07.720 align:middle
+"first index", "last index",
+
+00:02:07.880 --> 00:02:10.600 align:middle
+we have the values of this
+object's instance variables
+
+00:02:10.760 --> 00:02:15.400 align:middle
+so 1, 12 and then
+an array of 12 elements, OK?
+
+00:02:15.560 --> 00:02:19.400 align:middle
+We might wonder how
+this Inspector tool
+
+00:02:19.560 --> 00:02:22.000 align:middle
+is able to look inside objects.
+
+00:02:22.160 --> 00:02:25.120 align:middle
+How can it see
+the internal state of objects?
+
+00:02:26.600 --> 00:02:31.160 align:middle
+It uses introspection methods
+to look inside the objects,
+
+00:02:31.320 --> 00:02:34.360 align:middle
+There are lots of them,
+defined as "objects".
+
+00:02:34.520 --> 00:02:37.800 align:middle
+So "instVarAt" allows us to see
+
+00:02:37.960 --> 00:02:40.960 align:middle
+an instance invariable
+according to its number.
+
+00:02:41.120 --> 00:02:44.480 align:middle
+I'll see instance variable
+number 1 of this object.
+
+00:02:44.640 --> 00:02:49.600 align:middle
+I can modify instance variable number 1
+of this object by setting a new value,
+
+00:02:49.760 --> 00:02:52.160 align:middle
+or I can access an instance
+variable by its name,
+
+00:02:52.320 --> 00:02:56.000 align:middle
+or change it by its name,
+"instVarNamed put". OK?
+
+00:02:58.320 --> 00:03:01.160 align:middle
+Here are some examples.
+Typically we create a point,
+
+00:03:01.320 --> 00:03:04.880 align:middle
+and then we do...
+the point is 10@3
+
+00:03:05.040 --> 00:03:07.360 align:middle
+instVarNamed: 'x'.
+
+00:03:07.520 --> 00:03:11.760 align:middle
+I'll get the value of the instance
+variable called 'x' of this point,
+
+00:03:11.920 --> 00:03:14.080 align:middle
+which gives me 10.
+
+00:03:14.240 --> 00:03:17.960 align:middle
+Then "instVarNamed: 'x' put:33"
+
+00:03:18.120 --> 00:03:21.840 align:middle
+I've changed the value of
+the instance variable 'x' of this point.
+
+00:03:22.000 --> 00:03:25.680 align:middle
+It's gone from 10 to 33.
+
+00:03:25.840 --> 00:03:30.080 align:middle
+I've been able to change
+the inner state of an object,
+
+00:03:30.240 --> 00:03:34.120 align:middle
+by using introspection and intercession,
+
+00:03:34.280 --> 00:03:38.200 align:middle
+particularly intercession,
+"instVarNamed put". OK?
+
+00:03:38.360 --> 00:03:40.800 align:middle
+The main point is that
+we've violated encapsulation.
+
+00:03:40.960 --> 00:03:45.560 align:middle
+An external object has modified
+this object, without being internal,
+
+00:03:45.720 --> 00:03:49.600 align:middle
+so it violates encapsulation
+but it's extremely useful
+
+00:03:49.760 --> 00:03:52.960 align:middle
+when building tools
+and during development.
+
+00:03:53.120 --> 00:03:56.840 align:middle
+It's not to be used in the normal
+code of an application,
+
+00:03:57.000 --> 00:04:00.160 align:middle
+but it's extremely powerful
+for building generic tools,
+
+00:04:00.320 --> 00:04:02.320 align:middle
+typically code inspectors.
+
+00:04:03.680 --> 00:04:07.360 align:middle
+I'll give you another example
+of introspection, the class method,
+
+00:04:07.520 --> 00:04:11.240 align:middle
+for getting the class of an object.
+It's defined in "Object>>class".
+
+00:04:11.400 --> 00:04:14.760 align:middle
+I ask this string its class,
+it gives me the class string,
+
+00:04:14.920 --> 00:04:17.880 align:middle
+this point what is its class,
+the class point,
+
+00:04:18.040 --> 00:04:21.600 align:middle
+"Smalltalk class",
+I can ask the class of the class class.
+
+00:04:21.760 --> 00:04:23.840 align:middle
+etcetera, then I add class class...
+
+00:04:24.000 --> 00:04:26.560 align:middle
+Basically, I can query the system
+
+00:04:26.720 --> 00:04:30.880 align:middle
+by sending the message "class"
+to objects to discover their class.
+
+00:04:31.320 --> 00:04:34.040 align:middle
+There are many methods
+for querying the system.
+
+00:04:34.200 --> 00:04:38.360 align:middle
+Here, I take "OrderedCollection"
+and send it lots of query messages.
+
+00:04:38.520 --> 00:04:41.200 align:middle
+I'll get all of its superclasses,
+
+00:04:41.360 --> 00:04:45.520 align:middle
+all of its selectors,
+the name of its instance variables,
+
+00:04:45.680 --> 00:04:50.680 align:middle
+all of the selectors,
+the name of its instance variables,
+
+00:04:50.840 --> 00:04:54.120 align:middle
+all of its subclasses, etc...
+
+00:04:54.280 --> 00:04:56.160 align:middle
+And all of its lines of code.
+
+00:04:57.320 --> 00:05:00.920 align:middle
+All of this allows us to build
+top level tools,
+
+00:05:01.080 --> 00:05:04.840 align:middle
+such as the navigation system here.
+
+00:05:05.000 --> 00:05:09.600 align:middle
+This navigation system lets us
+show or browse the system.
+
+00:05:09.760 --> 00:05:14.360 align:middle
+For example,
+I can see all the classes
+
+00:05:15.440 --> 00:05:18.880 align:middle
+that implement the method "#,".
+
+00:05:19.040 --> 00:05:21.720 align:middle
+Here we've a window that will open.
+
+00:05:21.880 --> 00:05:24.600 align:middle
+We'll see all the implementors of #,
+
+00:05:24.760 --> 00:05:29.200 align:middle
+so the class "AbstractFileReference"
+implements the method "#,".
+
+00:05:29.360 --> 00:05:32.280 align:middle
+I've a list of all the classes
+implemented by this method.
+
+00:05:33.880 --> 00:05:37.520 align:middle
+Another example,
+we'd like to implement
+
+00:05:38.280 --> 00:05:41.240 align:middle
+a menu or a button.
+
+00:05:41.400 --> 00:05:45.520 align:middle
+By clicking on it, we want to send
+a message to the object behind it,
+
+00:05:45.680 --> 00:05:48.680 align:middle
+according to the button's name,
+for example.
+
+00:05:48.840 --> 00:05:53.760 align:middle
+How do I turn a string into a message
+to send to an object?
+
+00:05:54.560 --> 00:05:59.480 align:middle
+I've an intercession method for that.
+"Perform" defined under "object".
+
+00:05:59.640 --> 00:06:03.320 align:middle
+I pass it a symbol,
+the name of a message to execute,
+
+00:06:03.480 --> 00:06:06.360 align:middle
+and it will send this message
+to the object in question.
+
+00:06:06.520 --> 00:06:10.560 align:middle
+I've a 2nd kind of message,
+"perform with".
+
+00:06:10.720 --> 00:06:14.960 align:middle
+I can give the name of the symbol,
+the name of the method to execute,
+
+00:06:15.120 --> 00:06:16.800 align:middle
+and then pass a list of arguments.
+
+00:06:16.960 --> 00:06:19.400 align:middle
+An example, if I do "5 factorial"
+
+00:06:19.560 --> 00:06:23.280 align:middle
+sending a classic message,
+and send the reflective message,
+
+00:06:23.440 --> 00:06:28.960 align:middle
+its "5 perform # factorial"
+that's a symbol which means,
+
+00:06:29.280 --> 00:06:34.680 align:middle
+"Object 5, please execute
+or receive the message factorial".
+
+00:06:34.880 --> 00:06:39.600 align:middle
+The normal lookup is applied
+and these two forms are the same.
+
+00:06:40.240 --> 00:06:41.920 align:middle
+Here's another example.
+
+00:06:42.120 --> 00:06:44.480 align:middle
+Here we have a code inspector
+
+00:06:44.640 --> 00:06:49.600 align:middle
+"Ordered collection", we can see inside
+the class "Ordered Collection".
+
+00:06:49.760 --> 00:06:54.480 align:middle
+This class contains attributes,
+
+00:06:54.640 --> 00:06:57.000 align:middle
+instance variables,
+for example "methodDict".
+
+00:06:57.160 --> 00:07:01.680 align:middle
+In "methodDict" we see
+that the class "OrderedCollection"
+
+00:07:01.840 --> 00:07:05.960 align:middle
+comes from "Behaviour"
+so it has a "methodDict' here,
+
+00:07:06.120 --> 00:07:10.360 align:middle
+an instance of "MethodDictionary"
+containing "CompiledMethod".
+
+00:07:10.520 --> 00:07:14.360 align:middle
+So we can see
+this method dictionary contains
+
+00:07:14.520 --> 00:07:17.360 align:middle
+a compiled method here, etc...
+
+00:07:17.520 --> 00:07:20.360 align:middle
+another compiled method...
+Lots of compiled methods.
+
+00:07:20.840 --> 00:07:25.480 align:middle
+We'll be able to ask each
+of these compiled methods
+
+00:07:25.920 --> 00:07:28.280 align:middle
+for their source code.
+If I do "self getSource"
+
+00:07:28.440 --> 00:07:30.600 align:middle
+I'll get the source code
+of the compiled method.
+
+00:07:30.880 --> 00:07:32.200 align:middle
+But we can go further.
+
+00:07:32.400 --> 00:07:35.800 align:middle
+A compiled method can be asked
+to execute itself directly
+
+00:07:35.960 --> 00:07:39.200 align:middle
+with the message,
+"valueWithReceiver:arguments".
+
+00:07:39.360 --> 00:07:42.200 align:middle
+But watch out!
+If I do that, there's no lookup.
+
+00:07:42.360 --> 00:07:45.920 align:middle
+Seeing as I already have
+a compiled method,
+
+00:07:46.080 --> 00:07:48.600 align:middle
+it executes itself directly
+without a message.
+
+00:07:48.760 --> 00:07:53.520 align:middle
+Here I'll ask the integer class
+to get its compiled method "factorial",
+
+00:07:53.680 --> 00:07:56.240 align:middle
+which I get from the
+class compiled method.
+
+00:07:56.400 --> 00:07:59.320 align:middle
+I send it the message,
+"valueWithReceiver:arguments".
+
+00:07:59.480 --> 00:08:03.200 align:middle
+I pass it the arguments,
+the receiver will be 5,
+
+00:08:03.360 --> 00:08:06.320 align:middle
+the arguments will be (),
+because it's a unary message,
+
+00:08:06.480 --> 00:08:08.800 align:middle
+and we'll get the result.
+
+00:08:09.760 --> 00:08:14.880 align:middle
+It triggers execution of the
+compiled method without lookup.
+
+00:08:15.240 --> 00:08:18.360 align:middle
+So to summarize,
+reflection is extremely powerful.
+
+00:08:18.560 --> 00:08:22.360 align:middle
+We've seen it's something
+that allows us to introspect
+
+00:08:22.840 --> 00:08:25.240 align:middle
+the whole system
+because it represents it
+
+00:08:25.400 --> 00:08:26.880 align:middle
+in itself as an object,
+
+00:08:27.040 --> 00:08:29.440 align:middle
+but also to modify
+the state of the system.
+
+00:08:29.600 --> 00:08:33.240 align:middle
+It lets us build tools
+in a generic way in all objects.
+
+00:08:33.960 --> 00:08:36.400 align:middle
+So you can really talk to objects
+
+00:08:36.560 --> 00:08:40.000 align:middle
+with a protocol that's structurally
+the same for all objects.
+
+00:08:40.160 --> 00:08:43.800 align:middle
+But watch out!
+It violates encapsulation.
+
+00:08:43.960 --> 00:08:48.080 align:middle
+It isn't used in operational code,
+but for tool building.
+
+00:08:48.240 --> 00:08:52.840 align:middle
+It facilitates the writing
+of code inspectors as we saw,
+
+00:08:53.000 --> 00:08:56.560 align:middle
+and you can see how
+it's implemented in Pharo.
+

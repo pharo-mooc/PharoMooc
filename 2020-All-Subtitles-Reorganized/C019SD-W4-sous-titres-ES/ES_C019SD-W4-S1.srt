@@ -1,0 +1,444 @@
+﻿1
+00:00:07,670 --> 00:00:11,800
+Hola a todos. Bienvenidos
+a la secuencia 1 
+
+2
+00:00:12,000 --> 00:00:15,800
+de la semana 4. En esta semana 
+cubriremos los conceptos básicos
+
+3
+00:00:16,000 --> 00:00:20,660
+de la herencia en Pharo,
+el mecanismo de LookUp (búsqueda)
+
+4
+00:00:20,860 --> 00:00:21,780
+y el desarrollo Web.
+
+5
+00:00:22,670 --> 00:00:26,830
+En la primera secuencia,
+introduciremos los
+
+6
+00:00:27,030 --> 00:00:29,000
+conceptos básicos de la herencia.
+
+7
+00:00:29,540 --> 00:00:32,700
+Estos conceptos son bastante similares.
+
+8
+00:00:32,900 --> 00:00:36,810
+a la herencia en otros idiomas
+con clases, por ejemplo Java.
+
+9
+00:00:37,190 --> 00:00:39,340
+Le aconsejo de seguirlo, incluso
+
+10
+00:00:39,540 --> 00:00:41,100
+si está familiarizado con estos 
+conceptos básicos, puesto que.
+
+11
+00:00:41,300 --> 00:00:46,250
+introduciremos un poco de vocabulario,
+así como una representación gráfica
+
+12
+00:00:46,450 --> 00:00:49,170
+que volvera a utilizarse muy pronto
+
+13
+00:00:49,370 --> 00:00:50,790
+durante el resto del curso.
+
+14
+00:00:51,270 --> 00:00:53,300
+Esta secuencia enseñará
+que es la herencia,
+
+15
+00:00:53,500 --> 00:00:55,610
+y cómo utilizarla.
+
+16
+00:00:56,310 --> 00:00:58,680
+A su derecha puede ver una
+representación de dos clases:
+
+
+17
+00:00:58,880 --> 00:01:02,900
+la clase Rectangle,
+con su nombre, en primer lugar,
+
+18
+00:01:03,930 --> 00:01:05,120
+sus variables de instancia,
+y sus métodos.
+
+19
+00:01:07,830 --> 00:01:10,330
+Debajo, lo mismo.
+El nombre de la clase,
+
+20
+00:01:10,530 --> 00:01:13,710
+ColorRectangle, sus variables
+de instancia y sus métodos.
+
+21
+00:01:16,840 --> 00:01:19,620
+La flecha vertical aquí, podemos
+ver que un triangulo vacío
+
+22
+00:01:20,080 --> 00:01:24,480
+como cabeza de la flecha,
+nos indica una relación de herencia.
+
+23
+00:01:24,680 --> 00:01:28,890
+La subclase ColorRectangle
+hereda de la clase Rectangle.
+
+24
+00:01:29,910 --> 00:01:33,230
+Generalmente, subclases como
+ColoredRectangle
+
+25
+00:01:33,430 --> 00:01:37,390
+reafinan el comportamiento y el estado
+de su superclase.
+
+26
+00:01:38,080 --> 00:01:40,650
+Una subclase como ColorRectangle
+puede agregar 
+
+27
+00:01:40,950 --> 00:01:43,880
+estado y comportamiento
+a su superclase
+
+28
+00:01:45,190 --> 00:01:49,300
+Aquí, la clase ColoredRectangle
+agrega estado
+
+29
+00:01:49,550 --> 00:01:52,590
+en la forma de dos variables
+de instancia, color
+
+30
+00:01:55,340 --> 00:01:57,380
+y borderedColor, también agrega
+el método color.
+
+31
+00:01:58,180 --> 00:02:03,140
+Podríamos decir que en un momento
+u otro todas las clases
+
+32
+00:02:03,340 --> 00:02:04,230
+heredan de la clase Object.
+
+33
+00:02:04,610 --> 00:02:06,140
+De hecho eso no es del todo cierto.
+
+34
+00:02:06,530 --> 00:02:09,450
+Es Seguro que todas las clases
+heredan de la clase ProtoObject.
+
+35
+00:02:10,340 --> 00:02:13,570
+La superclase ProtoObject
+
+
+36
+00:02:13,770 --> 00:02:16,510
+se usa para casos muy especiales.
+
+37
+00:02:16,830 --> 00:02:19,500
+A los fines de este curso,
+diremos que todas 
+
+38
+00:02:19,700 --> 00:02:21,310
+las clases heredan de Object.
+Eso será suficiente para
+
+39
+00:02:21,510 --> 00:02:24,030
+comprender el conjunto de
+mecanismos de Pharo.
+
+40
+00:02:24,230 --> 00:02:27,050
+La clase ProtoObject está
+reservada para casos
+
+41
+00:02:27,250 --> 00:02:29,910
+muy específicos.
+No es probable que lo necesite
+
+
+42
+00:02:30,110 --> 00:02:33,580
+para aprender los conceptos
+básicos de Pharo.
+
+43
+00:02:34,390 --> 00:02:37,540
+La herencia se comporta
+de manera diferente,
+
+44
+00:02:37,740 --> 00:02:41,040
+dependiendo de si hereda el estado
+o el comportamiento.
+
+45
+00:02:41,950 --> 00:02:43,790
+La herencia del estado es estática.
+
+46
+00:02:44,030 --> 00:02:46,640
+Esto significa que
+cuando crea la subclase,
+
+47
+00:02:47,800 --> 00:02:51,250
+conoce exactamente al conjunto
+
+48
+00:02:51,530 --> 00:02:53,720
+de todas las variables
+de instancia.
+
+49
+00:02:54,470 --> 00:02:56,620
+Por el contrario para el
+comportamiento, lo haremos 
+
+50
+00:02:56,820 --> 00:02:58,380
+dinamicamente,
+és decir que durante la ejecución
+
+51
+00:02:58,580 --> 00:03:00,940
+del programa miraremos
+cuales son los métodos
+
+52
+00:03:01,140 --> 00:03:02,710
+definidos en las subclases y
+en las superclases.
+
+53
+00:03:03,500 --> 00:03:06,630
+En cuanto a las variables de instancia, 
+la herencia de las variables de instancia
+
+54
+00:03:06,830 --> 00:03:08,700
+se produce en el momento de la
+creación de la subclase.
+
+55
+00:03:09,320 --> 00:03:14,000
+Así en la creación de la subclase,
+tomaremos 
+
+56
+00:03:14,530 --> 00:03:17,290
+las variables de instancia definidas
+en la subclase, en este caso
+
+57
+00:03:17,490 --> 00:03:22,300
+color y borderColor,
+y haremos la
+
+58
+00:03:22,500 --> 00:03:26,390
+unión con todas las variables
+de instancia definidas en
+
+59
+00:03:26,590 --> 00:03:28,950
+la super clase, y en la super 
+classe de la super clase
+
+60
+00:03:29,210 --> 00:03:31,180
+y así hasta llegar
+a la clase Object.
+
+61
+00:03:34,170 --> 00:03:36,000
+Aquí las variables de instancia
+de ColoredRectangle
+
+62
+00:03:37,020 --> 00:03:40,250
+serán width height color
+y borderColor
+
+63
+00:03:41,470 --> 00:03:43,540
+Para el comportamiento el
+mecanismo es completamente
+
+64
+000:03:43,740 --> 00:03:47,050
+diferente, y las secuencias
+que siguen presentaran 
+
+65
+00:03:48,020 --> 00:03:50,280
+exactamente el funcionamiento
+global,
+
+66
+00:03:51,000 --> 00:03:54,650
+la herencia del comportamiento
+se realiza durante la ejecución.
+
+67
+00:03:55,470 --> 00:03:59,420
+En otras palabras, al enviar
+un mensaje a un objeto,
+
+68
+00:04:00,240 --> 00:04:03,660
+el método correspondiente se buscara
+en la jerarquía de clases.
+
+69
+00:04:04,420 --> 00:04:08,770
+Aquí, si envió un mensaje a
+ColoredRectangle, el 
+
+70
+00:04:09,000 --> 00:04:12,890
+mensaje Area por ejemplo,
+lo buscaremos
+
+71
+00:04:13,840 --> 00:04:16,650
+en su clase, buscaremos el método
+correspondiente
+
+72
+00:04:16,850 --> 00:04:18,320
+en la clase de A color rectangle.
+
+73
+00:04:18,520 --> 00:04:23,270
+No encontramos el método Area
+asi que remontamos
+
+74
+00:04:23,590 --> 00:04:26,650
+en la super clase, 
+buscamos el método Area,
+
+75
+00:04:26,850 --> 00:04:29,080
+lo hemos encontramos, es este el
+que sera seleccionado y ejecutado.
+
+76
+00:04:30,080 --> 00:04:30,940
+Resumiendo.
+
+77
+00:04:31,520 --> 00:04:35,630
+La herencia, esta noción de 
+subclase y de superclase
+
+78
+00:04:35,830 --> 00:04:37,700
+permite a una subclase de
+reafinar el 
+
+79
+00:04:37,900 --> 00:04:41,250
+comportamiento de su superclase
+y extenderlo.
+
+80
+00:04:42,200 --> 00:04:45,800
+La subclase puede también puede
+extender, es decir agregar
+
+81
+00:04:46,060 --> 00:04:47,620
+estado a su superclase.
+
+82
+00:04:48,510 --> 00:04:51,190
+Pharo tiene un modelo de 
+herencia simple, es de decir que 
+
+83
+00:04:51,390 --> 00:04:52,640
+una clase tiene solo una
+y única superclase.
+
+84
+00:04:52,960 --> 00:04:55,110
+Es posible hacer algo parecido a la
+herencia múltiple
+
+85
+00:04:55,310 --> 00:04:58,050
+con la noción de trait, que 
+no abordaremos aquí.
+
+86
+00:04:59,010 --> 00:05:01,830
+En la cabeza de la jerarquía
+encontramos Object y también la
+
+87
+00:05:02,030 --> 00:05:04,920
+clase ProtoObject, de la que
+no entraremos en detalles.
+
+88
+00:05:05,890 --> 00:05:09,400
+La herencia del estado es estática,
+es decir que se 
+
+89
+00:05:09,600 --> 00:05:13,080
+realiza en el momento de la definición
+de la subclase, mientras que la herencia
+
+90
+00:05:13,280 --> 00:05:15,240
+del comportamiento se realiza
+durante la ejecución.
+
+91
+00:05:15,440 --> 00:05:18,030
+del programa cada vez que
+enviamos un mensaje a un objeto.
+
+
+

@@ -1,0 +1,111 @@
+WEBVTT
+
+00:00:02.090 --> 00:00:04.310 align:middle
+En esta sesión,
+Me gustaría completar el
+
+00:00:04.477 --> 00:00:08.230 align:middle
+sobre el depurador y
+Mostrar cómo detectar un error.
+
+00:00:08.397 --> 00:00:12.440 align:middle
+Imaginemos que cambiamos
+la definición de decremento
+
+00:00:13.610 --> 00:00:14.350 align:middle
+y nos equivocamos.
+
+00:00:14.660 --> 00:00:17.950 align:middle
+Aquí, agregué una adición
+de una substracción
+
+00:00:19.160 --> 00:00:22.000 align:middle
+Cuando ejecuto mis pruebas, el
+TestDecrement devuelve falso.
+
+00:00:22.157 --> 00:00:26.440 align:middle
+Lo ejecuto, miro el
+ejecución y aviso
+
+00:00:26.607 --> 00:00:30.550 align:middle
+que de hecho cuenta regresiones
+9 en lugar de 5.
+
+00:00:30.717 --> 00:00:33.540 align:middle
+Entonces muestra que sí tengo
+un error entre estos
+
+00:00:33.707 --> 00:00:36.120 align:middle
+expresiones, si considero que
+el contador ha sido creado.
+
+00:00:36.690 --> 00:00:38.520 align:middle
+Aquí me gustaría ejecutar
+
+00:00:38.800 --> 00:00:42.930 align:middle
+el código y parar justo después
+
+00:00:43.630 --> 00:00:46.200 align:middle
+la creación del contador para ver
+que metodos
+
+00:00:46.720 --> 00:00:47.840 align:middle
+tener un problema.
+
+00:00:48.650 --> 00:00:51.400 align:middle
+Agrego el alto de Self, este es uno de
+las formas de proponer un
+
+00:00:51.567 --> 00:00:55.040 align:middle
+Punto de quiebre en Pharo. Compilo
+nuevamente el método, hago
+
+00:00:55.207 --> 00:00:59.630 align:middle
+Proceder, se ejecuta el código
+y se detiene en el método de alto.
+
+00:01:00.580 --> 00:01:01.710 align:middle
+Entonces, ahora hago clic en "Over".
+
+00:01:02.370 --> 00:01:04.850 align:middle
+Puedo decidir entrar
+
+00:01:05.017 --> 00:01:07.110 align:middle
+el método de conteo, eso es
+lo que hago, por ejemplo,
+
+00:01:07.277 --> 00:01:09.790 align:middle
+Puedo ver que el valor de conteo es
+nil y el valor entero es 7
+
+00:01:13.500 --> 00:01:17.910 align:middle
+como aquí, y allí puedo hacer clic
+en "sobre"
+
+00:01:20.770 --> 00:01:22.580 align:middle
+Regreso, tengo disminución.
+
+00:01:22.747 --> 00:01:25.730 align:middle
+Voy a mirar dentro
+
+00:01:25.897 --> 00:01:27.540 align:middle
+porque el problema debe estar allí,
+y aquí
+
+00:01:27.707 --> 00:01:29.680 align:middle
+Puedo ver que el decremento es
+igual a -1
+
+00:01:33.070 --> 00:01:35.680 align:middle
+Lo modifico, "Sobre".
+
+00:01:39.170 --> 00:01:41.000 align:middle
+Y ahora puedo hacer clic en "Proceder".
+
+00:01:42.620 --> 00:01:47.530 align:middle
+Cuando hago clic en "Proceder" a la depuración
+se deja, lo retiro,
+
+00:01:47.697 --> 00:01:51.490 align:middle
+Hago clic en "Continuar" y mi prueba es verde.
+

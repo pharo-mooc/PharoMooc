@@ -1,0 +1,562 @@
+1
+00:00:00,560 --> 00:00:04,680
+Today we're going to review
+something you've already learned,
+
+2
+00:00:04,840 --> 00:00:07,120
+but I really want to bring it home.
+
+3
+00:00:07,280 --> 00:00:09,920
+Characters, Strings and Symbols.
+
+4
+00:00:10,920 --> 00:00:14,560
+What you will learn
+is how to handle characters,
+
+5
+00:00:14,720 --> 00:00:16,360
+how strings are represented,
+
+6
+00:00:16,520 --> 00:00:19,160
+and what a symbol is in relation
+to a string.
+
+7
+00:00:19,520 --> 00:00:21,960
+Let's take it from the start:
+Characters.
+
+8
+00:00:22,120 --> 00:00:25,920
+In Pharo,
+characters start with dollar sign,
+
+9
+00:00:26,200 --> 00:00:28,600
+followed by a letter.
+
+10
+00:00:28,880 --> 00:00:32,680
+This is to represent literal characters.
+
+11
+00:00:33,200 --> 00:00:36,960
+Non-printable characters
+that do not have a form
+
+12
+00:00:37,120 --> 00:00:40,720
+use space, tab or carriage return,
+
+13
+00:00:40,880 --> 00:00:42,920
+which jumps to a new line.
+
+14
+00:00:43,080 --> 00:00:46,200
+We send a message
+to this character class
+
+15
+00:00:46,360 --> 00:00:47,920
+to get this character.
+
+16
+00:00:49,960 --> 00:00:51,160
+Now for strings.
+
+17
+00:00:51,320 --> 00:00:54,720
+Strings of characters
+are delimited by single quotes.
+
+18
+00:00:54,880 --> 00:00:56,880
+This character right here.
+
+19
+00:00:57,040 --> 00:01:00,320
+Here we have the string:
+'eclair au chocolat'.
+
+20
+00:01:00,480 --> 00:01:02,440
+It starts here and ends here.
+
+21
+00:01:02,680 --> 00:01:05,520
+We can send it a message,
+for example, size.
+
+22
+00:01:05,680 --> 00:01:08,400
+And it sends back "18".
+
+23
+00:01:08,560 --> 00:01:11,760
+Indeed, this string
+contains 18 characters.
+
+24
+00:01:12,240 --> 00:01:14,320
+We can even play with this string.
+
+25
+00:01:14,480 --> 00:01:16,880
+I can say character space split.
+
+26
+00:01:17,120 --> 00:01:21,440
+This means I will cut up this string
+according to spaces,
+
+27
+00:01:21,600 --> 00:01:25,040
+and I get an OrderedCollection
+with 3 elements.
+
+28
+00:01:25,200 --> 00:01:28,160
+The string was cut up into 3 elements.
+
+29
+00:01:28,960 --> 00:01:34,000
+Strings of characters
+are collections like any other in Pharo.
+
+30
+00:01:34,160 --> 00:01:37,440
+A string is really
+a collection of characters,
+
+31
+00:01:37,600 --> 00:01:41,120
+but the string class will inherit
+from the collection class.
+
+32
+00:01:41,560 --> 00:01:44,360
+So I can use all of the classic methods.
+
+33
+00:01:44,520 --> 00:01:49,120
+Remember,
+we have common collection classes.
+
+34
+00:01:49,280 --> 00:01:52,960
+For example, "at:"
+for all the indexed collections.
+
+35
+00:01:53,120 --> 00:01:55,240
+'eclair au chocolat' at: 1
+
+36
+00:01:55,400 --> 00:01:59,160
+means I want element "1"
+of this collection and I get "e".
+
+37
+00:01:59,520 --> 00:02:01,480
+It corresponds to this "e".
+
+38
+00:02:02,480 --> 00:02:06,560
+I can also use "do:" which runs through
+the elements of a collection.
+
+39
+00:02:06,720 --> 00:02:09,320
+And after every loop, the block setting
+
+40
+00:02:09,480 --> 00:02:13,960
+equals the first element
+of the collection, then the second, etc.
+
+41
+00:02:14,120 --> 00:02:15,640
+One small subtlety.
+
+42
+00:02:15,800 --> 00:02:19,720
+Since strings of characters
+are delimited by single quotes,
+
+43
+00:02:19,880 --> 00:02:22,200
+if I want to put code in a string,
+
+44
+00:02:22,360 --> 00:02:24,960
+the trick is to use two quotes,
+side by side.
+
+45
+00:02:25,120 --> 00:02:29,960
+This means I want to insert one quote
+into my string of characters...
+
+46
+00:02:30,120 --> 00:02:32,440
+But be careful, the subtlety is that
+
+47
+00:02:32,600 --> 00:02:35,640
+it counts as only
+one element in the string.
+
+48
+00:02:35,800 --> 00:02:39,720
+For example:
+'L''eclair au chocolat' at: 2
+
+49
+00:02:39,880 --> 00:02:42,560
+means I want element 2
+of this collection.
+
+50
+00:02:42,720 --> 00:02:45,040
+And it sends back the quote character.
+
+51
+00:02:45,200 --> 00:02:49,160
+And if I ask for at: 3
+I get the "e" that is here.
+
+52
+00:02:49,320 --> 00:02:54,640
+So even if I enter two single quotes,
+they count as one.
+
+53
+00:02:56,800 --> 00:03:01,240
+Strings of characters
+are treated like any other collection.
+
+54
+00:03:01,400 --> 00:03:05,440
+I can say that I want
+the last element of a string.
+
+55
+00:03:05,600 --> 00:03:10,320
+If I ask for "str at: str size"
+I get the very last element.
+
+56
+00:03:10,480 --> 00:03:13,960
+Don't forget, in Pharo
+strings begin with index value 1,
+
+57
+00:03:14,120 --> 00:03:17,400
+therefore the last element
+is the size of the string.
+
+58
+00:03:17,640 --> 00:03:22,320
+Or we can simply use
+"last" to recover the last element.
+
+59
+00:03:22,840 --> 00:03:26,200
+To generate strings,
+there are various techniques.
+
+60
+00:03:26,360 --> 00:03:29,760
+The easiest one
+is the conversion method.
+
+61
+00:03:29,920 --> 00:03:33,560
+I convert a symbol into
+a string of characters with asString.
+
+62
+00:03:33,720 --> 00:03:36,960
+Or else I can send
+printString to any object.
+
+63
+00:03:37,120 --> 00:03:41,200
+This will give me
+a string representation of the object.
+
+64
+00:03:42,400 --> 00:03:46,240
+Or I can generate a creation method
+directly from a collection.
+
+65
+00:03:46,400 --> 00:03:49,840
+Remember, you can send “with”
+to any collection class
+
+66
+00:03:50,000 --> 00:03:54,640
+to generate a new collection that
+automatically contains certain objects.
+
+67
+00:03:54,800 --> 00:03:56,600
+If I use String with: $A,
+
+68
+00:03:56,760 --> 00:04:00,520
+I get a string
+that contains one single character: "A."
+
+69
+00:04:00,680 --> 00:04:02,120
+For concatenation,
+
+70
+00:04:02,280 --> 00:04:05,640
+you've already seen this,
+we use the "comma" message.
+
+71
+00:04:05,800 --> 00:04:09,640
+I send "," to a string
+and run it through another string
+
+72
+00:04:09,800 --> 00:04:13,800
+to create a new string that is
+the concatenation of the two.
+
+73
+00:04:14,560 --> 00:04:16,160
+Nonetheless, be careful.
+
+74
+00:04:16,320 --> 00:04:19,400
+If I take the same example,
+you must understand
+
+75
+00:04:19,560 --> 00:04:23,440
+that I generated
+intermediate versions that are useless.
+
+76
+00:04:23,600 --> 00:04:27,440
+So I have this first message
+that was sent
+
+77
+00:04:27,600 --> 00:04:30,120
+to this string, with this value.
+
+78
+00:04:30,280 --> 00:04:34,600
+We have a first concatenation string
+that was generated.
+
+79
+00:04:34,920 --> 00:04:38,800
+This concatenation sent the message
+"," with this value,
+
+80
+00:04:38,960 --> 00:04:41,680
+and another string was created:
+The final result.
+
+81
+00:04:41,840 --> 00:04:45,280
+An intermediate string
+we haven't seen was generated,
+
+82
+00:04:45,440 --> 00:04:48,680
+and it makes you lose time
+in your calculations.
+
+83
+00:04:48,840 --> 00:04:51,560
+You had a session on benchmarking.
+
+84
+00:04:51,720 --> 00:04:55,840
+You can use benchmarking
+to really see what's going on
+
+85
+00:04:56,000 --> 00:04:59,240
+and whether it wouldn't be
+worthwhile to use a stream.
+
+86
+00:04:59,400 --> 00:05:02,000
+I generate a string of characters
+
+87
+00:05:02,160 --> 00:05:06,000
+and I say that I will define
+a streamContent with :s
+
+88
+00:05:06,160 --> 00:05:11,320
+And I can directly send strings to this
+stream to generate the final string.
+
+89
+00:05:11,480 --> 00:05:14,200
+This way, I avoid intermediary strings.
+
+90
+00:05:14,360 --> 00:05:16,760
+Now for symbols.
+
+91
+00:05:16,920 --> 00:05:21,200
+Syntactically speaking,
+symbols start with a hashtag,
+
+92
+00:05:21,360 --> 00:05:23,120
+then a string of characters.
+
+93
+00:05:23,280 --> 00:05:24,880
+This is a literal symbol.
+
+94
+00:05:25,040 --> 00:05:29,760
+It's a kind of string, but be careful,
+they're unique in the system.
+
+95
+00:05:29,920 --> 00:05:33,200
+If I write hashtag "blah blah"
+anywhere in my program,
+
+96
+00:05:33,360 --> 00:05:36,320
+anywhere else
+in the program this appears,
+
+97
+00:05:36,480 --> 00:05:38,760
+I'm designating the same object.
+
+98
+00:05:38,920 --> 00:05:40,680
+It's the same instance.
+
+99
+00:05:41,400 --> 00:05:43,640
+So symbols are unique.
+
+100
+00:05:43,800 --> 00:05:48,480
+Here we have #calvin == #calvin
+and it sends back true.
+
+101
+00:05:48,640 --> 00:05:50,120
+It's the same object.
+
+102
+00:05:50,280 --> 00:05:53,760
+This is not the case for strings.
+For strings, it depends.
+
+103
+00:05:53,920 --> 00:05:57,000
+It depends on
+the compiler's optimizations.
+
+104
+00:05:57,400 --> 00:06:01,440
+So this is the real difference
+between symbols and strings.
+
+105
+00:06:01,600 --> 00:06:05,360
+A symbol is solely in read-only.
+
+106
+00:06:05,520 --> 00:06:08,600
+Symbols cannot be modified,
+you must create a new one.
+
+107
+00:06:08,760 --> 00:06:13,080
+It's a unique object,
+so it always points to the same object.
+
+108
+00:06:13,240 --> 00:06:17,440
+Strings are mutable objects,
+you can modify their content.
+
+109
+00:06:17,600 --> 00:06:22,440
+It says "for now" because
+this point is under discussion.
+
+110
+00:06:24,080 --> 00:06:26,440
+Symbols are often used as
+
+111
+00:06:27,560 --> 00:06:30,320
+method selectors.
+
+112
+00:06:31,480 --> 00:06:35,160
+And symbols
+are good candidates for keys
+
+113
+00:06:35,320 --> 00:06:37,160
+in dictionaries,
+
+114
+00:06:37,320 --> 00:06:39,080
+namely identityDictionary.
+
+115
+00:06:39,240 --> 00:06:40,560
+You remember this?
+
+116
+00:06:40,720 --> 00:06:43,160
+We compare elements,
+
+117
+00:06:43,320 --> 00:06:48,600
+and we are easily able
+to calculate hashes starting with a symbol,
+
+118
+00:06:48,760 --> 00:06:51,200
+in order to generate it in a dictionary.
+
+119
+00:06:52,680 --> 00:06:56,360
+The important thing to remember
+from this session,
+
+120
+00:06:56,520 --> 00:07:00,120
+is that strings
+are like any other collection.
+
+121
+00:07:00,280 --> 00:07:03,360
+And that symbols are unique,
+
+122
+00:07:03,520 --> 00:07:06,320
+in read-only mode, and immutable.

@@ -1,0 +1,271 @@
+1
+00:00:04,440 --> 00:00:07,760
+-Hi. In this video, we are going to have
+another look at the Inspector,
+
+2
+00:00:08,080 --> 00:00:11,920
+and especially
+how it can create the specific tabs
+
+3
+00:00:12,240 --> 00:00:15,560
+that we have seen in the last
+presentation of the Inspector.
+
+4
+00:00:15,880 --> 00:00:19,800
+I will reuse the example that we defined
+with the other dictionary,
+
+5
+00:00:20,120 --> 00:00:22,680
+Time, Date, Morph.
+And if we look back at the date,
+
+6
+00:00:23,000 --> 00:00:27,440
+we can see that the time calendar
+holding the calendar morph
+
+7
+00:00:27,760 --> 00:00:32,480
+is actually defined
+if we use a tool called Finder.
+
+8
+00:00:32,800 --> 00:00:35,800
+Since the Inspector
+is called the gtInspector,
+
+9
+00:00:36,120 --> 00:00:40,000
+we will look for gtInspector
+in the Pragmas.
+
+10
+00:00:40,320 --> 00:00:43,160
+You can see this pragma called
+"gtInspectorPresentationOrder".
+
+11
+00:00:44,000 --> 00:00:45,600
+If I double click on this one,
+
+12
+00:00:45,920 --> 00:00:48,160
+it will open the different senders
+of his pragma,
+
+13
+00:00:48,480 --> 00:00:53,040
+and if I look for a date,
+we can see that it is called,
+
+14
+00:00:53,360 --> 00:00:56,520
+within gtInspector, PreviewIn.
+If I click on this,
+
+15
+00:00:56,840 --> 00:00:59,440
+you can see that there is the creation
+of a composite morph
+
+16
+00:00:59,760 --> 00:01:03,560
+with a title "Calendar",
+and using the morph "CalendarMorph".
+
+17
+00:01:03,880 --> 00:01:06,160
+This is how this tab is defined there.
+
+18
+00:01:06,600 --> 00:01:10,600
+We have got the Calendar title
+and the CalendarMorph under it.
+
+19
+00:01:10,920 --> 00:01:18,720
+Now, if we look at other objects such as
+"Morph new Inspect" and press Cmd+D.
+
+20
+00:01:19,040 --> 00:01:23,720
+This time, we have got a tab Morph
+that depicts the actual morph,
+
+21
+00:01:24,040 --> 00:01:26,160
+and you can see on the right
+some actions.
+
+22
+00:01:26,480 --> 00:01:28,640
+"Export as PNG" or "Delete".
+
+23
+00:01:28,960 --> 00:01:32,040
+We will try to find those there
+by searching for Morph.
+
+24
+00:01:32,360 --> 00:01:36,560
+You can see that we have got
+gtInspectorMorphIn,
+
+25
+00:01:36,880 --> 00:01:39,440
+and if we look into his code,
+
+26
+00:01:40,000 --> 00:01:44,840
+we can see that we have got
+the same composite morph with a title,
+
+27
+00:01:45,440 --> 00:01:47,600
+and the display of his image,
+
+28
+00:01:47,920 --> 00:01:50,920
+and error handling
+if it cannot draw the actual morph.
+
+29
+00:01:51,240 --> 00:01:54,040
+Then, the two buttons
+that can be found there,
+
+30
+00:01:54,360 --> 00:01:57,240
+"Export as PNG" and "Delete",
+that are defined underneath.
+
+31
+00:01:57,560 --> 00:02:01,320
+The last one we are going to look at
+is a compiled method.
+
+32
+00:02:01,640 --> 00:02:07,840
+We will look at "Point>>#degrees"
+and press Cmd+I to inspect it.
+
+33
+00:02:08,160 --> 00:02:10,880
+You can see that this one
+has several tabs.
+
+34
+00:02:11,200 --> 00:02:15,760
+It has Bytecode, basically
+all the instructions sent to the machine.
+
+35
+00:02:16,080 --> 00:02:21,080
+So, send the instruction ">=",
+"jumpFalse", "pushConstant".
+
+36
+00:02:21,400 --> 00:02:23,800
+The Source. This is the actual
+source code of the method.
+
+37
+00:02:24,120 --> 00:02:29,520
+The intermediate representation,
+and an abstract syntax tree.
+
+38
+00:02:30,480 --> 00:02:35,000
+Those are extremely interesting.
+What we can do, if I extend this a bit,
+
+39
+00:02:35,600 --> 00:02:38,800
+we can go to Raw,
+open another view of a same object,
+
+40
+00:02:39,120 --> 00:02:43,000
+go to Bytecode on this one,
+go to Source on this one.
+
+41
+00:02:43,320 --> 00:02:46,680
+And a nice thing, if I click on,
+for example, this instruction,
+
+42
+00:02:47,000 --> 00:02:51,920
+"pushConstant: 0", it will highlight
+the corresponding piece of source code.
+
+43
+00:02:52,240 --> 00:02:55,800
+So, this is extremely nice
+for developers of a compiler
+
+44
+00:02:56,120 --> 00:02:59,080
+or if you are simply interested
+in how the bytecode
+
+45
+00:02:59,400 --> 00:03:01,960
+is translated into the source code
+and vice versa.
+
+46
+00:03:02,360 --> 00:03:05,040
+This is interesting and we will look
+at how it is implemented.
+
+47
+00:03:05,360 --> 00:03:10,840
+It is implemented under CompiledCode.
+It is right there.
+
+48
+00:03:11,400 --> 00:03:14,920
+You can see that we have got
+the gtInspectorAST
+
+49
+00:03:15,240 --> 00:03:17,440
+that is implementing the AST tab.
+
+50
+00:03:18,000 --> 00:03:20,120
+The Bytecode tab is implemented there.
+
+51
+00:03:20,440 --> 00:03:24,160
+The Bytes, Header,
+Ir, Pragmas and so on.
+
+52
+00:03:24,480 --> 00:03:28,400
+Everything is implemented there
+using the gtInspector presentation order.
+
+53
+00:03:28,720 --> 00:03:32,360
+This video was there
+to show you that you can find
+
+54
+00:03:32,680 --> 00:03:34,800
+how the tabs are implemented
+
+55
+00:03:35,120 --> 00:03:37,560
+and that the Inspector
+is really interesting
+
+56
+00:03:37,880 --> 00:03:40,840
+to display a particular view
+of the objects that you find.

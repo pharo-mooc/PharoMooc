@@ -1,0 +1,355 @@
+WEBVTT
+
+00:00:01.140 --> 00:00:05.200 align:middle
+In this video, I’d like
+to show you more
+
+00:00:05.560 --> 00:00:09.520 align:middle
+advanced analysis you can do
+on code with Nautilus.
+
+00:00:10.260 --> 00:00:13.220 align:middle
+So let’s open Nautilus.
+We consider for instance
+
+00:00:13.387 --> 00:00:14.670 align:middle
+a simple class, NumberParser.
+
+00:00:15.880 --> 00:00:19.090 align:middle
+Now we look at what
+
+00:00:19.257 --> 00:00:20.170 align:middle
+we call Senders and 
+Implementors.
+
+00:00:20.337 --> 00:00:24.640 align:middle
+Often, we know someone
+is fluent in Pharo when
+
+00:00:24.807 --> 00:00:27.350 align:middle
+he has understood how to
+use Senders and Implementors
+
+00:00:27.517 --> 00:00:29.790 align:middle
+to find information.
+So let’s have a look:
+
+00:00:29.957 --> 00:00:31.770 align:middle
+I consider a method,
+I’d like to know what
+
+00:00:31.937 --> 00:00:33.620 align:middle
+calls this method: 
+what do I do?
+
+00:00:34.080 --> 00:00:35.030 align:middle
+I use Senders Of.
+
+00:00:36.680 --> 00:00:41.260 align:middle
+What will I get with Senders Of?
+
+00:00:41.427 --> 00:00:43.230 align:middle
+I get here only one method
+
+00:00:43.397 --> 00:00:45.920 align:middle
+which calls Senders Of,
+it is called 
+
+00:00:46.270 --> 00:00:50.560 align:middle
+ReadExponent and it calls
+ExponentLetters.
+
+00:00:52.710 --> 00:00:54.310 align:middle
+It is an interesting information.
+
+00:00:54.610 --> 00:00:56.810 align:middle
+Now let’s imagine I go
+in the public
+
+00:00:57.000 --> 00:01:01.830 align:middle
+protocol, I choose
+NextInteger. I ask the Senders.
+
+00:01:03.140 --> 00:01:07.710 align:middle
+I will get this potential
+
+00:01:08.420 --> 00:01:09.740 align:middle
+Senders list.
+
+00:01:10.810 --> 00:01:14.910 align:middle
+In fact, these are all the places
+that send the NextInteger message.
+
+00:01:15.370 --> 00:01:17.310 align:middle
+Here I see I am in the
+NumberParser
+
+00:01:17.477 --> 00:01:20.590 align:middle
+class, and I call
+Self.
+
+00:01:21.600 --> 00:01:24.180 align:middle
+As I use Self to do a call, it
+
+00:01:24.347 --> 00:01:25.730 align:middle
+will necessarily
+be the method I have here
+
+00:01:26.740 --> 00:01:30.720 align:middle
+Now on the packages or the XML
+class, it is not so
+
+00:01:30.887 --> 00:01:33.360 align:middle
+obvious because I don't necessarily 
+know, as Pharo
+
+00:01:33.527 --> 00:01:36.370 align:middle
+is a language with no types,
+I don't know for sure
+
+00:01:36.537 --> 00:01:40.060 align:middle
+if this is the method concerned.
+
+00:01:40.227 --> 00:01:44.020 align:middle
+In fact, the system shows
+that a message
+
+00:01:44.187 --> 00:01:46.010 align:middle
+with the same name has been sent.
+
+00:01:46.720 --> 00:01:49.000 align:middle
+In order to check this, 
+I can for instance
+
+00:01:49.167 --> 00:01:51.520 align:middle
+say that I'd like to know
+
+00:01:51.950 --> 00:01:56.090 align:middle
+what are the implementors,
+how many times is
+
+00:01:56.257 --> 00:01:57.650 align:middle
+the method implemented in the
+system.
+
+00:01:57.817 --> 00:02:00.870 align:middle
+To do this, I will select
+Implementors Of.
+
+00:02:02.520 --> 00:02:05.930 align:middle
+Implementors Of. Ah bah
+look, whereas in the other
+
+00:02:06.097 --> 00:02:08.350 align:middle
+case I only had one method, so it 
+was necessarily the one
+
+00:02:08.517 --> 00:02:12.290 align:middle
+that was called, here I have
+several ones.
+
+00:02:12.457 --> 00:02:16.050 align:middle
+This method, NextInteger, is 
+defined
+
+00:02:16.217 --> 00:02:19.510 align:middle
+on NumberParser, but it is
+also defined on XMLInteger.
+
+00:02:20.900 --> 00:02:24.420 align:middle
+XMLInteger is even defined on
+two different
+
+00:02:24.587 --> 00:02:26.950 align:middle
+classes. So I see that these
+
+00:02:27.117 --> 00:02:30.000 align:middle
+methods, these calls are 
+message sends
+
+00:02:30.167 --> 00:02:34.030 align:middle
+calls and they will be resolved
+and the methods selected.
+
+00:02:34.420 --> 00:02:36.670 align:middle
+You see that Sender and 
+Implementor are
+
+00:02:36.837 --> 00:02:39.650 align:middle
+very important.
+With Implementor you will
+
+00:02:39.817 --> 00:02:41.710 align:middle
+see all the system's classes 
+implementing a method.
+
+00:02:41.877 --> 00:02:45.300 align:middle
+With Sender you will see
+all the calls made to a method.
+
+00:02:45.467 --> 00:02:47.840 align:middle
+Senders are really very important
+because
+
+00:02:48.007 --> 00:02:50.940 align:middle
+they enable you to look at
+examples,
+
+00:02:51.107 --> 00:02:54.050 align:middle
+to find how a method is invoked.
+
+00:02:54.520 --> 00:02:56.920 align:middle
+Here I've selected a method 
+with no argument,
+
+00:02:57.087 --> 00:02:58.590 align:middle
+but if I had chosen a method with
+an argument,
+
+00:02:58.757 --> 00:03:02.650 align:middle
+for instance Number, 
+NextNumberBase and I click
+
+00:03:02.817 --> 00:03:07.470 align:middle
+on Sender: what will it
+
+00:03:07.637 --> 00:03:12.480 align:middle
+show me? I have an argument,
+and I see it is
+
+00:03:12.647 --> 00:03:13.280 align:middle
+the base.
+
+00:03:13.447 --> 00:03:15.050 align:middle
+Here it appears it is not 
+an argument,
+
+00:03:15.217 --> 00:03:18.730 align:middle
+it is just a call that has an
+argument.
+
+00:03:18.897 --> 00:03:22.030 align:middle
+But in this test here, 
+I see that
+
+00:03:22.420 --> 00:03:27.340 align:middle
+if I instantiate
+NumberParser on Stream,
+
+00:03:28.340 --> 00:03:30.550 align:middle
+and then I send it the message
+NextNumberBase
+
+00:03:30.717 --> 00:03:32.930 align:middle
+and the argument 10.
+
+00:03:33.097 --> 00:03:35.030 align:middle
+It makes me understand how
+
+00:03:35.197 --> 00:03:36.200 align:middle
+I have to use the API.
+
+00:03:37.000 --> 00:03:41.210 align:middle
+It is so much used that there
+are keyboard shortcuts.
+
+00:03:42.390 --> 00:03:45.800 align:middle
+Nautilus was first designed
+so that you can
+
+00:03:46.000 --> 00:03:48.550 align:middle
+do all these operations
+without touching the mouse.
+
+00:03:49.000 --> 00:03:51.260 align:middle
+Here notice that B means
+browse.
+
+00:03:51.427 --> 00:03:55.890 align:middle
+So we will do Browse Sender,
+N is for Sender's N.
+
+00:03:56.057 --> 00:03:59.550 align:middle
+Browse Implementor, M
+is for Implementor.
+
+00:04:00.440 --> 00:04:05.260 align:middle
+If I select only "NextNumber" 
+for instance,
+
+00:04:05.570 --> 00:04:08.780 align:middle
+and I do Browse N, I will
+get
+
+00:04:11.110 --> 00:04:14.330 align:middle
+NextNumber's Senders.
+
+00:04:14.860 --> 00:04:17.740 align:middle
+In the same way, if I select 
+I get them.
+
+00:04:17.907 --> 00:04:19.610 align:middle
+Now if I want to get the
+Implementors, Browse M,
+
+00:04:20.890 --> 00:04:22.160 align:middle
+I get the Implementors.
+
+00:04:23.700 --> 00:04:25.650 align:middle
+In the same way about classes,
+I'd like 
+
+00:04:25.817 --> 00:04:28.030 align:middle
+to know what are the other system
+classes using
+
+00:04:28.197 --> 00:04:30.290 align:middle
+NumberParser.
+To know this, 
+
+00:04:30.457 --> 00:04:34.730 align:middle
+I select Analyze,
+I have Class
+
+00:04:34.897 --> 00:04:39.820 align:middle
+references. And I get all
+
+00:04:40.000 --> 00:04:43.380 align:middle
+the classes. I get all the methods
+using...
+
+00:04:47.300 --> 00:04:49.480 align:middle
+Here I see they are mainly tests.
+
+00:04:49.740 --> 00:04:53.000 align:middle
+Look: in  ClassInteger, I call
+
+00:05:00.130 --> 00:05:00.763 align:middle
+the Parser.
+
+00:05:00.930 --> 00:05:05.440 align:middle
+Here, the tip to understand
+is to remember the
+
+00:05:06.200 --> 00:05:09.300 align:middle
+keyboard shortcut,
+
+00:05:10.050 --> 00:05:14.550 align:middle
+Browse shift N, with a 
+
+00:05:16.070 --> 00:05:19.250 align:middle
+capital letter because it is
+the same as to 
+
+00:05:19.417 --> 00:05:21.700 align:middle
+invoke a method, except here
+we want
+
+00:05:21.867 --> 00:05:24.090 align:middle
+to invoke a class and a class
+is bigger than
+
+00:05:24.257 --> 00:05:25.310 align:middle
+a method, so we have a capital
+letter.
+

@@ -1,0 +1,1478 @@
+1
+00:00:00,200 --> 00:00:03,080
+Cette séance va être
+consacrée à un survol de la syntaxe.
+
+2
+00:00:03,280 --> 00:00:05,200
+Donc, on va vous montrer
+l'entièreté de la syntaxe.
+
+3
+00:00:06,460 --> 00:00:08,090
+Il ne faut pas que vous
+vous stressiez par rapport à si
+
+4
+00:00:08,290 --> 00:00:09,520
+vous comprenez ou pas entièrement.
+
+5
+00:00:09,750 --> 00:00:11,350
+On reprendra tous
+ces éléments plus tard.
+
+6
+00:00:11,550 --> 00:00:14,550
+Par contre, l'idée, c'était
+de vous montrer l'ensemble de
+
+7
+00:00:14,750 --> 00:00:18,480
+ce qu'il y a dans Pharo.
+On va voir les éléments
+
+8
+00:00:18,680 --> 00:00:20,140
+syntaxiques principaux.
+
+9
+00:00:20,490 --> 00:00:22,000
+On va voir qu’il y a
+trois sortes de messages.
+
+10
+00:00:22,740 --> 00:00:25,780
+Et puis, on va voir la
+syntaxe sur les blocks qui est un
+
+11
+00:00:26,000 --> 00:00:26,880
+élément essentiel de Pharo.
+
+12
+00:00:27,680 --> 00:00:29,450
+Ne stressez pas si vous
+n'avez pas tout compris, on
+
+13
+00:00:29,650 --> 00:00:32,360
+reprendra chacun de ces points
+dans des séquences ultérieures.
+
+14
+00:00:34,000 --> 00:00:37,560
+Juste pour le rappel, vous avez
+toute la syntaxe sur ce transparent.
+
+15
+00:00:37,760 --> 00:00:39,320
+Là, par exemple, maintenant
+je peux venir un petit peu
+
+16
+00:00:39,520 --> 00:00:41,930
+dans les détails, vous avez
+une définition de méthode.
+
+17
+00:00:42,130 --> 00:00:43,520
+Là, je définis la
+méthode exampleWithNumber.
+
+18
+00:00:43,720 --> 00:00:45,080
+Elle a un argument.
+
+19
+00:00:45,280 --> 00:00:48,620
+Par exemple, je vais avoir
+des définitions locales de
+
+20
+00:00:48,820 --> 00:00:51,020
+variables avec les barres verticales.
+
+21
+00:00:51,310 --> 00:00:54,000
+J'ai le Return qui me
+permet de rendre une valeur.
+
+22
+00:00:54,280 --> 00:00:57,460
+Je vais avoir des
+boucles, une affectation.
+
+23
+00:00:57,670 --> 00:01:00,500
+Le point, par exemple ça va
+être un séparateur d'instruction.
+
+24
+00:01:00,700 --> 00:01:04,220
+On va voir ce genre de
+
+25
+00:01:07,180 --> 00:01:07,940
+choses.
+
+26
+00:01:08,140 --> 00:01:08,950
+Commençons par le
+traditionnel Hello World.
+
+27
+00:01:12,570 --> 00:01:15,000
+D'ailleurs, toutes les
+expressions, vous pouvez les
+
+28
+00:01:15,200 --> 00:01:18,120
+exécuter dans Pharo vous-même
+pour voir ce que donne le résultat.
+
+29
+00:01:18,600 --> 00:01:23,390
+Là, j'ai une chaîne que je convertis
+
+30
+00:01:23,700 --> 00:01:25,840
+dans une Morph, c'est
+un élément graphique.
+
+31
+00:01:26,170 --> 00:01:28,960
+Je demande à cet élément
+graphique de s'ouvrir dans une fenêtre.
+
+32
+00:01:30,270 --> 00:01:34,050
+J'ai envoyé message
+asMorph à l'objet String et j'ai
+
+33
+00:01:34,250 --> 00:01:37,830
+envoyé le message
+openInWindow à l'objet Morph résultant.
+
+34
+00:01:38,200 --> 00:01:41,460
+Donc là, on a eu deux envois
+de messages et un objet String.
+
+35
+00:01:43,000 --> 00:01:45,100
+Un exemple plus compliqué,
+imaginons que vous vouliez
+
+36
+00:01:45,300 --> 00:01:49,070
+prendre le logo Pharo qui
+se trouve sur le web, on va
+
+37
+00:01:49,270 --> 00:01:50,610
+faire ça de la manière suivante.
+
+38
+00:01:51,080 --> 00:01:54,180
+On va faire ZnEasy getPng
+avec une chaîne qui représente
+
+39
+00:01:54,520 --> 00:01:58,380
+l'url de la
+ressource qu'on veut lire.
+
+40
+00:02:00,290 --> 00:02:03,890
+Et encore une fois, on va
+la convertir en chaîne, en un
+
+41
+00:02:04,090 --> 00:02:06,430
+objet graphique et lui
+demander de s'ouvrir dans une fenêtre.
+
+42
+00:02:07,000 --> 00:02:08,020
+Là, qu'est-ce qu'on voit ?
+
+43
+00:02:08,220 --> 00:02:10,120
+On voit que ZnEasy est une
+ classe parce que les classes
+
+44
+00:02:10,320 --> 00:02:14,810
+commencent par une
+majuscule. Le message getPng:
+
+45
+00:02:15,690 --> 00:02:17,940
+les deux points, ça veut dire
+que je j'attends un argument.
+
+46
+00:02:18,140 --> 00:02:19,090
+Qu'est-ce que j'ai comme argument ?
+
+47
+00:02:19,430 --> 00:02:21,170
+J'ai la chaîne'http://pharo.
+
+48
+00:02:21,370 --> 00:02:25,420
+org', j'ai cette
+chaîne-là qui est l'argument de la
+
+49
+00:02:25,620 --> 00:02:29,950
+méthode getPng. Donc, les messages
+
+50
+00:02:30,570 --> 00:02:34,660
+as Morph et openInWindow
+sont lus de gauche à droite.
+
+51
+00:02:36,050 --> 00:02:38,060
+Encore une fois, vous
+pouvez vraiment copier-coller ce
+
+52
+00:02:38,260 --> 00:02:41,750
+code, ou le retaper dans
+Pharo, l'exécuter et vous allez
+
+53
+00:02:41,950 --> 00:02:42,800
+récupérer le logo Pharo.
+
+54
+00:02:44,250 --> 00:02:47,290
+Si on regarde ce qu'il y a
+comme élément syntaxique dans
+
+55
+00:02:47,490 --> 00:02:50,030
+Pharo, vous avez les commentaires
+qui commencent avec des doubles quotes.
+
+56
+00:02:50,230 --> 00:02:52,060
+Ça, c'est un commentaire.
+
+57
+00:02:52,430 --> 00:02:55,660
+Des caractères, les
+caractères sont toujours avec dollar
+
+58
+00:02:55,860 --> 00:02:57,860
+quelque chose, $A,
+c'est le caractère A.
+
+59
+00:02:58,340 --> 00:03:00,440
+Vous avez des chaînes,
+les chaînes commencent et
+
+60
+00:03:00,640 --> 00:03:04,350
+finissent par une simple
+quote. Vous avez des symboles,
+
+61
+00:03:04,550 --> 00:03:06,150
+les symboles ce sont
+des chaînes uniques.
+
+62
+00:03:06,350 --> 00:03:10,110
+Souvent, ça commence comme
+ça, un symbole avec le symbole
+
+63
+00:03:10,310 --> 00:03:12,280
+dièse, donc #A c'est le symbole A.
+
+64
+00:03:13,120 --> 00:03:14,800
+Vous avez aussi des
+tableaux de littéraux.
+
+65
+00:03:15,000 --> 00:03:17,300
+Là, j'ai un tableau
+avec 12, 23 et 36.
+
+66
+00:03:17,500 --> 00:03:18,860
+J'ai un tableau à trois éléments.
+
+67
+00:03:19,670 --> 00:03:21,700
+Après, vous avez les
+entiers, ils ont plusieurs
+
+68
+00:03:21,900 --> 00:03:24,520
+représentations, mais dans ce
+cours, on ne va pas s'appesantir dessus.
+
+69
+00:03:24,880 --> 00:03:27,620
+En général, on va utiliser
+des représentations à base 10,
+
+70
+00:03:27,820 --> 00:03:30,040
+mais si vous voulez une
+représentation à base 2, vous pouvez aussi.
+
+71
+00:03:30,460 --> 00:03:32,070
+Vous avez des réels, c'est pareil.
+
+72
+00:03:33,010 --> 00:03:35,010
+Si vous en avez besoin,
+vous trouverez la syntaxe.
+
+73
+00:03:35,420 --> 00:03:37,370
+Vous avez les
+booléens avec True ou False.
+
+74
+00:03:38,340 --> 00:03:41,130
+Vous avez la valeur
+indéfinie, le nul de Java qui est le
+
+75
+00:03:41,330 --> 00:03:46,000
+nil en Pharo qui est instance
+de la classe UndefinedObject.
+
+76
+00:03:46,160 --> 00:03:50,730
+Et vous avez les points, un
+point, ça se décrit en Pharo
+
+77
+00:03:51,560 --> 00:03:56,460
+sous la forme de 10@200, par
+
+78
+00:03:56,660 --> 00:04:01,000
+exemple. Ça veut dire, je crée le
+point 10 qui a X en 10 et 200 en Y.
+
+79
+00:04:03,820 --> 00:04:06,000
+Maintenant, on a vu à peu
+près les éléments essentiels
+
+80
+00:04:06,200 --> 00:04:08,840
+pour l'aspect syntaxique. Vous
+avez les constructeurs du langage.
+
+81
+00:04:09,040 --> 00:04:12,720
+Vous avez définition de
+variable, définition de variable
+
+82
+00:04:12,920 --> 00:04:16,190
+temporaire, je vais mettre barre
+verticale suivie d'une barre verticale.
+
+83
+00:04:16,440 --> 00:04:19,520
+L'affectation, c'est deux
+points égal, ça c'est l'affectation,
+
+84
+00:04:19,720 --> 00:04:22,220
+je mets dans la
+variable var la valeur Value.
+
+85
+00:04:22,830 --> 00:04:24,470
+J'ai des messages dans mon système.
+
+86
+00:04:24,820 --> 00:04:25,850
+Comment je les sépare ?
+
+87
+00:04:26,050 --> 00:04:30,340
+Je les sépare par des points quand
+je veux avoir une séquence de message.
+
+88
+00:04:31,000 --> 00:04:33,850
+J'ai le retour, ça veut
+dire, une fonction ou une méthode
+
+89
+00:04:34,050 --> 00:04:38,140
+va rendre une valeur, je
+vais utiliser le chapeau qu'on
+
+90
+00:04:38,340 --> 00:04:39,110
+appelle caret en anglais.
+
+91
+00:04:39,780 --> 00:04:43,090
+Après, vous avez des
+blocks qui sont, de manière
+
+92
+00:04:43,290 --> 00:04:47,480
+technique, des cultures
+lexicales et qu'en première
+
+93
+00:04:47,680 --> 00:04:49,700
+instance, vous pouvez prendre
+comme des méthodes anonymes.
+
+94
+00:04:50,400 --> 00:04:52,240
+Je vous montre ce qu'est un block.
+
+95
+00:04:52,520 --> 00:04:57,380
+Un block, ça se définit
+avec des crochets et ça s'
+
+96
+00:04:57,580 --> 00:05:00,650
+exécute en utilisant le
+message value, on va voir ça aussi.
+
+97
+00:05:01,780 --> 00:05:03,600
+Vous avez tous les
+constructeurs du langage.
+
+98
+00:05:05,460 --> 00:05:08,390
+Si on regarde, qu'est-ce qu'un
+ programme en Pharo, son essence?
+
+99
+00:05:08,800 --> 00:05:11,420
+C'est créer des objets,
+qu'on a sûrement créés en
+
+100
+00:05:11,620 --> 00:05:14,000
+utilisant des messages,
+envoyer des messages à ses objets
+
+101
+00:05:14,380 --> 00:05:16,950
+et, de temps en temps, utiliser
+des blocks ou des méthodes anonymes.
+
+102
+00:05:17,540 --> 00:05:18,300
+C'est tout.
+
+103
+00:05:20,070 --> 00:05:21,430
+Maintenant, il y a
+trois types de messages.
+
+104
+00:05:21,650 --> 00:05:23,210
+Pourquoi y a-t-il trois
+types de messages dans Pharo?
+
+105
+00:05:23,410 --> 00:05:26,480
+C'est principalement pour minimiser
+le nombre de parenthèse qu'on utilise.
+
+106
+00:05:26,900 --> 00:05:28,260
+Vous allez voir,
+c'est relativement simple.
+
+107
+00:05:28,550 --> 00:05:30,580
+Vous avez les messages
+unaires, un message unaire c'est
+
+108
+00:05:30,780 --> 00:05:32,560
+toujours un receveur, un sélecteur.
+
+109
+00:05:32,760 --> 00:05:34,170
+Là, par exemple, j'ai dit je veux 9².
+
+110
+00:05:35,740 --> 00:05:38,450
+Je veux obtenir la date
+d'aujourd'hui, j'envoie le
+
+111
+00:05:38,650 --> 00:05:41,000
+message today à l'objet
+date, à la classe date.
+
+112
+00:05:42,040 --> 00:05:43,710
+Il n'y a pas d'arguments,
+ce sont des messages unaires.
+
+113
+00:05:44,000 --> 00:05:45,430
+Vous avez les messages binaires.
+
+114
+00:05:46,320 --> 00:05:48,340
+Les messages binaires
+sont toujours de la forme un
+
+115
+00:05:48,540 --> 00:05:50,790
+receveur, un sélecteur, un argument.
+
+116
+00:05:51,270 --> 00:05:55,640
+Mais le sélecteur, ça sera
++, -, ~, ~, =, =, /, /, /,
+
+117
+00:05:56,940 --> 00:05:57,700
+ce genre de choses.
+
+118
+00:05:57,900 --> 00:05:59,810
+Tout ce qui a l'air de
+grigri mathématique, c'est pour
+
+119
+00:06:00,010 --> 00:06:04,550
+les messages binaires. Là, on voit
+par exemple 1 + 2, c'est un message.
+
+120
+00:06:04,800 --> 00:06:08,000
+On envoie le message plus à
+l'objet 1 avec comme argument l'objet 2.
+
+121
+00:06:08,330 --> 00:06:11,550
+@ pour la création de
+points, c'est aussi un message.
+
+122
+00:06:11,750 --> 00:06:12,600
+C'est un message binaire.
+
+123
+00:06:13,020 --> 00:06:17,500
+Donc là, je crée le point
+3 4 en envoyant le message
+
+124
+00:06:17,700 --> 00:06:18,460
+@.
+
+125
+00:06:19,060 --> 00:06:22,120
+Après, vous avez des messages
+qu'on appelle des messages à mots-clés.
+
+126
+00:06:22,470 --> 00:06:25,000
+Un message à mots-clés,
+c'est vraiment de la forme
+
+127
+00:06:25,200 --> 00:06:28,730
+receveur, une clé, un
+argument, une clé, un argument.
+
+128
+00:06:29,930 --> 00:06:32,360
+L'exemple que vous avez, c'est 2.
+
+129
+00:06:32,560 --> 00:06:34,850
+Est-ce que 2 est entre 10 et 20 ?
+
+130
+00:06:35,130 --> 00:06:37,950
+Si vous l'écriviez dans
+une syntaxe Java ou C, vous
+
+131
+00:06:38,150 --> 00:06:39,800
+l'écririez de la forme
+suivante. Vous écririez Between
+
+132
+00:06:40,000 --> 00:06:44,770
+and et vous
+
+133
+00:06:45,000 --> 00:06:47,780
+mettriez des parenthèses, 10, 20.
+
+134
+00:06:48,000 --> 00:06:52,530
+Dans Pharo, on va
+l'exprimer sous forme clé
+
+135
+00:06:53,020 --> 00:06:55,800
+et clé. On va revoir ça,
+évidemment, mais c'est pour vous
+
+136
+00:06:56,000 --> 00:06:57,310
+donner cette idée de la syntaxe.
+
+137
+00:06:59,040 --> 00:07:02,380
+Quand vous avez des
+messages, il y a une précédence entre
+
+138
+00:07:02,580 --> 00:07:05,210
+ces messages, le système va
+toujours exécuter en priorité
+
+139
+00:07:05,410 --> 00:07:08,000
+les parenthèses, puis les
+messages unaires, puis les
+
+140
+00:07:08,200 --> 00:07:09,400
+messages binaires et
+les messages à mots-clés.
+
+141
+00:07:09,600 --> 00:07:13,830
+Pourquoi? C'est l'idée de nous
+éviter d'écrire trop de parenthèses.
+
+142
+00:07:14,030 --> 00:07:15,730
+On aurait très bien pu
+avoir un système où on n'a pas
+
+143
+00:07:15,930 --> 00:07:17,300
+tout cette
+différenciation, mais on mettrait des
+
+144
+00:07:17,500 --> 00:07:19,380
+parenthèses partout et ça
+rendrait le code illisible.
+
+145
+00:07:21,670 --> 00:07:24,440
+Je vais revenir sur chacun de ces
+types de messages de manière très simple.
+
+146
+00:07:25,550 --> 00:07:27,940
+Un message unaire, par
+exemple, 10 000 factoriel.
+
+147
+00:07:28,140 --> 00:07:30,080
+Faites-le, vous allez voir,
+c'est un très gros chiffre.
+
+148
+00:07:30,420 --> 00:07:33,800
+10 000 factoriel, j'envoie le
+message factoriel à l'objet 10000.
+
+149
+00:07:34,000 --> 00:07:34,760
+Il n'y a pas d'argument.
+
+150
+00:07:34,960 --> 00:07:35,720
+C'est un message unaire.
+
+151
+00:07:37,000 --> 00:07:38,570
+De la même manière,
+un message binaire.
+
+152
+00:07:38,770 --> 00:07:40,510
+1 + 3, c'est un message binaire.
+
+153
+00:07:42,100 --> 00:07:45,850
+Le sélecteur, ça veut dire le
+nom de la méthode, là, c'est plus.
+
+154
+00:07:47,490 --> 00:07:51,670
+Et j'ai envoyé le message plus à
+l'objet 1 avec l'objet 3 en argument.
+
+155
+00:07:53,270 --> 00:07:56,000
+Un message à mots-clés, c'est ce
+que je vous expliquais tout à l'heure.
+
+156
+00:07:56,170 --> 00:08:00,000
+Je ne fais juste que répéter
+parce qu'enseigner, c'est répéter.
+
+157
+00:08:00,910 --> 00:08:03,290
+J'ai un message mots-clés
+dans lequel j'ai keyword,
+
+158
+00:08:03,490 --> 00:08:06,450
+keyword qui est le
+message avec les arguments.
+
+159
+00:08:06,650 --> 00:08:11,000
+Vous avez vraiment les arguments
+qui flottent à l'intérieur du message.
+
+160
+00:08:11,350 --> 00:08:13,280
+L'idée de cette syntaxe,
+c'était de faire une syntaxe que
+
+161
+00:08:13,480 --> 00:08:14,630
+les enfants puissent utiliser.
+
+162
+00:08:15,330 --> 00:08:18,350
+L'idée, c'est d'avoir quelque
+chose qui s'apparente à de l'anglais.
+
+163
+00:08:18,780 --> 00:08:22,700
+On va pouvoir introduire
+les arguments à l'intérieur
+
+164
+00:08:25,550 --> 00:08:26,580
+de nos messages. Regardez un exemple.
+
+165
+00:08:26,780 --> 00:08:29,000
+Imaginons que je veuille
+faire une requête http.
+
+166
+00:08:29,420 --> 00:08:33,720
+ZnClient c'est un serveur
+http Pharo, donc je crée une
+
+167
+00:08:33,920 --> 00:08:34,910
+instance de ZnServeur.
+
+168
+00:08:35,110 --> 00:08:39,570
+New est un message unaire,
+il n'y a pas d'argument, de
+
+169
+00:08:39,770 --> 00:08:40,530
+toute façon il n'y a pas deux points.
+
+170
+00:08:41,650 --> 00:08:46,340
+Url est un message à
+mots-clés, il y a un deux
+
+171
+00:08:46,540 --> 00:08:50,760
+points. QueryAt:put: est un
+autre message à mots-clés.
+
+172
+00:08:51,000 --> 00:08:54,460
+Et get est
+finalement un message unaire.
+
+173
+00:08:55,630 --> 00:08:57,500
+Ce qu'on voit ici, sur cet
+exemple, ce sont les point
+
+174
+00:08:57,700 --> 00:09:01,190
+virgules, on appelle ça une cascade.
+
+175
+00:09:03,020 --> 00:09:05,000
+La cascade, c'est l'idée de
+dire je veux envoyer tous ces
+
+176
+00:09:05,200 --> 00:09:07,000
+messages au même objet. Ça
+évite d'avoir une variable
+
+177
+00:09:07,200 --> 00:09:10,370
+temporaire pour rien et ça
+permet d'écrire du code un
+
+178
+00:09:10,570 --> 00:09:11,330
+petit peu plus compact.
+
+179
+00:09:14,140 --> 00:09:15,210
+Ce qu'il faut voir,
+c'est que les messages sont
+
+180
+00:09:15,410 --> 00:09:18,170
+absolument partout dans
+Pharo. Les conditions, les
+
+181
+00:09:18,370 --> 00:09:20,230
+boucles, les itérateurs, la
+concurrence, tout est exprimé
+
+182
+00:09:20,430 --> 00:09:22,150
+sous forme de message. Ce
+que je vous ai expliqué sur les
+
+183
+00:09:22,350 --> 00:09:24,530
+trois messages
+précédents va s'appliquer partout.
+
+184
+00:09:25,250 --> 00:09:27,400
+C'est la pierre angulaire du système.
+
+185
+00:09:28,010 --> 00:09:29,760
+Il n'y a rien d'autre
+que ces messages-là.
+
+186
+00:09:31,420 --> 00:09:35,450
+Regardons. Là, j'ai pris la
+définition débile de factoriel.
+
+187
+00:09:35,710 --> 00:09:37,660
+Comment est-ce que
+j'ai défini ce factoriel?
+
+188
+00:09:38,200 --> 00:09:41,680
+Je définis ma méthode
+factorielle, je mets un commentaire
+
+189
+00:09:42,070 --> 00:09:44,350
+pour la méthode parce qu'il
+y a des doubles quotes et je
+
+190
+00:09:44,550 --> 00:09:47,380
+commence à dire, self, si
+l'objet qui reçoit le message
+
+191
+00:09:47,580 --> 00:09:51,670
+est 0, alors je vais rendre
+1, si self est positif, par
+
+192
+00:09:51,870 --> 00:09:55,000
+exemple, si je fais
+factoriel 6, self vaudra 6.
+
+193
+00:09:55,570 --> 00:09:57,340
+Si c'est vrai, à ce
+moment-là que vais-je faire, je vais
+
+194
+00:09:57,540 --> 00:10:01,640
+rendre quoi, 6 multiplié
+par 6 moins 1 factoriel, la
+
+195
+00:10:01,840 --> 00:10:03,360
+définition récursive
+qu'on connaît tous.
+
+196
+00:10:03,900 --> 00:10:08,540
+Ce qui est intéressant de
+regarder, c'est de voir ici que
+
+197
+00:10:08,740 --> 00:10:11,550
+le message ifTrue qui est
+une condition, c'est aussi un
+
+198
+00:10:11,750 --> 00:10:13,330
+message parce que c'est un
+message à mots-clés, il a deux
+
+199
+00:10:13,530 --> 00:10:14,950
+points qui est envoyé à un booléen.
+
+200
+00:10:15,560 --> 00:10:17,060
+Donc vous avez aussi
+ifTrue, ifFalse, ifFalse, ifFalse,
+
+201
+00:10:17,260 --> 00:10:22,000
+ifFalse, toutes ces
+conditions sont des messages qui
+
+202
+00:10:22,200 --> 00:10:26,760
+satisfont les règles et qui
+sont de la sorte des messages
+
+203
+00:10:27,000 --> 00:10:28,390
+à mots-clés que j'ai
+présentés précédemment.
+
+204
+00:10:29,180 --> 00:10:30,920
+Donc, les
+conditions sont des messages.
+
+205
+00:10:31,200 --> 00:10:32,640
+Les boucles sont aussi des messages.
+
+206
+00:10:32,840 --> 00:10:34,870
+Ça veut dire que là je veux
+faire une boucle de 1 à 4.
+
+207
+00:10:35,390 --> 00:10:37,060
+De 1 à 4, que dois-je faire ?
+
+208
+00:10:37,260 --> 00:10:40,320
+Je vais faire un block, un
+block c'est une méthode anonyme.
+
+209
+00:10:40,520 --> 00:10:45,330
+Je vais lui dire je veux que
+tu affiches la valeur de I,
+
+210
+00:10:45,620 --> 00:10:50,130
+et I va prendre 1, 2, 3, 4
+
+211
+00:10:50,560 --> 00:10:51,320
+puisque c'est ce que je dis.
+
+212
+00:10:51,520 --> 00:10:55,590
+Et là, ce que vous voyez c'est que
+to:do: est un message à mots-clés.
+
+213
+00:10:56,610 --> 00:10:59,610
+C'est un message qui va
+représenter une boucle.
+
+214
+00:11:00,230 --> 00:11:03,240
+Il y a plein d'autres boucles dans
+Pharo, timesRepeat: to:by:do: etc.
+
+215
+00:11:03,600 --> 00:11:04,850
+On va les voir dans le cours.
+
+216
+00:11:05,590 --> 00:11:10,260
+Là, to:do: est envoyé à
+l'objet 1 avec comme paramètre
+
+217
+00:11:10,460 --> 00:11:14,250
+4 et un block. On va voir ce
+qu'est un block rapidement après.
+
+218
+00:11:14,900 --> 00:11:16,260
+Vous avez aussi des itérateurs.
+
+219
+00:11:16,770 --> 00:11:19,280
+Les itérateurs, c'est
+différent, c'est que j'envoie le
+
+220
+00:11:19,480 --> 00:11:23,160
+message, par exemple, do: à
+la collection en lui disant
+
+221
+00:11:23,360 --> 00:11:25,350
+ce que je veux appliquer
+sur chacun des éléments.
+
+222
+00:11:26,000 --> 00:11:30,240
+Là, le each, l'argument de
+ma fonction va prendre comme
+
+223
+00:11:30,440 --> 00:11:34,350
+valeur 1, 2 moins 4 et moins 86.
+
+224
+00:11:35,010 --> 00:11:39,020
+Ce que je fais, c'est que le
+each, je vais lui appliquer
+
+225
+00:11:39,250 --> 00:11:40,680
+la valeur absolue et
+je vais l'afficher.
+
+226
+00:11:41,070 --> 00:11:45,600
+Encore une fois, ça sera un autre
+cours, on vous expliquera les itérateurs.
+
+227
+00:11:46,000 --> 00:11:50,500
+Les itérateurs sont des
+choses qui arrivent en Java 8 et
+
+228
+00:11:50,700 --> 00:11:52,710
+ça fait partie du noyau de Pharo.
+
+229
+00:11:54,550 --> 00:11:56,490
+Qu'est-ce qu'un block ?
+
+230
+00:11:56,690 --> 00:11:58,220
+Un block, c'est comme une
+fonction, ça veut dire que si
+
+231
+00:11:58,420 --> 00:12:01,940
+en maths vous écriviez
+F(x) égal x² + 3, vous avez
+
+232
+00:12:02,140 --> 00:12:05,100
+l'écrire comme ça,
+littéralement. Je définis une
+
+233
+00:12:05,300 --> 00:12:07,520
+variable, j'affecte dans
+cette variable quoi, un block.
+
+234
+00:12:07,720 --> 00:12:11,000
+Donc un block, c'est quelque
+chose qui commence par des crochets.
+
+235
+00:12:11,180 --> 00:12:14,850
+Là, le block a un argument
+qui est x et je vais mettre un
+
+236
+00:12:15,100 --> 00:12:16,640
+core qui est plus 3, x + 3.
+
+237
+00:12:16,940 --> 00:12:19,700
+Et maintenant, ce block quand
+je veux l'exécuter, l'application
+
+238
+00:12:19,900 --> 00:12:21,520
+de fonction par rapport à
+la définition, là c'était la
+
+239
+00:12:21,720 --> 00:12:24,520
+définition de fonction,
+maintenant j'ai l'application de fonction.
+
+240
+00:12:24,830 --> 00:12:26,850
+Je vais envoyer le
+message Value au block.
+
+241
+00:12:27,050 --> 00:12:31,910
+Là, si je fais value 2, x vaudra
+
+242
+00:12:32,320 --> 00:12:37,250
+2 et mon block va me rendre 5.
+
+243
+00:12:37,450 --> 00:12:38,460
+Qu'est-ce qu'un block ?
+
+244
+00:12:38,860 --> 00:12:40,740
+On peut considérer que c'est
+une fonction anonyme, ça n'a
+
+245
+00:12:40,940 --> 00:12:45,900
+pas de nom, mais dans la
+réalité, c'est une clôture lexicale.
+
+246
+00:12:46,740 --> 00:12:48,150
+On vous expliquera un
+peu ce que ça veut dire.
+
+247
+00:12:48,500 --> 00:12:50,550
+Sinon, les blocks sont des
+vrais objets à part entière.
+
+248
+00:12:50,780 --> 00:12:52,820
+Je peux les passer comme
+argument de méthode, je peux les
+
+249
+00:12:53,020 --> 00:12:54,710
+stocker dans des variables
+d'instance, ils peuvent être
+
+250
+00:12:54,910 --> 00:12:57,760
+retournés et ça nous sert,
+par exemple, pour les triggers
+
+251
+00:12:58,000 --> 00:13:01,020
+de boutons, pour des
+callback dans des applications web,
+
+252
+00:13:01,220 --> 00:13:02,350
+ils sont faits avec des blocks.
+
+253
+00:13:05,050 --> 00:13:07,100
+L'utilisation des blocks,
+on l'a déjà vue, par exemple
+
+254
+00:13:07,300 --> 00:13:08,670
+pour les itérateurs,
+vous avez eu des blocks.
+
+255
+00:13:09,040 --> 00:13:12,040
+On les a eus aussi pour les
+conditions, on a utilisé des blocks dedans.
+
+256
+00:13:12,240 --> 00:13:13,530
+Il y aura un cours dédié au block.
+
+257
+00:13:13,750 --> 00:13:16,090
+C'est quelque chose de très
+élégant, ça a été introduit
+
+258
+00:13:16,290 --> 00:13:19,090
+dans Eiffel, je l'ai dit
+récemment, ça a été introduit dans Java 8.
+
+259
+00:13:19,450 --> 00:13:21,400
+Il y a eu une première
+version qui a été aussi introduite
+
+260
+00:13:21,600 --> 00:13:23,330
+dans C Sharp, c'est quelque
+chose qui est fondamental.
+
+261
+00:13:23,530 --> 00:13:25,740
+Il se trouve que les blocks
+sont un élément fondamental
+
+262
+00:13:26,540 --> 00:13:29,490
+de la syntaxe et du
+modèle de calcul de Pharo.
+
+263
+00:13:31,200 --> 00:13:34,020
+Comment est-ce qu'on
+définit une classe dans Pharo?
+
+264
+00:13:35,840 --> 00:13:38,250
+Le browser va vous montrer
+des packages, vous allez avoir
+
+265
+00:13:38,450 --> 00:13:41,130
+un ensemble de classe à
+l'intérieur, et ils vous montrent un template.
+
+266
+00:13:41,330 --> 00:13:44,560
+Vous avez là un template
+qui dit, par défaut, tu es
+
+267
+00:13:44,760 --> 00:13:48,140
+ReadObject et puis il faut
+mettre le nom de la classe.
+
+268
+00:13:49,070 --> 00:13:51,140
+On va voir ça sur la
+ classe point, par exemple.
+
+269
+00:13:51,390 --> 00:13:52,330
+Comment est définie la classe point ?
+
+270
+00:13:53,630 --> 00:13:56,210
+J'ai la classe Object, je
+lui envoie le message, c'est
+
+271
+00:13:56,410 --> 00:13:58,150
+aussi un message, le message
+subclass instanceVariableNames, etc.
+
+272
+00:14:02,410 --> 00:14:05,690
+Je dis je veux définir la
+ classe point et je lui donne
+
+273
+00:14:05,890 --> 00:14:07,270
+les variables d'instances X et Y.
+
+274
+00:14:08,720 --> 00:14:10,760
+C'est juste pour vous
+montrer que la syntaxe suit
+
+275
+00:14:11,000 --> 00:14:13,350
+toujours le même
+modèle avec des messages.
+
+276
+00:14:13,910 --> 00:14:17,420
+En général, on ne s'amuse pas
+à l'écrire à la main, l'outil
+
+277
+00:14:17,620 --> 00:14:20,460
+vous donne le template et
+puis vous remplissez dedans.
+
+278
+00:14:23,190 --> 00:14:24,810
+Comment est-ce qu'on
+définit une méthode?
+
+279
+00:14:25,260 --> 00:14:28,020
+Les méthodes sont
+publiques et virtuelles et que, par
+
+280
+00:14:28,220 --> 00:14:29,000
+défaut, elles retournent Self.
+
+281
+00:14:29,410 --> 00:14:32,510
+Quand on est dans le
+browser de code, ce qu'on va voir,
+
+282
+00:14:32,710 --> 00:14:33,670
+il nous propose aussi un template.
+
+283
+00:14:33,870 --> 00:14:36,240
+Le template, ça va être le
+nom de la méthode potentielle.
+
+284
+00:14:36,640 --> 00:14:41,000
+Un commentaire parce qu'on est
+des gens bien élevés et qu'on
+
+285
+00:14:41,200 --> 00:14:42,000
+commande notre code.
+
+286
+00:14:42,160 --> 00:14:44,440
+Et puis, potentiellement,
+on va utiliser des variables
+
+287
+00:14:44,940 --> 00:14:47,870
+temporaires et des
+expressions. Qu'est-ce que ça donne?
+
+288
+00:14:48,100 --> 00:14:49,370
+On a déjà vu une méthode factorielle.
+
+289
+00:14:49,570 --> 00:14:53,850
+Par exemple, je suis dans
+la classe Integer, je regarde
+
+290
+00:14:54,050 --> 00:14:54,810
+la méthode factorielle.
+
+291
+00:14:55,010 --> 00:14:57,230
+Là, j'ai le code de la
+méthode factorielle avec le nom de
+
+292
+00:14:57,430 --> 00:15:00,870
+la méthode, son commentaire et le
+core de la méthode que j'ai définie.
+
+293
+00:15:04,300 --> 00:15:05,260
+En résumé, qu'avons-nous vu ?
+
+294
+00:15:05,460 --> 00:15:07,850
+On a vu qu'il y avait trois
+sortes de messages dans Pharo.
+
+295
+00:15:08,050 --> 00:15:09,790
+Il y a les messages unaires
+où il n'y a pas d'arguments,
+
+296
+00:15:10,000 --> 00:15:12,260
+les messages binaires où les
+sélecteurs sont tout ce qui
+
+297
+00:15:12,460 --> 00:15:14,770
+est mathématique et les
+messages à mots-clés qui sont les
+
+298
+00:15:15,000 --> 00:15:17,550
+messages où il y a un ou
+plusieurs arguments, qu'il y a
+
+299
+00:15:17,750 --> 00:15:20,110
+une priorité, ça veut
+dire qu'on va exécuter les
+
+300
+00:15:20,310 --> 00:15:21,760
+parenthèses en premier,
+puis les messages unaires,
+
+301
+00:15:22,000 --> 00:15:24,010
+binaires et à mots-clés;
+et que si on est au même
+
+302
+00:15:24,210 --> 00:15:25,730
+niveau, on va
+exécuter de gauche à droite.
+
+303
+00:15:25,930 --> 00:15:26,690
+Et on a vu toute la syntaxe.
+
+304
+00:15:27,860 --> 00:15:29,120
+Cette séance est terminée.
+
+305
+00:15:29,320 --> 00:15:31,030
+Qu'avons-nous vu? La
+syntaxe est très, très compacte.
+
+306
+00:15:31,230 --> 00:15:35,200
+Il y a très peu de constructeurs
+et ils sont tous très expressifs.
+
+307
+00:15:35,400 --> 00:15:38,010
+Ce sont principalement des
+messages et des fermetures
+
+308
+00:15:38,210 --> 00:15:40,850
+lexicales ou des blocks. Il
+y a trois types de message.
+
+309
+00:15:41,780 --> 00:15:45,180
+On vous fera faire un petit
+exercice pour développer un petit langage.
+
+310
+00:15:45,390 --> 00:15:48,620
+Ça permet de définir des langages
+qu'on appelle Domain Specific Languages.
+

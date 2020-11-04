@@ -1,0 +1,441 @@
+WEBVTT
+
+00:00:00.720 --> 00:00:05.880 align:middle
+Hola, este video explicará
+una característica importante de Pharo,
+
+00:00:06.080 --> 00:00:07.920 align:middle
+el gancho doNotUnderstand.
+
+00:00:08.080 --> 00:00:13.400 align:middle
+Ya habrás visto ya
+una ventana de depuración con este mensaje.
+
+00:00:13.920 --> 00:00:16.840 align:middle
+De dónde viene
+¿Y, para qué es esto?
+
+00:00:17.280 --> 00:00:20.080 align:middle
+Veamos un ejemplo.
+
+00:00:20.400 --> 00:00:22.280 align:middle
+Tenemos el objeto node1.
+
+00:00:22.640 --> 00:00:27.520 align:middle
+Enviaremos este objeto
+el mensaje coucou:stef.
+
+00:00:28.280 --> 00:00:31.280 align:middle
+Desde el nodo1,
+seguimos el método de búsqueda
+
+00:00:31.840 --> 00:00:33.920 align:middle
+Volver a la clase del objeto.
+
+00:00:34.200 --> 00:00:37.720 align:middle
+No encontramos el método coucou
+en esta clase.
+
+00:00:37.920 --> 00:00:42.320 align:middle
+Entonces, vamos a la superclase,
+pero tampoco está allí.
+
+00:00:42.720 --> 00:00:45.520 align:middle
+El sistema virtual nos informa
+
+00:00:45.800 --> 00:00:51.040 align:middle
+que no puede encontrar un método coincidente,
+por lo que reifica el mensaje.
+
+00:00:51.200 --> 00:00:56.440 align:middle
+Discutimos sobre la reificación en el video.
+en introspección y reflexión.
+
+00:00:56.920 --> 00:01:02.640 align:middle
+Reify significa representar
+Un concepto implícito como un objeto.
+
+00:01:02.920 --> 00:01:04.520 align:middle
+Aquí, es un mensaje.
+
+00:01:04.920 --> 00:01:07.920 align:middle
+Creamos un objeto
+para representar el mensaje
+
+00:01:08.080 --> 00:01:10.400 align:middle
+Es una instancia de clase de mensaje.
+
+00:01:10.680 --> 00:01:15.000 align:middle
+El sistema virtual reenviará un mensaje
+
+00:01:15.200 --> 00:01:17.320 align:middle
+al objeto node1.
+
+00:01:17.760 --> 00:01:22.800 align:middle
+Envía el mensaje doesNotUnderstand,
+Pasando el objeto como un parámetro.
+
+00:01:22.920 --> 00:01:27.000 align:middle
+Esta es una nueva ejecución.
+del algoritmo de búsqueda.
+
+00:01:27.200 --> 00:01:32.440 align:middle
+El sistema no encontrará el
+método doesNotUnderstand en la clase Node.
+
+00:01:32.720 --> 00:01:37.640 align:middle
+Entonces regresa
+para buscar en la superclase.
+
+00:01:37.840 --> 00:01:40.920 align:middle
+Encuentra el método, abreviado a DNU.
+
+00:01:41.160 --> 00:01:44.440 align:middle
+Ahora puede ejecutar el método ahora.
+
+00:01:47.080 --> 00:01:49.920 align:middle
+Does Not Unstandstand es un mensaje
+
+00:01:50.200 --> 00:01:53.840 align:middle
+que la maquina virtual
+te envía a los objetos
+
+00:01:54.280 --> 00:01:56.280 align:middle
+cuando un mensaje ha fallado
+
+00:01:57.080 --> 00:02:00.680 align:middle
+Todas las clases pueden redefinir este método.
+
+00:02:01.280 --> 00:02:06.800 align:middle
+para darle un comportamiento específico
+cuando no se comprende un mensaje
+
+00:02:07.320 --> 00:02:09.840 align:middle
+Este método es una herramienta importante.
+
+00:02:10.320 --> 00:02:13.800 align:middle
+Eso nos permite construir muchas características.
+
+00:02:14.080 --> 00:02:17.440 align:middle
+Se usa en la delegación automática,
+
+00:02:17.720 --> 00:02:20.520 align:middle
+programación distribuida, y así sucesivamente.
+
+00:02:21.400 --> 00:02:25.080 align:middle
+Aquí veremos
+algunos usos de doesNotUnderstand.
+
+00:02:25.720 --> 00:02:30.400 align:middle
+Supongamos que queremos redirigir
+Todos nuestros mensajes a un objeto diferente.
+
+00:02:31.640 --> 00:02:37.200 align:middle
+En una simple delegación, creo
+un objeto que almacena el objetivo,
+
+00:02:37.400 --> 00:02:39.320 align:middle
+donde se enviarán los mensajes.
+
+00:02:39.520 --> 00:02:42.200 align:middle
+Redefinir el método doesNotUnderstand.
+
+00:02:42.400 --> 00:02:45.560 align:middle
+Lleva el objeto un mensaje
+como un parámetro,
+
+00:02:45.760 --> 00:02:49.280 align:middle
+que contiene el selector de mensajes fallidos.
+
+00:02:49.680 --> 00:02:53.400 align:middle
+Entonces puedo preguntar este mensaje
+para reenviarse.
+
+00:02:53.760 --> 00:02:59.920 align:middle
+Uso sendTo:self target,
+que es la variable de instancia.
+
+00:03:00.520 --> 00:03:03.320 align:middle
+Reenvío el mensaje a otro objeto.
+
+00:03:04.320 --> 00:03:07.400 align:middle
+Ten cuidado, esta es una función poderosa.
+
+00:03:07.920 --> 00:03:12.400 align:middle
+eso puede interferir con
+La legibilidad del código.
+
+00:03:12.760 --> 00:03:15.160 align:middle
+Como se explica aquí.
+
+00:03:16.000 --> 00:03:20.360 align:middle
+El código mostrará
+quien finalmente recibe el mensaje.
+
+00:03:20.920 --> 00:03:23.680 align:middle
+Es muy útil para construir herramientas.
+
+00:03:24.080 --> 00:03:28.080 align:middle
+y la construcción de mecanismos avanzados.
+
+00:03:29.720 --> 00:03:33.720 align:middle
+Otro ejemplo que veremos
+es LoggingProxy.
+
+00:03:33.920 --> 00:03:36.320 align:middle
+La idea básica aquí
+
+00:03:36.560 --> 00:03:40.400 align:middle
+es crear un objeto mínimo
+que contiene pocos métodos,
+
+00:03:40.600 --> 00:03:44.360 align:middle
+y para personalizar
+its doesNotUnderstand:method.
+
+00:03:44.800 --> 00:03:48.840 align:middle
+Luego intercambiaremos un objeto de dominio
+
+00:03:49.400 --> 00:03:53.920 align:middle
+con este proxy, o objeto mínimo,
+usando "convertido".
+
+00:03:54.840 --> 00:03:58.840 align:middle
+Primero, creamos un objeto proxy.
+
+00:03:59.360 --> 00:04:02.840 align:middle
+Le damos un objeto al objeto proxy,
+
+00:04:03.080 --> 00:04:06.560 align:middle
+que es el objeto
+vamos a reemplazar,
+
+00:04:07.400 --> 00:04:08.560 align:middle
+o el objetivo.
+
+00:04:08.840 --> 00:04:14.720 align:middle
+Agregamos InvocationCount para incrementar
+el contador con cada mensaje
+
+00:04:15.400 --> 00:04:20.760 align:middle
+Ponemos el contador en inicializar a 0,
+ya que no ha recibido mensajes
+
+00:04:20.920 --> 00:04:25.400 align:middle
+Luego agregamos el tema,
+que es lo que será reemplazado.
+
+00:04:26.520 --> 00:04:29.760 align:middle
+Ahora redefinimos
+el método DNU en este proxy.
+
+00:04:29.920 --> 00:04:33.360 align:middle
+Cada vez que un nuevo mensaje
+No se entiende,
+
+00:04:33.560 --> 00:04:38.840 align:middle
+su recepción aparece en la transcripción,
+y el contador se incrementa.
+
+00:04:39.200 --> 00:04:43.400 align:middle
+Luego reenviamos el mensaje
+al sujeto
+
+00:04:44.080 --> 00:04:47.600 align:middle
+Como antes,
+redirigimos el mensaje a otra parte.
+
+00:04:48.800 --> 00:04:52.920 align:middle
+Para sendTo, como ves
+en la implementación de la clase Mensaje,
+
+00:04:53.080 --> 00:04:57.400 align:middle
+simplemente utilizamos el método Perform
+con argumentos
+
+00:04:57.640 --> 00:05:01.440 align:middle
+Ya explicamos esto
+en un curso anterior
+
+00:05:02.920 --> 00:05:05.160 align:middle
+Veamos un ejemplo.
+
+00:05:06.200 --> 00:05:09.520 align:middle
+¿Cómo utilizamos este LoggingProxy?
+
+00:05:10.000 --> 00:05:13.280 align:middle
+Vamos a crear una instancia,
+el punto objeto.
+
+00:05:14.040 --> 00:05:16.680 align:middle
+Luego usaremos "convertido"
+
+00:05:17.040 --> 00:05:20.200 align:middle
+para que todo
+eso apunta a este punto
+
+00:05:20.680 --> 00:05:24.280 align:middle
+inadvertidamente
+señale a LoggingProxy,
+
+00:05:25.520 --> 00:05:27.320 align:middle
+a lo que instamos.
+
+00:05:27.760 --> 00:05:30.760 align:middle
+Ahora si enviamos mensajes
+al punto del objeto,
+
+00:05:30.920 --> 00:05:36.600 align:middle
+observando que "convertirse" ahora es
+una instancia de LoggingProxy,
+
+00:05:36.840 --> 00:05:39.200 align:middle
+cada vez que le enviemos un mensaje,
+
+00:05:39.840 --> 00:05:42.000 align:middle
+se mostrará en la transcripción
+
+00:05:42.720 --> 00:05:45.320 align:middle
+y el contador se incrementará.
+
+00:05:46.000 --> 00:05:48.800 align:middle
+esto es lo que hicimos
+en doesNotUnderstand
+
+00:05:49.040 --> 00:05:53.200 align:middle
+Al final,
+el contador muestra un valor de 3.
+
+00:05:54.440 --> 00:05:57.840 align:middle
+Hay limites
+al marco del proxy,
+
+00:05:58.000 --> 00:06:00.200 align:middle
+como se ve en el último ejemplo.
+
+00:06:00.520 --> 00:06:06.440 align:middle
+Por ejemplo, no podemos capturar
+mensajes que un objeto envía a sí mismo.
+
+00:06:06.640 --> 00:06:07.840 align:middle
+Eso se vuelve complicado.
+
+00:06:08.040 --> 00:06:14.160 align:middle
+No podemos usar "convertirse" con clases,
+ya que los modelos reflectantes tienen limitaciones.
+
+00:06:14.720 --> 00:06:18.720 align:middle
+También es arriesgado cuando el proxy
+y el objeto a reemplazar
+
+00:06:18.920 --> 00:06:21.400 align:middle
+Ambos entienden el mismo mensaje.
+
+00:06:21.760 --> 00:06:24.600 align:middle
+Cuando envío el mensaje al proxy,
+
+00:06:24.840 --> 00:06:28.360 align:middle
+responderá,
+en lugar de capturarlo con DNU
+
+00:06:28.560 --> 00:06:31.520 align:middle
+y transfiriéndolo
+al objeto de destino.
+
+00:06:32.280 --> 00:06:37.000 align:middle
+Pharo tiene otros más poderosos
+marcos proxy que atrapan todo,
+
+00:06:37.160 --> 00:06:42.200 align:middle
+pero son más complejos
+que este simple ejemplo.
+
+00:06:42.800 --> 00:06:46.760 align:middle
+Otro ejemplo
+de cómo aplicar esta técnica
+
+00:06:47.080 --> 00:06:53.280 align:middle
+es generar dinámicamente accesores,
+o incluso métodos.
+
+00:06:53.840 --> 00:06:58.400 align:middle
+Aquí he redefinido
+el método doesNotUnderstand.
+
+00:06:58.800 --> 00:07:01.200 align:middle
+Veo que se ha recibido un mensaje,
+
+00:07:01.400 --> 00:07:06.200 align:middle
+entonces pruebo si tengo la instancia
+variables que incluyen el mensaje.
+
+00:07:06.400 --> 00:07:11.200 align:middle
+Si es así, genero un nuevo método
+usando "compilar"
+
+00:07:11.560 --> 00:07:14.040 align:middle
+para definir un nuevo método para la clase.
+
+00:07:16.360 --> 00:07:19.600 align:middle
+Esto devolverá
+el valor de la variable
+
+00:07:19.760 --> 00:07:23.600 align:middle
+Aquí estoy generando
+el read-accessor de la variable.
+
+00:07:24.080 --> 00:07:28.560 align:middle
+Si el mensaje enviado
+no coincide con el nombre
+
+00:07:28.920 --> 00:07:32.840 align:middle
+de una variable de instancia,
+Envío un super doesNotUnderstand.
+
+00:07:33.400 --> 00:07:38.400 align:middle
+Esto nos permite cargar
+read-accessors automáticamente,
+
+00:07:38.920 --> 00:07:41.840 align:middle
+Dependiendo de
+si han sido llamados o no.
+
+00:07:42.760 --> 00:07:45.280 align:middle
+En conclusión,
+
+00:07:45.400 --> 00:07:47.920 align:middle
+Hemos visto cómo usar objetos mínimos.
+
+00:07:48.080 --> 00:07:51.640 align:middle
+No son instancias directas
+de la clase de objetos,
+
+00:07:51.840 --> 00:07:54.040 align:middle
+pero de la clase de objeto proto.
+
+00:07:54.200 --> 00:07:56.920 align:middle
+Pueden ser la base de proxies.
+
+00:07:57.200 --> 00:08:01.400 align:middle
+Al redefinir doesNotUnderstand
+método, podemos capturar
+
+00:08:01.920 --> 00:08:07.800 align:middle
+la existencia de un mensaje fallido
+y luego redirigir el mensaje.
+
+00:08:08.320 --> 00:08:13.840 align:middle
+Es un gancho poderoso que proporciona
+la base de muchas herramientas en Pharo.
+
+00:08:14.560 --> 00:08:18.000 align:middle
+Pero debes ser muy cuidadoso
+cuando lo usas
+
+00:08:18.280 --> 00:08:21.760 align:middle
+Solo se debe usar cuando sea necesario.
+
+00:08:22.080 --> 00:08:27.320 align:middle
+No lo coloque en el código de dominio todavía,
+Es una técnica muy avanzada.
+

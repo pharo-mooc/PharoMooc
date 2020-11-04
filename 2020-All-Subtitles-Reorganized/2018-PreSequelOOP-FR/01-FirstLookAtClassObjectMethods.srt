@@ -1,0 +1,622 @@
+1
+00:00:00,040 --> 00:00:00,080
+"Premier aperçu
+des objets, des classes,
+des méthodes et des messages"
+
+2
+00:00:00,120 --> 00:00:00,160
+Stéphane Ducasse,
+research direction, Inria.
+
+3
+00:00:02,760 --> 00:00:03,520
+-Bonjour.
+
+4
+00:00:03,840 --> 00:00:07,160
+Dans ce cours, je ferai un survol
+des concepts qu'on présentera plus tard.
+
+5
+00:00:07,480 --> 00:00:11,120
+J'expliquerai ce que sont des objets,
+des classes, des méthodes et des messages
+
+6
+00:00:11,440 --> 00:00:14,760
+et j'expliquerai aussi la différence
+entre ces concepts car elle est centrale.
+
+7
+00:00:15,080 --> 00:00:16,280
+Qu'est-ce qu'un objet ?
+
+8
+00:00:16,600 --> 00:00:19,520
+Une petite entité qui vit dans le monde
+de la programmation objet,
+
+9
+00:00:19,840 --> 00:00:20,760
+donc dans votre système,
+
+10
+00:00:21,080 --> 00:00:23,040
+et qui est caractérisée
+par trois choses :
+
+11
+00:00:23,360 --> 00:00:25,800
+un état,
+un comportement et une identité.
+
+12
+00:00:26,120 --> 00:00:27,240
+Prenons un exemple.
+
+13
+00:00:27,560 --> 00:00:29,600
+Si je prends une tortue Logo,
+
+14
+00:00:29,920 --> 00:00:33,680
+l'état de la tortue, ce sera une
+direction et aussi l'état de son stylo.
+
+15
+00:00:34,000 --> 00:00:37,400
+Est-il appuyé ou levé ? Quelle est
+la largeur du trait et la couleur ?
+
+16
+00:00:37,720 --> 00:00:40,960
+Le comportement, ce sera de laisser
+des lignes au sol ou de sauter.
+
+17
+00:00:41,280 --> 00:00:44,760
+L'identité, c'est que si j'ai une tortue,
+ce n'est pas la même qu'une autre.
+
+18
+00:00:45,080 --> 00:00:48,200
+Là, je vous montre que j'ai une tortue
+qui représente une araignée.
+
+19
+00:00:48,520 --> 00:00:51,120
+Ce n'est pas la même qu'une tortue
+qui représente une tortue.
+
+20
+00:00:51,440 --> 00:00:55,160
+On appliquera ces concepts dans
+la programmation objet de façon uniforme.
+
+21
+00:00:55,480 --> 00:00:56,520
+Tout est un objet,
+
+22
+00:00:56,840 --> 00:01:00,440
+donc ça signifie que si on prend
+un fichier sur votre disque,
+
+23
+00:01:00,760 --> 00:01:02,960
+de toute façon,
+ce fichier aura un état.
+
+24
+00:01:03,280 --> 00:01:05,800
+On retrouvera un chemin
+parmi un système de fichiers.
+
+25
+00:01:06,120 --> 00:01:09,200
+Il aura un contenu,
+c'est-à-dire le contenu de votre fichier.
+
+26
+00:01:09,520 --> 00:01:10,520
+Il aura un comportement.
+
+27
+00:01:10,840 --> 00:01:14,280
+Vous pourrez le renommer
+ou modifier son contenu.
+
+28
+00:01:14,600 --> 00:01:18,080
+Et une identité car deux fichiers
+sont bien des choses séparées.
+
+29
+00:01:19,520 --> 00:01:22,160
+Maintenant,
+j'ai parlé d'identité et d'égalité.
+
+30
+00:01:22,480 --> 00:01:26,120
+Ça peut être difficile
+de percevoir la différence.
+
+31
+00:01:27,680 --> 00:01:30,200
+L'idée, c'est que si vous entrez
+dans une pizzeria,
+
+32
+00:01:30,520 --> 00:01:31,560
+que vous commandez une pizza,
+
+33
+00:01:31,880 --> 00:01:33,800
+qu'un client a une pizza
+et que vous voulez la même.
+
+34
+00:01:34,120 --> 00:01:36,120
+L'identité,
+ce serait d'aller manger sa pizza.
+
+35
+00:01:36,440 --> 00:01:39,400
+L'égalité, ce serait de commander
+la même que cette personne.
+
+36
+00:01:39,720 --> 00:01:43,120
+Vous voyez, l'identité,
+c'est vraiment un pointeur sur une chose.
+
+37
+00:01:43,440 --> 00:01:46,360
+Est-ce que le pointeur sur cette chose,
+c'est la même chose ?
+
+38
+00:01:46,680 --> 00:01:47,760
+Cela donne-t-il la même chose ?
+
+39
+00:01:48,080 --> 00:01:51,480
+L'identité, c'est : "Est-ce la même chose
+que ce qu'on veut ?"
+
+40
+00:01:53,560 --> 00:01:55,760
+Un objet réagit à des messages.
+
+41
+00:01:56,080 --> 00:01:58,400
+Quand j'ai un objet,
+je vais lui envoyer un message.
+
+42
+00:01:58,720 --> 00:02:01,360
+Par exemple, j'envoie le message
+"go: 200" à ma tortue.
+
+43
+00:02:01,680 --> 00:02:02,440
+Que va-t-elle faire ?
+
+44
+00:02:02,760 --> 00:02:05,720
+Elle va réagir et avancer
+en laissant une trace au sol.
+
+45
+00:02:06,040 --> 00:02:08,240
+Donc, un objet va réagir à un message
+
+46
+00:02:08,560 --> 00:02:12,720
+en exécutant une méthode qui va
+modifier l'environnement ou l'objet.
+
+47
+00:02:13,800 --> 00:02:18,040
+Il faut voir que différents objets
+peuvent comprendre le même message.
+
+48
+00:02:18,360 --> 00:02:20,520
+Ça signifie que je peux dire
+à une fenêtre de s'ouvrir.
+
+49
+00:02:20,880 --> 00:02:23,640
+Là, j'aurai une nouvelle fenêtre
+sur mon ordinateur.
+
+50
+00:02:23,960 --> 00:02:26,240
+Ou je peux dire
+que je veux ouvrir un fichier.
+
+51
+00:02:26,560 --> 00:02:28,960
+Là, je vais regarder
+à l'intérieur du contenu du fichier.
+
+52
+00:02:29,280 --> 00:02:32,000
+Ou imaginons que vous ayez
+une archive Zip et que vous l'ouvriez,
+
+53
+00:02:32,320 --> 00:02:34,200
+vous avez envie de dézipper vos éléments.
+
+54
+00:02:34,520 --> 00:02:36,320
+Vous voyez que c'est le même message,
+
+55
+00:02:36,640 --> 00:02:38,600
+mais les comportements
+vont être différents.
+
+56
+00:02:38,920 --> 00:02:42,560
+Donc, un concept
+qu'on va souvent rencontrer,
+
+57
+00:02:42,880 --> 00:02:44,400
+c'est le receveur du message.
+
+58
+00:02:44,720 --> 00:02:46,600
+C'est l'objet à qui j'envoie le message.
+
+59
+00:02:46,920 --> 00:02:51,400
+Donc, quand je dis à une tortue
+d'avancer, c'est elle le receveur.
+
+60
+00:02:51,720 --> 00:02:54,160
+Quand je dis à un fichier de s'ouvrir,
+c'est lui le receveur
+
+61
+00:02:54,480 --> 00:02:55,840
+et pareil pour une fenêtre.
+
+62
+00:02:56,160 --> 00:02:57,680
+Le receveur est important,
+
+63
+00:02:58,000 --> 00:03:01,000
+car c'est lui qui va déterminer
+le comportement qui sera exécuté.
+
+64
+00:03:02,560 --> 00:03:04,040
+Qu'est-ce qu'une méthode ?
+
+65
+00:03:04,360 --> 00:03:07,120
+C'est une liste d'expressions
+qui seront exécutées,
+
+66
+00:03:07,440 --> 00:03:10,880
+une liste d'instructions qu'on exécutera
+et à laquelle on donnera un nom.
+
+67
+00:03:11,200 --> 00:03:15,400
+Par exemple, j'ai donné un nom
+à une recette de cuisine pour des crêpes.
+
+68
+00:03:15,720 --> 00:03:18,240
+Je l'appelle 'makeCrepes'.
+Il y a plusieurs étapes.
+
+69
+00:03:18,560 --> 00:03:20,960
+Je dois mettre du lait,
+des œufs, de la farine, du sucre
+
+70
+00:03:21,280 --> 00:03:22,400
+et j'obtiens mes crêpes.
+
+71
+00:03:22,720 --> 00:03:27,960
+Donc, une méthode, c'est une séquence
+d'instructions qu'on va exécuter.
+
+72
+00:03:28,960 --> 00:03:31,600
+La différence entre un message
+et une méthode, c'est quoi ?
+
+73
+00:03:31,920 --> 00:03:34,720
+Un message, c'est :
+"Je donne un ordre à un objet."
+
+74
+00:03:35,040 --> 00:03:37,760
+Par exemple : "Stef, fais des crêpes.
+Robert, fais des crêpes."
+
+75
+00:03:38,080 --> 00:03:38,920
+Là, j'ai donné l'ordre.
+
+76
+00:03:39,240 --> 00:03:41,680
+La méthode, c'est :
+"Comment je vais réaliser cet ordre ?"
+
+77
+00:03:42,000 --> 00:03:45,880
+On voit qu'un message, c'est le quoi,
+et la méthode, le comment.
+
+78
+00:03:48,120 --> 00:03:51,520
+Donc on peut avoir un message
+et plusieurs méthodes.
+
+79
+00:03:51,840 --> 00:03:52,840
+Je l'ai montré.
+
+80
+00:03:53,160 --> 00:03:54,960
+Quand vous ouvrez une fenêtre graphique,
+
+81
+00:03:55,280 --> 00:03:56,920
+les instructions exécutées
+ne sont pas les mêmes
+
+82
+00:03:57,240 --> 00:03:59,320
+que quand vous ouvrez
+le contenu d'un fichier.
+
+83
+00:03:59,640 --> 00:04:00,680
+C'est fondamental.
+
+84
+00:04:01,000 --> 00:04:03,800
+Ça signifie que vous pourrez avoir
+un même vocabulaire
+
+85
+00:04:04,120 --> 00:04:05,560
+et différentes exécutions.
+
+86
+00:04:07,520 --> 00:04:11,560
+D'où viennent les objets ?
+Ils viennent de classes.
+
+87
+00:04:11,880 --> 00:04:15,240
+Une classe, c'est une usine à objets.
+
+88
+00:04:15,560 --> 00:04:18,120
+C'est ce que je vous montre
+dans le transparent.
+
+89
+00:04:18,440 --> 00:04:20,840
+Vous avez une machine
+qui crée des baignoires.
+
+90
+00:04:21,160 --> 00:04:24,080
+Vous lui filez une plaque d'acier.
+Elle vous crée une baignoire.
+
+91
+00:04:24,400 --> 00:04:27,600
+Donc, une classe, cette machine, créera
+autant de baignoires que vous voulez.
+
+92
+00:04:27,920 --> 00:04:29,640
+Chacune des baignoires est autonome.
+
+93
+00:04:29,960 --> 00:04:32,600
+Vous pouvez prendre une masse et détruire
+une baignoire si vous avez envie.
+
+94
+00:04:32,920 --> 00:04:34,280
+Ça ne détruira pas toutes les autres.
+
+95
+00:04:34,600 --> 00:04:37,440
+Donc,
+vos baignoires ont toutes une identité,
+
+96
+00:04:37,760 --> 00:04:41,680
+mais elles ont un comportement
+qui a été défini par la classe.
+
+97
+00:04:42,000 --> 00:04:47,200
+Donc, la classe est une usine d'objets
+et en plus, une autre manière de voir,
+
+98
+00:04:47,520 --> 00:04:51,160
+c'est que la classe définira
+toutes les descriptions
+
+99
+00:04:51,480 --> 00:04:55,040
+de l'état de ces objets
+et du comportement de ces méthodes.
+
+100
+00:04:57,160 --> 00:05:00,680
+Maintenant, comment
+est-ce que je crée un nouvel objet ?
+
+101
+00:05:01,000 --> 00:05:02,360
+J'envoie le message "new" à une classe.
+
+102
+00:05:02,680 --> 00:05:07,360
+Là, je demande à la classe Turtle
+de me créer une nouvelle tortue.
+
+103
+00:05:07,680 --> 00:05:09,520
+J'envoie le message "new"
+à la classe Turtle.
+
+104
+00:05:09,840 --> 00:05:11,680
+Il me crée une nouvelle tortue.
+
+105
+00:05:12,000 --> 00:05:14,120
+Je le ferai
+pour tous les objets dans le système.
+
+106
+00:05:14,440 --> 00:05:16,920
+Je vais faire "File new".
+Ça me créera un nouveau fichier.
+
+107
+00:05:18,440 --> 00:05:20,200
+Ce qu'il est important
+de bien comprendre,
+
+108
+00:05:20,520 --> 00:05:24,720
+on va le revoir dans le cours,
+c'est que je vais envoyer un message.
+
+109
+00:05:25,040 --> 00:05:27,560
+Ce message va dynamiquement être résolu.
+
+110
+00:05:27,880 --> 00:05:31,680
+Le système va trouver
+la méthode à exécuter et l'exécuter.
+
+111
+00:05:32,000 --> 00:05:35,040
+Donc, là, j'ai pris
+trois classes d'animaux :
+
+112
+00:05:35,360 --> 00:05:37,200
+les chiens, les chats et les poissons.
+
+113
+00:05:37,520 --> 00:05:41,600
+Je leur envoie le message pour leur dire
+qu'ils doivent être agressifs.
+
+114
+00:05:41,920 --> 00:05:43,640
+Le chien ne va pas réagir
+de la même manière.
+
+115
+00:05:43,960 --> 00:05:47,000
+Quand j'envoie le message "agressif"
+au chien, que va-t-il faire ?
+
+116
+00:05:47,320 --> 00:05:50,600
+Le système va rechercher
+dans la classe du chien
+
+117
+00:05:50,920 --> 00:05:54,760
+pour trouver la méthode,
+qui est une séquence d'instructions,
+
+118
+00:05:55,080 --> 00:05:56,360
+et exécuter cette séquence.
+
+119
+00:05:56,680 --> 00:05:59,280
+Évidemment, quand j'enverrai
+le même message pour le chat,
+
+120
+00:05:59,600 --> 00:06:02,160
+ce ne sera pas les mêmes séquences
+d'instructions qui seront exécutées.
+
+121
+00:06:02,480 --> 00:06:03,640
+Ça s'appelle la liaison tardive.
+
+122
+00:06:03,960 --> 00:06:06,800
+Là, on voit que les méthodes
+sont recherchées dynamiquement
+
+123
+00:06:07,120 --> 00:06:08,240
+lors de l'exécution.
+
+124
+00:06:08,560 --> 00:06:10,560
+Elles sont cherchées
+dans la classe du receveur.
+
+125
+00:06:11,640 --> 00:06:14,280
+En résumé, on a des objets
+
+126
+00:06:14,600 --> 00:06:17,360
+qui ont un état,
+un comportement et une identité.
+
+127
+00:06:17,880 --> 00:06:22,080
+On a une classe qui spécifie l'état
+et le comportement de ces instances,
+
+128
+00:06:22,400 --> 00:06:25,560
+des objets qui réagissent à des messages
+en exécutant des méthodes.
+
+129
+00:06:25,880 --> 00:06:27,320
+Un message, c'est un ordre.
+
+130
+00:06:27,640 --> 00:06:30,240
+Une méthode,
+c'est une séquence d'instructions.
+
+131
+00:06:30,560 --> 00:06:34,760
+Et différents objets peuvent répondre
+au même message de manière différente.
+
+132
+00:06:35,080 --> 00:06:36,680
+C'est ce qu'on verra dans le cours.

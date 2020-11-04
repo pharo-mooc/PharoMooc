@@ -1,0 +1,478 @@
+WEBVTT
+
+00:00:01.220 --> 00:00:02.580 align:middle
+In this session,
+I’d like to show you how
+
+00:00:02.747 --> 00:00:05.220 align:middle
+to use the debugger to program
+differently.
+
+00:00:05.760 --> 00:00:09.330 align:middle
+We will implement again
+the counter application
+
+00:00:09.497 --> 00:00:14.190 align:middle
+but in a different way, with a 
+development flow more interactive.
+
+00:00:16.940 --> 00:00:18.290 align:middle
+First I will create
+
+00:00:18.457 --> 00:00:20.840 align:middle
+a new package with Counter, 
+as previously.
+
+00:00:26.050 --> 00:00:28.810 align:middle
+I will also filter to have
+less elements.
+
+00:00:29.270 --> 00:00:33.240 align:middle
+In MyCounter, I first 
+define
+
+00:00:34.960 --> 00:00:37.100 align:middle
+a test, a test class.
+
+00:00:37.267 --> 00:00:39.090 align:middle
+Test classes inherit from TestCase.
+
+00:00:40.260 --> 00:00:41.650 align:middle
+I will call it Counter Test.
+
+00:00:42.790 --> 00:00:44.870 align:middle
+I will compile. I do it once
+more in the menu and then
+
+00:00:45.037 --> 00:00:46.340 align:middle
+I do it with the comments.
+
+00:00:46.507 --> 00:00:47.830 align:middle
+It has created a test class.
+
+00:00:48.260 --> 00:00:51.610 align:middle
+In my test class, I write
+a test method.
+
+00:00:53.260 --> 00:00:56.150 align:middle
+The test methods begin with test.
+
+00:01:02.260 --> 00:01:04.160 align:middle
+What do I do?
+
+00:01:04.520 --> 00:01:07.820 align:middle
+As previously, I define a local 
+variable. In 
+
+00:01:08.000 --> 00:01:12.570 align:middle
+this local variable
+I put an
+
+00:01:12.737 --> 00:01:15.150 align:middle
+object from the Counter class.
+
+00:01:16.770 --> 00:01:21.130 align:middle
+I initialise the Counter value
+and
+
+00:01:21.297 --> 00:01:25.500 align:middle
+check that the Counter
+has the right value.
+
+00:01:31.450 --> 00:01:32.083 align:middle
+I compile.
+
+00:01:33.320 --> 00:01:36.070 align:middle
+Now the system tells me:
+“Warning! I don’t know
+
+00:01:36.237 --> 00:01:38.250 align:middle
+what Counter is.” It was already
+indicated
+
+00:01:38.417 --> 00:01:39.670 align:middle
+with the italics here.
+
+00:01:40.030 --> 00:01:42.460 align:middle
+It proposes: “Do you want to define
+a new class?
+
+00:01:42.627 --> 00:01:44.040 align:middle
+A new global or a class variable?
+
+00:01:44.207 --> 00:01:45.000 align:middle
+Here it is a new class.
+
+00:01:45.137 --> 00:01:48.260 align:middle
+It offers the class definition.
+
+00:01:48.427 --> 00:01:50.790 align:middle
+I say: “ok, it’s correct, it’s
+in the right package, it inherits
+
+00:01:50.957 --> 00:01:51.590 align:middle
+from object, all right, do it.”
+
+00:01:51.757 --> 00:01:55.160 align:middle
+So it creates an empty class.
+
+00:01:56.050 --> 00:01:58.520 align:middle
+Now we are going to arrange this.
+
+00:02:00.520 --> 00:02:04.260 align:middle
+I can see that my Counter class
+is empty.
+
+00:02:04.610 --> 00:02:07.130 align:middle
+If I execute my test, it is red.
+
+00:02:07.297 --> 00:02:08.820 align:middle
+Why is it red?
+
+00:02:09.000 --> 00:02:09.860 align:middle
+Because I have an error.
+
+00:02:10.290 --> 00:02:11.760 align:middle
+So how should I read this message?
+
+00:02:11.927 --> 00:02:13.470 align:middle
+Let’s take 2 minutes to do it.
+
+00:02:14.630 --> 00:02:19.590 align:middle
+The system says: “a Count message
+has been sent to
+
+00:02:19.757 --> 00:02:23.440 align:middle
+an instance of the Counter class
+and the corresponding
+
+00:02:23.607 --> 00:02:28.240 align:middle
+method wasn’t found.”
+I’m going to look…
+
+00:02:31.590 --> 00:02:32.360 align:middle
+I open the debugger.
+
+00:02:32.760 --> 00:02:36.050 align:middle
+The debugger displays the execution
+stack, so I can
+
+00:02:36.217 --> 00:02:39.760 align:middle
+see that a message hasn’t been 
+understood.
+
+00:02:39.927 --> 00:02:42.960 align:middle
+And there it shows where the
+message has been invoked.
+
+00:02:43.760 --> 00:02:46.020 align:middle
+I see that if I go there,
+I can see the
+
+00:02:46.187 --> 00:02:50.770 align:middle
+system variables. If I look at C,
+I can access
+
+00:02:50.937 --> 00:02:55.010 align:middle
+to the temporary C variable, which
+is valued a Counter.
+
+00:02:55.177 --> 00:02:56.920 align:middle
+Anyway, if I write C class
+for instance,
+
+00:02:57.830 --> 00:03:00.730 align:middle
+self class, it says it is 
+the Counter class.
+
+00:03:03.790 --> 00:03:08.230 align:middle
+This is obvious. For the moment,
+in my class, I don’t have any 
+
+00:03:08.397 --> 00:03:12.620 align:middle
+method. I will ask the system
+to create one for me.
+
+00:03:12.787 --> 00:03:13.590 align:middle
+I do Create.
+
+00:03:14.290 --> 00:03:15.630 align:middle
+It proposes the classes.
+
+00:03:15.797 --> 00:03:17.370 align:middle
+I choose Counter class.
+
+00:03:17.537 --> 00:03:18.670 align:middle
+Can you create this?
+
+00:03:18.837 --> 00:03:20.330 align:middle
+Yes, in Accessing.
+
+00:03:21.780 --> 00:03:23.620 align:middle
+And finally what did he do?
+
+00:03:25.930 --> 00:03:29.200 align:middle
+It compiled automatically
+a method with the right signature.
+
+00:03:30.310 --> 00:03:31.850 align:middle
+For the method body, it doesn’t 
+know what to do,
+
+00:03:32.017 --> 00:03:36.010 align:middle
+so it uses
+ShouldBeImplemented. What does it do?
+
+00:03:36.177 --> 00:03:40.360 align:middle
+It raises an exception at 
+the execution and the system
+
+00:03:40.527 --> 00:03:41.630 align:middle
+execute again the method.
+
+00:03:41.797 --> 00:03:44.140 align:middle
+Now there is a new error and
+I have to
+
+00:03:44.570 --> 00:03:46.680 align:middle
+implement the method body.
+
+00:03:48.090 --> 00:03:49.950 align:middle
+I know Count.
+What am I going to do?
+
+00:03:50.117 --> 00:03:53.020 align:middle
+I want to assign this value to
+an
+
+00:03:53.187 --> 00:03:55.450 align:middle
+instance variable. So here
+
+00:03:58.180 --> 00:04:02.600 align:middle
+it’s red, because for the moment 
+my class doesn’t have this instance.
+
+00:04:02.860 --> 00:04:04.170 align:middle
+I compile.
+
+00:04:05.130 --> 00:04:07.360 align:middle
+The system proposes:
+“Do you want a temporary variable
+
+00:04:07.527 --> 00:04:09.140 align:middle
+or an instance variable?”
+
+00:04:09.307 --> 00:04:11.350 align:middle
+I want an instance variable.
+
+00:04:14.330 --> 00:04:19.040 align:middle
+So I do this. If I look in my
+class, I do have
+
+00:04:19.207 --> 00:04:21.640 align:middle
+a Count instance variable which
+was created and
+
+00:04:21.807 --> 00:04:26.650 align:middle
+the method, the Setter, which
+
+00:04:26.817 --> 00:04:27.450 align:middle
+will set the value.
+
+00:04:29.790 --> 00:04:31.390 align:middle
+Once I’ve done this, I can tell
+the debugger
+
+00:04:31.557 --> 00:04:34.550 align:middle
+to continue, Proceed means continue
+the execution
+
+00:04:34.717 --> 00:04:37.610 align:middle
+as if nothing happened.
+
+00:04:38.470 --> 00:04:39.103 align:middle
+What happens?
+
+00:04:39.270 --> 00:04:40.020 align:middle
+There is still an error.
+
+00:04:41.310 --> 00:04:44.600 align:middle
+The system still says that 
+there is an instance
+
+00:04:44.767 --> 00:04:47.000 align:middle
+of Counter class which received
+the count message and that
+
+00:04:47.167 --> 00:04:50.360 align:middle
+it hasn’t found the appropriate 
+method. This is normal because 
+
+00:04:50.527 --> 00:04:54.250 align:middle
+C does have 7
+
+00:04:55.680 --> 00:05:00.420 align:middle
+in its Counter, in its count variable, 
+however
+
+00:05:00.587 --> 00:05:01.850 align:middle
+the count method doesn’t exist.
+
+00:05:02.250 --> 00:05:03.080 align:middle
+I’m gonna create it.
+
+00:05:03.247 --> 00:05:05.360 align:middle
+I will do Create. In which class?
+
+00:05:05.527 --> 00:05:09.000 align:middle
+Still the Counter class, in 
+the accessing protocol,
+
+00:05:09.460 --> 00:05:14.310 align:middle
+because it’s an accessor.
+And there you
+
+00:05:14.477 --> 00:05:18.260 align:middle
+see that the system is smarter.
+
+00:05:18.427 --> 00:05:21.680 align:middle
+It noticed that there was an
+instance variable named
+
+00:05:21.847 --> 00:05:26.000 align:middle
+count, and it wants to define a 
+method named count,
+
+00:05:27.120 --> 00:05:29.240 align:middle
+so let’s propose it an accessor.
+
+00:05:29.410 --> 00:05:30.140 align:middle
+That’s what I wanted.
+
+00:05:30.307 --> 00:05:31.050 align:middle
+So now I can Proceed.
+
+00:05:32.440 --> 00:05:33.350 align:middle
+What do I see?
+
+00:05:33.517 --> 00:05:37.750 align:middle
+My test is green. I have a test 
+green and
+
+00:05:37.917 --> 00:05:42.050 align:middle
+2 methods have been created 
+in my class.
+
+00:05:44.240 --> 00:05:45.470 align:middle
+Now I will do the same
+for increment.
+
+00:05:49.640 --> 00:05:51.100 align:middle
+In fact, I am
+
+00:05:51.267 --> 00:05:54.490 align:middle
+specifying what the method 
+has to do
+
+00:05:54.657 --> 00:05:56.240 align:middle
+and checking that it does do it. 
+
+00:05:58.360 --> 00:06:03.090 align:middle
+So there I must have 9,
+I compile, I execute.
+
+00:06:03.300 --> 00:06:07.730 align:middle
+And the system tells me that
+it doesn’t know the increment method.
+
+00:06:07.897 --> 00:06:12.490 align:middle
+Yes, it’s normal. I do Create,
+here in operation.
+
+00:06:15.960 --> 00:06:19.950 align:middle
+If I look at increment,
+I can do count.
+
+00:06:20.750 --> 00:06:25.230 align:middle
+= count + 1. I compile.
+
+00:06:27.080 --> 00:06:29.570 align:middle
+Proceed. I do have my test.
+
+00:06:30.370 --> 00:06:31.760 align:middle
+While I’m at it, I create decrement.
+
+00:06:31.927 --> 00:06:36.050 align:middle
+The idea is for you to do it, 
+to practice it.
+
+00:06:39.520 --> 00:06:43.120 align:middle
+So here it will be 5.
+I define my test.
+
+00:06:45.460 --> 00:06:46.750 align:middle
+I create my method.
+
+00:06:51.480 --> 00:06:55.000 align:middle
+OK. So now you know, 
+count: = count,
+
+00:07:00.330 --> 00:07:01.660 align:middle
+I compile in the debugger.
+
+00:07:01.827 --> 00:07:05.640 align:middle
+I click on Proceed. And my 
+tests are green.
+
+00:07:05.807 --> 00:07:10.060 align:middle
+Now my class has 2 operations:
+increment and decrement.
+
+00:07:10.420 --> 00:07:11.770 align:middle
+It’s time to save,
+for example.
+
+00:07:12.010 --> 00:07:14.500 align:middle
+I’m going to save like I’ve
+shown you before.
+
+00:07:15.280 --> 00:07:19.180 align:middle
+I click on Save, I save and
+
+00:07:20.040 --> 00:07:20.760 align:middle
+here I write "with
+
+00:07:25.740 --> 00:07:29.430 align:middle
+accessors and decrement
+increment covered by green tests".
+
+00:07:29.597 --> 00:07:34.000 align:middle
+So here it is! I’ve saved that.
+
+00:07:47.250 --> 00:07:47.883 align:middle
+Allright.
+
+00:07:49.100 --> 00:07:52.860 align:middle
+The important thing to remember
+in this session is that 
+
+00:07:53.390 --> 00:07:58.250 align:middle
+the debugger gives access to
+the object’s
+
+00:07:58.417 --> 00:08:02.340 align:middle
+state, it places you in the 
+right call context and
+
+00:08:02.507 --> 00:08:04.460 align:middle
+enables you to use the call context 
+to have all the necessary
+
+00:08:04.627 --> 00:08:07.390 align:middle
+information to write
+your code. 
+
+00:08:07.557 --> 00:08:08.690 align:middle
+And this is really very,
+very powerful.
+

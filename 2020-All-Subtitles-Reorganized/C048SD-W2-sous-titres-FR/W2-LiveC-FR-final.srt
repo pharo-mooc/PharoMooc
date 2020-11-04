@@ -1,0 +1,182 @@
+1
+00:00:00,040 --> 00:00:00,080
+"Naviguer dans une classe"
+
+2
+00:00:00,120 --> 00:00:00,160
+Quentin Ducasse.
+
+3
+00:00:06,440 --> 00:00:07,200
+-Bonjour à tous.
+
+4
+00:00:07,520 --> 00:00:10,800
+Dans cette vidéo, on va s'intéresser
+au System Browser ou code browser
+
+5
+00:00:11,120 --> 00:00:13,400
+qui est un outil qui permet de naviguer
+
+6
+00:00:13,720 --> 00:00:16,920
+à l'intérieur des classes,
+des méthodes et d'écrire du code.
+
+7
+00:00:17,240 --> 00:00:20,400
+Donc, pour y accéder, il suffit d'aller
+sur votre environnement Pharo,
+
+8
+00:00:20,720 --> 00:00:24,360
+de cliquer et d'aller dans l'onglet
+Tools, puis System Browser.
+
+9
+00:00:24,920 --> 00:00:26,240
+Quand vous cliquez là-dessus,
+
+10
+00:00:26,560 --> 00:00:29,600
+vous aurez une fenêtre
+avec quatre colonnes qui s'ouvrira.
+
+11
+00:00:29,920 --> 00:00:32,600
+La colonne la plus à gauche
+contient tous les packages
+
+12
+00:00:32,920 --> 00:00:35,360
+qui sont contenus
+dans votre image Pharo.
+
+13
+00:00:35,680 --> 00:00:37,960
+Vous pouvez voir qu'il y en a beaucoup.
+
+14
+00:00:38,400 --> 00:00:40,800
+Si vous voulez naviguer
+dans un de ces packages,
+
+15
+00:00:41,120 --> 00:00:42,120
+il suffit de cliquer dessus.
+
+16
+00:00:42,440 --> 00:00:44,160
+On va aller dans AST-Core.
+
+17
+00:00:44,480 --> 00:00:47,840
+En cliquant dessus, on peut voir
+qu'une nouvelle colonne s'ouvre.
+
+18
+00:00:48,160 --> 00:00:52,640
+Cette colonne correspond à toutes
+les classes contenues dans ce package.
+
+19
+00:00:53,360 --> 00:00:56,160
+Donc, on aura
+toutes les différentes classes du package
+
+20
+00:00:56,520 --> 00:00:59,360
+et pour naviguer dans l'une d'elles,
+il suffit de cliquer dessus.
+
+21
+00:00:59,680 --> 00:01:02,160
+On va aller dans RBComment.
+On clique dessus.
+
+22
+00:01:02,480 --> 00:01:06,640
+On voit que deux nouvelles colonnes
+se sont ouvertes et se sont remplies.
+
+23
+00:01:06,960 --> 00:01:09,240
+Cette colonne-ci
+correspond aux protocoles.
+
+24
+00:01:09,560 --> 00:01:11,720
+Ce sont des groupes
+ou des tags de méthodes.
+
+25
+00:01:12,040 --> 00:01:15,160
+Et la colonne la plus à droite correspond
+aux méthodes en elles-mêmes.
+
+26
+00:01:15,480 --> 00:01:17,280
+Donc, vu qu'on a cliqué sur la classe,
+
+27
+00:01:17,600 --> 00:01:20,920
+on aura toutes les méthodes de la classe
+dans la colonne la plus à droite.
+
+28
+00:01:21,240 --> 00:01:24,240
+Maintenant, si on veut avoir seulement
+la méthode de printing,
+
+29
+00:01:24,560 --> 00:01:25,760
+on peut cliquer sur ce protocole.
+
+30
+00:01:26,080 --> 00:01:30,240
+On n'aura que les méthodes taguées comme
+faisant partie du protocole printing.
+
+31
+00:01:30,560 --> 00:01:34,040
+Si on veut voir le corps d'une méthode,
+il suffit de cliquer dessus.
+
+32
+00:01:34,360 --> 00:01:37,760
+Vous pouvez voir qu'on a ici
+comment la méthode "size" a été définie.
+
+33
+00:01:38,080 --> 00:01:42,080
+On peut voir en dessous
+qu'on a notre corps de méthode ici.
+
+34
+00:01:42,400 --> 00:01:45,280
+On aura notre définition de classe
+dans cet onglet-là
+
+35
+00:01:45,600 --> 00:01:47,240
+et le commentaire de la classe.
+
+36
+00:01:47,960 --> 00:01:50,240
+C'est un aperçu rapide
+du System Browser
+
+37
+00:01:50,560 --> 00:01:56,480
+qu'on reverra dans les vidéos suivantes
+avec des méthodes un peu plus avancées,
+
+38
+00:01:56,800 --> 00:01:58,840
+mais je vous encourage
+à apprendre à vous servir de cet outil
+
+39
+00:01:59,160 --> 00:02:01,120
+qui est le plus utile de Pharo.

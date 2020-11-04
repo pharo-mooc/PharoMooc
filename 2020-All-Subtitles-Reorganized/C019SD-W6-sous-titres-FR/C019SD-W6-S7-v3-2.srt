@@ -1,0 +1,725 @@
+1
+00:00:00,660 --> 00:00:02,380
+Bonjour. Alors aujourd'hui
+on va revenir sur quelque
+
+2
+00:00:02,580 --> 00:00:04,220
+chose que vous avez
+déjà vu dans les séquences
+
+3
+00:00:04,420 --> 00:00:07,130
+précédentes, mais on va vraiment
+réefoncer le clou dans cette séquence.
+
+4
+00:00:07,390 --> 00:00:10,040
+Donc les caractères, les
+chaines de caractères et les symboles.
+
+5
+00:00:11,120 --> 00:00:14,180
+Ce que vous allez
+apprendre, c'est vraiment comment on
+
+6
+00:00:14,380 --> 00:00:15,900
+manipule les caractères,
+comment sont représentés les
+
+7
+00:00:16,100 --> 00:00:17,440
+chaines de caractères et
+qu'est-ce que c'est un symbole
+
+8
+00:00:17,640 --> 00:00:18,610
+par rapport à une
+chaîne de caractères.
+
+9
+00:00:19,680 --> 00:00:21,840
+Donc on revient à la
+base, les caractères.
+
+10
+00:00:22,040 --> 00:00:24,100
+Donc les caractères en Pharo
+sont représentés, vous vous
+
+11
+00:00:24,300 --> 00:00:25,850
+souvenez, on commence par
+un dollar suivi d'une lettre.
+
+12
+00:00:28,930 --> 00:00:31,560
+Donc ça, c'est pour représenter
+les caractères sous forme littérale.
+
+13
+00:00:32,030 --> 00:00:35,220
+D'accord. Et puis les
+caractères qu'on ne peut pas
+
+14
+00:00:35,420 --> 00:00:37,250
+représenter, qui n'ont
+pas de formes représentables
+
+15
+00:00:37,450 --> 00:00:40,370
+typiquement l'espace, le
+tab, le cr return, donc ça c'est
+
+16
+00:00:40,570 --> 00:00:42,490
+le caractère qui
+permet de passer à la ligne.
+
+17
+00:00:43,240 --> 00:00:45,480
+Donc en fait, on utilise la
+ classe caractère auquel on va
+
+18
+00:00:45,680 --> 00:00:47,440
+envoyer un message pour
+obtenir ce caractère-là.
+
+19
+00:00:50,100 --> 00:00:51,350
+Donc les chaînes de
+caractères maintenant.
+
+20
+00:00:51,550 --> 00:00:53,430
+Les chaînes de caractères en
+Pharo sont représentées donc
+
+21
+00:00:53,630 --> 00:00:56,570
+entre simples côtes. Donc
+ici, c'est ce caractère-là.
+
+22
+00:00:57,150 --> 00:00:59,620
+Donc ici, on a eu une
+chaîne de caractères éclair au
+
+23
+00:00:59,820 --> 00:01:02,480
+chocolat qui commence
+ici et qui se termine ici.
+
+24
+00:01:02,790 --> 00:01:06,560
+On peut lui envoyer un
+message Size, ça nous rend
+
+25
+00:01:07,700 --> 00:01:11,260
+18. Donc cette chaîne de
+caractères contient bien 18 caractères.
+
+26
+00:01:12,330 --> 00:01:13,370
+On peut manipuler
+cette chaîne de caractères.
+
+27
+00:01:13,840 --> 00:01:17,550
+Par exemple, je peux dire
+caractère space split cette
+
+28
+00:01:17,750 --> 00:01:19,410
+chaîne de caractères-là.
+Donc ça veut dire que je vais
+
+29
+00:01:19,610 --> 00:01:21,630
+découper cette chaîne
+en fonction des espaces.
+
+30
+00:01:21,830 --> 00:01:24,890
+Et ça va me rendre une
+collection ordonnée de 3 éléments.
+
+31
+00:01:25,270 --> 00:01:27,830
+Donc la chaîne a bien
+été coupée en 3 éléments.
+
+32
+00:01:29,080 --> 00:01:31,180
+Alors, en fait les
+chaînes de caractères sont des
+
+33
+00:01:31,380 --> 00:01:33,770
+collections comme
+les autres en Pharo.
+
+34
+00:01:34,000 --> 00:01:37,820
+Donc c'est vraiment une
+collection instance de la classe string.
+
+35
+00:01:38,020 --> 00:01:40,610
+Mais la classe string va
+hériter des classes de collection.
+
+36
+00:01:41,690 --> 00:01:44,570
+Donc je peux utiliser
+toutes les méthodes classiques.
+
+37
+00:01:44,770 --> 00:01:46,180
+Vous vous souvenez sur
+les collections on a une API
+
+38
+00:01:46,380 --> 00:01:49,470
+commune qui existe pour
+toutes les collections, donc par
+
+39
+00:01:49,670 --> 00:01:52,360
+exemple, at pour toutes
+les collections indexées.
+
+40
+00:01:53,300 --> 00:01:56,290
+Donc si je fais éclair au
+chocolat at 1, donc je veux l'élément
+
+41
+00:01:56,490 --> 00:01:58,720
+1 de cette collection, ça me
+retourne bien le caractère E.
+
+42
+00:01:58,920 --> 00:02:01,210
+D'accord qui était bien ce E là.
+
+43
+00:02:02,750 --> 00:02:05,290
+Ensuite je peux utiliser do qui
+permet de parcourir l'ensemble
+
+44
+00:02:05,490 --> 00:02:06,380
+des éléments d'une collection.
+
+45
+00:02:06,690 --> 00:02:09,020
+Et donc à chaque tour de
+boucle, le paramètre du bloc ici
+
+46
+00:02:09,220 --> 00:02:11,870
+vaudra le premier élément
+de la collection, le deuxième
+
+47
+00:02:12,070 --> 00:02:13,200
+et caetera, jusqu'au bout.
+
+48
+00:02:14,120 --> 00:02:17,480
+Donc petite subtilité, vu
+que les chaines de caractères
+
+49
+00:02:17,910 --> 00:02:19,660
+sont définies par des simple côtes.
+
+50
+00:02:20,240 --> 00:02:21,780
+Donc si je veux mettre
+des côtes dans une chaîne de
+
+51
+00:02:22,000 --> 00:02:23,920
+caractères l'astuce
+c'est de les doubler.
+
+52
+00:02:24,120 --> 00:02:26,350
+Si j'en mets 2
+côte-à-côte, ça veut dire que je veux
+
+53
+00:02:26,550 --> 00:02:29,060
+insérer une côte dans
+ma chaîne de caractère.
+
+54
+00:02:29,510 --> 00:02:33,010
+D'accord. Par contre
+attention, la subtilité c'est qu'elle
+
+55
+00:02:33,210 --> 00:02:35,650
+ne compte que pour un seul
+élément dans la chaîne de caractères.
+
+56
+00:02:35,910 --> 00:02:38,170
+Donc ici vous avez
+l'exemple, si je fais l'éclair au
+
+57
+00:02:38,370 --> 00:02:41,340
+chocolat at 2, d'accord.
+Donc, je veux l'élément 2 de
+
+58
+00:02:41,540 --> 00:02:44,750
+cette collection, ça me
+retourne bien le caractère côte.
+
+59
+00:02:45,240 --> 00:02:49,590
+Et si je demande at 3, ça
+me retourne le E qui est ici.
+
+60
+00:02:49,790 --> 00:02:53,060
+D'accord. Donc même si on
+affiche 2 côtes, ça prend
+
+61
+00:02:53,260 --> 00:02:54,050
+l'espace que pour une seule côte.
+
+62
+00:02:56,910 --> 00:02:59,630
+Donc les chaînes de caractères
+sont des collections comme les autres.
+
+63
+00:02:59,830 --> 00:03:01,640
+Donc je peux les manipuler
+comme des collections, je peux
+
+64
+00:03:01,840 --> 00:03:04,660
+dire que je veux par
+exemple le dernier élément d'une
+
+65
+00:03:04,860 --> 00:03:08,710
+chaîne de caractères, donc
+je fais str at str size, donc
+
+66
+00:03:09,250 --> 00:03:10,580
+je récupère le dernier élément.
+
+67
+00:03:10,780 --> 00:03:13,500
+Je vous rappelle en Pharo, les
+collections commencent à l'indice
+
+68
+00:03:13,700 --> 00:03:18,000
+1, donc le dernier élément
+c'est la taille de la chaîne.
+
+69
+00:03:18,180 --> 00:03:19,630
+Ou on peut utiliser la
+méthode plus simple qui est last
+
+70
+00:03:19,830 --> 00:03:21,950
+pour récupérer directement le
+dernier élément de la collection.
+
+71
+00:03:22,900 --> 00:03:25,110
+Donc pour créer des
+chaînes, on a plusieurs techniques
+
+72
+00:03:25,310 --> 00:03:27,110
+pour créer des chaînes, on
+a la technique simple, c'est
+
+73
+00:03:27,310 --> 00:03:29,850
+je prends un symbole et
+j'utilise une méthode de conversion.
+
+74
+00:03:30,050 --> 00:03:32,600
+Donc je convertis ce symbole
+en chaîne de caractères avec
+
+75
+00:03:32,800 --> 00:03:35,520
+asString, ou je peux envoyer
+printString à n'importe quel
+
+76
+00:03:35,720 --> 00:03:39,100
+objet qui va permettre de
+récupérer une représentation
+
+77
+00:03:39,300 --> 00:03:40,800
+sous-forme de chaîne de
+caractères de l'objet.
+
+78
+00:03:42,550 --> 00:03:45,190
+Et puis, je peux créer
+une méthode de création
+
+79
+00:03:45,390 --> 00:03:47,360
+directement d'une
+collection, vous vous souvenez on peut
+
+80
+00:03:47,560 --> 00:03:50,880
+with à n'importe quelle
+ classe de collection pour créer
+
+81
+00:03:51,080 --> 00:03:54,150
+une nouvelle collection,
+contenant directement un certain
+
+82
+00:03:54,350 --> 00:03:56,000
+objet à l'intérieur. Donc,
+si je fais string with le
+
+83
+00:03:56,200 --> 00:03:58,410
+caractère A, ça va me
+retourner une chaîne de caractères
+
+84
+00:03:58,660 --> 00:04:00,240
+qui ne contient
+qu'un seul caractère A.
+
+85
+00:04:00,910 --> 00:04:02,660
+Pour concaténer des
+chaînes de caractères, on l'avait
+
+86
+00:04:02,860 --> 00:04:05,570
+déjà vu, c'est le message virgule.
+
+87
+00:04:05,920 --> 00:04:07,620
+Donc, je peux envoyer le
+message virgule à une chaîne de
+
+88
+00:04:07,820 --> 00:04:09,300
+caractères et je passe en
+paramètre une autre chaîne de
+
+89
+00:04:09,500 --> 00:04:11,180
+caractères, ça va m'en
+construire une nouvelle qui est la
+
+90
+00:04:11,380 --> 00:04:13,670
+concaténation des 2,
+bien sûr je peux chaîner.
+
+91
+00:04:14,670 --> 00:04:18,220
+Attention toutefois si je
+fais ça, donc si je reprends le
+
+92
+00:04:18,420 --> 00:04:21,240
+même exemple, il faut bien
+comprendre qu'ici j'ai créé
+
+93
+00:04:21,440 --> 00:04:23,020
+des chaînes intermédiaires inutiles.
+
+94
+00:04:23,720 --> 00:04:26,820
+Donc en fait, j'ai ce
+premier message qui a été envoyé à
+
+95
+00:04:27,020 --> 00:04:30,950
+cette chaîne-là, avec ce
+paramètre-là, donc on a une
+
+96
+00:04:31,150 --> 00:04:34,360
+première chaîne ici concaténée qui
+a été créée, d'accord pour tout ça.
+
+97
+00:04:35,060 --> 00:04:37,180
+Cette chaîne concaténée
+on lui a envoyé le message
+
+98
+00:04:37,380 --> 00:04:40,120
+virgule avec ce
+paramètre-là et une autre chaîne a été
+
+99
+00:04:40,320 --> 00:04:41,500
+créée, qui est le résultat final.
+
+100
+00:04:42,000 --> 00:04:43,910
+Donc, on a une chaîne
+intermédiaire qu'on n'a pas vue,
+
+101
+00:04:44,170 --> 00:04:48,340
+qui a été créée et qui fait perdre du
+temps en fait dans le temps de calcul.
+
+102
+00:04:48,950 --> 00:04:50,570
+D'accord. Donc vous pouvez
+utiliser, vous avez eu la
+
+103
+00:04:50,770 --> 00:04:52,840
+séquence sur le
+benchmarking, vous pouvez utiliser le
+
+104
+00:04:53,040 --> 00:04:56,940
+benchmarking pour voir
+exactement ce qu'il en est, et s'il
+
+105
+00:04:57,140 --> 00:05:00,000
+ne serait pas plus avantageux
+d'utiliser un string, d'accord.
+
+106
+00:05:00,200 --> 00:05:02,640
+Donc ici, je créé une
+chaîne de caractères, d'accord et
+
+107
+00:05:02,840 --> 00:05:06,710
+je dis que je vais lui définir un
+contenu à l'aide d'un stream, d'accord.
+
+108
+00:05:06,910 --> 00:05:09,510
+Et je peux directement
+envoyer des chaînes de caractères
+
+109
+00:05:09,710 --> 00:05:11,170
+dans ce string pour
+créer la chaîne finale.
+
+110
+00:05:11,560 --> 00:05:13,820
+Donc, là j'évite le fait de
+créer des chaînes intermédiaires.
+
+111
+00:05:14,600 --> 00:05:15,670
+Donc maintenant les symboles.
+
+112
+00:05:15,870 --> 00:05:18,080
+Donc les symboles en fait
+syntaxiquement, vous vous
+
+113
+00:05:18,280 --> 00:05:20,640
+souvenez, ils
+commencent par un dièse.
+
+114
+00:05:21,420 --> 00:05:23,180
+Et puis ensuite il y a
+une chaîne de caractères.
+
+115
+00:05:23,380 --> 00:05:24,640
+Donc ça c'est un symbole littéral.
+
+116
+00:05:25,320 --> 00:05:27,720
+C'est une sorte de chaîne
+de caractères mais attention,
+
+117
+00:05:28,020 --> 00:05:29,760
+elles sont uniques dans le système.
+
+118
+00:05:30,070 --> 00:05:32,560
+C'est-à-dire que n'importe où
+dans mon programme si j'écris
+
+119
+00:05:32,760 --> 00:05:35,770
+#blabla, et n'importe où
+dans le programme je réécris
+
+120
+00:05:36,000 --> 00:05:39,200
+#blabla, c'est le même objet
+que je désigne d'accord, c'est
+
+121
+00:05:39,400 --> 00:05:43,170
+la même instance. Donc, elles sont
+vraiment uniques dans le système.
+
+122
+00:05:43,370 --> 00:05:45,670
+Donc ici, j'ai l'exemple
+avec Calvin, je fais #calvin ==
+
+123
+00:05:45,870 --> 00:05:50,000
+#calvin, donc ça me renvoie
+vrai, c'est bien le même objet.
+
+124
+00:05:50,400 --> 00:05:53,420
+D'accord, ce n'est pas le cas pour
+les chaînes de caractères, ça dépend.
+
+125
+00:05:54,060 --> 00:05:56,110
+Cela va dépendre des
+optimisations appliquées par le compilateur.
+
+126
+00:05:57,510 --> 00:06:00,440
+Donc les symboles par
+rapport aux chaînes de caractères,
+
+127
+00:06:00,640 --> 00:06:01,640
+la différence c'est vraiment ça.
+
+128
+00:06:01,840 --> 00:06:05,000
+Un symbole c'est quelque
+chose qui va être uniquement en
+
+129
+00:06:05,200 --> 00:06:07,000
+lecture, on ne peut
+pas modifier un symbole.
+
+130
+00:06:07,200 --> 00:06:08,200
+On va créer un nouveau symbole.
+
+131
+00:06:08,610 --> 00:06:10,840
+C'est un objet qui est
+unique, donc si je le référence
+
+132
+00:06:11,040 --> 00:06:12,860
+plusieurs fois dans mon
+ programme, je référence le même objet.
+
+133
+00:06:13,440 --> 00:06:15,250
+Les chaînes de
+caractères elles sont mutales.
+
+134
+00:06:15,450 --> 00:06:17,160
+Je peux modifier le contenu
+d'une chaîne de caractères.
+
+135
+00:06:17,740 --> 00:06:19,250
+Il y a marqué "pour
+l'instant", puisque c'est en
+
+136
+00:06:19,450 --> 00:06:22,150
+pourparlers de le changer ça
+dans Pharo dans dans le futur.
+
+137
+00:06:24,450 --> 00:06:29,150
+Les symboles sont souvent
+utilisés pour désigner les
+
+138
+00:06:29,350 --> 00:06:30,230
+sélecteurs de méthode.
+
+139
+00:06:30,430 --> 00:06:34,230
+D'accord. Et les symboles
+sont extrêmement utilisés en
+
+140
+00:06:34,430 --> 00:06:37,840
+tant que clé dans les dictionnaires
+et notamment les IdentityDictionnary.
+
+141
+00:06:38,040 --> 00:06:42,480
+Vous vous souvenez qu'on
+va comparer les éléments
+
+142
+00:06:42,680 --> 00:06:46,230
+et on va être capable de
+calculer facilement des hash à
+
+143
+00:06:46,430 --> 00:06:50,100
+partir d'un symbole pour
+la clé dans un dictionnaire.
+
+144
+00:06:52,770 --> 00:06:54,900
+Donc ce que vous devez
+retenir de cette séquence, ce qui
+
+145
+00:06:55,100 --> 00:06:57,070
+est vraiment important
+c'est que les chaînes des
+
+146
+00:06:57,270 --> 00:07:00,660
+caractères sont des
+collections comme les autres, et que
+
+147
+00:07:00,860 --> 00:07:04,490
+les symboles sont des chaînes de
+caractères uniques et en lecture seule.
+
+148
+00:07:04,690 --> 00:07:06,080
+Donc imutables, on ne
+peut pas les modifier.
+

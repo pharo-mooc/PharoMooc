@@ -1,0 +1,287 @@
+﻿1
+00:00:00,000 --> 00:00:03,520
+Hola. En esta sesión,
+Aprenderemos sobre el retorno.
+
+2
+00:00:03,680 --> 00:00:07,440
+¿Cómo puede devolver un valor?
+
+3
+00:00:07,600 --> 00:00:09,600
+¿De un bloque o método?
+
+4
+00:00:10,480 --> 00:00:12,840
+¿Y cuáles son los valores de retorno predeterminados?
+
+5
+00:00:13,520 --> 00:00:15,840
+Hay cuatro casos para estudiar:
+
+6
+00:00:16,000 --> 00:00:20,640
+un método con el acento circunflejo para el retorno,
+
+7
+00:00:20,800 --> 00:00:23,080
+un método sin el acento circunflejo para el retorno,
+
+8
+00:00:23,240 --> 00:00:25,720
+un bloque con el acento circunflejo para el retorno,
+
+9
+00:00:25,880 --> 00:00:28,000
+y un bloque sin el acento circunflejo para el retorno.
+
+10
+00:00:29,000 --> 00:00:31,040
+En un metodo,
+
+11
+00:00:31,200 --> 00:00:34,120
+si utiliza el acento circunflejo para devolver un valor.
+
+12
+00:00:36,280 --> 00:00:39,120
+Aquí este retorno devolverá
+
+13
+00:00:39,280 --> 00:00:42,160
+un valor específico,
+
+14
+00:00:43,240 --> 00:00:44,920
+i saldrá del método.
+
+15
+00:00:46,360 --> 00:00:48,640
+Si no uso el acento circunflejo,
+
+16
+00:00:48,800 --> 00:00:51,680
+el método devuelve self por defecto.
+
+17
+00:00:53,560 --> 00:00:56,720
+Esta parte es opcional.
+Normalmente no la escribe.
+
+18
+00:00:56,880 --> 00:01:01,640
+El valor de retorno de un bloque
+es el valor de su ultima expresión
+
+19
+00:01:01,800 --> 00:01:03,720
+En el caso de este bloque,
+
+20
+00:01:04,320 --> 00:01:06,120
+entre estos, tengo un bloque
+
+21
+00:01:06,280 --> 00:01:08,960
+que toma un valor x como parámetro.
+
+22
+00:01:09,120 --> 00:01:11,200
+Agrego 33 a x.
+
+23
+00:01:12,280 --> 00:01:16,560
+El valor, el resultado
+de esta expresión x + 33
+
+24
+00:01:16,720 --> 00:01:19,120
+no se usa, por lo que se borró.
+
+25
+00:01:19,760 --> 00:01:23,640
+La siguiente instrucción es x + 2,
+así que agrego 2 al valor x.
+
+26
+00:01:24,960 --> 00:01:28,040
+Como es la última expresión del bloque,
+
+27
+00:01:28,200 --> 00:01:30,720
+su valor
+
+28
+00:01:30,880 --> 00:01:33,960
+representa el valor de retorno
+del bloque
+
+29
+00:01:34,920 --> 00:01:36,800
+Entonces mi bloque, value: 5.
+
+30
+00:01:36,960 --> 00:01:39,800
+Significa que ejecuto el bloque
+
+31
+00:01:39,960 --> 00:01:42,360
+con x tomando el valor 5.
+
+32
+00:01:42,520 --> 00:01:44,800
+Entonces calculo 33 + 5;
+
+33
+00:01:44,960 --> 00:01:47,840
+el resultado se borra,
+ya que es inútil
+
+34
+00:01:48,000 --> 00:01:50,840
+5 + 2 da el valor 7
+
+35
+00:01:51,000 --> 00:01:53,480
+que se usa
+como el valor de retorno del bloque.
+
+36
+00:01:53,640 --> 00:01:57,360
+Entonces, el valor de toda la expresión es 7.
+
+37
+00:01:59,640 --> 00:02:02,440
+Si uso el acento circunflejo en un bloque,
+
+38
+00:02:05,800 --> 00:02:09,400
+el comportamiento de un metodo
+es completamente diferente
+
+39
+00:02:10,320 --> 00:02:14,320
+No debes esperar
+que el bloque se ejecute,
+
+40
+00:02:15,120 --> 00:02:17,440
+sera el método el que se ejecutara
+
+41
+00:02:17,600 --> 00:02:21,120
+Echemos un vistazo al ejemplo
+del método factorial
+
+42
+00:02:21,280 --> 00:02:22,760
+en la clase Integer.
+
+43
+00:02:24,200 --> 00:02:27,800
+El acento circunflejo de aquí y este otro.
+
+44
+00:02:27,960 --> 00:02:31,040
+Estos dos acentos
+terminan la ejecución del método.
+
+45
+00:02:32,680 --> 00:02:35,920
+Entonces, si self, si el receptor del método és igual a cero
+
+46
+00:02:36,080 --> 00:02:38,480
+durante la ejecución del método factorial,
+
+47
+00:02:38,640 --> 00:02:40,680
+el bloque se ejecuta,
+
+48
+00:02:40,840 --> 00:02:44,160
+1 és devuelto inmediatamente,
+y el método se termina.
+
+49
+00:02:44,320 --> 00:02:46,080
+Entonces, el método devuelve 1.
+
+50
+00:02:47,000 --> 00:02:51,360
+El retorno no se usa para finalizar el bloque
+sino para terminar el método que abraza el bloque.
+
+51
+00:02:52,680 --> 00:02:55,720
+En el segundo ejemplo,
+si self es mayor que cero,
+
+52
+00:02:56,600 --> 00:03:00,000
+calcula con una llamada recursiva
+
+53
+00:03:00,160 --> 00:03:02,400
+y devuelve inmediatamente el resultado.
+
+54
+00:03:02,560 --> 00:03:05,520
+Entonces el método
+no continúa ejecutándose
+
+55
+00:03:05,680 --> 00:03:07,360
+cuando self es más grande que cero.
+
+56
+00:03:08,000 --> 00:03:11,480
+En los otros casos,
+Si alcanza la tercera instrucción,
+
+57
+00:03:11,640 --> 00:03:15,760
+obtiene un mensaje de error, que significa
+que el receptor es un número negativo.
+
+58
+00:03:16,440 --> 00:03:18,280
+Debería recordar
+
+59
+00:03:18,440 --> 00:03:23,560
+que el acento circunflejo permite
+salir del método
+
+60
+00:03:23,720 --> 00:03:27,760
+si el acento circunflejo se encuentra en el método
+o en el método dentro del bloque.
+
+61
+00:03:27,920 --> 00:03:30,240
+El acento circunflejo siempre termina el método
+
+62
+00:03:30,400 --> 00:03:33,200
+y devuelve un valor
+especificado después del acento.
+
+63
+00:03:34,320 --> 00:03:37,280
+De forma predeterminada, un método devuelve self.
+
+64
+00:03:38,040 --> 00:03:40,720
+Es inútil escribir self 
+al final de un método
+
+65
+00:03:40,880 --> 00:03:43,920
+puesto que és el valor
+que se devuelve por defecto.
+
+66
+00:03:45,760 --> 00:03:50,240
+Un bloque devuelve el resultado
+de su ultima expresión

@@ -1,0 +1,478 @@
+﻿WEBVTT
+
+00:00:00.480 --> 00:00:01.440 align:middle
+Hello, everyone.
+
+00:00:01.600 --> 00:00:06.240 align:middle
+In this sequence we'll look at
+the API for manipulating files.
+
+00:00:06.680 --> 00:00:09.280 align:middle
+What we'll be looking at particularly
+
+00:00:09.480 --> 00:00:12.760 align:middle
+is how to navigate between files,
+
+00:00:12.920 --> 00:00:15.640 align:middle
+how to create and remove files,
+
+00:00:16.520 --> 00:00:19.400 align:middle
+how to list files in the directories,
+
+00:00:20.280 --> 00:00:24.120 align:middle
+and how to read from
+and write to files.
+
+00:00:24.320 --> 00:00:25.720 align:middle
+To begin with,
+
+00:00:25.920 --> 00:00:28.240 align:middle
+we need an entry point
+in the file system,
+
+00:00:28.400 --> 00:00:30.440 align:middle
+there are many.
+
+00:00:30.600 --> 00:00:34.840 align:middle
+With "FileLocator home"
+you have the user directory,
+
+00:00:35.560 --> 00:00:38.880 align:middle
+"FileLocator root" you have the root
+
+00:00:39.040 --> 00:00:42.840 align:middle
+of the directory system.
+
+00:00:43.000 --> 00:00:47.120 align:middle
+With "FileLocatorC" in Windows
+you have disc C:
+
+00:00:47.480 --> 00:00:50.160 align:middle
+Once you have a directory,
+
+00:00:50.440 --> 00:00:53.120 align:middle
+these 3 elements are directories,
+
+00:00:53.280 --> 00:00:56.680 align:middle
+I take one, "FileLocator home"
+
+00:00:56.840 --> 00:01:00.040 align:middle
+in which I have
+the user home directory.
+
+00:01:01.240 --> 00:01:03.160 align:middle
+From there I can say,
+
+00:01:03.920 --> 00:01:06.000 align:middle
+"Give me your access path".
+
+00:01:06.160 --> 00:01:10.480 align:middle
+So "home" isn't a string,
+it's an object that represents
+
+00:01:10.640 --> 00:01:12.960 align:middle
+a directory and I can say,
+
+00:01:13.120 --> 00:01:17.600 align:middle
+"Give me the string
+locating you in the system".
+
+00:01:17.800 --> 00:01:20.120 align:middle
+So that's "home/cassou".
+
+00:01:21.000 --> 00:01:23.800 align:middle
+I can ask a directory
+where its children are.
+
+00:01:23.960 --> 00:01:27.880 align:middle
+"What are all the files
+and directories you contain?"
+
+00:01:28.040 --> 00:01:30.960 align:middle
+Here it tells me, in "home".
+
+00:01:31.120 --> 00:01:33.640 align:middle
+I've a file named .bashrc,
+
+00:01:33.800 --> 00:01:36.040 align:middle
+and I've a Music directory.
+
+00:01:36.960 --> 00:01:39.080 align:middle
+So this, "children",
+
+00:01:39.240 --> 00:01:41.280 align:middle
+returns a bundle of objects,
+
+00:01:41.440 --> 00:01:45.080 align:middle
+which are files and directories.
+
+00:01:45.680 --> 00:01:49.080 align:middle
+If we play a bit more with this API,
+
+00:01:49.800 --> 00:01:53.160 align:middle
+we'll see the method "/",
+
+00:01:53.320 --> 00:01:55.000 align:middle
+When we send the message /
+
+00:01:55.840 --> 00:02:01.400 align:middle
+to a directory we can indicate
+a particular child that interests us.
+
+00:02:02.320 --> 00:02:06.800 align:middle
+So "home/'Music'"
+gives me the Music directory.
+
+00:02:08.080 --> 00:02:11.880 align:middle
+By sending the message
+"directories" to a file,
+
+00:02:12.040 --> 00:02:14.480 align:middle
+I get all the sub files.
+
+00:02:14.640 --> 00:02:18.080 align:middle
+Here I see that, in my Music library,
+
+00:02:18.240 --> 00:02:20.400 align:middle
+I have a file Anouar_Brahem.
+
+00:02:22.080 --> 00:02:25.360 align:middle
+The parent message allows me
+to go up a rung,
+
+00:02:25.520 --> 00:02:28.320 align:middle
+so if I'm in the Music file,
+
+00:02:28.480 --> 00:02:31.840 align:middle
+I send "parent" but I return
+to my "home" file.
+
+00:02:32.160 --> 00:02:34.120 align:middle
+Leaving my directory
+
+00:02:34.400 --> 00:02:38.440 align:middle
+"Music", as we saw before,
+I'll try to create a directory.
+
+00:02:39.520 --> 00:02:43.000 align:middle
+To do this, I check
+if the directory exists.
+
+00:02:43.160 --> 00:02:46.400 align:middle
+By sending a message "isDirectory"
+
+00:02:46.560 --> 00:02:48.480 align:middle
+I see whether it exists or not.
+
+00:02:48.640 --> 00:02:51.000 align:middle
+This says it doesn't exist.
+
+00:02:51.160 --> 00:02:54.560 align:middle
+All right, I create it with
+"ensureCreateDirectory".
+
+00:02:55.320 --> 00:02:59.840 align:middle
+Then I test it, "do you exist?"
+In this case it exists,
+
+00:03:00.000 --> 00:03:03.520 align:middle
+with "delete" I can erase it,
+and I check it's deleted
+
+00:03:03.680 --> 00:03:05.360 align:middle
+by sending ""isDirectory".
+
+00:03:06.200 --> 00:03:07.280 align:middle
+To find
+
+00:03:07.480 --> 00:03:10.120 align:middle
+all the children in a directory,
+
+00:03:10.280 --> 00:03:14.280 align:middle
+there are several methods.
+I'll show you two.
+
+00:03:14.440 --> 00:03:17.320 align:middle
+We send a message,
+"allChildrenMatching" to a directory,
+
+00:03:17.480 --> 00:03:21.120 align:middle
+and by passing it an expression
+
+00:03:21.280 --> 00:03:25.120 align:middle
+that's typical of the ladder
+and which represents
+
+00:03:26.720 --> 00:03:30.640 align:middle
+the name of the directory we expect,
+so with "*.ogg",
+
+00:03:30.800 --> 00:03:33.520 align:middle
+I want all the files to have
+the extension ".ogg".
+
+00:03:34.840 --> 00:03:39.280 align:middle
+That will return all my music files
+to .ogg in my Pink Floyd directory.
+
+00:03:40.520 --> 00:03:43.680 align:middle
+I can do the same thing
+in a more long-winded way.
+
+00:03:43.840 --> 00:03:46.640 align:middle
+By sending the message
+"allChildren" I get all the children
+
+00:03:46.800 --> 00:03:50.960 align:middle
+all the files and directories,
+in a particular directory,
+
+00:03:51.800 --> 00:03:54.680 align:middle
+and I filter with the message "select"
+
+00:03:54.840 --> 00:03:57.880 align:middle
+all those whose name ends in ".ogg".
+
+00:03:58.040 --> 00:04:02.080 align:middle
+"Basename" returns the string
+representing the file name
+
+00:04:02.240 --> 00:04:05.360 align:middle
+and I want the file name
+to end in .ogg.
+
+00:04:05.560 --> 00:04:08.080 align:middle
+These two bits of code
+are almost the same.
+
+00:04:08.680 --> 00:04:12.520 align:middle
+How do we get information about a file?
+
+00:04:12.680 --> 00:04:16.280 align:middle
+How do we create a file from a string?
+
+00:04:16.440 --> 00:04:20.040 align:middle
+I've a file name, "asFileReference",
+
+00:04:20.200 --> 00:04:24.000 align:middle
+which turns my file name
+into a reference towards a file.
+
+00:04:24.160 --> 00:04:29.000 align:middle
+It can be an existing
+or a non-existent file, I don't know.
+
+00:04:29.160 --> 00:04:32.760 align:middle
+Let's look at the message
+"isFile" at this reference.
+
+00:04:32.920 --> 00:04:36.600 align:middle
+I'll get "true" if it exists
+and "false" if it doesn't.
+
+00:04:37.560 --> 00:04:41.720 align:middle
+By sending the message "basename",
+I get the name of the file.
+
+00:04:41.880 --> 00:04:45.080 align:middle
+By sending "extension"
+I get the file extension,
+
+00:04:45.920 --> 00:04:48.720 align:middle
+with "size" I get the size,
+
+00:04:49.640 --> 00:04:52.000 align:middle
+and with "PathString",
+as we saw before,
+
+00:04:52.160 --> 00:04:55.160 align:middle
+I get the access path
+in the form of a string.
+
+00:04:55.920 --> 00:04:59.680 align:middle
+Now let's see how to write to
+and read from a file. To write,
+
+00:05:00.160 --> 00:05:04.240 align:middle
+first of all, I take
+a reference towards a file.
+
+00:05:05.160 --> 00:05:07.160 align:middle
+Here, I check that it doesn't exist.
+
+00:05:07.320 --> 00:05:11.720 align:middle
+We can write to a file that exists,
+I'm checking it doesn't exist.
+
+00:05:11.880 --> 00:05:16.400 align:middle
+I write to it.
+To write, I create a stream.
+
+00:05:17.360 --> 00:05:18.920 align:middle
+With "nextPutAll"
+
+00:05:19.080 --> 00:05:22.520 align:middle
+I ask to write each character
+of the stream to the file.
+
+00:05:23.480 --> 00:05:26.680 align:middle
+At the end I close my stream
+to ensure that the system
+
+00:05:26.840 --> 00:05:28.720 align:middle
+has written everything to the disc.
+
+00:05:29.200 --> 00:05:30.640 align:middle
+Conversely, I can read
+
+00:05:30.840 --> 00:05:34.680 align:middle
+from a file,
+so I take the same file and .txt.
+
+00:05:34.840 --> 00:05:38.400 align:middle
+I check it exists, and it does,
+because I can write to it.
+
+00:05:39.560 --> 00:05:42.920 align:middle
+I create a "ReadStream"
+
+00:05:43.080 --> 00:05:46.880 align:middle
+and I look, either character
+by character by sending "next".
+
+00:05:47.040 --> 00:05:51.480 align:middle
+With the message "next" I'll get,
+"h" then "e" then "l", etc...
+
+00:05:51.640 --> 00:05:54.240 align:middle
+I do "next" once, I get "h".
+
+00:05:54.400 --> 00:05:56.120 align:middle
+Afterwards I'll pick up everything,
+
+00:05:56.280 --> 00:05:59.200 align:middle
+from the first "h" I've just read
+to the end of the file.
+
+00:05:59.360 --> 00:06:01.840 align:middle
+Here I get "ello World"
+without the "h".
+
+00:06:02.000 --> 00:06:05.120 align:middle
+At the end, I send "stream close"
+to the stream object,
+
+00:06:05.280 --> 00:06:08.440 align:middle
+to ensure the file reference is closed.
+
+00:06:09.160 --> 00:06:12.440 align:middle
+We can write these codes more simply,
+
+00:06:13.000 --> 00:06:16.400 align:middle
+without having the need
+
+00:06:16.560 --> 00:06:18.720 align:middle
+to send the "close" message.
+
+00:06:18.880 --> 00:06:22.240 align:middle
+We might forget to send
+the "close" message.
+
+00:06:22.400 --> 00:06:26.200 align:middle
+There can be an exception
+that means "close" is never sent.
+
+00:06:26.360 --> 00:06:30.720 align:middle
+In general, we try to avoid
+having to write it ourselves.
+
+00:06:30.880 --> 00:06:33.360 align:middle
+To do this, to write,
+
+00:06:33.520 --> 00:06:36.640 align:middle
+I take my file reference,
+
+00:06:36.800 --> 00:06:39.520 align:middle
+I send the message "writeStreamDo",
+
+00:06:39.680 --> 00:06:41.400 align:middle
+which takes a block in parentheses,
+
+00:06:41.560 --> 00:06:45.400 align:middle
+the block takes one stream
+in parentheses.
+
+00:06:45.560 --> 00:06:49.280 align:middle
+This stream will be automatically
+provided by "writeStreamDo"
+
+00:06:49.440 --> 00:06:54.040 align:middle
+which will create a
+"writeStream" on the file.
+
+00:06:54.200 --> 00:06:56.840 align:middle
+The only thing I need to do is,
+by using this stream,
+
+00:06:57.000 --> 00:06:59.960 align:middle
+manipulate the stream
+to do what I want with the file.
+
+00:07:00.120 --> 00:07:04.560 align:middle
+I'll write 'Hello World' to the file,
+"stream nextPutAll: 'Hello World'".
+
+00:07:04.720 --> 00:07:06.080 align:middle
+When the block finishes,
+
+00:07:06.240 --> 00:07:09.800 align:middle
+the stream closes automatically,
+and the file writes to the disc.
+
+00:07:11.240 --> 00:07:15.040 align:middle
+Same principle for reading,
+I put "readStreamDo".
+
+00:07:16.200 --> 00:07:18.480 align:middle
+Here I have a stream,
+I can do what I want with it.
+
+00:07:18.640 --> 00:07:23.000 align:middle
+I decide to retrieve
+the contents of the stream.
+
+00:07:24.080 --> 00:07:25.920 align:middle
+What you should know,
+
+00:07:26.480 --> 00:07:30.120 align:middle
+is that files and directories
+are references,
+
+00:07:30.320 --> 00:07:34.200 align:middle
+they're references towards
+files and directories on the disc
+
+00:07:34.360 --> 00:07:38.880 align:middle
+that may or may not exist.
+Check with "isFile", "isDirectory"
+
+00:07:39.040 --> 00:07:41.560 align:middle
+if the files exist on the disc.
+
+00:07:41.720 --> 00:07:43.040 align:middle
+The API is simple,
+
+00:07:43.200 --> 00:07:48.120 align:middle
+and facilitates navigation
+and manipulation of the files.
+
+00:07:49.040 --> 00:07:54.120 align:middle
+We can read from and write to files
+through streams,
+
+00:07:54.480 --> 00:07:57.480 align:middle
+and with an API
+
+00:07:57.640 --> 00:08:02.320 align:middle
+which will close the stream
+automatically at the end.

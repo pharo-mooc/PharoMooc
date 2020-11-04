@@ -1,0 +1,385 @@
+WEBVTT
+
+00:00:00.570 --> 00:00:05.000 align:middle
+Bonjour. Bienvenue dans cette
+quatrième séquence sur l'héritage
+
+00:00:05.200 --> 00:00:05.960 align:middle
+et le lookup.
+
+00:00:06.440 --> 00:00:08.080 align:middle
+Dans cette séquence nous
+allons voir ce qui se passe
+
+00:00:08.280 --> 00:00:09.950 align:middle
+quand l'algorithme de
+lookup ne trouve pas une méthode
+
+00:00:10.150 --> 00:00:11.290 align:middle
+correspondante à un message.
+
+00:00:11.880 --> 00:00:16.710 align:middle
+Alors on va voir que le
+code, les classes, sont capables
+
+00:00:17.360 --> 00:00:21.840 align:middle
+d'ajouter du traitement
+pour traiter le fait qu'
+
+00:00:22.410 --> 00:00:24.940 align:middle
+un message aurait été envoyé
+et qui n'aurait pas été compris.
+
+00:00:26.000 --> 00:00:28.520 align:middle
+Si je reviens rapidement
+sur l'envoi de messages.
+
+00:00:29.640 --> 00:00:32.550 align:middle
+On envoie le message area à
+l'objet colored rectangle.
+
+00:00:33.850 --> 00:00:37.000 align:middle
+L'algorithme de lookup a
+pour but de trouver la méthode à
+
+00:00:37.200 --> 00:00:40.160 align:middle
+exécuter par rapport à ce
+message là, donc l'algorithme
+
+00:00:40.360 --> 00:00:42.710 align:middle
+de lookup cherche dans la
+ classe du receveur, c'est-à-dire
+
+00:00:42.910 --> 00:00:46.630 align:middle
+ColoredRectangle, une
+méthode qui s'appelle area, s'il la
+
+00:00:46.830 --> 00:00:48.020 align:middle
+trouve, il l'exécute.
+
+00:00:48.220 --> 00:00:49.570 align:middle
+Là il ne la trouve pas
+donc l'algorithme de lookup va
+
+00:00:49.770 --> 00:00:54.100 align:middle
+aller voir dans la
+superclasse. La méthode area est
+
+00:00:54.300 --> 00:00:58.540 align:middle
+trouvée et elle est
+exécutée sur le receveur.
+
+00:01:00.790 --> 00:01:03.270 align:middle
+Alors qu'est-ce-qui se
+passe s'il n'y a pas de méthode
+
+00:01:03.470 --> 00:01:06.960 align:middle
+area du tout, et que
+algorithme de lookup échoue?
+
+00:01:08.090 --> 00:01:12.660 align:middle
+Alors dans ce cas-là on envoie le
+message "Coucou" à l'objet node1.
+
+00:01:13.830 --> 00:01:17.570 align:middle
+Il n'y a pas de méthode
+Coucou implémentée, donc l'envoi
+
+00:01:17.770 --> 00:01:18.530 align:middle
+de message se passe comment ?
+
+00:01:18.730 --> 00:01:22.520 align:middle
+On envoie le message Coucou
+à node1, on cherche Coucou
+
+00:01:22.720 --> 00:01:25.340 align:middle
+dans la classe Node il n'est
+pas trouvé, l'algorithme de
+
+00:01:25.540 --> 00:01:27.820 align:middle
+lookup cherche Coucou dans la
+ classe Object, il n'est pas trouvé.
+
+00:01:28.260 --> 00:01:32.500 align:middle
+À ce moment-là, la machine
+virtuelle Pharo envoie le
+
+00:01:32.700 --> 00:01:37.570 align:middle
+message
+doesNotUnderstand au receveur donc
+
+00:01:37.770 --> 00:01:40.690 align:middle
+à node1. Donc doesNotUnderstand
+
+00:01:43.920 --> 00:01:47.110 align:middle
+avec le message initial
+en paramètres, donc avec
+
+00:01:48.580 --> 00:01:49.930 align:middle
+un coucou: stef en paramètre.
+
+00:01:50.780 --> 00:01:55.150 align:middle
+Ici, si je le refais étape
+par étape, coucou est envoyé à
+
+00:01:55.350 --> 00:01:59.610 align:middle
+node1, Coucou est cherché
+dans la classe Node, Coucou est
+
+00:01:59.810 --> 00:02:02.480 align:middle
+cherché dans la classe
+Object, la méthode Coucou n'existe
+
+00:02:02.680 --> 00:02:07.370 align:middle
+pas donc le message
+doesNotUnderstand est envoyé à l'objet node1.
+
+00:02:09.070 --> 00:02:12.010 align:middle
+Donc l'algorithme de
+lookup va chercher une méthode
+
+00:02:12.210 --> 00:02:13.830 align:middle
+doesNotUnderstand
+dans la classe de node1.
+
+00:02:14.030 --> 00:02:17.260 align:middle
+DoesNotUnderstand n'est pas
+trouvé dans la classe Node
+
+00:02:17.460 --> 00:02:19.260 align:middle
+donc l'algorithme de lookup
+ charge doesNotUnderstand dans
+
+00:02:19.460 --> 00:02:22.660 align:middle
+la super classe, la méthode
+doesNotUnderstand est trouvée
+
+00:02:22.860 --> 00:02:25.180 align:middle
+ou une méthode
+doesNotUnderstand est trouvée dans la
+
+00:02:25.380 --> 00:02:26.920 align:middle
+ classe Object, elle est exécutée.
+
+00:02:27.500 --> 00:02:28.570 align:middle
+Donc qu'est ce que ça signifie ça ?
+
+00:02:28.770 --> 00:02:31.430 align:middle
+Ça signifie que dans toutes
+les sous-classes de la classe
+
+00:02:31.630 --> 00:02:35.550 align:middle
+Object, on peut implémenter
+doesNotUnderstand pour avoir
+
+00:02:35.750 --> 00:02:39.760 align:middle
+du comportement particulier
+qui va s'exécuter lorsqu'un
+
+00:02:39.960 --> 00:02:43.310 align:middle
+objet, une instance de cette
+ classe ne comprend pas un message.
+
+00:02:44.470 --> 00:02:48.440 align:middle
+Donc sur ce slide vous avez
+les détails étape par étape
+
+00:02:48.640 --> 00:02:50.100 align:middle
+de cet exemple que
+vous pouvez relire.
+
+00:02:51.450 --> 00:02:54.450 align:middle
+DoesNotUnderstand, c'est
+un message comme les autres.
+
+00:02:54.650 --> 00:02:56.550 align:middle
+Donc vous pouvez
+implémenter une méthode qui s'appelle
+
+00:02:56.750 --> 00:03:00.230 align:middle
+doesNotUnderstand, et qui sera
+exécutée à chaque fois qu'une
+
+00:03:00.430 --> 00:03:03.280 align:middle
+instance ne
+comprendra pas un message.
+
+00:03:03.770 --> 00:03:08.000 align:middle
+On se sert de ce mécanisme
+dans certains cas un petit peu
+
+00:03:08.200 --> 00:03:12.300 align:middle
+compliqués comme les
+proxys, la délégation
+
+00:03:12.500 --> 00:03:16.280 align:middle
+automatique, c'est-à-dire
+lorsque vous voulez que tous
+
+00:03:16.480 --> 00:03:18.720 align:middle
+les messages que reçoit un objet
+soient transmis à un autre objet.
+
+00:03:19.710 --> 00:03:22.110 align:middle
+Dans ces cas-là on peut utiliser
+ce mécanisme de doesNotUnderstand.
+
+00:03:24.080 --> 00:03:27.100 align:middle
+L'implémentation par
+défaut de doesNotUnderstand se
+
+00:03:27.300 --> 00:03:30.260 align:middle
+trouve dans la classe
+object, et cette implémentation par
+
+00:03:30.460 --> 00:03:34.070 align:middle
+défaut lève une
+exception. Donc l'exception
+
+00:03:35.740 --> 00:03:36.950 align:middle
+s'appelle "MessageNotUnderstood".
+
+00:03:38.670 --> 00:03:41.750 align:middle
+Donc si la méthode
+doesNotUnderstand de la classe object
+
+00:03:42.000 --> 00:03:44.250 align:middle
+est exécutée, une
+exception est levée.
+
+00:03:44.450 --> 00:03:49.000 align:middle
+Cela signifie que le code
+que vous écrivez peut capturer
+
+00:03:49.200 --> 00:03:51.950 align:middle
+cette exception, comme il
+capturerait n'importe quelle
+
+00:03:52.150 --> 00:03:55.230 align:middle
+exception, et peut y avoir
+du traitement particulier
+
+00:03:55.650 --> 00:03:57.170 align:middle
+lorsqu'un message n'est pas compris.
+
+00:03:58.280 --> 00:04:02.170 align:middle
+Dans cet exemple là, on
+revient sur la classe Node, et
+
+00:04:03.110 --> 00:04:06.010 align:middle
+on a une méthode
+"sayHello" dans la classe Node, qui
+
+00:04:06.210 --> 00:04:09.020 align:middle
+envoie le message Coucou
+au receveur donc à self.
+
+00:04:10.840 --> 00:04:14.500 align:middle
+On a aussi une méthode
+Welcome qui envoie le message
+
+00:04:14.700 --> 00:04:18.330 align:middle
+"Sayhello" à self et qui
+fait un traitement particulier
+
+00:04:18.530 --> 00:04:22.710 align:middle
+si dans le contexte de
+cet envoi de message,
+
+00:04:23.690 --> 00:04:28.080 align:middle
+si un message n'est pas
+compris, il va y avoir du traitement.
+
+00:04:28.830 --> 00:04:32.570 align:middle
+Donc là say hello envoie le
+message Coucou à self, Coucou
+
+00:04:32.770 --> 00:04:36.450 align:middle
+n'est toujours pas
+implémenté, donc au final la méthode
+
+00:04:36.650 --> 00:04:40.390 align:middle
+doesNotUnderstand sera exécutée,
+
+00:04:41.640 --> 00:04:45.220 align:middle
+une exception sera levée, donc
+l'exception messageNotUnderstood sera levée.
+
+00:04:46.220 --> 00:04:49.610 align:middle
+Le code qui est ici avec
+undo sert à capturer les
+
+00:04:49.810 --> 00:04:51.690 align:middle
+exceptions, c'est
+l'équivalent de try catch en Java.
+
+00:04:51.890 --> 00:04:56.240 align:middle
+Vous aurez une séquence plus tard qui
+vous parlera des exceptions en détail.
+
+00:04:57.920 --> 00:05:00.670 align:middle
+Mais là ce qui nous
+intéresse c'est de voir que ce
+
+00:05:00.870 --> 00:05:02.780 align:middle
+code-là, en fait, c'est
+l'équivalent du catch de Java,
+
+00:05:03.000 --> 00:05:05.490 align:middle
+donc c'est le code qui va être
+exécuté lorsque l'exception est capturée.
+
+00:05:06.810 --> 00:05:11.400 align:middle
+Donc si on envoie le
+message Welcome à node1,
+
+00:05:12.180 --> 00:05:15.530 align:middle
+sachant que Coucou n'est
+pas implémenté, on affichera
+
+00:05:15.730 --> 00:05:17.760 align:middle
+dans la console le message
+something went wrong with the message.
+
+00:05:17.960 --> 00:05:22.270 align:middle
+Ce que vous devez retenir, c'est que
+
+00:05:22.680 --> 00:05:25.500 align:middle
+lorsque l'algorithme de
+lookup ne trouve pas une méthode
+
+00:05:25.700 --> 00:05:28.010 align:middle
+correspondante à un message
+qui est envoyé, un message
+
+00:05:28.210 --> 00:05:31.670 align:middle
+doesNotUnderstand est envoyé
+au receveur initial avec le
+
+00:05:31.870 --> 00:05:33.740 align:middle
+message d'origine en paramètres.
+
+00:05:34.330 --> 00:05:37.280 align:middle
+Vous pouvez implémenter une méthode
+doesNotUnderstand dans vos classes.
+
+00:05:37.800 --> 00:05:41.620 align:middle
+A défaut, l'implémentation par défaut
+dans la classe object sera exécutée.
+
+00:05:42.120 --> 00:05:45.530 align:middle
+Cette implémentation par
+défaut lève une exception, cette
+
+00:05:45.730 --> 00:05:48.130 align:middle
+exception s'appelle
+messageNotUnderstood, et le code que
+
+00:05:48.330 --> 00:05:50.180 align:middle
+vous écrivez peut capturer
+cette exception et avoir du
+
+00:05:50.380 --> 00:05:53.050 align:middle
+traitement particulier
+lorsqu'un message n'est pas compris.
+

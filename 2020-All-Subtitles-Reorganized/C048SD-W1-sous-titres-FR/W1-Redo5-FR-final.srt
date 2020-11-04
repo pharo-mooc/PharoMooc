@@ -1,0 +1,403 @@
+1
+00:00:00,040 --> 00:00:00,080
+"Redo : initialisation d'objets"
+
+2
+00:00:00,120 --> 00:00:00,160
+Quentin Ducasse.
+
+3
+00:00:03,040 --> 00:00:04,080
+-Bonjour à tous.
+
+4
+00:00:04,400 --> 00:00:06,760
+Dans cette cinquième partie du Redo,
+on va s'intéresser
+
+5
+00:00:07,080 --> 00:00:09,760
+à la manière correcte
+d'initialiser vos objets.
+
+6
+00:00:10,080 --> 00:00:13,360
+Jusqu'à présent, on a appelé
+la méthode "new" sur la classe qu'on veut
+
+7
+00:00:13,680 --> 00:00:16,880
+et on a attribué notre variable
+d'instance en utilisant nos accesseurs.
+
+8
+00:00:17,200 --> 00:00:21,240
+Que se passe-t-il si on appelle
+simplement "c increment"
+
+9
+00:00:21,560 --> 00:00:22,840
+et qu'on exécute tout ça ?
+
+10
+00:00:23,160 --> 00:00:24,280
+Cmd+P.
+
+11
+00:00:25,000 --> 00:00:27,880
+On voit que la méthode "+"
+a été envoyée à nil.
+
+12
+00:00:28,200 --> 00:00:30,520
+Ça signifie que count vaut nil.
+
+13
+00:00:30,840 --> 00:00:33,480
+Count, c'est notre variable d'instance
+et elle n'est jamais initialisée.
+
+14
+00:00:33,800 --> 00:00:36,160
+Par défaut,
+Pharo va lui donner la valeur de nil.
+
+15
+00:00:36,480 --> 00:00:39,360
+C'est un comportement
+qui ne nous intéresse pas trop.
+
+16
+00:00:39,680 --> 00:00:43,560
+On aimerait avoir une valeur de zéro
+à la création de notre objet.
+
+17
+00:00:43,880 --> 00:00:46,600
+Donc, on va écrire une classe
+qui correspond à ma dernière phrase,
+
+18
+00:00:46,920 --> 00:00:50,120
+c'est-à-dire une valeur de zéro
+à l'initialisation.
+
+19
+00:00:50,440 --> 00:00:52,240
+On va l'appeler "testInitialize".
+
+20
+00:00:53,440 --> 00:00:58,160
+On va garder la création
+et on veut que, juste après la création,
+
+21
+00:00:58,480 --> 00:01:00,240
+si on s'intéresse
+à la variable d'instance,
+
+22
+00:01:00,560 --> 00:01:01,960
+elle vaille directement zéro.
+
+23
+00:01:02,560 --> 00:01:05,520
+On sauvegarde.
+Très bien, testInitialize.
+
+24
+00:01:05,960 --> 00:01:07,840
+Donc, la méthode a été créée.
+
+25
+00:01:08,160 --> 00:01:11,600
+Si on clique sur le bouton gris,
+elle devrait échouer,
+
+26
+00:01:11,920 --> 00:01:13,880
+car on n'a rien changé au comportement
+
+27
+00:01:14,200 --> 00:01:17,280
+et la variable d'instance
+vaut toujours nil au lieu de 0.
+
+28
+00:01:18,080 --> 00:01:21,800
+La méthode qu'il faut créer pour changer
+ce comportement à la création
+
+29
+00:01:22,120 --> 00:01:23,680
+s'appelle "initialize".
+
+30
+00:01:24,560 --> 00:01:27,680
+C'est une bonne pratique de mettre
+une première expression
+
+31
+00:01:28,000 --> 00:01:31,920
+qui soit "super initialize"
+
+32
+00:01:32,280 --> 00:01:35,000
+pour aller appeler les méthodes
+d'initialisation des super classes,
+
+33
+00:01:35,320 --> 00:01:36,520
+puis le comportement qu'on veut.
+
+34
+00:01:36,840 --> 00:01:40,240
+On veut que "count" soit égal à zéro.
+
+35
+00:01:41,000 --> 00:01:42,320
+On peut sauvegarder ça.
+
+36
+00:01:42,920 --> 00:01:45,000
+On voit qu'il a détecté
+le test qui lui est associé.
+
+37
+00:01:45,320 --> 00:01:46,840
+Si on lance le test, il est réussi.
+
+38
+00:01:47,160 --> 00:01:49,880
+Maintenant, on a une initialisation
+de notre variable d'instance
+
+39
+00:01:50,200 --> 00:01:52,960
+qui, juste après la création de l'objet,
+est zéro.
+
+40
+00:01:53,280 --> 00:01:55,080
+Imaginons qu'on veuille
+créer un compteur
+
+41
+00:01:55,400 --> 00:01:59,560
+qui ait, par défaut, une variable
+d'instance count qui vaille 5.
+
+42
+00:01:59,880 --> 00:02:02,360
+On peut faire ça
+en utilisant une méthode de classe.
+
+43
+00:02:02,680 --> 00:02:05,040
+Si on écrit le test associé
+dans CounterTest,
+
+44
+00:02:05,920 --> 00:02:12,280
+on va créer "testStartingAtFive".
+
+45
+00:02:13,240 --> 00:02:17,280
+On va vouloir créer
+notre variable temporaire "c",
+
+46
+00:02:17,720 --> 00:02:20,240
+"c" sera égal à un nouveau compteur,
+
+47
+00:02:20,560 --> 00:02:22,280
+sauf que cette fois,
+pour créer le compteur,
+
+48
+00:02:22,600 --> 00:02:25,760
+on va utiliser une méthode
+qui va s'appeler startingAt
+
+49
+00:02:26,080 --> 00:02:28,400
+à laquelle on va donner un entier, 5.
+
+50
+00:02:28,920 --> 00:02:32,600
+Maintenant, on va pouvoir vérifier avec
+la même vérification que tout à l'heure
+
+51
+00:02:32,920 --> 00:02:36,520
+que "c count" soit égal à 5.
+
+52
+00:02:36,840 --> 00:02:39,120
+Si on sauvegarde ce test,
+il n'a pas de raison de marcher,
+
+53
+00:02:39,440 --> 00:02:41,280
+puisque "startingAt"
+n'a pas été défini.
+
+54
+00:02:41,600 --> 00:02:45,640
+Donc on voit déjà un panneau interdit
+qui nous prévient que ça ne marchera pas.
+
+55
+00:02:45,960 --> 00:02:48,200
+Mais si on l'exécute,
+on voit qu'on a bien l'erreur,
+
+56
+00:02:48,520 --> 00:02:51,200
+que la classe compteur
+n'a pas compris "startingAt".
+
+57
+00:02:51,520 --> 00:02:53,400
+On va devoir créer
+cette méthode de classe.
+
+58
+00:02:53,720 --> 00:02:56,400
+Pour ce faire, on se redirige
+dans la classe compteur.
+
+59
+00:02:56,720 --> 00:02:58,640
+On va sur l'onglet Class side.
+
+60
+00:02:58,960 --> 00:03:02,480
+Là, on est dans l'environnement
+où les méthodes de test sont définies.
+
+61
+00:03:03,440 --> 00:03:04,600
+On peut sélectionner ici
+
+62
+00:03:04,920 --> 00:03:08,800
+et créer notre méthode
+"startingAt:" un entier
+
+63
+00:03:09,600 --> 00:03:12,480
+qui va nous renvoyer
+un nouveau compteur, "self new"
+
+64
+00:03:12,800 --> 00:03:15,920
+auquel on aura attribué la valeur
+de l'entier qu'on vient de placer.
+
+65
+00:03:16,240 --> 00:03:18,200
+Ça va nous créer un nouveau compteur.
+
+66
+00:03:18,520 --> 00:03:19,880
+Dans ce nouveau compteur,
+
+67
+00:03:20,200 --> 00:03:23,560
+la variable d'instance
+va avoir la valeur anInteger.
+
+68
+00:03:23,880 --> 00:03:24,760
+On peut sauver ça.
+
+69
+00:03:25,600 --> 00:03:28,840
+Maintenant, si on réexécute nos tests,
+on voit qu'ils passent.
+
+70
+00:03:29,160 --> 00:03:30,200
+Ils sont tous verts.
+
+71
+00:03:30,520 --> 00:03:32,080
+Donc on va écrire un dernier test
+
+72
+00:03:32,400 --> 00:03:35,120
+pour englober toutes les méthodes
+qu'on a pu définir.
+
+73
+00:03:35,440 --> 00:03:40,040
+Donc, on va l'appeler "testAllMethods".
+
+74
+00:03:41,240 --> 00:03:43,000
+On va créer notre compteur
+
+75
+00:03:43,320 --> 00:03:51,360
+et on va vérifier que self,
+c'est "(increment ; count) equals: 6".
+
+76
+00:03:52,120 --> 00:03:55,720
+On va sauvegarder.
+Notre méthode TestAllMethods est là.
+
+77
+00:03:56,160 --> 00:03:58,000
+Si on l'exécute,
+on voit qu'elle fonctionne.
+
+78
+00:03:58,320 --> 00:04:01,400
+Donc on a pu tester
+à la fois l'initialisation à 5
+
+79
+00:04:01,720 --> 00:04:04,800
+puis l'incrémentation et on voit
+que les deux fonctionnent bien.
+
+80
+00:04:05,120 --> 00:04:08,440
+Si on reclique sur le bouton vert,
+les six tests viennent de passer.
+
+81
+00:04:08,760 --> 00:04:12,200
+C'est un bon moment pour commit
+ce qu'on a pu changer dans Iceberg.
+
+82
+00:04:12,760 --> 00:04:15,440
+On se dirige ici. On commit.
+
+83
+00:04:15,760 --> 00:04:22,360
+Et on peut marquer : "Added
+initialization methods (tested)".
+
+84
+00:04:23,000 --> 00:04:24,720
+Et on va pouvoir commit.
+
+85
+00:04:25,520 --> 00:04:27,800
+Donc, on a appris comment initialiser
+correctement un objet
+
+86
+00:04:28,120 --> 00:04:30,080
+et comment utiliser
+des méthodes de classe
+
+87
+00:04:30,400 --> 00:04:33,680
+pour nous donner des objets prégénérés
+avec des valeurs intéressantes.

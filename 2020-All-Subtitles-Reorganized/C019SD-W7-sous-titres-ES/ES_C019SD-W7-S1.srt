@@ -1,0 +1,635 @@
+﻿1
+00:00:08,000 --> 00:00:12,320
+Hola a todos, este video muestra
+algunos temas avanzados sobre las clases.
+
+2
+00:00:13,720 --> 00:00:15,320
+Tiene tres partes principales.
+
+3
+00:00:15,520 --> 00:00:20,760
+En primer lugar, cómo compartir estado entre
+instancias de una clase y sus subclases.
+
+4
+00:00:22,280 --> 00:00:27,240
+En segundo lugar, cómo hacer que las clases
+tengan sus propias variables.
+
+5
+00:00:28,600 --> 00:00:30,960
+En tercer lugar, cómo inicializar las clases.
+
+6
+00:00:32,760 --> 00:00:36,160
+Primero, cómo compartir estado
+entre instancias.
+
+7
+00:00:37,560 --> 00:00:41,640
+Aquí tenemos una clase
+con varias instancias.
+
+8
+00:00:41,920 --> 00:00:47,200
+Para compartir estado, estas instancias
+requieren un objeto común.
+
+9
+00:00:47,720 --> 00:00:53,920
+En Java, usamos una variable de "instancia"
+con el keyword "static".
+
+10
+00:00:55,160 --> 00:00:58,240
+El valor de una variable estática
+
+11
+00:00:58,680 --> 00:01:00,720
+es el mismo para todas las instancias.
+
+12
+00:01:01,640 --> 00:01:04,640
+En Pharo, usamos "variables de clase".
+
+13
+00:01:06,200 --> 00:01:11,120
+Esta debería ser una expresión familiar
+que nos permite crear clases.
+
+14
+00:01:11,480 --> 00:01:15,640
+Aquí creamos la clase "Color",
+que es una subclase de "Object".
+
+15
+00:01:15,800 --> 00:01:21,600
+Primero, enumeramos sus variables de instancia,
+echemos un vistazo a la siguiente línea.
+
+16
+00:01:21,920 --> 00:01:25,480
+Enumera las variables de clase
+de la clase Color.
+
+17
+00:01:26,640 --> 00:01:32,200
+La clase "Color" tiene al menos dos variables,
+ColorRegistry y ComponentMask.
+
+18
+00:01:32,720 --> 00:01:34,440
+Los valores de una variable de clase
+
+19
+00:01:34,680 --> 00:01:39,400
+se comparten entre todas las instancias
+de la clase y las subclases.
+
+20
+00:01:40,480 --> 00:01:46,600
+Estas variables son accesibles
+desde métodos de instancia y clase.
+
+21
+00:01:47,480 --> 00:01:49,920
+Comienzan con una letra mayúscula.
+
+22
+00:01:50,520 --> 00:01:52,840
+Volvamos a nuestro ejemplo.
+
+23
+00:01:53,320 --> 00:01:55,600
+Aquí tenemos nuestra clase "Color",
+
+24
+00:01:55,920 --> 00:01:59,520
+que es una instancia
+de la metaclase "Color class".
+
+25
+00:02:01,160 --> 00:02:06,760
+La clase Color define
+dos variables estándar, "rgb" y "alpha".
+
+26
+00:02:06,960 --> 00:02:09,720
+Estas variables de instancia son privadas,
+
+27
+00:02:10,760 --> 00:02:16,240
+lo que significa que solo son accesibles
+utilizando los métodos de la clase Color.
+
+28
+00:02:18,440 --> 00:02:24,560
+También define ColorRegistry,
+que está subrayado y en mayúsculas.
+
+29
+00:02:25,240 --> 00:02:28,360
+Esto indica que esta variable
+está compartida.
+
+30
+00:02:29,480 --> 00:02:33,080
+Es una variable de clase que es accesible
+
+31
+00:02:33,600 --> 00:02:39,640
+por los métodos de la clase "Color"
+y los de la clase "Color class".
+
+32
+00:02:40,240 --> 00:02:43,600
+Aquí hay unos ejemplos
+de los usos de esta variable.
+
+33
+00:02:44,000 --> 00:02:48,520
+En un método de instancia,
+"privateBlue" en la clase "Color",
+
+34
+00:02:48,840 --> 00:02:54,320
+accedemos a la variable de clase
+usando su nombre.
+
+35
+00:02:55,360 --> 00:02:59,280
+Del mismo modo, si queremos
+asignarle a esta variable un valor,
+
+36
+00:02:59,640 --> 00:03:03,560
+usamos " := "
+como con cualquier variable.
+
+37
+00:03:03,880 --> 00:03:06,920
+Podemos hacer esto
+en el lado de la instancia o de la clase.
+
+38
+00:03:07,400 --> 00:03:08,480
+Muy a menudo,
+
+39
+00:03:09,000 --> 00:03:14,720
+los valores de estas variables de clase
+se acceden
+
+40
+00:03:15,800 --> 00:03:17,600
+desde los métodos de instancia,
+
+41
+00:03:17,800 --> 00:03:21,680
+y se escriben desde los métodos de clase.
+
+42
+00:03:22,080 --> 00:03:25,960
+Esto es lo que ocurre con mayor frecuencia,
+no es obligatorio.
+
+43
+00:03:28,040 --> 00:03:31,440
+Ahora veamos variables
+de instancia de clases.
+
+44
+00:03:33,320 --> 00:03:34,920
+No es lo mismo.
+
+45
+00:03:35,200 --> 00:03:38,360
+Una clase es un objeto,
+como todo.
+
+46
+00:03:38,520 --> 00:03:41,600
+Como todos los objetos,
+una clase puede tener instancias.
+
+47
+00:03:42,440 --> 00:03:48,560
+La metaclase describe la clase
+y enumera las variables de instancia
+
+48
+00:03:48,760 --> 00:03:52,800
+que solo se puede acceder
+por su única instancia, su clase.
+
+49
+00:03:53,440 --> 00:03:57,840
+Para definir una variable de instancia
+en el lado de la clase,
+
+50
+00:03:58,480 --> 00:04:02,000
+hacemos clic en el botón "class"
+en el navegador de código.
+
+51
+00:04:02,160 --> 00:04:04,400
+Eso nos da la expresión aquí.
+
+52
+00:04:04,560 --> 00:04:07,840
+Entonces, ahora estoy navegando
+la clase RPackageSet.
+
+53
+00:04:08,280 --> 00:04:13,400
+La metaclase de esta clase
+define una variable denominada cachePackages.
+
+54
+00:04:15,440 --> 00:04:19,240
+Estas variables solo se pueden acceder
+de los métodos de clase
+
+55
+00:04:20,280 --> 00:04:24,920
+y siempre comienzan
+con una letra minúscula.
+
+56
+00:04:25,800 --> 00:04:27,240
+Aquí hay un ejemplo.
+
+57
+00:04:27,960 --> 00:04:32,960
+La variable cachePackages se define
+en la metaclase "RPackageSet class".
+
+58
+00:04:35,280 --> 00:04:36,720
+Esto significa que
+
+59
+00:04:37,520 --> 00:04:42,480
+la clase RPackageSet,
+que es una instancia de la metaclase,
+
+60
+00:04:42,640 --> 00:04:45,560
+tiene un valor
+asociado con esta variable.
+
+61
+00:04:46,840 --> 00:04:48,080
+Similarmente,
+
+62
+00:04:49,280 --> 00:04:53,760
+todas las instancias de las subclases
+de la clase RPackageSet
+
+63
+00:04:54,000 --> 00:04:58,600
+tienen un valor específico para esa variable,
+que es un valor diferente.
+
+64
+00:04:58,760 --> 00:05:00,400
+No se puede compartir aquí.
+
+65
+00:05:00,600 --> 00:05:04,920
+Cada instancia de la clase RPackageSet
+o sus subclases
+
+66
+00:05:05,080 --> 00:05:07,600
+tiene su propio valor para esta variable.
+
+67
+00:05:08,040 --> 00:05:14,040
+Las variables de clase y variables de instancia
+en el lado de la clase son cosas diferentes.
+
+68
+00:05:14,200 --> 00:05:17,960
+Explicaremos esto
+usando el patrón de diseño Singleton,
+
+69
+00:05:18,160 --> 00:05:23,240
+cuyo objetivo es garantizar
+que una clase tiene solo una instancia.
+
+70
+00:05:24,800 --> 00:05:29,720
+Una solución para ejecutar este patrón
+es almacenar, dentro de una variable,
+
+71
+00:05:30,920 --> 00:05:36,160
+la instancia que es de libre acceso
+y deshabilitar la creación de una nueva instancia.
+
+72
+00:05:36,920 --> 00:05:39,920
+Eso es lo que haremos aquí
+con WebServer.
+
+73
+00:05:41,040 --> 00:05:45,440
+Aquí utilizamos una variable de instancia
+en el lado de la clase.
+
+74
+00:05:46,760 --> 00:05:48,960
+Su nombre es en minúsculas.
+
+75
+00:05:49,120 --> 00:05:53,200
+Esta variable se define
+en la definición de la metaclase.
+
+76
+00:05:53,760 --> 00:05:56,920
+Ahora deshabilitamos la ejecución
+del método "new".
+
+77
+00:05:57,200 --> 00:06:02,040
+No se pueden enviar mensajes a
+Clase WebServer para crear nuevas instancias.
+
+78
+00:06:02,240 --> 00:06:05,200
+Es imperativo
+ir a través de uniqueInstance,
+
+79
+00:06:05,360 --> 00:06:10,640
+que devuelve el valor de la variable
+si no es nada y tiene contenido,
+
+80
+00:06:11,200 --> 00:06:15,440
+o bien agrega algo
+a la variable usando "super new".
+
+81
+00:06:15,600 --> 00:06:18,840
+Crea una nueva instancia
+de la clase WebServer,
+
+82
+00:06:19,000 --> 00:06:21,960
+y la almacena
+en la variable uniqueInstance.
+
+83
+00:06:22,560 --> 00:06:27,760
+El hecho de que usemos
+variables de instancia de clase
+
+84
+00:06:28,400 --> 00:06:30,480
+conduce al siguiente resultado.
+
+85
+00:06:31,240 --> 00:06:34,000
+Cada subclase de la clase WebServer
+
+86
+00:06:34,520 --> 00:06:36,640
+tendrá su propio valor
+
+87
+00:06:37,240 --> 00:06:39,640
+para una instancia única.
+
+88
+00:06:40,120 --> 00:06:43,040
+Entonces, si WebServer tiene tres subclases,
+
+89
+00:06:43,200 --> 00:06:47,480
+la variable uniqueInstance
+Tendrá un total de cuatro valores.
+
+90
+00:06:47,640 --> 00:06:50,600
+Uno para WebServer y otro para cada subclase.
+
+91
+00:06:51,320 --> 00:06:54,600
+Si ahora usamos una variable de clase,
+
+92
+00:06:55,160 --> 00:07:00,000
+editamos la clase en el lado de la instancia
+
+93
+00:07:00,200 --> 00:07:04,480
+y agregamos UniqueInstance,
+usando una U mayúscula.
+
+94
+00:07:06,720 --> 00:07:11,920
+Nuevamente rechazamos el envío del mensaje "new"
+e implementamos UniqueInstance.
+
+95
+00:07:12,080 --> 00:07:16,200
+La unica diferencia
+es que usamos una U mayúscula.
+
+96
+00:07:18,080 --> 00:07:21,040
+Como resultado de elegir una variable de clase,
+
+97
+00:07:22,120 --> 00:07:25,040
+la jerarquía de clase
+tiene solo un singleton.
+
+98
+00:07:25,240 --> 00:07:27,520
+Si WebServer tiene tres subclases,
+
+99
+00:07:27,680 --> 00:07:32,080
+estas tres subclases y WebServer
+comparten el mismo singleton.
+
+100
+00:07:32,240 --> 00:07:35,680
+Por lo tanto, tenemos una instancia compartida por todos.
+
+101
+00:07:36,640 --> 00:07:38,680
+Ahora para la inicialización de clases.
+
+102
+00:07:38,920 --> 00:07:43,720
+Podemos tener variables compartidas
+entre una clase y sus instancias,
+
+103
+00:07:43,920 --> 00:07:46,960
+pero en algun momento
+debemos darles un valor.
+
+104
+00:07:47,800 --> 00:07:50,400
+Hacemos esto cuando inicializamos la clase.
+
+105
+00:07:50,560 --> 00:07:55,160
+Los objetos se inicializan
+cuando se envía el mensaje "initialize".
+
+106
+00:07:55,320 --> 00:07:59,120
+Del mismo modo, podemos enviar
+el mensaje "initialize" a una clase.
+
+107
+00:07:59,320 --> 00:08:04,240
+Decidimos cómo inicializar variables
+usando el código del método de inicialización.
+
+108
+00:08:05,840 --> 00:08:09,000
+Si queremos inicializar
+la clase Color,
+
+109
+00:08:09,320 --> 00:08:11,840
+le enviamos el mensaje de inicialización.
+
+110
+00:08:12,680 --> 00:08:16,840
+Típicamente, cuando una clase
+se carga en el sistema
+
+111
+00:08:17,160 --> 00:08:19,040
+por la herramienta de control de versiones,
+
+112
+00:08:19,280 --> 00:08:22,520
+el mensaje de inicialización
+se envía a todas las clases.
+
+113
+00:08:22,880 --> 00:08:26,560
+Esto es automático,
+no hay necesidad de enviar el mensaje
+
+114
+00:08:26,920 --> 00:08:28,960
+manualmente a todas las clases cargadas.
+
+115
+00:08:29,120 --> 00:08:31,120
+Pero si implementamos una clase,
+
+116
+00:08:31,320 --> 00:08:35,000
+si creamos una nueva clase
+usando el método "initialize"
+
+117
+00:08:35,400 --> 00:08:37,760
+debemos enviar el mensaje manualmente.
+
+118
+00:08:38,640 --> 00:08:41,280
+Aquí hay un ejemplo en la clase Color.
+
+119
+00:08:41,480 --> 00:08:44,360
+Podemos ver que estamos en el lado de la metaclase.
+
+120
+00:08:44,680 --> 00:08:49,000
+Aquí inicializamos
+varias variables de clase,
+
+121
+00:08:50,320 --> 00:08:53,000
+o variables de instancia en el lado de la clase.
+
+122
+00:08:53,240 --> 00:08:55,960
+Hay de los dos tipos de variables aquí.
+
+123
+00:08:57,800 --> 00:08:59,680
+En los métodos de inicialización,
+
+124
+00:08:59,880 --> 00:09:03,360
+nunca usamos "super initialize"
+en el lado de la clase.
+
+125
+00:09:03,560 --> 00:09:07,880
+Cuando agregamos un método de inicialización
+por el lado de la instancia,
+
+126
+00:09:08,080 --> 00:09:10,920
+nosotros llamamos sistemáticamente "super initialize"
+
+127
+00:09:11,080 --> 00:09:15,320
+para inicializar todas las variables de instancia
+de un objeto recién creado.
+
+128
+00:09:15,520 --> 00:09:16,760
+Pero para las clases,
+
+129
+00:09:16,920 --> 00:09:22,000
+ya que existen clases y superclases
+cuando se envía el mensaje de inicialización,
+
+130
+00:09:22,160 --> 00:09:25,920
+no enviamos "super initialize"
+en el método de inicialización
+
+131
+00:09:26,120 --> 00:09:29,760
+en el lado de la clase
+para evitar reiniciar las clases.
+
+132
+00:09:30,160 --> 00:09:31,680
+Este es el resumen.
+
+133
+00:09:31,880 --> 00:09:35,640
+Utilizamos las variables de clase para compartir estado.
+
+134
+00:09:37,200 --> 00:09:41,000
+Las clases son objetos
+que puede tener sus propias variables,
+
+135
+00:09:41,160 --> 00:09:44,320
+entonces usamos variables de instancia
+en el lado de la clase.
+
+136
+00:09:45,000 --> 00:09:48,680
+Para inicializar una clase,
+le enviamos un mensaje de inicialización
+
+137
+00:09:48,840 --> 00:09:52,200
+y aplicar el método "initialize"
+en el lado de la clase.

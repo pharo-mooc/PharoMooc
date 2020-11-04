@@ -1,0 +1,1068 @@
+1
+00:00:07,740 --> 00:00:10,700
+Bonjour. Dans cette
+séquence, vous allez voir la
+
+2
+00:00:10,900 --> 00:00:13,650
+puissance de Seaside grâce à
+la composition de composants.
+
+3
+00:00:14,950 --> 00:00:16,610
+En fait, on a défini
+des composants qui sont
+
+4
+00:00:16,810 --> 00:00:18,900
+réutilisables et qui
+encapsulent de l'état, et maintenant
+
+5
+00:00:19,100 --> 00:00:21,030
+on va voir comment est-ce
+qu'on est capable de composer
+
+6
+00:00:21,230 --> 00:00:23,690
+ces composants en vue de
+construire des applications complexes.
+
+7
+00:00:24,000 --> 00:00:27,840
+Une application, c'est un
+composant racine, et puis on
+
+8
+00:00:28,040 --> 00:00:31,200
+profite du debuggage, du
+live debugging des applications.
+
+9
+00:00:32,180 --> 00:00:36,030
+On va revenir sur 3
+mécanismes importants pour composer
+
+10
+00:00:36,230 --> 00:00:40,490
+des composants en Seaside. Le
+premier, l'agrégation de composants.
+
+11
+00:00:40,690 --> 00:00:43,700
+Je vous rappelle qu'on avait
+défini 2 Counter, un Counter
+
+12
+00:00:43,900 --> 00:00:48,410
+normal qui ressemblait à ça ici et
+puis un Counter TwitterCounter, ici.
+
+13
+00:00:51,210 --> 00:00:54,780
+Comment est-ce que je
+pourrais maintenant agréger un
+
+14
+00:00:55,000 --> 00:00:58,470
+composant au Counter en vue de
+construire une application multiCounter?
+
+15
+00:00:58,670 --> 00:01:00,290
+En fait, je voudrais
+afficher plein de Counter sur une
+
+16
+00:01:00,490 --> 00:01:03,590
+page et puis quand je clique
+sur ce + là par exemple, que
+
+17
+00:01:03,790 --> 00:01:06,660
+ça incrémente la valeur de
+ce Counter et pas d'un autre.
+
+18
+00:01:06,960 --> 00:01:10,550
+Donc, agréger comme ça plein de
+composants sur une même page facilement.
+
+19
+00:01:11,460 --> 00:01:12,710
+Comment est-ce
+qu'on fait en Seaside?
+
+20
+00:01:12,910 --> 00:01:13,670
+C'est extrêmement simple.
+
+21
+00:01:14,350 --> 00:01:16,100
+Je vais définir une sous
+ classe de composants, toujours
+
+22
+00:01:16,300 --> 00:01:18,670
+pareil, qui s'appelle WAMultiCounter.
+
+23
+00:01:20,030 --> 00:01:23,260
+Une variable d'instances, Counter, qui
+va définir une collection de Counter.
+
+24
+00:01:23,460 --> 00:01:28,230
+Dans la méthode initialize, je vais
+créer une collection de 5 Counter ici.
+
+25
+00:01:30,750 --> 00:01:35,240
+Et puis, je vais avoir la
+méthode renderContentOn ici où
+
+26
+00:01:35,440 --> 00:01:38,400
+je vais parcourir ma
+collection de Counter avec un do, et
+
+27
+00:01:39,170 --> 00:01:44,000
+je vais demander à l'objet
+HTML de rendre chacun des
+
+28
+00:01:44,200 --> 00:01:46,570
+Counter, donc j'utilise une
+méthode particulière ici qui est render.
+
+29
+00:01:47,310 --> 00:01:51,950
+Cette méthode render de
+l'objet HTML permet de
+
+30
+00:01:52,150 --> 00:01:54,920
+demander à un composant de se
+rendre, de se dessiner, en HTML.
+
+31
+00:01:55,870 --> 00:01:57,740
+Et on a une méthode
+importante ici qui s'appelle
+
+32
+00:01:57,940 --> 00:02:01,420
+children, c'est-à-dire
+qu'un composant, lorsqu'il
+
+33
+00:02:01,620 --> 00:02:03,910
+encapsule d'autres
+composants et qu'il leur demande de se
+
+34
+00:02:04,110 --> 00:02:06,610
+rendre dans sa méthode
+renderContentOn, il doit les déclarer.
+
+35
+00:02:07,140 --> 00:02:10,180
+Et pour les déclarer il
+doit rendre une collection de
+
+36
+00:02:10,380 --> 00:02:13,100
+composants dans sa méthode
+children, qui contient tous
+
+37
+00:02:13,300 --> 00:02:15,900
+les composants qu'il va
+rendre, tous ses enfants en fait.
+
+38
+00:02:16,100 --> 00:02:18,080
+Ici, je rends bien
+la collection counter.
+
+39
+00:02:19,250 --> 00:02:20,720
+C'est une méthode
+importante à définir.
+
+40
+00:02:23,120 --> 00:02:25,720
+Les règles de base pour
+agréger des composants, pour
+
+41
+00:02:25,920 --> 00:02:27,340
+composer des
+composants, c'est facile.
+
+42
+00:02:28,790 --> 00:02:31,360
+Un composant va stocker
+ces sous-composants dans une
+
+43
+00:02:31,560 --> 00:02:34,190
+variable d'instances, dans
+notre exemple c'était counters.
+
+44
+00:02:34,390 --> 00:02:38,010
+Ensuite, il va
+envoyer le message render
+
+45
+00:02:42,010 --> 00:02:44,590
+dans sa méthode render
+content on aux paramètres HTML en
+
+46
+00:02:44,790 --> 00:02:46,520
+demandant à chacun de
+ses enfants de se rendre.
+
+47
+00:02:47,590 --> 00:02:49,830
+Et puis, il va redéfinir
+la méthode children pour
+
+48
+00:02:50,030 --> 00:02:51,380
+déclarer l'ensemble de
+ces sous- composants.
+
+49
+00:02:51,580 --> 00:02:54,340
+Il y a toujours ces 3 volets-là.
+
+50
+00:02:58,080 --> 00:03:00,400
+On peut aussi agréger des
+sous-composants différents, on
+
+51
+00:03:00,600 --> 00:03:02,490
+n'est pas obligé d'agréger
+des composants du même type.
+
+52
+00:03:02,690 --> 00:03:05,610
+Là, je n'avais agrégé que
+des Counter et maintenant on va
+
+53
+00:03:05,810 --> 00:03:09,350
+avoir un composant MyApp.
+
+54
+00:03:10,160 --> 00:03:12,530
+Dans la méthode initialize
+ici, c'est une collection,
+
+55
+00:03:12,750 --> 00:03:16,100
+sauf que dans cette collection de
+composants j'ai mis l'application
+
+56
+00:03:16,300 --> 00:03:18,240
+greeter qu'on avait mise dans
+une séquence précédente qu'on
+
+57
+00:03:18,440 --> 00:03:22,240
+avait vue, un TwitterCounter et
+un Counter, donc 3 composants.
+
+58
+00:03:22,890 --> 00:03:27,000
+Ma méthode children rend
+bien tous les children, tous les
+
+59
+00:03:27,200 --> 00:03:28,360
+sous-composants de
+ce composant-là MyApp.
+
+60
+00:03:29,470 --> 00:03:32,840
+Et dans renderContentOn, je
+vais bien parcourir l'ensemble
+
+61
+00:03:33,040 --> 00:03:36,200
+de mes enfants et
+demander à ce qu'ils se rendent.
+
+62
+00:03:36,400 --> 00:03:40,460
+Donc faire HTML render each,
+je vais faire HTML render du
+
+63
+00:03:40,660 --> 00:03:42,720
+greeter, du
+TwitterCounter et du Counter.
+
+64
+00:03:43,760 --> 00:03:44,620
+Voyons ce que ça donne.
+
+65
+00:03:45,210 --> 00:03:48,900
+Ici on a bien le composant
+greeter qui s'est affiché sur
+
+66
+00:03:49,100 --> 00:03:52,510
+la page Web, on a le
+Twittercounter qui s'est affiché ici
+
+67
+00:03:53,130 --> 00:03:55,330
+et on a le Counter
+normal qui s'est affiché ici.
+
+68
+00:03:55,530 --> 00:03:58,700
+On a bien composé des composants et
+ils fonctionnent tous indépendamment.
+
+69
+00:03:58,900 --> 00:04:01,420
+Si je clique sur les +,
+les say hello et caetera, les
+
+70
+00:04:01,620 --> 00:04:02,690
+composants fonctionnent parfaitement.
+
+71
+00:04:05,140 --> 00:04:07,310
+Maintenant si on veut
+aller encore un petit cran plus
+
+72
+00:04:07,510 --> 00:04:10,390
+loin, on ne voudrait pas
+afficher tous les composants d'un
+
+73
+00:04:10,590 --> 00:04:13,250
+coup sur la page Web, on
+voudrait qu'il n'y en ait qu'un
+
+74
+00:04:13,450 --> 00:04:15,110
+qui s'affiche à l'instant
+T et afficher un menu par
+
+75
+00:04:15,310 --> 00:04:17,340
+exemple pour sectionner quels
+sous-composants on veut afficher.
+
+76
+00:04:17,830 --> 00:04:20,090
+Typiquement, je voudrais
+afficher juste le greeter et
+
+77
+00:04:20,290 --> 00:04:22,730
+quand je clique sur
+TwitterCounter ici, je ne vais
+
+78
+00:04:22,930 --> 00:04:25,010
+afficher que le
+TwitterCounter dessous.
+
+79
+00:04:26,460 --> 00:04:27,720
+Comment faire cette application ?
+
+80
+00:04:27,940 --> 00:04:30,590
+C'est facile, je vais
+rajouter une variable d'instances
+
+81
+00:04:30,790 --> 00:04:33,630
+dans mon application MyApp
+qui va s'appeler le composant
+
+82
+00:04:33,830 --> 00:04:35,850
+sélectionné, quel est
+l'enfant qui a été sélectionné, par
+
+83
+00:04:36,050 --> 00:04:39,720
+défaut je vais
+l'initialiser au premier sous-composant.
+
+84
+00:04:39,920 --> 00:04:44,200
+Dans ma méthode
+renderContentOn ici, je l'ai modifié.
+
+85
+00:04:44,540 --> 00:04:48,180
+Je vais afficher un menu qui
+va me donner la possibilité
+
+86
+00:04:48,380 --> 00:04:49,610
+de sélectionner quel
+sous-composant je vais afficher.
+
+87
+00:04:50,930 --> 00:04:53,660
+Et puis, je vais faire
+HTML render mais seulement du
+
+88
+00:04:53,860 --> 00:04:55,780
+sous-composant que je veux
+afficher tout simplement.
+
+89
+00:04:56,780 --> 00:05:00,040
+Et dans le menu, je vais
+générer ici une liste en
+
+90
+00:05:00,240 --> 00:05:03,100
+ordonnées, je vais
+parcourir l'ensemble de mes
+
+91
+00:05:03,300 --> 00:05:06,560
+sous-composants avec un index, ici i.
+
+92
+00:05:08,290 --> 00:05:11,410
+Et je vais générer un élément
+de liste pour chacun des enfants.
+
+93
+00:05:11,710 --> 00:05:14,940
+Donc ici je vais générer
+une ancre, c'est un lien
+
+94
+00:05:15,140 --> 00:05:18,450
+cliquable et quand je clique
+sur ce lien ça va déclencher
+
+95
+00:05:18,650 --> 00:05:23,530
+le callBack,
+l'exécution de ce bloc ici donc on
+
+96
+00:05:23,730 --> 00:05:28,450
+va dire que le composant
+sélectionné par l'utilisateur, c'est
+
+97
+00:05:29,380 --> 00:05:32,400
+l'enfant numéro, donc self
+children, je rappelle que c'était
+
+98
+00:05:32,600 --> 00:05:34,590
+une collection, at i.
+
+99
+00:05:35,340 --> 00:05:39,910
+Et i ici, ce n'est ni
+plus ni moins que le
+
+100
+00:05:40,110 --> 00:05:42,700
+numéro de l'élément dans
+la collection children.
+
+101
+00:05:45,450 --> 00:05:49,130
+Il est extrêmement facile de
+pouvoir parcourir l'ensemble
+
+102
+00:05:49,330 --> 00:05:51,350
+des sous-composants et de
+générer spécifiquement ce qu'on
+
+103
+00:05:51,550 --> 00:05:53,330
+veut, de contrôler
+complètement qui doit s'afficher et
+
+104
+00:05:53,530 --> 00:05:54,290
+qui ne doit pas s'afficher.
+
+105
+00:05:56,350 --> 00:05:59,000
+On va avoir un deuxième mécanisme de
+composition qui est le call answer.
+
+106
+00:06:00,100 --> 00:06:02,620
+On a vu la composition
+de composants avec les
+
+107
+00:06:02,820 --> 00:06:04,650
+sous-composants et maintenant on
+va voir le mécanisme call answer.
+
+108
+00:06:07,940 --> 00:06:11,230
+Dans le code du composant
+A, on va écrire quelque chose
+
+109
+00:06:11,430 --> 00:06:15,940
+qui ressemble à ce code
+ici, on va dire "Composant A
+
+110
+00:06:16,140 --> 00:06:18,750
+appelle composant
+B, call composant B.
+
+111
+00:06:19,380 --> 00:06:23,490
+" Le composant B va masquer
+le composant A sur la page
+
+112
+00:06:23,690 --> 00:06:25,740
+Web, il va réaliser un traitement.
+
+113
+00:06:26,330 --> 00:06:28,390
+Et à un moment donné, le
+composant B va dire "J'ai fini
+
+114
+00:06:28,590 --> 00:06:31,420
+mon traitement donc je vais faire
+answer et je vais rendre un résultat.
+
+115
+00:06:31,620 --> 00:06:32,810
+" Le résultat c'est une étoile.
+
+116
+00:06:34,100 --> 00:06:36,160
+Ce résultat va être stocké
+dans X à la place du call
+
+117
+00:06:39,330 --> 00:06:40,090
+composant B.
+
+118
+00:06:40,360 --> 00:06:42,510
+Et maintenant, le composant A
+va se réafficher sur la page Web.
+
+119
+00:06:43,510 --> 00:06:46,380
+Et le composant A va pouvoir utiliser
+ce résultat pour faire quelque chose.
+
+120
+00:06:47,000 --> 00:06:47,880
+Je vous montre un exemple.
+
+121
+00:06:48,300 --> 00:06:52,200
+Ici, on a un premier
+composant qui était le Counter, on
+
+122
+00:06:52,400 --> 00:06:55,790
+lui a rajouté un bouton ici,
+set value, et on imagine que
+
+123
+00:06:56,000 --> 00:06:57,950
+set value ça offre la
+possibilité à l'utilisateur de
+
+124
+00:06:58,150 --> 00:06:59,330
+rentrer une nouvelle
+valeur pour le Counter.
+
+125
+00:06:59,750 --> 00:07:01,500
+Quand on clique sur ce
+bouton set value, il y a un
+
+126
+00:07:01,700 --> 00:07:05,110
+nouveau composant ici qui
+est affiché, c'était un peu
+
+127
+00:07:05,310 --> 00:07:07,510
+comme le composant gritter
+qu'on avait vu avant, on peut
+
+128
+00:07:07,710 --> 00:07:09,680
+rentrer une nouvelle valeur
+pour le Counter, cliquer sur
+
+129
+00:07:09,880 --> 00:07:12,000
+le bouton OK, et quand je
+clique sur le bouton OK ça
+
+130
+00:07:12,200 --> 00:07:15,240
+revient à notre composant
+compteur mais avec la valeur
+
+131
+00:07:15,440 --> 00:07:17,230
+ici qui avait été rentrée
+par l'utilisateur au début.
+
+132
+00:07:20,030 --> 00:07:21,740
+On a bien un enchaînement
+de plusieurs composants.
+
+133
+00:07:23,210 --> 00:07:25,100
+Comment est-ce que c'est implémenté ?
+
+134
+00:07:25,300 --> 00:07:28,250
+On a notre composant
+TwitterCounter qui a sa méthode renderContentOn.
+
+135
+00:07:29,470 --> 00:07:32,600
+Dans sa méthode
+renderContentOn, on va rajouter un
+
+136
+00:07:32,800 --> 00:07:37,040
+bouton, un Tbsbutton, ce
+bouton s'appelle set value ici.
+
+137
+00:07:37,520 --> 00:07:40,390
+Quand on clique sur ce
+bouton c'est ce callBack qui va
+
+138
+00:07:40,590 --> 00:07:44,590
+être exécuté, donc c'est la
+méthode set count to user value.
+
+139
+00:07:44,790 --> 00:07:46,240
+SetCountToUserValue est défini ici.
+
+140
+00:07:47,120 --> 00:07:49,880
+On va préparer ici
+une boîte de dialogue.
+
+141
+00:07:50,590 --> 00:07:52,610
+On va utiliser un autre
+composant qui est offert par
+
+142
+00:07:52,810 --> 00:07:56,050
+Seaside qui est une boîte de
+dialogue qu'on va paramétrer ici.
+
+143
+00:07:56,280 --> 00:07:58,380
+On l'instancie, on la
+paramètre avec entrer une nouvelle
+
+144
+00:07:58,580 --> 00:08:00,820
+valeur pour le compteur,
+par défaut c'est égal à 0.
+
+145
+00:08:01,020 --> 00:08:01,780
+Et puis, il y aura un bouton OK.
+
+146
+00:08:04,490 --> 00:08:06,390
+L'élément extrêmement
+intéressant, c'est cette ligne-là ici.
+
+147
+00:08:06,590 --> 00:08:08,500
+On va dire "Composant
+
+148
+00:08:11,710 --> 00:08:16,660
+courant, donc self, c'est
+le TwitterCounter, appelle
+
+149
+00:08:17,110 --> 00:08:22,000
+la boîte de dialogue qu'on
+vient de créer et rends-moi le
+
+150
+00:08:22,200 --> 00:08:24,000
+résultat", et le résultat ça
+sera la nouvelle valeur du Counter.
+
+151
+00:08:24,610 --> 00:08:28,690
+Et ensuite quand on a fini
+ici, on va dire "Count, la
+
+152
+00:08:28,890 --> 00:08:31,340
+valeur du counter, prends
+cette nouvelle valeur qui a été
+
+153
+00:08:31,540 --> 00:08:33,340
+entrée par l'utilisateur
+convertie sous la forme d'un
+
+154
+00:08:33,540 --> 00:08:36,580
+nombre", tout simplement.
+
+155
+00:08:36,780 --> 00:08:38,420
+En interne, on peut
+regarder comment fonctionne cette
+
+156
+00:08:38,620 --> 00:08:41,430
+boîte de dialogue
+WAInputDialog. En fait, c'est un
+
+157
+00:08:41,630 --> 00:08:44,460
+composant Seaside
+réutilisable tout à fait classique,
+
+158
+00:08:45,000 --> 00:08:49,280
+sauf qu'il a une
+particularité, il va utiliser la méthode
+
+159
+00:08:49,480 --> 00:08:51,300
+answer pour renvoyer un résultat.
+
+160
+00:08:52,370 --> 00:08:55,380
+En fait si on regarde sa
+méthode render content on à ce
+
+161
+00:08:55,580 --> 00:09:00,220
+composant-là, quand on
+clique sur son bouton OK, donc
+
+162
+00:09:00,420 --> 00:09:03,650
+ici son submitButton, il y
+a bien un callBack avec un
+
+163
+00:09:03,850 --> 00:09:08,480
+block, et dans son
+callBack il va faire self
+
+164
+00:09:08,680 --> 00:09:12,770
+answer value. Ça veut dire que ça
+
+165
+00:09:13,470 --> 00:09:17,460
+va renvoyer les résultats au
+composant qui avait fait un call sur lui.
+
+166
+00:09:18,800 --> 00:09:22,110
+Ça va vraiment revenir à
+l'endroit où le call avait été
+
+167
+00:09:22,310 --> 00:09:26,050
+fait et renvoyer le résultat.
+
+168
+00:09:26,250 --> 00:09:28,160
+On a vu le mécanisme call
+answer, maintenant on va voir
+
+169
+00:09:28,360 --> 00:09:30,950
+un dernier mécanisme de
+composition de composants qui est
+
+170
+00:09:31,150 --> 00:09:32,580
+celui des tâches, des tasks.
+
+171
+00:09:34,230 --> 00:09:36,180
+En fait c'est très simple,
+les tâches c'est comme des
+
+172
+00:09:36,380 --> 00:09:38,000
+composants, sauf qu'il n'y
+a pas de partie graphique,
+
+173
+00:09:38,200 --> 00:09:40,940
+donc il n'y aura pas de méthode
+renderContentOn, pas de génération de HTML.
+
+174
+00:09:41,220 --> 00:09:44,830
+L'idée, c'est vraiment de
+venir orchestrer, de venir
+
+175
+00:09:45,590 --> 00:09:48,550
+décrire comment des
+composants doivent s'exécuter dans le
+
+176
+00:09:48,750 --> 00:09:50,630
+temps: d'abord ce
+composant-là fera ça et ensuite
+
+177
+00:09:50,830 --> 00:09:54,300
+celui-là, et cetera, en utilisant
+des call answers cachés derrière.
+
+178
+00:09:56,450 --> 00:09:59,530
+On va définir une tâche qui
+s'appelle un adder et puis
+
+179
+00:09:59,730 --> 00:10:01,390
+toutes les tâches ont une
+méthode qui s'appelle go.
+
+180
+00:10:02,690 --> 00:10:06,810
+Ici par exemple dans cette
+tâche, on va demander à l'utilisateur
+
+181
+00:10:07,010 --> 00:10:08,850
+de rentrer un nombre,
+donc self request number 1.
+
+182
+00:10:09,170 --> 00:10:12,010
+Ensuite, on va lui
+demander de rentrer un deuxième
+
+183
+00:10:12,210 --> 00:10:13,000
+nombre, self request number 2.
+
+184
+00:10:13,650 --> 00:10:18,450
+Et ensuite, on va l'informer
+d'une valeur qui est l'addition
+
+185
+00:10:18,650 --> 00:10:20,570
+de ces 2 nombres ici.
+
+186
+00:10:20,770 --> 00:10:24,030
+A la dernière ligne, on
+enregistre ce composant comme une
+
+187
+00:10:24,230 --> 00:10:28,000
+application Web classique pour
+pouvoir y accéder avec un navigateur.
+
+188
+00:10:30,300 --> 00:10:33,520
+Si on regarde en interne,
+la méthode request comment
+
+189
+00:10:33,720 --> 00:10:34,480
+est-ce qu'elle est implémentée ?
+
+190
+00:10:34,930 --> 00:10:39,770
+La méthode request in
+fine utilise en interne call
+
+191
+00:10:40,540 --> 00:10:44,480
+et answer. Si on revient à
+l'exemple précédent, on voit
+
+192
+00:10:44,680 --> 00:10:47,250
+bien qu'au moment où on a
+fait request ici à l'intérieur,
+
+193
+00:10:47,920 --> 00:10:50,910
+ça revient à appeler un
+autre composant et pas n'importe
+
+194
+00:10:51,110 --> 00:10:53,050
+lequel, le composant
+WAInputDialog, à afficher les
+
+195
+00:10:55,500 --> 00:10:57,670
+chaînes de caractères qui
+vont bien et puis ce composant
+
+196
+00:10:57,870 --> 00:10:59,710
+va rendre le résultat à
+celui qui l'avait appelé.
+
+197
+00:11:00,190 --> 00:11:01,740
+En l'occurrence qui
+est-ce qui l'avait appelé?
+
+198
+00:11:02,220 --> 00:11:03,080
+Notre composant adder.
+
+199
+00:11:03,280 --> 00:11:05,600
+Donc, il va bien
+récupérer une valeur dans value 1.
+
+200
+00:11:06,710 --> 00:11:08,030
+La même chose pour value 2.
+
+201
+00:11:08,370 --> 00:11:12,330
+Et ensuite, si on regarde
+dans le in form, comment est-ce
+
+202
+00:11:12,530 --> 00:11:13,290
+qu'il est implémenté ?
+
+203
+00:11:13,700 --> 00:11:16,440
+Lui aussi utilise un call
+answer mais sur un autre type
+
+204
+00:11:16,640 --> 00:11:18,950
+de composant qui est informDialog.
+
+205
+00:11:20,010 --> 00:11:23,400
+Ici on fait self
+callFormDialog; donc on va afficher une
+
+206
+00:11:23,600 --> 00:11:25,280
+chaîne des caractères à
+l'utilisateur avec un bouton OK
+
+207
+00:11:25,480 --> 00:11:29,130
+pour dire "OK, il a bien
+vu la chaîne de caractères.
+
+208
+00:11:29,330 --> 00:11:30,090
+"
+
+209
+00:11:30,290 --> 00:11:32,040
+Ce qui était important à
+retenir dans toutes ces formes
+
+210
+00:11:32,240 --> 00:11:35,730
+de compositions, c'est qu'on
+n'a jamais parlé de requêtes
+
+211
+00:11:36,310 --> 00:11:40,320
+http, d'URL, de découpage
+d'URL, de paramètres, on n'a
+
+212
+00:11:40,520 --> 00:11:42,500
+pas parlé de routage de requêtes.
+
+213
+00:11:43,140 --> 00:11:46,070
+On n'a pas non plus fixé
+des liens vers des pages
+
+214
+00:11:46,270 --> 00:11:50,000
+suivantes, et cetera, on a
+uniquement parlé de composants
+
+215
+00:11:50,410 --> 00:11:52,790
+qui ont de l'état,
+qu'on va pouvoir composer.
+
+216
+00:11:53,000 --> 00:11:56,060
+Il y a 3 formes de
+compositions: un composant peut
+
+217
+00:11:56,260 --> 00:11:58,500
+encapsuler d'autres
+composants, un composant peut appeler
+
+218
+00:11:58,700 --> 00:12:01,030
+un autre composant, et puis
+on peut définir des workflow,
+
+219
+00:12:01,450 --> 00:12:04,920
+des enchaînements de composants en
+Seaside, ce qui est extrêmement puissant.
+
+220
+00:12:05,220 --> 00:12:06,930
+Et tout ça avec la
+possibilité de le debugger en live.
+

@@ -1,0 +1,323 @@
+WEBVTT
+
+00:00:00.520 --> 00:00:04.760 align:middle
+Hoy vamos a revisar
+algo más que ya has aprendido
+
+00:00:04.920 --> 00:00:06.880 align:middle
+para realmente llevarlo a casa.
+
+00:00:07.040 --> 00:00:12.000 align:middle
+El tema es la diferencia entre
+Arreglos literales y dinámicos.
+
+00:00:13.080 --> 00:00:15.000 align:middle
+Lo que aprenderá es que:
+
+00:00:15.160 --> 00:00:18.160 align:middle
+Las matrices literales no se crean
+mediante el envío de mensajes,
+
+00:00:18.320 --> 00:00:23.560 align:middle
+se crean mensajes dinámicos
+en tiempo de ejecución usando mensajes,
+
+00:00:23.720 --> 00:00:26.600 align:middle
+pero ambas son instancias
+de la clase de array.
+
+00:00:26.760 --> 00:00:29.560 align:middle
+Son simplemente dos métodos
+para crear matrices.
+
+00:00:30.000 --> 00:00:31.440 align:middle
+Si tu recuerdas,
+
+00:00:31.600 --> 00:00:36.080 align:middle
+para crear una matriz literal,
+usamos la sintaxis # (
+
+00:00:36.240 --> 00:00:40.280 align:middle
+y en el medio,
+Puedo poner cualquier objeto en forma textual.
+
+00:00:40.440 --> 00:00:43.600 align:middle
+En este caso, el número entero 45,
+la cuerda 'milou'
+
+00:00:44.000 --> 00:00:46.600 align:middle
+el número 1300, el booleano verdadero,
+
+00:00:46.760 --> 00:00:48.760 align:middle
+y el símbolo #tintin.
+
+00:00:49.600 --> 00:00:53.680 align:middle
+Si le pregunto a este objeto literal
+para su clase,
+
+00:00:53.840 --> 00:00:56.600 align:middle
+el valor de retorno
+es una instancia de Array.
+
+00:00:56.960 --> 00:00:59.760 align:middle
+La versión dinámica
+
+00:00:59.920 --> 00:01:03.440 align:middle
+de esta matriz literal, está aquí mismo.
+
+00:01:03.720 --> 00:01:07.160 align:middle
+Entonces para crear una matriz dinámica,
+Tomo la clase de array,
+
+00:01:07.320 --> 00:01:11.160 align:middle
+Creo una instancia
+usando el método "con-con-con-con".
+
+00:01:11.320 --> 00:01:14.160 align:middle
+Lo envío con todos estos valores
+
+00:01:14.320 --> 00:01:18.480 align:middle
+y crea una instancia de clase de matriz
+igual a la anterior.
+
+00:01:18.640 --> 00:01:21.720 align:middle
+Es solo dos maneras diferentes
+de crear objetos
+
+00:01:22.640 --> 00:01:25.600 align:middle
+Esta es otra versión
+de la matriz dinámica.
+
+00:01:25.760 --> 00:01:29.200 align:middle
+Podría haber creado un array manualmente
+
+00:01:29.360 --> 00:01:32.480 align:middle
+enviando el mensaje "nuevo"
+a la clase de array.
+
+00:01:32.640 --> 00:01:37.200 align:middle
+Entonces habría usado "at" y "put"
+para completar la matriz,
+
+00:01:37.360 --> 00:01:38.880 align:middle
+y luego devuelve la matriz.
+
+00:01:39.040 --> 00:01:42.240 align:middle
+Esta es otra forma de crear
+una matriz dinámica
+
+00:01:42.560 --> 00:01:46.960 align:middle
+Pero también tenemos una sintaxis específica
+llamado azúcar sintáctico,
+
+00:01:47.120 --> 00:01:49.320 align:middle
+que está hecho con llaves.
+
+00:01:49.880 --> 00:01:50.880 align:middle
+¿Bueno?
+
+00:01:51.040 --> 00:01:55.880 align:middle
+Estas llaves me permiten escribir
+exactamente lo que escribí arriba,
+
+00:01:56.040 --> 00:01:59.320 align:middle
+solo más rápido y más conciso.
+
+00:02:00.120 --> 00:02:01.800 align:middle
+Pero es lo mismo.
+
+00:02:02.080 --> 00:02:05.440 align:middle
+Esto significa que usaré aparatos ortopédicos
+
+00:02:05.600 --> 00:02:08.680 align:middle
+y poner un conjunto de expresiones
+separados por puntos,
+
+00:02:08.840 --> 00:02:11.520 align:middle
+que se evaluará
+para crear la colección.
+
+00:02:11.680 --> 00:02:13.360 align:middle
+La gran diferencia
+
+00:02:13.520 --> 00:02:16.000 align:middle
+entre una matriz literal
+
+00:02:16.160 --> 00:02:20.920 align:middle
+y una matriz
+creado dinámicamente con llaves ...
+
+00:02:21.080 --> 00:02:24.280 align:middle
+Si tomo la expresión ...
+
+00:02:24.440 --> 00:02:28.160 align:middle
+Aquí hay un ejemplo:tomo una variable
+e inicialízalo a las 12.
+
+00:02:28.320 --> 00:02:33.640 align:middle
+Quiero crear una matriz.
+Como es una matriz literal, uso # (
+
+00:02:33.800 --> 00:02:36.240 align:middle
+y agrego 'a + 1.13'
+
+00:02:36.400 --> 00:02:38.320 align:middle
+y devuelve esta matriz.
+
+00:02:38.720 --> 00:02:42.160 align:middle
+Es una matriz que contendrá
+los símbolos a y +,
+
+00:02:42.320 --> 00:02:45.520 align:middle
+entero 1, símbolo y entero 13.
+
+00:02:45.680 --> 00:02:48.480 align:middle
+Hago lo mismo aquí
+con una matriz dinámica.
+
+00:02:48.640 --> 00:02:50.120 align:middle
+a = 12
+
+00:02:50.480 --> 00:02:53.000 align:middle
+llaves a + 1. 13
+
+00:02:53.160 --> 00:02:56.120 align:middle
+y obtengo una matriz con 2 elementos:
+
+00:02:56.520 --> 00:02:58.000 align:middle
+13 y 13.
+
+00:02:58.240 --> 00:02:59.240 align:middle
+¿Por qué?
+
+00:02:59.400 --> 00:03:03.600 align:middle
+Porque a + 1
+fue evaluado como una expresión.
+
+00:03:03.760 --> 00:03:06.600 align:middle
+a = 12 + 1. 13
+
+00:03:06.760 --> 00:03:10.240 align:middle
+Cada expresión separada por un punto
+fue evaluado
+
+00:03:10.400 --> 00:03:12.120 align:middle
+antes de crear una matriz.
+
+00:03:12.880 --> 00:03:15.880 align:middle
+Entonces la diferencia importante
+está aquí mismo:
+
+00:03:16.040 --> 00:03:18.600 align:middle
+Cuando uso frenillos,
+ejecuta expresiones,
+
+00:03:18.760 --> 00:03:22.240 align:middle
+sin embargo cuando uso # (
+para crear una matriz literal,
+
+00:03:22.400 --> 00:03:25.760 align:middle
+las expresiones literales
+no se ejecutan
+
+00:03:25.920 --> 00:03:27.200 align:middle
+Por qué no?
+
+00:03:28.040 --> 00:03:32.720 align:middle
+Porque es el compilador lo que
+crear la matriz
+
+00:03:32.880 --> 00:03:34.880 align:middle
+en el caso de una matriz literal.
+
+00:03:35.200 --> 00:03:39.080 align:middle
+Aquí está otro
+un ejemplo algo más complicado.
+
+00:03:39.240 --> 00:03:41.360 align:middle
+Empiezo con # (
+
+00:03:41.520 --> 00:03:44.760 align:middle
+y reutilizo paréntesis dentro.
+Entonces, este es un punto.
+
+00:03:44.920 --> 00:03:48.800 align:middle
+Y reutilizo paréntesis
+para producir una matriz literal anidada.
+
+00:03:48.960 --> 00:03:53.760 align:middle
+Vemos que nada se interpretó
+en esta matriz literal,
+
+00:03:53.920 --> 00:03:57.440 align:middle
+porque fue creado
+en compilación por el compilador.
+
+00:03:57.600 --> 00:04:02.160 align:middle
+Entonces tenemos una matriz
+que contiene matrices anidadas.
+
+00:04:02.560 --> 00:04:04.440 align:middle
+Puedes verlos aquí.
+
+00:04:06.520 --> 00:04:09.240 align:middle
+La primera matriz anidada contiene 10,
+
+00:04:09.400 --> 00:04:13.920 align:middle
+el símbolo @, el número entero 20, etc.
+
+00:04:14.080 --> 00:04:17.680 align:middle
+Para darle prueba:
+Si pido el elemento 1 de esta matriz,
+
+00:04:17.840 --> 00:04:19.560 align:middle
+Obtengo una matriz
+
+00:04:20.160 --> 00:04:23.000 align:middle
+Cada vez que pongo paréntesis
+en una matriz literal,
+
+00:04:23.160 --> 00:04:25.200 align:middle
+crea matrices anidadas.
+
+00:04:26.240 --> 00:04:28.120 align:middle
+¿Qué es importante recordar?
+
+00:04:28.280 --> 00:04:31.800 align:middle
+es que tenemos
+un solo tipo de matriz en Pharo:
+
+00:04:31.960 --> 00:04:34.400 align:middle
+La clase de matriz y sus instancias.
+
+00:04:34.560 --> 00:04:38.440 align:middle
+Pero hay varias formas
+para obtener instancias y crear matrices.
+
+00:04:38.600 --> 00:04:42.520 align:middle
+La primera forma es la sintaxis literal:
+# (
+
+00:04:42.680 --> 00:04:47.000 align:middle
+Tenga cuidado, se crean arrays.
+por el compilador en tiempo de compilación.
+
+00:04:47.240 --> 00:04:50.000 align:middle
+Tenemos la forma dinámica simple:
+Array nuevo.
+
+00:04:50.160 --> 00:04:53.160 align:middle
+Envío el mensaje "nuevo
+a la clase de array.
+
+00:04:53.320 --> 00:04:57.920 align:middle
+Y tenemos otro más
+método dinámico sintácticamente compacto
+
+00:04:58.080 --> 00:05:02.880 align:middle
+con llaves antes y después,
+y expresiones separadas por puntos
+
+00:05:03.040 --> 00:05:05.720 align:middle
+que se evalúan para crear una matriz.
+

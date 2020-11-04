@@ -1,0 +1,441 @@
+WEBVTT
+
+00:00:00.720 --> 00:00:05.880 align:middle
+Hello, this video will explain
+an important feature of Pharo,
+
+00:00:06.080 --> 00:00:07.920 align:middle
+the doesNotUnderstand hook.
+
+00:00:08.080 --> 00:00:13.400 align:middle
+You've no doubt already seen
+a debugger window with this message.
+
+00:00:13.920 --> 00:00:16.840 align:middle
+Where does it come from
+and what is it for?
+
+00:00:17.280 --> 00:00:20.080 align:middle
+Let's look at an example.
+
+00:00:20.400 --> 00:00:22.280 align:middle
+We have the object node1.
+
+00:00:22.640 --> 00:00:27.520 align:middle
+We'll send this object
+the message coucou: stef.
+
+00:00:28.280 --> 00:00:31.280 align:middle
+From node1,
+we follow the lookup method
+
+00:00:31.840 --> 00:00:33.920 align:middle
+back to the object's class.
+
+00:00:34.200 --> 00:00:37.720 align:middle
+We don't find the coucou method
+in this class.
+
+00:00:37.920 --> 00:00:42.320 align:middle
+So, we go to the superclass,
+but it's not there either.
+
+00:00:42.720 --> 00:00:45.520 align:middle
+The virtual system informs us
+
+00:00:45.800 --> 00:00:51.040 align:middle
+that it can't find a matching method,
+so it reifies the message.
+
+00:00:51.200 --> 00:00:56.440 align:middle
+We discussed reification in the video
+on introspection and reflection.
+
+00:00:56.920 --> 00:01:02.640 align:middle
+Reify means to represent
+an implicit concept as an object.
+
+00:01:02.920 --> 00:01:04.520 align:middle
+Here, it's a message.
+
+00:01:04.920 --> 00:01:07.920 align:middle
+We create an object
+to represent the message.
+
+00:01:08.080 --> 00:01:10.400 align:middle
+It's an instance of Message class.
+
+00:01:10.680 --> 00:01:15.000 align:middle
+The virtual system will resend a message
+
+00:01:15.200 --> 00:01:17.320 align:middle
+to the object node1.
+
+00:01:17.760 --> 00:01:22.800 align:middle
+It sends the doesNotUnderstand message,
+passing the object as a parameter.
+
+00:01:22.920 --> 00:01:27.000 align:middle
+This is a new execution
+of the lookup algorithm.
+
+00:01:27.200 --> 00:01:32.440 align:middle
+The system will not find the
+doesNotUnderstand method in Node class.
+
+00:01:32.720 --> 00:01:37.640 align:middle
+So, it goes back
+to search in the superclass.
+
+00:01:37.840 --> 00:01:40.920 align:middle
+It finds the method, abbreviated to DNU.
+
+00:01:41.160 --> 00:01:44.440 align:middle
+Now it can now execute the method.
+
+00:01:47.080 --> 00:01:49.920 align:middle
+DoesNotUnderstand is a message
+
+00:01:50.200 --> 00:01:53.840 align:middle
+that the virtual machine
+sends for you to objects
+
+00:01:54.280 --> 00:01:56.280 align:middle
+when a message has failed.
+
+00:01:57.080 --> 00:02:00.680 align:middle
+All classes can redefine this method
+
+00:02:01.280 --> 00:02:06.800 align:middle
+to give it a specific behavior
+when a message is not understood.
+
+00:02:07.320 --> 00:02:09.840 align:middle
+This method is an important tool
+
+00:02:10.320 --> 00:02:13.800 align:middle
+that allows us to build many features.
+
+00:02:14.080 --> 00:02:17.440 align:middle
+It's used in automatic delegation,
+
+00:02:17.720 --> 00:02:20.520 align:middle
+distributed programming, and so on.
+
+00:02:21.400 --> 00:02:25.080 align:middle
+Here we'll look at
+some uses of doesNotUnderstand.
+
+00:02:25.720 --> 00:02:30.400 align:middle
+Suppose we want to redirect
+all our messages to a different object.
+
+00:02:31.640 --> 00:02:37.200 align:middle
+In a simple delegation, I create
+an object that stores the target,
+
+00:02:37.400 --> 00:02:39.320 align:middle
+where messages will be sent.
+
+00:02:39.520 --> 00:02:42.200 align:middle
+I redefine the doesNotUnderstand method.
+
+00:02:42.400 --> 00:02:45.560 align:middle
+It takes the object aMessage
+as a parameter,
+
+00:02:45.760 --> 00:02:49.280 align:middle
+containing the failed message selector.
+
+00:02:49.680 --> 00:02:53.400 align:middle
+Then I can ask this message
+to resend itself.
+
+00:02:53.760 --> 00:02:59.920 align:middle
+I use sendTo: self target,
+which is the instance variable.
+
+00:03:00.520 --> 00:03:03.320 align:middle
+I resend the message to another object.
+
+00:03:04.320 --> 00:03:07.400 align:middle
+Be careful, this is a powerful function
+
+00:03:07.920 --> 00:03:12.400 align:middle
+that can interfere with
+the legibility of the code.
+
+00:03:12.760 --> 00:03:15.160 align:middle
+As it's explained here.
+
+00:03:16.000 --> 00:03:20.360 align:middle
+The code will show
+who ultimately receives the message.
+
+00:03:20.920 --> 00:03:23.680 align:middle
+It's very useful for constructing tools
+
+00:03:24.080 --> 00:03:28.080 align:middle
+and building advanced mechanisms.
+
+00:03:29.720 --> 00:03:33.720 align:middle
+Another example we'll look at
+is LoggingProxy.
+
+00:03:33.920 --> 00:03:36.320 align:middle
+The basic idea here
+
+00:03:36.560 --> 00:03:40.400 align:middle
+is to create a minimal object
+that contains few methods,
+
+00:03:40.600 --> 00:03:44.360 align:middle
+and to customize
+its doesNotUnderstand: method.
+
+00:03:44.800 --> 00:03:48.840 align:middle
+Then we'll swap a domain object
+
+00:03:49.400 --> 00:03:53.920 align:middle
+with this proxy, or minimal object,
+using "become."
+
+00:03:54.840 --> 00:03:58.840 align:middle
+First, we create a proxy object.
+
+00:03:59.360 --> 00:04:02.840 align:middle
+We give the proxy object a subject,
+
+00:04:03.080 --> 00:04:06.560 align:middle
+which is the object
+we're going to replace,
+
+00:04:07.400 --> 00:04:08.560 align:middle
+or the target.
+
+00:04:08.840 --> 00:04:14.720 align:middle
+We add InvocationCount to increment
+the counter with each message.
+
+00:04:15.400 --> 00:04:20.760 align:middle
+We put the counter in initialize at 0,
+since it has received no messages.
+
+00:04:20.920 --> 00:04:25.400 align:middle
+Then we add the subject,
+which is what will be replaced.
+
+00:04:26.520 --> 00:04:29.760 align:middle
+Now we redefine
+the DNU method on this proxy.
+
+00:04:29.920 --> 00:04:33.360 align:middle
+Every time a new message
+is not understood,
+
+00:04:33.560 --> 00:04:38.840 align:middle
+its reception appears on the Transcript,
+and the counter is incremented.
+
+00:04:39.200 --> 00:04:43.400 align:middle
+Then we forward the message
+to the subject.
+
+00:04:44.080 --> 00:04:47.600 align:middle
+Like before,
+we redirect the message elsewhere.
+
+00:04:48.800 --> 00:04:52.920 align:middle
+For sendTo, as you see
+in the Message class implementation,
+
+00:04:53.080 --> 00:04:57.400 align:middle
+we simply use the Perform method
+with Arguments.
+
+00:04:57.640 --> 00:05:01.440 align:middle
+We already explained this
+in an earlier course.
+
+00:05:02.920 --> 00:05:05.160 align:middle
+Let's look at an example.
+
+00:05:06.200 --> 00:05:09.520 align:middle
+How do we use this LoggingProxy?
+
+00:05:10.000 --> 00:05:13.280 align:middle
+We'll create an instance,
+the Object point.
+
+00:05:14.040 --> 00:05:16.680 align:middle
+Then we'll use "become"
+
+00:05:17.040 --> 00:05:20.200 align:middle
+so that everything
+that points to this point
+
+00:05:20.680 --> 00:05:24.280 align:middle
+will inadvertently
+point to a LoggingProxy,
+
+00:05:25.520 --> 00:05:27.320 align:middle
+which we instantiate.
+
+00:05:27.760 --> 00:05:30.760 align:middle
+Now if we send messages
+to the Object point,
+
+00:05:30.920 --> 00:05:36.600 align:middle
+noting that "become" is now
+an instance of LoggingProxy,
+
+00:05:36.840 --> 00:05:39.200 align:middle
+every time we send it a message,
+
+00:05:39.840 --> 00:05:42.000 align:middle
+it will display in Transcript
+
+00:05:42.720 --> 00:05:45.320 align:middle
+and the counter will be incremented.
+
+00:05:46.000 --> 00:05:48.800 align:middle
+This is what we did
+in doesNotUnderstand.
+
+00:05:49.040 --> 00:05:53.200 align:middle
+At the end,
+the counter shows a value of 3.
+
+00:05:54.440 --> 00:05:57.840 align:middle
+There are limits
+to the proxy's framework,
+
+00:05:58.000 --> 00:06:00.200 align:middle
+as seen in the last example.
+
+00:06:00.520 --> 00:06:06.440 align:middle
+For example, we can't capture
+messages an object sends to itself.
+
+00:06:06.640 --> 00:06:07.840 align:middle
+That gets tricky.
+
+00:06:08.040 --> 00:06:14.160 align:middle
+We can't use "become" with classes,
+as reflective models have limitations.
+
+00:06:14.720 --> 00:06:18.720 align:middle
+It's also risky when the proxy
+and the object to be replaced
+
+00:06:18.920 --> 00:06:21.400 align:middle
+both understand the same message.
+
+00:06:21.760 --> 00:06:24.600 align:middle
+When I send the message to the proxy,
+
+00:06:24.840 --> 00:06:28.360 align:middle
+it will reply,
+rather than capturing it with DNU
+
+00:06:28.560 --> 00:06:31.520 align:middle
+and transferring it
+to the target object.
+
+00:06:32.280 --> 00:06:37.000 align:middle
+Pharo has other more powerful
+proxy frameworks that trap everything,
+
+00:06:37.160 --> 00:06:42.200 align:middle
+but they're more complex
+than this simple example.
+
+00:06:42.800 --> 00:06:46.760 align:middle
+Another example
+of how to apply this technique
+
+00:06:47.080 --> 00:06:53.280 align:middle
+is to dynamically generate accessors,
+or even methods.
+
+00:06:53.840 --> 00:06:58.400 align:middle
+Here I've redefined
+the doesNotUnderstand method.
+
+00:06:58.800 --> 00:07:01.200 align:middle
+I see a message has been received,
+
+00:07:01.400 --> 00:07:06.200 align:middle
+so I test if I have the instance
+variables that include the message.
+
+00:07:06.400 --> 00:07:11.200 align:middle
+If so, I generate a new method
+using "compile,"
+
+00:07:11.560 --> 00:07:14.040 align:middle
+to define a new method for the class.
+
+00:07:16.360 --> 00:07:19.600 align:middle
+This will return
+the value of the variable.
+
+00:07:19.760 --> 00:07:23.600 align:middle
+Here I'm generating
+the variable's read-accessor.
+
+00:07:24.080 --> 00:07:28.560 align:middle
+If the message sent
+does not match the name
+
+00:07:28.920 --> 00:07:32.840 align:middle
+of an instance variable,
+I send a super doesNotUnderstand.
+
+00:07:33.400 --> 00:07:38.400 align:middle
+This enables us to load
+read-accessors automatically,
+
+00:07:38.920 --> 00:07:41.840 align:middle
+depending on
+if they've been called or not.
+
+00:07:42.760 --> 00:07:45.280 align:middle
+In conclusion,
+
+00:07:45.400 --> 00:07:47.920 align:middle
+we've seen how to use minimal objects.
+
+00:07:48.080 --> 00:07:51.640 align:middle
+They're not direct instances
+of the Object class,
+
+00:07:51.840 --> 00:07:54.040 align:middle
+but of the proto Object class.
+
+00:07:54.200 --> 00:07:56.920 align:middle
+They can be the basis for proxies.
+
+00:07:57.200 --> 00:08:01.400 align:middle
+By redefining the doesNotUnderstand
+method, we can capture
+
+00:08:01.920 --> 00:08:07.800 align:middle
+the existence of a failed message
+and then redirect the message.
+
+00:08:08.320 --> 00:08:13.840 align:middle
+It's a powerful hook that provides
+the basis of many tools in Pharo.
+
+00:08:14.560 --> 00:08:18.000 align:middle
+But you must be very careful
+when you use it.
+
+00:08:18.280 --> 00:08:21.760 align:middle
+It's only to be used when necessary.
+
+00:08:22.080 --> 00:08:27.320 align:middle
+Don't put it in the domain code yet,
+it's a highly advanced technique.
+

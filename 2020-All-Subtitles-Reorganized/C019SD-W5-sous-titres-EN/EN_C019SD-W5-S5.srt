@@ -1,0 +1,611 @@
+﻿1
+00:00:00,560 --> 00:00:01,360
+Hello everyone.
+
+2
+00:00:01,520 --> 00:00:04,800
+In this sequence we're going
+to quickly present the debugger,
+
+3
+00:00:04,960 --> 00:00:09,360
+and the notion of breakpoints,
+the different breakpoints in Pharo.
+
+4
+00:00:09,600 --> 00:00:11,560
+What you'll see is that
+
+5
+00:00:11,760 --> 00:00:14,760
+the system is alive
+and that we can communicate,
+
+6
+00:00:14,920 --> 00:00:18,040
+we have to communicate
+with it and its objects.
+
+7
+00:00:18,840 --> 00:00:22,000
+We don't work with source code,
+we work with objects,
+
+8
+00:00:22,160 --> 00:00:25,520
+which have a state,
+and receive and send messages.
+
+9
+00:00:26,760 --> 00:00:29,200
+Don't be afraid of using the debugger.
+
+10
+00:00:29,360 --> 00:00:33,480
+We can code in debugger,
+inspect the program while it's running...
+
+11
+00:00:33,920 --> 00:00:37,360
+It's a powerful and really useful tool.
+
+12
+00:00:37,920 --> 00:00:41,040
+I know several developers,
+myself included,
+
+13
+00:00:41,200 --> 00:00:45,360
+who have a tendency
+to develop directly in debuggers.
+
+14
+00:00:45,520 --> 00:00:49,440
+So a great deal of code
+is written in debuggers rather than
+
+15
+00:00:49,600 --> 00:00:51,280
+in a code browser.
+
+16
+00:00:51,440 --> 00:00:54,040
+The advantage of that is,
+while you're writing the code,
+
+17
+00:00:54,200 --> 00:00:58,400
+you've access to the method settings,
+to the objects, to the variables.
+
+18
+00:00:58,560 --> 00:01:00,960
+You can see it all and test it.
+
+19
+00:01:01,120 --> 00:01:04,640
+You've all the data to hand
+to be able to test it
+
+20
+00:01:04,800 --> 00:01:06,360
+while writing the code.
+
+21
+00:01:06,920 --> 00:01:10,280
+The debugger looks like this.
+
+22
+00:01:10,440 --> 00:01:14,560
+There's a title bar
+indicating the error message.
+
+23
+00:01:14,720 --> 00:01:16,920
+Here's the "stack", the call stack,
+
+24
+00:01:17,080 --> 00:01:20,200
+that's to say the call method.
+Here we can see that
+
+25
+00:01:20,360 --> 00:01:24,440
+this method, "performTest"
+has called the method "testSumming",
+
+26
+00:01:24,600 --> 00:01:27,600
+which has called the method "place",
+
+27
+00:01:27,760 --> 00:01:32,400
+which has raised the problem
+"DoesNotUnderstand".
+
+28
+00:01:33,680 --> 00:01:37,720
+Here we have the code
+of the area that's selected here.
+
+29
+00:01:37,880 --> 00:01:41,440
+What's selected here is the method
+plus the DiceHandle class,
+
+30
+00:01:41,600 --> 00:01:44,480
+so it appears in the lower window.
+
+31
+00:01:44,640 --> 00:01:48,640
+And right at the bottom
+we have different variables,
+
+32
+00:01:48,800 --> 00:01:50,760
+all the variables accessible
+
+33
+00:01:50,920 --> 00:01:53,720
+within the context
+of the execution underway,
+
+34
+00:01:53,880 --> 00:01:56,480
+in order to modify the variables,
+
+35
+00:01:56,640 --> 00:01:59,840
+to inspect the objects, etc...
+
+36
+00:02:00,400 --> 00:02:04,000
+It's a group of actions
+in that area that allows us
+
+37
+00:02:04,160 --> 00:02:08,280
+to restart the execution
+of the method or dive into the code
+
+38
+00:02:08,440 --> 00:02:10,760
+or see line by line what's happening.
+
+39
+00:02:11,400 --> 00:02:14,880
+When a debugger opens,
+closing it won't solve the problem.
+
+40
+00:02:15,160 --> 00:02:17,560
+It's much easier to open the debugger,
+
+41
+00:02:17,720 --> 00:02:21,200
+to look inside in detail
+at what's causing the problem
+
+42
+00:02:21,360 --> 00:02:24,120
+and inspect the call stack and objects,
+
+43
+00:02:24,280 --> 00:02:26,240
+and fix the problem in debugger
+
+44
+00:02:26,400 --> 00:02:30,040
+rather than close it and then
+guess why debugger opened.
+
+45
+00:02:31,480 --> 00:02:34,840
+The debugger is your best friend.
+
+46
+00:02:35,000 --> 00:02:37,560
+It allows you to communicate
+with all the context objects,
+
+47
+00:02:37,720 --> 00:02:42,440
+whether it's the settings,
+the instance variables, etc...
+
+48
+00:02:42,600 --> 00:02:47,040
+To check the state of all the variables
+and even modify this state.
+
+49
+00:02:48,000 --> 00:02:51,560
+To send messages to check
+the state of certain objects
+
+50
+00:02:51,720 --> 00:02:54,440
+or check how they're reacting.
+
+51
+00:02:55,080 --> 00:02:59,160
+We can, of course, modify the methods
+on the call stack, saved,
+
+52
+00:02:59,320 --> 00:03:02,160
+and continue with the new code
+without any problem,
+
+53
+00:03:02,320 --> 00:03:06,920
+all without restarting
+execution from scratch.
+
+54
+00:03:07,400 --> 00:03:10,120
+So if a method fails,
+we correct the method,
+
+55
+00:03:10,280 --> 00:03:14,080
+we restart execution of the method
+and the program continues.
+
+56
+00:03:15,000 --> 00:03:16,200
+One way of debugging
+
+57
+00:03:17,040 --> 00:03:19,240
+that's very frequently used
+
+58
+00:03:19,680 --> 00:03:22,400
+is showing things on the console.
+
+59
+00:03:22,560 --> 00:03:27,200
+We can see that this is really
+
+60
+00:03:27,360 --> 00:03:31,720
+a poor way of debugging,
+because you have to modify
+
+61
+00:03:32,320 --> 00:03:37,480
+all the methods you want traces in,
+and then modify them again
+
+62
+00:03:37,640 --> 00:03:40,600
+to remove them when the problem's fixed.
+
+63
+00:03:40,760 --> 00:03:44,400
+And then you have to know,
+or have an idea, where the problem...
+
+64
+00:03:44,560 --> 00:03:47,680
+Where the problem might lie,
+or where it comes from,
+
+65
+00:03:47,840 --> 00:03:52,440
+to know where to put the line
+and what to show.
+
+66
+00:03:52,760 --> 00:03:57,240
+The other way of doing this
+is using breakpoints.
+
+67
+00:03:57,680 --> 00:04:01,920
+A breakpoint is a place in the code
+where we'll indicate
+
+68
+00:04:02,080 --> 00:04:06,040
+to Pharo that it has to stop
+next time it passes this place.
+
+69
+00:04:06,200 --> 00:04:09,560
+So the most simple breakpoint
+is "Halt now".
+
+70
+00:04:09,720 --> 00:04:13,800
+Send the message "now"
+to the object "Halt", which is a class,
+
+71
+00:04:13,960 --> 00:04:17,360
+which will immediately stop execution.
+
+72
+00:04:17,520 --> 00:04:19,520
+From there, a debugger will open.
+
+73
+00:04:19,680 --> 00:04:23,760
+We can see line by line what's happening,
+the state of the program, etc...
+
+74
+00:04:24,320 --> 00:04:27,520
+So, "Halt now" pauses the program...
+
+75
+00:04:27,680 --> 00:04:30,120
+we can restart it,
+but for now it's paused...
+
+76
+00:04:30,280 --> 00:04:33,880
+and opens a debugger with
+the current state of the application.
+
+77
+00:04:34,040 --> 00:04:36,120
+So, "Halt now" is very good,
+
+78
+00:04:36,280 --> 00:04:40,120
+unless you put it in a method
+that's executed constantly,
+
+79
+00:04:40,320 --> 00:04:43,200
+including by the system itself.
+
+80
+00:04:43,360 --> 00:04:48,120
+You can have dozens
+of debuggers opening
+
+81
+00:04:48,280 --> 00:04:52,520
+if you put a "Halt now" in a place
+used by an opening debugger.
+
+82
+00:04:52,920 --> 00:04:55,800
+So you put "Halt now"
+in the debugger's code.
+
+83
+00:04:55,960 --> 00:04:57,400
+If the debugger opens,
+
+84
+00:04:57,560 --> 00:04:59,440
+it will execute "Halt now" itself,
+
+85
+00:04:59,600 --> 00:05:04,200
+which will open another debugger, etc,
+recursively, and pause your system.
+
+86
+00:05:04,520 --> 00:05:07,760
+In this case, we use "Halt once",
+
+87
+00:05:07,920 --> 00:05:12,520
+which, once "Halt once" is activated,
+stops once, pauses once,
+
+88
+00:05:12,680 --> 00:05:17,240
+and all the subsequent passages through
+"Halt once" won't pause the program.
+
+89
+00:05:18,520 --> 00:05:22,120
+So we write "Halt once"
+anywhere in the code,
+
+90
+00:05:23,880 --> 00:05:26,200
+we activate it, once,
+
+91
+00:05:26,360 --> 00:05:28,280
+we execute the program,
+
+92
+00:05:28,440 --> 00:05:31,680
+a debugger opens and
+"Halt once" is immediately disabled.
+
+93
+00:05:32,360 --> 00:05:35,240
+Another possibility is to stop
+after a number of iterations.
+
+94
+00:05:35,640 --> 00:05:38,560
+We might stop after the 10th iteration
+
+95
+00:05:38,720 --> 00:05:42,080
+if we know that an element
+in a collection that interests us
+
+96
+00:05:42,240 --> 00:05:44,800
+is in 10th position.
+It's not necessarily worth
+
+97
+00:05:44,960 --> 00:05:47,880
+debugging the 9
+previous times for nothing,
+
+98
+00:05:48,040 --> 00:05:51,000
+so we stop at the 10th iteration.
+
+99
+00:05:52,040 --> 00:05:56,280
+Another possibility is to stop
+when a particular condition
+
+100
+00:05:56,520 --> 00:05:59,920
+is true, so for that we have "Halt if".
+
+101
+00:06:00,080 --> 00:06:02,040
+"Halt if" either takes
+
+102
+00:06:02,240 --> 00:06:04,200
+a symbol indicating a method,
+
+103
+00:06:04,400 --> 00:06:07,480
+which has to be in the call stack
+for the debugger to open,
+
+104
+00:06:07,640 --> 00:06:11,280
+meaning that,
+if I put "Halt if:printString"
+
+105
+00:06:11,440 --> 00:06:15,920
+the Dice>>faces code has to be called
+
+106
+00:06:16,080 --> 00:06:18,000
+from the printString method
+
+107
+00:06:18,160 --> 00:06:20,200
+for the breakpoint
+
+108
+00:06:20,520 --> 00:06:23,120
+to activate and the program to pause.
+
+109
+00:06:23,720 --> 00:06:25,360
+"If" can also take a block.
+
+110
+00:06:25,520 --> 00:06:28,320
+We can put any
+bit of code in the block,
+
+111
+00:06:28,480 --> 00:06:32,680
+if it evaluates to true,
+to make the debugger stop,
+
+112
+00:06:32,880 --> 00:06:35,080
+for it not to open
+and the program to continue.
+
+113
+00:06:35,320 --> 00:06:38,840
+Since the tests in Pharo
+are methods in the call stack,
+
+114
+00:06:39,000 --> 00:06:42,840
+you can put the test number,
+so that a bit of code only stops
+
+115
+00:06:43,000 --> 00:06:45,400
+when it's executed from a test.
+
+116
+00:06:45,960 --> 00:06:49,560
+All of these methods,
+"now", "once", "onCount" and "if",
+
+117
+00:06:50,240 --> 00:06:53,000
+are methods in Halt class.
+
+118
+00:06:53,160 --> 00:06:56,720
+You can study the code,
+see what the code's done to it,
+
+119
+00:06:56,880 --> 00:06:59,880
+and you can also add your own methods,
+
+120
+00:07:00,040 --> 00:07:03,760
+add your own kind of breakpoint
+according to your needs.
+
+121
+00:07:03,920 --> 00:07:06,240
+So in the example below,
+
+122
+00:07:06,400 --> 00:07:11,080
+I've coded a breakpoint,
+called "between: and"
+
+123
+00:07:11,240 --> 00:07:14,280
+which only stops the program
+
+124
+00:07:14,440 --> 00:07:19,320
+when it's in between
+"minTime" and "maxTime".
+
+125
+00:07:20,400 --> 00:07:23,800
+So this program will only stop,
+
+126
+00:07:23,960 --> 00:07:27,640
+the debugger will only open,
+between midnight and 2am.
+
+127
+00:07:27,800 --> 00:07:31,240
+You should know that
+the debugger is a very powerful tool.
+
+128
+00:07:31,560 --> 00:07:35,280
+There are a lot of breakpoints
+already defined in the system.
+
+129
+00:07:35,440 --> 00:07:37,760
+You can add as many as you like.
+
+130
+00:07:37,920 --> 00:07:41,360
+To add a breakpoint,
+modify one method, the debugger opens,
+
+131
+00:07:41,520 --> 00:07:44,240
+and you can see line by line
+what's happening.
+
+132
+00:07:45,120 --> 00:07:48,720
+The breakpoints are really powerful
+
+133
+00:07:48,880 --> 00:07:52,440
+and you shouldn't hesitate
+to use them or the debuggers.

@@ -1,0 +1,554 @@
+WEBVTT
+
+00:00:00.610 --> 00:00:02.830 align:middle
+Bonjour à tous. Dans
+cette séquence, nous allons
+
+00:00:03.030 --> 00:00:05.810 align:middle
+présenter rapidement le
+débugger et la notion des
+
+00:00:06.510 --> 00:00:09.100 align:middle
+différents points
+d'arrêt disponibles en Pharo.
+
+00:00:09.590 --> 00:00:12.870 align:middle
+Ce que vous allez voir,
+c'est que le système est vivant
+
+00:00:13.070 --> 00:00:17.750 align:middle
+et on peut communiquer, et on doit
+communiquer avec lui, avec ces objets.
+
+00:00:18.920 --> 00:00:20.350 align:middle
+On ne travaille pas avec
+du code source, en fait, on
+
+00:00:20.550 --> 00:00:23.330 align:middle
+travaille avec des objets
+qui ont de l'état et à qui on
+
+00:00:23.530 --> 00:00:25.000 align:middle
+peut envoyer des messages qui
+vont nous répondre et caetera.
+
+00:00:25.170 --> 00:00:28.720 align:middle
+Il ne faut vraiment pas
+avoir peur d'utiliser le
+
+00:00:28.920 --> 00:00:30.820 align:middle
+débugger, on peut
+coder dans le débugger.
+
+00:00:31.020 --> 00:00:34.000 align:middle
+On peut inspecter le
+ programme pendant qu'il tourne.
+
+00:00:34.180 --> 00:00:36.720 align:middle
+C'est vraiment un outil très
+puissant et vraiment très utile.
+
+00:00:38.000 --> 00:00:41.330 align:middle
+Je connais plusieurs
+développeurs et moi y compris qui
+
+00:00:41.530 --> 00:00:44.900 align:middle
+ont tendance à développer
+directement dans le débugger.
+
+00:00:45.600 --> 00:00:47.640 align:middle
+Donc, beaucoup beaucoup
+de codes est écrit dans le
+
+00:00:47.840 --> 00:00:51.530 align:middle
+débugger plutôt que dans
+un navigateur de codes.
+
+00:00:51.730 --> 00:00:53.480 align:middle
+Alors l'intérêt de ça, c'est
+qu'au moment où on écrit le
+
+00:00:53.680 --> 00:00:56.840 align:middle
+code on a accès aux
+paramètres des méthodes, on a accès
+
+00:00:57.040 --> 00:00:59.260 align:middle
+aux objets, on a accès aux
+variables, on peut regarder
+
+00:00:59.460 --> 00:01:00.540 align:middle
+tout ça, on peut
+essayer à ce moment-là.
+
+00:01:00.740 --> 00:01:03.090 align:middle
+On a toutes les données qui
+sont à portée de main pour
+
+00:01:03.290 --> 00:01:07.270 align:middle
+pouvoir être testées au
+moment où on écrit le code.
+
+00:01:07.470 --> 00:01:09.700 align:middle
+Donc le débugger se
+présente comme ça.
+
+00:01:10.790 --> 00:01:13.520 align:middle
+Une barre de titre qui
+indique le message d'erreur.
+
+00:01:14.770 --> 00:01:18.860 align:middle
+Ici la pile d'appel,
+c'est-à-dire la méthode qui appelle.
+
+00:01:19.480 --> 00:01:23.270 align:middle
+On voit que cette méthode
+performTest a appelé la méthode
+
+00:01:23.470 --> 00:01:28.180 align:middle
+testSumming, qui a
+appelée la méthode Plus qui
+
+00:01:28.380 --> 00:01:31.470 align:middle
+a levé ce problème
+de doesNotUnderstand.
+
+00:01:31.670 --> 00:01:36.230 align:middle
+Ici, on a le code de la zone qui est
+
+00:01:36.430 --> 00:01:39.250 align:middle
+sélectionnée ici, Donc là ce
+qui est sélectionnée, c'est
+
+00:01:39.450 --> 00:01:42.680 align:middle
+la méthode plus la classe de
+DiceHandle, donc ça apparaît
+
+00:01:42.880 --> 00:01:47.460 align:middle
+dans la zone du bas.
+Et tout en bas on a
+
+00:01:47.660 --> 00:01:49.790 align:middle
+différentes variables,
+toutes les variables qui sont
+
+00:01:50.000 --> 00:01:53.700 align:middle
+accessibles dans le
+contexte d'exécution en cours.
+
+00:01:54.000 --> 00:01:57.240 align:middle
+Donc, pour pouvoir modifier
+des variables pour pouvoir
+
+00:01:57.620 --> 00:01:59.000 align:middle
+inspecter les objets et caetera.
+
+00:01:59.180 --> 00:02:03.000 align:middle
+C'est un ensemble
+d'actions à cet endroit-là qui
+
+00:02:03.200 --> 00:02:06.810 align:middle
+permettent de relancer
+l'exécution de la méthode ou de
+
+00:02:07.010 --> 00:02:10.660 align:middle
+plonger à l'intérieur du code ou de
+regarder ligne à ligne, ce qui se passe.
+
+00:02:11.430 --> 00:02:13.740 align:middle
+Quand vous avez un
+debugger qui s'ouvre, le fermer ne
+
+00:02:13.940 --> 00:02:16.340 align:middle
+résoudra pas votre problème.
+Il est beaucoup plus facile
+
+00:02:16.540 --> 00:02:19.100 align:middle
+d'ouvrir le debugger à ce
+moment-là, de regarder à l'intérieur
+
+00:02:19.660 --> 00:02:22.580 align:middle
+en détail d'où vient les
+problèmes, d'inspecter un petit
+
+00:02:22.780 --> 00:02:25.000 align:middle
+peu la pile d'appel et
+les objets et de corriger le
+
+00:02:25.200 --> 00:02:27.000 align:middle
+problème directement dans
+le debugger, plutôt que de le
+
+00:02:27.200 --> 00:02:29.710 align:middle
+fermer et ensuite de deviner pourquoi
+un debugger a pu s'ouvrir à un moment.
+
+00:02:31.580 --> 00:02:34.120 align:middle
+Le debugger est
+vraiment votre meilleur ami.
+
+00:02:34.880 --> 00:02:37.600 align:middle
+Il permet de communiquer avec
+tous les objets du contexte.
+
+00:02:37.840 --> 00:02:41.700 align:middle
+Donc, ça soit les paramètres les
+variables d'instances et cetera.
+
+00:02:42.520 --> 00:02:46.660 align:middle
+De vérifier l'état de toutes les
+variables et même de modifier cet état-là.
+
+00:02:48.100 --> 00:02:51.240 align:middle
+D'envoyer des messages pour
+vérifier l'état de certains
+
+00:02:51.440 --> 00:02:53.260 align:middle
+objets ou pour vérifier
+comment ils réagissent.
+
+00:02:55.180 --> 00:02:57.450 align:middle
+On peut bien sûr modifier
+les méthodes qui sont sur la
+
+00:02:57.650 --> 00:03:00.390 align:middle
+pile d'exécution,
+sauvegarder et reprendre l'exécution
+
+00:03:00.590 --> 00:03:02.070 align:middle
+avec le nouveau code
+sans aucun problème.
+
+00:03:02.420 --> 00:03:06.620 align:middle
+Et tout ça sans redémarrer
+l'exécution depuis le début du programme.
+
+00:03:07.480 --> 00:03:10.480 align:middle
+Donc si une méthode
+plante, on corrige la méthode, on
+
+00:03:10.680 --> 00:03:13.720 align:middle
+relance l'exécution de la méthode et
+le programme continue à s'exécuter.
+
+00:03:15.750 --> 00:03:20.190 align:middle
+Une façon de debugger très
+fréquemment utilisée, c'est
+
+00:03:20.390 --> 00:03:21.490 align:middle
+d'afficher des choses sur la console.
+
+00:03:22.630 --> 00:03:25.850 align:middle
+Mais on voit que ça c'est vraiment
+
+00:03:27.680 --> 00:03:30.770 align:middle
+un moyen assez pauvre de
+debugger, parce que déjà il faut
+
+00:03:31.000 --> 00:03:34.720 align:middle
+modifier toutes les méthodes
+dans lesquelles on a envie d'avoir
+
+00:03:35.370 --> 00:03:38.020 align:middle
+des traces, et après il
+faudra les remodifier pour les
+
+00:03:38.220 --> 00:03:40.390 align:middle
+enlever une fois qu'on
+aura corrigé le problème.
+
+00:03:40.880 --> 00:03:42.910 align:middle
+Et puis il faut savoir, il
+faut avoir une idée un peu d'où
+
+00:03:43.110 --> 00:03:46.790 align:middle
+le problème pourrait se
+trouver et d'où est-ce qu'il
+
+00:03:47.230 --> 00:03:51.600 align:middle
+pourrait venir pour pouvoir savoir
+où mettre la ligne et pour afficher.
+
+00:03:52.900 --> 00:03:57.050 align:middle
+Une autre façon de faire ça, c'est
+d'utiliser la notion de point d'arrêt.
+
+00:03:57.740 --> 00:04:00.700 align:middle
+Donc un point d'arrêt c'est
+un endroit dans le code où on
+
+00:04:00.900 --> 00:04:03.850 align:middle
+va indiquer un Pharo qui
+doit s'arrêter la prochaine fois
+
+00:04:04.050 --> 00:04:07.720 align:middle
+qui passe à cet endroit-là.
+Donc le point d'arrêt le plus
+
+00:04:07.920 --> 00:04:11.870 align:middle
+simple, c'est Halt now, donc
+envoyer le message now à l'objet
+
+00:04:12.070 --> 00:04:15.350 align:middle
+halt qui est une classe,
+qui arrêtera l'exécution
+
+00:04:15.550 --> 00:04:18.650 align:middle
+immédiatement à ce
+moment-là et à partir de là, un
+
+00:04:18.850 --> 00:04:20.670 align:middle
+debuggeur va s'ouvrir et on
+pourra aller regarder ligne à
+
+00:04:20.870 --> 00:04:22.610 align:middle
+ligne ce qui se passe,
+regarder l'état du programme.
+
+00:04:24.390 --> 00:04:27.870 align:middle
+Donc halt now met en
+pause le programme.
+
+00:04:28.070 --> 00:04:29.340 align:middle
+On pourra toujours le
+relancer après, mais pour le
+
+00:04:29.540 --> 00:04:32.490 align:middle
+moment, il en pause et
+ouvre un debugger avec l'état
+
+00:04:32.690 --> 00:04:33.480 align:middle
+courant de l'application.
+
+00:04:34.120 --> 00:04:37.860 align:middle
+Donc halt now c'est très
+bien, sauf si vous mettez ça
+
+00:04:38.060 --> 00:04:40.430 align:middle
+dans une méthode qui est
+exécutée en permanence, y
+
+00:04:40.630 --> 00:04:44.680 align:middle
+compris par le système
+lui-même. Et vous pouvez avoir
+
+00:04:45.440 --> 00:04:48.100 align:middle
+des dizaines et des
+dizaines de debuggers qui s'ouvrent
+
+00:04:48.350 --> 00:04:50.820 align:middle
+si vous mettez un halt now
+à un endroit qui est utilisé
+
+00:04:51.020 --> 00:04:52.360 align:middle
+par un debuggeur qui s'ouvre.
+
+00:04:53.030 --> 00:04:55.630 align:middle
+Donc vous mettez Halt now
+dans le code du debuggeur, si
+
+00:04:56.010 --> 00:04:59.730 align:middle
+le debugger s'ouvre, il va
+lui-même exécuter Halt now qui
+
+00:04:59.930 --> 00:05:02.630 align:middle
+va ouvrir un autre debugger,
+et cetera, récursivement et
+
+00:05:02.830 --> 00:05:04.290 align:middle
+donc vous pouvez bloquer
+votre système comme ça.
+
+00:05:04.590 --> 00:05:09.040 align:middle
+Donc dans ces cas là on
+utilise HaltOnce, qui une fois
+
+00:05:09.240 --> 00:05:11.960 align:middle
+que le halt once est
+activé, il s'arrête une fois, il
+
+00:05:12.160 --> 00:05:14.750 align:middle
+bloque une fois et tous les
+passages suivants sur Halt
+
+00:05:14.950 --> 00:05:16.920 align:middle
+Once ne bloqueront pas
+l'exécution du programme.
+
+00:05:18.560 --> 00:05:21.660 align:middle
+Donc HaltOnce, on écrit ça
+n'importe où dans le code,
+
+00:05:24.000 --> 00:05:28.680 align:middle
+on l'active une fois, on
+exécute le programme, un
+
+00:05:28.880 --> 00:05:31.570 align:middle
+debugger s'ouvre et HaltOnce
+se désactive immédiatement.
+
+00:05:32.450 --> 00:05:34.330 align:middle
+Une autre possibilité,
+c'est de s'arrêter au bout d'un
+
+00:05:34.530 --> 00:05:36.670 align:middle
+certain nombre d'itérations.
+On peut décider de s'arrêter
+
+00:05:36.870 --> 00:05:40.880 align:middle
+au bout de la dixième
+itération, si on sait qu'un élément
+
+00:05:41.080 --> 00:05:42.570 align:middle
+dans une collection qui
+nous intéresse se trouve à la
+
+00:05:42.770 --> 00:05:44.600 align:middle
+dixième position, ce n'est
+pas forcément la peine de
+
+00:05:45.050 --> 00:05:47.790 align:middle
+debugger les 9 fois
+précédentes pour rien.
+
+00:05:48.100 --> 00:05:49.880 align:middle
+Donc, on s'arrête juste
+à la dixième itération.
+
+00:05:50.080 --> 00:05:54.430 align:middle
+Une autre possibilité,
+c'est de s'arrêter quand une
+
+00:05:54.630 --> 00:05:56.960 align:middle
+condition particulière est vraie.
+
+00:05:57.900 --> 00:05:59.630 align:middle
+Donc pour ça, on a Halt if.
+
+00:06:00.200 --> 00:06:04.490 align:middle
+Halt if prend soit un
+symbole qui indique une méthode qui
+
+00:06:04.690 --> 00:06:06.750 align:middle
+doit se trouver dans la
+pile d'appels pour que le
+
+00:06:06.950 --> 00:06:10.370 align:middle
+debuggeur s'ouvre,
+c'est-à-dire que là si je mets halt
+
+00:06:10.570 --> 00:06:15.390 align:middle
+if, printSpring, il faut
+que le code Dice faces ait été
+
+00:06:15.590 --> 00:06:20.180 align:middle
+appelé depuis la méthode
+printString, pour que le point d'arrêt
+
+00:06:20.470 --> 00:06:23.110 align:middle
+s'active et que le
+ programme se mette en pause.
+
+00:06:23.770 --> 00:06:26.600 align:middle
+If peut prendre aussi un
+bloc et donc dans ce block, on
+
+00:06:26.800 --> 00:06:30.170 align:middle
+met n'importe quel bout de
+code dont la valeur doit être
+
+00:06:30.540 --> 00:06:33.270 align:middle
+vrai pour que le debugger
+s'arrête, et faux pour que le
+
+00:06:33.470 --> 00:06:35.100 align:middle
+debugger ne s'ouvre pas et
+que le programme continue.
+
+00:06:35.360 --> 00:06:38.210 align:middle
+Comme les tests en Pharo
+sont des méthodes qui sont dans
+
+00:06:38.410 --> 00:06:40.470 align:middle
+la pile d'appels, vous
+pouvez mettre le nom d'un test
+
+00:06:40.750 --> 00:06:45.300 align:middle
+pour qu'un bout code ne s'arrête que
+lorsqu'il est exécuté depuis un test.
+
+00:06:46.140 --> 00:06:50.770 align:middle
+Toutes ces méthodes now,
+once, account, if sont des
+
+00:06:51.000 --> 00:06:53.370 align:middle
+méthodes de la classe Halt.
+
+00:06:53.570 --> 00:06:56.050 align:middle
+Vous pouvez aller étudier le
+code, voir ce que ce code-là
+
+00:06:56.250 --> 00:06:59.640 align:middle
+fait et vous pouvez aussi
+ajouter vos propres méthodes,
+
+00:07:00.130 --> 00:07:03.460 align:middle
+donc ajouter vos propres types
+de breakpoint suivant vos besoins.
+
+00:07:04.020 --> 00:07:08.600 align:middle
+Donc là, dans l'exemple qui
+est en-dessous, j'ai codé un
+
+00:07:08.800 --> 00:07:12.130 align:middle
+breakpoint qui s'appelle
+between and et qui arrête le
+
+00:07:12.330 --> 00:07:17.210 align:middle
+ programme seulement lorsqu'
+
+00:07:17.410 --> 00:07:19.000 align:middle
+il est entre minTime et maxTime.
+
+00:07:20.510 --> 00:07:24.330 align:middle
+Donc là, ici ce programme qui
+est là, le debugger s'ouvrira
+
+00:07:25.240 --> 00:07:27.420 align:middle
+seulement entre minuit
+et 2 heures du matin.
+
+00:07:28.050 --> 00:07:29.930 align:middle
+Ce que vous devez retenir
+c'est que le debugger est un
+
+00:07:30.130 --> 00:07:32.250 align:middle
+outil extrêmement
+puissant. Il y a beaucoup de
+
+00:07:32.450 --> 00:07:34.870 align:middle
+breakpoints, donc de points
+d'arrêt qui sont définis déjà
+
+00:07:35.070 --> 00:07:37.570 align:middle
+dans le système, vous pouvez en
+ajouter autant que vous voulez.
+
+00:07:37.950 --> 00:07:40.480 align:middle
+Pour mettre un breakpoint
+vous modifiez une méthode, le
+
+00:07:40.680 --> 00:07:42.890 align:middle
+debugger s'ouvre, et vous
+pouvez aller regarder ligne à
+
+00:07:43.090 --> 00:07:43.850 align:middle
+ligne, ce qui se passe.
+
+00:07:46.070 --> 00:07:49.310 align:middle
+Les points d'arrêt sont
+vraiment puissants et il faut
+
+00:07:49.510 --> 00:07:52.140 align:middle
+surtout ne pas hésiter à
+l'utiliser tout comme le debugger.
+

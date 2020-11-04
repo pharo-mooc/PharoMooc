@@ -1,0 +1,153 @@
+1
+00:00:06,200 --> 00:00:06,960
+-Bonjour à tous.
+
+2
+00:00:07,280 --> 00:00:08,480
+Dans cette vidéo, on s'intéressera
+
+3
+00:00:08,800 --> 00:00:10,920
+aux mêmes fonctionnalités
+vues sur les méthodes,
+
+4
+00:00:11,240 --> 00:00:13,400
+donc Implementor et Sender,
+mais cette fois, on va regarder
+
+5
+00:00:13,720 --> 00:00:16,880
+comment on peut appliquer ça
+à une classe et sa variable d'instance.
+
+6
+00:00:17,560 --> 00:00:19,320
+Pour ce faire,
+on va ouvrir un System Browser.
+
+7
+00:00:19,640 --> 00:00:21,000
+Tools, System Browser.
+
+8
+00:00:21,320 --> 00:00:24,680
+On va se diriger dans AST-Core,
+RBComment,
+
+9
+00:00:25,640 --> 00:00:28,040
+et on peut voir,
+si on fait clic droit sur RBComment,
+
+10
+00:00:28,360 --> 00:00:31,800
+qu'on aura la Class refs
+qui a le même raccourci que les Senders.
+
+11
+00:00:32,120 --> 00:00:33,560
+Si on clique sur Class refs,
+
+12
+00:00:33,880 --> 00:00:36,520
+ça va être toutes les références
+à la classe RBComment
+
+13
+00:00:36,840 --> 00:00:39,040
+faites dans des corps
+de méthodes dans le système.
+
+14
+00:00:39,360 --> 00:00:41,560
+Par exemple, on aura RBParser
+
+15
+00:00:41,880 --> 00:00:44,920
+qui appelle RBComment
+dans sa méthode extractCommentsFrom:
+
+16
+00:00:45,240 --> 00:00:47,200
+C'est très utile et ça l'est tellement
+
+17
+00:00:47,520 --> 00:00:51,240
+qu'un bouton a été créé pour ça
+dans l'interface du System Browser.
+
+18
+00:00:51,560 --> 00:00:52,520
+Une autre chose intéressante,
+
+19
+00:00:52,840 --> 00:00:55,680
+c'est si vous surlignez
+une variable d'instance d'une classe...
+
+20
+00:00:56,000 --> 00:00:58,200
+Vous faites clic droit, Code search.
+
+21
+00:00:58,520 --> 00:01:02,800
+Senders of it et Implementors of it
+vous renverront aux méthodes contents,
+
+22
+00:01:03,120 --> 00:01:07,400
+mais References to it, ce sera les
+références à cette variable précisément.
+
+23
+00:01:07,720 --> 00:01:09,920
+En cliquant là-dessus,
+on aura les références,
+
+24
+00:01:10,240 --> 00:01:14,400
+sûrement dans la classe RBComment,
+qui font appel à contents.
+
+25
+00:01:14,720 --> 00:01:16,160
+C'est deux méthodes...
+
+26
+00:01:16,480 --> 00:01:19,560
+Encore une fois, les raccourcis
+pour les Class references,
+
+27
+00:01:19,880 --> 00:01:21,560
+c'est Cmd+N, comme les Senders.
+
+28
+00:01:21,880 --> 00:01:24,480
+Et les raccourcis
+pour les variables d'instance,
+
+29
+00:01:24,800 --> 00:01:26,760
+ça va être Cmd+N, Cmd+M,
+
+30
+00:01:27,080 --> 00:01:31,240
+mais aussi pour les références,
+Shift+Cmd+N qui est très intéressant.
+
+31
+00:01:32,000 --> 00:01:35,440
+Avec ces fonctionnalités-là
+couplées à celles des méthodes,
+
+32
+00:01:35,760 --> 00:01:39,120
+vous pouvez inspecter
+l'intérieur d'un package, des classes,
+
+33
+00:01:39,440 --> 00:01:42,720
+comprendre les liens entre eux et
+avoir des exemples de leur utilisation.

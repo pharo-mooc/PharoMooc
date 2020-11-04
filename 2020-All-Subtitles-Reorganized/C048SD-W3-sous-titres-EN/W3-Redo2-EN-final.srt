@@ -1,0 +1,830 @@
+1
+00:00:06,160 --> 00:00:09,480
+-Hi. In this second video
+of the redo of week 3,
+
+2
+00:00:09,800 --> 00:00:13,480
+we are going to look at how to implement
+the DieHandle we were talking about.
+
+3
+00:00:13,960 --> 00:00:19,200
+Basically, we would like the handle API
+to be "DieHandle new".
+
+4
+00:00:20,160 --> 00:00:21,360
+"DieHandle new".
+
+5
+00:00:21,840 --> 00:00:24,400
+We would like to add some die to it,
+so "addDie:",
+
+6
+00:00:24,720 --> 00:00:27,680
+for example, one with six faces.
+
+7
+00:00:29,160 --> 00:00:31,360
+And another one with...
+
+8
+00:00:32,560 --> 00:00:34,320
+ten faces, for example.
+
+9
+00:00:34,920 --> 00:00:37,280
+"10" and "yourself".
+
+10
+00:00:38,480 --> 00:00:39,240
+Cool.
+
+11
+00:00:39,560 --> 00:00:42,920
+Basically, what this piece of code does
+
+12
+00:00:43,520 --> 00:00:46,480
+is create an instance
+of DieHandle class.
+
+13
+00:00:47,120 --> 00:00:49,800
+This instance will receive
+the message "addDie",
+
+14
+00:00:50,120 --> 00:00:52,040
+so I would like to add a Die
+to a handle
+
+15
+00:00:53,000 --> 00:00:54,480
+with six faces, for example.
+
+16
+00:00:55,240 --> 00:00:57,400
+This symbol right there will say
+
+17
+00:00:57,800 --> 00:01:01,520
+that the next message will be sent
+to the same receiver as the previous one.
+
+18
+00:01:01,840 --> 00:01:05,600
+Basically, this message there
+will be sent to the same receiver
+
+19
+00:01:05,920 --> 00:01:07,280
+as this message there,
+
+20
+00:01:07,600 --> 00:01:09,880
+that is the instance of DieHandle.
+
+21
+00:01:10,520 --> 00:01:15,480
+We will send "addDie" twice
+to the instance of a handle,
+
+22
+00:01:16,160 --> 00:01:18,000
+once with a Die with six faces
+
+23
+00:01:18,320 --> 00:01:20,560
+and another time
+with a Die with ten faces.
+
+24
+00:01:20,880 --> 00:01:22,960
+"Yourself" will output the instance.
+
+25
+00:01:23,320 --> 00:01:24,960
+Let's write this.
+
+26
+00:01:25,720 --> 00:01:28,800
+We will go to DieTest and...
+
+27
+00:01:30,240 --> 00:01:32,600
+create "DieHandleTest".
+
+28
+00:01:33,240 --> 00:01:34,160
+Save it.
+
+29
+00:01:34,560 --> 00:01:36,640
+The first test method
+we would like to make
+
+30
+00:01:36,960 --> 00:01:39,480
+is "testCreationAndAdding".
+
+31
+00:01:40,200 --> 00:01:41,640
+Basically, we will use that,
+
+32
+00:01:42,120 --> 00:01:44,760
+but we will need a temporary variable,
+
+33
+00:01:45,080 --> 00:01:46,600
+so "handle".
+
+34
+00:01:47,680 --> 00:01:50,480
+And right there, "handle ="...
+
+35
+00:01:50,960 --> 00:01:53,320
+I will tab everything. Dot.
+
+36
+00:01:53,640 --> 00:01:57,040
+And then, we will test
+the number of dices in the handle.
+
+37
+00:01:57,360 --> 00:02:00,080
+So, "handle diceNumber", for example,
+
+38
+00:02:01,280 --> 00:02:03,000
+"DiceNumber equals: 2".
+
+39
+00:02:03,320 --> 00:02:04,520
+We have not defined anything
+
+40
+00:02:04,840 --> 00:02:07,800
+but do not worry,
+we will do it right away. Cmd+S.
+
+41
+00:02:08,120 --> 00:02:09,040
+OK.
+
+42
+00:02:09,360 --> 00:02:13,080
+And then, Define new class,
+because we have not defined the handle.
+
+43
+00:02:13,720 --> 00:02:17,680
+And we would like to add
+the dice instance variable.
+
+44
+00:02:18,000 --> 00:02:22,000
+This is a collection that will hold
+all the dice we have added to the handle.
+
+45
+00:02:22,480 --> 00:02:23,240
+OK.
+
+46
+00:02:23,680 --> 00:02:26,560
+We have some red messages,
+but that is fine.
+
+47
+00:02:26,880 --> 00:02:31,760
+We will write another test,
+"CreationWithTheSameDice".
+
+48
+00:02:33,000 --> 00:02:35,480
+So, what we will do there is...
+
+49
+00:02:35,920 --> 00:02:38,880
+I will write this on the same line,
+remove that.
+
+50
+00:02:39,360 --> 00:02:42,480
+We will add twice the same dice.
+
+51
+00:02:42,800 --> 00:02:43,600
+So, dot.
+
+52
+00:02:44,040 --> 00:02:46,840
+We will check
+that the first time, it equals 1
+
+53
+00:02:47,160 --> 00:02:49,200
+and the second time, it equals 2.
+
+54
+00:02:50,160 --> 00:02:52,680
+We do not need to reinstantiate it.
+
+55
+00:02:53,000 --> 00:02:54,360
+So, "handle addDie",
+
+56
+00:02:54,680 --> 00:02:56,760
+we will add another die with six faces.
+
+57
+00:02:57,080 --> 00:02:59,640
+This time, we would like
+to have "diceNumber equals: 2".
+
+58
+00:03:00,040 --> 00:03:00,960
+OK, cool.
+
+59
+00:03:01,280 --> 00:03:03,480
+If we execute the test right away,
+
+60
+00:03:03,800 --> 00:03:05,400
+we can see that the Debugger opens
+
+61
+00:03:05,720 --> 00:03:07,880
+and nothing is implemented,
+so that is normal.
+
+62
+00:03:08,200 --> 00:03:12,000
+We will go over to the Class
+and go to Inst. side method.
+
+63
+00:03:12,320 --> 00:03:15,160
+First, we will write
+an "initialize" method.
+
+64
+00:03:15,480 --> 00:03:16,400
+So, "initialize",
+
+65
+00:03:17,360 --> 00:03:19,640
+call "super initialize".
+
+66
+00:03:19,960 --> 00:03:23,280
+And then,
+give to the dice instance variable
+
+67
+00:03:23,600 --> 00:03:25,600
+the value of a new "OrderedCollection".
+
+68
+00:03:25,960 --> 00:03:30,760
+Now, we need to add a die.
+So, "addDie: aDie".
+
+69
+00:03:31,080 --> 00:03:34,800
+What we will do is simply call "add"
+on the dice collection,
+
+70
+00:03:35,120 --> 00:03:36,360
+so "add: aDie".
+
+71
+00:03:37,280 --> 00:03:38,200
+Save this.
+
+72
+00:03:38,720 --> 00:03:41,880
+We will need a getter of our dice
+and instance variables,
+
+73
+00:03:42,200 --> 00:03:44,120
+so "dice".
+
+74
+00:03:44,440 --> 00:03:45,800
+Save this.
+
+75
+00:03:46,280 --> 00:03:48,200
+And finally, "diceNumber".
+
+76
+00:03:48,720 --> 00:03:52,720
+"DiceNumber" that will return
+for size of the dice collection.
+
+77
+00:03:53,360 --> 00:03:54,120
+Save.
+
+78
+00:03:54,440 --> 00:03:55,760
+We have got our four methods.
+
+79
+00:03:56,080 --> 00:03:58,120
+If we run our tests again,
+they are now green.
+
+80
+00:03:58,440 --> 00:04:00,320
+It is a great time to save,
+so go to Tools,
+
+81
+00:04:00,640 --> 00:04:01,600
+Iceberg,
+
+82
+00:04:02,600 --> 00:04:04,200
+then we can go over to there.
+
+83
+00:04:04,840 --> 00:04:06,360
+"Uncommitted changes".
+
+84
+00:04:06,840 --> 00:04:08,680
+I will just repair this.
+
+85
+00:04:09,600 --> 00:04:11,040
+"Checkout branch
+
+86
+00:04:11,920 --> 00:04:13,480
+discarding image changes".
+
+87
+00:04:13,880 --> 00:04:14,640
+OK.
+
+88
+00:04:16,320 --> 00:04:19,120
+So, we will add everything.
+OK, Checkout.
+
+89
+00:04:19,440 --> 00:04:20,520
+OK, Commit.
+
+90
+00:04:20,840 --> 00:04:24,440
+So, normally you should just have
+to commit everything.
+
+91
+00:04:24,760 --> 00:04:28,160
+This is because I am messing around
+with my branches, but it should be fine.
+
+92
+00:04:28,480 --> 00:04:29,640
+Now, it is up-to-date.
+
+93
+00:04:30,760 --> 00:04:33,480
+And we can go over to there
+
+94
+00:04:33,800 --> 00:04:36,880
+and look at the output
+"Die withFaces" gives us.
+
+95
+00:04:37,480 --> 00:04:41,600
+If I press Cmd+P or print,
+I can right-click and go to Print it.
+
+96
+00:04:41,920 --> 00:04:43,080
+We can go to "aDie"
+
+97
+00:04:43,400 --> 00:04:46,440
+and if we go to this one,
+it will output "aDie" as well.
+
+98
+00:04:46,760 --> 00:04:49,120
+While it is kind of useful,
+
+99
+00:04:49,440 --> 00:04:52,920
+we can make it better by, for example,
+displaying the number of faces.
+
+100
+00:04:53,320 --> 00:04:54,320
+In order to do so,
+
+101
+00:04:54,640 --> 00:04:56,800
+we will go to the die Class
+
+102
+00:04:57,120 --> 00:05:00,520
+and we will write a method
+called "printOn".
+
+103
+00:05:01,080 --> 00:05:02,680
+"PrintOn: aStream".
+
+104
+00:05:03,000 --> 00:05:06,040
+This is a method that is already defined
+but we will extend it,
+
+105
+00:05:06,360 --> 00:05:09,320
+so "super printOn: aStream"
+
+106
+00:05:09,640 --> 00:05:15,040
+because we would like to keep
+the "aDie" thing for now, so "aDie".
+
+107
+00:05:15,360 --> 00:05:17,120
+We would like to add
+the number of faces,
+
+108
+00:05:17,560 --> 00:05:20,880
+so "aStream nextPutAll:".
+
+109
+00:05:21,640 --> 00:05:24,520
+We will add an open parenthesis.
+
+110
+00:05:24,840 --> 00:05:27,680
+Then, in order to concatenate strings
+in Pharo,
+
+111
+00:05:28,000 --> 00:05:33,480
+you have to use the comma,
+so comma, "faces printString".
+
+112
+00:05:34,000 --> 00:05:39,320
+this will convert the number of faces
+to a string, comma, closing parenthesis.
+
+113
+00:05:39,640 --> 00:05:44,720
+Now, if I save this, go over to there
+and press Cmd+P,
+
+114
+00:05:45,040 --> 00:05:48,400
+we can see that we now have a number
+of faces between parentheses,
+
+115
+00:05:48,720 --> 00:05:51,840
+so "Die withFaces: 6", 
+"Die withFaces: 10". That is great.
+
+116
+00:05:52,480 --> 00:05:54,600
+What we need to do now
+
+117
+00:05:54,920 --> 00:05:57,720
+is to make a "roll" method
+for the DieHandle.
+
+118
+00:05:58,040 --> 00:05:59,520
+Basically, how will we do this?
+
+119
+00:05:59,840 --> 00:06:00,760
+We will do "roll",
+
+120
+00:06:01,080 --> 00:06:03,920
+we need to keep the result
+as a temporary variable,
+
+121
+00:06:04,440 --> 00:06:05,880
+initialize it to 0,
+
+122
+00:06:06,480 --> 00:06:09,960
+and then, we need to iterate
+all the dice collection we have
+
+123
+00:06:10,280 --> 00:06:11,320
+as an instance variable,
+
+124
+00:06:11,640 --> 00:06:12,480
+so "dice"
+
+125
+00:06:13,400 --> 00:06:16,040
+and what we will do
+is call the method "do"
+
+126
+00:06:17,200 --> 00:06:20,480
+and then, brackets
+with double dash "each".
+
+127
+00:06:20,800 --> 00:06:25,600
+This will iterate each member
+of the dice collection
+
+128
+00:06:26,040 --> 00:06:28,640
+and we will add the result of a roll
+
+129
+00:06:28,960 --> 00:06:31,320
+so "res + each roll".
+
+130
+00:06:32,160 --> 00:06:34,680
+"Do" will iterate
+all the dice collection
+
+131
+00:06:35,000 --> 00:06:38,640
+and for each of the dice
+within the dice collection,
+
+132
+00:06:38,960 --> 00:06:42,640
+we will roll it and add its results
+to the global result "res".
+
+133
+00:06:43,240 --> 00:06:45,760
+So, let's write "res". Save this.
+
+134
+00:06:46,440 --> 00:06:49,080
+For testing purposes,
+we will need a "maxValue".
+
+135
+00:06:50,480 --> 00:06:51,560
+What is the "maxValue"?
+
+136
+00:06:51,880 --> 00:06:56,280
+For example, for our handle there,
+it would be 6 plus 10, so 16.
+
+137
+00:06:56,600 --> 00:06:59,600
+This is exactly
+what we will do right there.
+
+138
+00:06:59,920 --> 00:07:03,280
+Instead of adding the roll,
+we will add in the number of faces.
+
+139
+00:07:03,880 --> 00:07:07,480
+Basically, this means this one rolls
+the highest value possible, so 6,
+
+140
+00:07:07,800 --> 00:07:09,280
+and this one as well, so 10.
+
+141
+00:07:10,360 --> 00:07:11,880
+And this will return the "res".
+
+142
+00:07:12,200 --> 00:07:14,320
+Save this.
+Now, we will go over to the test.
+
+143
+00:07:14,640 --> 00:07:15,880
+First, we will test
+
+144
+00:07:16,200 --> 00:07:21,040
+the "testMaxValue".
+
+145
+00:07:21,400 --> 00:07:24,480
+So, I will just borrow some of this.
+
+146
+00:07:25,040 --> 00:07:27,040
+I will borrow everything. Let's go.
+
+147
+00:07:29,160 --> 00:07:30,360
+So, I am there.
+
+148
+00:07:31,000 --> 00:07:34,120
+"TestMaxValue", "handle",
+we will create our handle,
+
+149
+00:07:34,440 --> 00:07:38,640
+"self assert maxValue equals: 16".
+
+150
+00:07:38,960 --> 00:07:41,280
+Save this test, run it.
+
+151
+00:07:42,080 --> 00:07:43,520
+Everything is green, that is great.
+
+152
+00:07:43,840 --> 00:07:46,720
+Now, the last one is "testRoll".
+
+153
+00:07:47,760 --> 00:07:50,040
+And we will keep the same handle,
+
+154
+00:07:50,360 --> 00:07:52,360
+but this time, we will do the same thing
+
+155
+00:07:52,680 --> 00:07:56,080
+that we did for the "roll" method
+for the die.
+
+156
+00:07:56,400 --> 00:07:58,680
+We will do "10 timesRepeat"
+
+157
+00:07:59,520 --> 00:08:02,000
+and then block with the assertion.
+
+158
+00:08:02,640 --> 00:08:04,880
+Block, "self assert",
+
+159
+00:08:05,200 --> 00:08:06,600
+but this will not be...
+
+160
+00:08:06,920 --> 00:08:08,200
+We would like to verify
+
+161
+00:08:08,520 --> 00:08:12,520
+that "handle roll is between"...
+
+162
+00:08:13,400 --> 00:08:17,800
+I will put the parentheses first,
+parenthesis there, parenthesis there,
+
+163
+00:08:18,560 --> 00:08:19,360
+remove this.
+
+164
+00:08:19,680 --> 00:08:20,440
+"Between"...
+
+165
+00:08:20,840 --> 00:08:25,000
+If each die rolls 1,
+basically, this would mean 1, 2,
+
+166
+00:08:25,320 --> 00:08:26,760
+so the number of dice,
+
+167
+00:08:27,080 --> 00:08:32,800
+"between handle diceNumber
+and handle maxValue".
+
+168
+00:08:33,120 --> 00:08:35,440
+That is why we needed
+the "maxValue" function.
+
+169
+00:08:35,960 --> 00:08:36,920
+That is great.
+
+170
+00:08:37,280 --> 00:08:40,520
+Let's save it, run it,
+you can see it is green,
+
+171
+00:08:40,840 --> 00:08:42,160
+so everything is looking fine.
+
+172
+00:08:42,480 --> 00:08:45,000
+We can save our repository once again,
+
+173
+00:08:45,320 --> 00:08:47,920
+so Iceberg, "Uncommitted changes".
+
+174
+00:08:48,240 --> 00:08:51,320
+This is what you are supposed to see
+on the first time we save,
+
+175
+00:08:51,640 --> 00:08:53,000
+so double-click on it.
+
+176
+00:08:54,120 --> 00:08:54,880
+Now, Commit.
+
+177
+00:08:55,360 --> 00:08:56,920
+And you can write, for example...
+
+178
+00:08:57,520 --> 00:08:58,720
+What did we add?
+
+179
+00:08:59,040 --> 00:09:00,880
+We added "maxValue", "roll",
+
+180
+00:09:01,360 --> 00:09:06,320
+so "Roll method for DieHandle
+
+181
+00:09:07,600 --> 00:09:12,360
+and better print for Die" and commit.
+
+182
+00:09:13,440 --> 00:09:14,360
+Cool.
+
+183
+00:09:14,680 --> 00:09:16,240
+This is the end of part 2.
+
+184
+00:09:16,560 --> 00:09:18,360
+In part 3, we are going to look
+
+185
+00:09:19,160 --> 00:09:25,760
+at how we can use the behavior we wanted
+with, for example, "1 D4 + 2 D6",
+
+186
+00:09:26,080 --> 00:09:30,440
+because right now, we have the back-end
+simulation of what I have written there,
+
+187
+00:09:30,840 --> 00:09:32,200
+but we have not...
+
+188
+00:09:32,520 --> 00:09:36,040
+This message will not be understood
+by the system for now.
+
+189
+00:09:36,360 --> 00:09:38,240
+We will see that in the next part.

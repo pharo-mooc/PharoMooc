@@ -1,0 +1,456 @@
+WEBVTT
+
+00:00:00.520 --> 00:00:03.880 align:middle
+En esta sesión,
+Estudiaremos la composición del mensaje.
+
+00:00:04.040 --> 00:00:08.720 align:middle
+Veremos cómo funciona la precedencia:
+la jerarquía de elementos
+
+00:00:08.880 --> 00:00:11.600 align:middle
+La pregunta que debe hacerse es:
+
+00:00:11.760 --> 00:00:15.080 align:middle
+"¿Qué sucede cuando se tiene
+una secuencia de mensajes unarios?"
+
+00:00:15.240 --> 00:00:18.040 align:middle
+Escribí la siguiente expresión:
+
+00:00:18.200 --> 00:00:20.720 align:middle
+1000 factorial class name
+¿Qué pasa?
+
+00:00:20.880 --> 00:00:24.400 align:middle
+Lo ejecuta como si hubiera escrito
+todos estos paréntesis.
+
+00:00:24.560 --> 00:00:26.680 align:middle
+Puede ver que son molestos.
+
+00:00:26.840 --> 00:00:30.840 align:middle
+Cuando tiene mensajes
+al mismo nivel
+
+00:00:31.000 --> 00:00:35.000 align:middle
+unario, binario o palabras clave
+funciona con los tres,
+
+00:00:35.160 --> 00:00:37.320 align:middle
+los evalúa de izquierda a derecha.
+
+00:00:37.480 --> 00:00:40.280 align:middle
+Envío el mensaje factorial a 1000.
+
+00:00:40.440 --> 00:00:43.960 align:middle
+Luego envío el mensaje class
+al resultado de factorial.
+
+00:00:44.120 --> 00:00:46.600 align:middle
+Luego envío el mensaje name
+
+00:00:47.800 --> 00:00:50.600 align:middle
+a este nuevo objeto
+
+00:00:50.760 --> 00:00:52.880 align:middle
+Devuelve LargePositiveInteger.
+
+00:00:53.640 --> 00:00:56.080 align:middle
+Factorial 1000 es un número muy grande.
+
+00:00:56.240 --> 00:00:59.320 align:middle
+También puede probar con factorial 10000.
+
+00:00:59.920 --> 00:01:01.160 align:middle
+Es un poco mas largo
+
+00:01:02.160 --> 00:01:06.160 align:middle
+Hay mensajes con paréntesis
+
+00:01:06.320 --> 00:01:08.520 align:middle
+cuando necesitan ser ejecutados primero.
+
+00:01:08.680 --> 00:01:11.960 align:middle
+Entonces tienes mensajes únicos,
+luego binario, luego palabras clave.
+
+00:01:12.120 --> 00:01:15.200 align:middle
+Cuando en el mismo nivel,
+vas de izquierda a derecha.
+
+00:01:15.920 --> 00:01:17.720 align:middle
+Tomemos un ejemplo.
+
+00:01:17.880 --> 00:01:21.800 align:middle
+Tengo un mensaje unario, squared,
+
+00:01:21.960 --> 00:01:24.480 align:middle
+y un mensaje binario, +.
+
+00:01:24.640 --> 00:01:27.000 align:middle
+El mensaje unario gana.
+
+00:01:27.160 --> 00:01:30.800 align:middle
+Primero, envío squared.
+
+00:01:30.960 --> 00:01:33.760 align:middle
+A continuación, envío el mensaje +.
+
+00:01:33.920 --> 00:01:36.640 align:middle
+Devuelve 11. Está bien.
+
+00:01:37.480 --> 00:01:39.560 align:middle
+Esta es otra situación.
+
+00:01:39.720 --> 00:01:42.360 align:middle
+Voy a elevar a la potencia
+usando raisedTo:
+
+00:01:42.520 --> 00:01:47.040 align:middle
+Tengo un mensaje binario y una palabra clave.
+El mensaje binario gana.
+
+00:01:47.200 --> 00:01:49.520 align:middle
+Primero, tengo 5.
+
+00:01:49.680 --> 00:01:53.080 align:middle
+Entonces ejecuto raisedTo: regresa 32.
+Es correcto.
+
+00:01:54.000 --> 00:01:56.160 align:middle
+Este es un ejemplo más complicado.
+
+00:01:56.320 --> 00:02:00.120 align:middle
+Los colores en Pharo son objetos.
+
+00:02:00.280 --> 00:02:01.680 align:middle
+Tengo la clase Color.
+
+00:02:01.840 --> 00:02:06.240 align:middle
+Tengo tres mensajes unarios:
+gris, blanco y negro.
+
+00:02:06.400 --> 00:02:11.360 align:middle
+Tengo dos mensajes binarios:
+= y -.
+
+00:02:11.520 --> 00:02:16.160 align:middle
+¿Qué pasa entonces? El sistema primero
+ejecuta todos los mensajes únicos.
+
+00:02:16.840 --> 00:02:21.320 align:middle
+Devuelve el color aGray,
+el color a blanco, y el color a negro.
+
+00:02:21.480 --> 00:02:25.080 align:middle
+Ahora tengo que enviar mensajes.
+
+00:02:25.240 --> 00:02:28.560 align:middle
+Tengo que elegir entre
+el mensaje - y el mensaje =.
+
+00:02:29.520 --> 00:02:34.480 align:middle
+Envío el mensaje - al objeto aGray
+con blanco como argumento.
+
+00:02:34.640 --> 00:02:36.800 align:middle
+Devuelve el color aBlack.
+
+00:02:37.520 --> 00:02:41.520 align:middle
+Comparo los dos colores.
+Obtengo aBlack = aBlack, lo cual es cierto.
+
+00:02:43.320 --> 00:02:46.160 align:middle
+Este es un ejemplo para mostrarle que
+
+00:02:47.360 --> 00:02:50.200 align:middle
+también puede hacer una conversión automática.
+con Pharo
+
+00:02:50.360 --> 00:02:52.880 align:middle
+Es una especie de broma.
+
+00:02:53.960 --> 00:02:57.960 align:middle
+Tengo la expresion
+1 class maxVal + 1
+
+00:02:58.120 --> 00:03:00.920 align:middle
+Tengo dos mensajes unarios,
+clase y maxVal,
+
+00:03:01.080 --> 00:03:02.400 align:middle
+y un mensaje binario.
+
+00:03:03.640 --> 00:03:05.720 align:middle
+¿Cómo se ejecuta esta expresión?
+
+00:03:05.880 --> 00:03:08.800 align:middle
+Envío el mensaje class
+al SmallInteger 1.
+
+00:03:08.960 --> 00:03:12.760 align:middle
+Devuelve SmallInteger
+ya que 1 es un entero. Funciona.
+
+00:03:13.560 --> 00:03:18.840 align:middle
+Como es el resultado de 1 class,
+envío el mensaje maxVal.
+
+00:03:19.000 --> 00:03:20.800 align:middle
+¿Cuál es el mensaje maxVal?
+
+00:03:20.960 --> 00:03:25.560 align:middle
+Significa:"¿Cuál es el número más grande
+que se puede codificar en un SmallInteger?"
+
+00:03:25.720 --> 00:03:29.960 align:middle
+Obtengo esta gran cantidad
+que termina con 23.
+
+00:03:30.960 --> 00:03:36.120 align:middle
+A este número, envío el mensaje + 1.
+
+00:03:36.920 --> 00:03:40.160 align:middle
+No devuelve un SmallInteger.
+
+00:03:40.320 --> 00:03:44.240 align:middle
+ya que este es el valor que puede ser
+representado por un pequeño entero.
+
+00:03:44.400 --> 00:03:47.080 align:middle
+Como resultado,
+no puede ser un SmallInteger.
+
+00:03:47.240 --> 00:03:51.440 align:middle
+Quiero saber
+cual es la clase de este numero
+
+00:03:51.960 --> 00:03:56.480 align:middle
+Escribo paréntesis y envío clase.
+Devuelve LargePositiveInteger.
+
+00:03:56.640 --> 00:04:00.160 align:middle
+Este es el más grande de los SmallInteger.
+
+00:04:00.320 --> 00:04:02.840 align:middle
+Y eso es lo más pequeño
+de los LargePositiveInteger.
+
+00:04:04.280 --> 00:04:06.280 align:middle
+Escribí paréntesis
+
+00:04:06.440 --> 00:04:09.480 align:middle
+porque sin ellos,
+La clase se hubiera enviado a 1.
+
+00:04:09.640 --> 00:04:12.760 align:middle
+No quiero eso.
+Quiero enviar class al resultado.
+
+00:04:14.520 --> 00:04:18.640 align:middle
+Imagina que he creado un rectángulo.
+
+00:04:18.800 --> 00:04:22.120 align:middle
+Quiero obtener el punto
+en la parte inferior derecha del rectángulo.
+
+00:04:22.280 --> 00:04:24.640 align:middle
+Yo escribí esto.
+Se cuelga cuando lo ejecuto.
+
+00:04:24.800 --> 00:04:29.080 align:middle
+El sistema no comprende:
+100 no entiende bottomRight
+
+00:04:29.240 --> 00:04:33.680 align:middle
+¿Por qué? Porque bottomRight
+es un mensaje unario.
+
+00:04:33.840 --> 00:04:38.560 align:middle
+Se ejecuta antes que los demás:
+se envía a 100, su receptor.
+
+00:04:38.720 --> 00:04:42.520 align:middle
+100 no puede entender esta API
+dado que pertenece a la clase rectángulo.
+
+00:04:42.680 --> 00:04:46.360 align:middle
+Tengo que escribir paréntesis
+como lo hice en esta expresión.
+
+00:04:46.520 --> 00:04:50.440 align:middle
+¿Como funciona? Lo que hay entre
+paréntesis se ejecuta primero.
+
+00:04:50.600 --> 00:04:55.880 align:middle
+Dentro, tengo dos mensajes binarios
+que se ejecutan.
+
+00:04:56.040 --> 00:04:58.960 align:middle
+Crean puntos:
+dos de ellos se crean.
+
+00:04:59.120 --> 00:05:02.360 align:middle
+Envío extent:
+a un punto que crea un rectángulo.
+
+00:05:02.520 --> 00:05:05.120 align:middle
+Tengo un punto 0 @ 0.
+
+00:05:05.280 --> 00:05:09.880 align:middle
+Le paso extent: 100@100.
+
+00:05:10.440 --> 00:05:12.080 align:middle
+Devuelve este rectángulo.
+
+00:05:12.240 --> 00:05:15.680 align:middle
+Lo pregunto por el valor bottomRight.
+
+00:05:15.840 --> 00:05:17.200 align:middle
+Obtengo un rectángulo
+
+00:05:17.360 --> 00:05:20.480 align:middle
+Devuelve el valor del punto aquí:
+
+00:05:20.640 --> 00:05:23.400 align:middle
+es 100@100
+
+00:05:24.960 --> 00:05:28.600 align:middle
+Le dije que las cosas eran muy simples
+en Pharo.
+
+00:05:28.760 --> 00:05:30.360 align:middle
+Solo hay mensajes.
+
+00:05:30.520 --> 00:05:34.560 align:middle
++ es un mensaje como cualquier otro.
+No hay orden de precedencia.
+
+00:05:34.720 --> 00:05:38.400 align:middle
+Lo bueno es que puedes usar +
+para lenguajes de diminio específicos.
+
+00:05:38.560 --> 00:05:42.920 align:middle
+Puedes usar + entre objetos
+no relacionado con objetos matemáticos.
+
+00:05:43.080 --> 00:05:47.200 align:middle
+No puedes hacerlo en Java. Puedes hacerlo
+en C ++ al redefinir los operadores.
+
+00:05:47.360 --> 00:05:49.760 align:middle
+En Pharo, la solución
+
+00:05:49.920 --> 00:05:53.200 align:middle
+fue decidir + sería
+como cualquier otro mensaje
+
+00:05:53.360 --> 00:05:55.280 align:middle
+El énfasis se puso en la simplicidad.
+
+00:05:55.440 --> 00:05:58.880 align:middle
+Hay un precio a pagar:
+no hay precedencia matemática.
+
+00:05:59.040 --> 00:06:00.960 align:middle
+Veamos esto con un ejemplo.
+
+00:06:02.160 --> 00:06:05.640 align:middle
+En esta expresion,
+hay dos operadores:
+
+00:06:05.800 --> 00:06:08.480 align:middle
+dos mensajes binarios
+
+00:06:08.640 --> 00:06:10.560 align:middle
+Ejecuto de izquierda a derecha.
+
+00:06:11.720 --> 00:06:15.480 align:middle
+Obtengo 5 y devuelve 50:
+No es lo que aprendí en la escuela.
+
+00:06:15.640 --> 00:06:19.440 align:middle
+Para desambiguar esto, tengo que
+reescribir esto usando paréntesis
+
+00:06:19.600 --> 00:06:21.200 align:middle
+alrededor de *
+
+00:06:21.360 --> 00:06:26.400 align:middle
+Tienes que tener cuidado cuando
+usando operaciones aritméticas en Pharo
+
+00:06:26.560 --> 00:06:29.520 align:middle
+ya que los operadores matemáticos
+son solo mensajes
+
+00:06:30.040 --> 00:06:31.160 align:middle
+Otro ejemplo:
+
+00:06:31.320 --> 00:06:34.800 align:middle
+si escribo 1/3 + 2/3,
+No obtengo el resultado correcto
+
+00:06:34.960 --> 00:06:38.640 align:middle
+como el sistema primero se ejecuta
+esta expresión
+
+00:06:39.160 --> 00:06:41.120 align:middle
+ya que va de izquierda a derecha.
+
+00:06:41.280 --> 00:06:43.840 align:middle
+Si agrego paréntesis,
+obtengo el resultado correcto
+
+00:06:44.000 --> 00:06:46.640 align:middle
+Tengo un punto interesante por hacer:
+
+00:06:46.800 --> 00:06:49.960 align:middle
+cuando escribo 1/3 + 2/3,
+obtengo el SmallInteger 1.
+
+00:06:50.120 --> 00:06:54.280 align:middle
+No obtengo 1.000 ... o 0.999 ...
+
+00:06:54.440 --> 00:06:59.440 align:middle
+Manipulo fracciones exactas.
+Obtengo cálculos exactos.
+
+00:06:59.600 --> 00:07:01.200 align:middle
+Para resumir,
+
+00:07:01.360 --> 00:07:05.600 align:middle
+hay tres tipos de mensajes,
+que deberías saber por ahora:
+
+00:07:05.760 --> 00:07:07.560 align:middle
+Unario, binario, palabras clave.
+
+00:07:07.720 --> 00:07:11.040 align:middle
+Primero ejecuta paréntesis,
+
+00:07:11.200 --> 00:07:13.320 align:middle
+luego unarios, binarios y palabras clave.
+
+00:07:13.480 --> 00:07:16.120 align:middle
+Cuando estan en el mismo nivel,
+
+00:07:16.280 --> 00:07:20.480 align:middle
+por ejemplo, con dos mensajes unarios,
+vas de izquierda a derecha.
+
+00:07:20.640 --> 00:07:23.320 align:middle
+No hay precedencia matemática
+
+00:07:23.480 --> 00:07:26.480 align:middle
+dado que los operadores matemáticos
+son simples mensajes,
+
+00:07:26.640 --> 00:07:29.280 align:middle
+lo que es diferente de la mayoría de los idiomas.
+
+00:07:29.440 --> 00:07:34.160 align:middle
+Los argumentos se colocan dentro del mensaje
+estructura, por ejemplo en between:and:
+

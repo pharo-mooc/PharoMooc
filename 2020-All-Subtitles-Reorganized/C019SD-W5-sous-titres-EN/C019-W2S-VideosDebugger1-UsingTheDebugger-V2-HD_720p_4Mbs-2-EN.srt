@@ -1,0 +1,448 @@
+1
+00:00:02,560 --> 00:00:04,600
+In this video, 
+I’d like to explain how
+
+2
+00:00:04,767 --> 00:00:07,080
+the debugger works and
+how you can use it
+
+3
+00:00:07,247 --> 00:00:10,780
+to identify bugs,
+and execute expressions,
+
+4
+00:00:10,947 --> 00:00:12,710
+and interact with objects. 
+
+5
+00:00:14,080 --> 00:00:16,030
+So I want to do once more
+
+6
+00:00:16,197 --> 00:00:18,820
+the exercises that we had completed
+and done together on the
+
+7
+00:00:19,000 --> 00:00:21,220
+counter, so I use Monticello,
+
+8
+00:00:21,387 --> 00:00:25,240
+I go into the cache package,
+and
+
+9
+00:00:25,407 --> 00:00:26,320
+I see that there is a Counter package.
+
+10
+00:00:27,050 --> 00:00:29,010
+It enables me to also explain 
+
+11
+00:00:29,177 --> 00:00:31,560
+this feature here. To be sure
+
+12
+00:00:31,727 --> 00:00:35,300
+this is the right package,
+I can browse, it is to say
+
+13
+00:00:35,560 --> 00:00:37,650
+that I’m going to look at the
+classes defined in the package.
+
+14
+00:00:38,240 --> 00:00:39,830
+So here, I see that I have 
+a package called
+
+15
+00:00:40,000 --> 00:00:42,500
+MyCounter, containing
+2 classes, Counter and
+
+16
+00:00:42,667 --> 00:00:44,830
+CounterTest, and if I look at
+all the operations
+
+17
+00:00:45,000 --> 00:00:48,130
+of Counter, I do have the 4 
+methods we had defined 
+
+18
+00:00:48,297 --> 00:00:51,240
+together and in the same way
+for the test.
+
+19
+00:00:51,407 --> 00:00:53,180
+So now, I know that this is
+this package
+
+20
+00:00:53,347 --> 00:00:54,490
+I want to load, I’m gonna
+do load.
+
+21
+00:00:58,300 --> 00:01:02,160
+So now, I’m gonna browse
+the Counter class.
+
+22
+00:01:08,200 --> 00:01:11,710
+For the Counter class, the tests
+are green, so we can begin.
+
+23
+00:01:15,000 --> 00:01:16,680
+I’d like to show you
+
+24
+00:01:16,847 --> 00:01:19,470
+how we can use the debugger to
+execute an
+
+25
+00:01:19,637 --> 00:01:22,260
+expression step-by-step,
+and go or not in the
+
+26
+00:01:22,427 --> 00:01:23,720
+expressions we want to 
+see in more details. 
+
+27
+00:01:24,530 --> 00:01:26,800
+To do this, I take the 
+TestDecrement
+
+28
+00:01:27,000 --> 00:01:30,300
+as an example, I do 
+DebugTest.
+
+29
+00:01:30,467 --> 00:01:35,420
+Debug test, here it is,
+once more
+
+30
+00:01:35,587 --> 00:01:36,700
+what does the debugger
+show me?
+
+31
+00:01:36,867 --> 00:01:38,880
+The debugger shows
+the execution stack.
+
+32
+00:01:39,047 --> 00:01:41,830
+As in Pharo everything is a
+message, you see that
+
+33
+00:01:42,000 --> 00:01:46,860
+we can go deep in the stack,
+at first we
+
+34
+00:01:47,027 --> 00:01:50,160
+executed the Run method,
+Undo, lots of things like this.
+
+35
+00:01:50,327 --> 00:01:53,240
+For the moment, the system does
+it so we don’t really care.
+
+36
+00:01:54,530 --> 00:01:59,300
+Here we see the code being executed
+on the stack
+
+37
+00:01:59,730 --> 00:02:00,930
+and the system status.
+
+38
+00:02:01,097 --> 00:02:03,060
+Here, look, I have a local variable 
+C. For the moment
+
+39
+00:02:03,227 --> 00:02:05,480
+it has not been assigned,
+so there is nil.
+
+40
+00:02:06,150 --> 00:02:08,800
+And here I see that Self
+is in fact a class of
+
+41
+00:02:09,380 --> 00:02:13,770
+CounterTest, this is the
+method CounterTest>>
+
+42
+00:02:14,880 --> 00:02:15,580
+#testDecrement.
+
+43
+00:02:16,690 --> 00:02:21,420
+When I click on “over” here,
+
+44
+00:02:21,587 --> 00:02:24,370
+I get on the first expression 
+to execute.
+
+45
+00:02:24,537 --> 00:02:26,540
+Note that,
+if I want to,
+
+46
+00:02:26,707 --> 00:02:28,720
+I can create immediately, I can 
+execute this
+
+47
+00:02:28,887 --> 00:02:32,340
+expression because it is complete,
+
+48
+00:02:32,507 --> 00:02:34,190
+the Counter class is defined
+and I can
+
+49
+00:02:34,357 --> 00:02:35,380
+send it the message New.
+
+50
+00:02:36,120 --> 00:02:38,790
+Here I see that C is always like this,
+so 
+
+51
+00:02:38,957 --> 00:02:40,650
+now I’m going to say I want
+“Over”.
+
+52
+00:02:40,817 --> 00:02:41,910
+Over: what does it mean?
+
+53
+00:02:42,077 --> 00:02:45,840
+It means I want to execute the
+expression without going inside it.
+
+54
+00:02:47,430 --> 00:02:52,150
+Here I am on the second expression
+which is an
+
+55
+00:02:52,317 --> 00:02:55,400
+assignment, and I will click on
+“Over” once more and
+
+56
+00:02:55,567 --> 00:02:59,940
+all of a sudden my variable
+C points on a Counter
+
+57
+00:03:00,340 --> 00:03:04,300
+that I can see her. Here for the moment
+the counter value is nil.
+
+58
+00:03:04,467 --> 00:03:07,960
+If I wanted to know how
+count:
+
+59
+00:03:08,127 --> 00:03:11,600
+is implemented, instead of
+using “Over” I would 
+
+60
+00:03:11,767 --> 00:03:12,520
+use “Into”.
+
+61
+00:03:12,687 --> 00:03:16,140
+“Into” will make me get inside
+the method, 
+
+62
+00:03:17,510 --> 00:03:20,050
+like this. Here I can see
+the method definition and
+
+63
+00:03:20,217 --> 00:03:22,160
+once more, I can interact 
+with the arguments.
+
+64
+00:03:22,580 --> 00:03:26,350
+Here I have anInteger, if I write
+Print, I can see
+
+65
+00:03:26,517 --> 00:03:28,230
+see that I get 7, and anyway
+anInteger
+
+66
+00:03:28,397 --> 00:03:32,930
+is here and count, for now,
+
+67
+00:03:33,097 --> 00:03:35,460
+the instance variable, 
+its value is nil.
+
+68
+00:03:35,627 --> 00:03:37,210
+It’s also displayed there.
+
+69
+00:03:38,750 --> 00:03:41,530
+I continue, I click on “Over”,
+because
+
+70
+00:03:41,697 --> 00:03:44,450
+I mean I want to jump over
+it.
+
+71
+00:03:44,617 --> 00:03:46,360
+I want to continue the expression
+execution.
+
+72
+00:03:49,740 --> 00:03:50,373
+So there.
+
+73
+00:03:51,860 --> 00:03:53,370
+Now let’s imagine I want to 
+go inside decrement,
+
+74
+00:03:53,537 --> 00:03:55,690
+I will do the same thing,
+I will click on “Into”,
+
+75
+00:03:56,190 --> 00:04:00,670
+decrement, I have decrement’s
+code and,
+
+76
+00:04:01,310 --> 00:04:04,890
+you understood the principle,
+this way I can do
+
+77
+00:04:05,057 --> 00:04:07,190
+the expression step by step .
+
+78
+00:04:11,230 --> 00:04:13,280
+So now Proceed, what does 
+it enable to do?
+
+79
+00:04:13,447 --> 00:04:15,950
+It enables to say : “from 
+this point continue 
+
+80
+00:04:16,117 --> 00:04:18,310
+as if nothing had happened.
+So that’s what I’m going to do
+
+81
+00:04:18,750 --> 00:04:22,750
+and my test will be green.
+So now I could also
+
+82
+00:04:22,917 --> 00:04:27,760
+execute independently this 
+
+83
+00:04:27,927 --> 00:04:29,810
+bit of code, this means
+
+84
+00:04:30,000 --> 00:04:32,850
+I can put it in a Playground
+like this,
+
+85
+00:04:33,017 --> 00:04:37,920
+and here I have Debug it,
+I get the same thing.
+
+86
+00:04:38,960 --> 00:04:40,630
+In this case it is compiled
+a little bit
+
+87
+00:04:40,797 --> 00:04:43,930
+differently but I have 
+exactly the same
+
+88
+00:04:44,097 --> 00:04:47,710
+features, with my Counter value
+which is 7,
+
+89
+00:04:49,550 --> 00:04:52,080
+and if I click on the counter,
+I can see that I have 7
+
+90
+00:04:52,350 --> 00:04:57,020
+here and I click on “Into”
+for example,
+
+91
+00:04:57,960 --> 00:04:59,850
+I can go in decrement, “Over”,
+“Over”,
+
+92
+00:05:03,030 --> 00:05:05,320
+and the same thing on “Over”.
+
+93
+00:05:08,810 --> 00:05:12,430
+So here it returns the cascade value,
+so it returns
+
+94
+00:05:12,597 --> 00:05:13,440
+the C Counter.
+

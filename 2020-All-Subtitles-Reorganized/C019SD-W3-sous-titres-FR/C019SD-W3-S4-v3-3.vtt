@@ -1,0 +1,469 @@
+WEBVTT
+
+00:00:00.580 --> 00:00:03.590 align:middle
+Alors dans cette séquence
+on va revisiter la syntaxe
+
+00:00:03.790 --> 00:00:05.400 align:middle
+Pharo, c'est-à-dire
+qu'on va la revoir quasiment
+
+00:00:05.600 --> 00:00:08.500 align:middle
+entièrement sur un exemple
+concret, l'exemple d'une l'application
+
+00:00:08.700 --> 00:00:11.170 align:middle
+toute simple: http
+donc issue du monde réel.
+
+00:00:11.920 --> 00:00:13.620 align:middle
+On va analyser le code
+et revoir tous les points
+
+00:00:13.820 --> 00:00:15.930 align:middle
+syntaxiques de Pharo à
+travers cette analyse.
+
+00:00:16.770 --> 00:00:17.830 align:middle
+Donc cette application, là voici.
+
+00:00:18.150 --> 00:00:21.250 align:middle
+C'est une application Web
+ classique qui va nous afficher
+
+00:00:21.450 --> 00:00:22.470 align:middle
+des informations sur des livres.
+
+00:00:23.370 --> 00:00:25.410 align:middle
+Donc je vous donne un
+premier exemple donc on va utiliser
+
+00:00:25.610 --> 00:00:28.900 align:middle
+le framework Zinc, c'est un
+framework http qu'on reverra
+
+00:00:29.100 --> 00:00:32.430 align:middle
+dans la suite des cours, qui
+permet d'effectuer qu'il y a
+
+00:00:32.630 --> 00:00:34.380 align:middle
+2 parties: une partie
+client et une partie serveur qui
+
+00:00:34.580 --> 00:00:37.000 align:middle
+permet d'effectuer des
+requêtes et caetera, http.
+
+00:00:37.690 --> 00:00:41.310 align:middle
+Donc ici, un premier point, on
+peut voir que ZnClient, c'est
+
+00:00:41.510 --> 00:00:44.160 align:middle
+une classe donc ça commence
+par un Z majuscule comme on l'a
+
+00:00:44.360 --> 00:00:46.580 align:middle
+vu dans une précédente
+séquence, les noms de classe, les
+
+00:00:46.780 --> 00:00:48.630 align:middle
+noms de variables globales
+commencent par une lettre majuscule.
+
+00:00:49.090 --> 00:00:51.490 align:middle
+Donc ZnClient est une
+ classe, on lui envoie le message
+
+00:00:51.850 --> 00:00:54.630 align:middle
+"New" ici à cette classe.
+Cela va nous créer une nouvelle
+
+00:00:54.830 --> 00:00:58.220 align:middle
+instance de ZnClient. A
+cette nouvelle instance, on va
+
+00:00:58.420 --> 00:01:01.300 align:middle
+lui envoyer un premier
+message qui est url qui est un
+
+00:01:01.500 --> 00:01:03.620 align:middle
+paramètre, donc ici qui
+est une chaîne de caractères.
+
+00:01:04.140 --> 00:01:07.840 align:middle
+Et puis on va utiliser la
+cascade, donc je vous rappelle
+
+00:01:08.040 --> 00:01:08.960 align:middle
+le point virgule à la fin.
+
+00:01:09.270 --> 00:01:11.620 align:middle
+C'est-à-dire qu'au même
+receveur, on va lui envoyer un
+
+00:01:11.820 --> 00:01:13.450 align:middle
+nouveau message qui s'appelle get.
+
+00:01:15.330 --> 00:01:19.000 align:middle
+Ce bout de code en fait ici
+permet de simuler exactement
+
+00:01:19.200 --> 00:01:21.450 align:middle
+ce que ferait votre
+navigateur, quand vous lui rentrez l'url
+
+00:01:21.650 --> 00:01:25.790 align:middle
+et qu'on appuie sur entrée,
+si je tape url et que j'appuie
+
+00:01:26.000 --> 00:01:28.000 align:middle
+sur entrée, en fait on
+contacte le serveur de cette
+
+00:01:28.200 --> 00:01:32.270 align:middle
+application web et ça nous rend
+une réponse http en l'occurrence
+
+00:01:32.470 --> 00:01:34.480 align:middle
+les informations sur un
+livre donné, et pas n'importe
+
+00:01:34.680 --> 00:01:36.070 align:middle
+quel livre le livre numéro 1.
+
+00:01:38.400 --> 00:01:40.780 align:middle
+Donc je vous donne un
+autre exemple ici, une deuxième
+
+00:01:41.000 --> 00:01:44.120 align:middle
+requête construite avec
+Pharo et ZnClient, donc toujours
+
+00:01:44.320 --> 00:01:48.240 align:middle
+pareil on instancie un
+objet ZnClient, on lui envoie un
+
+00:01:48.440 --> 00:01:50.190 align:middle
+ensemble de messages en
+utilisant des cascades.
+
+00:01:50.780 --> 00:01:53.670 align:middle
+Et puis, on peut voir en
+fait quelque chose qu'on avait
+
+00:01:53.870 --> 00:01:57.190 align:middle
+déjà vu, c'est que en Pharo on a
+des keywords messages c'est-à-dire
+
+00:01:57.390 --> 00:02:02.220 align:middle
+que le nom de la méthode,
+c'est formAt: put:, donc
+
+00:02:02.420 --> 00:02:06.190 align:middle
+ça c'est équivalent avec
+une syntaxe Java classique à
+
+00:02:06.390 --> 00:02:09.880 align:middle
+FormAtput, donc le nom de
+méthode tout collé et je passe
+
+00:02:10.080 --> 00:02:12.440 align:middle
+tous les arguments entre parenthèses.
+
+00:02:15.790 --> 00:02:19.610 align:middle
+Donc là je vous montre sur
+ce slide le code complet de
+
+00:02:19.810 --> 00:02:22.870 align:middle
+cette petite application
+web, construite avec Zinc.
+
+00:02:25.650 --> 00:02:27.750 align:middle
+Je vais vous présenter
+maintenant certains morceaux de ce
+
+00:02:27.950 --> 00:02:30.630 align:middle
+code point par point. Tout
+d'abord par exemple, on a une
+
+00:02:30.830 --> 00:02:33.180 align:middle
+première partie qui correspond
+à la configuration du serveur.
+
+00:02:33.620 --> 00:02:37.690 align:middle
+Donc on a en premier lieu
+ici sur la première ligne des
+
+00:02:37.890 --> 00:02:40.860 align:middle
+déclarations de variables
+locales qui commencent par des
+
+00:02:41.060 --> 00:02:42.530 align:middle
+lettres minuscules, je vous rappelle.
+
+00:02:43.310 --> 00:02:46.440 align:middle
+Donc books teapot, deux
+variables locales qui sont dans
+
+00:02:46.640 --> 00:02:48.370 align:middle
+des barres verticales.
+
+00:02:48.570 --> 00:02:50.670 align:middle
+Ensuite, on a des affectations.
+
+00:02:50.870 --> 00:02:53.310 align:middle
+Donc ici, on a une
+première affectation 2:= en Pharo.
+
+00:02:55.720 --> 00:02:59.430 align:middle
+On peut avoir des symboles,
+donc le point numéro 3 on a
+
+00:02:59.630 --> 00:03:04.310 align:middle
+#port qui est ici dans le
+code donc qui correspond à un
+
+00:03:04.510 --> 00:03:08.000 align:middle
+symbole, donc c'est une chaîne unique
+qui ne sera créée qu'une seule fois.
+
+00:03:09.200 --> 00:03:12.920 align:middle
+On a des messages qui sont
+envoyés à la classe teapot, là
+
+00:03:13.120 --> 00:03:14.680 align:middle
+par exemple, on a la
+ classe qui est ici.
+
+00:03:15.590 --> 00:03:17.850 align:middle
+Et puis, je vais lui
+envoyer le message configure.
+
+00:03:18.150 --> 00:03:21.000 align:middle
+Donc configure: je vous
+rappelle le 2 points c'est pour
+
+00:03:21.200 --> 00:03:25.510 align:middle
+marquer la présence d'un
+argument qu'on va envoyer dans
+
+00:03:25.830 --> 00:03:30.010 align:middle
+cette méthode. Et là
+l'argument commence par une
+
+00:03:30.710 --> 00:03:33.150 align:middle
+accolade et se termine
+ici par une accolade.
+
+00:03:33.620 --> 00:03:37.160 align:middle
+Donc ce qu'il y a entre
+accolades c'est un tableau dynamique.
+
+00:03:39.420 --> 00:03:41.410 align:middle
+Tout ce qui est entre
+accolades, en fait on va évaluer
+
+00:03:41.610 --> 00:03:43.930 align:middle
+chacune des expressions
+séparées par des points dans ce
+
+00:03:44.130 --> 00:03:46.560 align:middle
+tableau-là, et on va
+construire un tableau avec le
+
+00:03:46.760 --> 00:03:47.910 align:middle
+résultat de chacune des expressions.
+
+00:03:49.340 --> 00:03:51.490 align:middle
+On voit qu'il y a qu'un seul
+argument dans la méthode configure.
+
+00:03:52.000 --> 00:03:56.460 align:middle
+Et puis à l'intérieur de ce tableau
+
+00:03:56.660 --> 00:04:01.340 align:middle
+dynamique entre accolades,
+on va utiliser ici la flèche
+
+00:04:01.540 --> 00:04:03.540 align:middle
+qui va permettre de
+construire des objets association.
+
+00:04:04.090 --> 00:04:05.540 align:middle
+C'est une clé, une valeur.
+
+00:04:10.940 --> 00:04:14.110 align:middle
+Pour faire marcher le
+serveur, on ne va pas seulement
+
+00:04:14.310 --> 00:04:17.050 align:middle
+définir la configuration du
+serveur, on va aussi définir
+
+00:04:17.250 --> 00:04:18.690 align:middle
+des roots, ce qu'on
+appelle des roots.
+
+00:04:19.270 --> 00:04:21.800 align:middle
+Je vous explique sur un
+exemple plus petit, donc un
+
+00:04:22.000 --> 00:04:25.000 align:middle
+extrait de code du code
+complet. Si je veux dans mon
+
+00:04:25.200 --> 00:04:26.830 align:middle
+application, être
+capable de traiter des urls qui
+
+00:04:27.030 --> 00:04:31.860 align:middle
+ressemblent à ça, qui se
+terminent par books/1, si je
+
+00:04:32.060 --> 00:04:35.040 align:middle
+veux les informations du
+livre no 1 par exemple, donc je
+
+00:04:35.240 --> 00:04:37.100 align:middle
+vais définir ce qu'on
+appelle une route dans mon
+
+00:04:37.300 --> 00:04:41.330 align:middle
+application Zinc, je vais
+dire quand je reçois une
+
+00:04:41.530 --> 00:04:45.920 align:middle
+requête de type GET qui
+commence par /books/ et puis
+
+00:04:46.120 --> 00:04:49.560 align:middle
+quelque chose qui est un
+entier, vous voyez ici id qui
+
+00:04:49.760 --> 00:04:52.450 align:middle
+est un entier, alors
+exécute ce block de code.
+
+00:04:52.650 --> 00:04:54.370 align:middle
+Donc un block, je vous
+rappelle ça commence par un
+
+00:04:54.570 --> 00:04:59.000 align:middle
+crochet, ça termine par un
+crochet, c'est une méthode
+
+00:04:59.200 --> 00:05:01.340 align:middle
+anonyme qui peut prendre un
+paramètre, en l'occurrence
+
+00:05:01.540 --> 00:05:03.710 align:middle
+ici il y a un paramètre
+qui s'appelle request qui
+
+00:05:03.910 --> 00:05:07.660 align:middle
+commence par: et qui est
+séparé par une barre verticale.
+
+00:05:09.040 --> 00:05:11.890 align:middle
+Et ensuite le corps du
+block, toutes les expressions qui
+
+00:05:12.090 --> 00:05:14.240 align:middle
+sont dedans, ici il n'y en
+a qu'une expression c'est
+
+00:05:14.440 --> 00:05:19.040 align:middle
+celle-là, donc on va
+envoyer le message At à l'objet
+
+00:05:19.240 --> 00:05:24.150 align:middle
+books, Ok, et puis on veut quel
+
+00:05:25.430 --> 00:05:27.810 align:middle
+livre dans la collection de livres.
+
+00:05:28.090 --> 00:05:30.150 align:middle
+En fait on veut le livre qui
+correspond à l'id qui a été
+
+00:05:30.350 --> 00:05:31.440 align:middle
+passé en paramètre dans l'url.
+
+00:05:32.030 --> 00:05:33.490 align:middle
+Je vais demander à la requête.
+
+00:05:33.900 --> 00:05:37.000 align:middle
+La variable qui est ici
+c'est bien le paramètre du block
+
+00:05:37.200 --> 00:05:39.950 align:middle
+qui était défini au début.
+Je vais récupérer l'élément
+
+00:05:40.150 --> 00:05:42.580 align:middle
+qui s'appelle id
+dans cette requête ici.
+
+00:05:43.100 --> 00:05:44.910 align:middle
+Je vais convertir cet
+élément, souvenez-vous c'était un
+
+00:05:45.110 --> 00:05:47.040 align:middle
+entier, je le convertis
+en chaîne de caractères.
+
+00:05:47.580 --> 00:05:51.140 align:middle
+Et puis ça va me permettre
+de récupérer le livre no 1.
+
+00:05:52.750 --> 00:05:56.370 align:middle
+En conclusion, on a revu
+tous les points syntaxiques de
+
+00:05:56.570 --> 00:05:58.170 align:middle
+Pharo dans cette séquence.
+
+00:05:58.630 --> 00:06:00.930 align:middle
+L'objectif c'était vraiment
+de s'intéresser à la syntaxe.
+
+00:06:01.270 --> 00:06:04.450 align:middle
+Mais on a pu en même temps
+redécouvrir cette syntaxe sur
+
+00:06:04.650 --> 00:06:07.040 align:middle
+un package qui est assez
+intéressant, qui est vraiment
+
+00:06:07.240 --> 00:06:08.850 align:middle
+rigolo et fun à
+ programmer qui est Teapot.
+
+00:06:09.290 --> 00:06:10.840 align:middle
+Vous pouvez aller le
+découvrir par vous-même et le
+
+00:06:11.040 --> 00:06:14.410 align:middle
+ charger depuis Smalltalkhub.
+Donc ça permet de construire
+
+00:06:14.610 --> 00:06:16.700 align:middle
+facilement des
+applications http, on l'a vu le très
+
+00:06:16.900 --> 00:06:21.200 align:middle
+simplement, et en fait c'est un
+package qui est construit au-dessus de Zinc.
+
+00:06:21.400 --> 00:06:25.000 align:middle
+Et Zinc, c'est une des
+bibliothèques très solides qui
+
+00:06:25.200 --> 00:06:29.000 align:middle
+existent en Pharo pour
+faire des applications Web plus
+
+00:06:29.200 --> 00:06:32.000 align:middle
+complexes, comme on le verra
+dans les séquences suivantes.
+

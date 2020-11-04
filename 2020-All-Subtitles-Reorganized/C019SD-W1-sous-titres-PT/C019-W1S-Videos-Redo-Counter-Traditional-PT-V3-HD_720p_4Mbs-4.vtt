@@ -1,0 +1,706 @@
+WEBVTT
+
+00:00:01.190 --> 00:00:05.220 align:middle
+Neste video, vamos mostrar como
+criar pacotes, classes, e descrever testes.
+
+00:00:05.770 --> 00:00:09.100 align:middle
+A primeira coisa a se fazer
+é abrir o "System Browser".
+
+00:00:09.530 --> 00:00:12.590 align:middle
+O System Browser permite navegar pacotes.
+Aqui estão os pacotes.
+
+00:00:14.260 --> 00:00:21.790 align:middle
+Para criar um pacote, vamos clicar
+em "Add Package", digitar "MyCounter".
+
+00:00:22.280 --> 00:00:27.050 align:middle
+Como temos muitos pacotes e não
+queremos ver todos, seria bom filtrá-los.
+
+00:00:27.950 --> 00:00:30.000 align:middle
+Temos nosso pacote "MyCounter".
+
+00:00:30.150 --> 00:00:33.200 align:middle
+E aqui, vamos definir uma classe
+vamos chamá-la "Counter"
+
+00:00:33.420 --> 00:00:37.550 align:middle
+e ela tem uma variável de instância, "count".
+
+00:00:38.140 --> 00:00:42.290 align:middle
+O pequeno ícone laranja ali
+indica que o código não foi salvo.
+
+00:00:42.610 --> 00:00:45.690 align:middle
+Vamos compilar o código,
+com a função "Accept".
+
+00:00:46.290 --> 00:00:49.570 align:middle
+E agora, vemos a classe
+"Counter" que foi compilada.
+
+00:00:49.830 --> 00:00:56.290 align:middle
+O sistema investiga a classe e mostra dicas
+de qualidade de código. Veremos isso depois.
+
+00:01:00.790 --> 00:01:03.580 align:middle
+Tem uma exclamação em vermelho
+porque não escrevemos comentários.
+
+00:01:03.720 --> 00:01:13.880 align:middle
+Então vamos escrever um primeiro
+comentário: "Sou um contador simples".
+
+00:01:45.790 --> 00:01:49.230 align:middle
+Vamos escrever um pequeno exemplo
+para que o leitor entenda
+
+00:01:49.397 --> 00:01:53.050 align:middle
+como esta classe funciona:
+"Counter new"...
+
+00:01:55.750 --> 00:02:04.280 align:middle
+"Counter increment increment"
+
+00:02:04.420 --> 00:02:08.900 align:middle
+"Counter count".
+Aqui, deve ser igual a dois.
+
+00:02:09.880 --> 00:02:14.180 align:middle
+De novo, o código não foi salvo,
+então vamos compilá-lo.
+
+00:02:14.347 --> 00:02:16.540 align:middle
+Foi salvo.
+Não temos mais um contador.
+
+00:02:16.850 --> 00:02:20.050 align:middle
+Agora, vamos definir métodos de acesso.
+
+00:02:21.940 --> 00:02:24.770 align:middle
+Colocamos métodos de acesso
+sob o protocolo "accessing"
+
+00:02:26.640 --> 00:02:31.540 align:middle
+Digitamos: "count",
+retornando a variável "count".
+
+00:02:33.160 --> 00:02:40.740 align:middle
+Da mesma forma, digitamos ": aNumber"
+para fazer um método "setter"
+
+00:02:46.190 --> 00:02:48.380 align:middle
+Veja que eu modifiquei o método "count".
+
+00:02:48.547 --> 00:02:50.770 align:middle
+Você pode pensar que ele
+foi descartado, mas não, porque
+
+00:02:50.937 --> 00:02:54.120 align:middle
+toda vez que modifico um método
+com um nome diferente
+
+00:02:54.287 --> 00:02:55.320 align:middle
+ele cria um novo método.
+
+00:02:55.487 --> 00:02:58.530 align:middle
+Eu compilo o novo método,
+e tenho “count”.
+
+00:03:01.160 --> 00:03:05.190 align:middle
+Agora, podemos de fato testar
+nosso pequeno programa.
+
+00:03:07.360 --> 00:03:14.700 align:middle
+Eu abro o Playground,
+eu quero criar um contador
+
+00:03:14.860 --> 00:03:23.020 align:middle
+Quero criar um contador, adiciono
+um valor: "C count: 7"
+
+00:03:23.200 --> 00:03:29.860 align:middle
+Se eu perguntar qual seu valor,
+ele me mostra... 7
+
+00:03:32.400 --> 00:03:37.140 align:middle
+Agora, queremos escrever
+isso na forma de um teste
+
+00:03:37.280 --> 00:03:40.440 align:middle
+para que assim possamos
+executar isso automaticamente.
+
+00:03:40.630 --> 00:03:42.910 align:middle
+Vamos criar uma classe de teste.
+
+00:03:43.077 --> 00:03:44.820 align:middle
+Como criar uma classe
+de teste em Pharo?
+
+00:03:45.000 --> 00:03:48.450 align:middle
+Mudamos a superclasse,
+dizemos que ela herda "TestCase"
+
+00:03:50.220 --> 00:03:56.140 align:middle
+e vamos definir uma classe
+chamada "CounterTest".
+
+00:03:56.910 --> 00:03:59.860 align:middle
+Agora, vamos compilá-la.
+
+00:04:00.660 --> 00:04:03.700 align:middle
+Eu tenho uma classe
+"CounterTest" no meu sistema.
+
+00:04:04.570 --> 00:04:10.030 align:middle
+Vamos definir um novo método,
+eu vou adicioná-lo ao protocolo "tests".
+
+00:04:11.620 --> 00:04:14.300 align:middle
+Aqui eu posso definir
+um novo método.
+
+00:04:14.467 --> 00:04:17.940 align:middle
+Métodos de teste devem
+sempre começar com "test"
+
+00:04:18.107 --> 00:04:21.690 align:middle
+e estar em uma classe
+que herda "TestCase"
+
+00:04:22.380 --> 00:04:30.620 align:middle
+Vamos chamá-lo
+"testCounterisSetAndRead"
+
+00:04:31.740 --> 00:04:36.540 align:middle
+Temos praticamente nosso teste,
+já escrevemos quase tudo.
+
+00:04:37.620 --> 00:04:40.330 align:middle
+Vamos indentar um pouco melhor.
+
+00:04:40.497 --> 00:04:51.180 align:middle
+Criei meu contador, e aqui digito
+"self assert: ... equals: 7"
+
+00:04:52.920 --> 00:05:01.040 align:middle
+Esta expressão é equivalente a
+"self assert: c count = 7"
+
+00:05:01.720 --> 00:05:04.640 align:middle
+o que é mais prático.
+Quando você faz algo errado,
+
+00:05:04.807 --> 00:05:08.470 align:middle
+o resultado é mais elegante
+nesta primeira forma.
+
+00:05:09.020 --> 00:05:10.910 align:middle
+Vamos compilar.
+
+00:05:12.790 --> 00:05:17.740 align:middle
+Agora, posso executar meu teste.
+e <i>voilà</i>, meu teste está verde.
+
+00:05:19.790 --> 00:05:26.180 align:middle
+Quando você tem testes verdes,
+é uma boa hora para salvar seu código.
+
+00:05:26.370 --> 00:05:27.930 align:middle
+Em Pharo, você pode
+salvar sua imagem.
+
+00:05:28.090 --> 00:05:29.600 align:middle
+É o que vou fazer,
+vou salvar a imagem
+
+00:05:29.740 --> 00:05:31.320 align:middle
+Mas só a imagem não é o suficiente.
+
+00:05:31.560 --> 00:05:36.820 align:middle
+Vou mostrar como salvar o código
+em um sistema de versionamento.
+
+00:05:37.070 --> 00:05:40.460 align:middle
+Como eu não sei se
+você terá acesso à Internet,
+
+00:05:40.560 --> 00:05:44.610 align:middle
+Eu vou salvar o código
+em um repositório local.
+
+00:05:44.770 --> 00:05:51.440 align:middle
+Veja, existe esse diretório
+que aponta todos os pacotes
+
+00:05:51.520 --> 00:05:55.360 align:middle
+os quais eu posso trabalhar,
+e que eu ou o sistema instalamos.
+
+00:05:55.770 --> 00:06:02.870 align:middle
+Aqui, o sistema mostra pacotes com
+modificações que não foram salvas
+
+00:06:03.070 --> 00:06:07.360 align:middle
+Ignorando os dois primeiros, vemos que
+"MyPackage" tem um asterisco.
+
+00:06:07.460 --> 00:06:10.760 align:middle
+Isto significa que tenho código
+na imagem que não foi salvo.
+
+00:06:12.130 --> 00:06:14.020 align:middle
+O que eu vou fazer:
+vou clicar em "Save"
+
+00:06:14.187 --> 00:06:17.320 align:middle
+Escolho primeiro o repositório,
+e clico em "Save".
+
+00:06:18.920 --> 00:06:29.600 align:middle
+E digito "first version with
+accessors and a green test"
+
+00:06:32.240 --> 00:06:36.530 align:middle
+E "Accept". Agora, um pacote
+foi salvo. Vamos verificar.
+
+00:06:36.697 --> 00:06:41.370 align:middle
+Quando eu abrir este
+diretório, ele vai conter
+
+00:06:42.410 --> 00:06:44.460 align:middle
+vários pacotes instalados pelo sistema.
+
+00:06:44.627 --> 00:06:48.470 align:middle
+Mas em particular,
+se eu filtrar, irei achar
+
+00:06:48.637 --> 00:06:51.130 align:middle
+meu pacote e suas versões.
+
+00:06:57.620 --> 00:07:00.740 align:middle
+Aconselho que, toda vez que
+adicionar uma funcionalidade,
+
+00:07:00.907 --> 00:07:03.460 align:middle
+você automaticamente
+salve o código.
+
+00:07:06.770 --> 00:07:12.130 align:middle
+Agora, vamos definir um teste antes
+de implementar uma funcionalidade.
+
+00:07:12.410 --> 00:07:15.560 align:middle
+Vamos escrever um teste do que
+seria incrementar um contador.
+
+00:07:19.020 --> 00:07:21.200 align:middle
+"testIncrement"
+O que queremos obter?
+
+00:07:26.330 --> 00:07:27.430 align:middle
+Queremos criar um contador,
+
+00:07:33.510 --> 00:07:38.400 align:middle
+atribuir um valor inicial,
+
+00:07:38.840 --> 00:07:43.410 align:middle
+depois, incrementá-lo duas vezes.
+
+00:07:44.100 --> 00:07:45.310 align:middle
+E o que devo checar?
+
+00:07:45.477 --> 00:07:51.870 align:middle
+Que este contador
+tenha o valor correto.
+
+00:07:57.900 --> 00:07:59.720 align:middle
+Eu compilo.
+
+00:08:03.000 --> 00:08:06.880 align:middle
+Meu teste está vermelho porque
+eu não implementei, no contador,
+
+00:08:07.510 --> 00:08:10.390 align:middle
+as operações "increment" e "decrement".
+
+00:08:11.520 --> 00:08:21.460 align:middle
+E aqui, vou adicionar:
+"operations"... "increment".
+
+00:08:22.550 --> 00:08:27.840 align:middle
+Vamos escrever "self
+count 2: self count + 1"
+
+00:08:27.920 --> 00:08:30.820 align:middle
+Se usamos métodos de acesso
+internamente ou não,
+
+00:08:30.920 --> 00:08:32.080 align:middle
+é uma questão de estilo.
+
+00:08:34.510 --> 00:08:40.780 align:middle
+Similarmente, vamos definir "decrement".
+
+00:08:42.380 --> 00:08:48.190 align:middle
+Veja que há um teste em "increment",
+posso executá-lo e ele está verde.
+
+00:08:48.357 --> 00:08:50.370 align:middle
+Então tenho dois
+testes funcionando.
+
+00:08:50.710 --> 00:08:53.520 align:middle
+Se eu for pra classe de teste,
+todos meus testes estão verdes.
+
+00:08:53.670 --> 00:08:56.790 align:middle
+O que posso fazer?
+Vou salvar novamente.
+
+00:08:56.950 --> 00:09:03.000 align:middle
+Vou digitar "Adding
+increment and decrement".
+
+00:09:13.110 --> 00:09:23.883 align:middle
+Quando eu inspecionar, terei
+duas versões do meu pacote.
+
+00:09:24.090 --> 00:09:29.020 align:middle
+Vamos escrever um
+teste para "decrement"
+
+00:09:29.100 --> 00:09:30.860 align:middle
+porque não há razão
+para não fazê-lo.
+
+00:09:31.700 --> 00:09:40.320 align:middle
+"Decrement", por exemplo
+posso atribuir valor "2"
+
+00:09:40.487 --> 00:09:43.890 align:middle
+e decrementar duas vezes.
+Devo obter zero.
+
+00:09:44.057 --> 00:09:50.203 align:middle
+Meu teste está verde,
+então vou salvar.
+
+00:10:06.490 --> 00:10:14.300 align:middle
+Agora, o que queremos é,
+quando executarmos "Counter new"
+
+00:10:14.460 --> 00:10:17.340 align:middle
+usando "Print it", ele mostra um
+contador cujo valor eu não sei.
+
+00:10:17.420 --> 00:10:19.000 align:middle
+O que não é muito prático.
+
+00:10:19.360 --> 00:10:22.260 align:middle
+Gostaríamos de modificar
+este comportamento.
+
+00:10:24.130 --> 00:10:26.630 align:middle
+Para fazer isso,vamos
+adicionar um método
+
+00:10:26.797 --> 00:10:29.840 align:middle
+chamado ”printOn:",
+sob o protocolo "printing".
+
+00:10:31.340 --> 00:10:34.920 align:middle
+"printOn:" é chamado pelo sistema
+toda vez que fizermos "printStream".
+
+00:10:35.760 --> 00:10:37.620 align:middle
+Ele tem "aStream" como argumento.
+
+00:10:38.690 --> 00:10:39.440 align:middle
+O que vamos fazer?
+
+00:10:40.200 --> 00:10:43.170 align:middle
+Dizemos que queremos
+ter um contador, então
+
+00:10:43.337 --> 00:10:47.460 align:middle
+tipicamente usaremos a
+funcionalidade da superclasse.
+
+00:10:51.740 --> 00:11:05.560 align:middle
+E gostaria de adicionar
+um pequeno texto
+
+00:11:17.370 --> 00:11:21.480 align:middle
+por exemplo, "with value"
+e depois, "self count".
+
+00:11:24.150 --> 00:11:27.740 align:middle
+Faço isso porque
+o contador é um número
+
+00:11:27.907 --> 00:11:32.180 align:middle
+então quero obter
+sua representação textual.
+
+00:11:34.260 --> 00:11:36.980 align:middle
+Eu digito "cr".
+Eu compilo.
+
+00:11:42.900 --> 00:11:45.000 align:middle
+O sistema diz que posso
+expressar melhor esse método,
+
+00:11:45.060 --> 00:11:47.270 align:middle
+mas não tem problema.
+No momento, não importa.
+
+00:11:48.590 --> 00:11:50.120 align:middle
+Posso digitar "Counter new".
+
+00:11:51.000 --> 00:11:54.360 align:middle
+Eu inspeciono, e tenho um
+contador com valor "nil".
+
+00:11:54.907 --> 00:11:58.020 align:middle
+É normal porque ainda
+não inicializei o contador.
+
+00:12:01.260 --> 00:12:04.960 align:middle
+Agora, vamor adicionar
+suporte à inicialização.
+
+00:12:07.590 --> 00:12:09.780 align:middle
+Pra fazer isso, começaremos
+escrevendo um teste.
+
+00:12:14.050 --> 00:12:23.180 align:middle
+Eu digo que o valor na criação
+de um contador deve ser zero.
+
+00:12:24.950 --> 00:12:36.210 align:middle
+Vou digitar "self assert:
+Counter new count = 0"
+
+00:12:38.020 --> 00:12:41.090 align:middle
+Vamos notar que meu
+teste falhou. Por quê?
+
+00:12:41.257 --> 00:12:45.140 align:middle
+Porque se eu executar
+isso,  vou obter "nil"
+
+00:12:47.140 --> 00:12:49.820 align:middle
+Como não temos acesso
+às variáveis de instância
+
+00:12:50.000 --> 00:12:53.560 align:middle
+da classe "CounterTest",
+eu posso selecionar
+
+00:12:53.727 --> 00:12:57.110 align:middle
+esta expressão e
+executá-la diretamente.
+
+00:13:00.280 --> 00:13:04.420 align:middle
+Uma vez que este teste falhou,
+o que posso fazer?
+
+00:13:04.580 --> 00:13:10.120 align:middle
+Vou adicionar um método "initialize"
+sob o protocolo "initialization".
+
+00:13:16.900 --> 00:13:27.940 align:middle
+E daí, eu digito "super initialize"
+e vou dizer "count := 0"
+
+00:13:28.020 --> 00:13:31.550 align:middle
+Este método é invocado toda vez
+que executo o método "new".
+
+00:13:32.330 --> 00:13:35.700 align:middle
+Agora posso ver meus testes,
+eles estão verdes.
+
+00:13:35.867 --> 00:13:40.070 align:middle
+Similarmente, se eu executar
+"count", obterei zero.
+
+00:13:41.010 --> 00:13:46.280 align:middle
+Mais uma vez,
+vamos salvar o código.
+
+00:14:04.000 --> 00:14:09.300 align:middle
+O interessante é que posso
+ver todo meu histórico.
+
+00:14:09.467 --> 00:14:12.310 align:middle
+Também posso inspecionar
+e navegar nesse histórico.
+
+00:14:12.520 --> 00:14:16.180 align:middle
+Se eu clicar em "version", posso ver
+o diff entre esses dois sistemas.
+
+00:14:17.960 --> 00:14:21.900 align:middle
+As mudanças entre as versões 3 e 4
+são ”initialize", "printOn", e o teste.
+
+00:14:22.000 --> 00:14:31.860 align:middle
+Se eu quiser ver a diferença
+entre as versões 2 e 4,
+
+00:14:31.960 --> 00:14:34.160 align:middle
+eu tenho todas essas mudanças.
+
+00:14:35.870 --> 00:14:39.620 align:middle
+Resta uma coisa a se fazer,
+eu gostaria de mudar um pouco
+
+00:14:39.720 --> 00:14:43.100 align:middle
+a maneira que
+os objetos são criados.
+
+00:14:43.820 --> 00:14:49.040 align:middle
+Eu começo por criar um teste
+para esclarecer o que quero obter.
+
+00:14:49.160 --> 00:14:58.460 align:middle
+Vou definir um teste chamado
+"AlternateClassCreation"
+
+00:14:59.780 --> 00:15:11.000 align:middle
+Digamos, eu quero garantir que
+um contador com valor 19,
+
+00:15:11.500 --> 00:15:20.000 align:middle
+incrementá-lo, e depois
+pedir seu valor, obterei 20.
+
+00:15:21.000 --> 00:15:23.000 align:middle
+Ok?
+
+00:15:30.000 --> 00:15:34.000 align:middle
+Vamos adicionar parênteses
+aqui, fica melhor.
+
+00:15:38.000 --> 00:15:42.000 align:middle
+Mais uma vez, o teste não passa
+
+00:15:44.000 --> 00:15:48.960 align:middle
+e o assistente aqui diz:
+"esta mensagem não existe".
+
+00:15:49.000 --> 00:15:52.000 align:middle
+Então, note que a mensagem "withValue:"
+
+00:15:52.200 --> 00:15:55.000 align:middle
+não é mandada para um
+objeto, e sim para uma classe.
+
+00:15:55.500 --> 00:15:59.000 align:middle
+Isso significa que devo definir
+essa mensagem numa classe.
+
+00:15:59.080 --> 00:16:01.720 align:middle
+Seleciono "Class", então
+passo pro nível de classe.
+
+00:16:01.840 --> 00:16:10.000 align:middle
+e vou adicionar um protocolo
+chamado "instance creation"
+
+00:16:12.500 --> 00:16:16.400 align:middle
+"withValue: aNumber"...
+E o que devo fazer?
+
+00:16:17.500 --> 00:16:21.260 align:middle
+A primeira coisa a fazer é
+criar um contador,
+
+00:16:21.320 --> 00:16:24.500 align:middle
+uma variável pro contador,
+farei lentamente.
+
+00:16:24.600 --> 00:16:26.840 align:middle
+"self new" para
+criar um contafor
+
+00:16:26.900 --> 00:16:30.480 align:middle
+e eu digito
+"self count: aNumber"
+
+00:16:31.160 --> 00:16:34.000 align:middle
+e vou retornar este contador.
+
+00:16:34.100 --> 00:16:35.900 align:middle
+Posso fazer isso
+de forma mais compacta.
+
+00:16:35.940 --> 00:16:38.000 align:middle
+mas, no momento,
+faremos mais simples.
+
+00:16:38.100 --> 00:16:40.000 align:middle
+Eu compilo meu método.
+
+00:16:40.100 --> 00:16:43.720 align:middle
+O que significa que agora
+posso mandar mensagens.
+
+00:16:44.960 --> 00:16:49.120 align:middle
+E você viu, quando
+eu clico neste botão,
+
+00:16:49.460 --> 00:16:53.000 align:middle
+eu passo do nível de classe
+pro nível de instância.
+
+00:16:53.100 --> 00:16:55.540 align:middle
+Aqui eu estava no nível
+de classe, e agora volto
+
+00:16:55.620 --> 00:16:57.500 align:middle
+para as mensagens
+enviadas às instâncias.
+
+00:16:58.100 --> 00:17:01.200 align:middle
+O que isso significa?
+Significa que se executo
+
+00:17:01.500 --> 00:17:09.020 align:middle
+"Counter withValue: 18"
+O que obterei?
+
+00:17:09.100 --> 00:17:11.000 align:middle
+Obterei uma instância
+da classe "Counter".
+
+00:17:12.500 --> 00:17:15.000 align:middle
+Obtenho um contador
+com valor igual a 18,
+
+00:17:15.100 --> 00:17:18.520 align:middle
+E aqui posso executar "decrement"
+
+00:17:21.100 --> 00:17:23.340 align:middle
+E se atualizo o objeto,
+eu obtenho 17.
+
+00:17:26.100 --> 00:17:30.120 align:middle
+Agora, se inspeciono meus testes,
+todos eles passam
+
+00:17:30.220 --> 00:17:35.000 align:middle
+Então, vou mais uma vez
+salvar o código e pronto.
+
+00:17:45.000 --> 00:17:48.000 align:middle
+Terminado por enquanto.
+
+

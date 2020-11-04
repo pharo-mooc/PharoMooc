@@ -1,0 +1,576 @@
+1
+00:00:00,690 --> 00:00:04,950
+Bonjour à tous. Dans cette
+seconde séquence sur l'héritage
+
+2
+00:00:05,150 --> 00:00:07,920
+nous allons voir plus
+en détails l'héritage de
+
+3
+00:00:08,120 --> 00:00:10,630
+comportement et qu'est-ce
+qui se passe quand on envoie un
+
+4
+00:00:10,830 --> 00:00:12,030
+message à un objet.
+
+5
+00:00:12,480 --> 00:00:16,760
+Donc le but de cette
+séquence c'est de voir l'envoi de
+
+6
+00:00:17,000 --> 00:00:20,840
+messages, de bien comprendre
+l'algorithme, de comprendre
+
+7
+00:00:21,040 --> 00:00:24,880
+l'algorithme qui permet de
+convertir un message envoyé à
+
+8
+00:00:25,080 --> 00:00:29,530
+un receveur vers une
+méthode, ou quelle méthode va être
+
+9
+00:00:29,730 --> 00:00:33,050
+exécutée par rapport à tel
+message qui est envoyé à tel receveur.
+
+10
+00:00:34,410 --> 00:00:37,040
+Et la sémantique de self donc
+qu'est-ce que self signifie vraiment.
+
+11
+00:00:38,850 --> 00:00:42,220
+Comme nous l'avons vu à la
+séquence précédente, l'héritage
+
+12
+00:00:42,420 --> 00:00:47,010
+et statique pour l'état,
+c'est-à-dire que lorsque la
+
+13
+00:00:47,210 --> 00:00:51,350
+sous- classe est créée son
+état est connu à la création
+
+14
+00:00:51,550 --> 00:00:53,680
+alors que pour le
+comportement c'est dynamique.
+
+15
+00:00:54,090 --> 00:00:57,300
+C'est-à-dire que durant
+l'exécution, lorsqu'on envoie un
+
+16
+00:00:57,500 --> 00:00:59,010
+message à un objet, on va
+aller regarder quelles sont les
+
+17
+00:00:59,210 --> 00:01:01,880
+méthodes de la classe et quelles
+sont les méthodes des super classes.
+
+18
+00:01:02,500 --> 00:01:05,960
+Envoyer un message à un
+objet se fait en 2 étapes:
+
+19
+00:01:06,930 --> 00:01:10,950
+première étape on cherche la
+méthode correspondante à ce message.
+
+20
+00:01:11,800 --> 00:01:14,810
+Deuxième étape on exécute
+cette méthode sur le receveur.
+
+21
+00:01:16,810 --> 00:01:21,500
+Donc là on a la classe
+"Rectangle", la classe "ColoredRectangle".
+
+22
+00:01:24,000 --> 00:01:26,360
+Une instance de la classe
+"ColoredRectangle" qui s'appelle
+
+23
+00:01:26,560 --> 00:01:31,420
+aColoredRectangle et on
+envoie le message "area" à cet
+
+24
+00:01:31,620 --> 00:01:32,380
+objet.
+
+25
+00:01:34,390 --> 00:01:37,750
+Donc on a un algorithme de
+lookup qui va chercher la
+
+26
+00:01:37,950 --> 00:01:42,660
+méthode correspondante au message
+area, qui va trouver cette méthode-là.
+
+27
+00:01:44,290 --> 00:01:48,850
+Le corps de la méthode va
+être exécuté par rapport
+
+28
+00:01:49,570 --> 00:01:50,650
+à l'objet aColoredRectangle.
+
+29
+00:01:52,650 --> 00:01:57,000
+L'algorithme de lookup
+permet de connaître la méthode à
+
+30
+00:01:57,200 --> 00:01:59,910
+exécuter quand un
+message est envoyé à un objet.
+
+31
+00:02:00,280 --> 00:02:02,190
+Donc ici on fait bien la
+distinction entre envois de
+
+32
+00:02:02,390 --> 00:02:04,540
+messages à un objet et
+exécutions de méthodes, ce sont 2
+
+33
+00:02:04,740 --> 00:02:06,400
+choses qui sont
+vraiment différentes, qui sont
+
+34
+00:02:06,600 --> 00:02:09,620
+fondamentales en
+ programmation objet, même si vous
+
+35
+00:02:09,820 --> 00:02:12,000
+utilisez un autre langage
+c'est important de comprendre
+
+36
+00:02:12,200 --> 00:02:14,230
+la différence entre envois de
+messages et exécutions de méthodes.
+
+37
+00:02:15,630 --> 00:02:19,000
+Donc ici on envoie le
+message "area" à l'objet
+
+38
+00:02:19,200 --> 00:02:21,900
+aColoredRectangle
+l'algorithme de Lookup, la première
+
+39
+00:02:22,100 --> 00:02:26,240
+chose qu'il fait c'est qu'il va
+chercher la classe du receveur.
+
+40
+00:02:27,510 --> 00:02:30,150
+Donc le receveur du
+message "area" c'est
+
+41
+00:02:30,350 --> 00:02:33,640
+aColoredRectangle,
+l'algorithme de Lookup va commencer à
+
+42
+00:02:33,840 --> 00:02:36,240
+chercher une méthode area à
+partir de la classe de cet objet.
+
+43
+00:02:36,440 --> 00:02:37,200
+C'est-à-dire ColoredRectangle.
+
+44
+00:02:39,160 --> 00:02:41,300
+On cherche une méthode
+area dans cette classe-là.
+
+45
+00:02:42,180 --> 00:02:45,760
+L'algorithme de Lookup ne va
+pas trouver la méthode area
+
+46
+00:02:45,960 --> 00:02:48,620
+ici, elle ne fait pas
+partie des méthodes définies dans
+
+47
+00:02:48,820 --> 00:02:50,780
+cette classe-là, donc
+l'algorithme de Lookup va aller
+
+48
+00:02:51,000 --> 00:02:54,330
+voir dans la super classe,
+c'est-à-dire dans la classe rectangle.
+
+49
+00:02:55,710 --> 00:02:59,540
+La méthode area est trouvée
+ici et elle est retournée.
+
+50
+00:02:59,740 --> 00:03:01,750
+L'algorithme de Lookup a
+fini son travail une fois qu'il
+
+51
+00:03:01,950 --> 00:03:04,350
+a trouvé la méthode à exécuter.
+
+52
+00:03:04,550 --> 00:03:07,520
+On étudie 2 cas, on revoit
+l'algorithme que je viens de
+
+53
+00:03:07,720 --> 00:03:09,370
+vous lister sur ces 2 cas-là.
+
+54
+00:03:10,710 --> 00:03:13,660
+On envoie le message
+"color" à "aColorRectangle".
+
+55
+00:03:14,940 --> 00:03:19,350
+Donc l'algorithme cherche
+dans la classe du receveur une
+
+56
+00:03:19,550 --> 00:03:20,680
+méthode qui s'appellerait color.
+
+57
+00:03:21,550 --> 00:03:23,490
+Il la trouve, il la retourne.
+
+58
+00:03:25,230 --> 00:03:28,780
+Si maintenant on
+envoie le message "area" à
+
+59
+00:03:29,000 --> 00:03:32,010
+aColoredRectangle
+l'algorithme cherche dans la classe du
+
+60
+00:03:32,210 --> 00:03:34,720
+receveur c'est-à-dire ici,
+une méthode qui s'appellerait
+
+61
+00:03:34,920 --> 00:03:37,620
+"area", il ne la trouve pas il
+regarde dans la super classe.
+
+62
+00:03:38,220 --> 00:03:40,470
+Il la trouve, l'algorithme de
+Lookup retourne cette méthode.
+
+63
+00:03:42,260 --> 00:03:45,580
+self représente toujours le receveur.
+
+64
+00:03:46,030 --> 00:03:48,680
+Au travers des exemples
+qui vont suivre vous allez
+
+65
+00:03:48,880 --> 00:03:51,440
+comprendre vraiment que
+l'algorithme de Lookup s'applique
+
+66
+00:03:51,640 --> 00:03:54,240
+dans tous les cas, et que le self
+est systématiquement le receveur.
+
+67
+00:03:55,000 --> 00:03:57,600
+Donc ici on a une
+instance de la classe A
+
+68
+00:04:01,290 --> 00:04:02,580
+à qui on envoie le message foo.
+
+69
+00:04:03,790 --> 00:04:07,840
+L'algorithme de Lookup cherche la
+méthode foo, il la trouve, il l'exécute.
+
+70
+00:04:09,940 --> 00:04:14,370
+Pour B New, on part ici de E
+B, qui est la même chose que
+
+71
+00:04:14,570 --> 00:04:16,260
+B new, on cherche une méthode foo.
+
+72
+00:04:17,580 --> 00:04:22,020
+L'algorithme de Lookup la
+trouve, il l'exécute, 50 est retourné.
+
+73
+00:04:22,220 --> 00:04:25,250
+Donc ici on a 10 et 50.
+
+74
+00:04:25,720 --> 00:04:28,310
+C'est important que vous
+preniez le temps de réfléchir à
+
+75
+00:04:28,510 --> 00:04:29,940
+ce que self signifie exactement.
+
+76
+00:04:30,560 --> 00:04:34,340
+Donc 2 points sont importants
+à décrire: que représente self?
+
+77
+00:04:36,310 --> 00:04:41,020
+Comment se comporte l'envoi
+de messages lorsqu'un message
+
+78
+00:04:41,220 --> 00:04:43,430
+est envoyé à l'objet self ?
+
+79
+00:04:43,630 --> 00:04:48,180
+self et this, this en Java,
+self en Pharo, alors c'est la
+
+80
+00:04:48,380 --> 00:04:52,250
+même chose ça représente
+toujours le receveur du message.
+
+81
+00:04:53,000 --> 00:04:57,630
+Donc cet exemple on l'a
+vu avec A new foo et B New
+
+82
+00:04:57,880 --> 00:05:01,050
+foo, là on va envoyer le message bar.
+
+83
+00:05:02,510 --> 00:05:06,660
+Donc bar est envoyé à une
+instance, bar est trouvé ici,
+
+84
+00:05:06,920 --> 00:05:11,560
+bar est exécuté et on
+envoie le message foo
+
+85
+00:05:11,850 --> 00:05:12,610
+à l'objet Self.
+
+86
+00:05:13,290 --> 00:05:15,630
+Self c'est mon
+objet qui est là A new.
+
+87
+00:05:18,950 --> 00:05:21,900
+Donc on cherche une méthode
+foo à partir de cet objet-là,
+
+88
+00:05:22,620 --> 00:05:24,580
+donc c'est-à-dire on va
+chercher dans une méthode dans sa
+
+89
+00:05:24,780 --> 00:05:28,120
+ classe, on la trouve, on
+l'exécute, 10 est retourné.
+
+90
+00:05:30,540 --> 00:05:34,160
+L'autre cas est
+exactement le même, il faut faire
+
+91
+00:05:34,360 --> 00:05:36,700
+attention par contre parce
+qu'à ce moment-là beaucoup de
+
+92
+00:05:36,900 --> 00:05:38,650
+débutants en
+ programmation objets se trompent.
+
+93
+00:05:39,350 --> 00:05:41,020
+Mais l'algorithme
+est exactement le même.
+
+94
+00:05:42,630 --> 00:05:47,130
+Donc on envoie bar à cet
+objet-là, bar n'est pas trouvé
+
+95
+00:05:47,330 --> 00:05:51,280
+ici il est trouvé ici,
+c'est ce bar là qui s'exécute.
+
+96
+00:05:51,850 --> 00:05:54,500
+À ce moment-là le
+message foo est envoyé à self.
+
+97
+00:05:54,730 --> 00:05:58,670
+Self c'est quoi ? EB donc B new.
+
+98
+00:06:00,410 --> 00:06:02,680
+On envoie le message foo à
+cet objet donc l'algorithme de
+
+99
+00:06:02,880 --> 00:06:04,960
+Lookup cherche une méthode
+foo dans la classe de cet objet.
+
+100
+00:06:06,310 --> 00:06:09,010
+Cette méthode foo est
+trouvée, 50 est retourné.
+
+101
+00:06:09,850 --> 00:06:12,690
+Donc ici vous avez le
+déroulé de l'algorithme et vous
+
+102
+00:06:12,890 --> 00:06:15,110
+pourrez regarder étape par
+étape ce qui se passe, c'est
+
+103
+00:06:15,310 --> 00:06:16,610
+exactement ce que je
+viens de vous raconter.
+
+104
+00:06:18,090 --> 00:06:22,090
+Cet exemple-là est aussi
+identique au précédent.
+
+105
+00:06:23,560 --> 00:06:28,500
+La classe B ici est
+maintenant vide, une nouvelle classe
+
+106
+00:06:28,700 --> 00:06:30,930
+ C a été créée avec une
+méthode foo qui retourne 50.
+
+107
+00:06:31,420 --> 00:06:33,590
+Vous déroulez l'algorithme
+exactement de la façon dont je
+
+108
+00:06:33,790 --> 00:06:38,230
+vous l'ai présenté et vous
+allez obtenir ici 10, 10,
+
+109
+00:06:39,530 --> 00:06:43,160
+c'est ce Fou-là qui est
+exécuté à la fin et ici 50.
+
+110
+00:06:45,170 --> 00:06:48,240
+En conclusion, self est
+l'équivalent 10 en Java
+
+111
+00:06:48,440 --> 00:06:50,920
+représente toujours le receveur.
+
+112
+00:06:51,620 --> 00:06:54,020
+Envoyer un message à un
+objet se déroule toujours en 2
+
+113
+00:06:54,220 --> 00:06:56,700
+étapes: première étape,
+l'algorithme de Lookup cherche
+
+114
+00:06:56,900 --> 00:07:01,300
+la méthode correspondante
+au message qui est envoyé.
+
+115
+00:07:01,710 --> 00:07:04,560
+Deuxième étape, la méthode
+trouvée est exécutée sur le receveur.
+
+116
+00:07:05,960 --> 00:07:07,770
+L'algorithme de Lookup va
+parcourir la hiérarchie à
+
+117
+00:07:08,000 --> 00:07:11,080
+partir de la classe du
+receveur. L'algorithme de Lookup
+
+118
+00:07:11,710 --> 00:07:15,620
+son but c'est de trouver la
+méthode correspondante à un
+
+119
+00:07:15,820 --> 00:07:17,430
+message qui est envoyé à un receveur.
+

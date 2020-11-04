@@ -1,0 +1,666 @@
+1
+00:00:00,480 --> 00:00:00,520
+"Finalisation du DSL"
+
+2
+00:00:02,840 --> 00:00:02,880
+Quentin Ducasse.
+
+3
+00:00:02,920 --> 00:00:03,760
+-Bonjour à tous.
+
+4
+00:00:04,080 --> 00:00:05,640
+On se retrouve
+pour cette partie 3
+
+5
+00:00:05,960 --> 00:00:07,200
+du Redo de la semaine 3.
+
+6
+00:00:07,520 --> 00:00:08,720
+Je commence par une précision
+
+7
+00:00:09,040 --> 00:00:10,840
+sur ce que j'ai fait
+dans la dernière vidéo.
+
+8
+00:00:11,160 --> 00:00:13,240
+J'avais bien prévenu
+dans la première vidéo
+
+9
+00:00:13,560 --> 00:00:15,600
+que pour tester
+un phénomène aléatoire,
+
+10
+00:00:15,920 --> 00:00:17,360
+il fallait passer par la répétition,
+
+11
+00:00:17,680 --> 00:00:21,080
+que j'ai oubliée dans le test "roll"
+de la vidéo précédente.
+
+12
+00:00:21,400 --> 00:00:24,920
+Donc, je vous conseille évidemment
+de rajouter une répétition
+
+13
+00:00:25,240 --> 00:00:27,880
+sur l'assertion de fin,
+ce qu'on peut trouver ici.
+
+14
+00:00:28,200 --> 00:00:30,160
+C'est une erreur
+que j'ai faite tout à l'heure.
+
+15
+00:00:30,480 --> 00:00:32,080
+Maintenant, on va s'intéresser
+
+16
+00:00:32,400 --> 00:00:35,200
+à faire fonctionner
+le langage qu'on aimerait avoir,
+
+17
+00:00:35,520 --> 00:00:38,760
+"1 D4 + 2 D6", on aimerait que
+ça nous renvoie une poignée de dés
+
+18
+00:00:39,080 --> 00:00:41,080
+qui contient un dé 4 et deux dés 6.
+
+19
+00:00:41,400 --> 00:00:45,760
+On peut remarquer qu'on va devoir
+définir une méthode sur les entiers,
+
+20
+00:00:46,080 --> 00:00:49,200
+parce que la méthode "D6"
+va s'appliquer sur "2"
+
+21
+00:00:49,520 --> 00:00:51,720
+et la méthode "D4"
+va s'appliquer sur "1".
+
+22
+00:00:52,040 --> 00:00:54,520
+On va dans la classe "entiers".
+
+23
+00:00:54,840 --> 00:00:58,200
+Je tape "Integer",
+je le surligne et je presse Cmd+B.
+
+24
+00:00:58,520 --> 00:01:00,680
+Un System Browser
+s'ouvre avec les entiers
+
+25
+00:01:01,000 --> 00:01:03,400
+et on va pouvoir
+définir notre méthode ici.
+
+26
+00:01:03,720 --> 00:01:07,000
+Donc, on va commencer par "D20".
+
+27
+00:01:07,320 --> 00:01:10,720
+On va faire comme tout à l'heure,
+on crée une poignée de dés.
+
+28
+00:01:11,040 --> 00:01:15,360
+"handle := DieHandle new." Voilà.
+
+29
+00:01:15,680 --> 00:01:18,760
+Maintenant, on va devoir
+ajouter à cette poignée
+
+30
+00:01:19,080 --> 00:01:23,440
+autant de dés 20 que l'entier
+qui peut être écrit avant.
+
+31
+00:01:23,760 --> 00:01:26,360
+Par exemple,
+si j'ai l'expression "2 D20",
+
+32
+00:01:26,680 --> 00:01:29,240
+je veux ajouter deux dés 20
+à ma poignée de dés.
+
+33
+00:01:29,560 --> 00:01:31,000
+Comment fait-on ça ?
+On va dire :
+
+34
+00:01:31,320 --> 00:01:42,200
+"self timesRepeat: [ handle addDie:
+(Die withFaces: 20) ]."
+
+35
+00:01:42,520 --> 00:01:43,880
+Qu'est-ce que ça va faire ?
+
+36
+00:01:44,200 --> 00:01:47,680
+Ça va répéter autant de fois
+que l'entier sur lequel on l'applique
+
+37
+00:01:48,000 --> 00:01:50,080
+l'ajout de dés à 20 faces.
+
+38
+00:01:50,400 --> 00:01:52,800
+Et on va rendre la poignée de dés.
+
+39
+00:01:53,120 --> 00:01:55,480
+On va sauvegarder ça. OK.
+
+40
+00:01:55,800 --> 00:01:59,760
+On a un bouton qui n'est pas présent,
+qui est ici.
+
+41
+00:02:00,080 --> 00:02:01,160
+"extension".
+
+42
+00:02:01,480 --> 00:02:05,640
+Ça veut dire que plutôt que de venir
+polluer le package "Numbers"
+
+43
+00:02:05,960 --> 00:02:08,360
+qui fait partie de "Kernel",
+un package important du système,
+
+44
+00:02:08,680 --> 00:02:11,200
+avec notre méthode "D20",
+on va la replacer dans notre package.
+
+45
+00:02:11,520 --> 00:02:13,960
+On peut faire ça de plusieurs
+manières : on fait clic droit,
+
+46
+00:02:14,280 --> 00:02:16,840
+on va dans les Refactorings
+et on fait "Move to package",
+
+47
+00:02:17,160 --> 00:02:19,640
+ou on peut cocher
+la case "extension", ici,
+
+48
+00:02:19,960 --> 00:02:23,760
+rechercher notre package "Dice",
+cliquer dessus, OK.
+
+49
+00:02:24,080 --> 00:02:26,600
+On peut voir que la méthode
+est maintenant écrite en gris.
+
+50
+00:02:26,920 --> 00:02:29,200
+Si on se dirige
+dans l'autre System Browser,
+
+51
+00:02:29,520 --> 00:02:31,920
+on peut voir la classe "Integer"
+qui est apparue,
+
+52
+00:02:32,240 --> 00:02:34,480
+avec la méthode "D20".
+
+53
+00:02:34,800 --> 00:02:36,280
+C'est exactement ce qu'on voulait.
+
+54
+00:02:36,600 --> 00:02:38,000
+On va écrire un test là-dessus
+
+55
+00:02:38,320 --> 00:02:43,760
+et on va l'appeler
+"testSimpleCreation".
+
+56
+00:02:44,080 --> 00:02:54,800
+On va vérifier que "self assert:
+2 D20 diceNumber equals: 2".
+
+57
+00:02:55,720 --> 00:03:00,520
+Ça va vérifier que la méthode "D20"
+appliquée à "2"
+
+58
+00:03:00,840 --> 00:03:03,480
+va bien créer une poignée de dés
+qui contient deux dés.
+
+59
+00:03:03,800 --> 00:03:05,200
+On sauvegarde.
+
+60
+00:03:05,520 --> 00:03:08,160
+On lance le test, il est vert.
+C'est très bien.
+
+61
+00:03:08,480 --> 00:03:10,840
+Maintenant, on va pouvoir
+créer les autres méthodes,
+
+62
+00:03:11,160 --> 00:03:13,840
+"D10", "D4", "D6".
+
+63
+00:03:14,160 --> 00:03:15,960
+On ne va pas récrire tout ça
+à chaque fois.
+
+64
+00:03:16,280 --> 00:03:17,840
+On va écrire une méthode
+plus générale
+
+65
+00:03:18,160 --> 00:03:21,200
+qu'on va appeler "D: aNumber".
+
+66
+00:03:21,520 --> 00:03:23,600
+Ce que ça va faire,
+c'est exactement ça,
+
+67
+00:03:23,920 --> 00:03:27,000
+sauf qu'ici, on va avoir
+le fameux nombre qu'on lui passe,
+
+68
+00:03:27,320 --> 00:03:28,600
+"aNumber".
+
+69
+00:03:28,920 --> 00:03:32,000
+Avec ça, on va pouvoir faire
+le dé 6, par exemple.
+
+70
+00:03:32,320 --> 00:03:34,040
+Au lieu de devoir récrire tout ceci,
+
+71
+00:03:34,360 --> 00:03:40,840
+on va simplement rendre :
+"^ self D: 6".
+
+72
+00:03:41,160 --> 00:03:42,600
+On peut sauvegarder.
+
+73
+00:03:42,920 --> 00:03:46,320
+Maintenant, le dé 4
+dont on va avoir besoin, "D4".
+
+74
+00:03:46,640 --> 00:03:51,520
+On va rajouter le dé 10 et le dé 12.
+
+75
+00:03:51,840 --> 00:03:54,280
+On aura les dés les plus intéressants.
+
+76
+00:03:54,600 --> 00:03:56,400
+On va même pouvoir
+remplacer notre dé 20
+
+77
+00:03:56,720 --> 00:03:58,680
+par notre méthode
+beaucoup plus simple.
+
+78
+00:03:59,000 --> 00:04:01,640
+"^ self D: 20".
+
+79
+00:04:01,960 --> 00:04:04,480
+On peut sauvegarder.
+C'est bien, on a tout ce qu'il faut.
+
+80
+00:04:04,800 --> 00:04:06,960
+Mais on ne peut toujours pas
+exécuter cette expression.
+
+81
+00:04:07,280 --> 00:04:10,640
+On peut exécuter cette partie qui va
+nous rendre une poignée de dés,
+
+82
+00:04:10,960 --> 00:04:13,400
+cette partie qui va nous rendre
+une autre poignée de dés,
+
+83
+00:04:13,720 --> 00:04:16,800
+mais on ne peut pas
+exécuter l'intégralité,
+
+84
+00:04:17,120 --> 00:04:19,440
+parce qu'on n'a pas défini
+la méthode "+"
+
+85
+00:04:19,760 --> 00:04:21,080
+entre les deux poignées de dés.
+
+86
+00:04:21,400 --> 00:04:24,080
+Pour ce faire, on va aller
+dans la classe "DieHandle"
+
+87
+00:04:24,400 --> 00:04:29,600
+et on va définir le "+" :
+"aDieHandle".
+
+88
+00:04:29,920 --> 00:04:31,760
+Que va-t-il se passer,
+avec la méthode "+" ?
+
+89
+00:04:32,080 --> 00:04:34,760
+Ce qu'on veut,
+c'est avoir une poignée de dés finale
+
+90
+00:04:35,080 --> 00:04:37,080
+dont la collection "dice"
+
+91
+00:04:37,400 --> 00:04:40,200
+va correspondre à la combinaison
+des deux collections.
+
+92
+00:04:40,520 --> 00:04:42,120
+On va avoir notre "handle",
+
+93
+00:04:42,440 --> 00:04:44,080
+qu'on va pouvoir définir tout de suite
+
+94
+00:04:44,400 --> 00:04:46,760
+comme étant une nouvelle poignée de dés.
+
+95
+00:04:47,080 --> 00:04:50,960
+Maintenant, on va itérer à la fois
+sur la collection de dés de "self"
+
+96
+00:04:51,280 --> 00:04:52,840
+et sur celle de l'argument.
+
+97
+00:04:53,160 --> 00:04:57,240
+On va commencer par "self" :
+"self dice do:"...
+
+98
+00:04:57,560 --> 00:05:05,240
+On va itérer sur chaque élément.
+"[ each | handle addDie: each ]."
+
+99
+00:05:05,560 --> 00:05:07,160
+Qu'est-ce que cette méthode va faire ?
+
+100
+00:05:07,480 --> 00:05:11,960
+On va itérer sur la collection de dés
+de la poignée qui reçoit ce message
+
+101
+00:05:12,280 --> 00:05:14,200
+et on va ajouter
+chaque dé de la collection
+
+102
+00:05:14,520 --> 00:05:16,920
+à la poignée résultat "handle".
+
+103
+00:05:17,240 --> 00:05:20,600
+Ensuite, on va faire la même chose
+sur l'argument qui est passé
+
+104
+00:05:20,920 --> 00:05:28,200
+"aDieHandle dice do:
+[ :each | handle addDie: each ]."
+
+105
+00:05:29,440 --> 00:05:32,840
+Et à la fin,
+on renvoie notre poignée de dés.
+
+106
+00:05:33,160 --> 00:05:34,440
+On peut sauvegarder ça.
+
+107
+00:05:35,480 --> 00:05:38,480
+Voilà.
+On va écrire un test là-dessus.
+
+108
+00:05:38,800 --> 00:05:47,240
+Donc, on va vérifier que
+"(1D4 + 2D20) diceNumber equals: 3"
+
+109
+00:05:47,560 --> 00:05:51,840
+et on va l'appeler "testSumming".
+
+110
+00:05:52,160 --> 00:05:54,440
+Cmd+S. Je l'exécute.
+
+111
+00:05:54,760 --> 00:05:56,560
+On peut voir que le test
+n'a pas fonctionné.
+
+112
+00:05:56,880 --> 00:06:00,440
+Par contre, ce n'est pas normal,
+on va devoir regarder pourquoi.
+
+113
+00:06:00,760 --> 00:06:03,200
+Ce "DieHandle class",
+c'est une erreur,
+
+114
+00:06:03,520 --> 00:06:05,880
+parce qu'on a oublié "new", ici,
+
+115
+00:06:06,200 --> 00:06:08,840
+donc on s'attaquait à la classe
+"DieHandle" directement.
+
+116
+00:06:09,160 --> 00:06:11,400
+C'était une erreur. On sauvegarde.
+
+117
+00:06:11,720 --> 00:06:15,720
+"Yes". "Proceed".
+Notre test est vert.
+
+118
+00:06:16,040 --> 00:06:19,200
+On peut réexécuter tous les tests.
+On voit que tous nos tests passent.
+
+119
+00:06:19,520 --> 00:06:21,240
+On voit que si on inspecte ça,
+
+120
+00:06:21,560 --> 00:06:25,480
+grâce à la méthode qu'on a définie
+qui nous donne un plus joli rendu,
+
+121
+00:06:25,800 --> 00:06:28,400
+on peut voir qu'on a bien
+notre poignée de dés
+
+122
+00:06:28,720 --> 00:06:32,120
+avec un dé 4, deux dés 6.
+
+123
+00:06:32,440 --> 00:06:36,920
+Maintenant,
+si on veut lancer tous ces dés,
+
+124
+00:06:37,240 --> 00:06:40,160
+on peut appliquer la méthode "roll"
+simplement sur cette poignée de dés.
+
+125
+00:06:40,480 --> 00:06:43,240
+"Roll". J'imprime. 13, 5, 9.
+
+126
+00:06:43,560 --> 00:06:45,840
+On va avoir un résultat
+entre 3 et...
+
+127
+00:06:46,160 --> 00:06:47,560
+Tout simplement, on peut regarder.
+
+128
+00:06:47,880 --> 00:06:51,760
+Il suffit de lancer
+la méthode "maxValue".
+
+129
+00:06:52,080 --> 00:06:53,360
+Entre 3 et 16.
+
+130
+00:06:54,440 --> 00:06:58,360
+Donc, on peut "roll" encore
+et vérifier qu'on ne dépasse pas 16.
+
+131
+00:06:58,680 --> 00:07:01,800
+On peut voir que notre méthode
+d'addition a l'air de fonctionner.
+
+132
+00:07:02,120 --> 00:07:03,480
+Notre méthode de roll aussi.
+
+133
+00:07:03,800 --> 00:07:07,280
+Et on a développé un petit langage
+qui nous permet de lancer des dés
+
+134
+00:07:07,600 --> 00:07:09,960
+et de réussir notre partie
+de "Donjons et Dragons".
+
+135
+00:07:10,280 --> 00:07:12,200
+C'est la fin de ce Redo de la semaine 3.
+
+136
+00:07:12,520 --> 00:07:14,680
+Et pour finir proprement,
+
+137
+00:07:15,000 --> 00:07:17,680
+on va aller sauvegarder
+notre package "Dice".
+
+138
+00:07:18,000 --> 00:07:19,560
+On se dirige dans Iceberg.
+
+139
+00:07:19,880 --> 00:07:22,560
+On a toujours le "Uncommitted changes"
+qui est apparent.
+
+140
+00:07:22,880 --> 00:07:24,880
+On clique dessus. Commit.
+
+141
+00:07:25,200 --> 00:07:26,280
+Et on va mettre :
+
+142
+00:07:26,600 --> 00:07:35,360
+"Added die creation from integers
+and operations on DieHandle".
+
+143
+00:07:37,280 --> 00:07:38,120
+Commit.
+
+144
+00:07:38,440 --> 00:07:42,040
+Et voilà, c'est donc la fin
+de ce Redo de la semaine 3.

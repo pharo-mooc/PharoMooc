@@ -1,0 +1,435 @@
+1
+00:00:07,910 --> 00:00:12,400
+Bonjour bienvenue sur ce MOOC
+autour de Pharo, ce MOOC s'intitule
+
+2
+00:00:12,600 --> 00:00:14,110
+"Programmation Objets
+Immersive en Pharo".
+
+3
+00:00:14,420 --> 00:00:17,740
+Donc, comme première séance, je vais
+vous présenter les objectifs du MOOC.
+
+4
+00:00:17,940 --> 00:00:19,930
+Donc, quels sont-ils ?
+
+5
+00:00:20,780 --> 00:00:23,340
+Vous allez apprendre à
+ programmer en Pharo, ça paraît
+
+6
+00:00:23,540 --> 00:00:25,740
+évident, maintenant ce qui
+est important c'est que vous
+
+7
+00:00:25,940 --> 00:00:28,300
+allez comprendre et contrôler
+toute la syntaxe, l'entièreté
+
+8
+00:00:28,500 --> 00:00:32,130
+de la syntaxe et du modèle et
+aussi l'environnement de Pharo.
+
+9
+00:00:32,330 --> 00:00:34,290
+Pharo, ce n’est pas
+simplement un langage, c'est un
+
+10
+00:00:34,490 --> 00:00:36,220
+environnement de
+ programmation, il y a pas mal d'outils
+
+11
+00:00:36,420 --> 00:00:39,710
+dedans et donc on va vous en
+montrer quelques uns, les plus utiles.
+
+12
+00:00:40,670 --> 00:00:43,730
+Le MOOC ne se contente pas
+non plus de présenter Pharo,
+
+13
+00:00:44,150 --> 00:00:46,520
+on va revisiter de
+manière profonde les mécanismes
+
+14
+00:00:46,720 --> 00:00:49,140
+fondamentaux de la
+ programmation-objet et ça, c'est
+
+15
+00:00:49,340 --> 00:00:51,360
+vraiment très
+intéressant. On va les illustrer par
+
+16
+00:00:51,560 --> 00:00:52,600
+rapport à des
+aspects de Pharo lui-même.
+
+17
+00:00:53,670 --> 00:00:56,300
+Pour cela on va aussi, de
+temps en temps, vous montrer
+
+18
+00:00:56,500 --> 00:00:59,000
+des heuristiques de
+conception objet, c'est à dire des
+
+19
+00:00:59,200 --> 00:01:00,760
+heuristiques qui vont vous
+permettre en général, dans
+
+20
+00:01:01,000 --> 00:01:03,880
+votre vie de programmeur,
+de concevoir des applications
+
+21
+00:01:04,080 --> 00:01:06,880
+de manière plus
+élégante ou plus extensible.
+
+22
+00:01:07,250 --> 00:01:10,080
+Vous allez travailler sur
+des vrais exemples dans ce MOOC
+
+23
+00:01:10,280 --> 00:01:13,580
+et à la fin vous allez
+déployer votre propre application
+
+24
+00:01:13,780 --> 00:01:15,260
+Web que vous aurez
+construite de A à Z.
+
+25
+00:01:17,530 --> 00:01:19,790
+Donc, le MOOC, si on
+regarde, il est structuré sur 7
+
+26
+00:01:20,000 --> 00:01:24,460
+semaines, donc, en gros, on
+va commencer par les aspects
+
+27
+00:01:24,660 --> 00:01:26,960
+syntaxiques au niveau de
+Pharo de façon à ce que vous
+
+28
+00:01:27,160 --> 00:01:29,090
+puissiez très rapidement
+commencer à faire des exercices,
+
+29
+00:01:29,290 --> 00:01:33,200
+mais ce qu'on va faire, on
+va mélanger aussi les points
+
+30
+00:01:33,400 --> 00:01:35,540
+qui sont liés à la
+conception objet de façon à ce que
+
+31
+00:01:35,740 --> 00:01:38,440
+vous puissiez comprendre
+très rapidement certains
+
+32
+00:01:38,640 --> 00:01:41,490
+aspects, et après on
+regardera des aspects qui sont plus
+
+33
+00:01:41,690 --> 00:01:44,050
+liés aux fonctionnalités
+noyau de Pharo comme système de
+
+34
+00:01:44,250 --> 00:01:45,230
+fichiers ou ce genre de choses.
+
+35
+00:01:45,690 --> 00:01:48,130
+Ce qu'il faut voir, c'est
+que le cours n'est parfois pas
+
+36
+00:01:48,330 --> 00:01:51,680
+linéaire, on va revenir
+dans des dernières séances sur
+
+37
+00:01:51,880 --> 00:01:53,520
+des concepts pour
+s'assurer que vous avez réellement
+
+38
+00:01:53,720 --> 00:01:56,760
+compris ce dont on a parlé
+dans les premières séances.
+
+39
+00:01:57,480 --> 00:01:59,900
+Dans le MOOC, vous aurez plein
+d'exercices et des mini projets.
+
+40
+00:02:00,350 --> 00:02:02,270
+Pour vous motiver, ce qu'il
+faut voir c'est qu'après deux
+
+41
+00:02:02,470 --> 00:02:05,570
+semaines du MOOC, vous
+aurez vu la syntaxe complète de
+
+42
+00:02:05,770 --> 00:02:07,860
+Pharo et son modèle et vous
+pouvez directement attaquer à
+
+43
+00:02:08,060 --> 00:02:08,820
+faire des mini projets.
+
+44
+00:02:11,000 --> 00:02:13,080
+Donc, juste quelques mots à
+propos de nous, donc on est
+
+45
+00:02:13,280 --> 00:02:16,440
+trois collègues, ce qu'il
+faut voir c'est qu'on est
+
+46
+00:02:16,640 --> 00:02:19,940
+expert en
+ programmation-objet, moi j'ai travaillé sur les
+
+47
+00:02:20,250 --> 00:02:23,820
+"traits" qui sont dans Perl et
+PHP, qui ont influencé Scala.
+
+48
+00:02:24,180 --> 00:02:27,340
+On est expert en conception
+avancée objet, on fait partie
+
+49
+00:02:27,540 --> 00:02:30,140
+du groupe de développement
+du noyau de Pharo et on est
+
+50
+00:02:30,340 --> 00:02:32,690
+auteur de plusieurs
+livres qui sont open source et
+
+51
+00:02:32,890 --> 00:02:35,270
+disponibles sur le web et je vous
+conseille de les lire, par ailleurs.
+
+52
+00:02:36,000 --> 00:02:36,900
+Donc, pourquoi Pharo ?
+
+53
+00:02:37,100 --> 00:02:39,190
+Hormis le fait qu'on
+participe au développement de Pharo
+
+54
+00:02:39,390 --> 00:02:42,410
+et qu'on trouve que Pharo
+est un très bon langage, d'une
+
+55
+00:02:42,610 --> 00:02:44,850
+manière pédagogique Pharo
+est vraiment très intéressant
+
+56
+00:02:45,050 --> 00:02:47,360
+parce que vous allez être
+immergés dans un monde d'objets,
+
+57
+00:02:47,560 --> 00:02:52,240
+vous allez simplement
+interagir et manipuler les objets.
+
+58
+00:02:52,730 --> 00:02:56,130
+À titre d’exemple, les
+boucles n'existent pas en tant que
+
+59
+00:02:56,330 --> 00:02:58,240
+constructeur dans Pharo,
+ce sont juste des messages
+
+60
+00:02:58,440 --> 00:03:00,520
+envoyés à des objets qui
+sont des collections; les
+
+61
+00:03:00,720 --> 00:03:03,180
+conditions sont des messages envoyés
+à des objets qui sont des booléens.
+
+62
+00:03:03,380 --> 00:03:07,380
+Donc, vous allez, de
+manière constante, interagir avec
+
+63
+00:03:07,580 --> 00:03:11,850
+des objets vivants et vos programmes
+vont se transformer sous vos doigts.
+
+64
+00:03:12,400 --> 00:03:15,000
+Le fait que Pharo soit écrit
+aussi en lui-même vous ouvre
+
+65
+00:03:15,340 --> 00:03:19,220
+une grande possibilité de
+découverte, une fois que vous
+
+66
+00:03:19,420 --> 00:03:22,640
+allez avoir suivi et
+compris les aspects syntaxiques de
+
+67
+00:03:22,840 --> 00:03:26,350
+Pharo, le monde entier s'ouvre
+à vous parce que l'environnement
+
+68
+00:03:26,550 --> 00:03:27,310
+de Pharo est écrit dans lui-même.
+
+69
+00:03:28,830 --> 00:03:32,050
+Donc si je résume un petit
+peu le voyage auquel on vous
+
+70
+00:03:32,250 --> 00:03:34,600
+invite, Pharo est un
+langage pur et élégant.
+
+71
+00:03:34,800 --> 00:03:37,310
+Vous allez voir qu'il y a
+très peu de concepts qui sont
+
+72
+00:03:37,510 --> 00:03:40,820
+utilisés, il est fun à
+ programmer parce qu'il y a cette
+
+73
+00:03:41,020 --> 00:03:44,420
+interaction avec des
+objets, Pharo est très productif,
+
+74
+00:03:44,620 --> 00:03:47,090
+vous le verrez par
+vous-même, en général Pharo est
+
+75
+00:03:47,290 --> 00:03:49,490
+utilisé dans de
+nombreuses universités pour ses
+
+76
+00:03:49,750 --> 00:03:53,890
+propriétés d'enseignement et les
+aspects positifs qu'il enseigne.
+
+77
+00:03:54,760 --> 00:03:57,200
+Il y a un point qui est
+particulier qui est souvent peu
+
+78
+00:03:57,400 --> 00:03:59,580
+compris, c'est que Pharo
+c'est un système qui vous met en
+
+79
+00:03:59,780 --> 00:04:02,470
+capacité de faire des
+choses; ça veut dire que Pharo, ce
+
+80
+00:04:02,670 --> 00:04:06,020
+n’est pas une boîte noire,
+c'est un système où vous allez
+
+81
+00:04:06,220 --> 00:04:09,050
+pouvoir voir comment le
+système est implémenté et aller
+
+82
+00:04:09,250 --> 00:04:11,360
+les modifier les choses. En
+fait, comme la métaphore que
+
+83
+00:04:11,560 --> 00:04:13,560
+je prends souvent, c'est
+de dire que Pharo, c'est un
+
+84
+00:04:13,760 --> 00:04:15,350
+aquarium dans lequel il y
+a des poissons et que vous
+
+85
+00:04:15,550 --> 00:04:17,920
+allez pouvoir sauter dans cet
+aquarium et aller nager avec eux.
+
+86
+00:04:18,380 --> 00:04:22,030
+Et ça, c'est vraiment une
+chose particulière, donc vous
+
+87
+00:04:22,560 --> 00:04:24,320
+aurez des vidéos qui vous
+montreront exactement ces
+
+88
+00:04:24,520 --> 00:04:27,400
+aspects-là et encore une fois vous
+avez accès à l'entièreté du système.
+

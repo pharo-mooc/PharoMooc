@@ -1,0 +1,429 @@
+WEBVTT
+
+00:00:00.720 --> 00:00:06.000 align:middle
+Hi everyone, in this video
+we'll talk about the Anti-IF Campaign.
+
+00:00:06.480 --> 00:00:09.480 align:middle
+In particular,
+we'll explain the reasons why
+
+00:00:09.920 --> 00:00:13.720 align:middle
+the Return Nil and Null Check
+functions are not great.
+
+00:00:13.920 --> 00:00:18.520 align:middle
+Here's an example of a code,
+which is not an object.
+
+00:00:19.040 --> 00:00:21.680 align:middle
+Its method parameter is an animal.
+
+00:00:21.880 --> 00:00:24.680 align:middle
+Its actions vary
+according to the animal.
+
+00:00:24.880 --> 00:00:30.560 align:middle
+For example, we can ask a dog
+to wag its tail or a duck to quack.
+
+00:00:31.000 --> 00:00:33.440 align:middle
+For a cat, we request other actions.
+
+00:00:34.040 --> 00:00:38.080 align:middle
+So, why is it problematic
+to use If statements?
+
+00:00:39.120 --> 00:00:43.800 align:middle
+Particularly when they're used
+to check the type of receiver.
+
+00:00:45.080 --> 00:00:49.200 align:middle
+For example, if we want to add
+a new animal here,
+
+00:00:49.360 --> 00:00:53.400 align:middle
+we would need to check
+the entire project code
+
+00:00:53.680 --> 00:00:56.880 align:middle
+to search for If statements
+that may apply.
+
+00:00:57.040 --> 00:01:01.280 align:middle
+We would have to modify
+numerous codes throughout the project.
+
+00:01:01.640 --> 00:01:06.560 align:middle
+Additionally, adding cases to methods
+makes them cumbersome,
+
+00:01:06.840 --> 00:01:10.440 align:middle
+and they become lost
+in too many details.
+
+00:01:10.720 --> 00:01:13.760 align:middle
+Adding animals
+makes this method very long,
+
+00:01:13.920 --> 00:01:17.160 align:middle
+and each animal type
+can have many details.
+
+00:01:17.320 --> 00:01:21.760 align:middle
+Even for a simple feature,
+such as not all dogs having tails,
+
+00:01:21.920 --> 00:01:25.920 align:middle
+we would have to create
+separate cases for each option.
+
+00:01:26.120 --> 00:01:31.640 align:middle
+The code would become
+complicated and harder to understand.
+
+00:01:32.240 --> 00:01:35.760 align:middle
+So, to replace these actions,
+we send messages.
+
+00:01:36.080 --> 00:01:38.480 align:middle
+This is a point we keep reiterating.
+
+00:01:38.640 --> 00:01:42.240 align:middle
+The key point to remember
+is the sending of messages.
+
+00:01:42.880 --> 00:01:46.280 align:middle
+We can replace
+the previous code with this one.
+
+00:01:47.040 --> 00:01:51.160 align:middle
+It applies the showHappiness method
+in each relevant class.
+
+00:01:51.320 --> 00:01:56.480 align:middle
+Each class will decide how each animal
+will show its "happiness."
+
+00:01:56.760 --> 00:02:02.720 align:middle
+For each animal, all we need to do
+is send the message
+
+00:02:05.560 --> 00:02:07.560 align:middle
+showHappiness to the animal,
+
+00:02:08.600 --> 00:02:11.360 align:middle
+and one of its methods will be executed.
+
+00:02:11.520 --> 00:02:15.040 align:middle
+We see here that Pharo
+is pursuing the If function.
+
+00:02:15.200 --> 00:02:19.960 align:middle
+Pharo decides which method to apply
+to a particular type of animal.
+
+00:02:20.120 --> 00:02:22.920 align:middle
+This is executed automatically.
+
+00:02:23.120 --> 00:02:27.480 align:middle
+There's no need for us
+to specify Ifs for object types.
+
+00:02:28.040 --> 00:02:31.200 align:middle
+It only makes codes
+less coherent and dynamic.
+
+00:02:32.560 --> 00:02:36.040 align:middle
+Now we'll discuss
+the specific case of Nil.
+
+00:02:36.440 --> 00:02:39.160 align:middle
+If a method returns nil,
+
+00:02:39.320 --> 00:02:43.120 align:middle
+you'll oblige your clients
+to use If statements.
+
+00:02:43.280 --> 00:02:46.200 align:middle
+Whereas, using If is rarely recommended.
+
+00:02:47.520 --> 00:02:50.520 align:middle
+Here we use an example of a code
+
+00:02:50.760 --> 00:02:55.440 align:middle
+based on a parameter and an inferencer.
+
+00:02:55.600 --> 00:02:57.880 align:middle
+The type of code is not important.
+
+00:02:58.160 --> 00:03:01.440 align:middle
+Here we see that in some cases,
+nil is returned.
+
+00:03:01.840 --> 00:03:04.480 align:middle
+This means that when we use this code,
+
+00:03:04.760 --> 00:03:08.600 align:middle
+we need to test
+the message rulesForFact.
+
+00:03:08.800 --> 00:03:11.480 align:middle
+Did rulesForFact return nil?
+
+00:03:11.680 --> 00:03:14.560 align:middle
+We act differently
+depending on the reply.
+
+00:03:14.720 --> 00:03:17.280 align:middle
+We see that in this case,
+
+00:03:17.880 --> 00:03:20.280 align:middle
+since we're using a plural term,
+
+00:03:20.440 --> 00:03:23.960 align:middle
+the method will probably
+return a collection.
+
+00:03:24.200 --> 00:03:26.880 align:middle
+An effective solution for avoiding nil
+
+00:03:27.080 --> 00:03:31.000 align:middle
+in this situation
+is to return an empty collection.
+
+00:03:31.200 --> 00:03:33.080 align:middle
+This works in many cases.
+
+00:03:33.400 --> 00:03:38.520 align:middle
+Returning an empty collection
+instead of nil simplifies the code.
+
+00:03:38.880 --> 00:03:42.400 align:middle
+Because clients can simply
+iterate the collection,
+
+00:03:42.560 --> 00:03:45.360 align:middle
+and if it's empty, nothing will happen.
+
+00:03:46.480 --> 00:03:48.400 align:middle
+For exceptional cases,
+
+00:03:48.840 --> 00:03:52.360 align:middle
+such as when you have a file stream
+
+00:03:52.520 --> 00:03:56.320 align:middle
+that has not been opened for writing
+and shows an error,
+
+00:03:56.560 --> 00:04:01.640 align:middle
+instead of returning nil, we inform
+the system by raising an exception.
+
+00:04:01.920 --> 00:04:05.600 align:middle
+In Pharo,
+we call this filing an exception.
+
+00:04:05.760 --> 00:04:09.560 align:middle
+We create an instance
+of the Exception class or subclass
+
+00:04:09.720 --> 00:04:11.960 align:middle
+and send the message, or signal.
+
+00:04:13.680 --> 00:04:19.640 align:middle
+This avoids obliging
+the client of the method nextPutAll
+
+00:04:19.800 --> 00:04:23.960 align:middle
+to test if it is nil,
+when a problem has likely occurred.
+
+00:04:24.200 --> 00:04:26.800 align:middle
+Either the client handles the exception
+
+00:04:26.960 --> 00:04:31.680 align:middle
+or it's handled
+by the client of the client, and so on.
+
+00:04:31.880 --> 00:04:37.840 align:middle
+We can focus on one specific level
+to capture the exception.
+
+00:04:38.560 --> 00:04:40.240 align:middle
+It avoids overuse of Ifs.
+
+00:04:40.880 --> 00:04:45.720 align:middle
+Another case where we find checks
+for the nil value
+
+00:04:45.880 --> 00:04:49.280 align:middle
+is in instance variables
+that are not initialized.
+
+00:04:49.600 --> 00:04:54.800 align:middle
+If a code says that if the variable
+is still nil, it must react a certain way,
+
+00:04:54.960 --> 00:04:59.200 align:middle
+it's better to initialize the variable
+straightaway,
+
+00:04:59.360 --> 00:05:01.960 align:middle
+with a value that works for all cases.
+
+00:05:02.120 --> 00:05:03.120 align:middle
+So, here,
+
+00:05:03.600 --> 00:05:06.680 align:middle
+for "members,"
+which contains a collection,
+
+00:05:06.840 --> 00:05:10.600 align:middle
+we initialize an empty collection
+instead of using nil.
+
+00:05:10.920 --> 00:05:13.520 align:middle
+Once again, this often works well.
+
+00:05:13.960 --> 00:05:18.000 align:middle
+If you want to give a value
+to a variable,
+
+00:05:18.400 --> 00:05:22.680 align:middle
+and if it's costly
+to calculate its value,
+
+00:05:22.840 --> 00:05:26.560 align:middle
+you can wait until the last moment
+to calculate it.
+
+00:05:26.720 --> 00:05:30.520 align:middle
+It may never be calculated,
+so it saves execution time.
+
+00:05:31.320 --> 00:05:35.040 align:middle
+In such cases,
+we use lazy initialization.
+
+00:05:35.200 --> 00:05:38.280 align:middle
+This is used when a value is required.
+
+00:05:38.680 --> 00:05:42.400 align:middle
+If the value is still nil,
+we assign it a value.
+
+00:05:42.560 --> 00:05:47.240 align:middle
+If it's no longer nil,
+we return its value immediately.
+
+00:05:48.000 --> 00:05:52.600 align:middle
+Here we have an If associated with nil,
+but we have only one.
+
+00:05:53.160 --> 00:05:57.920 align:middle
+All other users of the variable
+utilize the descent method,
+
+00:05:58.520 --> 00:06:00.720 align:middle
+and have not tested if it is nil.
+
+00:06:01.320 --> 00:06:03.960 align:middle
+Sometimes we come across cases
+
+00:06:04.520 --> 00:06:09.840 align:middle
+in which it's necessary to check
+whether or not we need to respond.
+
+00:06:10.320 --> 00:06:12.160 align:middle
+As we see in this example.
+
+00:06:12.800 --> 00:06:15.840 align:middle
+Here we have a ToolPalette.
+
+00:06:16.120 --> 00:06:19.440 align:middle
+If a tool is selected, we can respond,
+
+00:06:19.600 --> 00:06:22.960 align:middle
+but if none is selected,
+we prefer not to act.
+
+00:06:23.640 --> 00:06:26.480 align:middle
+Look at the selectedTool function.
+
+00:06:26.720 --> 00:06:31.600 align:middle
+If it returns nil, no tools are selected,
+so no action is required.
+
+00:06:31.800 --> 00:06:35.760 align:middle
+If selectedTool returns something,
+
+00:06:36.000 --> 00:06:40.080 align:middle
+we will ask it to perform an action.
+
+00:06:41.040 --> 00:06:42.920 align:middle
+A good way of replacing this
+
+00:06:43.360 --> 00:06:45.720 align:middle
+is to use the NullObject pattern.
+
+00:06:45.880 --> 00:06:50.400 align:middle
+Instead of having two cases,
+one with tools and one without,
+
+00:06:50.600 --> 00:06:54.440 align:middle
+we have one case
+in which one of our tools does nothing.
+
+00:06:54.600 --> 00:06:57.120 align:middle
+This tool will be selected by default.
+
+00:06:57.360 --> 00:07:01.840 align:middle
+We create a tool that does nothing
+when asked to perform actions.
+
+00:07:03.120 --> 00:07:09.000 align:middle
+Instead of not selecting anything,
+we enable a tool that does nothing.
+
+00:07:10.360 --> 00:07:14.800 align:middle
+To find out more about NullObject,
+see these references.
+
+00:07:15.680 --> 00:07:16.840 align:middle
+In conclusion,
+
+00:07:17.000 --> 00:07:19.640 align:middle
+messages are more effective than Ifs.
+
+00:07:19.840 --> 00:07:22.520 align:middle
+You will utilize Ifs in certain cases,
+
+00:07:22.680 --> 00:07:27.680 align:middle
+but you can often avoid using them
+and send messages instead.
+
+00:07:28.840 --> 00:07:34.160 align:middle
+Avoid returning nil because
+it obliges you to insert If checks
+
+00:07:34.360 --> 00:07:38.280 align:middle
+to find out whether or not
+the value is nil.
+
+00:07:39.440 --> 00:07:44.720 align:middle
+Initialize variables either on creation
+or using lazy initialization.
+
+00:07:45.680 --> 00:07:50.760 align:middle
+Create objects representing default
+behavior or an absence of behavior.
+
+00:07:50.960 --> 00:07:54.960 align:middle
+This applies not only to Pharo
+but to all object languages.
+
+00:07:55.200 --> 00:08:00.840 align:middle
+It's important to remember these points
+whichever language you use.
+

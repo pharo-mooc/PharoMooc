@@ -1,0 +1,292 @@
+﻿1
+00:00:00,120 --> 00:00:02,360
+En esta sesión,
+Mencionaré dos puntos:
+
+2
+00:00:02,520 --> 00:00:06,840
+secuencia y cascada,
+que son muy comunes en Pharo.
+
+3
+00:00:07,520 --> 00:00:13,000
+A menudo hay
+varias expresiones seguidas
+
+4
+00:00:13,160 --> 00:00:14,640
+Deben estar separadas.
+
+5
+00:00:14,800 --> 00:00:17,800
+Lo hace con un punto
+como en el ejemplo.
+
+6
+00:00:17,960 --> 00:00:22,600
+Aquí tiene Transcript cr
+y un punto
+
+7
+00:00:22,760 --> 00:00:27,760
+Transcript es una pequeña herramienta.
+para regitrsr mensajes.
+
+8
+00:00:27,920 --> 00:00:31,400
+Quiero una nueva linea.
+Quiero mostrar el objeto 1.
+
+9
+00:00:32,320 --> 00:00:36,360
+Quiero mostrar 2
+Podría o no haber usado un punto.
+
+10
+00:00:37,040 --> 00:00:39,800
+Las expresiones
+estan separados por puntos.
+
+11
+00:00:41,600 --> 00:00:44,160
+Veamos otro ejemplo.
+
+12
+00:00:44,320 --> 00:00:47,320
+He definido dos variables locales.
+
+13
+00:00:47,960 --> 00:00:51,640
+Defino un objeto Workstation,
+que es un simulador de red.
+
+14
+00:00:51,800 --> 00:00:55,600
+Escribo un punto
+ya que es el final de esta expresión.
+
+15
+00:00:55,760 --> 00:00:59,600
+Sigo con la próxima expresión.
+Podría haber usado un punto aquí.
+
+16
+00:00:59,760 --> 00:01:03,520
+Como expliqué, un período es un separador,
+no un terminador
+
+17
+00:01:03,680 --> 00:01:06,560
+En Java, debes usar
+un punto y coma aquí y allá.
+
+18
+00:01:06,720 --> 00:01:08,480
+En Pharo, no tienes que hacerlo.
+
+19
+00:01:09,840 --> 00:01:14,680
+Lo que puede ser un poco extraño
+para los principiantes
+
+20
+00:01:14,840 --> 00:01:19,280
+es que las barras verticales
+son definiciones de variables locales.
+
+21
+00:01:19,440 --> 00:01:21,320
+Habrá una lección sobre eso.
+
+22
+00:01:21,480 --> 00:01:23,880
+No se usa un punto aquí.
+
+23
+00:01:24,040 --> 00:01:27,480
+Por lo general, usted define la variable local
+y luego empieza
+
+24
+00:01:27,640 --> 00:01:30,400
+Después de la primera expresión,
+se usa un punto
+
+25
+00:01:30,560 --> 00:01:32,680
+Hay algo mas:
+
+26
+00:01:32,840 --> 00:01:37,320
+a menudo le gustaría enviar varios
+mensajes al mismo objeto.
+
+27
+00:01:37,480 --> 00:01:41,000
+Pero ya que somos perezosos,
+no queremos repetir el receptor.
+
+28
+00:01:41,160 --> 00:01:42,600
+Mire esto:
+
+29
+00:01:42,760 --> 00:01:46,280
+Escribo Transcript cr.
+Transcript show: Transcript ...
+
+30
+00:01:46,440 --> 00:01:49,720
+Ya he dicho Transcript
+tres veces en vez de una.
+
+31
+00:01:49,880 --> 00:01:52,600
+Puedo hacerlo:
+Utilizaré una cascada, el punto y coma.
+
+32
+00:01:52,760 --> 00:01:54,720
+Escribo: Transcript cr;
+
+33
+00:01:54,880 --> 00:01:58,000
+Envío el mensaje cr
+al objeto Transcript.
+
+34
+00:01:58,160 --> 00:01:59,480
+La cascada dice:
+
+35
+00:01:59,640 --> 00:02:04,120
+"A partir de ahora, todos los mensajes se envían
+al mismo receptor que el primero ".
+
+36
+00:02:04,280 --> 00:02:07,120
+Significa show: 1 se envía a Transcript
+
+37
+00:02:07,280 --> 00:02:08,920
+y show: 2 a Transcript.
+
+38
+00:02:09,560 --> 00:02:12,640
+Lo diré de nuevo, ya que es inusual.
+
+39
+00:02:14,320 --> 00:02:17,400
+Envío el primer mensaje normalmente.
+
+40
+00:02:17,560 --> 00:02:21,520
+En lugar de usar un punto,
+que es un separador, uso un punto y coma.
+
+41
+00:02:21,680 --> 00:02:25,280
+Significa cada mensaje adicional
+debe enviarse al mismo receptor.
+
+42
+00:02:25,440 --> 00:02:27,280
+show:1 se envía al mismo receptor.
+
+43
+00:02:27,440 --> 00:02:30,600
+show:2 se envía al mismo receptor.
+
+44
+00:02:32,240 --> 00:02:36,520
+Otro ejemplo:
+imagina que quieres crear una colección.
+
+45
+00:02:36,680 --> 00:02:40,720
+Tengo una coleccion,
+así que defino una variable c.
+
+46
+00:02:40,880 --> 00:02:44,480
+Escribo la colección en c.
+¿Ve el punto aquí?
+
+47
+00:02:44,640 --> 00:02:47,240
+Agrego 1 y 2 a la colección.
+
+48
+00:02:47,400 --> 00:02:49,960
+Estas dos expresiones
+son exactamente iguales
+
+49
+00:02:50,120 --> 00:02:52,920
+Significa que escribo:
+OrderedCollection new
+
+50
+00:02:53,080 --> 00:02:57,240
+Lo creo y luego agrego el primer mensaje
+add:1 para agregar un elemento.
+
+51
+00:02:57,400 --> 00:03:01,360
+El punto y coma significa este mensaje
+debe enviarse a esta colección.
+
+52
+00:03:01,520 --> 00:03:04,080
+Como principiantes en Pharo, le aconsejaría
+
+53
+00:03:04,240 --> 00:03:07,080
+no molestarse en usar la cascada.
+
+54
+00:03:07,240 --> 00:03:10,240
+Lo presenté
+porque leerás el código.
+
+55
+00:03:10,400 --> 00:03:12,120
+La gente lo usa en el código.
+
+56
+00:03:12,280 --> 00:03:16,360
+Cuando se sientas cómodo
+con esta sintaxis y con puntos,
+
+57
+00:03:16,520 --> 00:03:20,320
+puede empezar a pensar
+en ser un poco más flexible
+
+58
+00:03:20,480 --> 00:03:23,640
+y usa la cascada.
+Así aprendí.
+
+59
+00:03:23,800 --> 00:03:27,160
+Solo vaya paso a paso.
+
+60
+00:03:27,320 --> 00:03:29,160
+¿Qué estudiamos?
+
+61
+00:03:29,320 --> 00:03:33,360
+. es un separador
+Es lo mismo que; en java
+
+62
+00:03:33,520 --> 00:03:38,840
+; es una cascada que es útil
+para evitar repetir el mismo receptor.
+
+63
+00:03:39,000 --> 00:03:43,640
+La cascada devuelve el valor
+del último mensaje enviado.

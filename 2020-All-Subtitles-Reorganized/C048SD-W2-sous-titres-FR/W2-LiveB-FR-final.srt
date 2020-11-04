@@ -1,0 +1,684 @@
+1
+00:00:00,040 --> 00:00:00,080
+"Analyse d'objets avec l'Inspector"
+
+2
+00:00:00,120 --> 00:00:00,160
+Quentin Ducasse.
+
+3
+00:00:04,000 --> 00:00:04,760
+-Bonjour à tous.
+
+4
+00:00:05,080 --> 00:00:07,160
+Dans cette vidéo,
+on va s'intéresser à l'Inspecteur
+
+5
+00:00:07,480 --> 00:00:10,440
+qui est un outil Pharo très utile
+et qui nous permet,
+
+6
+00:00:10,760 --> 00:00:13,280
+comme un microscope,
+de s'intéresser à nos objets,
+
+7
+00:00:13,600 --> 00:00:15,240
+de voir comment ils réagissent de près
+
+8
+00:00:15,560 --> 00:00:18,200
+et aussi de leur donner
+des méthodes depuis l'intérieur.
+
+9
+00:00:18,520 --> 00:00:22,640
+On peut envoyer des messages
+à nos objets tout en les inspectant.
+
+10
+00:00:22,960 --> 00:00:25,080
+Pour se servir de l'Inspecteur,
+je vous ai préparé
+
+11
+00:00:25,400 --> 00:00:28,840
+une expression que vous ne verrez
+sûrement jamais dans la vraie vie,
+
+12
+00:00:29,160 --> 00:00:32,680
+mais qui a le mérite
+d'être bien pour servir d'exemple.
+
+13
+00:00:33,000 --> 00:00:36,400
+On aura un dictionnaire dans lequel
+je mettrai, sous la clé "Time",
+
+14
+00:00:36,720 --> 00:00:40,280
+l'heure qu'il est maintenant,
+"Date", la date qu'il est aujourd'hui
+
+15
+00:00:40,600 --> 00:00:42,680
+et une "Morph"
+que je présenterai tout à l'heure.
+
+16
+00:00:43,000 --> 00:00:43,960
+On va l'inspecter.
+
+17
+00:00:44,280 --> 00:00:48,760
+Vous pouvez faire clic droit, Inspect it
+ou le raccourci Cmd+I.
+
+18
+00:00:49,080 --> 00:00:52,600
+L'Inspecteur va s'ouvrir. Je range.
+Ça, on ne va pas en avoir besoin.
+
+19
+00:00:52,920 --> 00:00:55,120
+Vous pouvez voir
+qu'il y a trois onglets.
+
+20
+00:00:55,440 --> 00:00:57,800
+Le premier onglet, Items,
+je reviendrai dessus.
+
+21
+00:00:58,120 --> 00:00:59,440
+Pour l'instant, regardons Raw.
+
+22
+00:00:59,760 --> 00:01:03,840
+Ça va être l'implémentation Pharo
+de notre dictionnaire.
+
+23
+00:01:04,160 --> 00:01:06,440
+Donc, on aura
+la représentation de "self".
+
+24
+00:01:06,760 --> 00:01:08,560
+Il y a un "OrderedDictionary"
+
+25
+00:01:08,880 --> 00:01:13,320
+avec nos trois combinaisons
+de clés valeur avec les flèches.
+
+26
+00:01:13,840 --> 00:01:16,160
+Ici, on peut avoir accès
+au dictionnaire directement.
+
+27
+00:01:16,480 --> 00:01:18,520
+Et ici, on peut avoir accès
+aux clés ordonnées.
+
+28
+00:01:18,840 --> 00:01:20,320
+On peut voir "Time", "Date", "Morph",
+
+29
+00:01:20,640 --> 00:01:21,880
+puis
+"nil, nil, nil, nil, nil, nil, nil".
+
+30
+00:01:22,200 --> 00:01:24,240
+On peut voir
+la représentation textuelle, ici.
+
+31
+00:01:24,560 --> 00:01:27,120
+Une chose intéressante :
+si je clique sur "dictionary",
+
+32
+00:01:27,440 --> 00:01:30,480
+une nouvelle fenêtre
+va s'ouvrir sur la droite
+
+33
+00:01:30,800 --> 00:01:33,760
+sur non plus le "OrderedDictionary"
+mais le "Dictionary" lui-même
+
+34
+00:01:34,080 --> 00:01:35,240
+avec d'autres choses.
+
+35
+00:01:35,560 --> 00:01:40,120
+Ici, on aura l'"array"
+avec "Morph HSVA".
+
+36
+00:01:40,440 --> 00:01:42,640
+On aura notre dictionnaire
+qui est au-dessus.
+
+37
+00:01:42,960 --> 00:01:45,200
+On aura "tally",
+la taille du dictionnaire.
+
+38
+00:01:45,680 --> 00:01:49,040
+Et on peut faire la même chose
+avec les "orderedKeys".
+
+39
+00:01:49,360 --> 00:01:52,800
+On arrive ici et si on réinspecte
+le premier élément, "Time",
+
+40
+00:01:53,120 --> 00:01:54,000
+on peut recliquer dessus.
+
+41
+00:01:54,320 --> 00:01:55,680
+Ça ouvrira une autre fenêtre.
+
+42
+00:01:56,000 --> 00:01:57,560
+Et on va avoir "Time"
+
+43
+00:01:57,880 --> 00:02:00,680
+et la représentation ASCII
+des caractères, donc T, I, M, E.
+
+44
+00:02:01,000 --> 00:02:01,880
+On les a ici.
+
+45
+00:02:02,200 --> 00:02:05,080
+Vous pouvez voir en dessous
+qu'on peut avoir une preview,
+
+46
+00:02:05,400 --> 00:02:08,240
+donc un aperçu
+de la première fenêtre où on était.
+
+47
+00:02:08,560 --> 00:02:10,440
+Pour y retourner, on clique dessus.
+
+48
+00:02:10,760 --> 00:02:13,720
+Les deux fenêtres sont décalées.
+On peut décaler la vue comme ceci.
+
+49
+00:02:14,040 --> 00:02:15,960
+Et on peut aussi la rétrécir.
+
+50
+00:02:16,280 --> 00:02:19,400
+Si je veux simplement voir
+la deuxième vue, je peux faire comme ça.
+
+51
+00:02:19,720 --> 00:02:21,880
+Je peux réagrandir
+et réagrandir des deux côtés.
+
+52
+00:02:22,200 --> 00:02:24,080
+Si vous voulez supprimer
+la dernière fenêtre,
+
+53
+00:02:24,400 --> 00:02:25,960
+il suffit de cliquer sur la croix, ici.
+
+54
+00:02:26,280 --> 00:02:29,880
+Donc, cette vue Raw est intéressante,
+
+55
+00:02:30,200 --> 00:02:32,480
+mais en général, on aura
+des objets assez intelligents
+
+56
+00:02:32,800 --> 00:02:35,040
+pour avoir des vues personnalisées
+comme ici.
+
+57
+00:02:35,360 --> 00:02:39,840
+On peut voir dans notre dictionnaire
+qu'on a un onglet appelé Items.
+
+58
+00:02:40,160 --> 00:02:41,040
+Je vais fermer Array.
+
+59
+00:02:41,360 --> 00:02:44,160
+Cet onglet Items, c'est la même chose
+que ce qu'on a dans Raw,
+
+60
+00:02:44,480 --> 00:02:46,000
+mais présenté de manière plus lisible.
+
+61
+00:02:46,320 --> 00:02:49,000
+On va avoir les clés sur la gauche,
+les valeurs sur la droite.
+
+62
+00:02:49,320 --> 00:02:51,120
+On va avoir "Time", la valeur associée.
+
+63
+00:02:51,440 --> 00:02:54,160
+La valeur associée à "Time",
+c'est "Time now",
+
+64
+00:02:54,480 --> 00:02:55,760
+l'heure qu'il est maintenant.
+
+65
+00:02:56,080 --> 00:02:58,480
+"Date", on va avoir "Date today"
+et une "Morph".
+
+66
+00:02:58,800 --> 00:03:02,520
+Si, par exemple, on s'intéresse
+à "Time", qu'on clique dessus,
+
+67
+00:03:02,840 --> 00:03:07,720
+aTime va s'ouvrir et on va pouvoir
+aller regarder le temps.
+
+68
+00:03:08,040 --> 00:03:12,640
+On peut mettre des méthodes
+directement ici, dans le Raw, dessous.
+
+69
+00:03:12,960 --> 00:03:16,320
+Si je fais "self hours" et que
+je le print, on voit qu'il est 14 h.
+
+70
+00:03:16,640 --> 00:03:21,000
+Si je fais "self browse"
+et que je fais Cmd+D pour Do it,
+
+71
+00:03:21,720 --> 00:03:27,640
+il va m'ouvrir un System Browser sur
+le package Kernel dans la classe Time
+
+72
+00:03:27,960 --> 00:03:30,240
+et je peux inspecter les méthodes
+qui le composent.
+
+73
+00:03:31,400 --> 00:03:33,360
+Donc, c'est intéressant.
+On peut aussi avoir...
+
+74
+00:03:33,680 --> 00:03:38,760
+Détails, ça nous donnera
+plus d'informations sur l'objet Time.
+
+75
+00:03:39,080 --> 00:03:42,840
+Et l'onglet Meta, aussi présent ici,
+est un onglet qui nous montre
+
+76
+00:03:43,160 --> 00:03:45,840
+la hiérarchie de classes
+de notre classe Time.
+
+77
+00:03:46,160 --> 00:03:49,360
+On aura Time avec les différentes
+méthodes taguées avec les protocoles.
+
+78
+00:03:49,680 --> 00:03:53,400
+Ici, on a des méthodes "converting",
+"accessing", "printing".
+
+79
+00:03:53,720 --> 00:03:55,400
+Vous pouvez les chercher ici, filtrer.
+
+80
+00:03:55,720 --> 00:03:57,720
+Et on peut aussi naviguer
+les super classes
+
+81
+00:03:58,040 --> 00:04:00,000
+jusqu'à Object et même ProtoObject.
+
+82
+00:04:00,320 --> 00:04:03,360
+C'est intéressant. Ça vous permet
+de naviguer dans la hiérarchie.
+
+83
+00:04:03,680 --> 00:04:07,440
+Une autre chose qu'on peut regarder,
+c'est si je clique sur la date,
+
+84
+00:04:07,760 --> 00:04:09,520
+on peut voir un onglet...
+
+85
+00:04:09,840 --> 00:04:11,560
+Toujours l'onglet Raw qui apparaîtra
+
+86
+00:04:11,880 --> 00:04:14,960
+avec la représentation brute
+de cet objet dans Pharo
+
+87
+00:04:15,280 --> 00:04:18,360
+et cet onglet personnalisé Calendar
+qui montre qu'on est le 10 mai.
+
+88
+00:04:18,680 --> 00:04:22,480
+Il nous présente cette vue Calendrier
+qui est implémentée dans la date.
+
+89
+00:04:23,000 --> 00:04:27,200
+Pareil, je peux me mettre ici,
+faire "browse", Cmd+D.
+
+90
+00:04:27,840 --> 00:04:35,000
+Ça va m'ouvrir une vue sur le package,
+encore une fois, Kernel avec la date.
+
+91
+00:04:35,320 --> 00:04:36,120
+C'est intéressant.
+
+92
+00:04:36,440 --> 00:04:41,840
+On va voir un objet plus compliqué
+qui est "HSVAColorSelectorMorph".
+
+93
+00:04:42,160 --> 00:04:44,960
+On va voir ce que c'est.
+Si je clique dessus, on va voir que...
+
+94
+00:04:45,280 --> 00:04:46,080
+Je vais agrandir ça.
+
+95
+00:04:46,400 --> 00:04:49,840
+L'objet est plus compliqué,
+car il est rempli de...
+
+96
+00:04:50,160 --> 00:04:52,320
+On ne sait pas trop
+à quoi ça correspond.
+
+97
+00:04:52,640 --> 00:04:53,840
+C'est là où ça sera intéressant
+
+98
+00:04:54,160 --> 00:04:57,160
+d'avoir des onglets
+qui sont cohérents et plus lisibles.
+
+99
+00:04:57,480 --> 00:04:58,960
+Car si je clique sur "Morph",
+
+100
+00:04:59,280 --> 00:05:03,280
+ça va me présenter à quoi cette
+"HSVAColorSelectorMorph" correspond.
+
+101
+00:05:03,600 --> 00:05:08,920
+Je peux le faire ici. Par exemple,
+"self openInWorld", Do it.
+
+102
+00:05:09,240 --> 00:05:11,560
+Notre Morph va s'ouvrir ici.
+On peut jouer avec.
+
+103
+00:05:11,880 --> 00:05:14,520
+On a une sélection de couleurs,
+une collection de transparences,
+
+104
+00:05:14,840 --> 00:05:16,560
+une sélection de la couleur, ici.
+
+105
+00:05:16,880 --> 00:05:21,000
+On peut aussi faire,
+par exemple : "self selectedColor".
+
+106
+00:05:21,320 --> 00:05:24,000
+Ça permettra de voir la couleur
+sélectionnée actuellement
+
+107
+00:05:24,320 --> 00:05:28,600
+avec sa valeur en rouge,
+vert, bleu et en transparence.
+
+108
+00:05:29,520 --> 00:05:31,280
+Ce qui est intéressant, c'est que...
+
+109
+00:05:31,600 --> 00:05:34,640
+Imaginons qu'on veuille rajouter
+cette couleur dans l'Inspecteur,
+
+110
+00:05:34,960 --> 00:05:37,600
+on peut faire Do it and go
+ou le raccourci Cmd+G.
+
+111
+00:05:37,920 --> 00:05:42,720
+Ça nous permettra de rajouter notre
+couleur à droite de notre Inspecteur.
+
+112
+00:05:43,040 --> 00:05:45,800
+On peut inspecter la couleur.
+On peut la visualiser ici, aussi.
+
+113
+00:05:46,120 --> 00:05:47,880
+C'est cette couleur
+qu'on a sélectionnée.
+
+114
+00:05:48,400 --> 00:05:51,080
+Je vais fermer. Je vais montrer
+autre chose d'intéressant.
+
+115
+00:05:51,400 --> 00:05:53,680
+Si je l'ouvre en double,
+par exemple, ici,
+
+116
+00:05:54,960 --> 00:05:56,360
+et que je ferme celle-là...
+
+117
+00:05:56,680 --> 00:05:58,480
+Je peux réduire ici. Voilà.
+
+118
+00:05:58,920 --> 00:06:01,600
+Je vais avoir deux fois
+un Inspecteur sur le même objet.
+
+119
+00:06:01,920 --> 00:06:03,560
+Celui-là est ouvert. Ce n'est pas grave.
+
+120
+00:06:03,880 --> 00:06:07,000
+Ce que je peux faire,
+c'est me placer sur l'onglet Submorphs,
+
+121
+00:06:07,320 --> 00:06:08,720
+ici, me placer sur l'onglet Morph,
+
+122
+00:06:09,040 --> 00:06:14,640
+et en déroulant cet arbre de composition
+qui, normalement, est représenté ici...
+
+123
+00:06:14,960 --> 00:06:19,200
+On peut le chercher
+dans HSVAMorph, puis SVMorph...
+
+124
+00:06:19,520 --> 00:06:22,680
+C'est un arbre assez compliqué
+dans l'implémentation brute.
+
+125
+00:06:23,000 --> 00:06:25,080
+Si je me place dans Morph, ici,
+je peux voir...
+
+126
+00:06:25,400 --> 00:06:28,520
+Si je clique sur an ImageMorph,
+cette vue, à droite, se mettra à jour.
+
+127
+00:06:28,840 --> 00:06:32,760
+Par exemple, aBracketMorph,
+ColorSelectorMorph...
+
+128
+00:06:33,840 --> 00:06:36,520
+On peut avoir toute l'architecture
+qui est retrouvable
+
+129
+00:06:36,840 --> 00:06:39,080
+directement dans l'Inspecteur,
+sur la droite.
+
+130
+00:06:39,800 --> 00:06:42,440
+Dans cette vidéo,
+on a présenté un objet un peu bizarre.
+
+131
+00:06:42,760 --> 00:06:44,520
+Vous n'utiliserez pas forcément
+ce dictionnaire,
+
+132
+00:06:44,840 --> 00:06:47,000
+car il contient une date,
+un temps et une Morph bizarre.
+
+133
+00:06:47,320 --> 00:06:50,680
+C'était plus pour présenter l'Inspecteur,
+les différentes fonctionnalités,
+
+134
+00:06:51,000 --> 00:06:53,840
+vous montrer que vous pouvez interagir
+depuis l'Inspecteur
+
+135
+00:06:54,160 --> 00:06:57,880
+pour ouvrir la Morph, montrer
+la couleur qu'on a pu sélectionner,
+
+136
+00:06:58,200 --> 00:07:01,320
+la rajouter dans l'Inspecteur
+et pouvoir naviguer, par exemple...
+
+137
+00:07:01,640 --> 00:07:06,320
+Ici encore, je peux naviguer
+la hiérarchie de classes, les méthodes.
+
+138
+00:07:06,920 --> 00:07:11,760
+Ce qui est intéressant, c'est que les
+objets créés par le système ou par vous,
+
+139
+00:07:12,080 --> 00:07:14,200
+vous pouvez leur rajouter
+des extensions,
+
+140
+00:07:14,520 --> 00:07:17,240
+des tabs dans l'Inspecteur, ici,
+qui seront plus intelligents.
+
+141
+00:07:17,560 --> 00:07:19,640
+Les tabs Submorphs et Morph
+sont très intéressants,
+
+142
+00:07:19,960 --> 00:07:22,360
+car ils permettent d'avoir
+sur une Morph, par exemple,
+
+143
+00:07:22,680 --> 00:07:26,120
+un retour direct soit de l'arbre
+de composition de notre Morph,
+
+144
+00:07:26,440 --> 00:07:28,360
+soit de la Morph en elle-même,
+sur le côté.

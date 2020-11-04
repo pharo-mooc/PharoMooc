@@ -1,0 +1,1007 @@
+1
+00:00:00,660 --> 00:00:03,030
+Dans cette séquence, on
+va voir les itérateurs.
+
+2
+00:00:03,230 --> 00:00:05,330
+On va revenir sur les
+collections et voir comment est-ce
+
+3
+00:00:05,530 --> 00:00:08,720
+qu'on peut les parcourir
+facilement, grâce aux itérateurs en Pharo.
+
+4
+00:00:09,300 --> 00:00:12,250
+Vous allez comprendre la
+puissance des itérateurs en
+
+5
+00:00:12,450 --> 00:00:14,840
+Pharo, et puis je vais
+vous donner un panorama des
+
+6
+00:00:15,040 --> 00:00:17,470
+principaux itérateurs que vous
+pouvez utiliser sur vos collections
+
+7
+00:00:18,170 --> 00:00:21,270
+Juste un exemple. Ça,
+c'est le code que vous devriez
+
+8
+00:00:21,470 --> 00:00:25,330
+écrire par exemple en Java
+pour parcourir une collection.
+
+9
+00:00:25,630 --> 00:00:29,200
+Je veux parcourir une
+collection "person", pour extraire
+
+10
+00:00:29,400 --> 00:00:31,900
+la liste des noms de ces
+personnes, de ces objets "person".
+
+11
+00:00:32,730 --> 00:00:35,640
+En fait en Pharo, on
+écrirait plutôt ce code-là, on
+
+12
+00:00:35,840 --> 00:00:38,890
+utiliserait un itérateur,
+qu'on reverra dans la suite du
+
+13
+00:00:39,090 --> 00:00:43,000
+cours, "collect", où on va
+collecter l'ensemble des noms des personnes.
+
+14
+00:00:44,200 --> 00:00:47,760
+En Java 8 pour l'anecdote,
+la dernière version de Java,
+
+15
+00:00:48,210 --> 00:00:52,100
+ils ont introduit la notion
+de blocks, l'équivalent des
+
+16
+00:00:52,300 --> 00:00:54,130
+blocks SmallTalk, les
+fermetures lexicales, qui leur
+
+17
+00:00:54,330 --> 00:00:57,000
+permet d'avoir une syntaxe qui
+est proche de celle de Pharo.
+
+18
+00:00:57,220 --> 00:00:59,560
+Sauf qu'en Pharo, on l'a
+depuis très longtemps, depuis le
+
+19
+00:00:59,760 --> 00:01:04,180
+début et elle est au cœur
+du langage, ce qui donne une
+
+20
+00:01:04,420 --> 00:01:06,470
+puissance d'expression aux
+ programmeurs assez importante.
+
+21
+00:01:08,580 --> 00:01:11,460
+Les itérateurs, il en existe plein.
+
+22
+00:01:11,660 --> 00:01:13,580
+Le premier qu'on
+voit, c'est "collect".
+
+23
+00:01:13,910 --> 00:01:16,620
+A quoi sert collect quand
+je l'envoie à une collection?
+
+24
+00:01:16,820 --> 00:01:18,900
+Ici on a une collection de
+nombres, donc des nombres
+
+25
+00:01:19,100 --> 00:01:21,590
+positifs et des nombres
+négatifs. J'envoie le message
+
+26
+00:01:21,790 --> 00:01:23,430
+"collect" à cette
+collection et je lui passe un block.
+
+27
+00:01:23,810 --> 00:01:26,660
+A chaque tour de la
+collection, le paramètre du block
+
+28
+00:01:26,860 --> 00:01:29,920
+vaudra successivement 2,
+moins 3, 4, et caetera.
+
+29
+00:01:30,260 --> 00:01:33,560
+Et puis on va envoyer le
+abs, donc abs c'est absolu.
+
+30
+00:01:33,760 --> 00:01:36,590
+Donc ça veut dire qu'on va
+demander la valeur absolue de ce nombre.
+
+31
+00:01:37,830 --> 00:01:39,620
+Une fois qu'on aura
+appliqué ce block à chacun des
+
+32
+00:01:39,820 --> 00:01:41,920
+éléments de la
+collection, on va agréger tous les
+
+33
+00:01:42,120 --> 00:01:43,170
+résultats dans une
+nouvelle collection.
+
+34
+00:01:43,760 --> 00:01:45,410
+On voit que le résultat
+rendu par collect c'est une
+
+35
+00:01:45,610 --> 00:01:48,900
+nouvelle collection, telle
+qu'on a appliqué ce block à
+
+36
+00:01:49,100 --> 00:01:50,180
+chacun des éléments de la collection.
+
+37
+00:01:50,540 --> 00:01:52,740
+On a pris la valeur absolue
+de 2; la valeur absolue de
+
+38
+00:01:52,940 --> 00:01:56,120
+moins 3, donc 3; la valeur
+absolue de 4, 4; la valeur
+
+39
+00:01:56,320 --> 00:01:59,910
+absolue de moins 35, ça fait 35 et
+la valeur absolue de 4 ça fait 4.
+
+40
+00:02:01,720 --> 00:02:06,440
+Le point à retenir qui est vraiment
+intéressant, c'est qu'on pense objet.
+
+41
+00:02:07,050 --> 00:02:09,400
+On demande à la collection
+de faire quelque chose pour
+
+42
+00:02:09,600 --> 00:02:12,760
+nous, donc c'est la
+collection qui va se parcourir les
+
+43
+00:02:13,000 --> 00:02:15,630
+éléments qu'elle contient
+elle-même et on va lui fournir
+
+44
+00:02:15,830 --> 00:02:17,200
+le traitement à appliquer
+sur chacun des éléments.
+
+45
+00:02:17,530 --> 00:02:19,400
+C'est là qu'est le
+secret des itérateurs.
+
+46
+00:02:21,200 --> 00:02:22,930
+Voici un nouvel exemple de collect.
+
+47
+00:02:23,670 --> 00:02:26,110
+J'ai une collection ici,
+je lui envoie le message
+
+48
+00:02:26,440 --> 00:02:30,900
+"collect" et dans le block
+je vais à chaque fois demander
+
+49
+00:02:31,720 --> 00:02:33,900
+"Est-ce que l'élément est impair ?".
+
+50
+00:02:34,460 --> 00:02:36,820
+Et donc ici pour le premier
+élément, je vais agréger tous
+
+51
+00:02:37,020 --> 00:02:39,860
+les résultats: false,
+true, false et true.
+
+52
+00:02:44,840 --> 00:02:49,390
+Vous pouvez naturellement
+écrire ce qu'on aurait l'habitude
+
+53
+00:02:49,590 --> 00:02:51,630
+d'écrire dans notre
+langage où les blocks et les
+
+54
+00:02:51,830 --> 00:02:54,240
+itérateurs n'existent pas,
+donc on pourrait écrire "Je
+
+55
+00:02:54,440 --> 00:02:57,950
+prends la collection, je
+vais construire une collection
+
+56
+00:02:58,150 --> 00:03:01,830
+de résultats et je vais
+parcourir de 1 à la taille de la
+
+57
+00:03:02,030 --> 00:03:03,020
+collection, collection size.
+
+58
+00:03:03,660 --> 00:03:04,820
+Je vais utiliser un do.
+
+59
+00:03:05,110 --> 00:03:07,580
+Et puis je vais parcourir la
+collection et à chaque fois
+
+60
+00:03:07,780 --> 00:03:09,470
+ajouter dans la
+collection le résultat.
+
+61
+00:03:09,670 --> 00:03:12,280
+" On peut écrire tout ça et
+c'est complètement équivalent à ça.
+
+62
+00:03:12,660 --> 00:03:14,310
+A vous de choisir votre
+camp: est-ce que vous voulez
+
+63
+00:03:14,510 --> 00:03:16,750
+écrire quelque chose de simple ou
+quelque chose de plus compliqué?
+
+64
+00:03:17,200 --> 00:03:18,730
+En gros, la question est là.
+
+65
+00:03:19,340 --> 00:03:21,820
+Personnellement, je préfère
+clairement cette première solution.
+
+66
+00:03:24,770 --> 00:03:26,750
+Il existe dans la
+hiérarchie des collections Pharo
+
+67
+00:03:28,460 --> 00:03:30,510
+quelque chose de
+fondamental, c'est que toutes les
+
+68
+00:03:30,710 --> 00:03:32,940
+collections sont
+polymorphiques et héritent de la classe
+
+69
+00:03:33,140 --> 00:03:34,800
+collection et on a une API commune.
+
+70
+00:03:35,440 --> 00:03:38,510
+L'avantage, c'est que
+les itérateurs aussi vont
+
+71
+00:03:39,000 --> 00:03:42,760
+fonctionner sur la
+plupart des collections.
+
+72
+00:03:46,260 --> 00:03:48,270
+L'idée, c'est
+vraiment de penser objet.
+
+73
+00:03:48,470 --> 00:03:51,200
+On demande à la collection
+d'itérer sur ces éléments pour
+
+74
+00:03:51,400 --> 00:03:52,870
+nous, puisque on ne sait
+pas si on est en train de
+
+75
+00:03:53,070 --> 00:03:56,290
+manipuler un dictionnaire
+ou on n'a pas envie de savoir
+
+76
+00:03:56,490 --> 00:03:58,590
+comment sont représentées les
+clefs, les valeurs, et cetera.
+
+77
+00:03:59,550 --> 00:04:02,470
+Donc on va vraiment demander
+"Collection, parcours-toi et
+
+78
+00:04:02,670 --> 00:04:04,310
+applique ce
+traitement sur tes éléments.
+
+79
+00:04:06,810 --> 00:04:07,570
+"
+
+80
+00:04:07,770 --> 00:04:09,810
+Il existe beaucoup d'itérateurs
+qui vont permettre de faire ça.
+
+81
+00:04:10,040 --> 00:04:11,380
+On a vu le do, le collect.
+
+82
+00:04:11,610 --> 00:04:14,600
+On en a d'autres: select,
+rejet, detect, et caetera, on
+
+83
+00:04:14,800 --> 00:04:17,630
+va en voir quelques uns dans
+la suite de cette séquence.
+
+84
+00:04:19,680 --> 00:04:23,530
+Le do, c'est l'itérateur
+le plus simple qui permet de
+
+85
+00:04:23,730 --> 00:04:25,450
+parcourir chacun des
+éléments de ma collection et je les
+
+86
+00:04:25,650 --> 00:04:28,100
+affiche ici dans le
+Transcript. Celui-là, on l'a déjà vu
+
+87
+00:04:28,300 --> 00:04:30,130
+plein de fois dans
+les autres exemples.
+
+88
+00:04:31,000 --> 00:04:33,280
+Un nouvel itérateur qui est select.
+
+89
+00:04:33,720 --> 00:04:36,940
+Je veux récupérer tous les
+éléments de la collection qui
+
+90
+00:04:37,140 --> 00:04:39,250
+répondent à un critère donné.
+
+91
+00:04:39,450 --> 00:04:41,870
+Ici, je veux tous les
+éléments impairs de la collection.
+
+92
+00:04:42,300 --> 00:04:46,800
+J'envoie "select" à la
+collection, je passe un block et à
+
+93
+00:04:47,000 --> 00:04:50,610
+chaque fois que ce bloc va
+s'évaluer à "Vrai", l'élément
+
+94
+00:04:50,810 --> 00:04:52,600
+en question sera ajouté
+dans la collection résultats.
+
+95
+00:04:55,320 --> 00:04:58,190
+C'est complètement
+équivalent à select: odd.
+
+96
+00:04:59,530 --> 00:05:02,790
+Quand j'ai un un bloc ici
+ou ce qui constitue seulement
+
+97
+00:05:03,000 --> 00:05:05,940
+un envoi de message à
+l'élément de la collection, le
+
+98
+00:05:06,140 --> 00:05:08,370
+paramètre du block, je peux
+mettre directement sous la
+
+99
+00:05:08,570 --> 00:05:11,120
+forme d'un symbole le
+nom du message à envoyer.
+
+100
+00:05:11,320 --> 00:05:15,380
+C'est encore plus concis et ça ne
+marche que pour les messages unaires.
+
+101
+00:05:18,020 --> 00:05:20,510
+On peut utiliser d'autres
+types d'itérateurs comme reject.
+
+102
+00:05:21,100 --> 00:05:23,610
+Je veux éliminer tous les
+éléments de la collection qui
+
+103
+00:05:23,810 --> 00:05:26,080
+sont impairs et donc, dans
+la collection résultats, il ne
+
+104
+00:05:26,280 --> 00:05:27,090
+va me rester que des éléments pairs.
+
+105
+00:05:28,610 --> 00:05:31,330
+Ou alors, je veux faire un
+detect, je veux détecter le
+
+106
+00:05:31,530 --> 00:05:33,620
+premier élément de la
+collection qui répond à un critère
+
+107
+00:05:33,820 --> 00:05:37,350
+donné pour lequel
+l'évaluation du bloc va être vraie.
+
+108
+00:05:37,550 --> 00:05:40,440
+Je veux le premier élément de la
+collection qui est impair, donc 11.
+
+109
+00:05:42,720 --> 00:05:45,760
+Dans certains cas, on veut
+détecter le premier élément de
+
+110
+00:05:45,960 --> 00:05:47,660
+la collection qui répond à
+un critère, mais s'il n'y en a
+
+111
+00:05:47,860 --> 00:05:50,120
+pas alors on aimerait bien
+avoir une valeur par défaut.
+
+112
+00:05:50,590 --> 00:05:54,090
+C'est "detect: ifNone", donc
+s'il n'y a aucun élément c'est
+
+113
+00:05:54,940 --> 00:05:57,680
+l'évaluation de ce block
+là qui va être effectuée, et
+
+114
+00:05:57,880 --> 00:05:58,720
+donc ça va bien nous renvoyer 0.
+
+115
+00:06:00,190 --> 00:06:03,410
+Il y a d'autres
+itérateurs encore qui vont encore
+
+116
+00:06:03,610 --> 00:06:06,000
+faciliter la vie du
+ programmeur. Par exemple, le "anySatisfy".
+
+117
+00:06:06,180 --> 00:06:09,920
+Est-ce qu'il existe dans
+la collection un élément qui
+
+118
+00:06:10,120 --> 00:06:11,830
+répond à ce critère-là? Je
+veux tous les éléments d'une
+
+119
+00:06:12,030 --> 00:06:13,460
+collection qui
+répondent à un critère donné.
+
+120
+00:06:13,660 --> 00:06:16,210
+Je veux parcourir la
+collection à l'envers en partant de
+
+121
+00:06:16,410 --> 00:06:19,040
+la fin vers le début. Je
+veux parcourir la collection en
+
+122
+00:06:19,240 --> 00:06:21,510
+ayant un curseur d'index. Je
+veux parcourir les éléments
+
+123
+00:06:21,710 --> 00:06:22,470
+de la collection 2 à 2.
+
+124
+00:06:22,670 --> 00:06:24,300
+Je veux parcourir toutes
+les permutations circulaires
+
+125
+00:06:24,500 --> 00:06:25,630
+possibles des
+éléments d'une collection.
+
+126
+00:06:26,770 --> 00:06:29,640
+Il y en a beaucoup des
+itérateurs et on peut en
+
+127
+00:06:29,840 --> 00:06:33,330
+construire des nouveaux,
+d'ailleurs. Ici, je veux
+
+128
+00:06:33,530 --> 00:06:37,680
+parcourir une collection 1, 2, 3
+couplée avec une deuxième collection.
+
+129
+00:06:39,000 --> 00:06:42,570
+Dans mon bloc do,
+j'aurai x et y, 2 paramètres.
+
+130
+00:06:43,190 --> 00:06:46,590
+Le premier x, ça sera
+un élément de la première
+
+131
+00:06:46,790 --> 00:06:48,740
+collection, et y un élément
+de la deuxième collection.
+
+132
+00:06:49,160 --> 00:06:51,420
+Donc je vais pouvoir
+multiplier ces éléments entre eux.
+
+133
+00:06:51,620 --> 00:06:52,840
+On obtient bien 10, 40 et 90.
+
+134
+00:06:55,050 --> 00:06:57,100
+Et bien évidemment, il
+faut absolument que les 2
+
+135
+00:06:57,300 --> 00:06:58,790
+collections aient la même
+taille avec cet itérateur-là.
+
+136
+00:07:01,510 --> 00:07:04,200
+On peut avoir
+d'autres types de parcours.
+
+137
+00:07:04,400 --> 00:07:06,840
+Ici, j'utilise le "do separatedBy".
+
+138
+00:07:08,590 --> 00:07:10,640
+J'ai une collection, je
+vais parcourir chacun des
+
+139
+00:07:10,840 --> 00:07:14,140
+éléments et à chaque fois
+que j'ai parcouru un élément,
+
+140
+00:07:14,340 --> 00:07:17,670
+je vais évaluer un bloc ici qui
+correspond à l'affichage d'une virgule.
+
+141
+00:07:18,040 --> 00:07:21,140
+Ça va me permettre de
+parcourir le A, afficher une
+
+142
+00:07:21,340 --> 00:07:23,210
+virgule, afficher le B,
+afficher une virgule, afficher le C.
+
+143
+00:07:23,410 --> 00:07:26,340
+A chaque fois entre chaque élément,
+je vais avoir effectué une action.
+
+144
+00:07:29,000 --> 00:07:32,350
+Ici, j'ai un itérateur qui
+est "GroupBy", qui me permet
+
+145
+00:07:32,550 --> 00:07:37,510
+de grouper les éléments d'une
+collection en fonction d'un critère.
+
+146
+00:07:39,040 --> 00:07:41,610
+J'envoie ce message à la
+collection 1, 2, 3, 4, 5, 6, 7
+
+147
+00:07:41,810 --> 00:07:45,330
+ici et je récupère en
+résultat un dictionnaire.
+
+148
+00:07:47,170 --> 00:07:50,010
+Donc tous les éléments
+qui ont répondu "Faux" à ce
+
+149
+00:07:50,210 --> 00:07:52,580
+critère, le critère
+c'était "even" c'est les éléments
+
+150
+00:07:52,780 --> 00:07:54,740
+pairs, donc on voit que ça
+contient bien une collection
+
+151
+00:07:54,940 --> 00:07:57,300
+de tous les éléments
+impairs. Et tout ce qui a répondu
+
+152
+00:07:57,500 --> 00:07:59,000
+"Vrai", c'est tous les éléments
+
+153
+00:08:02,370 --> 00:08:03,130
+pairs.
+
+154
+00:08:03,330 --> 00:08:04,290
+Quand on a une collection
+souvent quand on fait des
+
+155
+00:08:04,490 --> 00:08:06,670
+calculs on a tendance à
+imbriquer des collections dans
+
+156
+00:08:06,870 --> 00:08:10,510
+des collection, et on se
+retrouve avec des niveaux d'imbrication
+
+157
+00:08:10,710 --> 00:08:11,470
+qui peuvent être importants.
+
+158
+00:08:11,960 --> 00:08:15,190
+Ici, vous avez un exemple
+construit à la main où on a des
+
+159
+00:08:15,390 --> 00:08:17,310
+collections qui sont
+imbriquées dans des collections.
+
+160
+00:08:18,070 --> 00:08:20,890
+Ce qu'on aimerait c'est
+arriver à aplatir la collection,
+
+161
+00:08:21,090 --> 00:08:22,180
+à mettre tous les
+éléments au même niveau.
+
+162
+00:08:23,180 --> 00:08:27,690
+Pour ça, on a quelque chose
+de facile en Pharo, on a un
+
+163
+00:08:27,890 --> 00:08:28,830
+itérateur qui
+s'appelle "flatCollect".
+
+164
+00:08:29,030 --> 00:08:30,800
+C'est-à-dire que je vais
+parcourir les éléments et
+
+165
+00:08:31,000 --> 00:08:32,850
+construire une nouvelle
+collection dans laquelle j'ai tout aplati.
+
+166
+00:08:35,400 --> 00:08:38,710
+Donc on obtient bien la
+collection 1, 2, 3, 4, 5, 6 dans
+
+167
+00:08:38,910 --> 00:08:40,490
+laquelle on a enlevé tous
+les niveaux d'imbrication.
+
+168
+00:08:45,240 --> 00:08:47,480
+Le secret, ce n'est pas
+de vous présenter tous les
+
+169
+00:08:47,680 --> 00:08:50,130
+itérateurs disponibles dans
+Pharo, ce serait long et fastidieux.
+
+170
+00:08:50,330 --> 00:08:52,170
+L'idée, c'est vraiment de
+vous montrer qu'il en existe
+
+171
+00:08:52,370 --> 00:08:54,620
+plein et que vous pouvez
+découvrir vraiment les vôtres en
+
+172
+00:08:54,820 --> 00:08:57,500
+allant lire les méthodes qui
+existent sur les classes des
+
+173
+00:08:57,700 --> 00:08:59,460
+collections, en allant
+découvrir ces méthodes.
+
+174
+00:09:00,400 --> 00:09:02,240
+Un exemple simple, c'est de
+commencer par les itérateurs
+
+175
+00:09:02,440 --> 00:09:04,260
+que vous connaissez. Par
+exemple, se poser la question
+
+176
+00:09:04,460 --> 00:09:06,420
+"Comment est-ce
+qu'est implémenté le do?"
+
+177
+00:09:06,620 --> 00:09:08,850
+Je cherche le do dans la
+hiérarchie des collections, je
+
+178
+00:09:09,050 --> 00:09:09,840
+vais voir qu'il est implémenté dans
+
+179
+00:09:10,040 --> 00:09:13,420
+"SequenceableCollection",
+toutes les collections séquençables.
+
+180
+00:09:14,220 --> 00:09:16,580
+Donc la méthode "do", elle
+prend en paramètre un block.
+
+181
+00:09:16,900 --> 00:09:19,180
+Et voici
+l'implémentation de cette collection.
+
+182
+00:09:19,630 --> 00:09:23,190
+1 a la taille de la
+collection do et j'ai un block.
+
+183
+00:09:23,540 --> 00:09:27,000
+Je vais évaluer le block
+qui est passé en paramètre en
+
+184
+00:09:27,200 --> 00:09:29,310
+lui passant l'élément à l'indice I.
+
+185
+00:09:30,330 --> 00:09:31,090
+Donc c'est tout simple.
+
+186
+00:09:32,350 --> 00:09:36,550
+Les itérateurs sont
+extrêmement puissants en Pharo, comme
+
+187
+00:09:36,750 --> 00:09:40,650
+on a pu le voir. Toutes les
+collections supportent ces
+
+188
+00:09:40,850 --> 00:09:41,850
+itérateurs de façon polymorphique.
+
+189
+00:09:42,350 --> 00:09:45,470
+Du point de vue programmeur,
+on utilise des itérateurs et
+
+190
+00:09:45,670 --> 00:09:47,290
+puis c'est chacune des
+ classes de collections qui vont
+
+191
+00:09:47,490 --> 00:09:50,500
+les implémenter de façon
+adéquate par rapport à la
+
+192
+00:09:50,700 --> 00:09:51,550
+collection qu'ils représentent.
+
+193
+00:09:52,880 --> 00:09:55,450
+On peut en définir des
+nouveaux, extrêmement intéressants.
+
+194
+00:09:55,650 --> 00:09:57,520
+Je peux définir mes propres
+itérateurs si j'en ai envie
+
+195
+00:09:57,720 --> 00:09:58,700
+sur les classes de collections.
+
+196
+00:10:00,550 --> 00:10:02,010
+Il y a une subtilité.
+
+197
+00:10:02,210 --> 00:10:05,310
+Pour ceux qui connaissent le
+Design pattern iterator, en
+
+198
+00:10:05,510 --> 00:10:08,770
+fait la différence c'est
+que le développeur ne contrôle
+
+199
+00:10:09,000 --> 00:10:10,540
+pas quand il passe
+à l'élément suivant.
+
+200
+00:10:10,740 --> 00:10:14,260
+C'est la collection, qui en interne,
+décide de passer à l'élément suivant.
+
+201
+00:10:14,460 --> 00:10:17,820
+On n'envoie pas explicitement
+le message "next" à l'itérateur.
+
+202
+00:10:18,020 --> 00:10:20,120
+C'est une subtilité pour ceux qui
+connaissent le Design pattern iterator.
+
+203
+00:10:21,690 --> 00:10:26,360
+En résumé, les itérateurs
+sont vraiment puissants et
+
+204
+00:10:27,040 --> 00:10:30,810
+un allié fort du programmeur qui vont
+faciliter l'écriture des programmes.
+
+205
+00:10:31,010 --> 00:10:33,470
+On l'a vu, ça permet
+d'écrire du code concis, simple et
+
+206
+00:10:33,670 --> 00:10:38,210
+élégant et ça permet de garantir l'
+
+207
+00:10:38,410 --> 00:10:39,880
+encapsulation des données
+au sein d'une collection.
+

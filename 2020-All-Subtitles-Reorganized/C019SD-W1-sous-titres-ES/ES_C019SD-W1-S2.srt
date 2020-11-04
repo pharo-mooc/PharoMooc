@@ -1,0 +1,683 @@
+﻿1
+00:00:00,560 --> 00:00:03,280
+En esta sesión
+veremos qué es Pharo.
+
+2
+00:00:03,680 --> 00:00:06,080
+Es un lenguaje de objeto puro.
+
+3
+00:00:06,440 --> 00:00:10,720
+Pero también es un IDE,
+Un entorno de desarrollo integrado.
+
+4
+00:00:11,080 --> 00:00:14,040
+Está inspirado en Smalltalk.
+Ese es su padre espiritual.
+
+5
+00:00:14,200 --> 00:00:18,520
+Es un lenguaje potente y elegante
+que es divertido para programar.
+
+6
+00:00:18,680 --> 00:00:23,320
+Hay una gran comunidad de personas.
+que hacen una variedad de cosas con él.
+
+7
+00:00:23,480 --> 00:00:27,480
+Lo que trataremos de enseñarle en
+Este curso, con la ayuda de videos,
+
+8
+00:00:27,640 --> 00:00:30,960
+es que, es un sistema vivo,
+puede escribir guiones a medida que avanza.
+
+9
+00:00:31,600 --> 00:00:36,240
+Puede tomar Pharo con su licencia MIT
+y hacer lo que quiera con él.
+
+10
+00:00:36,880 --> 00:00:41,760
+Cuando digo que Pharo es elegante
+tengo argumentos para respaldarlo.
+
+11
+00:00:42,000 --> 00:00:44,160
+La sintaxis cabe en una tarjeta postal
+
+12
+00:00:44,320 --> 00:00:46,840
+y el simple
+y potente modelo de objeto
+
+13
+00:00:47,000 --> 00:00:49,080
+ocupa cuatro lineas
+Le mostrare...
+
+14
+00:00:49,920 --> 00:00:52,800
+En esta diapositiva
+Tiene la sintaxis completa de Pharo.
+
+15
+00:00:52,960 --> 00:00:55,120
+Me refiero a "completa", no hay nada más.
+
+16
+00:00:55,280 --> 00:01:00,840
+Eso no significa que pueda entender
+La sintaxis con solo leer esta diapositiva.
+
+17
+00:01:01,000 --> 00:01:03,840
+Tendremos varias sesiones,
+para descifrar
+
+18
+00:01:04,000 --> 00:01:07,640
+y ayudarle a entender
+cómo está estructurada la sintaxis
+
+19
+00:01:07,800 --> 00:01:11,120
+Pero le da una idea
+del trabajo a realizar.
+
+20
+00:01:11,280 --> 00:01:14,320
+No hay nada mas
+que esta sintaxis.
+
+21
+00:01:14,560 --> 00:01:17,960
+Del mismo modo, el modelo de objeto
+se resume en esa diapositiva.
+
+22
+00:01:18,120 --> 00:01:20,520
+Todo los tipos son definidos dinámicamente,
+
+23
+00:01:20,680 --> 00:01:22,840
+todo es una instancia de objeto
+de una clase,
+
+24
+00:01:23,000 --> 00:01:27,000
+todos los métodos son públicos virtuales,
+todos los atributos son protegidos,
+
+25
+00:01:27,160 --> 00:01:28,640
+y hay una sola herencia.
+
+26
+00:01:28,800 --> 00:01:33,520
+No se maneja el concepto de boxing,
+ningún tipo primitivo y no primitivo,
+
+27
+00:01:33,680 --> 00:01:36,120
+no hay tipos genéricos, y así sucesivamente
+
+28
+00:01:36,280 --> 00:01:37,160
+Lo tiene todo.
+
+29
+00:01:37,320 --> 00:01:39,960
+Acaba de ver la
+sintaxis y el modelo de Pharo.
+
+30
+00:01:40,120 --> 00:01:41,720
+Volveremos a eso,
+
+31
+00:01:41,880 --> 00:01:45,960
+pero es solo para darle una idea
+de la complejidad del sistema.
+
+32
+00:01:46,840 --> 00:01:50,200
+Tiene que darte cuenta de que Pharo
+está completamente escrito en sí mismo.
+
+33
+00:01:50,360 --> 00:01:54,160
+¿A qué me refiero con Pharo? Me refiero
+a las cadenas de caracteres, caracteres,
+
+34
+00:01:54,320 --> 00:01:58,000
+booleanos, IDE, compilador, sockets ...
+
+35
+00:01:58,160 --> 00:02:00,040
+Todo está escrito en Pharo.
+
+36
+00:02:00,200 --> 00:02:05,600
+Entonces si domina esta sintaxis,
+escrita en una página, y este modelo,
+
+37
+00:02:05,760 --> 00:02:08,880
+entonces tendrá acceso
+a la totalidad de Pharo.
+
+38
+00:02:09,120 --> 00:02:11,840
+Creo que esto es emocionante
+intelectualmente
+
+39
+00:02:12,000 --> 00:02:15,040
+porque tiene
+esta pequeña puerta de entrada
+
+40
+00:02:15,200 --> 00:02:17,080
+en un mundo gigantesco
+
+41
+00:02:17,680 --> 00:02:20,840
+Entonces si ve
+en el título de este mooc,
+
+42
+00:02:21,080 --> 00:02:24,960
+incluye la palabra "inmersivo".
+¿Por qué es esto?
+
+43
+00:02:25,200 --> 00:02:27,440
+Porque Pharo no es una caja negra.
+
+44
+00:02:27,600 --> 00:02:30,280
+Todo el sistema
+es completamente inspeccionable,
+
+45
+00:02:30,440 --> 00:02:33,440
+para que puedas ir y ver
+cómo se implementa
+
+46
+00:02:33,600 --> 00:02:35,480
+Y Pharo es reflexivo.
+
+47
+00:02:35,640 --> 00:02:37,840
+Tiene una representación de sí mismo
+
+48
+00:02:38,000 --> 00:02:40,480
+que puede usar
+para entenderlo
+
+49
+00:02:40,640 --> 00:02:44,880
+Esto significa que puede sumergirse
+por completo en un mundo de objetos.
+
+50
+00:02:45,040 --> 00:02:48,080
+Me gusta esta metáfora de la pecera.
+
+51
+00:02:48,240 --> 00:02:51,240
+Un idioma suele ser una caja negra.
+
+52
+00:02:51,400 --> 00:02:54,920
+Pharo no es una caja negra,
+es un tanque de peces,
+
+53
+00:02:55,080 --> 00:02:59,560
+donde puede ver los objetos
+y constituyentes del sistema mismo,
+
+54
+00:02:59,720 --> 00:03:03,960
+pero también puede sumergirse en el tanque
+e interactuar con los objetos.
+
+55
+00:03:04,120 --> 00:03:06,520
+Entonces, realmente es en ese sentido.
+
+56
+00:03:06,680 --> 00:03:10,080
+que te estamos invitandole
+para jugar con Pharo.
+
+57
+00:03:11,160 --> 00:03:14,920
+Aquí le muestro un ejemplo
+de un sistema inmersivo
+
+58
+00:03:15,680 --> 00:03:19,000
+Lo que llamamos inmersivo
+o interactivo.
+
+59
+00:03:19,360 --> 00:03:24,120
+A la izquierda tienes el código.
+A la derecha, lo que produce.
+
+60
+00:03:24,800 --> 00:03:30,440
+Cada vez que el programador
+presiona la clave de compilación,
+
+61
+00:03:30,600 --> 00:03:33,880
+la pantalla se vuelve azul
+y el resultado está a la derecha.
+
+62
+00:03:34,040 --> 00:03:36,680
+Está constantemente modificando su código
+
+63
+00:03:36,840 --> 00:03:40,360
+y viendo lo que está haciendo
+en la ventana derecha.
+
+64
+00:03:40,520 --> 00:03:43,800
+Puedes hacerlo
+con cualquier elemento del sistema,
+
+65
+00:03:43,960 --> 00:03:47,000
+ya sea un zócalo, un archivo ...
+
+66
+00:03:47,720 --> 00:03:51,240
+3D, como aquí.
+Pero un servidor web sería el mismo.
+
+67
+00:03:51,400 --> 00:03:55,000
+El servidor web funciona
+y puede modificarlo a medida que avanza.
+
+68
+00:03:57,560 --> 00:04:00,960
+Ahora le voy a mostrar
+los soportes disponibles
+
+69
+00:04:01,120 --> 00:04:03,600
+si quieres trabajar Pharo
+fuera de este mooc.
+
+70
+00:04:03,760 --> 00:04:06,520
+Hay varios libros,
+todo de código abierto.
+
+71
+00:04:06,680 --> 00:04:10,440
+Hay <i>Pharo by Example</i>,
+Para principiantes, en varios idiomas.
+
+72
+00:04:10,600 --> 00:04:14,800
+Actualmente se está actualizando
+para Pharo 5
+
+73
+00:04:14,960 --> 00:04:17,600
+<i> Deep into Pharo </ i> es más avanzado,
+
+74
+00:04:17,760 --> 00:04:19,840
+entrando en las bibliotecas,
+
+75
+00:04:20,000 --> 00:04:24,760
+en aspectos menos conocidos
+del idioma y las herramientas.
+
+76
+00:04:25,400 --> 00:04:28,160
+Está
+<i>Enterprise Pharo, a Web Perspective,</i>
+
+77
+00:04:28,320 --> 00:04:30,840
+que pone el énfasis
+en bibliotecas web,
+
+78
+00:04:31,000 --> 00:04:35,280
+como WebSockets,
+Servidores HTTP / HTTPS
+
+79
+00:04:35,440 --> 00:04:37,480
+y plantillas.
+
+80
+00:04:37,680 --> 00:04:38,920
+Todos son de código abierto.
+
+81
+00:04:39,080 --> 00:04:43,120
+Lo que usaremos principalmente para este
+curso es un marco web, <i> Seaside </ i>.
+
+82
+00:04:43,280 --> 00:04:47,080
+Tiene 300 páginas disponibles
+en la direccion indicada
+
+83
+00:04:47,240 --> 00:04:50,840
+Puede leer el libro
+si quiere saber más
+
+84
+00:04:51,000 --> 00:04:54,240
+Pero le daremos todo lo que necesita
+para seguir el mooc
+
+85
+00:04:54,400 --> 00:04:57,400
+sin tener que leer el libro también.
+
+86
+00:04:58,440 --> 00:05:00,840
+Para los interesados
+en otros aspectos,
+
+87
+00:05:01,000 --> 00:05:06,000
+Hay un libro de unas 300 páginas.
+sobre los métodos numéricos en Pharo,
+
+88
+00:05:06,160 --> 00:05:09,600
+yendo de cosas
+como series estadísticas,
+
+89
+00:05:09,760 --> 00:05:13,280
+a algoritmos iterativos y agrupaciones.
+
+90
+00:05:14,240 --> 00:05:19,120
+Le dije que Pharo
+es un sistema para aprender.
+
+91
+00:05:19,280 --> 00:05:22,800
+Le daré algunas ilustraciones.
+
+92
+00:05:22,960 --> 00:05:25,880
+Los veremos de nuevo
+en los videos
+
+93
+00:05:26,040 --> 00:05:29,440
+Cada elemento gráfico de Pharo
+sobre el que hagas clic ...
+
+94
+00:05:29,600 --> 00:05:32,320
+Con Cmd+Shift+Option,
+
+95
+00:05:32,480 --> 00:05:37,840
+obtendrá un pequeño menú
+alrededor del elemento gráfico.
+
+96
+00:05:38,120 --> 00:05:42,320
+Al usar estos menús,
+puede entrar directamente
+
+97
+00:05:42,480 --> 00:05:46,600
+y manipular los elementos visuales
+con que está lidiando
+
+98
+00:05:46,760 --> 00:05:48,680
+Le mostraremos lo que
+un inspector es,
+
+99
+00:05:48,840 --> 00:05:53,120
+un objeto que le permite manipular
+las propiedades de otros objetos,
+
+100
+00:05:53,280 --> 00:05:55,560
+y comenzar a implementarlos.
+
+101
+00:05:55,720 --> 00:05:58,480
+También tenemos un objeto
+llamado Finder para realizar búsquedas.
+
+102
+00:05:58,640 --> 00:06:00,680
+Entonces puedo preguntar al Finder
+
+103
+00:06:00,840 --> 00:06:04,400
+para encontrar todos los métodos del sistema
+que contienen la palabra "match".
+
+104
+00:06:04,560 --> 00:06:08,640
+Me muestra una lista y puedo acceder
+el código del método directamente.
+
+105
+00:06:08,960 --> 00:06:13,800
+También hay una herramienta llamada Spotter,
+que obtiene con Shift+Enter.
+
+106
+00:06:14,120 --> 00:06:16,000
+Y le dices lo que quiere.
+
+107
+00:06:16,160 --> 00:06:20,200
+Spotter lo ayudará a encontrar
+clases, métodos o recursos.
+
+108
+00:06:20,360 --> 00:06:22,800
+Tendrá videos
+para explicar todo eso
+
+109
+00:06:22,960 --> 00:06:25,600
+Pero otra vez,
+Spotter está escrito en Pharo.
+
+110
+00:06:26,760 --> 00:06:29,680
+El buscador tiene una buena función,
+
+111
+00:06:29,840 --> 00:06:32,040
+cuando empiezas a aprender Pharo.
+
+112
+00:06:32,200 --> 00:06:34,560
+Habrá un video sobre esto también.
+
+113
+00:06:34,720 --> 00:06:37,240
+Puede dar ejemplos y decir:
+
+114
+00:06:37,400 --> 00:06:41,720
+"Esto es lo que quiero hacer, pero no
+se cómo escribirlo en Pharo ".
+
+115
+00:06:42,200 --> 00:06:45,360
+Finder buscará métodos.
+
+116
+00:06:45,520 --> 00:06:47,160
+Tengo un ejemplo.
+
+117
+00:06:47,320 --> 00:06:51,120
+Digo: "Tengo dos cadenas, AB y C.
+Me gustaría concatenarlos ".
+
+118
+00:06:51,280 --> 00:06:55,240
+Y sé que el resultado
+debe ser la cadena ABC.
+
+119
+00:06:55,400 --> 00:06:56,480
+Suena simple
+
+120
+00:06:56,640 --> 00:06:58,320
+Entonces le digo al sistema:
+
+121
+00:06:58,480 --> 00:07:02,080
+"Dame el mensaje,
+si existe,
+
+122
+00:07:02,240 --> 00:07:05,400
+"que me dejará
+concatenar estas cadenas ".
+
+123
+00:07:05,560 --> 00:07:08,000
+Y eso es lo que puede ver aquí.
+
+124
+00:07:08,160 --> 00:07:11,040
+Dice "," es un método implementado
+en SequencableCollection.
+
+125
+00:07:11,200 --> 00:07:14,680
+Esto se enviará a mi primera cadena,
+
+126
+00:07:14,840 --> 00:07:17,480
+y obtendré mi tercera cadena.
+
+127
+00:07:17,640 --> 00:07:21,240
+Podrá usar este buscador
+en ejemplos,
+
+128
+00:07:21,400 --> 00:07:24,040
+para hacerse más rápido en Pharo.
+
+129
+00:07:24,520 --> 00:07:28,520
+En este Mooc hablaremos sobre 
+el diseño orientado a objetos, que es parte
+
+130
+00:07:28,760 --> 00:07:31,000
+del ADN de Pharo.
+
+131
+00:07:31,240 --> 00:07:35,080
+La gente que programa en Pharo
+piensa OO de una manera elegante.
+
+132
+00:07:35,320 --> 00:07:38,280
+Le mostraré los ejercicios que
+estaremos presentando
+
+133
+00:07:38,520 --> 00:07:42,280
+A menudo nos preguntan
+cómo no se implementa
+
+134
+00:07:42,440 --> 00:07:46,240
+La gente a menudo se pregunta
+si esta es una pregunta interesante
+
+135
+00:07:46,400 --> 00:07:51,240
+Es interesante porque
+Las reglas fundamentales resultan de ello.
+
+136
+00:07:51,400 --> 00:07:53,720
+Será parte del ejercicio.
+
+137
+00:07:53,880 --> 00:07:57,960
+Una vez que tienes Pharo
+y ve cómo no se implementa,
+
+138
+00:07:58,120 --> 00:08:00,760
+empezarás a pensar
+de una manera diferente.
+
+139
+00:08:00,920 --> 00:08:04,480
+Esto realmente es parte de la cultura.
+de las personas que usan Pharo:
+
+140
+00:08:04,720 --> 00:08:07,800
+pensar un diseño
+De una manera muy elegante.
+
+141
+00:08:08,040 --> 00:08:13,480
+Puede instalar Pharo
+como se describe en el sitio web de Pharo.
+
+142
+00:08:13,640 --> 00:08:18,000
+Por supuesto, durante el MOOC
+y en el sitio FUN,
+
+143
+00:08:18,160 --> 00:08:21,280
+obtendrá todas las instrucciones
+
+144
+00:08:21,440 --> 00:08:23,920
+para instalar Pharo en cualquier sistema.
+
+145
+00:08:24,080 --> 00:08:26,920
+Pharo es muy fácil de instalar,
+
+146
+00:08:27,080 --> 00:08:30,920
+como un arrastrar y soltar,
+en cualquier sistema operativo.
+

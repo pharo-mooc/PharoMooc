@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W5-S1</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:07:16" end="00:00:11:23" region="bottom">Hello, in this sequence,<br/>you'll see the power of Seaside,</p>
+            <p xml:id="p2" begin="00:00:12:02" end="00:00:14:12" region="bottom">through the composition of components.</p>
+            <p xml:id="p3" begin="00:00:14:16" end="00:00:18:09" region="bottom">We defined the reusable<br/>and stateful components,</p>
+            <p xml:id="p4" begin="00:00:18:13" end="00:00:21:19" region="bottom">now we'll see how we can<br/>put these components together</p>
+            <p xml:id="p5" begin="00:00:21:23" end="00:00:25:05" region="bottom">in order to build complex applications.<br/>As we said, an application</p>
+            <p xml:id="p6" begin="00:00:25:09" end="00:00:27:03" region="bottom">is a root component,</p>
+            <p xml:id="p7" begin="00:00:27:07" end="00:00:31:19" region="bottom">so we benefit from debugging,<br/>of live debugging of applications.</p>
+            <p xml:id="p8" begin="00:00:31:23" end="00:00:35:06" region="bottom">We'll go back over<br/>3 important mechanisms</p>
+            <p xml:id="p9" begin="00:00:35:10" end="00:00:37:12" region="bottom">for composing components in Seaside.</p>
+            <p xml:id="p10" begin="00:00:37:16" end="00:00:40:02" region="bottom">The first is component aggregation.</p>
+            <p xml:id="p11" begin="00:00:40:06" end="00:00:42:22" region="bottom">Remember, we defined 2 counters,</p>
+            <p xml:id="p12" begin="00:00:43:01" end="00:00:46:00" region="bottom">one normal counter,<br/>which looked like this</p>
+            <p xml:id="p13" begin="00:00:46:04" end="00:00:49:20" region="bottom">and a Twitter counter, here.</p>
+            <p xml:id="p14" begin="00:00:49:24" end="00:00:51:00" region="bottom">OK?</p>
+            <p xml:id="p15" begin="00:00:51:04" end="00:00:56:02" region="bottom">How can I now aggregate<br/>a component counter</p>
+            <p xml:id="p16" begin="00:00:56:07" end="00:00:58:07" region="bottom">with a view to building<br/>a multi-counter application?</p>
+            <p xml:id="p17" begin="00:00:58:11" end="00:01:00:18" region="bottom">I want to show lots<br/>of counters on one page.</p>
+            <p xml:id="p18" begin="00:01:00:22" end="00:01:03:09" region="bottom">When I click on this +, for example,</p>
+            <p xml:id="p19" begin="00:01:03:13" end="00:01:06:17" region="bottom">it only increases the value<br/>of this particular counter, OK?</p>
+            <p xml:id="p20" begin="00:01:06:21" end="00:01:11:02" region="bottom">So, aggregating lots of components<br/>on the same page, easily.</p>
+            <p xml:id="p21" begin="00:01:11:06" end="00:01:13:20" region="bottom">So how do we do this in Seaside?<br/>It's extremely simple.</p>
+            <p xml:id="p22" begin="00:01:13:24" end="00:01:17:10" region="bottom">I'll define a component subclass,<br/>which is always the same,</p>
+            <p xml:id="p23" begin="00:01:17:14" end="00:01:19:18" region="bottom">which is called "WAMultiCounter",</p>
+            <p xml:id="p24" begin="00:01:19:22" end="00:01:23:02" region="bottom">"instance variable counters",<br/>defining a collection of counters.</p>
+            <p xml:id="p25" begin="00:01:23:06" end="00:01:28:12" region="bottom">In "method initialize" I'll create<br/>a collection of 5 counters, here.</p>
+            <p xml:id="p26" begin="00:01:29:13" end="00:01:30:11" region="bottom">OK?</p>
+            <p xml:id="p27" begin="00:01:30:15" end="00:01:34:21" region="bottom">And then I'll have the method<br/>"rendercontentOn", here</p>
+            <p xml:id="p28" begin="00:01:35:00" end="00:01:38:23" region="bottom">where I'll say I'll browse<br/>my counter collection with a "do"</p>
+            <p xml:id="p29" begin="00:01:39:02" end="00:01:42:10" region="bottom">and I'll ask each counter,<br/>at least, the html object,</p>
+            <p xml:id="p30" begin="00:01:42:14" end="00:01:47:00" region="bottom">to render each of the counters.<br/>I use a special method, "render".</p>
+            <p xml:id="p31" begin="00:01:47:04" end="00:01:50:17" region="bottom">This render method of the html object</p>
+            <p xml:id="p32" begin="00:01:50:21" end="00:01:55:14" region="bottom">allows you to ask a component<br/>to render itself, draw itself in html.</p>
+            <p xml:id="p33" begin="00:01:55:18" end="00:01:58:16" region="bottom">We've an important method here<br/>called "children",</p>
+            <p xml:id="p34" begin="00:01:58:20" end="00:02:02:16" region="bottom">which means that when a component<br/>encapsulates other components</p>
+            <p xml:id="p35" begin="00:02:02:20" end="00:02:05:14" region="bottom">and asks them to render<br/>in "renderContentOn",</p>
+            <p xml:id="p36" begin="00:02:05:18" end="00:02:09:20" region="bottom">it has to declare them, and to do that<br/>it has to render a collection</p>
+            <p xml:id="p37" begin="00:02:09:24" end="00:02:11:19" region="bottom">of components in its method "children"</p>
+            <p xml:id="p38" begin="00:02:11:23" end="00:02:15:11" region="bottom">which contains all the components<br/>it's going to render, all its children.</p>
+            <p xml:id="p39" begin="00:02:15:15" end="00:02:18:20" region="bottom">Here I'm rendering<br/>the collection "counters".</p>
+            <p xml:id="p40" begin="00:02:18:24" end="00:02:21:17" region="bottom">It's an important method to define.</p>
+            <p xml:id="p41" begin="00:02:22:15" end="00:02:25:14" region="bottom">So, the basic rules<br/>for aggregating components,</p>
+            <p xml:id="p42" begin="00:02:25:18" end="00:02:27:21" region="bottom">composing components is easy.</p>
+            <p xml:id="p43" begin="00:02:28:00" end="00:02:30:23" region="bottom">One component<br/>will store its subcomponents</p>
+            <p xml:id="p44" begin="00:02:31:02" end="00:02:35:17" region="bottom">in an instance variable.<br/>In our example it's "counters", OK?</p>
+            <p xml:id="p45" begin="00:02:35:21" end="00:02:38:11" region="bottom">It will then pass the "render" message</p>
+            <p xml:id="p46" begin="00:02:38:15" end="00:02:41:19" region="bottom">to html,</p>
+            <p xml:id="p47" begin="00:02:41:23" end="00:02:46:15" region="bottom">in its "renderContentOn" method,<br/>asking each child to render itself.</p>
+            <p xml:id="p48" begin="00:02:47:12" end="00:02:49:11" region="bottom">It will then redefine<br/>the method "children"</p>
+            <p xml:id="p49" begin="00:02:49:15" end="00:02:52:00" region="bottom">to declare all of its subcomponents.</p>
+            <p xml:id="p50" begin="00:02:53:02" end="00:02:54:12" region="bottom">There are always these 3 parts.</p>
+            <p xml:id="p51" begin="00:02:57:06" end="00:03:00:00" region="bottom">We can also aggregate<br/>different subcomponents.</p>
+            <p xml:id="p52" begin="00:03:00:04" end="00:03:02:07" region="bottom">They don't have to be the same type.</p>
+            <p xml:id="p53" begin="00:03:02:11" end="00:03:06:20" region="bottom">Before, I only combined counters<br/>and here we're going to have</p>
+            <p xml:id="p54" begin="00:03:06:24" end="00:03:09:23" region="bottom">an application, a MyApp component.</p>
+            <p xml:id="p55" begin="00:03:10:02" end="00:03:12:13" region="bottom">In the method "initialize"<br/>it's a collection,</p>
+            <p xml:id="p56" begin="00:03:12:17" end="00:03:15:08" region="bottom">except that in this collection I put</p>
+            <p xml:id="p57" begin="00:03:15:12" end="00:03:19:05" region="bottom">the app "Greeter" that we used<br/>in a previous sequence, which we saw,</p>
+            <p xml:id="p58" begin="00:03:19:09" end="00:03:22:15" region="bottom">a Tweeter counter and a counter.<br/>3 components.</p>
+            <p xml:id="p59" begin="00:03:22:19" end="00:03:25:17" region="bottom">My method, "children" renders</p>
+            <p xml:id="p60" begin="00:03:25:21" end="00:03:29:05" region="bottom">all the children, the subcomponents<br/>of this MyApp component,</p>
+            <p xml:id="p61" begin="00:03:29:09" end="00:03:30:24" region="bottom">and in "renderContentOn"</p>
+            <p xml:id="p62" begin="00:03:31:03" end="00:03:35:14" region="bottom">I want to browse my children<br/>and ask them to render themselves.</p>
+            <p xml:id="p63" begin="00:03:35:18" end="00:03:37:22" region="bottom">So we do "html render: each"</p>
+            <p xml:id="p64" begin="00:03:38:01" end="00:03:40:12" region="bottom">and I'll do "html render" of Greeter,</p>
+            <p xml:id="p65" begin="00:03:40:16" end="00:03:43:10" region="bottom">the Twitter counter and counter.</p>
+            <p xml:id="p66" begin="00:03:43:14" end="00:03:44:20" region="bottom">Let's see what we get.</p>
+            <p xml:id="p67" begin="00:03:44:24" end="00:03:49:22" region="bottom">Here we have the Greeter component,<br/>which is displayed on the Web page,</p>
+            <p xml:id="p68" begin="00:03:50:01" end="00:03:52:21" region="bottom">we've the Twitter counter<br/>displayed here,</p>
+            <p xml:id="p69" begin="00:03:53:00" end="00:03:55:06" region="bottom">and the normal counter displayed here.</p>
+            <p xml:id="p70" begin="00:03:55:10" end="00:03:58:16" region="bottom">We've composed the components<br/>and they all work independently</p>
+            <p xml:id="p71" begin="00:03:58:20" end="00:04:00:24" region="bottom">if I click on the +<br/>and the "Say Hello" etc,</p>
+            <p xml:id="p72" begin="00:04:01:03" end="00:04:02:21" region="bottom">the components work perfectly.</p>
+            <p xml:id="p73" begin="00:04:04:22" end="00:04:08:00" region="bottom">So now, if you like,<br/>there's one stage further.</p>
+            <p xml:id="p74" begin="00:04:08:04" end="00:04:12:05" region="bottom">We don't want all the components<br/>at once on the Web page.</p>
+            <p xml:id="p75" begin="00:04:12:09" end="00:04:15:18" region="bottom">We want one at a time,<br/>a menu, for example, to select</p>
+            <p xml:id="p76" begin="00:04:15:22" end="00:04:17:14" region="bottom">which subcomponent<br/>we want displayed.</p>
+            <p xml:id="p77" begin="00:04:17:18" end="00:04:19:21" region="bottom">Typically,<br/>I only want to show the Greeter</p>
+            <p xml:id="p78" begin="00:04:20:00" end="00:04:22:03" region="bottom">and when I click on Twitter counter here,</p>
+            <p xml:id="p79" begin="00:04:22:07" end="00:04:26:03" region="bottom">I'm only going to display<br/>the Twitter counter.</p>
+            <p xml:id="p80" begin="00:04:26:07" end="00:04:28:20" region="bottom">How do we make this application?<br/>It's easy.</p>
+            <p xml:id="p81" begin="00:04:28:24" end="00:04:31:22" region="bottom">I add an instance variable<br/>in my MyApp application,</p>
+            <p xml:id="p82" begin="00:04:32:01" end="00:04:35:11" region="bottom">which is called the selected<br/>component, the selected child.</p>
+            <p xml:id="p83" begin="00:04:35:15" end="00:04:38:19" region="bottom">By default, I'll initialize it</p>
+            <p xml:id="p84" begin="00:04:38:23" end="00:04:40:24" region="bottom">to the first subcomponent,</p>
+            <p xml:id="p85" begin="00:04:41:03" end="00:04:44:07" region="bottom">In the "renderContentOn" method,<br/>here, I've modified it,</p>
+            <p xml:id="p86" begin="00:04:44:11" end="00:04:46:16" region="bottom">I'll display one menu,</p>
+            <p xml:id="p87" begin="00:04:46:20" end="00:04:50:17" region="bottom">giving me the possibility to select<br/>which subcomponent I display,</p>
+            <p xml:id="p88" begin="00:04:50:21" end="00:04:55:00" region="bottom">then I do "html render" but only<br/>of the subcomponent I want to display.</p>
+            <p xml:id="p89" begin="00:04:55:04" end="00:04:56:13" region="bottom">Quite simply.</p>
+            <p xml:id="p90" begin="00:04:56:17" end="00:05:00:11" region="bottom">In the menu, I'll generate<br/>one unordered list,</p>
+            <p xml:id="p91" begin="00:05:00:15" end="00:05:04:03" region="bottom">I'll browse all of my subcomponents</p>
+            <p xml:id="p92" begin="00:05:04:07" end="00:05:06:17" region="bottom">which I browse with an index, "i"</p>
+            <p xml:id="p93" begin="00:05:08:04" end="00:05:11:12" region="bottom">and I generate a list element<br/>for each child.</p>
+            <p xml:id="p94" begin="00:05:11:16" end="00:05:13:17" region="bottom">Here, I'm going to generate an anchor,</p>
+            <p xml:id="p95" begin="00:05:13:21" end="00:05:17:12" region="bottom">a clickable link,<br/>and when I click on this link,</p>
+            <p xml:id="p96" begin="00:05:17:16" end="00:05:22:15" region="bottom">it will trigger the callback,<br/>the execution of this block, here.</p>
+            <p xml:id="p97" begin="00:05:22:19" end="00:05:27:15" region="bottom">So we can say, it's easy,<br/>the component selected by the user</p>
+            <p xml:id="p98" begin="00:05:27:19" end="00:05:31:12" region="bottom">is the child number...<br/>so "self children".</p>
+            <p xml:id="p99" begin="00:05:31:16" end="00:05:33:08" region="bottom">Remember, it's a collection...</p>
+            <p xml:id="p100" begin="00:05:33:12" end="00:05:35:00" region="bottom">"at: i"</p>
+            <p xml:id="p101" begin="00:05:35:04" end="00:05:38:05" region="bottom">OK? And "i" here</p>
+            <p xml:id="p102" begin="00:05:38:09" end="00:05:41:16" region="bottom">is no more nor less<br/>than the number of the element</p>
+            <p xml:id="p103" begin="00:05:41:20" end="00:05:43:09" region="bottom">in the "children" collection.</p>
+            <p xml:id="p104" begin="00:05:45:05" end="00:05:49:17" region="bottom">So it's extremely easy to be able<br/>to browse all of the subcomponents</p>
+            <p xml:id="p105" begin="00:05:49:21" end="00:05:52:08" region="bottom">and to specifically generate,<br/>to completely control</p>
+            <p xml:id="p106" begin="00:05:52:12" end="00:05:54:15" region="bottom">what should and shouldn't<br/>be displayed.</p>
+            <p xml:id="p107" begin="00:05:56:02" end="00:05:59:16" region="bottom">We've a 2nd composition mechanism,<br/>which is "call answer".</p>
+            <p xml:id="p108" begin="00:05:59:20" end="00:06:02:02" region="bottom">We've seen components aggregation</p>
+            <p xml:id="p109" begin="00:06:02:06" end="00:06:05:20" region="bottom">with subcomponents, and now we'll see<br/>the "call answer" mechanism.</p>
+            <p xml:id="p110" begin="00:06:05:24" end="00:06:09:24" region="bottom">If we imagine,<br/>in the code of component A,</p>
+            <p xml:id="p111" begin="00:06:10:03" end="00:06:14:07" region="bottom">we'll write something that looks<br/>like this code here, we'll say,</p>
+            <p xml:id="p112" begin="00:06:15:01" end="00:06:19:03" region="bottom">component A calls component B.<br/>Call component B.</p>
+            <p xml:id="p113" begin="00:06:19:07" end="00:06:24:06" region="bottom">What will happen is, component B<br/>will mask component A on the Web page,</p>
+            <p xml:id="p114" begin="00:06:24:10" end="00:06:26:03" region="bottom">it will carry out a treatment,</p>
+            <p xml:id="p115" begin="00:06:26:07" end="00:06:28:22" region="bottom">and after a while, component B<br/>will say, "I've done my treatment,</p>
+            <p xml:id="p116" begin="00:06:29:01" end="00:06:31:05" region="bottom">"I'll do answer and give a result".</p>
+            <p xml:id="p117" begin="00:06:31:09" end="00:06:33:19" region="bottom">Here the result is a star,</p>
+            <p xml:id="p118" begin="00:06:33:23" end="00:06:36:11" region="bottom">and this result will be stored in X</p>
+            <p xml:id="p119" begin="00:06:37:08" end="00:06:40:02" region="bottom">in the place of "call component B".</p>
+            <p xml:id="p120" begin="00:06:40:06" end="00:06:43:07" region="bottom">Now, component B will reappear<br/>on the Web page</p>
+            <p xml:id="p121" begin="00:06:43:11" end="00:06:46:02" region="bottom">and component A can use this result<br/>to do something.</p>
+            <p xml:id="p122" begin="00:06:46:18" end="00:06:48:00" region="bottom">I'll show you an example.</p>
+            <p xml:id="p123" begin="00:06:48:04" end="00:06:51:19" region="bottom">Here we have a component,<br/>which was the counter.</p>
+            <p xml:id="p124" begin="00:06:51:23" end="00:06:54:23" region="bottom">We've added a button,<br/>here, "Set Value",</p>
+            <p xml:id="p125" begin="00:06:55:02" end="00:06:57:11" region="bottom">We imagine that "Set Value"<br/>allows the user</p>
+            <p xml:id="p126" begin="00:06:57:15" end="00:06:59:14" region="bottom">to enter a new value for the counter.</p>
+            <p xml:id="p127" begin="00:06:59:18" end="00:07:03:11" region="bottom">When we click on "Set Value"<br/>a new component is displayed,</p>
+            <p xml:id="p128" begin="00:07:03:15" end="00:07:07:00" region="bottom">which allows us to enter,<br/>a bit like the Greeter component,</p>
+            <p xml:id="p129" begin="00:07:07:04" end="00:07:10:09" region="bottom">we can enter a new value<br/>for the counter, click on "OK"</p>
+            <p xml:id="p130" begin="00:07:10:13" end="00:07:14:03" region="bottom">and when I click on "OK"<br/>it goes back to our counter component</p>
+            <p xml:id="p131" begin="00:07:14:07" end="00:07:18:02" region="bottom">but with the value entered here<br/>by the user at the beginning.</p>
+            <p xml:id="p132" begin="00:07:18:07" end="00:07:19:15" region="bottom">OK?</p>
+            <p xml:id="p133" begin="00:07:19:19" end="00:07:22:02" region="bottom">So we've a series<br/>of several components.</p>
+            <p xml:id="p134" begin="00:07:23:00" end="00:07:24:16" region="bottom">How is this implemented?</p>
+            <p xml:id="p135" begin="00:07:24:20" end="00:07:29:05" region="bottom">We've our Twitter counter<br/>with its "renderContentOn" method.</p>
+            <p xml:id="p136" begin="00:07:29:09" end="00:07:33:08" region="bottom">To its "renderContentOn" method<br/>we'll add a button,</p>
+            <p xml:id="p137" begin="00:07:33:12" end="00:07:37:04" region="bottom">a tbsButton, etc...<br/>This button's called "Set Value", here.</p>
+            <p xml:id="p138" begin="00:07:37:08" end="00:07:41:00" region="bottom">When we click on this button,<br/>this callback will be executed.</p>
+            <p xml:id="p139" begin="00:07:41:04" end="00:07:43:24" region="bottom">It's the "setCountToUserValue" method.</p>
+            <p xml:id="p140" begin="00:07:44:03" end="00:07:46:15" region="bottom">SetCountToUser is defined here.</p>
+            <p xml:id="p141" begin="00:07:46:19" end="00:07:50:03" region="bottom">What we do is we'll prepare<br/>a dialogue box here.</p>
+            <p xml:id="p142" begin="00:07:50:07" end="00:07:53:23" region="bottom">We'll use another component<br/>made by Seaside, a dialogue box.</p>
+            <p xml:id="p143" begin="00:07:54:02" end="00:07:56:00" region="bottom">which we'll configure here,</p>
+            <p xml:id="p144" begin="00:07:56:04" end="00:07:59:08" region="bottom">in this instance with<br/>"Enter a new value for the counter".</p>
+            <p xml:id="p145" begin="00:07:59:12" end="00:08:02:05" region="bottom">The default setting is 0<br/>and we've an OK button.</p>
+            <p xml:id="p146" begin="00:08:02:21" end="00:08:04:08" region="bottom">What we'll do next...</p>
+            <p xml:id="p147" begin="00:08:04:12" end="00:08:07:02" region="bottom">The really interesting<br/>element is this line here...</p>
+            <p xml:id="p148" begin="00:08:07:21" end="00:08:09:01" region="bottom">Here...</p>
+            <p xml:id="p149" begin="00:08:10:05" end="00:08:13:10" region="bottom">We're going to say,<br/>"current component", so "Self".</p>
+            <p xml:id="p150" begin="00:08:13:14" end="00:08:15:20" region="bottom">Remember,<br/>"Self" is the Twitter counter.</p>
+            <p xml:id="p151" begin="00:08:15:24" end="00:08:19:12" region="bottom">"Call the dialogue box<br/>we've just created,</p>
+            <p xml:id="p152" begin="00:08:19:16" end="00:08:21:02" region="bottom">"and give me the result."</p>
+            <p xml:id="p153" begin="00:08:21:18" end="00:08:24:09" region="bottom">The result will be<br/>the new value of the counter.</p>
+            <p xml:id="p154" begin="00:08:24:13" end="00:08:27:07" region="bottom">Then, when we've finished<br/>here, we're going to say,</p>
+            <p xml:id="p155" begin="00:08:27:11" end="00:08:29:20" region="bottom">"count", so the value of the counter,</p>
+            <p xml:id="p156" begin="00:08:29:24" end="00:08:33:14" region="bottom">"Take this new value entered<br/>by the user in the form of a Number".</p>
+            <p xml:id="p157" begin="00:08:34:13" end="00:08:35:12" region="bottom">Quite simply.</p>
+            <p xml:id="p158" begin="00:08:35:23" end="00:08:38:05" region="bottom">So internally,<br/>we can examine the workings</p>
+            <p xml:id="p159" begin="00:08:38:10" end="00:08:40:14" region="bottom">of this WAInputDialog box.</p>
+            <p xml:id="p160" begin="00:08:40:18" end="00:08:44:19" region="bottom">It's a reusable Seaside component,<br/>totally classic,</p>
+            <p xml:id="p161" begin="00:08:44:23" end="00:08:47:00" region="bottom">except for one special feature,</p>
+            <p xml:id="p162" begin="00:08:47:04" end="00:08:51:08" region="bottom">it uses the "answer" method<br/>to send back a result.</p>
+            <p xml:id="p163" begin="00:08:52:02" end="00:08:55:00" region="bottom">If we look at the<br/>"renderContentOn" method</p>
+            <p xml:id="p164" begin="00:08:55:04" end="00:08:56:18" region="bottom">of this component,</p>
+            <p xml:id="p165" begin="00:08:56:22" end="00:08:59:18" region="bottom">when we click on its OK button,</p>
+            <p xml:id="p166" begin="00:08:59:22" end="00:09:02:01" region="bottom">here, it's the "submit" button,</p>
+            <p xml:id="p167" begin="00:09:02:05" end="00:09:06:07" region="bottom">it has a callback with a block,<br/>and in its callback</p>
+            <p xml:id="p168" begin="00:09:06:24" end="00:09:10:14" region="bottom">it will do "self answer: value".</p>
+            <p xml:id="p169" begin="00:09:11:01" end="00:09:15:03" region="bottom">Which means that this<br/>will send the result</p>
+            <p xml:id="p170" begin="00:09:15:07" end="00:09:18:13" region="bottom">to the component that called it.</p>
+            <p xml:id="p171" begin="00:09:18:17" end="00:09:22:11" region="bottom">It will really return to the place<br/>from which the call was made</p>
+            <p xml:id="p172" begin="00:09:22:15" end="00:09:24:13" region="bottom">and send the result.</p>
+            <p xml:id="p173" begin="00:09:25:19" end="00:09:27:10" region="bottom">We've seen the call/answer mechanism.</p>
+            <p xml:id="p174" begin="00:09:27:14" end="00:09:30:11" region="bottom">Now we'll see one last<br/>component composition mechanism,</p>
+            <p xml:id="p175" begin="00:09:30:15" end="00:09:33:03" region="bottom">the "Task" mechanism.</p>
+            <p xml:id="p176" begin="00:09:33:24" end="00:09:35:04" region="bottom">It's actually very simple.</p>
+            <p xml:id="p177" begin="00:09:35:08" end="00:09:37:22" region="bottom">Tasks are like components,<br/>but there are no UI parts,</p>
+            <p xml:id="p178" begin="00:09:38:01" end="00:09:41:08" region="bottom">so no "renderContentOn",<br/>no generation of htmls.</p>
+            <p xml:id="p179" begin="00:09:41:12" end="00:09:44:00" region="bottom">The idea is really to orchestrate,</p>
+            <p xml:id="p180" begin="00:09:44:04" end="00:09:48:16" region="bottom">to describe how the components<br/>should perform over time.</p>
+            <p xml:id="p181" begin="00:09:48:20" end="00:09:51:12" region="bottom">This component will do this first,<br/>then that one, etc...</p>
+            <p xml:id="p182" begin="00:09:51:16" end="00:09:55:24" region="bottom">Using "call: answer" behind the scenes.</p>
+            <p xml:id="p183" begin="00:09:56:03" end="00:09:58:23" region="bottom">So we'll define a task<br/>called an "Adder"</p>
+            <p xml:id="p184" begin="00:09:59:02" end="00:10:02:03" region="bottom">and then all the tasks<br/>have a method called "go".</p>
+            <p xml:id="p185" begin="00:10:02:07" end="00:10:04:17" region="bottom">Here, for example, in this task,</p>
+            <p xml:id="p186" begin="00:10:04:21" end="00:10:09:20" region="bottom">we'll ask the user to enter a number,<br/>so "self request: firstnumber"</p>
+            <p xml:id="p187" begin="00:10:09:24" end="00:10:13:09" region="bottom">then we'll ask him to enter<br/>a 2nd number, "Number 2"</p>
+            <p xml:id="p188" begin="00:10:13:13" end="00:10:17:04" region="bottom">then we'll inform him of a value</p>
+            <p xml:id="p189" begin="00:10:17:08" end="00:10:21:03" region="bottom">which is the sum<br/>of these 2 numbers, here, OK?</p>
+            <p xml:id="p190" begin="00:10:21:07" end="00:10:25:06" region="bottom">On the last line, we'll register<br/>this component as an application...</p>
+            <p xml:id="p191" begin="00:10:25:10" end="00:10:28:06" region="bottom">a classic Web application<br/>to access it with a browser.</p>
+            <p xml:id="p192" begin="00:10:29:23" end="00:10:31:14" region="bottom">So if we look inside it,</p>
+            <p xml:id="p193" begin="00:10:31:18" end="00:10:34:17" region="bottom">how is the request method implemented?</p>
+            <p xml:id="p194" begin="00:10:34:21" end="00:10:36:09" region="bottom">The request method is a string.</p>
+            <p xml:id="p195" begin="00:10:36:13" end="00:10:41:15" region="bottom">Internally, as we can see,<br/>it uses "call" and "answer".</p>
+            <p xml:id="p196" begin="00:10:41:20" end="00:10:44:01" region="bottom">If we go back to the previous example,</p>
+            <p xml:id="p197" begin="00:10:44:05" end="00:10:47:16" region="bottom">we see that when we made<br/>the request here, internally,</p>
+            <p xml:id="p198" begin="00:10:47:20" end="00:10:50:03" region="bottom">it called another component,</p>
+            <p xml:id="p199" begin="00:10:50:07" end="00:10:54:13" region="bottom">and not just any old one,<br/>the WAInputDialog component,</p>
+            <p xml:id="p200" begin="00:10:54:17" end="00:10:56:14" region="bottom">it displayed the string,</p>
+            <p xml:id="p201" begin="00:10:56:18" end="00:10:59:23" region="bottom">and this component will return<br/>the result to whoever requested it.</p>
+            <p xml:id="p202" begin="00:11:00:02" end="00:11:03:11" region="bottom">In this instance, who requested it?<br/>Our component "Adder".</p>
+            <p xml:id="p203" begin="00:11:03:15" end="00:11:06:11" region="bottom">So it will recuperate<br/>a value in "Value 1".</p>
+            <p xml:id="p204" begin="00:11:06:15" end="00:11:09:24" region="bottom">The same thing for "Value 2"<br/>and then in "inform".</p>
+            <p xml:id="p205" begin="00:11:10:03" end="00:11:13:11" region="bottom">If we take a look<br/>at how "inform" is implemented,</p>
+            <p xml:id="p206" begin="00:11:13:15" end="00:11:17:04" region="bottom">it also uses a call/answer,<br/>but on another type of component,</p>
+            <p xml:id="p207" begin="00:11:17:08" end="00:11:19:17" region="bottom">which is a "FormDialog".</p>
+            <p xml:id="p208" begin="00:11:19:21" end="00:11:22:09" region="bottom">If we do "self, call: FormDialog"</p>
+            <p xml:id="p209" begin="00:11:22:13" end="00:11:25:19" region="bottom">we'll display the string<br/>with an OK button to say,</p>
+            <p xml:id="p210" begin="00:11:25:23" end="00:11:28:01" region="bottom">"OK, he's seen the string".</p>
+            <p xml:id="p211" begin="00:11:28:20" end="00:11:31:01" region="bottom">So what you need to know</p>
+            <p xml:id="p212" begin="00:11:31:06" end="00:11:33:03" region="bottom">in all these forms of composition,</p>
+            <p xml:id="p213" begin="00:11:33:07" end="00:11:36:02" region="bottom">we've never talked about requests,</p>
+            <p xml:id="p214" begin="00:11:36:06" end="00:11:39:22" region="bottom">about http requests, about URL,<br/>parsing and settings,</p>
+            <p xml:id="p215" begin="00:11:40:01" end="00:11:42:22" region="bottom">we haven't talked about request routing.</p>
+            <p xml:id="p216" begin="00:11:43:01" end="00:11:46:17" region="bottom">We haven't made any links<br/>to the following pages, etc...</p>
+            <p xml:id="p217" begin="00:11:46:21" end="00:11:50:04" region="bottom">We've only talked about components,</p>
+            <p xml:id="p218" begin="00:11:50:08" end="00:11:52:16" region="bottom">stateful components<br/>that we can compose,</p>
+            <p xml:id="p219" begin="00:11:52:20" end="00:11:55:00" region="bottom">so the 3 forms of composition.</p>
+            <p xml:id="p220" begin="00:11:55:04" end="00:11:57:03" region="bottom">A component can encapsulate others,</p>
+            <p xml:id="p221" begin="00:11:57:07" end="00:11:59:12" region="bottom">a component can call another component,</p>
+            <p xml:id="p222" begin="00:11:59:16" end="00:12:03:12" region="bottom">and we can define workflows,<br/>strings of components in Seaside,</p>
+            <p xml:id="p223" begin="00:12:03:16" end="00:12:04:23" region="bottom">which is extremely powerful,</p>
+            <p xml:id="p224" begin="00:12:05:02" end="00:12:07:21" region="bottom">and all with the possibility<br/>of live debugging.</p>
+        </div>
+    </body>
+</tt>

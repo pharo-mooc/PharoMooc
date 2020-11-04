@@ -1,0 +1,667 @@
+WEBVTT
+
+00:00:00.480 --> 00:00:04.600 align:middle
+Este video se enfocará
+En un aspecto avanzado de Pharo,
+
+00:00:04.800 --> 00:00:10.800 align:middle
+que son las operaciones reflexivas
+Necesario para la programación en vivo que usamos.
+
+00:00:11.680 --> 00:00:16.680 align:middle
+Analizaremos lo que sucede
+cuando recompilamos una clase.
+
+00:00:17.040 --> 00:00:20.080 align:middle
+Y lo explicaremos
+las operaciones reflexivas
+
+00:00:20.200 --> 00:00:24.720 align:middle
+necesario para implementar
+programación en vivo
+
+00:00:24.920 --> 00:00:26.560 align:middle
+Este es un caso típico.
+
+00:00:26.720 --> 00:00:30.320 align:middle
+Por lo general, comenzamos por definir una clase,
+
+00:00:30.600 --> 00:00:34.640 align:middle
+luego agregamos métodos
+y cree instancias para esta clase.
+
+00:00:35.160 --> 00:00:40.400 align:middle
+Luego redefinimos la clase
+y agregar nuevas variables de instancia.
+
+00:00:41.200 --> 00:00:45.640 align:middle
+Entonces, ¿qué hacemos con las instancias?
+eso ya existia
+
+00:00:46.160 --> 00:00:48.440 align:middle
+cuando hubo un atributo menos?
+
+00:00:48.680 --> 00:00:53.920 align:middle
+Debemos configurar un mecanismo
+migrar estas instancias
+
+00:00:54.280 --> 00:00:57.360 align:middle
+a la nueva versión de la clase.
+
+00:00:57.640 --> 00:00:59.160 align:middle
+Luego seguimos trabajando.
+
+00:00:59.600 --> 00:01:03.200 align:middle
+Después de eso, veremos las operaciones
+
+00:01:04.440 --> 00:01:09.160 align:middle
+que habilite la redefinición dinámica de clases,
+Recopilación de métodos,
+
+00:01:09.600 --> 00:01:11.040 align:middle
+y que permiten
+
+00:01:11.400 --> 00:01:15.160 align:middle
+un automático y transparente
+migración de instancias
+
+00:01:15.360 --> 00:01:18.200 align:middle
+a la nueva versión de la clase.
+
+00:01:18.520 --> 00:01:22.560 align:middle
+Para hacer esto, necesitamos
+Recopilar todas las instancias de clase.
+
+00:01:22.840 --> 00:01:28.280 align:middle
+Entonces tenemos que cambiar
+todo lo que usaba estos objetos
+
+00:01:28.840 --> 00:01:31.920 align:middle
+y asigna sus indicadores
+a nuevos objetos
+
+00:01:32.400 --> 00:01:33.400 align:middle
+¿Bueno?
+
+00:01:34.160 --> 00:01:38.920 align:middle
+Primero, ¿cómo recopilamos?
+todas las instancias de una clase
+
+00:01:39.400 --> 00:01:43.560 align:middle
+Si enviamos el mensaje allInstances
+a una clase,
+
+00:01:43.800 --> 00:01:47.320 align:middle
+muestra todos los objetos
+que son sus instancias
+
+00:01:47.640 --> 00:01:51.440 align:middle
+Es una coleccion
+de todos los objetos estándar.
+
+00:01:51.640 --> 00:01:57.800 align:middle
+Si lo enviamos a la clase de ventana,
+Obtenemos una colección de objetos de ventana.
+
+00:01:58.280 --> 00:02:02.760 align:middle
+Podemos recuperar el primer elemento
+y envíe un mensaje de "cierre"
+
+00:02:02.920 --> 00:02:06.840 align:middle
+ya que el método "cerrado"
+se define en la clase Ventana.
+
+00:02:07.360 --> 00:02:11.840 align:middle
+Otra primitiva reflexiva
+es punteros a.
+
+00:02:12.160 --> 00:02:16.920 align:middle
+Si enviamos este mensaje a un objeto,
+accedemos a la colección
+
+00:02:17.400 --> 00:02:21.000 align:middle
+de todos los objetos que almacena
+una referencia al objeto
+
+00:02:21.200 --> 00:02:23.040 align:middle
+Esto es muy útil
+
+00:02:23.200 --> 00:02:27.320 align:middle
+cuando queremos intercambiar objetos.
+
+00:02:29.560 --> 00:02:34.080 align:middle
+La primitiva para intercambiar punteros
+es "convertido".
+
+00:02:34.600 --> 00:02:39.760 align:middle
+La idea es habilitarnos
+para intercambiar dos objetos.
+
+00:02:41.160 --> 00:02:43.840 align:middle
+Queremos intercambiarlos simétricamente.
+
+00:02:44.200 --> 00:02:48.200 align:middle
+Todo lo que apuntaba a este objeto
+en el sistema,
+
+00:02:48.720 --> 00:02:51.160 align:middle
+en este caso tenemos dos punteros,
+
+00:02:51.360 --> 00:02:55.840 align:middle
+Se invertirá para que los elementos
+ahora apunta a este objeto.
+
+00:02:57.280 --> 00:03:01.720 align:middle
+Rompemos los enlaces para las indicaciones
+que estaban de este lado,
+
+00:03:02.280 --> 00:03:04.080 align:middle
+por lo que cambian de objeto.
+
+00:03:06.360 --> 00:03:11.680 align:middle
+"Convertirse" significa invertir todos los indicadores.
+en el sistema simétricamente.
+
+00:03:13.280 --> 00:03:15.080 align:middle
+Aquí hay un ejemplo.
+
+00:03:15.320 --> 00:03:17.600 align:middle
+Yo creo un punto 1,
+
+00:03:17.800 --> 00:03:22.320 align:middle
+que apunta al objeto del punto 0 @ 0
+y una variable pt2,
+
+00:03:22.840 --> 00:03:25.320 align:middle
+que también apunta al objeto 0 @ 0.
+
+00:03:25.560 --> 00:03:29.560 align:middle
+Además de una variable pt3
+eso apunta al punto 100 @ 100.
+
+00:03:29.800 --> 00:03:33.200 align:middle
+Entonces escribo el primitivo
+pt1 convertido en:pt3.
+
+00:03:34.160 --> 00:03:38.680 align:middle
+Todo lo que apuntaba al objeto
+denotado por la variable pt1
+
+00:03:38.920 --> 00:03:41.440 align:middle
+ahora apuntará al punto 3.
+
+00:03:42.200 --> 00:03:44.400 align:middle
+Es decir, todos los punteros a pt1.
+
+00:03:44.600 --> 00:03:49.760 align:middle
+Vemos que la variable pt2
+señaló al mismo objeto que pt1,
+
+00:03:49.920 --> 00:03:54.400 align:middle
+y ahora apunta a
+lo que fue referenciado por pt3.
+
+00:03:54.760 --> 00:04:00.440 align:middle
+En cuanto a pt3, ya que es simétrico,
+señalará a lo que apuntó pt1.
+
+00:04:00.640 --> 00:04:01.760 align:middle
+Arriba arriba
+
+00:04:02.800 --> 00:04:06.080 align:middle
+Y pt1 apunta a lo que apuntó pt3.
+
+00:04:06.280 --> 00:04:10.000 align:middle
+Los punteros han sido intercambiados
+simétricamente
+
+00:04:11.200 --> 00:04:14.800 align:middle
+La variante asimétrica
+es convertido hacia adelante
+
+00:04:15.440 --> 00:04:18.400 align:middle
+Esto indica
+que queremos intercambiar punteros.
+
+00:04:18.640 --> 00:04:23.360 align:middle
+Todo lo que apuntaba a este objeto
+se pasará a ese objeto.
+
+00:04:24.080 --> 00:04:28.400 align:middle
+Pero no al contrario.
+Los punteros a este objeto permanecen iguales.
+
+00:04:31.520 --> 00:04:34.640 align:middle
+Aquí hay otro ejemplo que usa puntos.
+
+00:04:35.280 --> 00:04:39.640 align:middle
+Cuando ejecutamos un convertido hacia adelante,
+
+00:04:39.920 --> 00:04:45.080 align:middle
+vemos que impacta en pt1 y pt2.
+
+00:04:45.600 --> 00:04:48.640 align:middle
+Pt3 no se vio afectado
+por el convertido hacia adelante,
+
+00:04:48.840 --> 00:04:53.000 align:middle
+y los que señalaron
+a este objeto no se modifican.
+
+00:04:55.400 --> 00:04:59.840 align:middle
+Otra primitiva reflexiva
+es adoptarInstancia.
+
+00:05:00.200 --> 00:05:02.640 align:middle
+Esto cambia la clase de un objeto.
+
+00:05:02.840 --> 00:05:07.920 align:middle
+Le pedimos a una clase que adopte una nueva instancia,
+pasado como un parámetro
+
+00:05:08.560 --> 00:05:13.400 align:middle
+Cambiar una clase es muy poderoso,
+pero algo limitada, herramienta.
+
+00:05:13.640 --> 00:05:17.520 align:middle
+Es esencial
+que la clase original del objeto
+
+00:05:18.160 --> 00:05:19.840 align:middle
+en este caso, una instancia,
+
+00:05:20.040 --> 00:05:24.680 align:middle
+es compatible con el formato
+de la clase objetivo.
+
+00:05:25.440 --> 00:05:29.160 align:middle
+No puedes simplemente intercambiar cualquier objeto.
+
+00:05:29.360 --> 00:05:31.840 align:middle
+A veces está indexado, etcétera.
+
+00:05:32.080 --> 00:05:36.000 align:middle
+El formato de un objeto
+es muy importante.
+
+00:05:36.680 --> 00:05:40.640 align:middle
+Miremos a
+que clase es en esencia.
+
+00:05:40.920 --> 00:05:43.360 align:middle
+Una clase es esencialmente un formato.
+
+00:05:43.640 --> 00:05:47.200 align:middle
+Un formato especifica el número
+de variables de instancia
+
+00:05:47.400 --> 00:05:52.520 align:middle
+y el tipo de variables,
+como explicamos en un curso anterior.
+
+00:05:52.840 --> 00:05:56.000 align:middle
+Tiene una superclase
+y un diccionario de métodos.
+
+00:05:56.840 --> 00:06:01.680 align:middle
+Aquí tenemos la clase Comportamiento,
+que es una superclase
+
+00:06:02.080 --> 00:06:07.520 align:middle
+de clase de clase,
+que define el comportamiento básico de la clase.
+
+00:06:08.160 --> 00:06:11.000 align:middle
+Es el mínimo básico para una clase.
+
+00:06:11.200 --> 00:06:14.720 align:middle
+Entonces, una clase tiene una superclase,
+un diccionario de método,
+
+00:06:14.840 --> 00:06:18.200 align:middle
+y especificaciones de formato.
+
+00:06:19.200 --> 00:06:24.440 align:middle
+Ahora resumiré
+todas las características de comportamiento reflexivo
+
+00:06:25.000 --> 00:06:27.360 align:middle
+que hemos discutido hasta ahora,
+
+00:06:28.440 --> 00:06:33.440 align:middle
+que dan ciertas instancias
+comportamiento que es específico de ellos.
+
+00:06:34.760 --> 00:06:37.800 align:middle
+Explicaré el código a medida que avancemos.
+
+00:06:38.000 --> 00:06:42.400 align:middle
+Vamos a crear una instancia
+de la clase de comportamiento en estas tres líneas.
+
+00:06:42.640 --> 00:06:44.280 align:middle
+Recuerda, es una clase.
+
+00:06:44.640 --> 00:06:50.080 align:middle
+Creo una instancia de la clase,
+que yo llamo Comportamiento.
+
+00:06:51.600 --> 00:06:54.400 align:middle
+Eso me da un objeto llamado Comportamiento.
+
+00:06:55.040 --> 00:07:00.600 align:middle
+Indico que este objeto
+hereda de la clase Modelo.
+
+00:07:02.000 --> 00:07:03.000 align:middle
+Me gusta esto.
+
+00:07:03.680 --> 00:07:08.080 align:middle
+Configuré el formato
+de este objeto Comportamiento.
+
+00:07:08.600 --> 00:07:12.400 align:middle
+Entonces creo una instancia
+de la clase de modelo aquí.
+
+00:07:14.520 --> 00:07:16.360 align:middle
+Es un objeto llamado modelo.
+
+00:07:17.200 --> 00:07:20.080 align:middle
+Aquí está la línea importante en este código.
+
+00:07:20.760 --> 00:07:23.920 align:middle
+Cambiaré la clase
+de este objeto modelo
+
+00:07:24.080 --> 00:07:28.920 align:middle
+para convertirse en una clase del objeto
+pasado como un parámetro, llamado Comportamiento.
+
+00:07:29.200 --> 00:07:34.400 align:middle
+Rompo el enlace
+y hazlo una instancia de esta clase.
+
+00:07:34.800 --> 00:07:37.400 align:middle
+Esta es una subclase de la clase Modelo.
+
+00:07:38.800 --> 00:07:43.400 align:middle
+Ahora puedo compilar
+Un nuevo método en esta clase.
+
+00:07:43.600 --> 00:07:47.400 align:middle
+Compilo con el método foo,
+que devuelve 2
+
+00:07:48.840 --> 00:07:51.840 align:middle
+Estoy haciendo esto en el objeto Comportamiento.
+
+00:07:53.560 --> 00:07:55.280 align:middle
+Como podemos ver aquí,
+
+00:07:55.560 --> 00:07:59.840 align:middle
+si envío el mensaje foo
+al objeto Modelo por aquí,
+
+00:08:01.000 --> 00:08:02.160 align:middle
+Me gusta esto,
+
+00:08:02.760 --> 00:08:04.160 align:middle
+regresará 2
+
+00:08:04.640 --> 00:08:06.720 align:middle
+Esto sigue el método de búsqueda.
+
+00:08:07.400 --> 00:08:09.040 align:middle
+Envío el mensaje foo.
+
+00:08:09.200 --> 00:08:14.600 align:middle
+El modelo de objeto busca el método
+en su clase, el objeto Comportamiento,
+
+00:08:14.800 --> 00:08:17.360 align:middle
+y encuentra con éxito el método.
+
+00:08:17.760 --> 00:08:19.160 align:middle
+Funciona a la perfección
+
+00:08:19.920 --> 00:08:24.080 align:middle
+Pero si creo una nueva instancia
+de clase modelo,
+
+00:08:25.200 --> 00:08:26.200 align:middle
+Me gusta esto,
+
+00:08:26.560 --> 00:08:28.360 align:middle
+y le envío el mensaje foo,
+
+00:08:29.360 --> 00:08:33.360 align:middle
+se indica un error
+por MessageNotUnderstood.
+
+00:08:33.640 --> 00:08:35.800 align:middle
+Porque si aplico ToLookUp,
+
+00:08:36.080 --> 00:08:39.080 align:middle
+Miro en la clase del objeto,
+Clase de modelo
+
+00:08:39.320 --> 00:08:43.920 align:middle
+pero no encuentro el método foo
+en su diccionario o superclases.
+
+00:08:45.040 --> 00:08:51.040 align:middle
+Este mecanismo avanzado
+nos permite dotar a una instancia específica
+
+00:08:51.520 --> 00:08:54.040 align:middle
+de la clase Model con un comportamiento.
+
+00:08:54.200 --> 00:08:57.840 align:middle
+Aplicemos esto a la clase Establecer
+para aclararlo
+
+00:08:58.040 --> 00:09:01.280 align:middle
+Creo set1, una instancia de la clase Set.
+
+00:09:01.800 --> 00:09:05.720 align:middle
+El diccionario de método de clase Establecer
+contiene el método add :.
+
+00:09:06.400 --> 00:09:11.520 align:middle
+Para una instancia específica de la clase Set,
+Quiero cambiar el método add :,
+
+00:09:11.720 --> 00:09:15.360 align:middle
+que tiene un comportamiento específico
+para un conjunto específico.
+
+00:09:15.520 --> 00:09:18.400 align:middle
+Entonces, creo una clase "anónima" aquí.
+
+00:09:18.840 --> 00:09:22.920 align:middle
+Es una clase específica que hereda.
+de la clase Establecer.
+
+00:09:23.280 --> 00:09:25.200 align:middle
+Aquí está su herencia.
+
+00:09:25.600 --> 00:09:31.160 align:middle
+El objeto set2 es una instancia
+de esta clase "anónima".
+
+00:09:31.720 --> 00:09:37.000 align:middle
+En su diccionario de métodos,
+Redefiniré el método add:
+
+00:09:37.320 --> 00:09:40.640 align:middle
+dándole un comportamiento particular.
+
+00:09:40.920 --> 00:09:45.800 align:middle
+Ahora, si envío el mensaje agrega:
+al objeto set2,
+
+00:09:46.080 --> 00:09:48.400 align:middle
+este método será seleccionado,
+
+00:09:48.800 --> 00:09:52.320 align:middle
+y tendrá un específico,
+diferente comportamiento
+
+00:09:53.600 --> 00:09:58.040 align:middle
+desde el método add:aquí
+si hubiéramos enviado el mensaje a este conjunto.
+
+00:09:58.280 --> 00:10:03.360 align:middle
+Entonces, tenemos dos conjuntos que reaccionan
+De manera diferente al mensaje add :.
+
+00:10:03.680 --> 00:10:07.080 align:middle
+Aquí está el código
+para llevar a cabo este ejercicio
+
+00:10:07.400 --> 00:10:11.280 align:middle
+Al igual que antes, creo una clase
+
+00:10:11.640 --> 00:10:13.800 align:middle
+como una instancia de la clase de comportamiento.
+
+00:10:14.080 --> 00:10:16.840 align:middle
+Puse la superclase en la clase Establecer.
+
+00:10:17.400 --> 00:10:18.640 align:middle
+Configuré el formato.
+
+00:10:18.840 --> 00:10:23.600 align:middle
+Compilo el método add:
+en esta clase anónima.
+
+00:10:24.080 --> 00:10:29.360 align:middle
+Estoy redefiniendo el método add:
+que se define en la clase Establecer.
+
+00:10:30.080 --> 00:10:36.080 align:middle
+Uso "Transcript show" para mostrar
+la ejecución del método agrega :.
+
+00:10:36.400 --> 00:10:40.680 align:middle
+Entonces llamo "super" para ejecutar
+el método agregar:en la clase Establecer.
+
+00:10:41.360 --> 00:10:45.720 align:middle
+Ahora probaremos este código.
+creando un primer set.
+
+00:10:45.920 --> 00:10:48.600 align:middle
+Aquí tengo la clase Establecer.
+
+00:10:50.280 --> 00:10:54.280 align:middle
+Creo la primera instancia
+de esta clase, llamado Set.
+
+00:10:55.080 --> 00:10:57.040 align:middle
+Le envío el mensaje add :.
+
+00:10:58.920 --> 00:11:03.760 align:middle
+Envío add:1, que usa
+el método agregar:de la clase Establecer.
+
+00:11:05.240 --> 00:11:08.720 align:middle
+Si pido la clase Establecer aquí,
+Voy a tener set.
+
+00:11:09.400 --> 00:11:13.160 align:middle
+Pero ahora ejecutaré este primitivo
+tu ves aqui
+
+00:11:13.600 --> 00:11:16.200 align:middle
+Le pido al objeto Establecer que cambie las clases.
+
+00:11:16.400 --> 00:11:21.160 align:middle
+y para usar la clase de comportamiento de antes,
+que es una subclase
+
+00:11:22.080 --> 00:11:23.760 align:middle
+de la clase Set.
+
+00:11:24.360 --> 00:11:28.400 align:middle
+Entonces, cambia y se vuelve
+una instancia de la clase Establecer,
+
+00:11:28.680 --> 00:11:32.000 align:middle
+que tiene una nueva versión
+del método agregar :.
+
+00:11:32.280 --> 00:11:37.920 align:middle
+Ahora, si envío el mensaje
+agregar:2 a este objeto,
+
+00:11:38.360 --> 00:11:43.280 align:middle
+seleccionará el método add:
+desde el objeto Comportamiento,
+
+00:11:43.560 --> 00:11:45.720 align:middle
+y ejecutará este código.
+
+00:11:46.280 --> 00:11:48.920 align:middle
+Podemos verificar en la transcripción
+
+00:11:49.760 --> 00:11:53.280 align:middle
+si el método se ha ejecutado.
+
+00:11:53.640 --> 00:11:57.400 align:middle
+Eventualmente se ejecutará,
+
+00:11:57.640 --> 00:12:02.040 align:middle
+ya que también usamos "super"
+para el método add:de la clase Set.
+
+00:12:02.840 --> 00:12:07.840 align:middle
+Esto nos permite espiar
+en instancias seleccionadas en Set,
+
+00:12:08.080 --> 00:12:09.560 align:middle
+usando esta línea aquí.
+
+00:12:11.200 --> 00:12:12.400 align:middle
+Para concluir,
+
+00:12:12.600 --> 00:12:19.200 align:middle
+todas estas operaciones reflexivas
+nos permiten crear herramientas muy innovadoras.
+
+00:12:19.440 --> 00:12:23.840 align:middle
+Podemos probar
+e implementar nuevas funciones
+
+00:12:24.080 --> 00:12:29.400 align:middle
+gracias a estas primitivas reflexivas,
+que promueven la extensibilidad del lenguaje.
+
+00:12:30.200 --> 00:12:34.080 align:middle
+Pero hay una regla de oro
+cuando se usa la reflexion
+
+00:12:34.320 --> 00:12:38.800 align:middle
+No debe usarlo de manera inapropiada.
+en el código de dominio.
+
+00:12:39.040 --> 00:12:44.720 align:middle
+Limitamos el uso
+de códigos reflectantes en el código de dominio.
+
+00:12:45.080 --> 00:12:49.200 align:middle
+La reflexión puede violar
+La encapsulación de los objetos.
+
+00:12:49.840 --> 00:12:51.000 align:middle
+Realmente puede ...
+
+00:12:51.440 --> 00:12:54.640 align:middle
+Puede sobrepasar
+reglas de programación de objetos,
+
+00:12:54.840 --> 00:12:58.520 align:middle
+y por lo tanto está reservado
+para la construcción de herramientas.
+

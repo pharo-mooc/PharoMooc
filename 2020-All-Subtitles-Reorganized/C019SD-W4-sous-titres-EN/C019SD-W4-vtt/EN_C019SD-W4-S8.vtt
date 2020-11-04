@@ -1,0 +1,589 @@
+﻿WEBVTT
+
+00:00:00.560 --> 00:00:01.360 align:middle
+Hello.
+
+00:00:01.600 --> 00:00:04.880 align:middle
+This sequence covers
+the Seaside web framework,
+
+00:00:05.160 --> 00:00:08.240 align:middle
+an innovative way
+of building web apps in Pharo.
+
+00:00:08.480 --> 00:00:12.200 align:middle
+Seaside is powerful and flexible.
+
+00:00:12.480 --> 00:00:17.240 align:middle
+It is based on the concept
+of reusable, stateful components,
+
+00:00:17.600 --> 00:00:21.520 align:middle
+on top of a stateless protocol,
+HTTP, in Web applications.
+
+00:00:22.600 --> 00:00:26.040 align:middle
+Seaside is secure by default,
+of course.
+
+00:00:26.200 --> 00:00:29.200 align:middle
+It integrates
+all the latest Web 2.0 techniques,
+
+00:00:29.360 --> 00:00:31.760 align:middle
+like Ajax, etc.,
+and REST architectures.
+
+00:00:33.040 --> 00:00:36.200 align:middle
+This is the Seaside URL.
+
+00:00:36.920 --> 00:00:42.120 align:middle
+You can refer to it for documentation
+like the free online Seaside book.
+
+00:00:42.400 --> 00:00:45.560 align:middle
+It also offers a set
+of Seaside tutorials.
+
+00:00:45.880 --> 00:00:49.520 align:middle
+Lastly, you can ask questions
+on the Seaside mailing list.
+
+00:00:49.800 --> 00:00:54.800 align:middle
+An active community will reply
+to any questions you may have.
+
+00:00:56.320 --> 00:00:59.920 align:middle
+A little history: Seaside
+has been in production since 2002.
+
+00:01:00.080 --> 00:01:01.640 align:middle
+It is actively maintained.
+
+00:01:01.920 --> 00:01:04.520 align:middle
+The Seaside framework is the basis
+
+00:01:05.080 --> 00:01:07.800 align:middle
+for many Pharo success stories.
+
+00:01:07.960 --> 00:01:11.200 align:middle
+Those stories are online
+on the Pharo site, pharo.org.
+
+00:01:11.640 --> 00:01:15.640 align:middle
+As you'll see,
+there are many web projects,
+
+00:01:16.040 --> 00:01:18.520 align:middle
+and most use the Seaside framework.
+
+00:01:18.960 --> 00:01:23.960 align:middle
+As I was saying,
+Seaside is a web framework
+
+00:01:24.200 --> 00:01:26.680 align:middle
+centered on the component concept.
+
+00:01:26.840 --> 00:01:30.400 align:middle
+These components
+are reusable and stateful.
+
+00:01:30.640 --> 00:01:35.880 align:middle
+It has a domain-specific language
+to render the components in HTML.
+
+00:01:36.560 --> 00:01:39.160 align:middle
+The rules for composing
+these components
+
+00:01:39.440 --> 00:01:43.160 align:middle
+will be covered in a later sequence.
+
+00:01:43.800 --> 00:01:46.760 align:middle
+A web application
+is just a root component.
+
+00:01:46.920 --> 00:01:51.160 align:middle
+Seaside makes it possible
+to debug applications on the fly,
+
+00:01:51.640 --> 00:01:53.360 align:middle
+in the Pharo debugger.
+
+00:01:53.720 --> 00:01:56.840 align:middle
+In a later sequence of this course,
+you will learn
+
+00:01:57.120 --> 00:02:01.080 align:middle
+how to use metadata
+to generate forms automatically.
+
+00:02:02.680 --> 00:02:05.280 align:middle
+These are some of the examples
+
+00:02:05.440 --> 00:02:10.080 align:middle
+of web applications built with Seaside,
+in production since 2002.
+
+00:02:10.640 --> 00:02:12.560 align:middle
+I'll zoom in on a few of them.
+
+00:02:12.720 --> 00:02:16.200 align:middle
+This application makes extensive use
+of graphs,
+
+00:02:16.360 --> 00:02:20.320 align:middle
+and other interlocking components
+that make a complex application.
+
+00:02:20.920 --> 00:02:25.680 align:middle
+Here's another example of an application
+you can find on Pharo's website.
+
+00:02:26.040 --> 00:02:28.840 align:middle
+It features reporting tables
+
+00:02:29.000 --> 00:02:32.440 align:middle
+that are quite complex,
+interlocking with each other.
+
+00:02:32.880 --> 00:02:36.440 align:middle
+That can be built very simply
+with the Seaside framework.
+
+00:02:38.120 --> 00:02:41.360 align:middle
+The main concept in Seaside
+is the component.
+
+00:02:41.680 --> 00:02:44.800 align:middle
+A component is a subclass
+of WAComponent
+
+00:02:44.960 --> 00:02:47.120 align:middle
+supplied by the Seaside framework.
+
+00:02:47.720 --> 00:02:50.520 align:middle
+A component is reusable
+and stateful.
+
+00:02:50.680 --> 00:02:55.040 align:middle
+It can be rendered in HTML
+in the form of &lt;div&gt;, etc.
+
+00:02:55.960 --> 00:03:00.440 align:middle
+In Seaside, a web application
+has a root component -
+
+00:03:00.760 --> 00:03:02.720 align:middle
+in this case, WACounter,
+
+00:03:02.920 --> 00:03:06.080 align:middle
+saved in the system
+as a web application.
+
+00:03:06.240 --> 00:03:10.400 align:middle
+It will be named "Counter," and
+accessible as such, from the URL.
+
+00:03:11.040 --> 00:03:14.560 align:middle
+Here's an example of
+my Counter application, in the URL.
+
+00:03:14.760 --> 00:03:17.840 align:middle
+It's a component
+rendered in HTML, here.
+
+00:03:18.200 --> 00:03:21.840 align:middle
+The value of the counter is zero.
+We have two links, here.
+
+00:03:22.160 --> 00:03:25.240 align:middle
+You click on ++
+to increase the counter value,
+
+00:03:25.480 --> 00:03:28.200 align:middle
+and on --
+to decrease the value.
+
+00:03:29.160 --> 00:03:32.720 align:middle
+The code for implementing
+this application is very simple.
+
+00:03:33.000 --> 00:03:36.520 align:middle
+I create a subclass
+of WAComponent: WACounter.
+
+00:03:36.680 --> 00:03:39.160 align:middle
+It has an instance variable
+named count.
+
+00:03:39.760 --> 00:03:43.480 align:middle
+The initialization method
+sets the counter to 0.
+
+00:03:44.040 --> 00:03:47.800 align:middle
+One method increases the value,
+the other decreases it.
+
+00:03:48.640 --> 00:03:51.720 align:middle
+Now we need the HTML part,
+
+00:03:52.000 --> 00:03:54.520 align:middle
+so the counter is rendered in HTML.
+
+00:03:54.680 --> 00:03:57.520 align:middle
+All we have to do
+is endow it with a method,
+
+00:03:57.680 --> 00:03:59.800 align:middle
+renderContentOn,
+a parameter.
+
+00:04:00.360 --> 00:04:03.160 align:middle
+The parameter will help us
+generate the HTML code.
+
+00:04:04.520 --> 00:04:08.280 align:middle
+Here's the example, with the addition
+of "renderContentOn"
+
+00:04:08.520 --> 00:04:09.880 align:middle
+to the counter class.
+
+00:04:10.040 --> 00:04:14.280 align:middle
+I use this parameter,
+a conventional Pharo object.
+
+00:04:15.360 --> 00:04:19.080 align:middle
+It's an instance of the class
+WAHtmlCanvas, supplied by Seaside.
+
+00:04:19.400 --> 00:04:23.520 align:middle
+I send messages to this object
+to generate the HTML code,
+
+00:04:23.680 --> 00:04:25.920 align:middle
+and a heading
+and an anchor, or link.
+
+00:04:26.360 --> 00:04:29.160 align:middle
+The "callback" message
+enables me to specify
+
+00:04:29.320 --> 00:04:32.560 align:middle
+a block of code to execute
+when I click on the link.
+
+00:04:32.720 --> 00:04:35.520 align:middle
+Here, when I click on the link
+called ++,
+
+00:04:35.680 --> 00:04:38.320 align:middle
+the "self increase" method
+is executed.
+
+00:04:38.560 --> 00:04:43.920 align:middle
+Clicking on -- prompts the execution
+of the "self decrease" method.
+
+00:04:44.440 --> 00:04:45.400 align:middle
+It's so simple.
+
+00:04:46.880 --> 00:04:51.840 align:middle
+If an error occurs when I click
+on a link; i.e., in a callback,
+
+00:04:52.000 --> 00:04:56.600 align:middle
+I knowingly have inserted
+a "halt" point. It could be an error.
+
+00:04:57.040 --> 00:05:00.240 align:middle
+I've inserted a halt point
+in the decrease method.
+
+00:05:00.600 --> 00:05:05.120 align:middle
+"Self" will halt if the counter
+is decreased below zero.
+
+00:05:05.520 --> 00:05:08.240 align:middle
+That will bring up the debugger.
+
+00:05:09.040 --> 00:05:12.440 align:middle
+As you see,
+if I do this in my web application,
+
+00:05:12.600 --> 00:05:14.480 align:middle
+the debugger is displayed here.
+
+00:05:14.640 --> 00:05:19.440 align:middle
+Here's the program's application stack,
+with the method "RenderContentOn"
+
+00:05:20.120 --> 00:05:22.720 align:middle
+and the decrease, here.
+
+00:05:23.600 --> 00:05:25.480 align:middle
+We did stop on haltIf.
+
+00:05:25.800 --> 00:05:28.680 align:middle
+I can modify the code right here,
+
+00:05:29.000 --> 00:05:30.560 align:middle
+press "Proceed,"
+
+00:05:30.960 --> 00:05:34.040 align:middle
+and my application
+will receive the HTML response
+
+00:05:34.200 --> 00:05:36.080 align:middle
+as if nothing had happened.
+
+00:05:39.080 --> 00:05:42.800 align:middle
+Another problem in Web applications
+is the "back" button.
+
+00:05:43.240 --> 00:05:45.480 align:middle
+When the user clicks on "back,"
+
+00:05:45.640 --> 00:05:48.600 align:middle
+it desynchronizes
+the server and client.
+
+00:05:48.960 --> 00:05:53.640 align:middle
+Imagine I increase the counter 5 times.
+Now it reads "5" on my screen.
+
+00:05:53.880 --> 00:05:57.600 align:middle
+Then I click on the back button
+in my browser.
+
+00:05:57.920 --> 00:05:59.840 align:middle
+The counter now reads 4.
+
+00:06:00.000 --> 00:06:03.520 align:middle
+But the server isn't updated
+about my back-button click.
+
+00:06:03.680 --> 00:06:08.640 align:middle
+So if I click again on ++,
+the screen will display a 6.
+
+00:06:09.280 --> 00:06:13.320 align:middle
+The problem is, the server side
+thought we were still on 5.
+
+00:06:13.640 --> 00:06:14.800 align:middle
+5+1 = 6.
+
+00:06:15.320 --> 00:06:18.520 align:middle
+Seaside makes it very easy
+to handle the back button.
+
+00:06:18.680 --> 00:06:22.160 align:middle
+We define a new method
+on the counter class: "states."
+
+00:06:22.600 --> 00:06:26.560 align:middle
+It will return the array
+for which the state is to be preserved
+
+00:06:26.720 --> 00:06:28.520 align:middle
+when the back button is hit.
+
+00:06:28.680 --> 00:06:32.360 align:middle
+In this case, it is only
+the object self: the counter.
+
+00:06:33.200 --> 00:06:36.640 align:middle
+Now, if I press "back,"
+and then click on ++,
+
+00:06:36.880 --> 00:06:38.680 align:middle
+I should see 5 again.
+
+00:06:41.640 --> 00:06:46.280 align:middle
+Callbacks are actually
+blocks of code
+
+00:06:46.520 --> 00:06:49.040 align:middle
+that contain all of Pharo's power.
+
+00:06:49.360 --> 00:06:53.440 align:middle
+I can write any Pharo code
+in this callback.
+
+00:06:54.040 --> 00:06:56.960 align:middle
+I took a more complex example
+here.
+
+00:06:57.240 --> 00:07:01.160 align:middle
+I can use an alternative "if"
+to say if I increase the counter + 1
+
+00:07:01.320 --> 00:07:05.200 align:middle
+or + 2, depending on whether
+the count is odd or even.
+
+00:07:05.760 --> 00:07:11.720 align:middle
+For even numbers, the counter
+will increase faster than for odd.
+
+00:07:12.560 --> 00:07:17.000 align:middle
+As you see, Pharo
+is really a powerful language
+
+00:07:17.160 --> 00:07:18.920 align:middle
+in these callback blocks.
+
+00:07:21.560 --> 00:07:25.840 align:middle
+To return to the preceding example,
+if I click on ++ here,
+
+00:07:26.240 --> 00:07:30.720 align:middle
+it brings me to a new window,
+
+00:07:31.920 --> 00:07:35.600 align:middle
+telling me it is an even number.
+
+00:07:36.800 --> 00:07:40.560 align:middle
+Next, I'll show you
+how to write a greeter application.
+
+00:07:40.720 --> 00:07:43.160 align:middle
+The user enters his first name.
+
+00:07:43.400 --> 00:07:47.720 align:middle
+He types it in here,
+and when he clicks on "Say Hello,"
+
+00:07:48.640 --> 00:07:52.680 align:middle
+we want to display a string
+of characters: "Hi" and the user name
+
+00:07:53.040 --> 00:07:55.160 align:middle
+he entered in the beginning, here.
+
+00:07:56.760 --> 00:08:01.600 align:middle
+It's very easy to code for that
+in Seaside.
+
+00:08:01.960 --> 00:08:05.160 align:middle
+I create a subclass Component
+of the class Greeter.
+
+00:08:05.360 --> 00:08:07.240 align:middle
+The instance variable
+is Username.
+
+00:08:07.400 --> 00:08:10.240 align:middle
+The method renderContentOn
+I'm showing you here
+
+00:08:10.880 --> 00:08:14.080 align:middle
+displays the field "Username."
+
+00:08:14.240 --> 00:08:15.920 align:middle
+The next line is textinput.
+
+00:08:16.120 --> 00:08:20.680 align:middle
+That's the text field you saw before,
+where the user writes "Bob."
+
+00:08:20.840 --> 00:08:22.520 align:middle
+I will have one callback.
+
+00:08:22.760 --> 00:08:26.240 align:middle
+This time, it is a block
+with a parameter, "value."
+
+00:08:26.760 --> 00:08:30.840 align:middle
+The value parameter of this block
+will be the string of characters
+
+00:08:31.360 --> 00:08:33.480 align:middle
+the user entered.
+
+00:08:33.800 --> 00:08:36.280 align:middle
+We can store it
+in the instance variable
+
+00:08:36.440 --> 00:08:39.000 align:middle
+of the Greeter component
+UserName.
+
+00:08:39.520 --> 00:08:42.960 align:middle
+Next, when the "submit" button
+is clicked,
+
+00:08:43.320 --> 00:08:48.040 align:middle
+I'm going to call a new component,
+using the command selfinform.
+
+00:08:48.200 --> 00:08:51.520 align:middle
+I tell it to display the string
+"Hi, Bob."
+
+00:08:51.920 --> 00:08:56.480 align:middle
+I concatenate the character string "Hi"
+with the text entered as UserName.
+
+00:09:00.040 --> 00:09:03.760 align:middle
+I hope those of you who are used
+to coding web applications
+
+00:09:03.920 --> 00:09:06.320 align:middle
+noticed that Seaside
+does not require
+
+00:09:06.760 --> 00:09:11.800 align:middle
+manual request parsing to find
+parameters in requests or URLs.
+
+00:09:11.960 --> 00:09:16.520 align:middle
+It does not require XML configuration
+files, or indeed, files or pages.
+
+00:09:16.920 --> 00:09:20.240 align:middle
+I did not say anything
+about links to the next page.
+
+00:09:20.640 --> 00:09:23.480 align:middle
+The only thing I talked about
+was components:
+
+00:09:23.640 --> 00:09:25.320 align:middle
+objects and messages.
+
+00:09:25.640 --> 00:09:27.160 align:middle
+I talked about callbacks
+
+00:09:27.320 --> 00:09:32.160 align:middle
+and the ability to debug live,
+using the Pharo debugger.
+
+00:09:33.360 --> 00:09:36.960 align:middle
+In sum, it's easy to build
+web applications in Seaside.
+
+00:09:37.200 --> 00:09:41.960 align:middle
+There is one root component.
+Components can be combined
+
+00:09:42.240 --> 00:09:44.400 align:middle
+to build more complex applications.
+
+00:09:44.600 --> 00:09:48.000 align:middle
+A component renders itself
+in HTML with renderContentOn.
+
+00:09:48.680 --> 00:09:51.960 align:middle
+We have an extensible
+domain-specific language
+
+00:09:52.240 --> 00:09:55.240 align:middle
+that generates HTML code
+for each component.
+
+00:09:55.400 --> 00:09:58.680 align:middle
+We'll cover that in greater detail
+in the next video.

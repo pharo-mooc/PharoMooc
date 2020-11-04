@@ -1,0 +1,966 @@
+﻿1
+00:00:00,480 --> 00:00:03,880
+Hola, este es un curso muy avanzado.
+
+2
+00:00:04,720 --> 00:00:08,040
+Nos centraremos en
+como Pharo organiza clases
+
+3
+00:00:08,760 --> 00:00:11,840
+y relaciones de instancia
+entre clases.
+
+4
+00:00:12,400 --> 00:00:15,720
+Está realmente dirigido a los entusiastas.
+
+5
+00:00:16,520 --> 00:00:21,600
+No es esencial dominarlo,
+ya que ya usas Pharo sin él.
+
+6
+00:00:22,000 --> 00:00:26,200
+Puedes usar Pharo para programar
+sin saber cómo funciona.
+
+7
+00:00:26,400 --> 00:00:31,840
+Pero puede estar insatisfecho si el curso
+no explicó cómo funciona.
+
+8
+00:00:32,000 --> 00:00:34,640
+Como explicar dónde se define "new"
+
+9
+00:00:34,800 --> 00:00:37,400
+o cuál es la clase de una metaclase.
+
+10
+00:00:37,920 --> 00:00:40,840
+Este video explicará todo esto.
+
+11
+00:00:41,040 --> 00:00:45,320
+No importa si no lo
+entiendes inmediatamente.
+
+12
+00:00:45,400 --> 00:00:47,920
+Pero si realmente te interesa,
+
+13
+00:00:48,680 --> 00:00:50,840
+puedes verlo varias veces.
+
+14
+00:00:51,720 --> 00:00:54,320
+Hay una clave fundamental aquí.
+
+15
+00:00:54,760 --> 00:00:59,400
+Es un aspecto divertido,
+que esta transparencia debería explicar.
+
+16
+00:00:59,680 --> 00:01:00,680
+La idea básica,
+
+17
+00:01:00,840 --> 00:01:04,080
+que seguimos reiterando en este MOOC,
+
+18
+00:01:04,200 --> 00:01:09,360
+es que, como debes saber,
+cuando enviamos un mensaje a un objeto,
+
+19
+00:01:09,640 --> 00:01:13,560
+buscamos en la clase del objeto
+a través del enlace de instanciación.
+
+20
+00:01:13,760 --> 00:01:17,200
+Si no está allí,
+seguimos la cadena de herencia.
+
+21
+00:01:17,400 --> 00:01:21,920
+Siempre comenzamos en la clase,
+y luego seguimos la cadena de herencia.
+
+22
+00:01:22,400 --> 00:01:26,520
+Esta regla debe seguirse
+sistemáticamente.
+
+23
+00:01:26,920 --> 00:01:29,400
+Para explicar metaclases,
+
+24
+00:01:29,600 --> 00:01:34,840
+las resumimos en siete puntos,
+que son relativamente simples
+
+25
+00:01:35,760 --> 00:01:38,600
+Cada objeto es una instancia de una clase.
+
+26
+00:01:40,160 --> 00:01:43,080
+¡Eso es difícil!
+Mira este ejemplo.
+
+27
+00:01:43,320 --> 00:01:47,200
+El objeto OrderedCollection
+es una instancia de esta clase.
+
+28
+00:01:47,600 --> 00:01:49,160
+Hasta ahora, está claro.
+
+29
+00:01:50,080 --> 00:01:55,200
+El segundo punto es que cada clase
+hereda de la clase Object.
+
+30
+00:01:57,080 --> 00:01:58,720
+Como vemos aquí,
+
+31
+00:01:59,080 --> 00:02:03,840
+OrderedCollection y hacia arriba
+heredan en última instancia de Object.
+
+32
+00:02:04,640 --> 00:02:07,040
+Solo una nota para los francófonos,
+
+33
+00:02:07,200 --> 00:02:09,640
+"Eventualmente" significa "en última instancia".
+
+34
+00:02:10,520 --> 00:02:11,560
+Es confuso.
+
+35
+00:02:11,800 --> 00:02:12,840
+Asi que,
+
+36
+00:02:13,400 --> 00:02:18,040
+tenemos nuestro gráfico de herencia
+que inevitablemente conduce a "Object".
+
+37
+00:02:20,080 --> 00:02:25,000
+¿Cuál es la responsabilidad de Object?
+Representa el comportamiento
+
+38
+00:02:25,200 --> 00:02:28,560
+común a todos los objetos,
+como el manejo de errores,
+
+39
+00:02:28,720 --> 00:02:31,080
+insertar un halt y announcements.
+
+40
+00:02:31,680 --> 00:02:34,760
+Object es la raíz
+del árbol de herencia.
+
+41
+00:02:35,360 --> 00:02:38,520
+Su responsabilidad clave
+es el comportamiento mínimo.
+
+42
+00:02:39,800 --> 00:02:44,200
+Volviendo a nuestra lista, cada clase
+es una instancia de una metaclase.
+
+43
+00:02:45,800 --> 00:02:48,520
+Lo explicamos en un curso anterior.
+
+44
+00:02:49,080 --> 00:02:53,520
+Una clase "X" es la única instancia
+de la metaclase denominada "X class".
+
+45
+00:02:53,680 --> 00:02:56,400
+Vemos que la clase OrderedCollection
+
+46
+00:02:56,560 --> 00:03:00,040
+es una instancia de la clase
+"OrderedCollection class".
+
+47
+00:03:00,560 --> 00:03:05,040
+Funciona de la misma manera
+para la clase SequenceableCollection,
+
+48
+00:03:05,560 --> 00:03:08,840
+y la clase "Object"
+con la clase "Object class".
+
+49
+00:03:09,080 --> 00:03:12,560
+Todas las clases son instancias
+de otra metaclase,
+
+50
+00:03:12,840 --> 00:03:16,280
+que lleva el mismo nombre
+seguido de "class".
+
+51
+00:03:18,920 --> 00:03:20,640
+Las metaclasses se crean
+
+52
+00:03:20,840 --> 00:03:23,400
+automáticamente cuando creamos una clase.
+
+53
+00:03:23,600 --> 00:03:28,320
+Enviamos el mensaje "new"
+a la metaclase para crear la clase.
+
+54
+00:03:30,080 --> 00:03:31,200
+El siguiente punto.
+
+55
+00:03:31,920 --> 00:03:35,400
+La jerarquía de metaclases es
+paralela a la jerarquía de clases.
+
+56
+00:03:36,200 --> 00:03:39,160
+Anteriormente, explicamos que
+
+57
+00:03:39,920 --> 00:03:43,200
+OrderedCollection
+es una instancia de su clase,
+
+58
+00:03:43,400 --> 00:03:46,400
+y del mismo modo para SequenceableCollection.
+
+59
+00:03:46,640 --> 00:03:51,080
+Ahora tenemos que especificar
+la relación entre los dos.
+
+60
+00:03:51,280 --> 00:03:56,040
+Ya que hay una relación de herencia
+aquí, también hay una aquí.
+
+61
+00:03:56,920 --> 00:03:57,920
+En todos los casos.
+
+62
+00:03:58,840 --> 00:04:03,400
+Es por eso que decimos
+que hay dos jerarquías paralelas.
+
+63
+00:04:04,080 --> 00:04:06,320
+¿Cuándo usamos esta jerarquía?
+
+64
+00:04:06,400 --> 00:04:10,080
+Si envío el mensaje "new"
+a OrderedCollection,
+
+65
+00:04:10,520 --> 00:04:13,080
+¿donde busco?
+En la clase.
+
+66
+00:04:13,360 --> 00:04:18,920
+Busco en cada clase
+si se ha definido o no "new".
+
+67
+00:04:19,200 --> 00:04:23,080
+Al moverse hacia arriba, ¿se ha definido "new"?
+Si o no.
+
+68
+00:04:23,320 --> 00:04:28,400
+Aquí utilizamos la clave
+que mencioné al principio.
+
+69
+00:04:28,840 --> 00:04:34,640
+Para enviar un mensaje, comienza con la clase
+luego sigue la cadena de la herencia.
+
+70
+00:04:35,360 --> 00:04:37,400
+Hasta este punto,
+
+71
+00:04:37,640 --> 00:04:41,400
+Puede parecer claro,
+pero ahora surgen otras preguntas.
+
+72
+00:04:41,600 --> 00:04:44,360
+¿De qué es instancia "Object class"?
+
+73
+00:04:45,200 --> 00:04:46,400
+Quizás te preguntes.
+
+74
+00:04:46,840 --> 00:04:50,200
+¿Y cual es la superclase de "Object class"?
+
+75
+00:04:51,000 --> 00:04:54,680
+¿Funciona si enviamos un
+mensaje a una metaclase?
+
+76
+00:04:56,160 --> 00:04:59,400
+¿O si enviamos un mensaje
+a lo que este aquí?
+
+77
+00:05:00,000 --> 00:05:01,600
+Echemos un vistazo.
+
+78
+00:05:02,680 --> 00:05:07,800
+El sistema dice que cada metaclase
+hereda de "Class",
+
+79
+00:05:08,280 --> 00:05:10,080
+hasta "Behavior".
+
+80
+00:05:11,000 --> 00:05:14,680
+Veamos eso,
+y respondamos la primer pregunta.
+
+81
+00:05:14,840 --> 00:05:18,800
+"Object class" es una clase,
+por lo tanto, hereda de "Class".
+
+82
+00:05:19,560 --> 00:05:23,320
+"Class" hereda
+de "ClassDescription" y "Behavior".
+
+83
+00:05:24,160 --> 00:05:28,040
+A diferencia de Pharo,
+en otros sistemas como Lisp
+
+84
+00:05:28,560 --> 00:05:31,200
+estos dos elementos son una sola clase.
+
+85
+00:05:31,680 --> 00:05:33,640
+Pharo los divide para su reutilización.
+
+86
+00:05:33,840 --> 00:05:36,920
+"Metaclass" se puede adjuntar
+a "ClassDescription"
+
+87
+00:05:37,080 --> 00:05:39,920
+para utilizar "ClassDescription"
+en los dos casos.
+
+88
+00:05:40,080 --> 00:05:44,400
+Vemos que "Behavior",
+que representa la esencia de una clase,
+
+89
+00:05:44,600 --> 00:05:46,720
+hereda de "Object".
+
+90
+00:05:49,920 --> 00:05:53,000
+Entonces, si envío un mensaje aquí,
+
+91
+00:05:53,360 --> 00:05:56,040
+viajará todo el camino hasta aquí.
+
+92
+00:05:57,280 --> 00:06:00,840
+Sigue el árbol de herencia
+desde el nivel de "Class".
+
+93
+00:06:03,080 --> 00:06:06,200
+Ahora queremos saber
+donde se define "new".
+
+94
+00:06:06,840 --> 00:06:10,840
+El método para crear instancias
+se define en "Behavior".
+
+95
+00:06:11,920 --> 00:06:17,680
+Cuando envío el mensaje "new"
+a OrderedCollection, ¿qué sucede?
+
+96
+00:06:18,080 --> 00:06:20,400
+Primero, busco en la clase.
+
+97
+00:06:21,080 --> 00:06:24,920
+Supongamos que "new" no se redefine
+en la herencia,
+
+98
+00:06:25,080 --> 00:06:28,000
+entonces busco en todas las superclases
+
+99
+00:06:28,360 --> 00:06:29,760
+hasta que encontremos "new".
+
+100
+00:06:29,920 --> 00:06:34,600
+En una búsqueda, buscamos un método
+y lo ejecutamos en el receptor.
+
+101
+00:06:34,840 --> 00:06:39,000
+Entonces, encuentro el método "new"
+y lo ejecuto en el receptor,
+
+102
+00:06:39,200 --> 00:06:44,200
+la clase OrderedCollection,
+que crea una nueva instancia
+
+103
+00:06:44,360 --> 00:06:46,840
+que nombraremos 3 4, por ejemplo.
+
+104
+00:06:47,720 --> 00:06:48,720
+¿Bien?
+
+105
+00:06:49,400 --> 00:06:52,320
+Estamos usando la clave de la que hablé.
+
+106
+00:06:52,560 --> 00:06:57,840
+Buscamos en la cadena de herencias,
+comenzando con la clase del receptor.
+
+107
+00:06:58,840 --> 00:07:01,920
+En una palabra,
+¿Qué representa "Behavior"?
+
+108
+00:07:02,160 --> 00:07:05,840
+Es la esencia de un objeto
+que puede tener instancias
+
+109
+00:07:06,800 --> 00:07:08,520
+Objetos con instancias
+
+110
+00:07:09,760 --> 00:07:12,760
+deben incluir un enlace de superclase,
+
+111
+00:07:13,000 --> 00:07:16,920
+un diccionario de métodos
+y la descripción de instancias (formato).
+
+112
+00:07:17,080 --> 00:07:22,840
+Los métodos que se muestran aquí incluyen
+ejemplos como "new', "basicNew" y "new:".
+
+113
+00:07:23,400 --> 00:07:26,520
+La diferencia entre "new" y "basicNew".
+
+114
+00:07:26,680 --> 00:07:29,800
+es que nunca debes
+redefinir basicNew.
+
+115
+00:07:30,080 --> 00:07:33,000
+Como explicamos
+en el curso de métodos,
+
+116
+00:07:33,200 --> 00:07:38,760
+si redefine un método que comienza
+con "basic", el método es inaccesible.
+
+117
+00:07:39,600 --> 00:07:40,920
+El método original.
+
+118
+00:07:41,080 --> 00:07:46,320
+Hay otras formas de acceder
+los métodos compilados, como se muestra aquí.
+
+119
+00:07:46,680 --> 00:07:49,080
+Behavior es la esencia de una clase.
+
+120
+00:07:50,280 --> 00:07:52,040
+¿Qué es ClassDescription?
+
+121
+00:07:52,400 --> 00:07:56,600
+Es una superclase abstracta
+compartido por Class y Metaclass.
+
+122
+00:07:56,800 --> 00:07:59,800
+Añade facilidades a Behavior,
+
+123
+00:08:00,000 --> 00:08:04,920
+como nombrar variables de instancia,
+ya que la ejecución de clases puede ser automática.
+
+124
+00:08:05,080 --> 00:08:07,520
+ClassDescription agrega estas cosas.
+
+125
+00:08:07,720 --> 00:08:13,080
+La organización en categorías se refiere a los métodos
+en su navegador mostrando los protocolos.
+
+126
+00:08:13,320 --> 00:08:17,680
+Por ejemplo, un método se puede almacenar
+en el protocolo "printing".
+
+127
+00:08:18,200 --> 00:08:20,000
+Además, la noción de un nombre.
+
+128
+00:08:20,200 --> 00:08:25,840
+Más el mantenimiento de los conjuntos de cambios
+y el guardado de los cambios en archivos.
+
+129
+00:08:26,280 --> 00:08:28,520
+Puedes verlo tú mismo.
+
+130
+00:08:28,760 --> 00:08:34,080
+Esta categorización existe porque
+Class y Metaclass comparten el uso.
+
+131
+00:08:35,000 --> 00:08:38,600
+La responsabilidad de Class
+
+132
+00:08:38,840 --> 00:08:42,080
+es representar las clases
+que empleamos en Pharo.
+
+133
+00:08:42,320 --> 00:08:46,320
+Esto incluye representación
+para nombres de variables de clase
+
+134
+00:08:46,600 --> 00:08:50,080
+y una mejor forma de nombrar
+y compilar elementos.
+
+135
+00:08:50,560 --> 00:08:52,680
+Una vez más, consulte el código.
+
+136
+00:08:54,400 --> 00:08:57,320
+Las clases son instancias de metaclases.
+
+137
+00:08:57,560 --> 00:09:03,080
+Si "Object" es una instancia
+de una clase denominada "Object class",
+
+138
+00:09:03,280 --> 00:09:06,400
+y del mismo modo para OrderedCollection,
+
+139
+00:09:06,680 --> 00:09:11,080
+lo mismo se aplica a "Class",
+"ClassDescription" y "Behavior".
+
+140
+00:09:11,680 --> 00:09:14,400
+Entonces, "Class" es una instancia de "Class class"
+
+141
+00:09:14,600 --> 00:09:19,800
+y "ClassDescription" es una instancia
+de "ClassDescription class".
+
+142
+00:09:20,400 --> 00:09:22,360
+Lo mismo se aplica a "Behavior".
+
+143
+00:09:22,560 --> 00:09:25,920
+También debemos mirar
+la cadena de herencias.
+
+144
+00:09:26,160 --> 00:09:30,840
+Si hay una relación de herencia
+entre estos dos elementos,
+
+145
+00:09:31,040 --> 00:09:34,440
+existe la misma relación
+aquí a la derecha.
+
+146
+00:09:34,720 --> 00:09:38,400
+Como ves aquí,
+podemos rastrear la cadena de herencia.
+
+147
+00:09:39,280 --> 00:09:43,760
+"Behavior class" hereda por lo tanto
+de "Object class".
+
+148
+00:09:44,280 --> 00:09:46,400
+Ahora por el segundo último punto.
+
+149
+00:09:46,760 --> 00:09:51,400
+Como cada clase es una instancia
+de una metaclase, surge una pregunta.
+
+150
+00:09:52,360 --> 00:09:56,400
+¿De quien es instancia "OrderedCollection class"?
+
+151
+00:09:56,920 --> 00:09:59,600
+Ya que todo es un objeto en Pharo.
+
+152
+00:10:00,400 --> 00:10:04,720
+"OrderedCollection class"
+es por lo tanto una instancia de "Metaclass".
+
+153
+00:10:06,200 --> 00:10:10,320
+"Object class" y "Class class"
+son instancias de "Metaclass".
+
+154
+00:10:10,600 --> 00:10:16,080
+Todas las metaclases en el sistema
+son instancias de "Metaclass".
+
+155
+00:10:17,400 --> 00:10:21,400
+Además, "Metaclass" hereda
+de "ClassDescription".
+
+156
+00:10:21,600 --> 00:10:25,400
+Es una clase inusual
+porque solo tiene una instancia.
+
+157
+00:10:26,000 --> 00:10:31,200
+Y no puedes nombrarlo porque su nombre
+está definido por su instancia.
+
+158
+00:10:31,400 --> 00:10:33,200
+Eso puede parecer bárbaro.
+
+159
+00:10:33,640 --> 00:10:36,160
+Entonces, vemos que OrderedCollection
+
+160
+00:10:36,400 --> 00:10:41,080
+es una instancia de "OrderedCollection class",
+de quien toma su nombre.
+
+161
+00:10:41,400 --> 00:10:44,840
+Todas los metaclases
+son instancias de Metaclass.
+
+162
+00:10:45,160 --> 00:10:49,720
+En el codigo,
+la principal responsabilidad de Metaclass
+
+163
+00:10:50,200 --> 00:10:55,720
+es crear e inicializar
+una sola instancia de sí misma.
+
+164
+00:10:56,080 --> 00:10:59,920
+Solo hay una pregunta
+por  contestar
+
+165
+00:11:01,080 --> 00:11:04,400
+¿De quien es instancia "Metaclass"?
+
+166
+00:11:04,760 --> 00:11:10,640
+Como Metaclass es una clase,
+como OrderedCollection,
+
+167
+00:11:11,000 --> 00:11:14,320
+es una instancia
+de la clase "Metaclass class".
+
+168
+00:11:14,920 --> 00:11:20,280
+Verás que Metaclass
+hereda de ClassDescription,
+
+169
+00:11:21,200 --> 00:11:26,080
+por lo tanto, "Metaclass class"
+hereda de la "ClassDescription class".
+
+170
+00:11:26,840 --> 00:11:30,840
+OrderedCollection class
+hereda de Object class
+
+171
+00:11:31,000 --> 00:11:33,920
+como OrderedCollecton
+hereda Object.
+
+172
+00:11:34,080 --> 00:11:38,840
+Entonces, "Metaclass" es una instancia
+de "Metaclass class".
+
+173
+00:11:39,280 --> 00:11:43,360
+OrderedCollection es una instancia
+de "OrderedCollection class".
+
+174
+00:11:43,640 --> 00:11:48,280
+Y "Metaclass class"
+es una instancia de "Metaclass",
+
+175
+00:11:48,440 --> 00:11:55,200
+tal como "Class class" y "Object class"
+son instancias de "Metaclass".
+
+176
+00:11:55,640 --> 00:12:00,640
+Este ciclo puede parecer extraño,
+pero tiene sentido en contexto.
+
+177
+00:12:00,920 --> 00:12:06,400
+No necesitas esto para usar Pharo,
+así que siéntete libre de pasarlo por alto.
+
+178
+00:12:06,760 --> 00:12:08,680
+Pero como muestra este gráfico,
+
+179
+00:12:08,840 --> 00:12:12,200
+la clave de la que hablamos antes
+funciona perfectamente.
+
+180
+00:12:12,400 --> 00:12:16,680
+Cada vez que enviamos un mensaje
+a un objeto, vemos su clase
+
+181
+00:12:16,840 --> 00:12:20,400
+y su árbol de herencia,
+como se muestra en estos ejemplos.
+
+182
+00:12:20,760 --> 00:12:25,760
+Si envío un mensaje a esta instancia,
+me lleva a Object.
+
+183
+00:12:26,760 --> 00:12:29,920
+Si envío un mensaje a la clase,
+
+184
+00:12:30,840 --> 00:12:34,400
+Voy a la metaclase
+y sigo la herencia.
+
+185
+00:12:36,200 --> 00:12:40,600
+Si envío un mensaje a una metaclase,
+¿Dónde debo mirar?
+
+186
+00:12:41,560 --> 00:12:47,160
+En "Metaclass", ya que la metaclase
+es una instancia de Metaclass.
+
+187
+00:12:47,560 --> 00:12:50,920
+Sigo el enlace de instanciación
+hasta el final.
+
+188
+00:12:51,600 --> 00:12:57,080
+Esto es, cuando un mensaje no se entiende
+o un método solo se define en Objeto.
+
+189
+00:12:57,600 --> 00:13:02,600
+Ahora, ¿qué pasa si envío un mensaje?
+a Metaclass?
+
+190
+00:13:02,840 --> 00:13:05,080
+¿Dónde busco?
+
+191
+00:13:05,400 --> 00:13:10,200
+Primero en "Metaclass class",
+luego sigo la cadena de herencia.
+
+192
+00:13:11,400 --> 00:13:13,400
+Entonces ... ¡vaya!
+
+193
+00:13:13,920 --> 00:13:17,520
+Aquí se vuelve más complicado.
+
+194
+00:13:19,520 --> 00:13:23,680
+De manera similar, si envío un mensaje
+a "Metaclass class",
+
+195
+00:13:23,840 --> 00:13:26,520
+o a "OrderedCollection class",
+
+196
+00:13:26,840 --> 00:13:29,160
+Miro en la instancia
+
+197
+00:13:30,080 --> 00:13:33,040
+de "Metaclass class", que es "Metaclass".
+
+198
+00:13:33,200 --> 00:13:36,920
+Al igual que para "OrderedCollection class",
+sigo ese camino.
+
+199
+00:13:37,200 --> 00:13:40,840
+Ya verás que este gráfico
+es completamente lógico.
+
+200
+00:13:41,560 --> 00:13:44,920
+No podemos tener un gráfico inconsistente
+
+201
+00:13:45,360 --> 00:13:48,520
+ya que la máquina virtual
+solo hace una cosa.
+
+202
+00:13:48,680 --> 00:13:53,400
+Busca mensajes en la clase
+y sigue la cadena de herencia.
+
+203
+00:13:53,560 --> 00:13:58,360
+Este gráfico completo
+es consistente con ese proceso.
+
+204
+00:13:59,040 --> 00:14:03,520
+Encuentro esto emocionante porque
+me lo pregunté yo mismo.
+
+205
+00:14:03,840 --> 00:14:08,280
+Entonces, para resumir, las clases son objetos
+y pueden recibir mensajes.
+
+206
+00:14:08,600 --> 00:14:12,200
+El procedimiento es el mismo
+para todos los objetos,
+
+207
+00:14:12,400 --> 00:14:16,840
+incluso si hay metaclases
+con una sola instancia,
+
+208
+00:14:17,040 --> 00:14:19,080
+que no están explícitamente nombradas.
+
+209
+00:14:19,400 --> 00:14:22,080
+Pero no es esencial saber eso.

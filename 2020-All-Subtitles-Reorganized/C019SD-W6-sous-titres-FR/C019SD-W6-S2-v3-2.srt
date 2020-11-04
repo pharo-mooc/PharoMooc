@@ -1,0 +1,388 @@
+1
+00:00:00,370 --> 00:00:05,250
+Bonjour. Dans ce cours, on va
+ revenir sur l'implémentation
+
+2
+00:00:05,450 --> 00:00:06,210
+d’ifTrue:ifFalse:.
+
+3
+00:00:06,760 --> 00:00:09,000
+Pour ceux d'entre vous qui
+sont attentifs et je sais qu'il
+
+4
+00:00:09,200 --> 00:00:12,230
+y en a plein, vous avez
+sûrement remarqué que, quand j'ai
+
+5
+00:00:12,430 --> 00:00:14,600
+proposé les exemples pour
+l'implémentation de Not, j'avais
+
+6
+00:00:14,800 --> 00:00:17,500
+dit qu'il y avait Not, qu'on pouvait
+implémenter Not, Or et ifTrue:ifFalse:.
+
+7
+00:00:17,700 --> 00:00:19,740
+Et dans la solution, je n'ai
+jamais parlé d’ifTrue:ifFalse:.
+
+8
+00:00:21,640 --> 00:00:23,350
+On va résoudre ce
+problème maintenant.
+
+9
+00:00:24,460 --> 00:00:28,740
+Effectivement, les conditions
+sont des messages dans Pharo.
+
+10
+00:00:28,940 --> 00:00:30,200
+Là, je vous ai montré un exemple.
+
+11
+00:00:31,000 --> 00:00:34,250
+J'ai une classe temps,
+il y a Weather isRaining.
+
+12
+00:00:34,450 --> 00:00:39,000
+Donc, si jamais il
+pleut, si c'est vrai, je vais
+
+13
+00:00:39,200 --> 00:00:42,840
+prendre mon parapluie et sinon je
+vais mettre mes lunettes de soleil.
+
+14
+00:00:43,790 --> 00:00:47,090
+Et ifTrue:ifFalse:,
+maintenant vous voyez bien qu'il y a
+
+15
+00:00:47,290 --> 00:00:50,050
+les deux petits points, ça veut dire
+que ce sont des messages à mots-clés.
+
+16
+00:00:50,250 --> 00:00:51,730
+C'est un message à
+mots-clés, donc le message
+
+17
+00:00:52,040 --> 00:00:55,570
+ifTrue:ifFalse: est un
+message à mots-clés, il est envoyé
+
+18
+00:00:55,940 --> 00:01:00,100
+à une instance de booléen.
+Bien sûr, il est vraiment très
+
+19
+00:01:00,300 --> 00:01:01,250
+optimisé par le compilateur.
+
+20
+00:01:01,450 --> 00:01:04,400
+En fait, il n'est pas envoyé,
+mais conceptuellement, il l'est.
+
+21
+00:01:05,800 --> 00:01:10,260
+Si vous voulez redéfinir la
+méthode SiAlors:Sinon: dans
+
+22
+00:01:11,010 --> 00:01:15,670
+Pharo, vous pouvez le
+faire de la même manière que la
+
+23
+00:01:15,870 --> 00:01:17,220
+technique je vais vous expliquer.
+
+24
+00:01:17,420 --> 00:01:20,120
+Il se trouve qu'on a
+tellement besoin de cette méthode
+
+25
+00:01:20,320 --> 00:01:22,490
+ifTrue:ifFalse:, on veut
+qu'elle aille absolument
+
+26
+00:01:22,690 --> 00:01:26,080
+hyper-vite, qu'elle n'ait
+pas invoqué le compilateur
+
+27
+00:01:26,280 --> 00:01:29,210
+Ligne Line et fait
+des jumps à la place.
+
+28
+00:01:30,030 --> 00:01:32,900
+Pour le cours, on va
+voir comment ça fonctionne.
+
+29
+00:01:33,800 --> 00:01:35,370
+Ce que je vais vous
+demander, c'est proposer une
+
+30
+00:01:35,570 --> 00:01:37,170
+implémentation,
+maintenant que vous connaissez les
+
+31
+00:01:37,370 --> 00:01:40,180
+blocks, vous connaissez
+ce qu'on a fait sur true et
+
+32
+00:01:40,380 --> 00:01:42,560
+false, avec Or et Not.
+
+33
+00:01:42,760 --> 00:01:44,260
+Vous pouvez le faire
+sur ifTrue:ifFalse:.
+
+34
+00:01:46,000 --> 00:01:48,710
+En gros, si j'ai un receveur
+ifFalse:, qu'est-ce que je vais rendre?
+
+35
+00:01:48,910 --> 00:01:52,390
+Je vais rendre 5. Si mon
+receveur est vrai, je vais rendre 3.
+
+36
+00:01:53,700 --> 00:01:56,280
+Et encore une fois, on a que
+des objets, des messages et
+
+37
+00:01:56,480 --> 00:01:58,210
+des block, ça devient un peu
+lassant, mais c'est comme ça.
+
+38
+00:02:00,930 --> 00:02:05,740
+Vous vous rappelez que des crochets
+
+39
+00:02:06,050 --> 00:02:10,610
+gèlent l'exécution de
+l'expression qu'ils contiennent
+
+40
+00:02:11,000 --> 00:02:14,830
+et que le message value va
+forcer l'exécution du code gelé.
+
+41
+00:02:15,760 --> 00:02:20,140
+Avec ça, plus Not et Or,
+vous devez savoir implémenter
+
+42
+00:02:20,340 --> 00:02:23,440
+les conditions et vous
+devriez être capables d'implémenter
+
+43
+00:02:23,640 --> 00:02:25,030
+siAlors:sinon: de la même manière.
+
+44
+00:02:25,560 --> 00:02:27,000
+Je vous laisse deux
+secondes pour réfléchir.
+
+45
+00:02:29,070 --> 00:02:30,530
+Comment c'est implémenté ?
+
+46
+00:02:30,730 --> 00:02:34,310
+C'est implémenté exactement de
+la même manière qu’Or ou Not.
+
+47
+00:02:34,540 --> 00:02:37,270
+Dans la classe true, j'ai
+une méthode qui s'appelle
+
+48
+00:02:37,470 --> 00:02:41,500
+ifTrue:ifFalse:; avec deux
+arguments, un Block pour le
+
+49
+00:02:41,700 --> 00:02:45,040
+true, un Block pour le
+faux et qu'est-ce que je fais.
+
+50
+00:02:45,240 --> 00:02:47,580
+Quand je suis dans la classe
+true, je vais exécuter le Block true.
+
+51
+00:02:49,600 --> 00:02:51,610
+De la même manière, quand
+je suis dans la classe false,
+
+52
+00:02:52,330 --> 00:02:55,870
+je vais avoir la même méthode
+avec les deux mêmes arguments.
+
+53
+00:02:56,070 --> 00:02:58,070
+Mais là, vu que je suis
+dans la classe false, je vais
+
+54
+00:02:58,270 --> 00:03:03,130
+exécuter le Block faux. Et du coup,
+j'ai l'implémentation des booléens.
+
+55
+00:03:03,460 --> 00:03:05,530
+Comment ça marche ?
+
+56
+00:03:05,730 --> 00:03:09,160
+Comme ça. Ça veut dire que là,
+quand je suis en train d'envoyer
+
+57
+00:03:09,360 --> 00:03:13,290
+le message à mon booléen
+qui est true, je lui envoie
+
+58
+00:03:13,490 --> 00:03:16,230
+ifTrue, do quelque chose
+et do quelque chose false.
+
+59
+00:03:16,660 --> 00:03:20,410
+Je vais chercher la méthode
+ifTrue:ifFalse: dans la classe true.
+
+60
+00:03:20,700 --> 00:03:23,730
+C'est celle-là. Il me dit
+d'exécuter le Block true.
+
+61
+00:03:23,930 --> 00:03:24,740
+Je vais exécuter le Block true.
+
+62
+00:03:24,940 --> 00:03:28,750
+Maintenant, j'envoie un
+message b est un booléen false.
+
+63
+00:03:29,780 --> 00:03:31,940
+J'envoie le message, je
+cherche ici, je trouve
+
+64
+00:03:32,140 --> 00:03:35,780
+ifTrue:ifFalse:, là, je
+dois exécuter le Bock qui est
+
+65
+00:03:36,000 --> 00:03:38,310
+passé qui est le Block false,
+donc je vais faire le Block false.
+
+66
+00:03:39,240 --> 00:03:43,070
+Vous ne pourrez pas tester
+en mettant un breakpoint dans
+
+67
+00:03:43,270 --> 00:03:44,870
+ifTrue:ifFalse: parce que
+c'est optimisé et puis le
+
+68
+00:03:45,070 --> 00:03:46,900
+système ne le supportera
+pas, mais par contre, ce que
+
+69
+00:03:47,100 --> 00:03:49,460
+vous pouvez très bien faire,
+je vous suggère d'implémenter
+
+70
+00:03:49,660 --> 00:03:53,450
+de la même manière sinon:
+ou Si:Alors:, donc Si:Alors:
+
+71
+00:03:53,650 --> 00:04:00,010
+unBlock, sinon: unBlock2 et
+
+72
+00:04:00,210 --> 00:04:02,040
+de l'implémenter. Vous pouvez mettre
+un breakpoint dedans et expérimenter.
+
+73
+00:04:03,860 --> 00:04:06,060
+Finalement, qu'est-ce qu'on
+a vu, qu'est-ce que c'était
+
+74
+00:04:06,260 --> 00:04:07,120
+encore que cet exemple ?
+
+75
+00:04:08,130 --> 00:04:10,410
+On a vu qu'envoyer un
+message sélectionne la bonne
+
+76
+00:04:10,610 --> 00:04:12,630
+méthode, comme d'habitude.
+Là, on a choisi de laisser le
+
+77
+00:04:12,830 --> 00:04:15,230
+receveur décider par
+lui-même quel était le comportement
+
+78
+00:04:15,430 --> 00:04:19,050
+qu'il devait avoir et on a
+vu à l'œuvre le fait que les
+
+79
+00:04:19,250 --> 00:04:22,250
+crochets pouvaient
+"freezer" l'exécution et que value
+
+80
+00:04:22,450 --> 00:04:24,410
+allait forcer
+l'exécution d'un morceau de code.
+

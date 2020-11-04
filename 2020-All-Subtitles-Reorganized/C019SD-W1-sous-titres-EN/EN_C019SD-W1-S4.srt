@@ -1,0 +1,513 @@
+﻿1
+00:00:00,160 --> 00:00:03,400
+In this session we'll see
+the Pharo object model.
+
+2
+00:00:03,560 --> 00:00:08,600
+We'll take an overview to show you
+its elegance and simplicity.
+
+3
+00:00:08,760 --> 00:00:11,280
+You don't need
+to understand everything now
+
+4
+00:00:11,440 --> 00:00:15,840
+because we'll go over these notions
+over the next few weeks.
+
+5
+00:00:17,120 --> 00:00:20,400
+In Pharo
+there are only objects and messages.
+
+6
+00:00:20,560 --> 00:00:22,360
+There are lots of objects,
+
+7
+00:00:22,520 --> 00:00:27,240
+to represent the mouse pointer,
+booleans, arrays,
+
+8
+00:00:27,400 --> 00:00:31,520
+numbers, strings,
+windows, scrollbars and so on...
+
+9
+00:00:31,680 --> 00:00:33,160
+Even compilers,
+
+10
+00:00:33,320 --> 00:00:38,360
+system objects such as sockets,
+fonts, collections and so on.
+
+11
+00:00:38,520 --> 00:00:40,360
+All these are objects
+
+12
+00:00:40,520 --> 00:00:42,720
+to which we can send messages.
+
+13
+00:00:42,880 --> 00:00:45,240
+There are lots of different messages.
+
+14
+00:00:45,400 --> 00:00:49,240
+You can send size to a collection
+to get its size.
+
+15
+00:00:49,400 --> 00:00:52,560
+There are the messages
+plus, at:put:, do: and so on.
+
+16
+00:00:52,720 --> 00:00:55,280
+Objects and messages.
+
+17
+00:00:55,760 --> 00:00:58,920
+The messages indicate
+the programmer's intention.
+
+18
+00:00:59,080 --> 00:01:02,840
+When I send a message to an object,
+I'm asking it to do something.
+
+19
+00:01:03,000 --> 00:01:06,720
+It's really a request
+made to the object.
+
+20
+00:01:06,880 --> 00:01:10,440
+And the object decides
+what method to use.
+
+21
+00:01:10,600 --> 00:01:14,440
+This is the how. How to achieve
+the programmer's intention
+
+22
+00:01:14,600 --> 00:01:17,200
+by deciding what method to employ.
+
+23
+00:01:17,880 --> 00:01:22,480
+Next we have another concept,
+which is that of closure.
+
+24
+00:01:22,720 --> 00:01:25,440
+These are lexical closures,
+blocks,
+
+25
+00:01:25,600 --> 00:01:29,240
+sorts of anonymous methods in Pharo.
+
+26
+00:01:29,400 --> 00:01:32,720
+We call them blocks.
+This is important vocabulary.
+
+27
+00:01:33,400 --> 00:01:37,960
+Blocks are delimited
+by square brackets, as you see here.
+
+28
+00:01:38,120 --> 00:01:40,280
+So all this is a block.
+
+29
+00:01:40,440 --> 00:01:44,720
+So you should really look at this
+as an anonymous method.
+
+30
+00:01:46,200 --> 00:01:50,200
+In Pharo we have
+a very simple and uniform model.
+
+31
+00:01:50,520 --> 00:01:53,400
+Everything is an object,
+an instance of a class.
+
+32
+00:01:53,560 --> 00:01:56,760
+Even classes and messages
+are objects too.
+
+33
+00:01:57,160 --> 00:02:01,440
+And all computations between objects
+are done via message passing.
+
+34
+00:02:01,600 --> 00:02:04,440
+We really talk
+about sending a message,
+
+35
+00:02:04,600 --> 00:02:08,000
+that's the term,
+and not about executing a method,
+
+36
+00:02:08,160 --> 00:02:11,120
+because when you send a message
+to an object,
+
+37
+00:02:11,280 --> 00:02:15,240
+there's a particular algorithm
+called the method lookup,
+
+38
+00:02:15,400 --> 00:02:17,120
+just one algorithm,
+
+39
+00:02:17,280 --> 00:02:19,760
+which selects the right method to use.
+
+40
+00:02:19,920 --> 00:02:24,880
+The methods are virtually bound.
+
+41
+00:02:25,200 --> 00:02:28,280
+They accept late binding.
+
+42
+00:02:28,560 --> 00:02:31,200
+I send a message to an object,
+
+43
+00:02:31,360 --> 00:02:34,360
+and the method lookup
+selects the right method.
+
+44
+00:02:34,520 --> 00:02:37,880
+We'll come back to that
+in a dedicated session.
+
+45
+00:02:40,160 --> 00:02:42,960
+The Pharo object model is as follows.
+
+46
+00:02:43,120 --> 00:02:45,360
+Instance variables are protected.
+
+47
+00:02:45,520 --> 00:02:48,520
+All objects have instance variables
+and they're protected.
+
+48
+00:02:48,680 --> 00:02:50,880
+They're private to the object
+
+49
+00:02:51,040 --> 00:02:55,080
+or are accessible from subclasses.
+
+50
+00:02:56,240 --> 00:02:59,000
+The methods are public
+and virtually bound.
+
+51
+00:02:59,160 --> 00:03:02,280
+All the methods are public in Pharo.
+
+52
+00:03:02,720 --> 00:03:05,560
+And Pharo accepts
+single inheritance between classes.
+
+53
+00:03:05,720 --> 00:03:08,120
+A class can only have
+one superclass.
+
+54
+00:03:09,560 --> 00:03:14,280
+Here's an example of code,
+the cross-product of two points.
+
+55
+00:03:14,440 --> 00:03:16,480
+There's point1 and point2.
+
+56
+00:03:16,640 --> 00:03:21,600
+I multiply the x field of point1
+by the y field of point2,
+
+57
+00:03:21,760 --> 00:03:23,960
+and subtract the multiplication
+
+58
+00:03:24,120 --> 00:03:27,760
+of the y field of point1
+and the x field of point2.
+
+59
+00:03:28,120 --> 00:03:32,600
+It's an example of a computation
+you can do in Pharo.
+
+60
+00:03:34,560 --> 00:03:38,080
+To create objects
+we have special messages.
+
+61
+00:03:38,240 --> 00:03:39,480
+Here, for example,
+
+62
+00:03:39,640 --> 00:03:44,160
+if I send the message @
+to the integer 10
+
+63
+00:03:44,320 --> 00:03:46,680
+with the argument 20,
+
+64
+00:03:46,840 --> 00:03:50,240
+it'll a create a Point,
+an instance of the class Point.
+
+65
+00:03:50,400 --> 00:03:53,320
+The name of the message is @,
+
+66
+00:03:53,480 --> 00:03:57,640
+the integer
+that received the message is 10,
+
+67
+00:03:57,800 --> 00:04:00,200
+the one before the name
+of the message,
+
+68
+00:04:00,360 --> 00:04:03,840
+and the argument, after the name
+of the message, is 20.
+
+69
+00:04:04,000 --> 00:04:06,040
+Here's another example.
+
+70
+00:04:06,200 --> 00:04:10,880
+I want to create a string
+of characters like this one here.
+
+71
+00:04:11,040 --> 00:04:13,200
+How is this string obtained?
+
+72
+00:04:13,360 --> 00:04:16,480
+We've used a first chain here,
+Pharo,
+
+73
+00:04:16,640 --> 00:04:19,800
+we've sent it the message comma,
+
+74
+00:04:19,960 --> 00:04:24,120
+as argument
+we have the string is cool...
+
+75
+00:04:24,360 --> 00:04:26,280
+Which is here, right?
+
+76
+00:04:28,160 --> 00:04:31,880
+The meaning of the message comma
+is the concatenation of strings.
+
+77
+00:04:32,040 --> 00:04:35,640
+The two strings are glued together
+to produce a single string.
+
+78
+00:04:37,000 --> 00:04:40,560
+We can create objects directly
+
+79
+00:04:40,720 --> 00:04:42,240
+with the message new.
+
+80
+00:04:42,400 --> 00:04:47,200
+I send new to the class Monster
+and I'll get an instance of the class:
+
+81
+00:04:47,360 --> 00:04:49,000
+aMonster.
+
+82
+00:04:49,160 --> 00:04:52,640
+I can create an instance
+of the class Array,
+
+83
+00:04:52,840 --> 00:04:54,360
+by specifying new
+
+84
+00:04:54,520 --> 00:04:57,400
+and attributing a parameter,
+which I do with a colon,
+
+85
+00:04:57,560 --> 00:04:59,520
+and then here the integer 6.
+
+86
+00:04:59,680 --> 00:05:02,400
+And I get an array of size 6.
+
+87
+00:05:03,000 --> 00:05:05,960
+We can have dedicated messages
+to create objects,
+
+88
+00:05:06,120 --> 00:05:09,040
+and I can define
+my own messages to a class.
+
+89
+00:05:09,200 --> 00:05:11,360
+I could create a class Tomagoshi,
+
+90
+00:05:11,520 --> 00:05:14,080
+with a method withHunger
+
+91
+00:05:14,240 --> 00:05:17,800
+and for this method
+I'll give the integer 10.
+
+92
+00:05:17,960 --> 00:05:20,880
+This creates an instance
+of the class Tomagoshi
+
+93
+00:05:21,040 --> 00:05:22,800
+by attributing a parameter.
+
+94
+00:05:23,320 --> 00:05:27,520
+So these are specialised messages
+for object creation.
+
+95
+00:05:28,880 --> 00:05:33,880
+In this lecture we've seen an overview
+of the Pharo object model.
+
+96
+00:05:34,040 --> 00:05:37,880
+You don't have to understand it all,
+we'll come back to these notions.
+
+97
+00:05:38,040 --> 00:05:41,760
+But it's important to remember that
+there are no constructors in Pharo,
+
+98
+00:05:41,920 --> 00:05:45,320
+no static methods,
+type declarations, interfaces,
+
+99
+00:05:45,480 --> 00:05:48,040
+package/private/protected modifiers...
+
+100
+00:05:48,200 --> 00:05:51,600
+All those classic modifiers
+you get in object languages.
+
+101
+00:05:51,760 --> 00:05:56,040
+There are no parametrized types,
+no boxing/unboxing and so on.
+
+102
+00:05:56,200 --> 00:05:59,280
+And you'll see
+that it's a really powerful language.
+
+103
+00:06:00,720 --> 00:06:04,120
+So, in Pharo,
+everything is an object.
+
+104
+00:06:04,280 --> 00:06:07,200
+Computation is done
+via messages sent to objects.
+
+105
+00:06:07,360 --> 00:06:12,080
+Methods are late bound.
+
+106
+00:06:12,240 --> 00:06:14,640
+There's an algorithm,
+the method lookup,
+
+107
+00:06:14,800 --> 00:06:18,680
+which selects the right method
+when an object receives a message.
+
+108
+00:06:18,960 --> 00:06:22,640
+There's the notion of blocks,
+which are anonymous methods.
+
+109
+00:06:22,800 --> 00:06:25,000
+Very important in Pharo.
+
+110
+00:06:25,160 --> 00:06:30,040
+And we can send particular messages
+to classes
+
+111
+00:06:30,200 --> 00:06:31,800
+to create objects.

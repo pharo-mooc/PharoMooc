@@ -1,0 +1,1931 @@
+1
+00:00:01,910 --> 00:00:04,410
+This video is a Redo for the MOOC.
+
+2
+00:00:04,577 --> 00:00:07,030
+Redo means do it yourself,
+
+3
+00:00:07,520 --> 00:00:09,540
+watch the video and do what is
+shown step by step.
+
+4
+00:00:10,060 --> 00:00:13,470
+It is also an invitation to
+look at how we program.
+
+5
+00:00:13,720 --> 00:00:17,680
+I won't follow a precise script,
+
+6
+00:00:17,847 --> 00:00:20,060
+I will try to do it,
+but if I encounter bugs or
+
+7
+00:00:20,227 --> 00:00:23,090
+things like that, I'm gonna 
+handle them as I go along.
+
+8
+00:00:24,870 --> 00:00:29,130
+In this video, the idea
+is to program a little
+
+9
+00:00:29,297 --> 00:00:32,040
+language that you can find 
+in role-playing games like
+
+10
+00:00:32,207 --> 00:00:35,930
+"Dungeons and Dragons". 
+For example,
+
+11
+00:00:36,097 --> 00:00:38,800
+for the ones who have this 
+expression, what
+
+12
+00:00:38,967 --> 00:00:40,010
+does this expression mean?
+
+13
+00:00:40,420 --> 00:00:45,380
+It means: you must throw 2
+20-sided dice and 1 4-sided.
+
+14
+00:00:45,547 --> 00:00:47,420
+You'll see it can be a Pharo
+expression.
+
+15
+00:00:48,000 --> 00:00:52,490
+So in this video we're going
+
+16
+00:00:52,657 --> 00:00:55,170
+to implement a class representing
+a die and a class
+
+17
+00:00:55,337 --> 00:00:57,420
+representing a handful of dice.
+
+18
+00:00:58,660 --> 00:00:59,770
+So let's begin.
+
+19
+00:01:00,870 --> 00:01:04,290
+We begin with defining a package.
+
+20
+00:01:05,710 --> 00:01:06,790
+We call this package "Dice".
+
+21
+00:01:06,957 --> 00:01:11,860
+I don't really want to see 
+
+22
+00:01:12,027 --> 00:01:16,660
+other things. So in this
+
+23
+00:01:16,827 --> 00:01:19,450
+video I won't code in the
+
+24
+00:01:19,617 --> 00:01:22,210
+debugger, you've seen it in another
+video, I will 
+
+25
+00:01:22,377 --> 00:01:24,410
+do it on a case-by-case
+basis, in an opportunistic way.
+
+26
+00:01:25,490 --> 00:01:30,030
+Here I define the "Die" class
+which
+
+27
+00:01:30,197 --> 00:01:31,370
+has a certain number of "faces".
+
+28
+00:01:32,100 --> 00:01:35,630
+I compile. I add a class comment.
+
+29
+00:01:43,380 --> 00:01:45,890
+For the moment, not much thing
+because it is very very simple.
+
+30
+00:01:47,550 --> 00:01:52,360
+We are starting to enable our
+
+31
+00:01:52,527 --> 00:01:53,950
+object to be initialized.
+
+32
+00:02:00,450 --> 00:02:02,260
+I will do it like this.
+
+33
+00:02:10,190 --> 00:02:13,560
+I call for an initialization of 
+the super-class,
+
+34
+00:02:13,727 --> 00:02:18,140
+by default I assign 6 faces 
+to my die because it is
+
+35
+00:02:18,307 --> 00:02:19,140
+the most common die.
+
+36
+00:02:19,820 --> 00:02:22,530
+Now I'm starting to 
+develop a 
+
+37
+00:02:22,697 --> 00:02:25,640
+tests class, to be sure that what 
+we do 
+
+38
+00:02:25,807 --> 00:02:26,900
+doesn't break what has already
+been done.
+
+39
+00:02:27,260 --> 00:02:30,450
+Tests classes are sub-classes of the 
+TestCase class.
+
+40
+00:02:30,617 --> 00:02:34,100
+We call it "DieTest".
+
+41
+00:02:34,370 --> 00:02:37,510
+I have my tests class.
+
+42
+00:02:37,790 --> 00:02:40,220
+One of the first tests to do,
+you 
+
+43
+00:02:40,387 --> 00:02:42,480
+don't have always to do it 
+like this, but
+
+44
+00:02:42,647 --> 00:02:46,650
+in any case I want to begin with 
+a test that works well.
+
+45
+00:02:47,840 --> 00:02:52,120
+As for the moment we don't have many 
+things, I say that initialization is ok.
+
+46
+00:02:53,820 --> 00:02:56,160
+This is also a way to show you
+
+47
+00:02:56,327 --> 00:02:59,770
+how you can test that you can
+catch exceptions 
+
+48
+00:02:59,937 --> 00:03:01,440
+or that exceptions mustn't
+occur.
+
+49
+00:03:02,180 --> 00:03:04,590
+Here I am saying:
+
+50
+00:03:04,757 --> 00:03:06,460
+"Die new should not raise error".
+
+51
+00:03:18,120 --> 00:03:19,170
+What does it mean?
+
+52
+00:03:19,337 --> 00:03:23,290
+It means that when I execute this
+bit of code "Die
+
+53
+00:03:23,457 --> 00:03:25,600
+new", no error must occur.
+
+54
+00:03:28,170 --> 00:03:32,560
+I'm gonna classify my test 
+and execute it.
+
+55
+00:03:32,727 --> 00:03:35,550
+It's green. All right.
+
+56
+00:03:36,000 --> 00:03:40,020
+So now, I'd like to define the
+
+57
+00:03:40,187 --> 00:03:44,540
+method that makes a die roll.
+
+58
+00:03:44,707 --> 00:03:48,610
+I know that in Pharo there must 
+be a method
+
+59
+00:03:48,777 --> 00:03:49,720
+called "at Random".
+
+60
+00:03:49,887 --> 00:03:53,940
+At Random, what does it do?
+
+61
+00:03:54,480 --> 00:03:57,780
+It enables to have... Ok...
+
+62
+00:03:58,310 --> 00:04:00,770
+So now I look at the implementation
+to be sure
+
+63
+00:04:00,937 --> 00:04:03,620
+it's ok. AtRandom, what does it
+do?
+
+64
+00:04:04,870 --> 00:04:09,070
+It returns an integer at random
+from 1 to self, so it's perfect.
+
+65
+00:04:10,910 --> 00:04:13,910
+So I'm gonna define a new
+
+66
+00:04:15,290 --> 00:04:19,220
+method in Operations.
+
+67
+00:04:21,160 --> 00:04:22,230
+What will it do?
+
+68
+00:04:22,397 --> 00:04:26,640
+Roll. I say: "you return faces
+
+69
+00:04:27,570 --> 00:04:28,203
+atRandom".
+
+70
+00:04:35,750 --> 00:04:37,400
+So I write a test for this.
+
+71
+00:04:40,490 --> 00:04:43,590
+TestRolling. What do we do now?
+
+72
+00:04:44,120 --> 00:04:49,040
+We create a die. 
+d:= die
+
+73
+00:04:49,207 --> 00:04:49,840
+new
+
+74
+00:04:51,210 --> 00:04:53,140
+And now I write 
+"1000 timesRepeat".
+
+75
+00:04:54,420 --> 00:04:58,240
+What? "d roll".
+
+76
+00:05:03,620 --> 00:05:07,580
+And I want this to be 
+between 1 and 6.
+
+77
+00:05:07,747 --> 00:05:12,640
+"Between: and:", it's
+
+78
+00:05:12,807 --> 00:05:15,560
+ok. "Between 1 and 6".
+
+79
+00:05:15,820 --> 00:05:18,510
+It is not very good
+because here we created
+
+80
+00:05:18,677 --> 00:05:22,470
+a test only for 6-sided dice,
+we could have said 
+
+81
+00:05:22,637 --> 00:05:25,310
+it works depending on the
+number of sides of the die.
+
+82
+00:05:25,640 --> 00:05:26,580
+We will do it later.
+
+83
+00:05:26,830 --> 00:05:27,463
+So I compile.
+
+84
+00:05:32,840 --> 00:05:35,620
+I get an error. Here it is...
+
+85
+00:05:37,910 --> 00:05:39,170
+It is ok, I have my test.
+
+86
+00:05:39,337 --> 00:05:41,460
+Now it's time to save.
+Here I have my "Dice"
+
+87
+00:05:41,627 --> 00:05:44,590
+package, I save it locally,
+"Save".
+
+88
+00:05:44,757 --> 00:05:49,000
+I had created others before
+to train a little so I 
+
+89
+00:05:49,167 --> 00:05:51,710
+create a new one
+"New version with
+
+90
+00:05:56,530 --> 00:06:00,780
+rolling and test". All right.
+
+91
+00:06:01,030 --> 00:06:02,370
+Ok, it is saved.
+
+92
+00:06:11,480 --> 00:06:14,610
+Now I'd like to change
+
+93
+00:06:14,777 --> 00:06:18,890
+the creation interface.
+First we rearrange
+
+94
+00:06:19,810 --> 00:06:22,200
+categories. If we want to change 
+a little the creation
+
+95
+00:06:22,367 --> 00:06:26,390
+interface. We say:
+"to create a die
+
+96
+00:06:26,557 --> 00:06:28,090
+use die faces".
+
+97
+00:06:39,290 --> 00:06:42,610
+On this expression you must see 
+
+98
+00:06:42,777 --> 00:06:46,030
+that faces is a message sent to
+the die class and not
+
+99
+00:06:46,197 --> 00:06:48,610
+to an instance of die class,
+as it is the case
+
+100
+00:06:49,090 --> 00:06:51,880
+in the roll method or in others
+methods coded until now.
+
+101
+00:06:52,047 --> 00:06:55,040
+I will do this for you to understand
+when you
+
+102
+00:06:55,207 --> 00:06:58,900
+have to use and go to the class
+level or not.
+
+103
+00:06:59,350 --> 00:07:00,710
+Let's begin by writing a test.
+
+104
+00:07:03,050 --> 00:07:06,420
+"betterInterface".
+
+105
+00:07:08,790 --> 00:07:10,200
+If I go on with the same logic,
+
+106
+00:07:12,230 --> 00:07:18,080
+"TestbetterCreationInterface",
+
+107
+00:07:18,247 --> 00:07:20,950
+Here I'd like to do something like
+this for instance,
+
+108
+00:07:22,680 --> 00:07:23,640
+and this to be faces.
+
+109
+00:07:30,620 --> 00:07:32,420
+I will do it slowly.
+
+110
+00:07:32,950 --> 00:07:36,840
+I go there and I type
+"instance creation", faces: , anInteger.
+
+111
+00:07:46,560 --> 00:07:49,000
+I could write it in a short way
+but here
+
+112
+00:07:49,167 --> 00:07:50,530
+I do it in a calm way.
+
+113
+00:07:51,000 --> 00:07:52,940
+I create a die.
+
+114
+00:07:53,890 --> 00:07:57,740
+I write "self new", as
+self here is the die class itself. 
+
+115
+00:07:58,220 --> 00:08:00,410
+I tell: "create an instance".
+
+116
+00:08:00,577 --> 00:08:03,620
+And now with this instance I
+use 
+
+117
+00:08:03,787 --> 00:08:08,410
+an accessor to assign it the value
+passed as an argument.
+
+118
+00:08:08,577 --> 00:08:12,130
+Obviously, I return the die
+that has just been created.
+
+119
+00:08:13,860 --> 00:08:16,920
+When the code will be executed,
+it won't work because
+
+120
+00:08:17,087 --> 00:08:19,950
+faces doesn't exist, so don't 
+worry.
+
+121
+00:08:20,117 --> 00:08:22,760
+You see that the test isn't ok,
+but
+
+122
+00:08:22,927 --> 00:08:27,720
+it's normal, if I 
+execute this
+
+123
+00:08:27,887 --> 00:08:29,520
+for example, if I do debug to see...
+
+124
+00:08:33,640 --> 00:08:38,360
+And I click on Over, here it
+says: "I don't know
+
+125
+00:08:38,527 --> 00:08:41,430
+the faces message."
+
+126
+00:08:41,910 --> 00:08:45,770
+Here we will do it calmly, I won't
+do it in the debugger.
+
+127
+00:08:46,830 --> 00:08:49,600
+I say: "that's true, I have 
+to add an accessor
+
+128
+00:08:52,910 --> 00:08:57,390
+here. So I write 
+faces: anInteger.
+
+129
+00:08:57,557 --> 00:09:01,520
+And there I write : faces := anInteger.
+
+130
+00:09:05,020 --> 00:09:08,110
+And while I'm at it, I create 
+the read accessor.
+
+131
+00:09:09,330 --> 00:09:11,500
+I return this one.
+
+132
+00:09:13,250 --> 00:09:14,450
+And here my test is green.
+
+133
+00:09:15,240 --> 00:09:19,180
+So we save, "save"
+
+134
+00:09:19,347 --> 00:09:22,250
+"better die creation
+method with tests".
+
+135
+00:09:22,417 --> 00:09:23,050
+All right.
+
+136
+00:09:31,610 --> 00:09:33,670
+Now we can start to
+
+137
+00:09:33,837 --> 00:09:37,650
+define what we want for
+
+138
+00:09:38,690 --> 00:09:42,050
+diceHandle. Basically if we 
+look, diceHandle,
+
+139
+00:09:42,217 --> 00:09:44,000
+how would we like to write it?
+
+140
+00:09:44,167 --> 00:09:45,450
+We would like to write
+diceHandle new addDie.
+
+141
+00:09:49,300 --> 00:09:53,290
+So now we are going to create
+a new die, "die faces 6, addDie".
+
+142
+00:09:55,210 --> 00:09:59,680
+"Die faces 10".
+
+143
+00:10:07,260 --> 00:10:12,040
+We start to write a
+
+144
+00:10:12,207 --> 00:10:13,580
+test class, this time. 
+
+145
+00:10:15,250 --> 00:10:19,930
+So a new class which
+inherits from TestCase.
+
+146
+00:10:20,290 --> 00:10:22,330
+All right. I have my new
+tests class.
+
+147
+00:10:24,000 --> 00:10:26,730
+And I define a test.
+
+148
+00:10:30,220 --> 00:10:32,850
+The idea is to create a
+handful and to
+
+149
+00:10:33,017 --> 00:10:35,140
+check there are the right dice
+in it.
+
+150
+00:10:35,307 --> 00:10:39,380
+I write "testAdding", 
+I want to reuse my 
+
+151
+00:10:39,547 --> 00:10:43,730
+code, there is no reason otherwise.
+
+152
+00:10:45,530 --> 00:10:48,060
+So I have my
+
+153
+00:10:54,310 --> 00:10:58,940
+handle; yourself , because I 
+want to
+
+154
+00:10:59,107 --> 00:11:01,960
+get the message receiver,
+it is to say the handle
+
+155
+00:11:02,127 --> 00:11:03,690
+and not the argument that is here.
+
+156
+00:11:04,500 --> 00:11:08,260
+Now what should I do?
+
+157
+00:11:08,427 --> 00:11:12,520
+I write "self
+assert h diceNumber
+
+158
+00:11:13,960 --> 00:11:14,593
+equals 2".
+
+159
+00:11:20,700 --> 00:11:23,380
+I compile. Obviously the system
+says: "I don't
+
+160
+00:11:23,547 --> 00:11:25,930
+know the DiceHandle variable. Do
+you want it 
+
+161
+00:11:26,097 --> 00:11:26,730
+to be a class?"
+
+162
+00:11:26,897 --> 00:11:27,960
+Yes. It must be a class.
+
+163
+00:11:28,560 --> 00:11:29,750
+Here it will define it.
+
+164
+00:11:29,917 --> 00:11:31,340
+As I know that I have
+to stop the dice anyway
+
+165
+00:11:31,507 --> 00:11:36,440
+I take this opportunity to
+
+166
+00:11:36,870 --> 00:11:39,580
+put an instance variable.
+
+167
+00:11:39,747 --> 00:11:40,860
+I compile all this.
+
+168
+00:11:41,790 --> 00:11:45,720
+Now it's red because "Add die" 
+hasn't been defined.
+
+169
+00:11:47,620 --> 00:11:48,570
+So we will do it.
+
+170
+00:11:48,737 --> 00:11:51,620
+Before doing this, it will
+be nice to initialise
+
+171
+00:11:54,240 --> 00:11:56,660
+the handle, so we do it like this,
+it will prevent
+
+172
+00:11:56,827 --> 00:11:57,890
+to have a bug later.
+
+173
+00:12:02,890 --> 00:12:04,560
+dice : = OrderedCollection new.
+
+174
+00:12:04,727 --> 00:12:05,360
+Recategorize.
+
+175
+00:12:21,880 --> 00:12:24,760
+And now, I must be able to 
+run my
+
+176
+00:12:24,927 --> 00:12:27,730
+test, which will crash. 
+Ok, very well.
+
+177
+00:12:27,897 --> 00:12:30,200
+I create Add die.
+
+178
+00:12:30,530 --> 00:12:31,163
+Adding.
+
+179
+00:12:35,330 --> 00:12:38,030
+It says: "You should implement
+this method."
+
+180
+00:12:38,197 --> 00:12:39,080
+Yes, it makes sense.
+
+181
+00:12:39,247 --> 00:12:42,430
+I write "Dice add aDie".
+
+182
+00:12:43,590 --> 00:12:45,920
+Ok, very good.
+My test won't still
+
+183
+00:12:46,087 --> 00:12:48,150
+work because I still don't
+have defined the diceNumber
+
+184
+00:12:48,317 --> 00:12:52,120
+method, let's do it.
+Yes, diceNumber,
+
+185
+00:12:52,287 --> 00:12:56,780
+we will create it, in
+accessing this time.
+
+186
+00:12:57,350 --> 00:12:58,800
+And diceNumber,
+what will it do?
+
+187
+00:12:58,967 --> 00:13:00,330
+It must return
+
+188
+00:13:06,290 --> 00:13:08,110
+dice size. I compile again,
+proceed.
+
+189
+00:13:09,940 --> 00:13:12,510
+And my test should be green
+so, the tests
+
+190
+00:13:12,677 --> 00:13:14,860
+are green and I save.
+
+191
+00:13:17,250 --> 00:13:18,580
+"With addDie and test".
+
+192
+00:13:24,560 --> 00:13:28,090
+We could improve the test because
+here
+
+193
+00:13:28,257 --> 00:13:31,900
+it checks that we add 2 numbers, 
+I'd like
+
+194
+00:13:32,067 --> 00:13:35,180
+to check that when
+
+195
+00:13:35,347 --> 00:13:37,610
+we add twice the same die
+we don't lose it.
+
+196
+00:13:38,280 --> 00:13:39,340
+I write
+"TestAddingTwiceTheSame DieisOK".
+
+197
+00:13:49,040 --> 00:13:50,290
+Here what do I do?
+
+198
+00:13:50,457 --> 00:13:54,530
+I add 6 and 6 and I want to 
+get 2
+
+199
+00:13:57,030 --> 00:13:59,940
+I do this I run my test,
+it's green, super.
+
+200
+00:14:01,230 --> 00:14:04,700
+Now, it will be nice to be able
+
+201
+00:14:05,880 --> 00:14:08,960
+to define what it is to do
+
+202
+00:14:11,240 --> 00:14:14,900
+add 2 dice. But before this,
+let's do something.
+
+203
+00:14:15,067 --> 00:14:17,210
+If you look, what I don't like,
+
+204
+00:14:17,377 --> 00:14:19,030
+when I inspect this for example,
+
+205
+00:14:23,950 --> 00:14:28,740
+if I do "Inspect"
+here, I don't see
+
+206
+00:14:28,907 --> 00:14:31,530
+the dice values and it's not
+practical to debug.
+
+207
+00:14:31,697 --> 00:14:33,030
+In the debugger, we don't see this.
+
+208
+00:14:33,370 --> 00:14:36,090
+So before going on, I want 
+to improve
+
+209
+00:14:36,257 --> 00:14:38,370
+this. I'm going to add
+a method
+
+210
+00:14:38,660 --> 00:14:41,710
+in the Printing protocol.
+The "PrintOn" method
+
+211
+00:14:44,220 --> 00:14:46,840
+is defined on all the objects of
+the system and 
+
+212
+00:14:47,007 --> 00:14:50,380
+it will convert an object to a
+
+213
+00:14:50,547 --> 00:14:53,490
+textual representation and
+
+214
+00:14:55,380 --> 00:14:58,780
+pass a stream. We will only precise
+
+215
+00:14:58,947 --> 00:15:00,420
+the representation we want
+inside it.
+
+216
+00:15:01,890 --> 00:15:03,500
+If I do this, I've done nothing
+in fact.
+
+217
+00:15:03,667 --> 00:15:07,630
+If I do super PrintOn, in fact I've
+done nothing.
+
+218
+00:15:07,797 --> 00:15:09,230
+Now I will do
+
+219
+00:15:09,397 --> 00:15:13,220
+"aStreamnextPut", so I will 
+put characters in the 
+
+220
+00:15:13,387 --> 00:15:15,220
+stream, but what will I 
+put first?
+
+221
+00:15:16,090 --> 00:15:18,330
+I will write a parenthesis with a
+space, maybe it
+
+222
+00:15:18,497 --> 00:15:19,880
+will be nicer, a parenthesis.
+
+223
+00:15:20,450 --> 00:15:23,550
+Then I will consider faces
+and convert them
+
+224
+00:15:23,717 --> 00:15:27,780
+in numbers, in strings, and
+concatenate all this
+
+225
+00:15:28,360 --> 00:15:30,760
+with a closing parenthesis.
+
+226
+00:15:31,150 --> 00:15:34,930
+If I do this... I closed the debugger,
+so I open it again.
+
+227
+00:15:35,850 --> 00:15:38,630
+I have the debugger. Now
+I have a 6-sided die
+
+228
+00:15:38,797 --> 00:15:40,480
+and a 10-sided die. So it is 
+much 
+
+229
+00:15:40,647 --> 00:15:44,140
+nicer, you will see, if we
+encounter bugs, it will help.
+
+230
+00:15:44,850 --> 00:15:48,140
+So here I didn't do anything special,
+my tests are running.
+
+231
+00:15:49,450 --> 00:15:53,340
+I save again, it doesn't cost 
+much, "With printing".
+
+232
+00:15:55,220 --> 00:15:56,400
+We write "with die printOn".
+
+233
+00:16:03,030 --> 00:16:08,000
+All right. Now we create the
+test, we won't
+
+234
+00:16:08,167 --> 00:16:09,580
+do it, we will go 
+directly there.
+
+235
+00:16:10,080 --> 00:16:12,490
+We select "add
+protocol", "roll", "operations".
+
+236
+00:16:13,600 --> 00:16:17,890
+So,
+
+237
+00:16:18,057 --> 00:16:22,530
+there are several ways to define 
+this.
+
+238
+00:16:22,820 --> 00:16:25,040
+I propose you one, this is not 
+the nicest but
+
+239
+00:16:25,207 --> 00:16:27,160
+at least it is probably the 
+clearest for you.
+
+240
+00:16:27,530 --> 00:16:29,130
+There is a compact way, I could
+
+241
+00:16:29,297 --> 00:16:31,490
+do it in one line, but using 
+iterators 
+
+242
+00:16:31,657 --> 00:16:33,150
+like "Injected to", here I'm
+gonna use a loop.
+
+243
+00:16:33,550 --> 00:16:34,210
+So what do I do?
+
+244
+00:16:34,377 --> 00:16:36,860
+I take a value that I 
+initialize to zero.
+
+245
+00:16:37,390 --> 00:16:42,320
+Then I do a loop on all the dice,
+and 
+
+246
+00:16:42,487 --> 00:16:47,120
+for each loop step I get
+a die, and what am 
+
+247
+00:16:47,287 --> 00:16:47,920
+I going to do with this die?
+
+248
+00:16:48,120 --> 00:16:51,900
+I ask it to get a die roll
+and to add the result to
+
+249
+00:16:52,067 --> 00:16:53,440
+my variable.
+
+250
+00:16:55,640 --> 00:17:00,310
+Nothing very special but at least
+it is very very explicit.
+
+251
+00:17:02,000 --> 00:17:05,380
+Now if I do "Inspect" and there
+
+252
+00:17:05,547 --> 00:17:10,510
+"Roll", 5, it doesn't prove
+it is working.
+
+253
+00:17:11,210 --> 00:17:12,140
+Let's try once more.
+
+254
+00:17:12,307 --> 00:17:13,140
+11. Ok, it's working.
+
+255
+00:17:13,950 --> 00:17:16,120
+We are gonna try to write 
+a test, there is
+
+256
+00:17:16,287 --> 00:17:19,920
+no reason, so we do 
+"Test", I want to see this one
+
+257
+00:17:21,590 --> 00:17:22,940
+and I call it rolling.
+
+258
+00:17:26,960 --> 00:17:30,940
+So how do we have to do to test
+this?
+
+259
+00:17:31,107 --> 00:17:35,760
+It has to be between one and
+the maximum of the number of dice.
+
+260
+00:17:38,000 --> 00:17:42,100
+So we will do this.
+
+261
+00:17:42,267 --> 00:17:42,900
+We
+
+262
+00:17:48,280 --> 00:17:49,930
+could define a method
+doing this.
+
+263
+00:17:50,240 --> 00:17:53,040
+Let's create a method
+defining the maximum.
+
+264
+00:17:56,720 --> 00:18:00,100
+"Operation maxValue".
+
+265
+00:18:02,480 --> 00:18:03,240
+What is maxValue ?
+
+266
+00:18:03,407 --> 00:18:05,020
+It is very close to this.
+
+267
+00:18:05,780 --> 00:18:10,000
+Here instead of doing roll,
+
+268
+00:18:11,440 --> 00:18:12,430
+I will ask for the faces.
+
+269
+00:18:16,560 --> 00:18:20,490
+Let's check. If I do
+"Inspect", there
+
+270
+00:18:21,830 --> 00:18:24,820
+I do "maxValue", "16".
+
+271
+00:18:28,490 --> 00:18:30,480
+Yes, it's right 10 and 6.
+
+272
+00:18:30,647 --> 00:18:33,090
+So we write a test for
+
+273
+00:18:37,010 --> 00:18:41,600
+"maxValue". So I have this,
+I do "maxValue equal
+
+274
+00:18:41,767 --> 00:18:42,400
+16".
+
+275
+00:18:45,320 --> 00:18:48,150
+So here you see, I could have
+coded something
+
+276
+00:18:48,317 --> 00:18:51,320
+very dirty in my test, but
+finally, it is better
+
+277
+00:18:51,487 --> 00:18:53,690
+to create a method in the class
+and to use it.
+
+278
+00:18:54,080 --> 00:18:58,370
+So now, we can test the
+roll method
+
+279
+00:18:58,820 --> 00:19:02,340
+works well. Let's do 
+"roll",
+
+280
+00:19:05,900 --> 00:19:08,770
+and say it must be comprised
+
+281
+00:19:08,937 --> 00:19:11,000
+between... "Roll between 1 and
+
+282
+00:19:14,230 --> 00:19:15,690
+h maxValue.
+
+283
+00:19:24,080 --> 00:19:26,000
+If I do this, ok it works.
+
+284
+00:19:28,120 --> 00:19:30,870
+This is not very statistical,
+so here we could do
+
+285
+00:19:31,037 --> 00:19:35,800
+something like
+1 000 timesRepeat.
+
+286
+00:19:36,000 --> 00:19:38,560
+Ok. And there,
+
+287
+00:19:42,220 --> 00:19:46,680
+we have our 1000 tests.
+
+288
+00:19:47,740 --> 00:19:49,330
+Now we save. All right.
+
+289
+00:19:49,497 --> 00:19:52,440
+We save once more.
+"save" added maxValue
+
+290
+00:19:54,610 --> 00:19:56,030
+and roll with tests.
+
+291
+00:20:03,940 --> 00:20:08,380
+We've almost finished,
+
+292
+00:20:08,547 --> 00:20:11,070
+what we want to express now,
+is
+
+293
+00:20:11,237 --> 00:20:13,680
+instead of having "die faces 6",
+
+294
+00:20:16,290 --> 00:20:17,670
+I'd like to have "1 D6".
+
+295
+00:20:17,837 --> 00:20:18,470
+And
+
+296
+00:20:25,510 --> 00:20:27,630
+what you see at the end is that
+it means "send
+
+297
+00:20:27,797 --> 00:20:31,050
+the message 6 to a small integer".
+
+298
+00:20:31,770 --> 00:20:34,540
+So we go and look at the 
+integer class.
+
+299
+00:20:34,707 --> 00:20:39,620
+What we are going to do is
+
+300
+00:20:39,787 --> 00:20:43,660
+to define a class extension.
+
+301
+00:20:43,827 --> 00:20:45,010
+What is a class extension?
+
+302
+00:20:45,890 --> 00:20:50,350
+I'm gonna package my methods
+with the same name as my package.
+
+303
+00:20:50,800 --> 00:20:53,360
+So you will see, what do I do?
+I add a
+
+304
+00:20:53,527 --> 00:20:57,420
+protocol, I put *, it must
+start with *dice which is
+
+305
+00:20:57,587 --> 00:21:00,780
+my package's name, automatically
+this is put in grey, and
+
+306
+00:21:00,947 --> 00:21:02,900
+it means the method will be 
+packaged
+
+307
+00:21:03,067 --> 00:21:04,460
+at the same time as this package.
+So let's do it.
+
+308
+00:21:04,900 --> 00:21:08,950
+Let's imagine we do...
+What is D6?
+
+309
+00:21:10,000 --> 00:21:13,570
+A D6... I have to think 
+a little about it...
+
+310
+00:21:21,050 --> 00:21:24,250
+We first create a handle because
+it could 
+
+311
+00:21:24,417 --> 00:21:25,510
+be 2 D6 finally.
+
+312
+00:21:27,210 --> 00:21:31,930
+So "handle", we do 
+"diceHandle
+
+313
+00:21:32,097 --> 00:21:32,730
+new",
+
+314
+00:21:37,120 --> 00:21:38,280
+ok, so I have created my thing.
+
+315
+00:21:39,380 --> 00:21:42,110
+Now for each receiver, 
+I will do
+
+316
+00:21:42,277 --> 00:21:45,430
+"self", this is my integer,
+"timesRepeat".
+
+317
+00:21:46,370 --> 00:21:50,140
+We will have really used a lot
+the timesRepeat, it's rare.
+
+318
+00:21:51,900 --> 00:21:54,120
+"TimesRepeat handle addDie", of what?
+
+319
+00:21:56,790 --> 00:22:01,150
+Of "die faces". And there,
+
+320
+00:22:02,000 --> 00:22:03,720
+we know it's 6.
+
+321
+00:22:05,890 --> 00:22:09,830
+And indeed, it would maybe be 
+good to return the handle.
+
+322
+00:22:11,220 --> 00:22:12,330
+So does it work?
+
+323
+00:22:12,497 --> 00:22:14,950
+We're going to test like this and
+we write a test.
+
+324
+00:22:15,470 --> 00:22:20,380
+But if I do 2 D6, Inspect,
+look, 
+
+325
+00:22:20,547 --> 00:22:22,390
+I do have 2 D6. So that's cool.
+
+326
+00:22:23,190 --> 00:22:24,290
+Let's write the test.
+
+327
+00:22:25,640 --> 00:22:27,140
+We will categorize those tests
+after all.
+
+328
+00:22:28,150 --> 00:22:29,330
+We write "testNewSyntax".
+
+329
+00:22:33,950 --> 00:22:36,420
+Here for the moment we only have
+D6, we will generalize later.
+
+330
+00:22:38,010 --> 00:22:40,000
+We want to do exactly the 
+same thing
+
+331
+00:22:40,167 --> 00:22:44,440
+than this, so we will have
+an handle, let's say 2 D6.
+
+332
+00:22:47,020 --> 00:22:49,620
+And there, we do
+"selfAssert".
+
+333
+00:22:53,310 --> 00:22:54,430
+What could we test?
+
+334
+00:22:54,597 --> 00:22:56,470
+That diceNumber equals 2
+
+335
+00:23:02,880 --> 00:23:05,420
+for instance. So you've noticed
+sometimes I use
+
+336
+00:23:05,587 --> 00:23:09,160
+diceHandle, I could have also
+used = 2 here.
+
+337
+00:23:09,810 --> 00:23:12,080
+In general, it is nicer to use
+assert equal
+
+338
+00:23:12,540 --> 00:23:14,310
+because like this, when there is
+an error, the system
+
+339
+00:23:14,477 --> 00:23:18,020
+says: "I've received this and
+got this value instead of..."
+
+340
+00:23:18,630 --> 00:23:22,910
+If I write =, it will say:
+"I've got a wrong expression."
+
+341
+00:23:23,680 --> 00:23:26,480
+Here for the final user, who is 
+yourself,
+
+342
+00:23:26,647 --> 00:23:28,850
+as a developer, it is better
+to use
+
+343
+00:23:30,580 --> 00:23:33,340
+assert equals because it will
+say: "I've received 3 whereas 
+
+344
+00:23:33,560 --> 00:23:34,680
+I was expecting 2", for instance.
+
+345
+00:23:35,860 --> 00:23:37,060
+So here, I do this.
+
+346
+00:23:37,510 --> 00:23:38,780
+Ok, it works.
+
+347
+00:23:39,320 --> 00:23:41,940
+Could we have a smarter
+
+348
+00:23:42,107 --> 00:23:43,090
+version of this test?
+
+349
+00:23:43,257 --> 00:23:44,240
+For the moment, it suits us.
+
+350
+00:23:44,860 --> 00:23:46,640
+You see that now in 
+
+351
+00:23:46,807 --> 00:23:50,200
+the package, I have an extension
+called D6.
+
+352
+00:23:50,690 --> 00:23:55,480
+We will generalize this
+with 
+
+353
+00:23:56,120 --> 00:23:57,550
+"aNumberOfFaces"
+
+354
+00:24:01,360 --> 00:24:03,870
+So "aNumberOfFaces", 
+we put it there.
+
+355
+00:24:05,200 --> 00:24:08,000
+And we rewrite D6 because it would
+be better.
+
+356
+00:24:08,137 --> 00:24:12,580
+We write D6 like this. We do
+
+357
+00:24:12,747 --> 00:24:16,660
+returns self D6.
+
+358
+00:24:19,050 --> 00:24:20,750
+We do all the other ones.
+
+359
+00:24:20,917 --> 00:24:24,370
+We do 4,
+
+360
+00:24:26,020 --> 00:24:30,870
+2. It's more a coin than a die,
+but 2,
+
+361
+00:24:31,220 --> 00:24:35,640
+10 and 20.
+
+362
+00:24:36,440 --> 00:24:37,570
+You've understood the principle.
+
+363
+00:24:41,540 --> 00:24:45,930
+So let's run the tests, as we've
+changed the implementation.
+
+364
+00:24:47,010 --> 00:24:49,370
+2 D6... it means it works.
+
+365
+00:24:49,830 --> 00:24:50,690
+So let's save.
+
+366
+00:24:59,670 --> 00:25:03,320
+What is there still to do?
+
+367
+00:25:03,680 --> 00:25:08,030
+In fact, we have still to be able
+to add the handles.
+
+368
+00:25:09,300 --> 00:25:11,600
+What tests do I want?
+
+369
+00:25:11,767 --> 00:25:14,640
+For instance, I want to be sure 
+if I do
+
+370
+00:25:18,710 --> 00:25:23,240
+"addingHandles", 
+
+371
+00:25:23,407 --> 00:25:25,590
+(I can use the new syntax,
+
+372
+00:25:25,757 --> 00:25:26,440
+so it's nice)
+
+373
+00:25:26,960 --> 00:25:28,940
+I want to test that if 
+
+374
+00:25:29,107 --> 00:25:33,820
+I write 2 D20 + 3 D5
+
+375
+00:25:34,000 --> 00:25:38,570
+or 3 D6 instead (don't start to complicate
+
+376
+00:25:38,737 --> 00:25:42,050
+things). How much should I get ?
+
+377
+00:25:43,160 --> 00:25:46,770
+diceNumber should be equal to 5.
+
+378
+00:25:48,180 --> 00:25:52,270
+So here you see that we have to define
+the + operator.
+
+379
+00:25:52,870 --> 00:25:55,520
+In Pharo + isn't an operator, 
+it's just a message.
+
+380
+00:25:55,687 --> 00:25:59,230
+So we define a message on the 
+DiceHandle class.
+
+381
+00:26:00,530 --> 00:26:02,850
+We write +.
+
+382
+00:26:04,650 --> 00:26:05,520
+So "aDiceHandle".
+
+383
+00:26:07,530 --> 00:26:09,410
+Now we can wonder if
+
+384
+00:26:09,577 --> 00:26:11,770
+we modify the receiver or 
+either if we use 
+
+385
+00:26:11,937 --> 00:26:12,840
+a functional approach.
+
+386
+00:26:13,130 --> 00:26:14,740
+I prefer to use a functional approach
+
+387
+00:26:14,907 --> 00:26:17,470
+in which we create
+a new handle.
+
+388
+00:26:20,180 --> 00:26:23,690
+So I'm gonna create a
+new handle, I write
+
+389
+00:26:26,060 --> 00:26:27,650
+"handle self class new".
+
+390
+00:26:29,540 --> 00:26:34,060
+Here I avoided to write
+diceHandle and later there
+
+391
+00:26:34,227 --> 00:26:36,360
+will be a lesson explaining why.
+
+392
+00:26:36,527 --> 00:26:37,770
+I prefer, it's closer.
+
+393
+00:26:37,937 --> 00:26:39,800
+In general you don't hard-code
+the classes' name.
+
+394
+00:26:40,430 --> 00:26:42,530
+You will see it in week 7 or
+something like this,
+
+395
+00:26:42,697 --> 00:26:44,040
+there is a complete explanation.
+
+396
+00:26:44,740 --> 00:26:49,660
+If I do "self
+dice do", I
+
+397
+00:26:49,827 --> 00:26:53,480
+iterate on my dice
+and I add them in handle.
+
+398
+00:26:53,647 --> 00:26:55,610
+So I do 
+"handle addDie each",
+
+399
+00:26:59,780 --> 00:27:03,660
+and I do the same...
+Here I don't
+
+400
+00:27:03,827 --> 00:27:05,720
+need self and in fact I don't
+know
+
+401
+00:27:05,887 --> 00:27:07,420
+the message, that's what it was
+telling me, and
+
+402
+00:27:07,587 --> 00:27:09,370
+it makes me notice that, indeed,
+I haven't defined it
+
+403
+00:27:09,820 --> 00:27:12,790
+and it hasn't worked for
+"diceHandle", but
+
+404
+00:27:15,630 --> 00:27:20,480
+no matter, let's compile first
+and we'll fix it later.
+
+405
+00:27:21,230 --> 00:27:22,450
+So here, what does it mean?
+
+406
+00:27:22,617 --> 00:27:24,790
+It means it lacks an accessor,
+dice.
+
+407
+00:27:25,280 --> 00:27:28,770
+So we add dice here,
+dice returns
+
+408
+00:27:28,937 --> 00:27:32,060
+the collection of my dice.
+
+409
+00:27:32,227 --> 00:27:35,280
+Now I'm gonna test, see if
+my test is ok.
+
+410
+00:27:35,700 --> 00:27:38,690
+My test is ok, it's super, it
+means I have
+
+411
+00:27:38,857 --> 00:27:43,610
+almost finished, I save,
+"with handles
+
+412
+00:27:44,810 --> 00:27:46,690
+additions". Ok, all right.
+
+413
+00:27:49,820 --> 00:27:53,770
+It means now we can write
+
+414
+00:27:57,300 --> 00:28:02,210
+2 D4 and we
+
+415
+00:28:02,377 --> 00:28:06,380
+can do "Roll", and it returns
+a number.
+
+416
+00:28:08,000 --> 00:28:10,400
+Now you are ready to play
+"Dungeons and Dragons".
+
+417
+00:28:11,200 --> 00:28:15,870
+What you have to know:
+we defined
+
+418
+00:28:17,570 --> 00:28:19,480
+our methods, we defined
+our tests, we run 
+
+419
+00:28:19,647 --> 00:28:23,010
+them, we extended a system 
+class, 
+
+420
+00:28:23,177 --> 00:28:27,000
+the integer class, with extensions
+linked to our
+
+421
+00:28:27,167 --> 00:28:30,590
+package, which will only be visible
+when our package will be loaded.
+
+422
+00:28:32,290 --> 00:28:34,580
+We also overloaded operators,
+but 
+
+423
+00:28:34,747 --> 00:28:39,320
+in fact we only defined a new 
++ message, because
+
+424
+00:28:39,487 --> 00:28:43,600
+in Pharo the addition is
+just another message,  
+
+425
+00:28:43,767 --> 00:28:48,160
+this enabled us to 
+express quite easily a nice DSL.
+
+426
+00:28:49,900 --> 00:28:50,850
+So now it's your turn to code!
+

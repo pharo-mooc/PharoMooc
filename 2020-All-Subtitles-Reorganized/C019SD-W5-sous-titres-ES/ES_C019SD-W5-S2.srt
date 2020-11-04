@@ -1,0 +1,425 @@
+﻿1
+00:00:00,360 --> 00:00:01,800
+Hola. En este curso
+
+2
+00:00:01,960 --> 00:00:06,440
+nos tomaremos el tiempo para realmente
+Comprende los métodos de clase.
+
+3
+00:00:06,600 --> 00:00:08,960
+Debiste haber hecho el ejercicio
+con el mostrador,
+
+4
+00:00:09,120 --> 00:00:12,520
+Has hecho un método de clase,
+funcionó muy bien
+
+5
+00:00:12,680 --> 00:00:16,440
+Ahora vamos a echar un buen vistazo,
+para que entiendas por una vez y por todas.
+
+6
+00:00:17,400 --> 00:00:20,800
+Aprenderás en este curso
+que no hay diferencia en Pharo
+
+7
+00:00:20,960 --> 00:00:24,240
+entre la clase y los métodos de instancia
+en un nivel de algoritmo de búsqueda.
+
+8
+00:00:24,400 --> 00:00:27,320
+Solo hay un algoritmo de búsqueda
+
+9
+00:00:27,480 --> 00:00:32,400
+aludido y utilizado,
+eso se define en la máquina virtual,
+
+10
+00:00:32,560 --> 00:00:37,240
+y verás eso, mientras pudiéramos
+He dicho que los métodos de clase,
+
+11
+00:00:37,400 --> 00:00:40,320
+a primera vista, son como estáticos
+Los métodos de Java no lo son.
+
+12
+00:00:40,480 --> 00:00:43,200
+De hecho, están vinculados dinámicamente.
+
+13
+00:00:43,360 --> 00:00:45,600
+Hay una búsqueda en la ejecución,
+
+14
+00:00:45,760 --> 00:00:50,080
+mientras que en Java, por lo general,
+Los métodos estáticos no se buscan dinámicamente.
+
+15
+00:00:50,240 --> 00:00:51,720
+Veamos cómo funciona.
+
+16
+00:00:51,880 --> 00:00:54,680
+De hecho, lo que has visto
+
+17
+00:00:54,840 --> 00:00:59,600
+es que solo hay una búsqueda,
+que comienza en la clase del receptor.
+
+18
+00:00:59,760 --> 00:01:02,600
+Si el método se define en la clase,
+
+19
+00:01:02,760 --> 00:01:06,000
+se devuelve, de lo contrario
+continúa en la superclase.
+
+20
+00:01:06,160 --> 00:01:08,560
+Lo que esto significa, gráficamente,
+
+21
+00:01:08,720 --> 00:01:11,720
+es que tengo mi ejemplo
+de la clase Counter.
+
+22
+00:01:11,880 --> 00:01:14,880
+Cuando envío el mensaje de incremento,
+¿lo que sucederá?
+
+23
+00:01:15,040 --> 00:01:20,160
+Paso 1, miro en la clase Contador,
+y volveré a subir ...
+
+24
+00:01:20,320 --> 00:01:22,040
+Si he "incrementado", se define aquí,
+
+25
+00:01:22,200 --> 00:01:26,120
+si se trata de un método definido
+más arriba en la jerarquía
+
+26
+00:01:26,280 --> 00:01:28,120
+se buscará más arriba.
+
+27
+00:01:28,280 --> 00:01:31,760
+De hecho, este mecanismo se usa
+en Pharo, solo hay una,
+
+28
+00:01:31,920 --> 00:01:35,280
+Se usa para instancias y clases.
+
+29
+00:01:36,680 --> 00:01:41,640
+Cuando hiciste el ejercicio con
+el contador de clase y envió el mensaje
+
+30
+00:01:41,840 --> 00:01:44,320
+"con valor" al contador de clase
+
+31
+00:01:44,480 --> 00:01:46,480
+Para crear una instancia, ¿qué sucedió?
+
+32
+00:01:46,640 --> 00:01:50,960
+El contador de clase es instancia
+de una clase llamada "clase de contador"
+
+33
+00:01:51,120 --> 00:01:55,400
+y miramos, usamos
+el mismo método que antes.
+
+34
+00:01:55,560 --> 00:01:58,600
+Miramos en la clase receptora,
+el receptor era "contador",
+
+35
+00:01:58,760 --> 00:02:02,920
+así que miramos en la clase
+"Counter class" y encontró el método
+
+36
+00:02:03,080 --> 00:02:05,960
+"con valor" que aplicamos
+al receptor
+
+37
+00:02:06,120 --> 00:02:08,680
+y nos dio una nueva instancia.
+
+38
+00:02:08,840 --> 00:02:14,760
+Entonces usamos exactamente el mismo proceso
+en cuanto a los mensajes que enviamos
+
+39
+00:02:14,920 --> 00:02:16,960
+a una instancia de la clase Contador.
+
+40
+00:02:18,080 --> 00:02:22,560
+Entonces, ¿qué es una "clase" en Pharo?
+Una clase es una instancia.
+
+41
+00:02:22,760 --> 00:02:26,480
+Es un objeto como cualquier objeto.
+En Pharo solo hay objetos.
+
+42
+00:02:26,640 --> 00:02:30,040
+Una clase es una instancia
+de otra clase, llamada metaclase.
+
+43
+00:02:30,200 --> 00:02:34,000
+Es solo para distinguirlos.
+Una metaclase es solo una clase
+
+44
+00:02:34,160 --> 00:02:36,080
+cuyas instancias son clases,
+
+45
+00:02:36,880 --> 00:02:40,680
+diferenciar entre
+instancias de terminal y clases.
+
+46
+00:02:40,840 --> 00:02:44,680
+Lo siguiente es que
+la clase Contador, en esta línea,
+
+47
+00:02:44,840 --> 00:02:49,040
+la clase Counter es la única instancia
+de la clase clase de contador.
+
+48
+00:02:50,160 --> 00:02:54,640
+Se crea esta clase de contador.
+automáticamente, sin que lo sepas.
+
+49
+00:02:54,800 --> 00:02:58,040
+Cuando definió la clase Contador,
+el sistema se creó automáticamente
+
+50
+00:02:58,200 --> 00:03:01,960
+la clase clase de contador,
+y creó la clase Counter.
+
+51
+00:03:02,120 --> 00:03:06,040
+Pensaste que estabas creando 1 clase,
+pero en realidad estabas creando 2.
+
+52
+00:03:06,200 --> 00:03:09,640
+Lo que debes saber en Pharo
+es que todas las clases
+
+53
+00:03:09,800 --> 00:03:13,680
+en una clase llamada XXX
+se llaman XXX clase.
+
+54
+00:03:13,840 --> 00:03:18,120
+Entonces si tengo contador,
+la clase Contador será
+
+55
+00:03:18,280 --> 00:03:22,080
+Clase de contador, sistemáticamente.
+
+56
+00:03:23,600 --> 00:03:26,680
+Entonces, de hecho, lo que haces en realidad,
+
+57
+00:03:26,840 --> 00:03:30,920
+Solo te mostramos cómo funciona.
+No necesitamos haberlo explicado,
+
+58
+00:03:31,080 --> 00:03:33,800
+pero eso significa que cuando
+el navegador te muestra
+
+59
+00:03:33,960 --> 00:03:36,560
+la clase Counter, te muestra
+
+60
+00:03:36,720 --> 00:03:40,240
+el código que se ejecutará
+en las instancias de esta clase.
+
+61
+00:03:40,400 --> 00:03:42,000
+Eso significa "incremento"
+
+62
+00:03:42,160 --> 00:03:45,840
+es el código que se ejecutará
+en este caso aquí.
+
+63
+00:03:47,440 --> 00:03:52,280
+Cuando haces clic en el botón "clase"
+para definir un método de clase,
+
+64
+00:03:52,440 --> 00:03:56,800
+Te muestra el código que será
+ejecutado en este objeto aquí.
+
+65
+00:03:58,720 --> 00:04:03,000
+Y de hecho, si miramos,
+cuando envío el mensaje "incremento"
+
+66
+00:04:03,160 --> 00:04:07,680
+a la instancia del contador,
+Miraré en la clase Counter.
+
+67
+00:04:07,840 --> 00:04:10,240
+Mira, ese es el método ejecutado.
+
+68
+00:04:10,400 --> 00:04:15,360
+Cuando envío el mensaje
+"con valor" a la clase Contador,
+
+69
+00:04:15,520 --> 00:04:18,800
+donde voy a mirar En su clase
+Sigo este enlace,
+
+70
+00:04:18,960 --> 00:04:21,040
+y es este método aquí.
+
+71
+00:04:22,320 --> 00:04:24,000
+Entonces, ¿qué debes saber?
+
+72
+00:04:24,240 --> 00:04:26,320
+Una clase es un objeto en Pharo.
+
+73
+00:04:26,480 --> 00:04:27,960
+Una clase puede recibir mensajes.
+
+74
+00:04:28,120 --> 00:04:30,680
+Te lo dije cuando hicimos la sintaxis,
+
+75
+00:04:30,840 --> 00:04:32,720
+Te dije que salgas hoy ...
+
+76
+00:04:32,880 --> 00:04:37,680
+¿Que es eso? Es un mensaje
+que enviamos a una clase.
+
+77
+00:04:37,840 --> 00:04:40,040
+No hay elementos
+Sintaxis diferente.
+
+78
+00:04:40,200 --> 00:04:44,040
+Es lo mismo que enviar un mensaje
+sintácticamente a una instancia.
+
+79
+00:04:44,200 --> 00:04:48,640
+Además, este curso te muestra,
+solo hay una búsqueda de método.
+
+80
+00:04:48,800 --> 00:04:51,760
+Los métodos de clase
+son buscados dinámicamente
+
+81
+00:04:51,920 --> 00:04:54,520
+como los métodos de instancia.
+¿Dónde se miran?
+
+82
+00:04:54,680 --> 00:04:56,560
+En la clase del receptor.
+
+83
+00:04:56,720 --> 00:04:59,520
+Cuando es una instancia,
+Se buscó en la clase,
+
+84
+00:04:59,680 --> 00:05:01,800
+cuando es una clase de instancia
+como la clase Counter
+
+85
+00:05:01,960 --> 00:05:05,880
+Se buscó en la metaclase,
+en la clase llamada clase de contador.
+
+86
+00:05:06,040 --> 00:05:10,520
+Entonces, una clase es una instancia
+de otra clase, llamada metaclase,
+
+87
+00:05:10,680 --> 00:05:13,560
+y solo una mirada funciona.
+
+88
+00:05:13,720 --> 00:05:17,480
+Entonces volveremos a esta noción
+en la sesión final,
+
+89
+00:05:17,640 --> 00:05:20,640
+en la conferencia
+Comprender Metaclases
+
+90
+00:05:20,800 --> 00:05:24,040
+y vamos a revisar,
+vamos a levantar la tapa de Pharo
+
+91
+00:05:24,200 --> 00:05:27,080
+y le mostrará cómo funciona,
+y es completamente uniforme.

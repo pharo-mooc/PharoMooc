@@ -1,0 +1,387 @@
+WEBVTT
+
+00:00:00.590 --> 00:00:02.250 align:middle
+Bonjour. Dans cette
+séquence on va revenir sur quelque
+
+00:00:02.450 --> 00:00:04.170 align:middle
+chose encore, que vous
+avez des déjà vue dans les
+
+00:00:04.370 --> 00:00:06.730 align:middle
+séquences précédentes,
+mais on va réenfoncer le clou,
+
+00:00:07.170 --> 00:00:10.560 align:middle
+donc sur les tableaux
+littéraux et les tableaux
+
+00:00:10.760 --> 00:00:12.110 align:middle
+dynamiques, donc la
+différence entre les 2.
+
+00:00:13.180 --> 00:00:15.900 align:middle
+Donc ce que vous allez
+apprendre c'est vraiment que l'es
+
+00:00:16.100 --> 00:00:17.330 align:middle
+tableaux littéraux ne
+sont pas créés par envoi de
+
+00:00:17.530 --> 00:00:22.160 align:middle
+messages, les tableaux dynamiques
+sont vraiment créés à l'exécution,
+
+00:00:22.360 --> 00:00:24.920 align:middle
+grâce à des envois de
+messages, mais que tous les 2 dans
+
+00:00:25.120 --> 00:00:26.720 align:middle
+les 2 cas sont des
+instances de la classe Array.
+
+00:00:26.920 --> 00:00:29.460 align:middle
+Donc c'est juste 2 méthodes de
+création de tableaux différents.
+
+00:00:30.300 --> 00:00:33.170 align:middle
+Donc vous vous souvenez,
+pour créer un tableau literal on
+
+00:00:33.390 --> 00:00:37.000 align:middle
+utilise la syntaxe Dièse
+parenthèse et, puis au milieu je
+
+00:00:37.200 --> 00:00:40.080 align:middle
+peux mettre n'importe quel
+objet sous sa forme textuelle.
+
+00:00:40.570 --> 00:00:44.240 align:middle
+Donc l'entier 45, la
+Chaîne de caractères "Milou", le
+
+00:00:44.440 --> 00:00:48.190 align:middle
+nombre 1 300, le booléen true
+et puis ici un symbole #tintin.
+
+00:00:48.870 --> 00:00:52.250 align:middle
+D'accord. Donc si je
+demande la classe à ce tableau, sa
+
+00:00:52.450 --> 00:00:55.070 align:middle
+ classe à cet objet
+littéral, il me rend bien "Array".
+
+00:00:55.270 --> 00:00:56.270 align:middle
+Donc c'est bien une
+instance de la classe Array.
+
+00:00:57.060 --> 00:01:00.740 align:middle
+Donc la version dynamique,
+le pendant dynamique de ce
+
+00:01:00.940 --> 00:01:04.210 align:middle
+tableau literal, la voici, d'accord.
+
+00:01:04.410 --> 00:01:06.650 align:middle
+Donc pour créer un
+tableau long je prends la classe
+
+00:01:06.850 --> 00:01:09.450 align:middle
+Array, je vais en créer une
+instance, là c'est grâce à la
+
+00:01:09.650 --> 00:01:10.410 align:middle
+méthode "with with with with".
+
+00:01:10.610 --> 00:01:13.260 align:middle
+D'accord, que je vais
+envoyer avec tous les paramètres et
+
+00:01:13.460 --> 00:01:16.460 align:middle
+ça me crée bien un tableau,
+d'accord, une instance de la
+
+00:01:16.660 --> 00:01:18.360 align:middle
+ classe Array qui est
+complètement équivalente à celle du dessus.
+
+00:01:18.710 --> 00:01:21.610 align:middle
+C'est juste 2 manières de
+créer des objets différentes.
+
+00:01:22.740 --> 00:01:25.550 align:middle
+Alors la version dynamique, je vous
+en montre encore une nouvelle version.
+
+00:01:25.860 --> 00:01:29.590 align:middle
+Donc j'aurais pu créer ici
+un tableau manuellement, en
+
+00:01:29.790 --> 00:01:33.000 align:middle
+envoyant un message "new" à la
+ classe "Array" et puis j'aurais
+
+00:01:33.200 --> 00:01:36.510 align:middle
+pu faire des "at put",
+d'accord, pour remplir les cases
+
+00:01:36.710 --> 00:01:39.430 align:middle
+du tableau et puis retourner
+le tableau in fine, d'accord.
+
+00:01:39.630 --> 00:01:41.770 align:middle
+C'est encore une manière de
+créer un tableau dynamiquement.
+
+00:01:42.710 --> 00:01:46.120 align:middle
+Mais en fait on a une
+syntaxe particulière qui est du
+
+00:01:46.320 --> 00:01:51.170 align:middle
+sucre syntaxique en fait,
+avec les accolades, d'accord.
+
+00:01:51.370 --> 00:01:52.760 align:middle
+Donc les accolades, ça
+me permet juste d'écrire
+
+00:01:53.000 --> 00:01:55.420 align:middle
+exactement ce que j'ai
+écrit dans la version du dessus
+
+00:01:55.620 --> 00:01:59.150 align:middle
+ici, mais plus rapidement.
+Donc de façon plus concise.
+
+00:02:00.180 --> 00:02:01.520 align:middle
+Qui est
+complètement équivalente aussi.
+
+00:02:02.170 --> 00:02:05.770 align:middle
+Donc c'est-à-dire, je vais
+utiliser des accolades et je
+
+00:02:06.000 --> 00:02:07.830 align:middle
+vais mettre des
+expressions, un ensemble d'expressions,
+
+00:02:08.030 --> 00:02:10.800 align:middle
+séparé par des points qui vont
+être évalués pour créer la collection.
+
+00:02:11.770 --> 00:02:16.410 align:middle
+Donc la grosse différence
+entre un tableau literal et un
+
+00:02:16.610 --> 00:02:20.270 align:middle
+tableau créé
+dynamiquement, grâce aux accolades, la
+
+00:02:20.470 --> 00:02:24.100 align:middle
+voici, c'est que je prends
+une expression par exemple, je
+
+00:02:24.300 --> 00:02:25.600 align:middle
+dis, je vous donne l'exemple ici.
+
+00:02:25.800 --> 00:02:27.750 align:middle
+Je prends une
+variable, j'initialise à 12.
+
+00:02:28.460 --> 00:02:31.810 align:middle
+Et je veux créer un
+tableau ici et je mets Dièse
+
+00:02:32.010 --> 00:02:35.200 align:middle
+parenthèse, donc c'est un
+tableau literal, je fais "a + 1.
+
+00:02:35.440 --> 00:02:37.900 align:middle
+13" ça va me rendre
+le tableau suivant.
+
+00:02:38.870 --> 00:02:41.030 align:middle
+D'accord. Donc c'est un
+tableau qui va contenir le
+
+00:02:41.230 --> 00:02:43.770 align:middle
+symbole "a" le symbole
+"+", l'entier "1", le symbole.
+
+00:02:44.520 --> 00:02:47.530 align:middle
+et l'entier 13. Je fais la
+même chose ici avec un tableau
+
+00:02:47.730 --> 00:02:51.690 align:middle
+dynamique : a =12 { A + 1.
+
+00:02:51.890 --> 00:02:56.000 align:middle
+13} et j'obtiens un
+tableau à 2 éléments,
+
+00:02:56.610 --> 00:02:59.000 align:middle
+13 et 13. Pourquoi ?
+
+00:02:59.450 --> 00:03:04.250 align:middle
+Parce que a+1 a été évalué
+comme une expression d'accord.
+
+00:03:04.450 --> 00:03:08.240 align:middle
+Donc ça a a vaut 12, plus
+1, 13 donc on a bien évalué
+
+00:03:08.440 --> 00:03:11.150 align:middle
+chacune des expressions
+séparées par des points avant de
+
+00:03:11.350 --> 00:03:12.110 align:middle
+construire le tableau.
+
+00:03:13.000 --> 00:03:15.080 align:middle
+Donc la grosse différence,
+elle est vraiment ici, c'est
+
+00:03:15.280 --> 00:03:17.000 align:middle
+ça qui est important,
+c'est que quand j'utilise les
+
+00:03:17.200 --> 00:03:19.700 align:middle
+accolades, ça exécute les
+expressions, alors que j'utilise
+
+00:03:19.900 --> 00:03:23.160 align:middle
+Dièse parenthèses à un
+tableau literal, les expressions à
+
+00:03:23.360 --> 00:03:25.210 align:middle
+l'intérieur ne sont
+pas du tout exécutées.
+
+00:03:26.180 --> 00:03:30.560 align:middle
+Et pourquoi? Parce que c'est
+le compilateur qui va créer
+
+00:03:31.000 --> 00:03:34.600 align:middle
+le tableau quand c'est dans
+le cas d'un tableau literal.
+
+00:03:35.220 --> 00:03:39.110 align:middle
+Donc je vous en montre ici, un
+autre exemple un peu plus compliqué.
+
+00:03:39.340 --> 00:03:42.000 align:middle
+Donc ici je fais Dièse
+parenthèse et puis je réutilise
+
+00:03:42.300 --> 00:03:45.480 align:middle
+des parenthèses à l'intérieur.
+Donc là c'est un point, d'accord,
+
+00:03:46.000 --> 00:03:48.670 align:middle
+et puis je réutilise des
+parenthèses à l'intérieur, et caetera.
+
+00:03:49.060 --> 00:03:51.610 align:middle
+On voit qu'en fait il n'y a
+rien qui a été interprété au
+
+00:03:51.810 --> 00:03:54.690 align:middle
+moment dans ce tableau
+littéral, d'accord, puisqu'il a
+
+00:03:54.890 --> 00:03:58.450 align:middle
+été créé à la compilation
+par le compilateur et donc on a
+
+00:03:58.650 --> 00:04:03.120 align:middle
+un tableau qui contient
+des sous- tableaux, d'accord,
+
+00:04:03.320 --> 00:04:04.210 align:middle
+vous les voyez ici.
+
+00:04:05.490 --> 00:04:09.900 align:middle
+OK. Donc le premier
+sous-tableau contient "10", le
+
+00:04:10.630 --> 00:04:13.630 align:middle
+symbole "arobase" et
+l'entier "20" et caetera.
+
+00:04:14.230 --> 00:04:15.000 align:middle
+D'accord.
+
+00:04:15.190 --> 00:04:17.330 align:middle
+Donc pour preuve si je
+demande l'élément "1" de ce
+
+00:04:17.530 --> 00:04:19.130 align:middle
+tableau, je récupère bien un tableau.
+
+00:04:19.600 --> 00:04:22.360 align:middle
+Donc dès que je vais
+mettre des parenthèses dans un
+
+00:04:22.560 --> 00:04:24.670 align:middle
+tableau literal, ça va
+créer des sous-tableaux.
+
+00:04:26.380 --> 00:04:29.610 align:middle
+Donc en résumé ce qu'il
+faut retenir c'est qu'on a une
+
+00:04:29.810 --> 00:04:32.480 align:middle
+seule sorte de tableau en
+Pharo, c'est-à dire que la
+
+00:04:32.680 --> 00:04:34.060 align:middle
+ classe "Array" et les
+instances de la classe "Array".
+
+00:04:34.620 --> 00:04:37.080 align:middle
+Mais on a plusieurs façons
+d'instancier cette classe
+
+00:04:37.280 --> 00:04:38.300 align:middle
+Array, de créer des tableaux.
+
+00:04:38.760 --> 00:04:42.470 align:middle
+Donc on a une première forme qui
+est la syntaxe littérale, # ().
+
+00:04:42.840 --> 00:04:44.370 align:middle
+Attention, les tableaux
+vont être créés par le
+
+00:04:44.570 --> 00:04:46.510 align:middle
+compilateur au
+moment de la compilation.
+
+00:04:47.440 --> 00:04:50.540 align:middle
+On a la forme dynamique la
+plus simple, "Array new", j'envoie
+
+00:04:50.740 --> 00:04:52.190 align:middle
+le message new à la classe
+array, donc je vais créer
+
+00:04:52.390 --> 00:04:53.580 align:middle
+dynamiquement le tableau.
+
+00:04:53.780 --> 00:04:56.830 align:middle
+Et on a une forme plus
+compacte syntaxiquement, mais qui
+
+00:04:57.030 --> 00:05:01.040 align:middle
+est aussi dynamique, avec
+les accolades, { ouvrante et }
+
+00:05:01.240 --> 00:05:03.390 align:middle
+fermante, où vais mettre des
+expressions séparées par des
+
+00:05:03.590 --> 00:05:05.320 align:middle
+points, qui seront évaluées
+pour construire le tableau.
+

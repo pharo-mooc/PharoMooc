@@ -1,0 +1,806 @@
+WEBVTT
+
+00:00:07.640 --> 00:00:11.920 align:middle
+Hola, en esta secuencia,
+verás el poder de Seaside,
+
+00:00:12.080 --> 00:00:14.480 align:middle
+a través de la composición de los componentes.
+
+00:00:14.640 --> 00:00:18.360 align:middle
+Definimos el reutilizable
+y componentes con estado,
+
+00:00:18.520 --> 00:00:21.760 align:middle
+ahora veremos cómo podemos
+juntar estos componentes
+
+00:00:21.920 --> 00:00:25.200 align:middle
+para construir aplicaciones complejas.
+Como dijimos, una aplicación
+
+00:00:25.360 --> 00:00:27.120 align:middle
+es un componente raíz,
+
+00:00:27.280 --> 00:00:31.760 align:middle
+por lo que nos beneficiamos de la depuración,
+de depuración en vivo de aplicaciones.
+
+00:00:31.920 --> 00:00:35.240 align:middle
+Volveremos
+3 mecanismos importantes
+
+00:00:35.400 --> 00:00:37.480 align:middle
+para componer componentes en Seaside.
+
+00:00:37.640 --> 00:00:40.080 align:middle
+El primero es la agregación de componentes.
+
+00:00:40.240 --> 00:00:42.880 align:middle
+Recuerde, definimos 2 contadores,
+
+00:00:43.040 --> 00:00:46.000 align:middle
+un contador normal,
+que se parecía a esto
+
+00:00:46.160 --> 00:00:49.800 align:middle
+y un contador de Twitter, aquí.
+
+00:00:49.960 --> 00:00:51.000 align:middle
+¿OKAY?
+
+00:00:51.160 --> 00:00:56.080 align:middle
+¿Cómo puedo agregar ahora?
+un contador de componente
+
+00:00:56.280 --> 00:00:58.280 align:middle
+con vistas al edificio
+una aplicación de varios mostradores?
+
+00:00:58.440 --> 00:01:00.720 align:middle
+Quiero mostrar mucho
+de contadores en una página.
+
+00:01:00.880 --> 00:01:03.360 align:middle
+Cuando hago clic en este +, por ejemplo,
+
+00:01:03.520 --> 00:01:06.680 align:middle
+solo aumenta el valor
+de este contador en particular, ¿de acuerdo?
+
+00:01:06.840 --> 00:01:11.080 align:middle
+Entonces, agregando muchos componentes
+en la misma página, fácilmente.
+
+00:01:11.240 --> 00:01:13.800 align:middle
+Entonces, ¿cómo hacemos esto en Seaside?
+Es muy simple
+
+00:01:13.960 --> 00:01:17.400 align:middle
+Definiré una subclase de componente,
+que es siempre el mismo,
+
+00:01:17.560 --> 00:01:19.720 align:middle
+que se llama "WAMultiCounter",
+
+00:01:19.880 --> 00:01:23.080 align:middle
+"contadores de variables de instancia",
+definiendo una colección de contadores.
+
+00:01:23.240 --> 00:01:28.480 align:middle
+En "método inicializar" crearé
+una colección de 5 contadores, aquí.
+
+00:01:29.520 --> 00:01:30.440 align:middle
+¿OKAY?
+
+00:01:30.600 --> 00:01:34.840 align:middle
+Y luego tendré el método
+"rendercontentOn", aquí
+
+00:01:35.000 --> 00:01:38.920 align:middle
+donde diré que navegaré
+mi colección de mostradores con un "hacer"
+
+00:01:39.080 --> 00:01:42.400 align:middle
+y le preguntaré a cada contador,
+al menos, el objeto html,
+
+00:01:42.560 --> 00:01:47.000 align:middle
+para representar cada uno de los contadores.
+Uso un método especial, "render".
+
+00:01:47.160 --> 00:01:50.680 align:middle
+Este método render del objeto html
+
+00:01:50.840 --> 00:01:55.560 align:middle
+le permite preguntar a un componente
+para renderizarse, dibujarse en html.
+
+00:01:55.720 --> 00:01:58.640 align:middle
+Tenemos un método importante aquí
+llamado "niños",
+
+00:01:58.800 --> 00:02:02.640 align:middle
+lo que significa que cuando un componente
+encapsula otros componentes
+
+00:02:02.800 --> 00:02:05.560 align:middle
+y les pide que hagan
+en "renderContentOn",
+
+00:02:05.720 --> 00:02:09.800 align:middle
+tiene que declararlos y hacer eso
+tiene que representar una colección
+
+00:02:09.960 --> 00:02:11.760 align:middle
+de componentes en su método "niños"
+
+00:02:11.920 --> 00:02:15.440 align:middle
+que contiene todos los componentes
+va a hacer, todos sus hijos.
+
+00:02:15.600 --> 00:02:18.800 align:middle
+Aquí estoy renderizado
+la colección "contadores".
+
+00:02:18.960 --> 00:02:21.680 align:middle
+Es un método importante para definir.
+
+00:02:22.600 --> 00:02:25.560 align:middle
+Entonces, las reglas básicas
+para agregar componentes,
+
+00:02:25.720 --> 00:02:27.840 align:middle
+Componer componentes es fácil.
+
+00:02:28.000 --> 00:02:30.920 align:middle
+Un componente
+almacenará sus subcomponentes
+
+00:02:31.080 --> 00:02:35.680 align:middle
+en una variable de instancia.
+En nuestro ejemplo, es "contadores", ¿de acuerdo?
+
+00:02:35.840 --> 00:02:38.440 align:middle
+Luego pasará el mensaje "renderizado"
+
+00:02:38.600 --> 00:02:41.760 align:middle
+a html,
+
+00:02:41.920 --> 00:02:46.600 align:middle
+en su método "renderContentOn"
+pidiendo a cada niño que se renderice.
+
+00:02:47.480 --> 00:02:49.440 align:middle
+Luego redefinirá
+el método "niños"
+
+00:02:49.600 --> 00:02:52.000 align:middle
+para declarar todos sus subcomponentes.
+
+00:02:53.080 --> 00:02:54.480 align:middle
+Siempre hay estas 3 partes.
+
+00:02:57.240 --> 00:03:00.000 align:middle
+También podemos agregar
+diferentes subcomponentes
+
+00:03:00.160 --> 00:03:02.280 align:middle
+No tienen que ser del mismo tipo.
+
+00:03:02.440 --> 00:03:06.800 align:middle
+Antes solo combinaba contadores
+y aquí vamos a tener
+
+00:03:06.960 --> 00:03:09.920 align:middle
+una aplicación, un componente de MyApp
+
+00:03:10.080 --> 00:03:12.520 align:middle
+En el método "inicializar"
+Es una colección,
+
+00:03:12.680 --> 00:03:15.320 align:middle
+excepto que en esta colección pongo
+
+00:03:15.480 --> 00:03:19.200 align:middle
+la aplicación "Greeter" que usamos
+en una secuencia previa, que vimos,
+
+00:03:19.360 --> 00:03:22.600 align:middle
+un contador de twitters y un contador.
+3 componentes
+
+00:03:22.760 --> 00:03:25.680 align:middle
+Mi método, "niños" se muestra
+
+00:03:25.840 --> 00:03:29.200 align:middle
+todos los niños, los subcomponentes
+de este componente MyApp,
+
+00:03:29.360 --> 00:03:30.960 align:middle
+y en "renderContentOn"
+
+00:03:31.120 --> 00:03:35.560 align:middle
+Quiero explorar mis hijos
+y pídales que se representen.
+
+00:03:35.720 --> 00:03:37.880 align:middle
+Entonces hacemos "html render:cada uno"
+
+00:03:38.040 --> 00:03:40.480 align:middle
+y haré "html render" de Greeter,
+
+00:03:40.640 --> 00:03:43.400 align:middle
+el contador y contador de Twitter.
+
+00:03:43.560 --> 00:03:44.800 align:middle
+Veamos lo que tenemos.
+
+00:03:44.960 --> 00:03:49.880 align:middle
+Aquí tenemos el componente Greeter,
+que se muestra en la página web,
+
+00:03:50.040 --> 00:03:52.840 align:middle
+tenemos el contador de Twitter
+se muestra aquí,
+
+00:03:53.000 --> 00:03:55.240 align:middle
+y el contador normal que se muestra aquí.
+
+00:03:55.400 --> 00:03:58.640 align:middle
+Hemos compuesto los componentes.
+y todos trabajan de forma independiente
+
+00:03:58.800 --> 00:04:00.960 align:middle
+si hago clic en el +
+y el "Say Hello", etc.,
+
+00:04:01.120 --> 00:04:02.840 align:middle
+los componentes funcionan perfectamente.
+
+00:04:04.880 --> 00:04:08.000 align:middle
+Entonces, si quieres,
+hay una etapa más allá.
+
+00:04:08.160 --> 00:04:12.200 align:middle
+No queremos que todos los componentes
+a la vez en la página web.
+
+00:04:12.360 --> 00:04:15.720 align:middle
+Queremos uno a la vez,
+un menú, por ejemplo, para seleccionar
+
+00:04:15.880 --> 00:04:17.560 align:middle
+que subcomponente
+queremos que se muestre
+
+00:04:17.720 --> 00:04:19.840 align:middle
+Típicamente,
+Solo quiero mostrar el Greeter
+
+00:04:20.000 --> 00:04:22.120 align:middle
+y cuando hago clic en el contador de Twitter aquí,
+
+00:04:22.280 --> 00:04:26.120 align:middle
+Solo voy a mostrar
+el contador de Twitter
+
+00:04:26.280 --> 00:04:28.800 align:middle
+¿Cómo hacemos esta aplicación?
+Es fácil.
+
+00:04:28.960 --> 00:04:31.880 align:middle
+Agrego una variable de instancia
+en mi aplicación MyApp,
+
+00:04:32.040 --> 00:04:35.440 align:middle
+que se llama el seleccionado
+Componente, el niño seleccionado.
+
+00:04:35.600 --> 00:04:38.760 align:middle
+De forma predeterminada, lo inicializaré
+
+00:04:38.920 --> 00:04:40.960 align:middle
+al primer subcomponente,
+
+00:04:41.120 --> 00:04:44.280 align:middle
+En el método "renderContentOn"
+aquí, lo he modificado,
+
+00:04:44.440 --> 00:04:46.640 align:middle
+Mostraré un menú,
+
+00:04:46.800 --> 00:04:50.680 align:middle
+dándome la posibilidad de seleccionar
+qué subcomponente muestro,
+
+00:04:50.840 --> 00:04:55.000 align:middle
+entonces hago "html render" pero solo
+del subcomponente que quiero mostrar.
+
+00:04:55.160 --> 00:04:56.520 align:middle
+Muy simple.
+
+00:04:56.680 --> 00:05:00.440 align:middle
+En el menú, voy a generar
+una lista desordenada,
+
+00:05:00.600 --> 00:05:04.120 align:middle
+Examinaré todos mis subcomponentes
+
+00:05:04.280 --> 00:05:06.680 align:middle
+que busco con un índice, "yo"
+
+00:05:08.160 --> 00:05:11.480 align:middle
+y genero un elemento de lista
+para cada niño
+
+00:05:11.640 --> 00:05:13.680 align:middle
+Aquí, voy a generar un ancla,
+
+00:05:13.840 --> 00:05:17.480 align:middle
+un enlace que se puede hacer clic
+y cuando hago clic en este enlace,
+
+00:05:17.640 --> 00:05:22.600 align:middle
+se activará la devolución de llamada,
+La ejecución de este bloque, aquí.
+
+00:05:22.760 --> 00:05:27.600 align:middle
+Entonces podemos decir que es fácil,
+el componente seleccionado por el usuario
+
+00:05:27.760 --> 00:05:31.480 align:middle
+es el número de niño ...
+así que "hijos".
+
+00:05:31.640 --> 00:05:33.320 align:middle
+Recuerda, es una colección ...
+
+00:05:33.480 --> 00:05:35.000 align:middle
+"en:i"
+
+00:05:35.160 --> 00:05:38.200 align:middle
+¿OKAY? Y "yo" aquí
+
+00:05:38.360 --> 00:05:41.640 align:middle
+no es más ni menos
+que la cantidad del elemento
+
+00:05:41.800 --> 00:05:43.360 align:middle
+en la colección "niños".
+
+00:05:45.200 --> 00:05:49.680 align:middle
+Entonces es extremadamente fácil poder
+para explorar todos los subcomponentes
+
+00:05:49.840 --> 00:05:52.320 align:middle
+y para generar específicamente,
+controlar completamente
+
+00:05:52.480 --> 00:05:54.600 align:middle
+lo que debe y no debe
+se mostrará.
+
+00:05:56.080 --> 00:05:59.640 align:middle
+Tenemos un segundo mecanismo de composición,
+que es "respuesta de llamada".
+
+00:05:59.800 --> 00:06:02.080 align:middle
+Hemos visto la agregación de componentes.
+
+00:06:02.240 --> 00:06:05.800 align:middle
+con subcomponentes, y ahora veremos
+el mecanismo de "respuesta de llamada".
+
+00:06:05.960 --> 00:06:09.960 align:middle
+Si nos imaginamos,
+en el código del componente A,
+
+00:06:10.120 --> 00:06:14.280 align:middle
+escribiremos algo que luzca
+como este código aquí, diremos,
+
+00:06:15.040 --> 00:06:19.120 align:middle
+el componente A llama al componente B.
+Llamar al componente B.
+
+00:06:19.280 --> 00:06:24.240 align:middle
+Lo que sucederá es el componente B
+enmascarará el componente A en la página web,
+
+00:06:24.400 --> 00:06:26.120 align:middle
+se llevará a cabo un tratamiento,
+
+00:06:26.280 --> 00:06:28.880 align:middle
+y después de un tiempo, el componente B
+dirá:"He hecho mi tratamiento,
+
+00:06:29.040 --> 00:06:31.200 align:middle
+"Responderé y daré un resultado".
+
+00:06:31.360 --> 00:06:33.760 align:middle
+Aquí el resultado es una estrella,
+
+00:06:33.920 --> 00:06:36.440 align:middle
+y este resultado se almacenará en X
+
+00:06:37.320 --> 00:06:40.080 align:middle
+en lugar del "componente de llamada B".
+
+00:06:40.240 --> 00:06:43.280 align:middle
+Ahora, el componente B reaparecerá
+en la página web
+
+00:06:43.440 --> 00:06:46.080 align:middle
+y el componente A puede usar este resultado
+hacer algo.
+
+00:06:46.720 --> 00:06:48.000 align:middle
+Te mostraré un ejemplo.
+
+00:06:48.160 --> 00:06:51.760 align:middle
+Aquí tenemos un componente,
+que era el contador.
+
+00:06:51.920 --> 00:06:54.920 align:middle
+Hemos agregado un botón,
+aquí, "Establecer valor",
+
+00:06:55.080 --> 00:06:57.440 align:middle
+Nos imaginamos que "Set Value"
+permite al usuario
+
+00:06:57.600 --> 00:06:59.560 align:middle
+para ingresar un nuevo valor para el contador.
+
+00:06:59.720 --> 00:07:03.440 align:middle
+Cuando hacemos clic en "Establecer valor"
+se muestra un nuevo componente,
+
+00:07:03.600 --> 00:07:07.000 align:middle
+que nos permite ingresar,
+un poco como el componente Greeter,
+
+00:07:07.160 --> 00:07:10.360 align:middle
+podemos ingresar un nuevo valor
+Para el contador, haga clic en "Aceptar"
+
+00:07:10.520 --> 00:07:14.120 align:middle
+y cuando hago clic en "Aceptar"
+vuelve a nuestro componente contador
+
+00:07:14.280 --> 00:07:18.080 align:middle
+pero con el valor ingresado aquí
+por el usuario al principio.
+
+00:07:18.280 --> 00:07:19.600 align:middle
+¿OKAY?
+
+00:07:19.760 --> 00:07:22.080 align:middle
+Entonces tenemos una serie
+de varios componentes
+
+00:07:23.000 --> 00:07:24.640 align:middle
+¿Cómo se implementa esto?
+
+00:07:24.800 --> 00:07:29.200 align:middle
+Tenemos nuestro contador de Twitter
+con su método "renderContentOn".
+
+00:07:29.360 --> 00:07:33.320 align:middle
+A su método "renderContentOn"
+agregaremos un botón,
+
+00:07:33.480 --> 00:07:37.160 align:middle
+un tbsButton, etc ...
+Este botón se llama "Establecer valor", aquí.
+
+00:07:37.320 --> 00:07:41.000 align:middle
+Cuando hacemos clic en este botón,
+esta devolución de llamada se ejecutará.
+
+00:07:41.160 --> 00:07:43.960 align:middle
+Es el método "setCountToUserValue".
+
+00:07:44.120 --> 00:07:46.600 align:middle
+SetCountToUser se define aquí.
+
+00:07:46.760 --> 00:07:50.120 align:middle
+Lo que hacemos es prepararemos
+un cuadro de diálogo aquí.
+
+00:07:50.280 --> 00:07:53.920 align:middle
+Usaremos otro componente
+hecho por Seaside, un cuadro de diálogo.
+
+00:07:54.080 --> 00:07:56.000 align:middle
+que configuraremos aquí,
+
+00:07:56.160 --> 00:07:59.320 align:middle
+en este caso con
+"Ingrese un nuevo valor para el contador".
+
+00:07:59.480 --> 00:08:02.200 align:middle
+La configuración predeterminada es 0
+y tenemos un botón OK.
+
+00:08:02.840 --> 00:08:04.320 align:middle
+Qué haremos luego ...
+
+00:08:04.480 --> 00:08:07.080 align:middle
+Lo realmente interesante
+El elemento es esta línea aquí ...
+
+00:08:07.840 --> 00:08:09.040 align:middle
+Aquí...
+
+00:08:10.200 --> 00:08:13.400 align:middle
+Vamos a decir,
+"componente actual", por lo que "Auto".
+
+00:08:13.560 --> 00:08:15.800 align:middle
+Recuerda,
+"Self" es el contador de Twitter.
+
+00:08:15.960 --> 00:08:19.480 align:middle
+"Llamar al cuadro de diálogo
+acabamos de crear,
+
+00:08:19.640 --> 00:08:21.080 align:middle
+"y dame el resultado".
+
+00:08:21.720 --> 00:08:24.360 align:middle
+El resultado será
+El nuevo valor del contador.
+
+00:08:24.520 --> 00:08:27.280 align:middle
+Entonces, cuando hayamos terminado
+aquí, vamos a decir,
+
+00:08:27.440 --> 00:08:29.800 align:middle
+"contar", por lo que el valor del contador,
+
+00:08:29.960 --> 00:08:33.560 align:middle
+"Toma este nuevo valor ingresado
+por el usuario en la forma de un número ".
+
+00:08:34.520 --> 00:08:35.480 align:middle
+Muy simple.
+
+00:08:35.920 --> 00:08:38.200 align:middle
+De manera interna,
+podemos examinar el funcionamiento
+
+00:08:38.400 --> 00:08:40.560 align:middle
+de este cuadro WAInputDialog.
+
+00:08:40.720 --> 00:08:44.760 align:middle
+Es un componente Seaside reutilizable,
+totalmente clásico,
+
+00:08:44.920 --> 00:08:47.000 align:middle
+excepto por una característica especial,
+
+00:08:47.160 --> 00:08:51.320 align:middle
+usa el método de "respuesta"
+para enviar un resultado
+
+00:08:52.080 --> 00:08:55.000 align:middle
+Si nos fijamos en el
+Método "renderContentOn"
+
+00:08:55.160 --> 00:08:56.720 align:middle
+de este componente,
+
+00:08:56.880 --> 00:08:59.720 align:middle
+cuando hacemos clic en su botón Aceptar,
+
+00:08:59.880 --> 00:09:02.040 align:middle
+aquí, es el botón "enviar"
+
+00:09:02.200 --> 00:09:06.280 align:middle
+Tiene una devolución de llamada con un bloque,
+y en su devolución de llamada
+
+00:09:06.960 --> 00:09:10.560 align:middle
+Hará "auto respuesta:valor".
+
+00:09:11.040 --> 00:09:15.120 align:middle
+Lo que significa que esto
+enviará el resultado
+
+00:09:15.280 --> 00:09:18.520 align:middle
+al componente que lo llamó.
+
+00:09:18.680 --> 00:09:22.440 align:middle
+Realmente volverá al lugar
+desde donde se realizó la llamada
+
+00:09:22.600 --> 00:09:24.520 align:middle
+y enviar el resultado.
+
+00:09:25.760 --> 00:09:27.400 align:middle
+Hemos visto el mecanismo de llamada / respuesta.
+
+00:09:27.560 --> 00:09:30.440 align:middle
+Ahora veremos una última
+mecanismo de composición de componentes
+
+00:09:30.600 --> 00:09:33.120 align:middle
+el mecanismo de "tarea"
+
+00:09:33.960 --> 00:09:35.160 align:middle
+En realidad, es muy simple.
+
+00:09:35.320 --> 00:09:37.880 align:middle
+Las tareas son como componentes,
+pero no hay partes de interfaz de usuario,
+
+00:09:38.040 --> 00:09:41.320 align:middle
+así que no "renderContentOn"
+no hay generación de htmls.
+
+00:09:41.480 --> 00:09:44.000 align:middle
+La idea es realmente orquestar,
+
+00:09:44.160 --> 00:09:48.640 align:middle
+para describir cómo los componentes
+debe realizarse con el tiempo.
+
+00:09:48.800 --> 00:09:51.480 align:middle
+Este componente hará esto primero,
+entonces ese, etc ...
+
+00:09:51.640 --> 00:09:55.960 align:middle
+Usando "call:answer" detrás de escena.
+
+00:09:56.120 --> 00:09:58.920 align:middle
+Entonces definiremos una tarea
+llamado un "sumador"
+
+00:09:59.080 --> 00:10:02.120 align:middle
+y luego todas las tareas
+tener un método llamado "ir".
+
+00:10:02.280 --> 00:10:04.680 align:middle
+Aquí, por ejemplo, en esta tarea,
+
+00:10:04.840 --> 00:10:09.800 align:middle
+le pediremos al usuario que ingrese un número,
+por lo que "auto-solicitud:primer número"
+
+00:10:09.960 --> 00:10:13.360 align:middle
+entonces le pediremos que ingrese
+un segundo número, "número 2"
+
+00:10:13.520 --> 00:10:17.160 align:middle
+entonces le informaremos de un valor
+
+00:10:17.320 --> 00:10:21.120 align:middle
+que es la suma
+de estos 2 números, aquí, ¿de acuerdo?
+
+00:10:21.280 --> 00:10:25.240 align:middle
+En la última línea, nos registraremos
+este componente como una aplicación ...
+
+00:10:25.400 --> 00:10:28.240 align:middle
+una aplicación web clásica
+para acceder a ella con un navegador.
+
+00:10:29.920 --> 00:10:31.560 align:middle
+Entonces, si miramos dentro de él,
+
+00:10:31.720 --> 00:10:34.680 align:middle
+¿Cómo se implementa el método de solicitud?
+
+00:10:34.840 --> 00:10:36.360 align:middle
+El método de solicitud es una cadena.
+
+00:10:36.520 --> 00:10:41.600 align:middle
+Internamente, como podemos ver,
+Utiliza "llamada" y "respuesta".
+
+00:10:41.800 --> 00:10:44.040 align:middle
+Si volvemos al ejemplo anterior,
+
+00:10:44.200 --> 00:10:47.640 align:middle
+vemos que cuando hicimos
+la solicitud aquí, internamente,
+
+00:10:47.800 --> 00:10:50.120 align:middle
+llamó a otro componente,
+
+00:10:50.280 --> 00:10:54.520 align:middle
+y no solo uno viejo,
+el componente WAInputDialog,
+
+00:10:54.680 --> 00:10:56.560 align:middle
+se muestra la cadena,
+
+00:10:56.720 --> 00:10:59.920 align:middle
+y este componente devolverá
+El resultado para quien lo solicitó.
+
+00:11:00.080 --> 00:11:03.440 align:middle
+En este caso, ¿quién lo solicitó?
+Nuestro componente "Adder".
+
+00:11:03.600 --> 00:11:06.440 align:middle
+Entonces se recuperará
+un valor en "Valor 1".
+
+00:11:06.600 --> 00:11:09.960 align:middle
+Lo mismo para "Value 2"
+y luego en "informar".
+
+00:11:10.120 --> 00:11:13.440 align:middle
+Si echamos un vistazo
+en cómo se implementa "informar"
+
+00:11:13.600 --> 00:11:17.160 align:middle
+También usa una llamada / respuesta,
+pero en otro tipo de componente,
+
+00:11:17.320 --> 00:11:19.680 align:middle
+que es un "FormDialog".
+
+00:11:19.840 --> 00:11:22.360 align:middle
+Si hacemos "self, llama:FormDialog"
+
+00:11:22.520 --> 00:11:25.760 align:middle
+mostraremos la cadena
+con un botón OK para decir,
+
+00:11:25.920 --> 00:11:28.040 align:middle
+"Está bien, ha visto la cuerda".
+
+00:11:28.800 --> 00:11:31.040 align:middle
+Entonces, ¿qué necesitas saber?
+
+00:11:31.240 --> 00:11:33.120 align:middle
+en todas estas formas de composición,
+
+00:11:33.280 --> 00:11:36.080 align:middle
+nunca hablamos de solicitudes,
+
+00:11:36.240 --> 00:11:39.880 align:middle
+sobre las solicitudes http, sobre la URL,
+análisis y configuración,
+
+00:11:40.040 --> 00:11:42.880 align:middle
+No hemos hablado sobre el enrutamiento de solicitudes.
+
+00:11:43.040 --> 00:11:46.680 align:middle
+No hemos hecho ningún enlace.
+a las siguientes páginas, etc ...
+
+00:11:46.840 --> 00:11:50.160 align:middle
+Solo hemos hablado de componentes,
+
+00:11:50.320 --> 00:11:52.640 align:middle
+componentes con estado
+que podemos componer,
+
+00:11:52.800 --> 00:11:55.000 align:middle
+por lo que las 3 formas de composición.
+
+00:11:55.160 --> 00:11:57.120 align:middle
+Un componente puede encapsular a otros,
+
+00:11:57.280 --> 00:11:59.480 align:middle
+un componente puede llamar a otro componente,
+
+00:11:59.640 --> 00:12:03.480 align:middle
+y podemos definir flujos de trabajo,
+cadenas de componentes en Seaside,
+
+00:12:03.640 --> 00:12:04.920 align:middle
+que es extremadamente poderoso,
+
+00:12:05.080 --> 00:12:07.840 align:middle
+y todo con la posibilidad
+de depuración en vivo.
+

@@ -1,0 +1,461 @@
+WEBVTT
+
+00:00:07.280 --> 00:00:11.520 align:middle
+Hola todos.
+En la clase de hoy, vamos a ver
+
+00:00:11.680 --> 00:00:14.520 align:middle
+si has entendido
+nuestras clases anteriores
+
+00:00:14.680 --> 00:00:16.440 align:middle
+a saber, en lo que se refiere a super.
+
+00:00:16.680 --> 00:00:19.440 align:middle
+La idea es hacerte pensar mucho.
+
+00:00:19.600 --> 00:00:22.480 align:middle
+Tengo una prueba para ver
+si lo has entendido
+
+00:00:23.360 --> 00:00:25.080 align:middle
+¿Que aprenderás?
+
+00:00:25.240 --> 00:00:27.520 align:middle
+Pensarás en lo super súper,
+
+00:00:27.680 --> 00:00:29.960 align:middle
+revisar la búsqueda de mensajes,
+
+00:00:30.120 --> 00:00:32.240 align:middle
+y piensa en los métodos de clase.
+
+00:00:32.400 --> 00:00:35.520 align:middle
+Es mucho material para una clase,
+pero es divertido.
+
+00:00:36.360 --> 00:00:42.040 align:middle
+Imagine que definí un método
+en la clase de dados,
+
+00:00:42.200 --> 00:00:44.560 align:middle
+y redefinido
+el método "nuevo" de la siguiente manera:
+
+00:00:44.720 --> 00:00:47.800 align:middle
+Aquí hay "nuevo" y aquí está el código.
+
+00:00:47.960 --> 00:00:50.960 align:middle
+inst:= super nuevo
+
+00:00:51.120 --> 00:00:52.840 align:middle
+inst inicializar Devolver inst.
+
+00:00:53.000 --> 00:00:56.920 align:middle
+Ahora ejecuto
+la expresión dados nueva
+
+00:00:57.960 --> 00:01:01.560 align:middle
+Ahora mi pregunta para ti es:
+
+00:01:01.720 --> 00:01:05.320 align:middle
+En esta expresión, ¿qué es inst?
+
+00:01:05.480 --> 00:01:07.120 align:middle
+¿Qué es súper?
+
+00:01:07.280 --> 00:01:09.280 align:middle
+¿Y qué es súper nuevo?
+
+00:01:09.720 --> 00:01:14.120 align:middle
+Te daré unos segundos
+Pensarlo más.
+
+00:01:16.600 --> 00:01:19.000 align:middle
+Te daré algunas pistas.
+
+00:01:20.040 --> 00:01:23.560 align:middle
+Se basan en mi experiencia docente.
+
+00:01:24.400 --> 00:01:28.200 align:middle
+No, super no es la superclase.
+
+00:01:28.360 --> 00:01:30.360 align:middle
+Quita eso de tu cabeza
+
+00:01:30.520 --> 00:01:33.560 align:middle
+No, inst no
+una instancia de la superclase.
+
+00:01:33.720 --> 00:01:38.200 align:middle
+Si lo fuera, nunca podríamos
+escribe instancias para las clases a continuación.
+
+00:01:38.760 --> 00:01:40.440 align:middle
+¿Así que qué es lo?
+
+00:01:41.120 --> 00:01:42.120 align:middle
+Vamos a ver.
+
+00:01:42.280 --> 00:01:44.200 align:middle
+Dijimos en el video sobre super
+
+00:01:44.360 --> 00:01:47.000 align:middle
+ese super fue el receptor
+del mensaje
+
+00:01:47.440 --> 00:01:50.800 align:middle
+Al igual que yo, súper puntos
+el receptor del mensaje
+
+00:01:50.960 --> 00:01:52.840 align:middle
+Esto no es específico de Pharo.
+
+00:01:53.000 --> 00:01:56.920 align:middle
+Es cierto en todos los objetos orientados
+lenguajes como Java, C #,
+
+00:01:57.760 --> 00:01:59.040 align:middle
+y Smalltalk.
+
+00:01:59.840 --> 00:02:03.400 align:middle
+Aquí el mensaje es nuevo para los dados.
+
+00:02:03.560 --> 00:02:07.040 align:middle
+Entonces, ¿cuál es el receptor?
+Sintácticamente hablando, son los dados.
+
+00:02:07.200 --> 00:02:09.880 align:middle
+La clase es dados.
+
+00:02:10.040 --> 00:02:14.720 align:middle
+Con estas pistas,
+deberías entender mejor
+
+00:02:16.160 --> 00:02:17.280 align:middle
+Veamos.
+
+00:02:18.160 --> 00:02:21.560 align:middle
+¿Recuerdas cómo funciona el mensaje de búsqueda?
+
+00:02:21.720 --> 00:02:24.000 align:middle
+Envío un mensaje a una instancia,
+
+00:02:24.160 --> 00:02:26.000 align:middle
+por ejemplo,
+ColoredRectangle.
+
+00:02:26.160 --> 00:02:29.480 align:middle
+Miro dentro
+la clase ColorRectangle
+
+00:02:29.640 --> 00:02:32.880 align:middle
+para ver si el método en cuestión
+se define. No es.
+
+00:02:33.040 --> 00:02:35.680 align:middle
+"Área" no está definida.
+Lo encuentro aquí.
+
+00:02:35.840 --> 00:02:40.120 align:middle
+Aplico la definición que encontré.
+
+00:02:40.280 --> 00:02:42.600 align:middle
+¿En que? En el receptor
+
+00:02:43.280 --> 00:02:46.320 align:middle
+Ahora debes entender
+lo que hace este método
+
+00:02:46.480 --> 00:02:51.560 align:middle
+Busco "nuevo" en la clase de dados.
+
+00:02:51.720 --> 00:02:56.760 align:middle
+Lo busco y lo aplico a los dados.
+
+00:02:56.920 --> 00:02:59.480 align:middle
+Miremos más de cerca.
+
+00:02:59.640 --> 00:03:01.440 align:middle
+Como expliqué anteriormente,
+
+00:03:01.600 --> 00:03:05.600 align:middle
+en Pharo, solo se envía un mensaje
+con una búsqueda de método.
+
+00:03:05.760 --> 00:03:09.560 align:middle
+Entonces, cuando envío un mensaje
+a cualquier objeto que sea,
+
+00:03:09.720 --> 00:03:12.600 align:middle
+Siempre miro en la clase.
+Sigo este enlace
+
+00:03:12.760 --> 00:03:14.160 align:middle
+Entonces esta aquí.
+
+00:03:14.320 --> 00:03:16.320 align:middle
+Siempre son estos dos pasos.
+
+00:03:16.480 --> 00:03:18.720 align:middle
+¿Qué dice esto sobre nuestro sistema?
+
+00:03:18.880 --> 00:03:21.640 align:middle
+Te lo dije, super es el receptor.
+
+00:03:22.920 --> 00:03:25.320 align:middle
+El receptor era dados.
+
+00:03:26.000 --> 00:03:31.000 align:middle
+Entonces busco nuevos
+en la superclase de la clase de dados.
+
+00:03:31.160 --> 00:03:34.680 align:middle
+La clave aquí es que es clase de dados
+y no dados
+
+00:03:34.840 --> 00:03:36.960 align:middle
+Lo veremos gráficamente después.
+
+00:03:37.120 --> 00:03:39.520 align:middle
+Una vez que encuentre el nuevo "nuevo"
+
+00:03:39.680 --> 00:03:42.640 align:middle
+Lo aplico al receptor,
+que es dados
+
+00:03:42.800 --> 00:03:44.680 align:middle
+¿Qué hace esto?
+
+00:03:44.840 --> 00:03:47.200 align:middle
+Aplico nuevo en dados,
+
+00:03:47.360 --> 00:03:51.800 align:middle
+que creará e inicializará
+Una nueva instancia de dados.
+
+00:03:51.960 --> 00:03:54.240 align:middle
+Inst será mi nueva instancia.
+
+00:03:54.400 --> 00:03:55.920 align:middle
+Un dado
+
+00:03:56.360 --> 00:03:58.760 align:middle
+Y lo inicializaré y lo devolveré.
+
+00:03:58.920 --> 00:04:01.640 align:middle
+Echemos un vistazo a un diagrama.
+
+00:04:01.800 --> 00:04:04.240 align:middle
+Cuando envío nuevo a dados,
+
+00:04:04.400 --> 00:04:07.960 align:middle
+donde me veo
+¿En qué clase miro?
+
+00:04:08.120 --> 00:04:09.760 align:middle
+Me veo en la clase de dados.
+
+00:04:10.440 --> 00:04:12.720 align:middle
+Aquí es donde uso mi famoso método.
+
+00:04:12.880 --> 00:04:16.920 align:middle
+¿Qué hago ahora?
+¿Qué dijimos sobre super?
+
+00:04:18.720 --> 00:04:21.800 align:middle
+Super es la clase de dados.
+Es el receptor
+
+00:04:21.960 --> 00:04:23.840 align:middle
+Envié el mensaje a este objeto.
+
+00:04:25.400 --> 00:04:27.680 align:middle
+Super me dice que mire adentro
+
+00:04:27.840 --> 00:04:31.440 align:middle
+la superclase
+de la clase que contiene la expresión.
+
+00:04:31.600 --> 00:04:36.720 align:middle
+Entonces miro en la superclase
+de la clase de dados.
+
+00:04:36.880 --> 00:04:39.760 align:middle
+Yo busco aqui
+Y en algún lugar aquí arriba,
+
+00:04:39.920 --> 00:04:41.200 align:middle
+Veremos más adelante,
+
+00:04:41.360 --> 00:04:42.920 align:middle
+nuevo se define
+
+00:04:43.080 --> 00:04:44.360 align:middle
+¿Qué pasa con la búsqueda?
+
+00:04:44.520 --> 00:04:46.920 align:middle
+Dijimos que el método
+se define aquí,
+
+00:04:47.080 --> 00:04:51.960 align:middle
+y lo aplicamos al receptor.
+Lo aplico a los dados.
+
+00:04:52.120 --> 00:04:55.480 align:middle
+Y esto me da una nueva instancia.
+Lo dibujaré
+
+00:04:55.640 --> 00:04:58.120 align:middle
+Devuelve una instancia:un dado.
+
+00:04:58.280 --> 00:05:02.000 align:middle
+Y inst es apuntado a
+esta nueva instancia
+
+00:05:03.000 --> 00:05:05.400 align:middle
+Entonces, inst es un nuevo dado.
+
+00:05:06.040 --> 00:05:10.680 align:middle
+Envío el mensaje de inicialización a inst,
+y luego lo devuelvo
+
+00:05:10.840 --> 00:05:15.760 align:middle
+A menudo luchas con este ejemplo.
+porque es muy retórico
+
+00:05:15.920 --> 00:05:19.840 align:middle
+Lo hago a proposito
+para ver si lo has entendido
+
+00:05:20.000 --> 00:05:21.920 align:middle
+Mezcla dos cosas.
+
+00:05:22.080 --> 00:05:23.880 align:middle
+Uno, súper
+
+00:05:24.040 --> 00:05:29.040 align:middle
+Miro en la superclase de la clase
+que contiene la expresión súper,
+
+00:05:29.200 --> 00:05:31.440 align:middle
+sabiendo que super es el receptor.
+
+00:05:31.600 --> 00:05:35.240 align:middle
+Y dos nuevas.
+Es un método que crea objetos.
+
+00:05:35.400 --> 00:05:37.120 align:middle
+Aquí es donde los dos se encuentran,
+
+00:05:37.280 --> 00:05:40.080 align:middle
+y tu tienes
+Me cuesta entender esto.
+
+00:05:40.240 --> 00:05:43.520 align:middle
+Sugiero que realmente revises
+Esta lección,
+
+00:05:43.680 --> 00:05:45.640 align:middle
+porque es muy importante
+
+00:05:45.800 --> 00:05:46.920 align:middle
+Lo repetiré
+
+00:05:47.080 --> 00:05:50.240 align:middle
+Super es el receptor del mensaje,
+
+00:05:50.400 --> 00:05:53.160 align:middle
+que en este caso es dados.
+
+00:05:53.320 --> 00:05:57.560 align:middle
+Miro en la superclase
+de la clase de dados para el nuevo método
+
+00:05:57.720 --> 00:06:02.320 align:middle
+que voy a aplicar a los dados, el receptor,
+para encontrar mi instancia de terminal.
+
+00:06:03.120 --> 00:06:04.280 align:middle
+¿Bueno?
+
+00:06:05.760 --> 00:06:11.080 align:middle
+En resumen:enviar un mensaje está buscando
+un método en la clase de receptor.
+
+00:06:11.240 --> 00:06:13.080 align:middle
+Eso es lo que hacemos cada vez.
+
+00:06:13.240 --> 00:06:15.960 align:middle
+Eso es todo lo que puedes hacer en Pharo,
+por lo que es fácil
+
+00:06:16.160 --> 00:06:20.400 align:middle
+Ya sabes que súper significa buscar
+en la superclase de la clase
+
+00:06:20.560 --> 00:06:22.680 align:middle
+que contiene la expresión super.
+
+00:06:22.880 --> 00:06:26.440 align:middle
+Y ese súper es el receptor,
+pero también puede ser una clase.
+
+00:06:26.880 --> 00:06:30.160 align:middle
+Aún no hemos terminado.
+Tengo otro problema para ti.
+
+00:06:30.320 --> 00:06:33.520 align:middle
+Si estás estudiando Pharo,
+debe gustarte los desafíos.
+
+00:06:33.680 --> 00:06:37.520 align:middle
+Aquí vamos. Imagine que tengo
+el siguiente problema:
+
+00:06:37.680 --> 00:06:41.120 align:middle
+El método dice:
+"Hacer súper-espacio-clase
+
+00:06:41.280 --> 00:06:42.880 align:middle
+"Igual igual clase propia".
+
+00:06:43.040 --> 00:06:46.520 align:middle
+¿Qué significa "igual igual"?
+Es la identidad del puntero.
+
+00:06:46.680 --> 00:06:49.800 align:middle
+De hecho, estoy preguntando:
+Es el objeto obtenido
+
+00:06:49.960 --> 00:06:53.200 align:middle
+con super-space-class iguales
+
+00:06:53.360 --> 00:06:56.160 align:middle
+como el objeto obtenido
+con auto-igual-clase?
+
+00:06:56.360 --> 00:06:59.760 align:middle
+Definí este método,
+que devolverá verdadero o falso.
+
+00:06:59.920 --> 00:07:01.280 align:middle
+Mi pregunta para ti es:
+
+00:07:01.440 --> 00:07:05.200 align:middle
+¿Cuál es el resultado de un nuevo foo?
+
+00:07:05.360 --> 00:07:07.600 align:middle
+Creo una nueva instancia de A
+
+00:07:07.760 --> 00:07:11.360 align:middle
+y le envío el mensaje foo,
+que editará este mensaje.
+
+00:07:11.520 --> 00:07:13.600 align:middle
+¿Cuál es el resultado y por qué?
+
+00:07:13.760 --> 00:07:17.120 align:middle
+Tendrás que pensar
+porque no te daré esta respuesta.
+

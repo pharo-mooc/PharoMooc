@@ -1,0 +1,283 @@
+WEBVTT
+
+00:00:00.400 --> 00:00:01.640 align:middle
+Hola.
+
+00:00:02.240 --> 00:00:06.560 align:middle
+Hoy revisaremos
+La implementación de ifTrue:ifFalse:
+
+00:00:06.720 --> 00:00:09.920 align:middle
+Si has estado atento
+y estoy seguro de que lo tienes,
+
+00:00:10.080 --> 00:00:14.320 align:middle
+seguramente te has dado cuenta
+que cuando sugerí ejemplos para No,
+
+00:00:14.480 --> 00:00:17.920 align:middle
+Dije que podrías implementar
+No, o y si es cierto:ifFalse:
+
+00:00:18.080 --> 00:00:21.320 align:middle
+Pero en la solución,
+Nunca mencioné si es cierto:ifFalse:
+
+00:00:21.480 --> 00:00:23.720 align:middle
+Solucionaremos este problema ahora.
+
+00:00:24.440 --> 00:00:28.760 align:middle
+En efecto, en Pharo,
+Las condiciones son mensajes.
+
+00:00:28.920 --> 00:00:30.480 align:middle
+Aquí hay un ejemplo.
+
+00:00:30.640 --> 00:00:34.480 align:middle
+Tenemos una clase de clima:
+"El clima está resonando".
+
+00:00:34.640 --> 00:00:36.600 align:middle
+Esto significa que si llueve ...
+
+00:00:37.240 --> 00:00:40.880 align:middle
+Si es verdad, tomaré mi paraguas.
+
+00:00:41.040 --> 00:00:43.400 align:middle
+Si es falso, tomaré mis gafas de sol.
+
+00:00:43.760 --> 00:00:45.840 align:middle
+Con ifTrue:ifFalse:
+
+00:00:46.000 --> 00:00:50.960 align:middle
+Ves los dos puntos?
+Esto significa que son mensajes de palabra clave.
+
+00:00:51.120 --> 00:00:54.440 align:middle
+El mensaje ifTrue:ifFalse:
+es un mensaje de palabra clave
+
+00:00:54.600 --> 00:00:57.320 align:middle
+y se envía a una instancia booleana.
+
+00:00:58.160 --> 00:01:02.720 align:middle
+En realidad, está muy optimizado
+por el compilador y no realmente enviado,
+
+00:01:02.880 --> 00:01:05.640 align:middle
+pero conceptualmente lo es.
+
+00:01:05.800 --> 00:01:10.960 align:middle
+Entonces, si quieres redefinir
+el método ifTrue:
+
+00:01:11.120 --> 00:01:12.640 align:middle
+iffalse:
+
+00:01:12.800 --> 00:01:14.760 align:middle
+Puedes hacer esto en Pharo.
+
+00:01:14.920 --> 00:01:17.240 align:middle
+Explicaré la técnica ahora.
+
+00:01:17.400 --> 00:01:20.880 align:middle
+El ifTrue:ifFalse:
+el método es tan importante
+
+00:01:21.040 --> 00:01:23.520 align:middle
+y lo necesitamos para ir tan rápido,
+
+00:01:23.680 --> 00:01:26.800 align:middle
+que la función
+en realidad no se invoca
+
+00:01:27.160 --> 00:01:29.400 align:middle
+El compilador hace saltos en línea en su lugar.
+
+00:01:29.560 --> 00:01:33.240 align:middle
+Pero para el propósito de esta clase,
+veremos cómo funciona.
+
+00:01:33.400 --> 00:01:35.960 align:middle
+te quiero
+para proponer una implementación.
+
+00:01:36.120 --> 00:01:37.800 align:middle
+Sabes sobre bloques
+
+00:01:37.960 --> 00:01:40.920 align:middle
+Sabes lo que hicimos
+Verdadero y falso,
+
+00:01:41.120 --> 00:01:42.720 align:middle
+y con Or y no.
+
+00:01:42.880 --> 00:01:45.440 align:middle
+Puedes hacerlo con ifTrue:ifFalse:
+
+00:01:45.600 --> 00:01:49.960 align:middle
+En resumen, si mi receptor es falso,
+Yo regreso 5
+
+00:01:50.120 --> 00:01:52.880 align:middle
+Y si mi receptor es cierto,
+Yo regreso 3
+
+00:01:53.600 --> 00:01:56.920 align:middle
+Una vez más, tenemos objetos,
+mensajes y bloques.
+
+00:01:57.080 --> 00:02:00.000 align:middle
+Es un poco repetitivo,
+pero así es como es.
+
+00:02:00.600 --> 00:02:03.480 align:middle
+Recuerda que los paréntesis ...
+
+00:02:05.960 --> 00:02:08.080 align:middle
+congelar la ejecución
+
+00:02:08.240 --> 00:02:10.800 align:middle
+de la expresión que contienen,
+
+00:02:10.960 --> 00:02:15.360 align:middle
+y ese "valor"
+patea la ejecución de un código congelado.
+
+00:02:15.520 --> 00:02:18.680 align:middle
+Con esto, y no y o,
+
+00:02:18.840 --> 00:02:21.480 align:middle
+deberías poder
+para implementar sus condiciones.
+
+00:02:21.640 --> 00:02:25.280 align:middle
+Del mismo modo, deberías
+ser capaz de implementar ifTrue:ifFalse:
+
+00:02:25.440 --> 00:02:27.960 align:middle
+Te daré unos segundos para pensar.
+
+00:02:29.000 --> 00:02:30.720 align:middle
+¿Cómo se implementa?
+
+00:02:30.880 --> 00:02:34.360 align:middle
+Exactamente de la misma manera
+como Or y no.
+
+00:02:34.520 --> 00:02:37.280 align:middle
+En la clase verdadera,
+Tengo un método llamado
+
+00:02:37.440 --> 00:02:39.920 align:middle
+ifTrue:ifFalse:y dos argumentos.
+
+00:02:40.080 --> 00:02:44.280 align:middle
+Un bloque para verdadero
+y un bloque para False.
+
+00:02:44.440 --> 00:02:45.520 align:middle
+¿Qué debo hacer?
+
+00:02:45.680 --> 00:02:48.320 align:middle
+Cuando estoy en el bloque True,
+Ejecuto cierto
+
+00:02:49.600 --> 00:02:52.160 align:middle
+Y cuando estoy en la clase Falsa,
+
+00:02:52.320 --> 00:02:56.240 align:middle
+Tengo el mismo método
+con los mismos dos argumentos,
+
+00:02:56.400 --> 00:03:00.160 align:middle
+pero como estoy en la clase Falsa,
+Ejecuto el bloque falso.
+
+00:03:00.520 --> 00:03:03.080 align:middle
+Tengo la implementación de los booleanos.
+
+00:03:03.240 --> 00:03:04.440 align:middle
+¿Como funciona?
+
+00:03:05.400 --> 00:03:06.520 align:middle
+Me gusta esto.
+
+00:03:06.680 --> 00:03:10.160 align:middle
+Cuando envío un mensaje a mi booleano,
+
+00:03:10.320 --> 00:03:12.560 align:middle
+que de hecho es cierto,
+
+00:03:12.720 --> 00:03:16.480 align:middle
+Envío si es verdad:hacer algo cierto
+o hacer algo falso.
+
+00:03:16.640 --> 00:03:20.520 align:middle
+Luego busco si es verdad:ifFalse:
+en la clase verdadera,
+
+00:03:20.680 --> 00:03:21.920 align:middle
+Esta aqui
+
+00:03:22.080 --> 00:03:25.440 align:middle
+Dice que para ejecutar el bloque verdadero,
+asi que lo hago
+
+00:03:25.600 --> 00:03:29.600 align:middle
+Ahora envío el mensaje
+"B es un booleano:falso".
+
+00:03:29.760 --> 00:03:33.800 align:middle
+Envío el mensaje y miro aquí.
+Encuentro ifTrue:ifFalse:
+
+00:03:33.960 --> 00:03:38.760 align:middle
+Dice para ejecutar el bloque falso,
+y eso es lo que hago
+
+00:03:39.200 --> 00:03:43.480 align:middle
+No puedes probar esto poniendo
+un punto de ruptura en ifTrue:ifFalse:
+
+00:03:43.640 --> 00:03:46.400 align:middle
+Está optimizado
+y el sistema no lo aceptará.
+
+00:03:46.560 --> 00:03:50.840 align:middle
+Pero lo que sí sugiero que intente,
+se implementa de la misma manera:
+
+00:03:51.000 --> 00:03:52.800 align:middle
+ifFalse:o si verdad:
+
+00:03:52.960 --> 00:03:55.080 align:middle
+ifTrue:un bloque 1,
+
+00:03:56.160 --> 00:04:00.680 align:middle
+y ifFalse:un bloque 2.
+Luego implementalas.
+
+00:04:00.840 --> 00:04:03.280 align:middle
+Use un punto de interrupción y experimente.
+
+00:04:03.880 --> 00:04:07.920 align:middle
+Entonces, ¿qué hemos mostrado?
+con este ejemplo
+
+00:04:08.080 --> 00:04:11.640 align:middle
+Vimos que enviar un mensaje
+selecciona el método correcto.
+
+00:04:11.800 --> 00:04:16.320 align:middle
+Aquí decidimos
+para que el receptor decida su comportamiento.
+
+00:04:16.480 --> 00:04:21.400 align:middle
+Y vimos que los paréntesis
+congelación de cómputo,
+
+00:04:21.560 --> 00:04:24.840 align:middle
+y ese "valor"
+obliga a la ejecución de un código congelado.
+

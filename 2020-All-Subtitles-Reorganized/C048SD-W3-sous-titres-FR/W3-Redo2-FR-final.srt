@@ -1,0 +1,785 @@
+1
+00:00:00,360 --> 00:00:00,400
+"Implantation d'une poignée de dé"
+
+2
+00:00:04,560 --> 00:00:04,600
+Quentin Ducasse.
+
+3
+00:00:04,640 --> 00:00:07,840
+-Bonjour à tous. Dans cette partie
+deux du Redo de la semaine trois,
+
+4
+00:00:08,160 --> 00:00:09,880
+on va s'intéresser à la poignée de dés
+
+5
+00:00:10,200 --> 00:00:13,560
+présentée dans la dernière vidéo
+et à comment l'implémenter.
+
+6
+00:00:13,880 --> 00:00:17,760
+Déjà, l'API qu'on souhaiterait avoir
+ressemble à ça.
+
+7
+00:00:18,080 --> 00:00:20,960
+On va avoir "DieHandle new",
+donc on va le créer.
+
+8
+00:00:21,280 --> 00:00:24,920
+On ajoute un dé
+à notre poignée de dés avec "addDie".
+
+9
+00:00:25,240 --> 00:00:31,640
+On précise le dé qu'on veut ajouter :
+"Die withFaces: 6".
+
+10
+00:00:31,960 --> 00:00:36,520
+On aimerait ajouter plusieurs dés
+avec la même méthode,
+
+11
+00:00:36,840 --> 00:00:39,800
+mais peut-être un nombre de faces
+différent, 10,
+
+12
+00:00:40,120 --> 00:00:41,840
+et on rend cette instance.
+
+13
+00:00:42,160 --> 00:00:43,280
+Ce qui se passe ici,
+
+14
+00:00:43,600 --> 00:00:45,840
+c'est que la première ligne
+va nous créer une instance,
+
+15
+00:00:46,160 --> 00:00:49,080
+une poignée de dés, à laquelle
+on va ajouter un dé à six faces.
+
+16
+00:00:49,400 --> 00:00:52,440
+Le ";" signifie que le message
+suivant va être envoyé
+
+17
+00:00:52,760 --> 00:00:54,400
+au même receveur
+que le message précédent.
+
+18
+00:00:54,720 --> 00:00:56,880
+Ça veut dire que "addDie" avec 10 faces
+
+19
+00:00:57,200 --> 00:00:59,720
+va être envoyé au même receveur
+que "addDie" avec six faces,
+
+20
+00:01:00,040 --> 00:01:02,160
+c'est-à-dire l'instance poignée de dés.
+
+21
+00:01:02,480 --> 00:01:04,840
+Un nouveau ";",
+cette fois-ci, on rend l'instance.
+
+22
+00:01:05,160 --> 00:01:07,760
+Donc, on va implémenter tout ça.
+
+23
+00:01:08,080 --> 00:01:10,720
+On va commencer
+par implémenter la classe de test,
+
+24
+00:01:11,040 --> 00:01:12,440
+"#DieHandleTest".
+
+25
+00:01:12,760 --> 00:01:14,040
+On sauvegarde.
+
+26
+00:01:14,360 --> 00:01:21,160
+On va se diriger ici :
+"testCreationAndAddingIsOk".
+
+27
+00:01:21,480 --> 00:01:24,920
+Ça va être la même chose
+que ce qu'on a pu faire ici.
+
+28
+00:01:25,240 --> 00:01:26,080
+Je vais copier ça,
+
+29
+00:01:26,400 --> 00:01:29,120
+sauf qu'on va avoir besoin
+d'une variable temporaire
+
+30
+00:01:29,440 --> 00:01:31,880
+qu'on va appeler "handle".
+
+31
+00:01:32,200 --> 00:01:34,240
+Voilà, j'ai fixé la tabulation.
+
+32
+00:01:35,840 --> 00:01:36,600
+Un point.
+
+33
+00:01:36,920 --> 00:01:39,680
+Et ce qu'on va vérifier,
+c'est le nombre de dés
+
+34
+00:01:40,000 --> 00:01:45,640
+dans notre poignée de dés :
+"handle diceNumber equals: 2".
+
+35
+00:01:45,960 --> 00:01:47,720
+On n'a rien défini pour l'instant.
+
+36
+00:01:48,040 --> 00:01:49,960
+Plein de choses ne sont pas comprises,
+
+37
+00:01:50,280 --> 00:01:53,240
+comme "dieHandle",
+les méthodes "addDie", "diceNumber".
+
+38
+00:01:53,560 --> 00:01:55,760
+On va les définir tout à l'heure.
+On sauvegarde.
+
+39
+00:01:56,080 --> 00:01:58,800
+La classe n'est pas comprise,
+on va devoir la définir
+
+40
+00:01:59,120 --> 00:02:02,800
+avec une variable d'instance
+qui va être la collection des dés
+
+41
+00:02:03,120 --> 00:02:06,840
+qui sont compris
+dans cette poignée de dés.
+
+42
+00:02:07,160 --> 00:02:10,200
+OK. Des messages ne sont pas compris,
+mais ce n'est pas grave.
+
+43
+00:02:10,520 --> 00:02:17,600
+On va créer un autre test :
+"testCreationWithTheSameDie".
+
+44
+00:02:17,920 --> 00:02:19,120
+Qu'est-ce qu'on va faire ?
+
+45
+00:02:19,440 --> 00:02:25,040
+On va créer notre poignée de dés
+de la même manière, voilà.
+
+46
+00:02:25,360 --> 00:02:28,680
+Sauf que cette fois-ci,
+on va tout simplement vérifier
+
+47
+00:02:29,000 --> 00:02:30,160
+que si on en ajoute un,
+
+48
+00:02:30,480 --> 00:02:35,000
+ça nous renvoie bien
+un dé dans la collection,
+
+49
+00:02:35,320 --> 00:02:36,840
+mais que si on en ajoute un deuxième,
+
+50
+00:02:37,160 --> 00:02:39,200
+on ne va pas avoir besoin
+de le réinstancier.
+
+51
+00:02:39,520 --> 00:02:41,520
+On rajoute un deuxième dé du même type.
+
+52
+00:02:41,840 --> 00:02:43,440
+On veut que ce soit bien égal à deux.
+
+53
+00:02:43,760 --> 00:02:44,520
+On sauvegarde.
+
+54
+00:02:44,840 --> 00:02:47,760
+On a notre test. Si je clique ici,
+le débogueur va s'ouvrir.
+
+55
+00:02:48,080 --> 00:02:50,960
+Cette fois-ci, on va le créer
+à la main, dans la classe.
+
+56
+00:02:51,280 --> 00:02:52,480
+On va aller ici.
+
+57
+00:02:52,800 --> 00:02:55,080
+On va déjà créer
+une méthode "initialize"
+
+58
+00:02:55,400 --> 00:02:58,400
+qui va appeler "super initialize",
+
+59
+00:02:58,720 --> 00:03:00,720
+les initialisations de la super classe.
+
+60
+00:03:01,040 --> 00:03:05,560
+Puis on va initialiser
+notre variable d'instance "dice"
+
+61
+00:03:05,880 --> 00:03:10,040
+à une collection "new".
+
+62
+00:03:10,360 --> 00:03:11,360
+On sauvegarde.
+
+63
+00:03:11,680 --> 00:03:13,600
+On doit ajouter
+la méthode pour ajouter un dé :
+
+64
+00:03:13,920 --> 00:03:15,880
+"addDie: aDie".
+
+65
+00:03:16,200 --> 00:03:19,720
+Ce qu'on va faire, c'est qu'on va
+appeler la méthode "add"
+
+66
+00:03:20,040 --> 00:03:22,440
+sur notre variable d'instance "dice".
+
+67
+00:03:22,760 --> 00:03:23,640
+On sauvegarde.
+
+68
+00:03:23,960 --> 00:03:27,280
+Ce qui nous manque,
+c'est le getter "dice",
+
+69
+00:03:27,600 --> 00:03:30,480
+qui va renvoyer tout simplement "dice",
+
+70
+00:03:30,800 --> 00:03:33,520
+et "diceNumber",
+dont on se sert dans notre test,
+
+71
+00:03:33,840 --> 00:03:37,400
+qui va renvoyer la taille de "dice",
+donc "dice size".
+
+72
+00:03:37,720 --> 00:03:38,480
+On sauvegarde.
+
+73
+00:03:38,800 --> 00:03:41,360
+On a nos quatre méthodes,
+et si on relance les tests,
+
+74
+00:03:41,680 --> 00:03:42,480
+ils sont verts.
+
+75
+00:03:42,800 --> 00:03:45,200
+C'est un bon moment
+pour sauvegarder notre repository.
+
+76
+00:03:45,520 --> 00:03:47,240
+On se dirige dans Iceberg.
+
+77
+00:03:48,440 --> 00:03:52,840
+Vous pouvez voir que notre repository
+n'est pas sauvegardé.
+
+78
+00:03:53,160 --> 00:03:55,080
+Des changements
+n'ont pas été committés,
+
+79
+00:03:55,400 --> 00:03:58,360
+donc on va double-cliquer ici,
+cliquer sur Commit,
+
+80
+00:03:58,680 --> 00:04:04,360
+et on va dire :
+"DieHandle first methods with tests".
+
+81
+00:04:04,680 --> 00:04:06,520
+On peut voir ici
+tout ce qu'on a rajouté,
+
+82
+00:04:06,840 --> 00:04:09,720
+nos quatre méthodes, nos deux tests,
+on commit.
+
+83
+00:04:10,040 --> 00:04:13,120
+On va ranger Iceberg pour l'instant
+et on va s'intéresser
+
+84
+00:04:13,440 --> 00:04:15,720
+aux retours qu'on peut avoir
+en tant que programmeur
+
+85
+00:04:16,040 --> 00:04:16,840
+sur les dés ici.
+
+86
+00:04:17,160 --> 00:04:21,800
+Donc, si je fais Cmd+P, Print,
+on va avoir "aDie".
+
+87
+00:04:22,120 --> 00:04:25,320
+Même si c'est intéressant,
+on peut avoir mieux.
+
+88
+00:04:25,640 --> 00:04:27,680
+On pourrait indiquer le nombre de faces.
+
+89
+00:04:28,000 --> 00:04:30,040
+Pour changer le retour
+qu'on a en faisant Print,
+
+90
+00:04:30,360 --> 00:04:32,080
+il faut faire appel
+à la méthode "printOn".
+
+91
+00:04:32,400 --> 00:04:34,680
+Cette méthode prend une "aStream".
+
+92
+00:04:35,000 --> 00:04:37,560
+Nous, on aimerait
+avoir quelque chose qui, à la fin,
+
+93
+00:04:37,880 --> 00:04:44,640
+nous rende, par exemple,
+"a Die (faces number)".
+
+94
+00:04:45,880 --> 00:04:46,720
+Comment fait-on ça ?
+
+95
+00:04:47,040 --> 00:04:50,000
+On a besoin de "aDie",
+c'est le retour qu'on a déjà.
+
+96
+00:04:50,320 --> 00:04:56,720
+On va faire "super printOn: aStream",
+
+97
+00:04:57,040 --> 00:05:01,400
+et ensuite,
+on va faire "aStream nextPutall".
+
+98
+00:05:01,720 --> 00:05:04,000
+On va ajouter, à la suite de ça,
+
+99
+00:05:04,320 --> 00:05:07,280
+une parenthèse avec le nombre de faces.
+
+100
+00:05:07,600 --> 00:05:09,320
+Pour concaténer
+des chaînes de caractères,
+
+101
+00:05:09,640 --> 00:05:10,440
+c'est la virgule.
+
+102
+00:05:10,760 --> 00:05:13,520
+"faces print"...
+
+103
+00:05:13,840 --> 00:05:16,400
+Oups, attendez,
+on fait ça dans la mauvaise classe.
+
+104
+00:05:16,720 --> 00:05:18,920
+On est en train
+de le faire dans "dieHandle".
+
+105
+00:05:19,240 --> 00:05:20,560
+On va quitter ça.
+
+106
+00:05:22,760 --> 00:05:26,480
+On va se diriger dans "Die",
+c'est ici qu'on doit faire le "printOn".
+
+107
+00:05:26,800 --> 00:05:29,560
+Donc, le nombre de faces, "printString".
+
+108
+00:05:29,880 --> 00:05:34,280
+Virgule, car on va avoir
+une autre concaténation,
+
+109
+00:05:34,600 --> 00:05:35,520
+parenthèse fermante.
+
+110
+00:05:35,840 --> 00:05:39,720
+Si je sauvegarde ça et que je regarde
+à quoi ça correspond ici,
+
+111
+00:05:40,040 --> 00:05:44,760
+on va avoir "a Die (6)",
+et ici, "a Die (10)".
+
+112
+00:05:45,080 --> 00:05:46,640
+C'est le comportement qu'on cherchait.
+
+113
+00:05:46,960 --> 00:05:48,400
+C'est correct.
+
+114
+00:05:48,720 --> 00:05:50,960
+Maintenant, on va devoir définir
+
+115
+00:05:51,280 --> 00:05:53,760
+une méthode
+pour lancer une poignée de dés.
+
+116
+00:05:54,080 --> 00:05:57,520
+Pour ce faire, on va faire "roll".
+
+117
+00:05:57,840 --> 00:05:59,760
+On va avoir besoin du résultat,
+
+118
+00:06:00,080 --> 00:06:02,360
+on va le définir
+comme une variable temporaire.
+
+119
+00:06:02,680 --> 00:06:03,920
+On va initialiser à zéro,
+
+120
+00:06:04,240 --> 00:06:06,040
+puis on va itérer
+sur la collection de dés.
+
+121
+00:06:06,360 --> 00:06:10,440
+Pour ce faire, on fait "dice",
+notre collection de dés, "do:",
+
+122
+00:06:10,760 --> 00:06:14,000
+et il faut lui passer
+un bloc de code entre crochets.
+
+123
+00:06:14,320 --> 00:06:18,160
+Pour itérer sur chaque élément,
+on utilise ": each",
+
+124
+00:06:18,480 --> 00:06:25,360
+et on dit ce qu'on va faire :
+"res := res + each roll".
+
+125
+00:06:27,320 --> 00:06:29,440
+Et on doit renvoyer le résultat.
+
+126
+00:06:29,760 --> 00:06:32,680
+Ça, ça va être
+notre méthode de lancer de dés
+
+127
+00:06:33,000 --> 00:06:34,640
+pour une poignée de dés.
+
+128
+00:06:34,960 --> 00:06:36,800
+Dans le test,
+on va avoir besoin d'obtenir
+
+129
+00:06:37,120 --> 00:06:40,840
+la valeur maximale qu'on peut avoir,
+qu'on va appeler "maxValue".
+
+130
+00:06:41,160 --> 00:06:44,760
+Ce qu'on va faire,
+c'est qu'on va voir le résultat.
+
+131
+00:06:45,080 --> 00:06:48,640
+On va itérer, mais sans lancer le dé,
+on va ajouter le nombre de faces.
+
+132
+00:06:48,960 --> 00:06:52,760
+Voilà, on a notre méthode "maxValue",
+notre méthode "roll".
+
+133
+00:06:53,080 --> 00:06:54,520
+On va définir les tests associés.
+
+134
+00:06:54,840 --> 00:06:56,200
+On va ici.
+
+135
+00:06:57,240 --> 00:06:59,120
+"testMaxValue".
+
+136
+00:06:59,440 --> 00:07:05,760
+On va vérifier avec notre "handle"
+celui-là, par exemple.
+
+137
+00:07:06,080 --> 00:07:07,840
+On va mettre "10".
+
+138
+00:07:08,160 --> 00:07:12,640
+On va vérifier que "maxValue equals"...
+
+139
+00:07:12,960 --> 00:07:17,600
+On va vérifier que ça vaut bien 16,
+donc 6 plus 10.
+
+140
+00:07:17,920 --> 00:07:19,760
+On sauvegarde, on peut le lancer.
+
+141
+00:07:20,080 --> 00:07:24,240
+Le test est vert, c'est correct.
+Maintenant, on va tester "roll".
+
+142
+00:07:24,560 --> 00:07:26,920
+On va utiliser la même poignée de dés
+
+143
+00:07:27,240 --> 00:07:32,960
+et on va faire "handle roll between:",
+
+144
+00:07:33,280 --> 00:07:36,120
+on va le faire entre parenthèses.
+
+145
+00:07:37,640 --> 00:07:38,400
+Comme ça.
+
+146
+00:07:38,720 --> 00:07:44,360
+Ça va être entre le nombre de dés :
+"handle diceNumber",
+
+147
+00:07:44,680 --> 00:07:47,680
+ça, c'est le cas
+où tous les dés font des 1,
+
+148
+00:07:48,000 --> 00:07:52,560
+et "and: handle maxValue".
+
+149
+00:07:53,920 --> 00:07:55,720
+OK. Qu'est-ce que ça va faire ?
+
+150
+00:07:56,040 --> 00:07:58,320
+On va vérifier que
+quand on lance notre poignée de dés,
+
+151
+00:07:58,640 --> 00:08:00,680
+ça va être entre le nombre de dés
+
+152
+00:08:01,000 --> 00:08:02,920
+dans le cas
+où tous les dés font des 1
+
+153
+00:08:03,240 --> 00:08:06,720
+et le cas où tous les dés font
+respectivement leur chiffre maximum.
+
+154
+00:08:07,040 --> 00:08:09,640
+Par exemple, celui-ci fait un 10,
+celui-ci fait un 6.
+
+155
+00:08:09,960 --> 00:08:10,880
+On sauvegarde.
+
+156
+00:08:11,200 --> 00:08:12,160
+On lance le test.
+
+157
+00:08:12,480 --> 00:08:15,040
+Tout est vert, ça va conclure
+la partie deux du Redo.
+
+158
+00:08:15,360 --> 00:08:18,400
+Avant de partir, on va sauvegarder
+ce qu'on a fait dans Iceberg.
+
+159
+00:08:18,720 --> 00:08:20,920
+Encore une fois,
+on peut voir "uncommitted changes",
+
+160
+00:08:21,240 --> 00:08:23,280
+donc on double-clique,
+on clique sur Commit
+
+161
+00:08:23,600 --> 00:08:24,920
+et on va faire :
+
+162
+00:08:25,240 --> 00:08:32,680
+"Roll method
+implemented for DieHandle,",
+
+163
+00:08:33,000 --> 00:08:35,920
+et on va dire
+qu'on a rajouté un "printOn" :
+
+164
+00:08:36,240 --> 00:08:40,120
+"better print for Die".
+
+165
+00:08:41,240 --> 00:08:42,240
+Commit.
+
+166
+00:08:42,560 --> 00:08:44,360
+Voilà, on a tout qui est à jour.
+
+167
+00:08:44,680 --> 00:08:47,320
+On va se retrouver
+dans la partie trois
+
+168
+00:08:47,640 --> 00:08:52,040
+pour les derniers réglages vis-à-vis
+de ce qu'on voulait faire au départ.
+
+169
+00:08:52,360 --> 00:08:57,120
+On voulait avoir quelque chose
+qui fasse "1 D4 + 2 D6",
+
+170
+00:08:57,440 --> 00:09:00,880
+et pour l'instant, on a
+ce comportement-là qui est simulé,
+
+171
+00:09:01,200 --> 00:09:02,760
+mais on ne peut pas l'écrire comme ça.
+
+172
+00:09:03,080 --> 00:09:05,880
+On va regarder comment on peut faire
+dans la prochaine vidéo.

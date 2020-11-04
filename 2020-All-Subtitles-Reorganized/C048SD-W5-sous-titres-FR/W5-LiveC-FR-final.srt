@@ -1,0 +1,358 @@
+1
+00:00:03,240 --> 00:00:04,040
+-Bonjour à tous.
+
+2
+00:00:04,360 --> 00:00:08,080
+Dans cette vidéo, on va s'intéresser
+à comment identifier un bug
+
+3
+00:00:08,400 --> 00:00:09,280
+à l'aide du Debugger.
+
+4
+00:00:09,600 --> 00:00:10,600
+Dans la vidéo précédente,
+
+5
+00:00:10,920 --> 00:00:13,680
+on est partis d'un comportement
+qui était déjà correct
+
+6
+00:00:14,000 --> 00:00:15,640
+et on a vu comment utiliser le Debugger
+
+7
+00:00:15,960 --> 00:00:19,160
+pour se promener à l'intérieur
+de notre flot de méthodes
+
+8
+00:00:19,480 --> 00:00:20,800
+et comprendre comment ça marche.
+
+9
+00:00:21,120 --> 00:00:22,800
+Ici, on va tout de suite écrire un bug.
+
+10
+00:00:23,120 --> 00:00:25,120
+On va dire
+que notre méthode "decrement"
+
+11
+00:00:25,440 --> 00:00:28,080
+va ajouter 1
+au lieu de soustraire 1 au compteur.
+
+12
+00:00:28,400 --> 00:00:30,520
+On sauvegarde ça,
+et si on lance nos tests,
+
+13
+00:00:30,840 --> 00:00:33,520
+on peut voir que notre test
+"CounterDecrement"
+
+14
+00:00:33,840 --> 00:00:34,640
+n'a pas fonctionné.
+
+15
+00:00:34,960 --> 00:00:38,320
+Donc, si je le réexécute seul,
+le Debugger va s'ouvrir
+
+16
+00:00:38,640 --> 00:00:41,560
+et on va pouvoir voir
+qu'on a obtenu 7 au lieu de 3.
+
+17
+00:00:41,880 --> 00:00:45,240
+Et si on affiche la valeur
+de "count" pour notre compteur,
+
+18
+00:00:45,560 --> 00:00:46,520
+elle vaut 7, et pas 3.
+
+19
+00:00:46,840 --> 00:00:48,920
+Par contre,
+comme on a pu faire tout à l'heure,
+
+20
+00:00:49,240 --> 00:00:51,960
+on était partis du début,
+on avait pu créer notre compteur,
+
+21
+00:00:52,280 --> 00:00:54,400
+puis inspecter les différentes
+méthodes "decrement".
+
+22
+00:00:54,720 --> 00:00:56,480
+Cette fois,
+on est arrivés directement
+
+23
+00:00:56,800 --> 00:00:58,640
+à l'endroit du bug,
+c'est-à-dire à l'assertion.
+
+24
+00:00:58,960 --> 00:01:01,400
+On aurait aimé s'arrêter
+après la création du compteur.
+
+25
+00:01:01,720 --> 00:01:03,800
+Pour ça, ce qu'il va falloir faire,
+
+26
+00:01:04,120 --> 00:01:08,200
+c'est écrire un bout de code
+pour le Debugger : "self halt".
+
+27
+00:01:08,520 --> 00:01:11,120
+Ça va ouvrir le Debugger
+à cette étape-là.
+
+28
+00:01:11,440 --> 00:01:13,600
+On va le lancer tout de suite.
+On lance le test.
+
+29
+00:01:13,920 --> 00:01:16,160
+Notre Debugger
+s'est ouvert avec le message "halt",
+
+30
+00:01:16,480 --> 00:01:17,720
+donc sur cette méthode-là.
+
+31
+00:01:18,040 --> 00:01:20,120
+Maintenant, le message surligné,
+c'est celui-ci.
+
+32
+00:01:20,440 --> 00:01:23,240
+Donc, on va pouvoir aller
+s'intéresser aux méthodes d'après.
+
+33
+00:01:23,560 --> 00:01:25,960
+On peut déjà
+regarder la valeur du compteur
+
+34
+00:01:26,280 --> 00:01:30,160
+et voir qu'il est déjà instancié
+et que "count" devrait valoir 5.
+
+35
+00:01:30,480 --> 00:01:32,120
+"count" vaut bien 5, c'est correct.
+
+36
+00:01:32,440 --> 00:01:34,680
+Ce qu'on peut faire,
+c'est presser "Over".
+
+37
+00:01:35,000 --> 00:01:36,800
+On est cette fois
+au-dessus du "decrement",
+
+38
+00:01:37,120 --> 00:01:38,400
+ce qui doit être le problème,
+
+39
+00:01:38,720 --> 00:01:40,880
+puisqu'entre la création du compteur
+et l'assertion,
+
+40
+00:01:41,200 --> 00:01:43,200
+seule la méthode "decrement"
+est appelée.
+
+41
+00:01:43,520 --> 00:01:44,400
+On peut faire "Into",
+
+42
+00:01:44,720 --> 00:01:47,520
+et on retombe sur le bug
+qu'on a créé nous-même.
+
+43
+00:01:47,840 --> 00:01:50,080
+On peut inspecter
+la valeur de "count" qui vaut 5.
+
+44
+00:01:50,400 --> 00:01:51,960
+Sauf qu'on veut enlever 1,
+
+45
+00:01:52,280 --> 00:01:55,200
+donc on peut tout simplement
+enlever le "+", mettre un "-",
+
+46
+00:01:55,520 --> 00:01:57,040
+sauvegarder, Cmd+S.
+
+47
+00:01:57,360 --> 00:02:00,200
+Le Debugger est un environnement
+de travail, lui aussi.
+
+48
+00:02:00,520 --> 00:02:01,520
+Si on presse Cmd+S,
+
+49
+00:02:01,840 --> 00:02:05,120
+ça va modifier la méthode "decrement"
+aussi dans le code du compteur.
+
+50
+00:02:05,440 --> 00:02:08,840
+J'ai sauvegardé,
+je peux presser "Over".
+
+51
+00:02:10,440 --> 00:02:12,800
+Cette fois-ci,
+on va s'intéresser au compteur,
+
+52
+00:02:13,120 --> 00:02:15,560
+et on peut voir
+que l'instance "count" vaut bien 4,
+
+53
+00:02:15,880 --> 00:02:17,080
+elle a bien diminué d'1.
+
+54
+00:02:17,400 --> 00:02:19,640
+C'est le comportement
+qu'on attendait de notre méthode.
+
+55
+00:02:19,960 --> 00:02:21,120
+On appuie sur "Over".
+
+56
+00:02:21,440 --> 00:02:23,160
+On peut se diriger encore une fois ici.
+
+57
+00:02:23,480 --> 00:02:25,880
+On va voir que "c count",
+cette fois, vaut bien 3.
+
+58
+00:02:26,200 --> 00:02:28,360
+Ça devrait être correct,
+on peut appuyer sur "Proceed".
+
+59
+00:02:28,680 --> 00:02:32,360
+C'était une explication
+de comment utiliser le Debugger
+
+60
+00:02:32,680 --> 00:02:33,800
+en mettant des breakpoints.
+
+61
+00:02:34,120 --> 00:02:35,920
+On a un warning qui nous dit
+
+62
+00:02:36,240 --> 00:02:38,880
+que du code de débogage
+est resté dans la méthode.
+
+63
+00:02:39,200 --> 00:02:42,040
+On va retomber sur le "halt"
+qui ne nous intéresse pas,
+
+64
+00:02:42,360 --> 00:02:44,360
+on va l'enlever directement
+depuis le Debugger.
+
+65
+00:02:44,680 --> 00:02:47,360
+Quittez, vous pouvez voir
+que ça a changé, ici aussi.
+
+66
+00:02:47,680 --> 00:02:49,080
+On peut exécuter, c'est bien vert.
+
+67
+00:02:49,400 --> 00:02:50,600
+Pour la méthode "self halt",
+
+68
+00:02:50,920 --> 00:02:53,040
+vous pouvez
+aussi faire clic droit, Source code
+
+69
+00:02:53,360 --> 00:02:55,720
+et ajouter un breakpoint.
+
+70
+00:02:56,040 --> 00:02:58,000
+Ça va faire un peu
+la même chose que...
+
+71
+00:02:58,320 --> 00:03:01,280
+Le breakpoint, vous pouvez aussi
+cliquer ici pour en placer un.
+
+72
+00:03:01,600 --> 00:03:02,720
+C'est ce qui avait été placé
+
+73
+00:03:03,040 --> 00:03:05,000
+quand on avait fait le clic droit,
+Debug tests.
+
+74
+00:03:05,320 --> 00:03:08,360
+Ça nous avait placé un breakpoint
+directement au début de la méthode.
+
+75
+00:03:08,680 --> 00:03:12,080
+C'est une autre manière de mettre
+un "self halt", par exemple.
+
+76
+00:03:12,400 --> 00:03:13,480
+C'était une vidéo
+
+77
+00:03:13,800 --> 00:03:16,680
+sur comment trouver un bug
+à l'aide du Debugger de Pharo.

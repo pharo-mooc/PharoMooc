@@ -1,0 +1,469 @@
+1
+00:00:01,260 --> 00:00:03,390
+Dans cette vidéo, je
+voudrais vous montrer que Pharo
+
+2
+00:00:03,557 --> 00:00:06,040
+offre aussi la possibilité
+d'avoir un assistant qui va
+
+3
+00:00:06,207 --> 00:00:08,640
+vérifier la qualité de votre
+code, et qu'on appelle soit
+
+4
+00:00:08,807 --> 00:00:11,450
+le Quality Assistant, soit
+Code Critics qui va faire
+
+5
+00:00:11,617 --> 00:00:14,770
+tourner automatiquement des règles
+de bonne conduite sur votre code.
+
+6
+00:00:15,710 --> 00:00:17,040
+Regardons ça un
+petit peu de plus près.
+
+7
+00:00:17,300 --> 00:00:19,220
+Vous avez vu qu'à chaque
+fois que je browse une classe,
+
+8
+00:00:19,387 --> 00:00:22,770
+vous avez ce petit
+pop-up qui s'affiche.
+
+9
+00:00:22,937 --> 00:00:25,300
+En fait, ce qui se
+passe c'est que de manière
+
+10
+00:00:25,467 --> 00:00:27,770
+automatique, quand je suis
+en train de browser, on va
+
+11
+00:00:27,937 --> 00:00:32,010
+prendre peut-être CubHelix
+pour voir, vous avez cette
+
+12
+00:00:32,177 --> 00:00:35,740
+petite zone-là dans
+laquelle s'affiche des
+
+13
+00:00:37,020 --> 00:00:40,390
+indications. Et quand je le
+fais sur le package aussi.
+
+14
+00:00:43,110 --> 00:00:46,350
+Alors comme c'est un petit
+peu difficile de trouver un
+
+15
+00:00:46,517 --> 00:00:49,240
+exemple probant, on va
+utiliser notre propre code et on
+
+16
+00:00:49,407 --> 00:00:52,090
+va écrire du code pas beau
+dedans, comme ça vous allez le voir.
+
+17
+00:00:52,280 --> 00:00:57,080
+Donc, si je vais dans
+Counter, imaginons par exemple que
+
+18
+00:00:57,247 --> 00:01:00,480
+je laisse du code de debugage,
+
+19
+00:01:02,350 --> 00:01:04,730
+là le système me dit
+automatiquement deux choses.
+
+20
+00:01:05,180 --> 00:01:09,310
+Il me dit qu'il y a du
+code de debugage qui est resté
+
+21
+00:01:09,477 --> 00:01:12,200
+dans la méthode. Qu'est-ce
+que je vais pouvoir faire?
+
+22
+00:01:12,940 --> 00:01:14,540
+Je peux comprendre
+d'où vient cette règle.
+
+23
+00:01:14,707 --> 00:01:16,680
+Donc si je clique
+dessus, il me dit utilise des
+
+24
+00:01:16,847 --> 00:01:19,800
+breakpoints, ce n'est pas forcément
+intelligent dans du code de production.
+
+25
+00:01:21,280 --> 00:01:25,260
+Il peut me dire, je vais
+résoudre automatiquement ce problème.
+
+26
+00:01:25,427 --> 00:01:26,340
+Essayons, on va voir.
+
+27
+00:01:27,300 --> 00:01:28,530
+Il me dit, il faut enlever ça.
+
+28
+00:01:28,720 --> 00:01:30,240
+Oui, ok, très bien.
+
+29
+00:01:30,950 --> 00:01:32,710
+Et du coup, je n'ai
+plus ce problème-là.
+
+30
+00:01:34,540 --> 00:01:36,700
+Donc là, vous avez vu qu'on
+le fait alors que je suis en
+
+31
+00:01:36,867 --> 00:01:40,100
+train de programmer.
+Finalement, le système va réagir.
+
+32
+00:01:40,460 --> 00:01:43,350
+Maintenant, il y a une autre
+façon de le faire, ce que je
+
+33
+00:01:43,517 --> 00:01:48,250
+peux faire c'est ouvrir le
+Critic browser sur mon package.
+
+34
+00:01:48,417 --> 00:01:49,460
+Là, c'est un tout petit package.
+
+35
+00:01:50,960 --> 00:01:55,460
+On va faire une erreur
+histoire qu'on puisse la voir.
+
+36
+00:01:55,627 --> 00:01:56,440
+Donc là, si je fais "self halt"
+
+37
+00:02:01,020 --> 00:02:02,790
+ou par exemple je vais
+faire une autre méthode.
+
+38
+00:02:03,460 --> 00:02:06,910
+Je vais faire une
+méthode "increment3" et je vais
+
+39
+00:02:07,077 --> 00:02:08,790
+invoquer une
+méthode qui n'existe pas.
+
+40
+00:02:08,957 --> 00:02:11,740
+On va l'appeler "foofoo".
+
+41
+00:02:13,110 --> 00:02:16,010
+Donc là, c'est rouge mais
+imaginons que je ne m'en soit
+
+42
+00:02:16,177 --> 00:02:18,900
+pas rendu compte dans
+un état de fébrilité.
+
+43
+00:02:20,590 --> 00:02:24,360
+Je vais utiliser le Critic browser
+
+44
+00:02:27,380 --> 00:02:31,250
+sur mon code et donc là
+ce que me montre le critic
+
+45
+00:02:31,417 --> 00:02:32,770
+browser c'est l'ensemble des règles.
+
+46
+00:02:33,720 --> 00:02:38,620
+Donc, il y a quand même
+pas mal de règles avec des
+
+47
+00:02:38,787 --> 00:02:42,790
+explications. Si vous
+avez ce code-là, alors à ce
+
+48
+00:02:42,957 --> 00:02:46,200
+moment-là il vaut mieux
+l'utiliser comme ça, si vous avez
+
+49
+00:02:46,367 --> 00:02:47,450
+une affectation à l'intérieur.
+
+50
+00:02:47,617 --> 00:02:49,620
+Vous avez plusieurs sortes de règles.
+
+51
+00:02:50,040 --> 00:02:52,160
+Vous avez des règles qui
+sont liées à l'optimisation, des
+
+52
+00:02:52,327 --> 00:02:54,300
+règles qui peuvent
+potentiellement identifier des bugs fixes.
+
+53
+00:02:54,650 --> 00:02:56,600
+Vous avez des règles qui
+identifient des vraies.
+
+54
+00:02:56,860 --> 00:02:59,200
+Donc là, par exemple, si je
+viens ici, je vois le code.
+
+55
+00:02:59,367 --> 00:03:03,050
+Donc, je peux browser ma
+définition comme ce qu'on a fait
+
+56
+00:03:03,217 --> 00:03:05,810
+tout à l'heure, ou je
+peux le transformer.
+
+57
+00:03:08,180 --> 00:03:12,160
+Et donc, le warning a disparu.
+
+58
+00:03:13,610 --> 00:03:15,400
+Maintenant, ce qui est
+important de voir, c'est que
+
+59
+00:03:15,567 --> 00:03:17,920
+toutes ces règles sont
+basées sur des heuristiques.
+
+60
+00:03:18,087 --> 00:03:19,700
+Ça veut dire que, parfois,
+vous faites des choses qui ne
+
+61
+00:03:19,867 --> 00:03:22,840
+sont pas très
+catholiques. Vous le savez et il faut
+
+62
+00:03:23,007 --> 00:03:24,200
+laisser comme tel dans le système.
+
+63
+00:03:24,367 --> 00:03:28,840
+Ce qu'on peut aussi faire,
+on peut dire, ça c'est un faux
+
+64
+00:03:29,007 --> 00:03:33,660
+positif. Imaginons
+que j'ai un message
+
+65
+00:03:33,827 --> 00:03:36,660
+"foofoo" et que je sais que
+je veux le garder, je vais
+
+66
+00:03:36,827 --> 00:03:40,240
+pouvoir dire cette
+règle est fausse pour cette
+
+67
+00:03:41,850 --> 00:03:44,850
+méthode. Je vais le marquer.
+
+68
+00:03:45,017 --> 00:03:46,510
+Là c'est en gris
+qu'est-ce que ça veut dire?
+
+69
+00:03:46,677 --> 00:03:49,690
+Ça veut dire que moi plus
+tard, je vais pouvoir regarder
+
+70
+00:03:49,857 --> 00:03:51,310
+et me dire peut-être que
+cette règle était vraie et que
+
+71
+00:03:51,477 --> 00:03:53,490
+ça faisait du sens de la
+
+72
+00:03:57,250 --> 00:03:57,883
+revisiter.
+
+73
+00:03:58,410 --> 00:04:00,640
+Ce qu'on peut faire, en fait on
+va pouvoir sauver les Critics.
+
+74
+00:04:00,807 --> 00:04:04,910
+Ça veut dire qu'on va sauver
+les résultats des règles et
+
+75
+00:04:05,077 --> 00:04:06,670
+aussi des faux positifs.
+
+76
+00:04:07,290 --> 00:04:08,850
+Quand on a écrit que quelque
+chose était faux, on ne veut
+
+77
+00:04:09,017 --> 00:04:11,000
+pas qu'à chaque fois qu'on
+fasse tourner des règles, le
+
+78
+00:04:11,167 --> 00:04:12,680
+système nous le dise en permanence.
+
+79
+00:04:13,400 --> 00:04:18,230
+Donc quand je sauve les critiques,
+il va les mettre dans un Manifest.
+
+80
+00:04:18,470 --> 00:04:21,690
+On va voir ça, Là, j'ai
+mon Manifest qui va être
+
+81
+00:04:21,857 --> 00:04:23,920
+versionné avec le système.
+
+82
+00:04:24,087 --> 00:04:26,410
+Il ne faut pas aller voir comment
+c'est codé à l’intérieur, on s'en fiche.
+
+83
+00:04:26,577 --> 00:04:29,400
+Le Manifest, ça permet de
+coder des choses mais peu importe.
+
+84
+00:04:29,700 --> 00:04:32,590
+Ça, vous n'y touchez pas, c'est
+le code critic qui va l'utiliser
+
+85
+00:04:32,757 --> 00:04:34,120
+pour les prochaines exécutions.
+
+86
+00:04:34,287 --> 00:04:36,260
+Et donc, vous avez un
+Manifest par package.
+
+87
+00:04:36,700 --> 00:04:38,100
+Quand vous allez
+versionner le code, vous allez
+
+88
+00:04:38,267 --> 00:04:39,920
+versionner vos Manifests
+avec, et quand vous allez
+
+89
+00:04:40,087 --> 00:04:42,880
+refaire tourner le code
+critique, automatiquement, il va
+
+90
+00:04:43,047 --> 00:04:44,890
+prendre en compte les
+faux positifs et toutes les
+
+91
+00:04:45,057 --> 00:04:47,040
+méta-remarques que
+vous avez mis dedans.
+
+92
+00:04:47,207 --> 00:04:49,510
+Donc, ce qui est vraiment
+intéressant avec ces règles de
+
+93
+00:04:49,677 --> 00:04:53,390
+qualité, c'est que Pharo va
+l'intégrer dans un processus de développement.
+
+94
+00:04:53,557 --> 00:04:56,010
+Ce qu'on va faire c'est
+qu'on va faire en sorte qu'on a
+
+95
+00:04:56,177 --> 00:04:58,570
+des serveurs Jenkins qui
+vont, à chaque fois que vous
+
+96
+00:04:58,737 --> 00:05:01,170
+allez commiter votre projet,
+le charger et faire tourner
+
+97
+00:05:01,337 --> 00:05:04,000
+automatiquement ces règles
+de qualité pour vérifier que
+
+98
+00:05:04,167 --> 00:05:05,920
+votre programme suit bien ces règles.
+

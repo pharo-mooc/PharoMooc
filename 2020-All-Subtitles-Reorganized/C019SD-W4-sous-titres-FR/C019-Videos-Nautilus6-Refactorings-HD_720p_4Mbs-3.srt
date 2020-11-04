@@ -1,0 +1,502 @@
+1
+00:00:01,250 --> 00:00:03,460
+Dans cette vidéo,
+j'aimerais vous montrer que Nautilus
+
+2
+00:00:03,870 --> 00:00:06,710
+propose des refactorings. Donc
+qu'est-ce que c'est qu'un refactoring?
+
+3
+00:00:07,050 --> 00:00:11,560
+C'est une opération qui
+va transformer du code en
+
+4
+00:00:11,727 --> 00:00:13,000
+préservant son comportement.
+
+5
+00:00:13,320 --> 00:00:15,850
+Il faut voir que,
+historiquement, les refactorings ont
+
+6
+00:00:16,017 --> 00:00:18,700
+été implémentés pour la
+première fois dans l'ancêtre de
+
+7
+00:00:18,867 --> 00:00:21,840
+Pharo, et après ont été dans
+tous les langages comme Java.
+
+8
+00:00:22,170 --> 00:00:26,470
+Donc dès 95, Smalltalk
+avait un outil de refactoring et
+
+9
+00:00:26,637 --> 00:00:27,890
+celui de Pharo est
+inspiré de celui-là.
+
+10
+00:00:28,540 --> 00:00:31,070
+Donc ouvrons Nautilus pour
+regarder un petit peu les
+
+11
+00:00:31,237 --> 00:00:32,020
+refactorings qui sont proposés.
+
+12
+00:00:33,320 --> 00:00:36,440
+Ce qu'on va faire, on va
+travailler sur notre classe.
+
+13
+00:00:38,000 --> 00:00:39,800
+Donc vous avez des
+refactorings à plusieurs niveaux.
+
+14
+00:00:39,967 --> 00:00:41,790
+Il y a des refactorings
+au niveau classe, au niveau
+
+15
+00:00:41,957 --> 00:00:45,330
+méthode et au niveau code.
+Donc au niveau classe, on a
+
+16
+00:00:48,710 --> 00:00:49,343
+tous ces refactorings-là.
+
+17
+00:00:51,270 --> 00:00:53,120
+On va pouvoir avoir des
+refactorings au niveau des
+
+18
+00:00:53,287 --> 00:00:56,020
+variables d'instance et au
+niveau des variables de classe.
+
+19
+00:00:57,550 --> 00:01:00,580
+Quand un refactoring est
+très utile en fait, il a été mis
+
+20
+00:01:01,490 --> 00:01:05,320
+au niveau le plus haut des
+menus, de façon à ce que vous
+
+21
+00:01:05,487 --> 00:01:07,490
+alliez plus vite, vous
+n'avez pas besoin de faire classe,
+
+22
+00:01:07,960 --> 00:01:09,210
+refactoring, Rename il est ici.
+
+23
+00:01:10,140 --> 00:01:14,690
+De la même manière,
+pour les méthodes, les
+
+24
+00:01:14,857 --> 00:01:17,310
+refactorings on va avoir
+toutes ces méthodes-là, avec
+
+25
+00:01:19,850 --> 00:01:22,470
+renommage aussi, comme
+c'est un refactoring qui est
+
+26
+00:01:22,637 --> 00:01:25,310
+important à ce niveau-là.
+Maintenant si je prends un
+
+27
+00:01:25,477 --> 00:01:28,750
+autre morceau de code, ils
+ne sont pas très compliqués
+
+28
+00:01:28,917 --> 00:01:33,820
+dans cette classe, on va
+avoir les refactorings suivants
+
+29
+00:01:35,350 --> 00:01:38,040
+qui vont travailler au
+niveau du code de la méthode.
+
+30
+00:01:41,300 --> 00:01:45,450
+Si je renomme, si je fais un
+Rename de la Class Counter,
+
+31
+00:01:45,617 --> 00:01:50,020
+je vais l'appeler la Class
+Counter 2, le système me dit ok.
+
+32
+00:01:50,187 --> 00:01:51,300
+Je fais un Rename, très bien.
+
+33
+00:01:55,130 --> 00:01:56,710
+Il me donne du retour, je
+ne sais pas trop ce que c'est
+
+34
+00:01:56,877 --> 00:01:57,960
+mais ce n'est pas grave, je l'ignore.
+
+35
+00:01:58,870 --> 00:02:00,750
+Et là ce que je vais voir,
+c'est que mes endroits où
+
+36
+00:02:04,510 --> 00:02:08,710
+la Class Counter était invoquée,
+maintenant j'ai bien Counter 2 à la place.
+
+37
+00:02:10,000 --> 00:02:14,780
+Donc ça, c'est typiquement
+un refactoring de renommage de
+
+38
+00:02:14,947 --> 00:02:15,580
+ classe.
+
+39
+00:02:16,490 --> 00:02:18,830
+Donc maintenant, si je veux
+renommer, et c'est un très
+
+40
+00:02:19,000 --> 00:02:23,480
+bon exemple, imaginons que je
+veuille renommer la méthode incrémente.
+
+41
+00:02:24,450 --> 00:02:27,230
+Je vais faire Rename, et comme
+je suis en manque d'inspiration,
+
+42
+00:02:27,397 --> 00:02:28,520
+je vais aussi l'appeler Increment2.
+
+43
+00:02:31,480 --> 00:02:33,670
+Là ce que le système me
+dit, il me dit: attention.
+
+44
+00:02:33,837 --> 00:02:35,550
+Et là je fais attention.
+
+45
+00:02:36,350 --> 00:02:40,520
+Attention, tu vas renommer
+
+46
+00:02:41,740 --> 00:02:44,630
+plusieurs, il y a une
+dizaine d'implémenteurs dans le
+
+47
+00:02:44,797 --> 00:02:48,750
+système, tu vas tous les
+renommer, est-ce que tu veux faire ça?
+
+48
+00:02:48,917 --> 00:02:50,600
+Premièrement, je ne veux pas
+le faire et deuxièmement je
+
+49
+00:02:50,767 --> 00:02:52,730
+n'ai pas envie non plus de
+sélectionner ou de désélectionner.
+
+50
+00:02:53,470 --> 00:02:56,580
+Donc on pourrait le faire,
+ça permet de montrer que le
+
+51
+00:02:56,747 --> 00:02:58,700
+ programmeur est quand
+même en charge, à la fin, de
+
+52
+00:02:58,867 --> 00:03:00,490
+choisir, mais moi je
+ne veux pas le faire.
+
+53
+00:03:01,000 --> 00:03:03,700
+Par contre ce que je peux
+faire, c'est dire: moi je suis
+
+54
+00:03:03,867 --> 00:03:06,630
+en train de travailler
+vraiment sur que le package mon
+
+55
+00:03:06,797 --> 00:03:09,450
+Counter et modifier le reste
+du système, je n'ai pas trop
+
+56
+00:03:09,617 --> 00:03:11,020
+envie que ça se
+fasse automatiquement.
+
+57
+00:03:11,310 --> 00:03:13,680
+Donc ce que je vais faire, je
+dis à Nautilus: moi j'aimerais
+
+58
+00:03:13,847 --> 00:03:17,280
+que tu m'ouvres un browser
+que sur mon package et que
+
+59
+00:03:17,447 --> 00:03:20,380
+toutes les opérations fassent
+référence qu'à cette sélection.
+
+60
+00:03:20,890 --> 00:03:23,770
+Donc c'est ce que je vais
+faire avec browse scoped.
+
+61
+00:03:26,530 --> 00:03:28,710
+C'est ce que vous pouvez
+obtenir aussi quand vous pressez
+
+62
+00:03:28,877 --> 00:03:30,180
+le bouton Scoped,
+c'est la même chose.
+
+63
+00:03:30,570 --> 00:03:32,940
+C'est tellement intéressant
+comme fonctionnalité qu'on l'a
+
+64
+00:03:33,107 --> 00:03:36,240
+mise comme bouton. Donc la
+différence entre ces 2 mondes,
+
+65
+00:03:36,407 --> 00:03:40,780
+si vous regardez, c'est
+qu’ici j'ai tous mes packages et
+
+66
+00:03:40,947 --> 00:03:41,890
+là je n'ai qu'un seul package.
+
+67
+00:03:42,057 --> 00:03:45,310
+Je pourrais en avoir plusieurs, je
+n'ai qu'une sélection de ces packages.
+
+68
+00:03:45,477 --> 00:03:47,120
+Et maintenant, ce que je
+vais pouvoir faire, c'est que si
+
+69
+00:03:47,287 --> 00:03:52,200
+je veux modifier
+Increment, je vais lui dire: “Rename”
+
+70
+00:03:52,460 --> 00:03:57,180
+en incremente 2,
+et il va ne le faire que
+
+71
+00:03:57,500 --> 00:04:01,510
+localement au package ou à la
+sélection qui est dans le browser Scoped.
+
+72
+00:04:03,380 --> 00:04:05,590
+Donc je fais OK, et
+maintenant on va regarder les tests.
+
+73
+00:04:05,757 --> 00:04:08,150
+Donc déjà mes tests fonctionnent
+toujours, ils sont toujours verts.
+
+74
+00:04:08,480 --> 00:04:11,890
+Et ce que je vois, c'est
+que maintenant tous mes
+
+75
+00:04:12,057 --> 00:04:13,790
+Increment ont été
+renommés en Increment2.
+
+76
+00:04:16,800 --> 00:04:18,890
+Donc là, ce qu'on a vu dans
+cette vidéo, c'est que Pharo
+
+77
+00:04:19,057 --> 00:04:21,610
+va vous permettre tout
+un panel d'opérations, de
+
+78
+00:04:21,777 --> 00:04:25,080
+sélections et de
+manipulations de codes, avec en plus la
+
+79
+00:04:25,247 --> 00:04:27,960
+notion de restrictions à
+un sous-ensemble de packages
+
+80
+00:04:28,200 --> 00:04:30,630
+pour contrôler où vont être
+appliqués les changements.
+
+81
+00:04:31,110 --> 00:04:32,870
+Donc ce que vous avez aussi
+dans Pharo, vous avez aussi
+
+82
+00:04:33,037 --> 00:04:35,240
+un outil qui va vous
+permettre de faire de la réécriture
+
+83
+00:04:35,407 --> 00:04:38,060
+de code automatique, je ne
+vais pas m'étendre, ça si vous
+
+84
+00:04:38,227 --> 00:04:40,650
+en avez vraiment besoin il
+faut demander, il y a un outil
+
+85
+00:04:40,817 --> 00:04:42,310
+spécifique pour
+faire ce genre de choses.
+
+86
+00:04:43,160 --> 00:04:45,480
+Maintenant, le dernier point
+que je voulais vous montrer,
+
+87
+00:04:45,647 --> 00:04:50,410
+c'est que souvent vous avez
+des opérations qui vous sont
+
+88
+00:04:50,577 --> 00:04:51,210
+proposées, qui sont générées.
+
+89
+00:04:51,470 --> 00:04:54,900
+Vous allez les appliquer, le
+système vous propose de les
+
+90
+00:04:55,067 --> 00:04:57,330
+faire mais ce n'est pas dit que ça
+fonctionne, que ça soit vraiment adapté.
+
+91
+00:04:57,890 --> 00:05:00,810
+Ce que Pharo propose,
+c'est aussi ce que Nautilus
+
+92
+00:05:01,000 --> 00:05:03,460
+propose, c'est aussi ce qu'on
+appelle les Smart Suggestions.
+
+93
+00:05:03,627 --> 00:05:08,090
+Donc les Smart Suggestions,
+c'est un outil qui va savoir
+
+94
+00:05:08,520 --> 00:05:12,530
+et vous proposer des opérations
+basées sur la sélection courante.
+
+95
+00:05:14,120 --> 00:05:18,590
+Donc par exemple, là il
+peut me proposer de faire un
+
+96
+00:05:18,757 --> 00:05:22,510
+Extract method, ce n'est
+pas très intéressant dans ce
+
+97
+00:05:22,677 --> 00:05:25,900
+cas-là, ou un Inline method.
+Mais ça veut dire que si je
+
+98
+00:05:26,067 --> 00:05:29,230
+sélectionne par exemple
+l'affectation, je ne vais pas du
+
+99
+00:05:29,397 --> 00:05:32,490
+tout avoir les mêmes
+opérations à ma disposition.
+
+100
+00:05:33,400 --> 00:05:36,110
+Donc si je suis sur une
+ classe, il va me demander de
+
+101
+00:05:36,277 --> 00:05:37,710
+browser les références,
+de renommer la classe.
+
+102
+00:05:37,877 --> 00:05:41,000
+Et vous voyez que, suivant
+l'endroit où est le curseur,
+
+103
+00:05:41,710 --> 00:05:43,000
+je n'ai pas les mêmes opérations.
+

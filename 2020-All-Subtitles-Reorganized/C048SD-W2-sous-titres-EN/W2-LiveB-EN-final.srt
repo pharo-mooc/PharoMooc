@@ -1,0 +1,571 @@
+1
+00:00:03,680 --> 00:00:07,640
+-Hi. In this video, we are going to have
+a look at the Inspector tool from Pharo
+
+2
+00:00:07,960 --> 00:00:12,160
+and how it can help you
+inspect your objects from within
+
+3
+00:00:12,480 --> 00:00:13,920
+and have a real close look
+
+4
+00:00:14,240 --> 00:00:16,760
+at how they work
+and how you can interact with them.
+
+5
+00:00:17,080 --> 00:00:18,200
+In order to use it,
+
+6
+00:00:18,520 --> 00:00:22,400
+I put up an expression that you certainly
+will not see in real life.
+
+7
+00:00:22,720 --> 00:00:26,960
+Basically, it is an "OrderedDictionary"
+with three key values.
+
+8
+00:00:27,280 --> 00:00:30,120
+Under the key "Time",
+I put the "Time now",
+
+9
+00:00:30,440 --> 00:00:32,520
+under the "Date", the "Date today",
+
+10
+00:00:32,840 --> 00:00:37,880
+and under a "Morph" key,
+I put an "HSVAColorSelectorMorph".
+
+11
+00:00:38,200 --> 00:00:39,920
+We will see what it looks like later on.
+
+12
+00:00:40,560 --> 00:00:43,960
+If I want to open the Inspector
+on this particular object,
+
+13
+00:00:44,280 --> 00:00:47,120
+I can right-click and go to "Inspect it"
+
+14
+00:00:47,600 --> 00:00:49,760
+or simply press the shortcut Cmd+I.
+
+15
+00:00:50,120 --> 00:00:51,360
+So, let's click on it.
+
+16
+00:00:51,880 --> 00:00:53,760
+We can see
+that the Inspector is now open.
+
+17
+00:00:54,080 --> 00:00:56,200
+I will just tidy the Playground.
+
+18
+00:00:56,520 --> 00:01:00,720
+Now the Items tab is really interesting
+but we will go over the Row tab first.
+
+19
+00:01:01,040 --> 00:01:05,240
+The Row tab shows you the actual
+limitation of the "OrderedDictionary".
+
+20
+00:01:05,560 --> 00:01:06,440
+For example,
+
+21
+00:01:06,760 --> 00:01:08,480
+we have got the self representation
+
+22
+00:01:08,800 --> 00:01:12,200
+being the OrderedDictionary
+with the three pairs of key values,
+
+23
+00:01:12,520 --> 00:01:15,720
+"Time", "time now", "Date", "date today",
+
+24
+00:01:16,040 --> 00:01:18,760
+and a certain Morph
+that we will see later.
+
+25
+00:01:19,360 --> 00:01:21,440
+We have got the dictionary
+and the ordered keys.
+
+26
+00:01:21,760 --> 00:01:22,960
+If I click on the dictionary,
+
+27
+00:01:23,280 --> 00:01:26,280
+we will see that there is another tab
+that will open on the right.
+
+28
+00:01:26,800 --> 00:01:31,000
+The nice thing that we can see there
+is that we can, for example,
+
+29
+00:01:31,600 --> 00:01:33,800
+click another time
+on the Array this time.
+
+30
+00:01:34,120 --> 00:01:37,320
+And we can see
+that we now have three windows
+
+31
+00:01:37,640 --> 00:01:40,760
+and we can have a preview
+of the first one below the window.
+
+32
+00:01:41,080 --> 00:01:42,320
+I can extend it.
+
+33
+00:01:42,920 --> 00:01:47,440
+I have got the three views
+or I can restrict it to the last one.
+
+34
+00:01:48,240 --> 00:01:49,760
+Right now, I am in the last one
+
+35
+00:01:50,080 --> 00:01:54,120
+and a nice thing is that I can interact
+with this Array object
+
+36
+00:01:54,440 --> 00:01:58,600
+by for example writing "self at: 1"
+
+37
+00:01:58,920 --> 00:02:00,160
+and I can print this
+
+38
+00:02:00,680 --> 00:02:04,880
+and it will say that 1 has "Morph"
+
+39
+00:02:05,680 --> 00:02:08,800
+associated
+with the "HSVAColorSelectorMorph".
+
+40
+00:02:09,120 --> 00:02:12,480
+If I want to go back to the other,
+I can simply drag this back,
+
+41
+00:02:13,360 --> 00:02:15,320
+put it there or I can close it here
+
+42
+00:02:16,240 --> 00:02:18,520
+to have our two previous views.
+
+43
+00:02:18,840 --> 00:02:21,000
+Now, let's close this one,
+
+44
+00:02:21,320 --> 00:02:24,520
+we will have a closer look
+to the Items tab
+
+45
+00:02:24,840 --> 00:02:26,480
+which is not represented in everything.
+
+46
+00:02:26,800 --> 00:02:30,440
+For example, if I go there
+and I go to the 1 time,
+
+47
+00:02:31,160 --> 00:02:34,320
+you can see
+that we have a different representation.
+
+48
+00:02:34,640 --> 00:02:37,120
+A nice thing that we can look at is...
+
+49
+00:02:37,440 --> 00:02:38,400
+Under String,
+
+50
+00:02:38,720 --> 00:02:42,160
+the items will be the number of
+the different characters with the index.
+
+51
+00:02:42,480 --> 00:02:45,480
+Here, for the Array, we will have
+the index and the different items
+
+52
+00:02:45,800 --> 00:02:47,880
+and if I go to the items
+for the OrderedDictionary
+
+53
+00:02:48,200 --> 00:02:49,080
+and close those too,
+
+54
+00:02:49,920 --> 00:02:53,880
+you can see that we have
+three different pairs of key values,
+
+55
+00:02:54,200 --> 00:02:56,720
+for "Time", we have the "time now",
+"Date" with "date now",
+
+56
+00:02:57,040 --> 00:02:59,200
+"Morph" with a certain Morph.
+
+57
+00:02:59,520 --> 00:03:01,320
+If I click on the "Time" thing,
+
+58
+00:03:01,640 --> 00:03:05,760
+you can see that we now have
+a panel open with the time.
+
+59
+00:03:06,080 --> 00:03:07,520
+We can go over to Details,
+
+60
+00:03:07,920 --> 00:03:09,680
+I can show you
+the different keys and things
+
+61
+00:03:10,000 --> 00:03:12,040
+that are present for the "Time" object.
+
+62
+00:03:12,360 --> 00:03:15,320
+We can also go there
+and write "self browse"
+
+63
+00:03:15,640 --> 00:03:17,160
+and press Cmd+D to do it.
+
+64
+00:03:18,080 --> 00:03:21,880
+This will open the System Browser
+on the actual Kernel package
+
+65
+00:03:22,200 --> 00:03:23,680
+and the Chronology tab.
+
+66
+00:03:24,240 --> 00:03:28,360
+And we can have a deeper look
+inside the actual Time class.
+
+67
+00:03:28,800 --> 00:03:31,880
+Another thing you can do
+right from within the Inspector
+
+68
+00:03:32,200 --> 00:03:33,840
+is to go over to the Meta tab.
+
+69
+00:03:34,360 --> 00:03:37,480
+There, you can access
+the different methods of "Time"
+
+70
+00:03:37,880 --> 00:03:39,560
+and its class hierarchy.
+
+71
+00:03:39,880 --> 00:03:43,800
+So, we can go inside Magnitude,
+Object or even ProtoObject.
+
+72
+00:03:44,720 --> 00:03:45,880
+You can filter everything.
+
+73
+00:03:46,200 --> 00:03:49,200
+For example,
+if I want to look at duration,
+
+74
+00:03:49,640 --> 00:03:53,560
+I can see
+that it will filter everything else out.
+
+75
+00:03:54,280 --> 00:03:57,720
+We can filter the different classes
+if you have a complex hierarchy
+
+76
+00:03:58,600 --> 00:04:00,600
+and now, if we go to "Date",
+
+77
+00:04:01,120 --> 00:04:04,880
+you can see that this time,
+I have got another tab called Calendar.
+
+78
+00:04:05,200 --> 00:04:07,280
+We do not have the tab items anymore
+
+79
+00:04:07,800 --> 00:04:09,560
+but we have got a calendar tab
+
+80
+00:04:09,880 --> 00:04:12,240
+that is a special tab made
+for this subject
+
+81
+00:04:12,560 --> 00:04:15,800
+that will show us
+that we are May 10th, 2020
+
+82
+00:04:16,120 --> 00:04:18,040
+and that it is located here
+on the calendar.
+
+83
+00:04:18,800 --> 00:04:20,920
+Now, a nice thing we can see
+
+84
+00:04:21,320 --> 00:04:24,160
+is that if we go over
+to the "Morph" object,
+
+85
+00:04:24,480 --> 00:04:25,680
+it is a really complex object
+
+86
+00:04:26,000 --> 00:04:28,360
+because we have several bounds.
+
+87
+00:04:28,680 --> 00:04:30,840
+We do not really know
+how any of this works,
+
+88
+00:04:31,160 --> 00:04:34,440
+but we can open it in world.
+"OpeninWorld".
+
+89
+00:04:35,520 --> 00:04:36,560
+Let's do that.
+
+90
+00:04:37,160 --> 00:04:39,760
+We can have a small look at it.
+
+91
+00:04:40,080 --> 00:04:41,480
+We have got a color selector,
+
+92
+00:04:41,800 --> 00:04:44,760
+then we have got
+some kind of selector as well here
+
+93
+00:04:45,080 --> 00:04:46,440
+and a transparency selector there.
+
+94
+00:04:46,760 --> 00:04:49,960
+We can see that we can inspect
+this object from here
+
+95
+00:04:50,280 --> 00:04:53,040
+by using "SelectedColor".
+
+96
+00:04:53,560 --> 00:04:56,160
+Now, if we would like to plug this color
+in the Inspector,
+
+97
+00:04:56,480 --> 00:04:57,600
+we can right-click
+
+98
+00:04:57,920 --> 00:05:00,080
+and instead of doing
+"Do it" or "Print it",
+
+99
+00:05:00,400 --> 00:05:03,040
+we can press "Do it and go" or Cmd+G.
+
+100
+00:05:03,360 --> 00:05:06,960
+This will plug the results
+in the Inspector if I click there.
+
+101
+00:05:07,440 --> 00:05:10,000
+We can now see that we have got
+this color right there.
+
+102
+00:05:10,480 --> 00:05:12,360
+That is really powerful.
+
+103
+00:05:13,520 --> 00:05:16,360
+Another thing you can do
+is open the object twice.
+
+104
+00:05:16,680 --> 00:05:19,200
+If I go there, I will click on "self".
+
+105
+00:05:19,720 --> 00:05:21,520
+I will remove the first tab.
+
+106
+00:05:22,160 --> 00:05:25,640
+What we can do,
+instead of exploring this complex object,
+
+107
+00:05:25,960 --> 00:05:27,840
+is go to Submorphs.
+
+108
+00:05:28,160 --> 00:05:29,760
+And on this, I go to Morph.
+
+109
+00:05:30,080 --> 00:05:33,400
+This is the "HSVAColorSelectorMorph"
+all together.
+
+110
+00:05:33,920 --> 00:05:37,120
+Now, we can explore the tree composition
+
+111
+00:05:37,440 --> 00:05:40,840
+and if I click on, for example,
+the "HColorSelectorMorph",
+
+112
+00:05:41,640 --> 00:05:43,840
+it will show me exactly what it is
+
+113
+00:05:44,160 --> 00:05:45,560
+and I can inspect it,
+
+114
+00:05:46,200 --> 00:05:49,240
+inspect the raw code
+of this particular piece of Morph.
+
+115
+00:05:49,880 --> 00:05:51,440
+I can do the same thing there
+
+116
+00:05:51,760 --> 00:05:54,640
+and you can see that it will add
+the different components
+
+117
+00:05:54,960 --> 00:05:56,960
+or show me exactly
+what I am looking for.
+
+118
+00:05:58,120 --> 00:06:02,640
+The Inspector is a really nice way
+to have a close look at your objects
+
+119
+00:06:02,960 --> 00:06:05,120
+and interact with them
+from within them.
+
+120
+00:06:05,440 --> 00:06:08,680
+You can even interact
+with the actual hierarchy,
+
+121
+00:06:09,000 --> 00:06:10,320
+browse for classes.
+
+122
+00:06:10,640 --> 00:06:15,240
+A nice thing you can do is implement
+new tabs for your objects,
+
+123
+00:06:15,600 --> 00:06:18,920
+such as for example the Submorphs tab
+or the Morph tab,
+
+124
+00:06:19,240 --> 00:06:21,720
+we had the Calendar tab for the date,
+
+125
+00:06:22,160 --> 00:06:24,560
+or the items for the different iterables.
+
+126
+00:06:24,880 --> 00:06:28,880
+So, the Inspector is a really nice way
+to understand how the objects work.

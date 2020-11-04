@@ -1,0 +1,532 @@
+WEBVTT
+
+00:00:00.680 --> 00:00:01.800 align:middle
+Hello.
+
+00:00:01.960 --> 00:00:04.640 align:middle
+Today we are going
+to talk about messages.
+
+00:00:04.800 --> 00:00:08.800 align:middle
+You'll see why having lots of messages
+and small methods is good.
+
+00:00:08.960 --> 00:00:11.520 align:middle
+Contrary to what
+many developers believe.
+
+00:00:12.640 --> 00:00:16.120 align:middle
+This slide illustrates
+a design sequence.
+
+00:00:16.640 --> 00:00:18.920 align:middle
+This is valid not only for Pharo,
+
+00:00:19.080 --> 00:00:22.280 align:middle
+but for design
+in any object-oriented language.
+
+00:00:23.800 --> 00:00:27.240 align:middle
+As you know,
+message sends are hooks,
+
+00:00:27.400 --> 00:00:30.640 align:middle
+places where we can define behavior.
+
+00:00:30.840 --> 00:00:35.680 align:middle
+Developers often say
+that they like big methods because
+
+00:00:35.840 --> 00:00:37.760 align:middle
+they're easy to understand.
+
+00:00:37.920 --> 00:00:41.480 align:middle
+You read the lines
+and you understand the code.
+
+00:00:41.640 --> 00:00:44.320 align:middle
+But in this session I will show you
+
+00:00:44.480 --> 00:00:46.720 align:middle
+that this is not such a good thing.
+
+00:00:46.880 --> 00:00:50.080 align:middle
+In general,
+big methods mean bad design.
+
+00:00:51.280 --> 00:00:53.120 align:middle
+A hierarchy of classes
+
+00:00:53.280 --> 00:00:56.280 align:middle
+and a same method
+implemented in several classes,
+
+00:00:56.440 --> 00:00:58.480 align:middle
+is one means of defining choices.
+
+00:00:59.000 --> 00:01:02.960 align:middle
+If I take a fat class
+with lots of operations,
+
+00:01:03.120 --> 00:01:07.320 align:middle
+and I have to choose
+an operation according to status,
+
+00:01:07.480 --> 00:01:11.240 align:middle
+my code will say: "If I'm in this state,
+I do this operation.
+
+00:01:11.400 --> 00:01:13.960 align:middle
+"If I'm in that state,
+I do that operation."
+
+00:01:14.120 --> 00:01:16.680 align:middle
+You'll have big codes
+
+00:01:16.840 --> 00:01:19.360 align:middle
+with IFs all over the place.
+
+00:01:19.520 --> 00:01:22.520 align:middle
+This means that
+when you want to add new cases,
+
+00:01:22.680 --> 00:01:25.040 align:middle
+you have to modify methods everywhere.
+
+00:01:25.400 --> 00:01:28.400 align:middle
+In the version on the right-hand side,
+
+00:01:29.200 --> 00:01:33.880 align:middle
+the operation for each case
+is divided into a specific class.
+
+00:01:34.240 --> 00:01:38.040 align:middle
+All you have to do
+is send an operation message
+
+00:01:38.320 --> 00:01:41.280 align:middle
+to an object to create an IF.
+
+00:01:41.440 --> 00:01:45.320 align:middle
+The IF does not need to be written
+by the programmer.
+
+00:01:46.640 --> 00:01:50.480 align:middle
+It's done automatically
+via the polymorphism principle.
+
+00:01:50.640 --> 00:01:55.920 align:middle
+In the following slides, I'll show you
+how to improve one example
+
+00:01:56.080 --> 00:01:58.120 align:middle
+by changing small bits at a time.
+
+00:01:58.640 --> 00:02:01.760 align:middle
+Here is a big method
+that is not easy to understand
+
+00:02:01.920 --> 00:02:03.480 align:middle
+and which does many things.
+
+00:02:03.640 --> 00:02:05.560 align:middle
+Here's what we want to do.
+
+00:02:06.280 --> 00:02:07.640 align:middle
+In a subclass,
+
+00:02:07.800 --> 00:02:11.840 align:middle
+we want to give this variable here
+a different value.
+
+00:02:12.800 --> 00:02:14.720 align:middle
+As it's set up,
+
+00:02:14.880 --> 00:02:18.000 align:middle
+the only way to do that
+is to create the subclass,
+
+00:02:18.160 --> 00:02:20.920 align:middle
+then duplicate all of the code,
+
+00:02:21.080 --> 00:02:24.080 align:middle
+adding the small modification
+you want to make.
+
+00:02:24.920 --> 00:02:27.480 align:middle
+In languages like Java
+
+00:02:27.640 --> 00:02:29.160 align:middle
+that use private keywords,
+
+00:02:29.320 --> 00:02:32.560 align:middle
+if the attributes
+used by the method are private,
+
+00:02:32.720 --> 00:02:34.760 align:middle
+what I just did is impossible.
+
+00:02:35.000 --> 00:02:39.040 align:middle
+If the method uses
+instance variables that are private,
+
+00:02:39.200 --> 00:02:42.520 align:middle
+subclasses cannot duplicate code.
+
+00:02:42.880 --> 00:02:46.960 align:middle
+But in any case,
+duplicating is not good practice,
+
+00:02:47.480 --> 00:02:50.120 align:middle
+because duplication copies bugs too.
+
+00:02:50.280 --> 00:02:54.560 align:middle
+If I have a bug in my original version,
+I'll have a bug in my copies.
+
+00:02:55.800 --> 00:03:00.640 align:middle
+And if I modify one copy,
+I have to modify every duplication.
+
+00:03:01.520 --> 00:03:03.760 align:middle
+It's extra work for the developer
+
+00:03:03.920 --> 00:03:07.200 align:middle
+and you must remember
+that there are various copies.
+
+00:03:08.760 --> 00:03:11.960 align:middle
+The real solution is sending messages.
+
+00:03:12.320 --> 00:03:16.560 align:middle
+In a method, when you send a message
+rather than writing
+
+00:03:16.720 --> 00:03:20.160 align:middle
+the content of the
+corresponding method directly inside,
+
+00:03:20.320 --> 00:03:22.920 align:middle
+subclasses can override behavior.
+
+00:03:24.160 --> 00:03:26.640 align:middle
+If we look at the bar method,
+
+00:03:26.800 --> 00:03:28.680 align:middle
+it sends foo to self.
+
+00:03:28.840 --> 00:03:30.960 align:middle
+In A, foo returns 10,
+
+00:03:31.120 --> 00:03:33.880 align:middle
+but the subclasses
+can override this value
+
+00:03:34.040 --> 00:03:36.600 align:middle
+and replace it with 42, for example.
+
+00:03:37.240 --> 00:03:40.720 align:middle
+So how can we improve
+the code you just saw
+
+00:03:40.880 --> 00:03:44.360 align:middle
+and benefit from
+the inheritance mechanism
+
+00:03:44.520 --> 00:03:46.320 align:middle
+without using duplication?
+
+00:03:46.480 --> 00:03:50.520 align:middle
+I'm going to extract this part here
+and send a message instead.
+
+00:03:50.680 --> 00:03:54.200 align:middle
+It's done by a refactoring function
+called extract method.
+
+00:03:54.360 --> 00:03:58.080 align:middle
+You have tools to transform this code
+into this code here.
+
+00:03:59.200 --> 00:04:01.960 align:middle
+The code I selected
+in the previous slide
+
+00:04:02.120 --> 00:04:06.240 align:middle
+was transferred
+into a new method called ratio.
+
+00:04:07.800 --> 00:04:12.320 align:middle
+And here where the code was written,
+we now have a message send.
+
+00:04:13.240 --> 00:04:15.880 align:middle
+This means that in the subclasses,
+
+00:04:17.000 --> 00:04:20.360 align:middle
+I can change this behavior.
+
+00:04:20.520 --> 00:04:22.440 align:middle
+Either change it completely
+
+00:04:22.600 --> 00:04:26.640 align:middle
+or recall the behavior of the superclass
+and make a modification.
+
+00:04:26.800 --> 00:04:28.560 align:middle
+That's what I'm doing here.
+
+00:04:28.720 --> 00:04:30.720 align:middle
+I send a ratio message to super
+
+00:04:30.880 --> 00:04:34.760 align:middle
+to execute the code as it is
+in the superclass,
+
+00:04:34.920 --> 00:04:37.720 align:middle
+and I add 10,
+which is what my goal was.
+
+00:04:39.880 --> 00:04:44.760 align:middle
+Another possible method
+is to extract this part here,
+
+00:04:44.920 --> 00:04:49.440 align:middle
+so that the subclasses
+can change this behavior.
+
+00:04:50.360 --> 00:04:53.160 align:middle
+I extract this piece of code
+
+00:04:53.320 --> 00:04:55.640 align:middle
+into a specific method.
+
+00:04:56.200 --> 00:04:59.440 align:middle
+And in the primary method,
+I send a message.
+
+00:05:02.120 --> 00:05:03.240 align:middle
+In this case,
+
+00:05:03.480 --> 00:05:07.520 align:middle
+the class we want
+an instance variable for is in hardcode.
+
+00:05:07.680 --> 00:05:11.400 align:middle
+This means that if the subclasses
+want to change this class,
+
+00:05:11.560 --> 00:05:14.160 align:middle
+to potentially get a UINode subclass,
+
+00:05:14.320 --> 00:05:17.280 align:middle
+it will have to duplicate
+the entire method.
+
+00:05:17.440 --> 00:05:19.600 align:middle
+Here we can use the same process
+
+00:05:19.760 --> 00:05:23.440 align:middle
+and extract the class into a method,
+
+00:05:23.600 --> 00:05:27.040 align:middle
+so that the subclasses
+can change the instance variable.
+
+00:05:27.200 --> 00:05:28.840 align:middle
+That's what I'm doing here.
+
+00:05:29.000 --> 00:05:32.440 align:middle
+I extract the part that interests me
+into a method,
+
+00:05:34.720 --> 00:05:36.760 align:middle
+and I send a message.
+
+00:05:36.920 --> 00:05:40.560 align:middle
+Sending a message enables the subclasses
+to change behavior.
+
+00:05:40.920 --> 00:05:43.760 align:middle
+Like I said earlier,
+certain programmers
+
+00:05:43.920 --> 00:05:46.440 align:middle
+do not agree with this approach.
+
+00:05:47.120 --> 00:05:51.520 align:middle
+They find it difficult to read lots of
+small, spread out methods.
+
+00:05:51.680 --> 00:05:54.280 align:middle
+They'd rather read a big method
+line by line.
+
+00:05:54.440 --> 00:05:58.200 align:middle
+This isn't good practice,
+because reading code line by line
+
+00:05:58.360 --> 00:06:01.400 align:middle
+won't work
+if the application is very big.
+
+00:06:01.560 --> 00:06:05.640 align:middle
+You can't read line by line
+and understand what's going on.
+
+00:06:05.800 --> 00:06:10.440 align:middle
+This is where abstractions are useful
+and extracting bits of behavior
+
+00:06:10.600 --> 00:06:13.040 align:middle
+or expressions from methods
+makes sense.
+
+00:06:13.200 --> 00:06:17.320 align:middle
+You can read a method globally
+without understanding every detail.
+
+00:06:18.040 --> 00:06:21.520 align:middle
+So little methods are good,
+you should use them everywhere.
+
+00:06:22.400 --> 00:06:24.920 align:middle
+Let's carry on.
+
+00:06:26.160 --> 00:06:30.240 align:middle
+Here we see that
+the value 55 appears in hardcode
+
+00:06:30.400 --> 00:06:31.800 align:middle
+in the method code.
+
+00:06:31.960 --> 00:06:36.000 align:middle
+This means the subclasses
+cannot change to 100, for example.
+
+00:06:36.160 --> 00:06:40.480 align:middle
+So we will extract this value
+like we did previously,
+
+00:06:41.800 --> 00:06:46.600 align:middle
+and put it in a separate method so that
+the subclasses can change the value.
+
+00:06:47.440 --> 00:06:50.120 align:middle
+Another advantage is that previously
+
+00:06:50.280 --> 00:06:52.520 align:middle
+the value 55 was written here.
+
+00:06:52.680 --> 00:06:54.720 align:middle
+Now it's called self averageRatio.
+
+00:06:54.880 --> 00:06:58.560 align:middle
+This means we replaced
+a numerical value by a name,
+
+00:06:58.720 --> 00:07:02.200 align:middle
+and I now know what
+the value 55 corresponds to.
+
+00:07:02.360 --> 00:07:07.440 align:middle
+I know it means averageRatio
+and when I read the code, I understand.
+
+00:07:07.600 --> 00:07:11.240 align:middle
+So having many small methods
+helps to read the code.
+
+00:07:11.680 --> 00:07:14.800 align:middle
+Creating an averageRatio method
+to return 55
+
+00:07:14.960 --> 00:07:17.720 align:middle
+enables all subclasses
+to change values.
+
+00:07:17.880 --> 00:07:21.640 align:middle
+But how can we let class users
+change their value too?
+
+00:07:22.000 --> 00:07:23.360 align:middle
+What we can do,
+
+00:07:23.520 --> 00:07:25.840 align:middle
+is use an instance variable.
+
+00:07:26.640 --> 00:07:30.600 align:middle
+The averageRatio method
+used in the previous slide
+
+00:07:30.760 --> 00:07:33.920 align:middle
+will return the value
+of the instance variable,
+
+00:07:34.080 --> 00:07:38.480 align:middle
+if it contains a value.
+If not, it returns the default value.
+
+00:07:38.800 --> 00:07:40.920 align:middle
+The default value was 55.
+
+00:07:41.640 --> 00:07:45.120 align:middle
+And the users of a node object
+
+00:07:45.280 --> 00:07:48.080 align:middle
+can program
+whatever value they like inside.
+
+00:07:48.240 --> 00:07:49.680 align:middle
+With this design,
+
+00:07:49.840 --> 00:07:54.520 align:middle
+subclasses can override
+the defaultAverageRatio
+
+00:07:55.000 --> 00:07:56.320 align:middle
+and change the value.
+
+00:07:56.480 --> 00:08:01.120 align:middle
+And class users can set a value
+by executing the program.
+
+00:08:01.640 --> 00:08:04.360 align:middle
+This is called
+gruyere-oriented programming.
+
+00:08:05.400 --> 00:08:09.440 align:middle
+An object-oriented program,
+a WIN method,
+
+00:08:09.600 --> 00:08:12.200 align:middle
+contains holes called hooks,
+
+00:08:12.360 --> 00:08:15.960 align:middle
+which can be filled with subclasses.
+
+00:08:16.800 --> 00:08:18.320 align:middle
+As a conclusion,
+
+00:08:18.480 --> 00:08:22.280 align:middle
+code can be reused
+and refined in subclasses.
+
+00:08:22.440 --> 00:08:25.280 align:middle
+Each time we send a message,
+
+00:08:25.440 --> 00:08:29.240 align:middle
+subclasses can change
+the behavior of the superclass:
+
+00:08:29.400 --> 00:08:31.600 align:middle
+Refine it or completely change it.
+
+00:08:32.560 --> 00:08:37.760 align:middle
+Small methods are great because
+they give names to bits of expressions,
+
+00:08:38.080 --> 00:08:42.560 align:middle
+and because they give subclasses
+the freedom to change behavior.
+

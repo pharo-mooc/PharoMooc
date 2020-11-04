@@ -1,0 +1,1131 @@
+1
+00:00:01,190 --> 00:00:03,000
+In this video, I will show
+you how to 
+
+2
+00:00:03,167 --> 00:00:05,220
+create a package, a class, and 
+describe tests.
+
+3
+00:00:05,770 --> 00:00:09,100
+The first thing to do is to 
+open the system browser.
+
+4
+00:00:09,530 --> 00:00:11,710
+The system browser enables to browse 
+packages.
+
+5
+00:00:11,877 --> 00:00:12,590
+Here there are packages.
+
+6
+00:00:14,260 --> 00:00:16,600
+The first thing to do is 
+to create a package. 
+
+7
+00:00:16,830 --> 00:00:21,790
+We will click on “Add
+package”, "MyCounter".
+
+8
+00:00:22,280 --> 00:00:23,640
+As there are many packages
+and we don’t want
+
+9
+00:00:23,807 --> 00:00:27,050
+to see them, it is a good thing
+to filter this.
+
+10
+00:00:27,950 --> 00:00:30,000
+We have our package "MyCounter".
+
+11
+00:00:30,157 --> 00:00:32,740
+And there, we define a class 
+that we call
+
+12
+00:00:32,907 --> 00:00:37,550
+"Counter" and it has an instance
+variable “count”.
+
+13
+00:00:38,140 --> 00:00:42,290
+The little orange icon means 
+that the code has not been saved.
+
+14
+00:00:42,610 --> 00:00:45,690
+Here, we will compile code
+with the “Accept” function.
+
+15
+00:00:46,290 --> 00:00:49,570
+And here, the class
+"Counter" has been compiled.
+
+16
+00:00:49,830 --> 00:00:51,920
+The system searches a little
+and says that there are
+
+17
+00:00:53,200 --> 00:00:56,290
+good comments. We will see this later.
+For the moment, we don’t care.
+
+18
+00:01:00,790 --> 00:01:03,690
+There is a red exclamation mark
+because we haven’t written
+
+19
+00:01:03,857 --> 00:01:05,280
+a comment.
+So, we will write a first
+
+20
+00:01:05,447 --> 00:01:12,330
+comment:
+
+21
+00:01:12,497 --> 00:01:13,880
+"I'm a simple counter…”
+
+22
+00:01:45,790 --> 00:01:49,230
+We write a little example
+so that the counter understands
+
+23
+00:01:49,397 --> 00:01:53,050
+how it will work:
+Counter new,
+
+24
+00:01:55,750 --> 00:02:00,120
+Counter increment, increment,
+Counter
+
+25
+00:02:02,920 --> 00:02:07,500
+count. Here it should be equal to 2.
+
+26
+00:02:09,880 --> 00:02:14,180
+Once more, the text hasn’t been
+saved and we will compile it.
+
+27
+00:02:14,347 --> 00:02:16,540
+It has been saved. 
+We don’t have a counter anymore.
+
+28
+00:02:16,850 --> 00:02:20,050
+Now, we are going to define
+accessors.
+
+29
+00:02:21,940 --> 00:02:24,770
+We generally put accessors in the 
+Accessing protocol.
+
+30
+00:02:26,640 --> 00:02:31,540
+We write: "count returns count".
+
+31
+00:02:33,160 --> 00:02:35,720
+In the same way, we write
+
+32
+00:02:38,220 --> 00:02:40,740
+aNumber, we do a Setter.
+
+33
+00:02:46,190 --> 00:02:48,380
+You see, I modified the count
+method.
+
+34
+00:02:48,547 --> 00:02:50,770
+You can think that it has been
+lost, but no, because
+
+35
+00:02:50,937 --> 00:02:54,120
+each time I change a method
+using a different name, 
+
+36
+00:02:54,287 --> 00:02:55,320
+it creates a new method.
+
+37
+00:02:55,487 --> 00:02:58,530
+I compile the new method,
+I have “count”.
+
+38
+00:03:01,160 --> 00:03:05,190
+Now, we really want to test
+and write our first little program.
+
+39
+00:03:07,360 --> 00:03:08,000
+I open Playground.
+
+40
+00:03:09,910 --> 00:03:14,700
+I create a counter,
+we go on another line.
+
+41
+00:03:14,867 --> 00:03:19,730
+I put a value: 
+
+42
+00:03:21,000 --> 00:03:25,420
+C count 7. If I ask for its
+value, what will it
+
+43
+00:03:25,587 --> 00:03:29,600
+return? It will return 7.
+
+44
+00:03:32,400 --> 00:03:34,390
+Now, what we’d really like
+to write
+
+45
+00:03:34,557 --> 00:03:38,460
+this as a test because like this
+we can’t execute it
+
+46
+00:03:39,040 --> 00:03:40,350
+and we’d like to execute it 
+automatically.
+
+47
+00:03:40,630 --> 00:03:42,910
+We create a test class.
+
+48
+00:03:43,077 --> 00:03:44,820
+How do we create a test class
+in Pharo?
+
+49
+00:03:45,000 --> 00:03:48,450
+We change the super class,
+we say it inherits this 
+
+50
+00:03:50,220 --> 00:03:55,000
+from TestCase and we will
+define a test class
+
+51
+00:03:55,167 --> 00:03:56,140
+called CounterTest.
+
+52
+00:03:56,910 --> 00:03:59,860
+Now, I will compile it.
+
+53
+00:04:00,660 --> 00:04:03,700
+I have a new CounterTest class
+in my system.
+
+54
+00:04:04,570 --> 00:04:08,410
+I will define a new method,
+I will add  
+
+55
+00:04:08,577 --> 00:04:10,030
+a protocol called tests.
+
+56
+00:04:11,620 --> 00:04:14,300
+There I can define a new method.
+
+57
+00:04:14,467 --> 00:04:17,940
+Tests methods must always start 
+by “test”
+
+58
+00:04:18,107 --> 00:04:21,690
+and be in a class that inherits 
+from TestCase. 
+
+59
+00:04:22,380 --> 00:04:23,580
+We will call it
+"testCounterisSetAndRead"
+
+60
+00:04:31,170 --> 00:04:35,590
+for instance. We almost have our
+test. We have already
+
+61
+00:04:35,757 --> 00:04:36,540
+almost written everything.
+
+62
+00:04:37,620 --> 00:04:40,330
+We will indent it a little better.
+
+63
+00:04:40,497 --> 00:04:41,730
+I create my counter.
+
+64
+00:04:42,580 --> 00:04:45,680
+And now, I write
+"self assert
+
+65
+00:04:49,750 --> 00:04:54,200
+equals 7". This sentence is
+
+66
+00:04:54,367 --> 00:04:58,560
+strictly equivalent to
+"self assert C count equals 7".
+
+67
+00:05:01,870 --> 00:05:04,640
+It is more convenient,
+when you make a mistake
+
+68
+00:05:04,807 --> 00:05:08,470
+the return is smarter 
+when you use the first sentence.
+
+69
+00:05:08,637 --> 00:05:10,910
+We will compile. 
+
+70
+00:05:12,790 --> 00:05:17,690
+Now, I can make my test executed,
+
+71
+00:05:19,790 --> 00:05:22,440
+my test is green. When you have 
+a test and it is green, 
+
+72
+00:05:22,607 --> 00:05:26,180
+it is the right time to 
+save your production, your code.
+
+73
+00:05:26,370 --> 00:05:27,930
+In Pharo, you can save the image.
+
+74
+00:05:28,097 --> 00:05:30,080
+Here, that’s what I do, I will 
+save the image, but the image 
+
+75
+00:05:30,247 --> 00:05:31,320
+is not satisfactory..
+
+76
+00:05:32,770 --> 00:05:35,040
+I’d like to show you
+how you can save code
+
+77
+00:05:35,207 --> 00:05:36,820
+in a versions system.
+
+78
+00:05:37,070 --> 00:05:39,960
+Here, as I don’t know if you will
+have an Internet access,
+
+79
+00:05:40,127 --> 00:05:44,610
+I will do it in my local cache. 
+
+80
+00:05:44,777 --> 00:05:48,860
+You see, I have this directory
+pointing toward
+
+81
+00:05:49,027 --> 00:05:52,930
+all those packages
+on which I can work
+
+82
+00:05:54,000 --> 00:05:55,360
+and that I have loaded or not. 
+
+83
+00:05:55,770 --> 00:05:58,490
+There, the system shows us that
+
+84
+00:05:58,657 --> 00:06:02,870
+several packages with modifications
+haven’t been saved.
+
+85
+00:06:03,070 --> 00:06:05,060
+We don’t care about the first 2,
+but we see that
+
+
+86
+00:06:05,227 --> 00:06:09,160
+MyPackage has a star. It means
+there is code in 
+
+87
+00:06:09,327 --> 00:06:10,760
+the image that hasn’t been saved.
+
+88
+00:06:12,130 --> 00:06:14,020
+Here that’s what I’m going to 
+do: I click on Save,
+
+89
+00:06:14,187 --> 00:06:15,230
+I choose the repository.
+
+90
+00:06:16,520 --> 00:06:17,320
+I click on save.
+
+91
+00:06:21,400 --> 00:06:26,180
+I write "first version 
+with accessors and a
+
+92
+00:06:27,210 --> 00:06:29,090
+green test".
+
+93
+00:06:32,640 --> 00:06:35,600
+I accept. Now it has saved 
+one package. 
+
+94
+00:06:35,800 --> 00:06:36,530
+We will check.
+
+95
+00:06:36,697 --> 00:06:41,370
+I can open this directory.
+If I look, I contains 
+
+96
+00:06:42,410 --> 00:06:44,460
+lots of packages that have been
+loaded by the system.
+
+97
+00:06:44,627 --> 00:06:48,470
+But in particular, if I filter,
+I find 
+
+98
+00:06:48,637 --> 00:06:51,130
+my package with its versions.
+
+99
+00:06:57,620 --> 00:07:00,740
+I advice you to save,each time
+ you add
+
+100
+00:07:00,907 --> 00:07:03,460
+a feature, and that’s what 
+we will do.
+
+101
+00:07:06,770 --> 00:07:09,900
+Now we will define
+
+102
+00:07:10,067 --> 00:07:12,130
+a test before implementing it.
+
+103
+00:07:12,410 --> 00:07:14,590
+We will write a test for
+what is the increment 
+
+104
+00:07:14,757 --> 00:07:19,710
+of a
+
+105
+00:07:19,877 --> 00:07:21,200
+counter. "TestIncrement"
+What do we want to obtain?
+
+106
+00:07:21,367 --> 00:07:22,000
+We want to say it “I create
+
+107
+00:07:26,330 --> 00:07:27,430
+a counter,
+
+108
+00:07:33,510 --> 00:07:38,400
+I assign it a default value,
+
+109
+00:07:38,840 --> 00:07:43,410
+then I increment twice this counter.
+
+110
+00:07:44,100 --> 00:07:45,310
+“What should I check?”
+
+111
+00:07:45,477 --> 00:07:48,130
+I should check that the counter 
+
+112
+00:07:51,150 --> 00:07:51,870
+has the correct value.
+
+113
+00:07:57,900 --> 00:08:02,800
+I compile. My test
+
+114
+00:08:03,000 --> 00:08:06,880
+is red as I didn’t implement
+counter.
+
+115
+00:08:07,510 --> 00:08:10,390
+The operations in counter
+increment and decrement.
+
+116
+00:08:11,520 --> 00:08:12,450
+I add
+"operations increment".
+
+117
+00:08:21,660 --> 00:08:22,390
+What will we do?
+
+118
+00:08:22,557 --> 00:08:26,890
+We do "self
+count 2: self count +
+
+119
+00:08:27,200 --> 00:08:30,270
+1". If we use systematically
+accessors  
+
+120
+00:08:30,437 --> 00:08:32,080
+internally or not, it depends,
+it is a question of style.
+
+121
+00:08:34,510 --> 00:08:37,630
+in the same way, as it is very close,
+
+122
+00:08:39,710 --> 00:08:40,500
+we will define "decrement".
+
+123
+00:08:42,380 --> 00:08:44,470
+You see that on increment, there is
+a test so I can 
+
+124
+00:08:44,637 --> 00:08:48,190
+execute it and my test is green.
+
+125
+00:08:48,357 --> 00:08:50,370
+So I do have 2 tests that work well.
+
+126
+00:08:50,710 --> 00:08:53,350
+If I go in the test class, 
+all my tests are green.
+
+127
+00:08:53,670 --> 00:08:54,540
+What am I going to do?
+
+128
+00:08:54,707 --> 00:08:56,790
+I save. I will make a new save.
+
+129
+00:08:56,957 --> 00:09:00,340
+I will write "Added
+increment and decrement".
+
+130
+00:09:13,110 --> 00:09:17,850
+Now if I look,
+I have 2 versions
+
+131
+00:09:23,250 --> 00:09:23,883
+of my packages.
+
+132
+00:09:24,090 --> 00:09:29,020
+We will write a test for "decrement"
+
+133
+00:09:29,187 --> 00:09:30,100
+because there’s no reason 
+not to do it.
+
+134
+00:09:31,700 --> 00:09:36,590
+"Decrement", for instance I
+
+135
+00:09:36,757 --> 00:09:40,320
+could attribute the value 2
+if I want
+
+136
+00:09:40,487 --> 00:09:43,890
+and I decrement twice. I should get 0.
+
+137
+00:09:44,057 --> 00:09:48,550
+My test is green so
+
+138
+00:09:49,570 --> 00:09:50,203
+I will save.
+
+139
+00:10:06,490 --> 00:10:10,490
+Now, what we want is if I look 
+
+140
+00:10:10,657 --> 00:10:14,300
+and I write "Counter new" 
+and then
+
+141
+00:10:14,467 --> 00:10:16,910
+"Print it", it displays a counter
+which value I don’t know, 
+
+142
+00:10:17,077 --> 00:10:19,000
+so it is not very useful.
+
+143
+00:10:19,360 --> 00:10:22,260
+We would like to modify
+this behaviour.
+
+144
+00:10:24,130 --> 00:10:26,630
+To do this, we will add
+a method
+
+145
+00:10:26,797 --> 00:10:29,840
+called ”PrintOn",
+in the Printing protocol.
+
+146
+00:10:31,340 --> 00:10:33,110
+Print on is a method called
+
+147
+00:10:33,277 --> 00:10:34,530
+by the system each time
+you do PrintStream.
+
+148
+00:10:35,760 --> 00:10:36,750
+It has aStream as an argument.
+
+149
+00:10:38,690 --> 00:10:39,440
+What do we do?
+
+150
+00:10:40,200 --> 00:10:43,170
+We say that we’d like 
+to have a counter. 
+
+151
+00:10:43,337 --> 00:10:47,460
+Here typically, I use the above
+functions.
+
+152
+00:10:51,740 --> 00:10:54,170
+Now what I will do,
+I’d like
+
+153
+00:10:58,530 --> 00:10:59,850
+to add a little
+
+154
+00:11:04,470 --> 00:11:05,103
+text
+
+155
+00:11:17,370 --> 00:11:20,570
+for instance 
+"with value" and "self count".
+
+156
+00:11:24,150 --> 00:11:27,740
+I do this because it is a
+number, so I have
+
+157
+00:11:27,907 --> 00:11:32,180
+to get a textual representation.
+
+158
+00:11:34,260 --> 00:11:35,290
+I write "cr".
+
+159
+00:11:35,457 --> 00:11:36,260
+I compile.
+
+160
+00:11:42,900 --> 00:11:45,550
+The system tells me that I could do 
+better, but no matter…
+
+161
+00:11:46,040 --> 00:11:47,270
+For now we don’t care.
+
+162
+00:11:48,590 --> 00:11:49,760
+I can write "Counter new".
+
+163
+00:11:51,000 --> 00:11:54,740
+I look, it says that it is a counter 
+with a nil value.
+
+164
+00:11:54,907 --> 00:11:58,020
+That’s normal because I
+haven’t initialised it yet.
+
+165
+00:12:01,260 --> 00:12:04,960
+Now we will add a support
+to the initialisation.
+
+166
+00:12:07,590 --> 00:12:09,780
+To do this, we begin to write a test.
+
+167
+00:12:14,050 --> 00:12:18,020
+I say: “At the creation,
+I want the values
+
+168
+00:12:19,770 --> 00:12:23,180
+to be 0.
+
+169
+00:12:24,950 --> 00:12:25,760
+What will I do?
+
+170
+00:12:25,927 --> 00:12:27,280
+I will write “self asser”
+
+171
+00:12:27,447 --> 00:12:30,840
+I check that "Counter new
+
+172
+00:12:33,030 --> 00:12:36,210
+count = 0". 
+
+173
+00:12:38,020 --> 00:12:39,010
+There, what do we notice? 
+
+174
+00:12:39,177 --> 00:12:41,090
+My test is false. Why?
+
+175
+00:12:41,257 --> 00:12:45,140
+Because if I do this, 
+I get nil.
+
+176
+00:12:47,140 --> 00:12:49,820
+As it is a class and I don’t 
+get access to
+
+177
+00:12:50,000 --> 00:12:53,560
+instance variables of the 
+CounterTest class, 
+
+178
+00:12:53,727 --> 00:12:57,110
+I can select the expression and
+execute it directly. 
+
+179
+00:13:00,280 --> 00:13:03,170
+Once I have this test that isn’t
+valid,
+
+180
+00:13:03,680 --> 00:13:04,420
+what should I do?
+
+181
+00:13:04,587 --> 00:13:09,110
+I will add an initialize method
+in the initialisation protocol.
+
+182
+00:13:16,900 --> 00:13:21,730
+And there what do I do?
+
+183
+00:13:22,160 --> 00:13:25,760
+I write "super
+initialize", and I will
+
+184
+00:13:25,927 --> 00:13:27,730
+say "count 2 points = 0".
+
+185
+00:13:27,897 --> 00:13:31,550
+This method is used each time
+I add the “new” method.
+
+186
+00:13:32,330 --> 00:13:35,700
+Now I can look at my tests,
+it’s green.
+
+187
+00:13:35,867 --> 00:13:40,070
+In the same way, if I write 
+"count", I get 0.
+
+188
+00:13:41,010 --> 00:13:45,320
+Once more, we will save:
+"added printOn"
+
+189
+00:13:45,487 --> 00:13:47,490
+"added initialize + tests".
+
+190
+00:14:04,000 --> 00:14:06,270
+Now what is interesting is that
+
+191
+00:14:06,437 --> 00:14:09,300
+I can see all my history.
+
+192
+00:14:09,467 --> 00:14:12,310
+I can also see and browse this history.
+
+193
+00:14:12,520 --> 00:14:16,180
+If I click on “version”, I can 
+see the difference between these 2 systems.
+
+194
+00:14:17,960 --> 00:14:20,440
+Changes between version 3 and version 4
+
+195
+00:14:20,607 --> 00:14:21,530
+are ”initialize" "printOn" and the Test.
+
+196
+00:14:22,000 --> 00:14:24,660
+If I want the difference
+between
+
+197
+00:14:28,490 --> 00:14:33,360
+version 2 and version 4, 
+
+198
+00:14:33,527 --> 00:14:34,160
+I have all these changes.
+
+199
+00:14:35,870 --> 00:14:38,220
+Now, I remains one thing to do,
+I’d like
+
+200
+00:14:38,387 --> 00:14:43,100
+to change a little the 
+way objects are created. 
+
+201
+00:14:43,820 --> 00:14:47,210
+I start off by creating 
+a test that will clarify
+
+202
+00:14:47,377 --> 00:14:51,040
+what I want to get.
+I will define a test
+
+203
+00:14:53,040 --> 00:14:56,000
+called 
+"AlternateClassCreation".
+
+204
+00:14:58,000 --> 00:14:59,500
+What do we want to obtain?
+
+205
+00:15:01,000 --> 00:15:03,000
+Let's say, I want to 
+be sure that
+
+206
+00:15:05,000 --> 00:15:11,000
+that Counter withValue: 19
+
+207
+00:15:11,500 --> 00:15:13,000
+If I do increment on it
+
+208
+00:15:15,000 --> 00:15:20,000
+and I ask for its value,
+it must return 20,
+
+209
+00:15:21,000 --> 00:15:23,000
+Ok.
+
+210
+00:15:30,000 --> 00:15:34,000
+Let's add a parenthesis here,
+it's better.
+
+211
+00:15:38,000 --> 00:15:42,000
+So, once more, the
+test isn't ok,
+
+212
+00:15:44,000 --> 00:15:48,000
+and the assistant tells me:
+"you send an unknown message".
+
+213
+00:15:49,000 --> 00:15:52,000
+You must notice that the message
+withValue 
+
+214
+00:15:52,200 --> 00:15:55,000
+is no more sent to an object
+but to a class.
+
+215
+00:15:55,500 --> 00:15:58,500
+It means I have to define this
+message 
+
+216
+00:15:58,600 --> 00:15:59,900
+on a class.
+So I select the class.
+
+217
+00:16:00,000 --> 00:16:03,000
+Now I go to class level
+and I add
+
+218
+00:16:03,200 --> 00:16:10,000
+a protocol called
+instance creation 
+
+219
+00:16:12,500 --> 00:16:16,400
+withValue: aNumber
+So what do I have to do?
+
+220
+00:16:17,500 --> 00:16:18,400
+The first thing to do is
+
+221
+00:16:19,000 --> 00:16:21,800
+to create a counter, a counter
+variable,
+
+223
+00:16:22,000 --> 00:16:24,500
+counter, I do it slowly, 
+
+224
+00:16:24,600 --> 00:16:26,000
+self new 
+So I create a counter 
+
+225
+00:16:26,100 --> 00:16:29,900
+and I write
+self count: aNumber
+
+226
+00:16:30,000 --> 00:16:34,000
+and I return this counter.
+
+227
+00:16:34,100 --> 00:16:35,000
+We can do it in a shorter
+way 
+
+228
+00:16:35,100 --> 00:16:38,000
+but for the moment let's
+do it simply.
+
+229
+00:16:38,100 --> 00:16:40,000
+I compile my method.
+
+230
+00:16:40,100 --> 00:16:43,000
+And now it means I can
+send messages.
+
+231
+00:16:43,500 --> 00:16:49,000
+You see, when I click on 
+this button,
+
+232
+00:16:49,100 --> 00:16:52,000
+I go on the class level.
+I go from the class level
+je passe au niveau classe.
+Donc je passe du niveau classe 
+
+233
+00:16:52,100 --> 00:16:53,000
+to the instance level.
+
+234
+00:16:53,100 --> 00:16:55,000
+Here I was on the class level
+and here I go back on
+
+235
+00:16:55,100 --> 00:16:57,500
+the messages sent to 
+instances.
+
+236
+00:16:58,100 --> 00:17:01,200
+What does it means?
+It means that if I do
+
+237
+00:17:01,500 --> 00:17:08,900
+Counter withValue: 18,
+what will I get?
+
+238
+00:17:09,000 --> 00:17:11,000
+I will get an instance of the
+counter class.
+
+239
+00:17:12,500 --> 00:17:15,000
+I get a counter with
+value 18.
+
+
+240
+00:17:15,100 --> 00:17:18,000
+And here I could do
+decrement.
+
+241
+00:17:21,100 --> 00:17:23,000
+If I refresh, I do get 17.
+
+242
+00:17:26,100 --> 00:17:28,900
+Know if I look at my test,
+
+243
+00:17:29,000 --> 00:17:32,000
+all my tests are ok,
+so I will once more 
+
+244
+00:17:32,100 --> 00:17:35,000
+save and I'm done.
+
+245
+00:17:37,100 --> 00:17:44,000
+Added instance creation 
+API and tests. 
+
+246
+00:17:45,000 --> 00:17:48,000
+Done for now.
+
+
+
+
+
+

@@ -1,0 +1,439 @@
+1
+00:00:02,920 --> 00:00:03,720
+-Hello, everyone.
+
+2
+00:00:04,040 --> 00:00:08,520
+In this video, we will be looking
+at how to create a test class
+
+3
+00:00:08,840 --> 00:00:10,520
+and some tests within it.
+
+4
+00:00:11,240 --> 00:00:17,000
+In the last part, we tried to see
+if our accessors were working correctly.
+
+5
+00:00:17,320 --> 00:00:21,120
+Right now, we want to replicate
+this behavior within a test.
+
+6
+00:00:21,560 --> 00:00:25,560
+In order to do that,
+let's just go to the counter class
+
+7
+00:00:26,200 --> 00:00:28,320
+and create "CounterTest",
+
+8
+00:00:28,640 --> 00:00:32,600
+that will be a subclass
+not of objects but of test cases.
+
+9
+00:00:33,640 --> 00:00:36,160
+And we will not need
+the "count" instance variable.
+
+10
+00:00:36,880 --> 00:00:38,880
+Now we can press Cmd+S.
+
+11
+00:00:39,200 --> 00:00:40,560
+The CounterTest has appeared.
+
+12
+00:00:40,880 --> 00:00:43,680
+You can see that there is a grey button
+on the left side.
+
+13
+00:00:44,000 --> 00:00:49,640
+This grey button can be used
+to run over tests within the class.
+
+14
+00:00:49,960 --> 00:00:52,800
+Right now, there are no tests
+so it is not doing much.
+
+15
+00:00:53,440 --> 00:00:56,760
+But we will just create one
+that we will call :
+
+16
+00:00:58,120 --> 00:01:02,840
+"testCounterisSetAndRead".
+
+17
+00:01:04,240 --> 00:01:08,840
+Let's just copy and paste
+the code right here
+
+18
+00:01:09,160 --> 00:01:11,560
+and on the last line,
+so the last expression,
+
+19
+00:01:11,880 --> 00:01:16,680
+we will not simply output
+the value of an instance variable
+
+20
+00:01:17,000 --> 00:01:20,720
+but run it against 7
+and see if it is correct.
+
+21
+00:01:21,040 --> 00:01:22,000
+In order to do so,
+
+22
+00:01:22,320 --> 00:01:26,240
+we can just write "self assert",
+
+23
+00:01:27,120 --> 00:01:28,360
+then "c count"
+
+24
+00:01:28,680 --> 00:01:32,520
+and we want to run this
+against "equals 7".
+
+25
+00:01:32,840 --> 00:01:36,760
+This will try "c count"
+and see if it is equal to 7,
+
+26
+00:01:37,080 --> 00:01:40,680
+which is what would set it up to,
+so it should work.
+
+27
+00:01:41,160 --> 00:01:43,000
+Let's press Cmd+S.
+
+28
+00:01:46,000 --> 00:01:49,080
+Our method is created
+and we can see that,
+
+29
+00:01:49,520 --> 00:01:52,800
+the same way there is a grey button
+at the side of the name of the class,
+
+30
+00:01:53,120 --> 00:01:54,080
+there is a grey button there,
+
+31
+00:01:54,400 --> 00:01:57,480
+so this will run the test
+for this method.
+
+32
+00:01:58,040 --> 00:02:01,200
+If we click on it, we can see
+that it ran and it passed.
+
+33
+00:02:01,520 --> 00:02:03,120
+If we click on this button there,
+
+34
+00:02:03,440 --> 00:02:06,080
+it will run all tests
+from within the class.
+
+35
+00:02:06,560 --> 00:02:08,520
+It will only run one for now.
+
+36
+00:02:09,120 --> 00:02:10,760
+When your tests are green,
+
+37
+00:02:11,080 --> 00:02:13,080
+it is a good time to save your image.
+
+38
+00:02:13,400 --> 00:02:16,240
+We can go to the menu, Pharo, Save.
+
+39
+00:02:17,360 --> 00:02:21,000
+Now, let's create another test
+but with another mindset.
+
+40
+00:02:21,320 --> 00:02:24,120
+Let's try to do
+some test-driven development.
+
+41
+00:02:24,440 --> 00:02:27,480
+What that means is
+that we will write the test first,
+
+42
+00:02:27,840 --> 00:02:30,360
+and implement the method
+it needs to be green.
+
+43
+00:02:30,680 --> 00:02:34,800
+We will just try
+to make a test increment.
+
+44
+00:02:36,200 --> 00:02:39,120
+We will set the counter to 4,
+
+45
+00:02:39,880 --> 00:02:41,800
+then increment twice
+
+46
+00:02:42,120 --> 00:02:44,520
+so we can do with a semicolon.
+
+47
+00:02:45,320 --> 00:02:47,360
+"Increment; Increment".
+
+48
+00:02:47,680 --> 00:02:52,440
+And we want it to be equal to 4
+and let's put this one too.
+
+49
+00:02:52,760 --> 00:02:53,520
+Okay.
+
+50
+00:02:53,920 --> 00:02:56,400
+This should add 2 to the counter.
+
+51
+00:02:56,720 --> 00:02:58,160
+Let's compile it.
+
+52
+00:02:58,480 --> 00:03:00,560
+We can see that the method has appeared.
+
+53
+00:03:01,120 --> 00:03:02,600
+But if we click on the button there,
+
+54
+00:03:02,920 --> 00:03:06,400
+it should fail because we did not define
+the increment method,
+
+55
+00:03:06,720 --> 00:03:07,720
+so let's click on it.
+
+56
+00:03:08,240 --> 00:03:11,560
+Yes. "Instance of counter
+did not understand increment".
+
+57
+00:03:11,880 --> 00:03:15,520
+That's right, we have to define it,
+so let's go back to the counter class.
+
+58
+00:03:16,200 --> 00:03:17,120
+Let's go here
+
+59
+00:03:17,720 --> 00:03:20,800
+and create a new method
+called "Increment"
+
+60
+00:03:21,480 --> 00:03:25,800
+that we want to add 1 to the count.
+
+61
+00:03:27,320 --> 00:03:28,560
+Capitalize that.
+
+62
+00:03:29,400 --> 00:03:30,320
+"Count + 1".
+
+63
+00:03:30,760 --> 00:03:32,520
+Let's compile it, Cmd+S,
+
+64
+00:03:32,840 --> 00:03:37,440
+and you can see that the button is now
+on the left of the name of the method,
+
+65
+00:03:37,760 --> 00:03:40,920
+first because the system knows
+
+66
+00:03:41,320 --> 00:03:43,120
+that there is a test
+called "testincrement"
+
+67
+00:03:43,440 --> 00:03:44,640
+that is linked to this method.
+
+68
+00:03:44,960 --> 00:03:47,880
+We can just click on this one
+and now, it's green.
+
+69
+00:03:48,800 --> 00:03:51,480
+If you go to our CounterTest
+and press the button,
+
+70
+00:03:52,160 --> 00:03:55,880
+it is now running two tests
+and the two have passed,
+
+71
+00:03:56,200 --> 00:03:58,600
+so it is a good time
+to save our image once again.
+
+72
+00:03:59,280 --> 00:04:00,120
+Save.
+
+73
+00:04:00,960 --> 00:04:02,760
+The same way we defined increments,
+
+74
+00:04:03,080 --> 00:04:07,400
+we will go and define a test decrement.
+
+75
+00:04:08,200 --> 00:04:09,720
+It will run the same method.
+
+76
+00:04:10,520 --> 00:04:15,440
+"Decrement; Decrement",
+but now we want the count to be 0
+
+77
+00:04:16,080 --> 00:04:18,640
+because we subtract 1 twice.
+
+78
+00:04:19,800 --> 00:04:23,120
+If we compile, Cmd+S,
+the method appears
+
+79
+00:04:23,440 --> 00:04:27,400
+and if we run it,
+it should fail and it is failing
+
+80
+00:04:27,720 --> 00:04:29,640
+because it does not understand
+"decrement"
+
+81
+00:04:29,960 --> 00:04:32,480
+because we did not define it,
+so it is perfectly normal.
+
+82
+00:04:33,640 --> 00:04:37,920
+Let's just go back to the counter class
+and define "decrement"
+
+83
+00:04:39,080 --> 00:04:41,600
+so it should subtract 1 this time.
+
+84
+00:04:44,480 --> 00:04:45,240
+Once again,
+
+85
+00:04:45,560 --> 00:04:48,400
+it recognizes that there is a test
+associated to this method
+
+86
+00:04:48,720 --> 00:04:49,880
+with the button to the left.
+
+87
+00:04:50,200 --> 00:04:52,600
+We can just click on this one,
+it is green,
+
+88
+00:04:52,920 --> 00:04:55,120
+and now, if we click on the CounterTest,
+
+89
+00:04:55,440 --> 00:04:57,280
+it just runs all the tests
+from within it.
+
+90
+00:04:57,840 --> 00:05:01,440
+We can see 3 tests have been run,
+3 passed.
+
+91
+00:05:01,760 --> 00:05:03,560
+It is a good time to save the image.
+
+92
+00:05:04,920 --> 00:05:08,400
+In this video,
+we learned how to create a class test
+
+93
+00:05:08,720 --> 00:05:10,800
+and how to define some methods.
+
+94
+00:05:11,120 --> 00:05:15,440
+Once again, test-driven development
+is encouraged from within Pharo
+
+95
+00:05:15,760 --> 00:05:17,640
+as it is really simple to write tests
+
+96
+00:05:17,960 --> 00:05:22,640
+and you will see in the next week
+how it is even easier to define methods
+
+97
+00:05:22,960 --> 00:05:25,880
+such as the methods decrement
+and increment that we just wrote.

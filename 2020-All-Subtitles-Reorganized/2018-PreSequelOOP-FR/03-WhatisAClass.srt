@@ -1,0 +1,455 @@
+1
+00:00:00,040 --> 00:00:00,080
+"Qu'est-ce qu'une classe ?
+Une usine d'objets"
+
+2
+00:00:00,120 --> 00:00:00,160
+Stéphane Ducasse,
+research direction, Inria.
+
+3
+00:00:01,000 --> 00:00:03,600
+-Bonjour. Dans ce cours,
+on regardera ce qu'est une classe.
+
+4
+00:00:03,920 --> 00:00:07,320
+Une classe, en gros,
+c'est une usine d'objets.
+
+5
+00:00:08,440 --> 00:00:11,560
+Plus précisément, une classe,
+c'est un moule d'objets.
+
+6
+00:00:11,880 --> 00:00:15,320
+La grosse machine que j'ai mise
+sur le côté du transparent,
+
+7
+00:00:15,640 --> 00:00:17,600
+c'est une machine
+qui crée des baignoires.
+
+8
+00:00:17,920 --> 00:00:22,720
+Ce qu'on voit, c'est que cette machine
+va créer des milliers de baignoires.
+
+9
+00:00:23,040 --> 00:00:25,920
+Une classe, c'est pareil.
+Elle va créer des milliers d'objets.
+
+10
+00:00:26,240 --> 00:00:28,920
+Chaque objet est une entité séparée.
+
+11
+00:00:29,240 --> 00:00:32,160
+Ça signifie que vous pouvez,
+avec votre masse, casser votre baignoire.
+
+12
+00:00:32,480 --> 00:00:36,160
+Vous n'allez pas casser
+la baignoire de votre voisin, etc.
+
+13
+00:00:36,480 --> 00:00:42,000
+Ce qu'il faut voir, c'est qu'une classe
+va définir toutes les variables
+
+14
+00:00:42,320 --> 00:00:44,880
+qui définissent
+la structure de vos objets.
+
+15
+00:00:45,200 --> 00:00:47,120
+Par exemple, pour la baignoire,
+ce sera la longueur,
+
+16
+00:00:47,440 --> 00:00:51,160
+la profondeur,
+peut-être le matériau qui est utilisé.
+
+17
+00:00:51,480 --> 00:00:55,520
+Après, chaque baignoire
+va pouvoir être un peu différente.
+
+18
+00:00:56,680 --> 00:01:02,520
+Et une classe va aussi définir
+le comportement de toutes les instances.
+
+19
+00:01:02,840 --> 00:01:05,560
+Les classes ont été introduites
+
+20
+00:01:05,880 --> 00:01:08,800
+pour éviter une répétition
+des méthodes dans chaque instance.
+
+21
+00:01:09,120 --> 00:01:10,800
+Car si vous avez des milliers d'objets
+
+22
+00:01:11,120 --> 00:01:13,640
+et que vous devez répéter
+des milliers de fois la même méthode,
+
+23
+00:01:13,960 --> 00:01:17,200
+c'est que vous avez au moins des milliers
+de fois répété des choses pour rien.
+
+24
+00:01:17,520 --> 00:01:19,880
+Donc la classe va être le réceptacle,
+
+25
+00:01:20,200 --> 00:01:24,240
+l'entité qui contiendra les méthodes
+qui, elles, seront exécutées.
+
+26
+00:01:24,560 --> 00:01:27,960
+Donc, ça permettra de factoriser
+et d'avoir en un seul endroit
+
+27
+00:01:28,280 --> 00:01:32,000
+le comportement
+pour toutes les instances d'une classe.
+
+28
+00:01:33,920 --> 00:01:37,640
+Une classe va factoriser
+les propriétés des objets.
+
+29
+00:01:38,080 --> 00:01:40,480
+D'une première façon,
+
+30
+00:01:41,080 --> 00:01:46,760
+la classe va décrire l'état
+que tous les objets vont pouvoir avoir.
+
+31
+00:01:47,160 --> 00:01:50,200
+Elle ne va pas dire la valeur
+d'un état de l'objet,
+
+32
+00:01:50,520 --> 00:01:53,560
+mais va dire, par exemple :
+"Tous mes rectangles
+
+33
+00:01:53,880 --> 00:01:56,400
+doivent avoir
+une longueur et une largeur."
+
+34
+00:01:57,000 --> 00:01:58,080
+Et le comportement.
+
+35
+00:01:58,400 --> 00:02:02,720
+Ça signifie que tous mes rectangles
+vont devoir pouvoir calculer une aire,
+
+36
+00:02:03,040 --> 00:02:07,200
+les intersections, leur hauteur,
+ce qu'est le top et ce genre de choses.
+
+37
+00:02:09,640 --> 00:02:14,880
+Si on regarde...
+Là, j'utilise une notation UML.
+
+38
+00:02:15,600 --> 00:02:18,360
+Je vais avoir une classe.
+Que me dit cette notation ?
+
+39
+00:02:18,680 --> 00:02:24,040
+Elle dit que toutes mes instances
+vont avoir une origine et un coin
+
+40
+00:02:24,360 --> 00:02:26,160
+et ça me permettra
+de représenter mon rectangle.
+
+41
+00:02:26,480 --> 00:02:29,920
+Et toutes mes instances seront capables
+de répondre aux messages,
+
+42
+00:02:30,240 --> 00:02:34,080
+aire, topCorner et centre, par exemple.
+
+43
+00:02:34,560 --> 00:02:37,920
+Toutes les instances de la classe
+rectangle partageront ce comportement.
+
+44
+00:02:38,240 --> 00:02:40,560
+Par contre,
+comme on le voit sur le dessin,
+
+45
+00:02:40,880 --> 00:02:43,160
+chaque instance va avoir
+un état qui lui est propre.
+
+46
+00:02:43,480 --> 00:02:46,440
+Vous pouvez avoir un rectangle aplati
+et un gros rectangle
+
+47
+00:02:46,760 --> 00:02:49,000
+ou un rectangle
+qui serait plus sous forme de carré.
+
+48
+00:02:49,320 --> 00:02:53,760
+Donc, il faut bien voir que la classe
+va spécifier le comportement.
+
+49
+00:02:54,160 --> 00:02:59,680
+Elle va spécifier la structure, l'état,
+mais ne mettra pas les valeurs de l'état.
+
+50
+00:03:00,000 --> 00:03:05,880
+Chaque instance aura ses propres valeurs
+et par contre partagera le comportement.
+
+51
+00:03:08,680 --> 00:03:11,200
+C'est ce que je dis ici. Je le répète.
+
+52
+00:03:11,520 --> 00:03:14,800
+Une classe définit la structure
+et le comportement des instances,
+
+53
+00:03:15,120 --> 00:03:19,280
+mais les instances auront des valeurs
+qui leur sont spécifiques et propres.
+
+54
+00:03:21,320 --> 00:03:25,360
+Maintenant, regardons la différence
+entre une classe et des instances.
+
+55
+00:03:25,680 --> 00:03:29,640
+Un objet est instance d'une classe.
+Il a été créé par une classe.
+
+56
+00:03:29,960 --> 00:03:32,560
+Un objet a été créé par cette classe.
+
+57
+00:03:32,880 --> 00:03:35,120
+Toutes les instances d'une classe
+
+58
+00:03:35,440 --> 00:03:38,640
+vont réagir de la même manière
+aux messages définis dans la classe.
+
+59
+00:03:38,960 --> 00:03:42,960
+Toutes les instances de la classe
+vont exécuter les mêmes méthodes.
+
+60
+00:03:47,200 --> 00:03:50,520
+Je reviens sur le fait
+que toutes les instances d'une classe
+
+61
+00:03:50,840 --> 00:03:52,440
+partagent le même comportement.
+
+62
+00:03:52,760 --> 00:03:54,600
+Quand je vais envoyer
+un message à un objet,
+
+63
+00:03:54,920 --> 00:03:57,200
+je vais chercher
+dans la classe du receveur.
+
+64
+00:03:57,520 --> 00:03:59,160
+Donc, quand j'envoie
+un message à un rectangle,
+
+65
+00:03:59,480 --> 00:04:00,960
+je vais chercher
+dans la classe rectangle.
+
+66
+00:04:01,280 --> 00:04:03,520
+La méthode qui est définie
+dans la classe rectangle
+
+67
+00:04:03,840 --> 00:04:08,440
+va être exécutée avec les valeurs
+de l'objet qui a reçu le message.
+
+68
+00:04:12,000 --> 00:04:17,120
+Donc, il faut voir que les méthodes
+sont recherchées dynamiquement
+
+69
+00:04:17,440 --> 00:04:20,320
+dans la classe du receveur,
+de l'objet qui a reçu le message.
+
+70
+00:04:22,200 --> 00:04:26,280
+Les méthodes sont recherchées
+dynamiquement dans la classe du receveur.
+
+71
+00:04:26,600 --> 00:04:30,200
+Là, j'ai pris un autre exemple. J'ai pris
+des chiens, des chats et des poissons.
+
+72
+00:04:30,520 --> 00:04:33,080
+Quand j'envoie un message à un chien,
+
+73
+00:04:33,400 --> 00:04:35,920
+je vais chercher dans la classe du chien
+la méthode correspondante
+
+74
+00:04:36,240 --> 00:04:37,640
+et je vais exécuter cette méthode.
+
+75
+00:04:37,960 --> 00:04:41,240
+Par exemple, quand un chien est agressif,
+il aura un comportement...
+
+76
+00:04:41,560 --> 00:04:43,960
+Montrer des dents, aboyer,
+essayer de nous mordre.
+
+77
+00:04:44,280 --> 00:04:47,640
+Quand c'est un chat,
+ça va être différent.
+
+78
+00:04:47,960 --> 00:04:52,080
+Donc là, on voit
+que j'envoie un message à un objet.
+
+79
+00:04:52,400 --> 00:04:55,160
+Je vais chercher dans la classe
+de l'objet la méthode correspondante.
+
+80
+00:04:55,480 --> 00:04:57,520
+Donc toutes les instances
+de la même classe
+
+81
+00:04:57,840 --> 00:05:00,560
+vont partager cette même méthode.
+
+82
+00:05:00,880 --> 00:05:03,320
+Par contre, des instances
+de classes différentes
+
+83
+00:05:03,640 --> 00:05:05,080
+ne partageront pas les mêmes méthodes.
+
+84
+00:05:05,400 --> 00:05:07,600
+Elles vont les partager par leur classe.
+
+85
+00:05:09,680 --> 00:05:10,960
+Que devez-vous savoir ?
+
+86
+00:05:11,280 --> 00:05:14,480
+Vous devez savoir que tout objet dans
+le système est instance d'une classe.
+
+87
+00:05:14,800 --> 00:05:17,880
+Que la classe est une usine,
+qu'elle va créer des instances.
+
+88
+00:05:18,200 --> 00:05:21,400
+Que toutes les instances d'une classe
+exécutent les mêmes méthodes,
+
+89
+00:05:21,720 --> 00:05:22,680
+car elles les partagent.
+
+90
+00:05:23,000 --> 00:05:27,400
+Et qu'une classe crée des instances
+qui partagent le même comportement
+
+91
+00:05:27,720 --> 00:05:30,200
+et qu'une classe définit des méthodes
+
+92
+00:05:30,840 --> 00:05:33,080
+qui seront exécutées
+sur chacune des instances.
+
+93
+00:05:33,400 --> 00:05:37,720
+Maintenant, une classe va définir
+la structure de ces instances,
+
+94
+00:05:38,040 --> 00:05:40,080
+mais ne va pas définir
+les valeurs de ces instances.
+
+95
+00:05:40,400 --> 00:05:42,480
+Chaque instance
+aura ses propres valeurs.

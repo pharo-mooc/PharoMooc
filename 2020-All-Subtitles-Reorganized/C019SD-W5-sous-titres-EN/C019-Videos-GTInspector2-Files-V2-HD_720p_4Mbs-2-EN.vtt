@@ -1,0 +1,373 @@
+WEBVTT
+
+00:00:02.030 --> 00:00:03.770 align:middle
+In this video, I will 
+show you one very nice
+
+00:00:03.937 --> 00:00:06.700 align:middle
+facet of Pharo,
+its inspector.
+
+00:00:07.170 --> 00:00:10.610 align:middle
+An inspector is a tool
+that enables to interact
+
+00:00:10.777 --> 00:00:14.190 align:middle
+with objects, and to discuss 
+with them in a lively way.
+
+00:00:15.250 --> 00:00:17.690 align:middle
+Let’s try on the file system.
+
+00:00:19.520 --> 00:00:21.450 align:middle
+For example, if I do “File system
+
+00:00:24.330 --> 00:00:29.130 align:middle
+working directory", I will
+
+00:00:29.297 --> 00:00:32.190 align:middle
+get all the files that are, for 
+instance, at my image’s root,
+
+00:00:32.357 --> 00:00:33.870 align:middle
+so we will get all those files.
+
+00:00:35.030 --> 00:00:39.610 align:middle
+Let’s have a look. If I do
+“Inspect”,
+
+00:00:40.030 --> 00:00:41.240 align:middle
+I open an inspector.
+
+00:00:41.870 --> 00:00:43.240 align:middle
+Here I have an inspector.
+
+00:00:45.430 --> 00:00:47.690 align:middle
+This is the new Pharo inspector
+developed
+
+00:00:47.857 --> 00:00:51.730 align:middle
+by the GT team, it has
+
+00:00:51.897 --> 00:00:53.140 align:middle
+very interesting features.
+
+00:00:53.307 --> 00:00:56.740 align:middle
+Let’s begin to look at the tab
+
+00:00:58.330 --> 00:00:59.640 align:middle
+called “Raw”.
+
+00:00:59.807 --> 00:01:03.880 align:middle
+The “Raw” tab is the old 
+inspector. What will
+
+00:01:04.047 --> 00:01:04.850 align:middle
+it show?
+
+00:01:05.017 --> 00:01:08.000 align:middle
+It shows the object data, the
+object instance variables
+
+00:01:08.167 --> 00:01:09.710 align:middle
+such as defined in the class.
+
+00:01:10.420 --> 00:01:12.480 align:middle
+I can interact with it.
+
+00:01:12.647 --> 00:01:15.930 align:middle
+I can, for instance,
+ask for all the entries.
+
+00:01:16.530 --> 00:01:20.940 align:middle
+Here I get all the entries,
+or give me all the
+
+00:01:21.107 --> 00:01:25.850 align:middle
+directories, for instance,
+here I get all the directories.
+
+00:01:27.880 --> 00:01:31.380 align:middle
+If we look at the object class,
+if I do “self
+
+00:01:31.547 --> 00:01:36.240 align:middle
+browse", what do I see? 
+
+00:01:36.407 --> 00:01:40.430 align:middle
+This view shows me the values
+
+00:01:41.250 --> 00:01:44.450 align:middle
+for the object, the instance
+variables that
+
+00:01:44.617 --> 00:01:46.100 align:middle
+have been defined in the class
+that way.
+
+00:01:47.520 --> 00:01:49.820 align:middle
+It enables me to look inside.
+
+00:01:50.000 --> 00:01:54.650 align:middle
+For instance, here I can see
+that the “Path” is actually
+
+00:01:55.350 --> 00:01:59.530 align:middle
+composed of this object “self”,
+and I can see it
+
+00:01:59.697 --> 00:02:03.660 align:middle
+here. I am still in raw mode, 
+and
+
+00:02:03.827 --> 00:02:04.800 align:middle
+I can browse inside.
+
+00:02:05.000 --> 00:02:07.550 align:middle
+If I do this, I am actually
+going to look at
+
+00:02:07.717 --> 00:02:09.780 align:middle
+the User string and that kind of thing.
+
+00:02:09.947 --> 00:02:13.280 align:middle
+Here I essentially violate 
+the encapsulation.
+
+00:02:15.210 --> 00:02:18.250 align:middle
+The system will look at
+the introspective behavior,
+
+00:02:18.417 --> 00:02:21.290 align:middle
+it will show me the fields
+values.
+
+00:02:23.000 --> 00:02:23.920 align:middle
+This view is very useful.
+
+00:02:24.087 --> 00:02:28.540 align:middle
+But now the new inspector
+does more things.
+
+00:02:28.707 --> 00:02:33.310 align:middle
+This means that each object can
+show to the user
+
+00:02:34.150 --> 00:02:38.820 align:middle
+different facets of how it
+is represented.
+
+00:02:40.700 --> 00:02:44.880 align:middle
+By default, every object 
+has the raw facet.
+
+00:02:45.300 --> 00:02:47.900 align:middle
+There is also the Meta facet,
+which is
+
+00:02:48.067 --> 00:02:49.310 align:middle
+what enables to browse the class.
+
+00:02:49.477 --> 00:02:51.380 align:middle
+We can browse quickly the class,
+for instance, like this.
+
+00:02:52.150 --> 00:02:55.330 align:middle
+Normally, it’s just useful
+when you are in the navigation
+
+00:02:55.590 --> 00:03:00.440 align:middle
+flow, when you need to know
+directly without opening
+
+00:03:00.607 --> 00:03:01.350 align:middle
+another browser.
+
+00:03:01.650 --> 00:03:03.140 align:middle
+But the most important are
+those other tabs.
+
+00:03:03.307 --> 00:03:08.090 align:middle
+Here for example, 
+
+00:03:08.257 --> 00:03:11.640 align:middle
+the inspector knowing that 
+we have a reference,
+
+00:03:13.470 --> 00:03:17.730 align:middle
+a directory, shows everything
+contained in the directory.
+
+00:03:17.900 --> 00:03:19.690 align:middle
+It is what I showed you there
+when I did this.
+
+00:03:20.270 --> 00:03:21.960 align:middle
+Here, we get the same thing.
+
+00:03:26.190 --> 00:03:31.140 align:middle
+Now, we can browse inside
+
+00:03:31.307 --> 00:03:32.180 align:middle
+this file system.
+
+00:03:32.347 --> 00:03:36.090 align:middle
+If I choose Ston, this is an equivalent
+of Json in Pharo,
+
+00:03:36.460 --> 00:03:40.920 align:middle
+once more I get a
+
+00:03:41.087 --> 00:03:45.780 align:middle
+reference inside the file
+system, which is
+
+00:03:46.280 --> 00:03:51.110 align:middle
+this file here,
+I get an access on
+
+00:03:51.277 --> 00:03:52.500 align:middle
+the file called 
+
+00:03:52.667 --> 00:03:57.270 align:middle
+meta-inf.ston. And now the
+inspector is 
+
+00:03:57.437 --> 00:04:00.390 align:middle
+smart and tells me “I will
+show you its content if you want.”
+
+00:04:01.000 --> 00:04:02.940 align:middle
+I look at its content and 
+it appears I have 
+
+00:04:03.107 --> 00:04:06.020 align:middle
+a content, I don’t know exactly
+what it is for, but it is a content.
+
+00:04:07.210 --> 00:04:11.070 align:middle
+In the same way, I can 
+browse the sub-folders.
+
+00:04:11.237 --> 00:04:14.950 align:middle
+Here, if I choose 
+package-cash, this is the place where
+
+00:04:15.117 --> 00:04:16.180 align:middle
+packages are stored by default.
+
+00:04:16.347 --> 00:04:19.160 align:middle
+Indeed, this is still an object 
+of the file system
+
+00:04:19.327 --> 00:04:21.760 align:middle
+but it shows me its content.
+
+00:04:22.540 --> 00:04:26.880 align:middle
+If I look into Data, I can see
+
+00:04:30.210 --> 00:04:33.740 align:middle
+one png. If I click on 
+this png, I will browse.
+
+00:04:34.040 --> 00:04:36.760 align:middle
+Here, you see there are other tabs.
+
+00:04:38.030 --> 00:04:38.680 align:middle
+
+00:04:39.500 --> 00:04:41.540 align:middle
+If I click on Content,
+
+00:04:41.707 --> 00:04:44.550 align:middle
+the png as stored in a binary
+format on my disk.
+
+00:04:47.300 --> 00:04:50.460 align:middle
+As it is a png, 
+the inspector shows me a preview
+
+00:04:50.627 --> 00:04:53.570 align:middle
+of what the png contains.
+
+00:04:53.737 --> 00:04:55.140 align:middle
+If I look at the script.st,
+
+00:04:55.307 --> 00:04:58.510 align:middle
+for example, I will have
+different panes.
+
+00:04:58.677 --> 00:05:00.740 align:middle
+Here there are two, I don’t 
+know exactly why
+
+00:05:00.907 --> 00:05:03.150 align:middle
+but there is one with
+syntax highlighting and the other
+
+00:05:03.317 --> 00:05:05.400 align:middle
+one without, showing the
+content once more. 
+
+00:05:06.050 --> 00:05:09.470 align:middle
+If it is a .zip file, it
+is even better because when I
+
+00:05:09.637 --> 00:05:14.520 align:middle
+on it, the zip content is
+encoded and 
+
+00:05:14.687 --> 00:05:19.100 align:middle
+compressed but the items,
+at this point, are
+
+00:05:19.267 --> 00:05:22.920 align:middle
+interpreted. Here I can 
+browse directly 
+
+00:05:24.240 --> 00:05:26.080 align:middle
+my objects and in the same
+way recursively.
+
+00:05:29.730 --> 00:05:34.300 align:middle
+That was to show you that the 
+Pharo inspector 
+
+00:05:34.467 --> 00:05:37.400 align:middle
+is really a very powerful tool
+for interacting 
+
+00:05:37.567 --> 00:05:42.160 align:middle
+precisely with objects, 
+moreover as each object
+
+00:05:42.327 --> 00:05:45.430 align:middle
+determines a representation
+or a set of
+
+00:05:45.597 --> 00:05:48.840 align:middle
+meaningful representations
+for us to
+
+00:05:49.007 --> 00:05:51.270 align:middle
+interact with it and to be 
+the most efficient, 
+
+00:05:51.550 --> 00:05:53.820 align:middle
+this enables to build very quickly
+little tools.
+
+00:05:54.000 --> 00:05:56.940 align:middle
+Here you have a small file systems
+browser, why?
+
+00:05:57.107 --> 00:05:59.270 align:middle
+Because when you browse and
+inspect 
+
+00:05:59.510 --> 00:06:01.890 align:middle
+the file system, sometimes you
+want to know
+
+00:06:02.057 --> 00:06:02.840 align:middle
+exactly what you are inspecting.
+

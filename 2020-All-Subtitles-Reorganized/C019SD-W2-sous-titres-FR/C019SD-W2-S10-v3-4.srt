@@ -1,0 +1,345 @@
+1
+00:00:00,640 --> 00:00:01,560
+Alors bonjour à tous.
+
+2
+00:00:02,060 --> 00:00:04,630
+Dans cette séquence nous
+allons découvrir la méthode
+
+3
+00:00:04,830 --> 00:00:09,480
+Yourself, qui a priori ne
+sert à rien et qui est pourtant
+
+4
+00:00:09,680 --> 00:00:10,440
+extrêmement utile.
+
+5
+00:00:11,000 --> 00:00:15,000
+On commence par un
+exercice, cette expression "Set new
+
+6
+00:00:15,200 --> 00:00:19,930
+add: 2", pour laquelle on aimerait
+
+7
+00:00:20,660 --> 00:00:24,630
+récupérer un ensemble qui
+contient la valeur 2, retourne
+
+8
+00:00:24,900 --> 00:00:27,120
+en fait d'un ensemble
+uniquement la valeur 2.
+
+9
+00:00:27,820 --> 00:00:30,030
+Alors pourquoi est-ce qu'on
+obtient la valeur 2 plutôt qu'un
+
+10
+00:00:30,230 --> 00:00:31,150
+ensemble qui contient 2 ?
+
+11
+00:00:31,730 --> 00:00:34,510
+Si on regarde la méthode
+"Add" implémentée dans la classe
+
+12
+00:00:34,710 --> 00:00:37,750
+"Set", on voit que cette
+méthode retourne son paramètre.
+
+13
+00:00:42,460 --> 00:00:47,000
+Dans l'expression "Set
+new add 2", l'expression
+
+14
+00:00:47,200 --> 00:00:51,740
+"Set" retourne ma classe
+"Set", quand on envoie "New" à
+
+15
+00:00:51,940 --> 00:00:54,410
+la classe "Set", ça
+retourne un nouveau "Set" donc un
+
+16
+00:00:54,610 --> 00:00:58,770
+nouvel ensemble, et "Set
+new add: 2" retourne la valeur
+
+17
+00:00:59,000 --> 00:01:00,110
+que retourne "Add 2", c'est-à-dire 2.
+
+18
+00:01:01,350 --> 00:01:02,480
+Donc on a perdu notre ensemble.
+
+19
+00:01:03,030 --> 00:01:06,880
+Une façon de corriger ce
+problème-là est de découper ces
+
+20
+00:01:07,080 --> 00:01:07,840
+expressions étape par étape.
+
+21
+00:01:09,780 --> 00:01:12,720
+Donc on peut créer une
+variable temporaire, donc là on
+
+22
+00:01:12,920 --> 00:01:17,730
+déclare la variable S.
+On assigne dans S notre
+
+23
+00:01:18,050 --> 00:01:21,770
+nouvel ensemble, on ajoute 2 dans S.
+
+24
+00:01:23,030 --> 00:01:27,930
+Et S maintenant a comme
+contenu un ensemble qui
+
+25
+00:01:28,130 --> 00:01:28,890
+contient la valeur 2.
+
+26
+00:01:29,090 --> 00:01:30,850
+Donc c'est bien ce
+que l'on souhaitait.
+
+27
+00:01:31,630 --> 00:01:35,170
+Mais on peut simplifier
+cette expression-là en utilisant
+
+28
+00:01:35,580 --> 00:01:37,460
+la méthode "Yourself".
+Alors si on regarde la méthode
+
+29
+00:01:37,660 --> 00:01:41,440
+"Yourself", son contenu, la
+seule chose qu'il y a à l'intérieur
+
+30
+00:01:41,640 --> 00:01:42,700
+de "Yourself" c'est "Returnself".
+
+31
+00:01:43,350 --> 00:01:45,710
+On a dit que "Returnself"
+était optionnel donc a priori
+
+32
+00:01:45,910 --> 00:01:48,100
+cette méthode pourrait aussi
+être vide, et ne faire rien
+
+33
+00:01:48,300 --> 00:01:49,790
+du tout que retourner son receveur.
+
+34
+00:01:51,300 --> 00:01:54,140
+Donc cette méthode, a
+priori, elle ne fait rien d'autre
+
+35
+00:01:54,340 --> 00:01:56,820
+que retourner son
+receveur et elle est quand même
+
+36
+00:01:57,020 --> 00:01:59,780
+parfaitement utile
+dans ce genre de cas-là.
+
+37
+00:02:00,840 --> 00:02:05,280
+Grâce à l'opérateur
+cascade, après avoir ajouté 2,
+
+38
+00:02:05,710 --> 00:02:09,230
+on va demander l'exécution
+de la méthode "Yourself" qui
+
+39
+00:02:09,430 --> 00:02:12,470
+va nous retourner le receveur,
+de façon à ce que l'expression
+
+40
+00:02:12,670 --> 00:02:16,840
+complète soit le receveur,
+c'est-à-dire le nouveau "Set".
+
+41
+00:02:18,660 --> 00:02:23,390
+Donc si je prends "Set
+new", c'est le nouveau
+
+42
+00:02:23,590 --> 00:02:28,050
+"Set", "Add 2"
+appliqué à "Set new" ça
+
+43
+00:02:28,920 --> 00:02:33,180
+retourne 2, mais grâce à
+l'opérateur cascade suivi de
+
+44
+00:02:33,460 --> 00:02:38,290
+"Yourself" l'ensemble de
+l'expression va retourner
+
+45
+00:02:38,580 --> 00:02:42,400
+le nouveau "Set". Alors
+pourquoi la cascade retourne
+
+46
+00:02:42,600 --> 00:02:45,700
+systématiquement la valeur
+retournée par sa dernière expression?
+
+47
+00:02:46,790 --> 00:02:50,780
+Donc la cascade, dans ce
+cas-là retourne la valeur
+
+48
+00:02:51,470 --> 00:02:52,400
+retournée par Yourself.
+
+49
+00:02:53,600 --> 00:02:56,860
+On se sert très fréquemment
+de Yourself et de la cascade
+
+50
+00:02:57,450 --> 00:03:00,170
+dans les méthodes d'instanciation.
+
+51
+00:03:00,420 --> 00:03:03,570
+Donc ce sont des méthodes
+qu'on va mettre côté classe, ce
+
+52
+00:03:03,770 --> 00:03:06,000
+sont des méthodes de
+ classe, des messages qu'on va
+
+53
+00:03:06,200 --> 00:03:09,130
+envoyer à des classes qui
+retournent de nouvelles instances.
+
+54
+00:03:10,150 --> 00:03:14,560
+Donc là, pour créer un
+nouveau "Set" qui contient un
+
+55
+00:03:14,760 --> 00:03:19,560
+objet par défaut, je peux
+envoyer le message "With" avec
+
+56
+00:03:19,760 --> 00:03:23,150
+cet objet par défaut dans
+"Set", et ce code-là va être
+
+57
+00:03:23,350 --> 00:03:26,550
+exécuté pour créer un
+nouveau "Set", le mettre dans la
+
+58
+00:03:26,750 --> 00:03:30,630
+variable "Instance", ajouter
+à Instance le nouvel objet,
+
+59
+00:03:31,030 --> 00:03:33,130
+le paramètre et retourner instance.
+
+60
+00:03:34,330 --> 00:03:37,090
+Mais l'ensemble de ces
+expressions, je peux le réécrire
+
+61
+00:03:37,290 --> 00:03:39,410
+en utilisant Yourself de
+façon un tout petit peu plus
+
+62
+00:03:39,610 --> 00:03:42,650
+concise et plus
+idiomatique. Donc typiquement, on
+
+63
+00:03:42,850 --> 00:03:45,790
+retrouvera ce genre de
+code-là dans l'ensemble de l'image
+
+64
+00:03:46,000 --> 00:03:49,570
+Pharo donc il est
+important de bien maîtriser le
+
+65
+00:03:49,770 --> 00:03:52,180
+point-virgule, donc
+la cascade et Yourself.
+
+66
+00:03:53,160 --> 00:03:56,210
+Alors ce que vous devez
+avoir retenu à la fin de cette
+
+67
+00:03:56,410 --> 00:03:59,340
+séquence, c'est que
+certaines méthodes, même si elles
+
+68
+00:03:59,540 --> 00:04:03,180
+sont extrêmement simples, peuvent
+être très puissantes et très utilisées.
+
+69
+00:04:05,330 --> 00:04:08,890
+Et la cascade, donc le
+point-virgule et la méthode
+
+70
+00:04:09,090 --> 00:04:12,740
+Yourself sont très souvent
+utilisés ensemble, pour s'assurer
+
+71
+00:04:12,940 --> 00:04:16,950
+qu'une expression complète
+retourne bien une valeur, la
+
+72
+00:04:17,150 --> 00:04:17,910
+valeur qu'on a souhaitée.
+

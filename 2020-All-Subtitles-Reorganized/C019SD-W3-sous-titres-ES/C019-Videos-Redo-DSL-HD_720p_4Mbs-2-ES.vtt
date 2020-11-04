@@ -1,0 +1,1510 @@
+WEBVTT
+
+00:00:01.910 --> 00:00:04.410 align:middle
+Este video es un Redo para el MOOC.
+
+00:00:04.577 --> 00:00:07.030 align:middle
+Re-do en el sentido que
+le pedimos de rehacer, de
+
+00:00:07.520 --> 00:00:09.540 align:middle
+seguir el video y
+paso a paso repetirlo.
+
+00:00:10.060 --> 00:00:13.470 align:middle
+También es una invitación a
+mirar cómo programamos.
+
+00:00:13.720 --> 00:00:17.680 align:middle
+No vamos a seguir un guión preciso,
+
+00:00:17.847 --> 00:00:20.060 align:middle
+Intentaré hacerlo,
+pero si encuentro errores o
+
+00:00:20.227 --> 00:00:23.090 align:middle
+cosas así, voy a
+manejarlos a medida que avance.
+
+00:00:24.870 --> 00:00:29.130 align:middle
+En este video, la idea
+es programar un pequeño
+
+00:00:29.297 --> 00:00:32.040 align:middle
+lenguaje que puede encontrar
+en juegos de rol como
+
+00:00:32.207 --> 00:00:35.930 align:middle
+"Calabozos y Dragones",
+por ejemplo,
+
+00:00:36.097 --> 00:00:38.800 align:middle
+esta 
+expresión
+
+00:00:38.967 --> 00:00:40.010 align:middle
+¿Qué significa esta expresión?
+
+00:00:40.420 --> 00:00:45.380 align:middle
+Significa que debe lanzar 2
+dados de 20 lados y 1 dado de 4 lados.
+
+00:00:45.547 --> 00:00:47.420 align:middle
+Verá que como és una
+expresión en Pharo.
+
+00:00:48.000 --> 00:00:52.490 align:middle
+Entonces en este video vamos a
+
+00:00:52.657 --> 00:00:55.170 align:middle
+implementar una clase que representa
+un dado y una clase
+
+00:00:55.337 --> 00:00:57.420 align:middle
+que representa una mano.
+
+00:00:58.660 --> 00:00:59.770 align:middle
+Empezaremos.
+
+00:01:00.870 --> 00:01:04.290 align:middle
+Comenzamos definiendo un paquete.
+
+00:01:05.710 --> 00:01:06.790 align:middle
+A este paquete lo llamamos "Dice" (dado).
+
+00:01:06.957 --> 00:01:11.860 align:middle
+No tengo ganas de ver
+
+00:01:12.027 --> 00:01:16.660 align:middle
+mas cosas. Entonces este
+
+00:01:16.827 --> 00:01:19.450 align:middle
+video no lo codificaré en el
+
+00:01:19.617 --> 00:01:22.210 align:middle
+depurador, como ha visto en otro
+video, lo haré
+
+00:01:22.377 --> 00:01:24.410 align:middle
+caso a caso
+de manera oportunista.
+
+00:01:25.490 --> 00:01:30.030 align:middle
+Aquí defino la clase "Die",
+que tiene
+
+00:01:30.197 --> 00:01:31.370 align:middle
+una cierta cantidad de "faces" (caras).
+
+00:01:32.100 --> 00:01:35.630 align:middle
+Compilo y agrego un comentario de clase.
+
+00:01:43.380 --> 00:01:45.890 align:middle
+Por el momento, poca cosa,
+porque es muy muy simple.
+
+00:01:47.550 --> 00:01:52.360 align:middle
+Empezaremos de manera que podamos
+
+00:01:52.527 --> 00:01:53.950 align:middle
+inicializar nuestro objeto
+
+00:02:00.450 --> 00:02:02.260 align:middle
+Lo haré así.
+
+00:02:10.190 --> 00:02:13.560 align:middle
+Llamo la inicialización de
+la superclase, y
+
+00:02:13.727 --> 00:02:18.140 align:middle
+por defecto asigno 6 caras
+a mi dado, porque es
+
+00:02:18.307 --> 00:02:19.140 align:middle
+el dado más común.
+
+00:02:19.820 --> 00:02:22.530 align:middle
+Ahora estoy empezando a
+desarrollar una
+
+00:02:22.697 --> 00:02:25.640 align:middle
+clase de test, para asegurarnos de que
+lo que hagamos
+
+00:02:25.807 --> 00:02:26.900 align:middle
+no rompe lo que ya ha
+esta hecho.
+
+00:02:27.260 --> 00:02:30.450 align:middle
+Las clases de prueba son subclases del
+clase TestCase
+
+00:02:30.617 --> 00:02:34.100 align:middle
+Lo llamamos "DieTest".
+
+00:02:34.370 --> 00:02:37.510 align:middle
+Tengo mi clase de test (prueba).
+
+00:02:37.790 --> 00:02:40.220 align:middle
+Una de las primeras pruebas que haremos,
+
+43 align:middle
+00:02:40,387 --> 00:02:42,480
+no siempre tenemos que hacerlo
+así, pero
+
+00:02:42.647 --> 00:02:46.650 align:middle
+en este caso me gustaría comenzar con
+una prueba que funcione.
+
+00:02:47.840 --> 00:02:52.120 align:middle
+Como aquí, no tenemos mucha cosa,
+dire que la inicialización está ok.
+
+00:02:53.820 --> 00:02:56.160 align:middle
+Esta es también 
+una manera de mostrarte
+
+00:02:56.327 --> 00:02:59.770 align:middle
+cómo probar que puedes
+capturar excepciones
+
+00:02:59.937 --> 00:03:01.440 align:middle
+o que las excepciones no deben
+ocurrir.
+
+00:03:02.180 --> 00:03:04.590 align:middle
+Aquí estoy diciendo:
+
+00:03:04.757 --> 00:03:06.460 align:middle
+Die new should not raise error.
+
+00:03:18.120 --> 00:03:19.170 align:middle
+Qué significa eso?
+
+00:03:19.337 --> 00:03:23.290 align:middle
+Significa que cuando ejecuto este
+trozo de código "Die
+
+00:03:23.457 --> 00:03:25.600 align:middle
+new" (dado nuevo), no debe 
+producirse ningún error.
+
+00:03:28.170 --> 00:03:32.560 align:middle
+Voy a clasificar mi test
+y ejecutarlo.
+
+00:03:32.727 --> 00:03:35.550 align:middle
+Verde. Todo bien.
+
+00:03:36.000 --> 00:03:40.020 align:middle
+Ahora, me gustaría definir el
+
+00:03:40.187 --> 00:03:44.540 align:middle
+método que imita una tirada del dado.
+
+00:03:44.707 --> 00:03:48.610 align:middle
+Me parece que en Pharo debe
+haber un método
+
+00:03:48.777 --> 00:03:49.720 align:middle
+llamado "atRandom" (al azar).
+
+00:03:49.887 --> 00:03:53.940 align:middle
+atRandom, ¿qué hace?
+
+00:03:54.480 --> 00:03:57.780 align:middle
+Me permite tener ... Ok ...
+
+00:03:58.310 --> 00:04:00.770 align:middle
+Entonces ahora voy a mirar
+la implementación para asegurarme
+
+00:04:00.937 --> 00:04:03.620 align:middle
+que es correcto. AtRandom, ¿qué hace?
+
+00:04:04.870 --> 00:04:09.070 align:middle
+Devuelve un número entero al azar
+De 1 a sí mismo, perfecto.
+
+00:04:10.910 --> 00:04:13.910 align:middle
+Entonces voy a definir un nuevo
+
+00:04:15.290 --> 00:04:19.220 align:middle
+método en Operations (operaciones).
+
+00:04:21.160 --> 00:04:22.230 align:middle
+Que va a hacer
+
+00:04:22.397 --> 00:04:26.640 align:middle
+Roll (rueda). Le diré
+me devuelves "faces
+
+00:04:27.570 --> 00:04:28.203 align:middle
+atRandom" (caras al azar).
+
+00:04:35.750 --> 00:04:37.400 align:middle
+Entonces escribo un test para esto.
+
+00:04:40.490 --> 00:04:43.590 align:middle
+TestRolling ¿Que hacemos ahora?
+
+00:04:44.120 --> 00:04:49.040 align:middle
+Creamos un dado.
+d := Die
+
+00:04:49.207 --> 00:04:49.840 align:middle
+new
+
+00:04:51.210 --> 00:04:53.140 align:middle
+Y ahora escribo
+"1000 timesRepeat".
+
+00:04:54.420 --> 00:04:58.240 align:middle
+¿Qué? "d roll".
+
+00:05:03.620 --> 00:05:07.580 align:middle
+Y quiero que sea
+entre 1 y 6
+
+00:05:07.747 --> 00:05:12.640 align:middle
+"Between: and:", esta
+
+00:05:12.807 --> 00:05:15.560 align:middle
+bien. (Entre 1 y 6).
+
+00:05:15.820 --> 00:05:18.510 align:middle
+No es muy bueno
+porque aquí creamos
+
+00:05:18.677 --> 00:05:22.470 align:middle
+una prueba solo para dados de 6 lados,
+podríamos haber hecho que
+
+00:05:22.637 --> 00:05:25.310 align:middle
+funcione según el
+número de lados del dado
+
+00:05:25.640 --> 00:05:26.580 align:middle
+Lo haremos más tarde.
+
+00:05:26.830 --> 00:05:27.463 align:middle
+Entonces compilo
+
+00:05:32.840 --> 00:05:35.620 align:middle
+Me sale un error Aquí está ...
+
+00:05:37.910 --> 00:05:39.170 align:middle
+Está bien, tengo mi test.
+
+00:05:39.337 --> 00:05:41.460 align:middle
+Ahora es el momento de guardar.
+Aquí tengo mi
+
+00:05:41.627 --> 00:05:44.590 align:middle
+paquete "Dice", lo
+guardo localmente, "Save".
+
+00:05:44.757 --> 00:05:49.000 align:middle
+Había creado unos cuantos antes
+para entrenar, así que
+
+00:05:49.167 --> 00:05:51.710 align:middle
+volveré a crear uno
+"New version with
+
+00:05:56.530 --> 00:06:00.780 align:middle
+rolling and test". Muy bien.
+
+00:06:01.030 --> 00:06:02.370 align:middle
+Ok, se guarda.
+
+00:06:11.480 --> 00:06:14.610 align:middle
+Ahora me gustaría cambiar
+
+00:06:14.777 --> 00:06:18.890 align:middle
+la interfaz de creación
+Primero re-categorizamos
+
+00:06:19.810 --> 00:06:22.200 align:middle
+Si queremos cambiar
+un poco la interfaz de creación
+
+00:06:22.367 --> 00:06:26.390 align:middle
+Nos gustaría decir:
+"to create a die
+
+00:06:26.557 --> 00:06:28.090 align:middle
+use die faces".
+
+00:06:39.290 --> 00:06:42.610 align:middle
+En esta expresión debe ver que
+
+00:06:42.777 --> 00:06:46.030 align:middle
+faces és un mensaje enviado a
+la clase Die y no
+
+00:06:46.197 --> 00:06:48.610 align:middle
+a una instancia de la clase Die,
+como en el
+
+00:06:49.090 --> 00:06:51.880 align:middle
+método roll o otros métodos
+codificados con anterioridad.
+
+00:06:52.047 --> 00:06:55.040 align:middle
+Haré esto para que entienda
+cuando
+
+00:06:55.207 --> 00:06:58.900 align:middle
+tiene ir o no al nivel
+class.
+
+00:06:59.350 --> 00:07:00.710 align:middle
+Empezaremos escribiendo un test.
+
+00:07:03.050 --> 00:07:06.420 align:middle
+Así "betterInterface".
+
+00:07:08.790 --> 00:07:10.200 align:middle
+Si continúo con la misma lógica,
+
+00:07:12.230 --> 00:07:18.080 align:middle
+"TestbetterCreationInterface",
+
+00:07:18.247 --> 00:07:20.950 align:middle
+Me gustaría hacer algo como
+esto,
+
+00:07:22.680 --> 00:07:23.640 align:middle
+y que esto, sea faces (caras).
+
+00:07:30.620 --> 00:07:32.420 align:middle
+Lo haré lentamente.
+
+00:07:32.950 --> 00:07:36.840 align:middle
+Vengo aquí y escribo
+"instance creation" faces: anInteger.
+
+00:07:46.560 --> 00:07:49.000 align:middle
+Podría escribirlo de una manera compacta
+pero aquí
+
+00:07:49.167 --> 00:07:50.530 align:middle
+lo haré de manera tranquila.
+
+00:07:51.000 --> 00:07:52.940 align:middle
+Así creo un dado.
+
+00:07:53.890 --> 00:07:57.740 align:middle
+Escribo "self new",
+self es la clase Die en sí.
+
+00:07:58.220 --> 00:08:00.410 align:middle
+Le pido:
+crea una instancia.
+
+00:08:00.577 --> 00:08:03.620 align:middle
+Y ahora a esta nueva instancia le
+proporciono
+
+00:08:03.787 --> 00:08:08.410 align:middle
+un acceso para facilitar el valor
+pasado como argumento
+
+00:08:08.577 --> 00:08:12.130 align:middle
+Obviamente, devuelvo el dado
+que acaba de ser creado.
+
+00:08:13.860 --> 00:08:16.920 align:middle
+Cuando ejecute el código,
+no funcionará porque
+
+00:08:17.087 --> 00:08:19.950 align:middle
+faces no existe, 
+no se preocupe.
+
+00:08:20.117 --> 00:08:22.760 align:middle
+Vemos que mi test no pasa,
+en todo caso
+
+00:08:22.927 --> 00:08:27.720 align:middle
+es normal si yo
+ejecuto esto,
+
+00:08:27.887 --> 00:08:29.520 align:middle
+por ejemplo, si hago 
+debug (depuración) para ver ...
+
+00:08:33.640 --> 00:08:38.360 align:middle
+Y hago clic en Over, aquí
+dice "no conozco
+
+00:08:38.527 --> 00:08:41.430 align:middle
+el mensaje faces".
+
+00:08:41.910 --> 00:08:45.770 align:middle
+Aquí lo haremos con calma, no lo haré
+en el débugger (depurador).
+
+00:08:46.830 --> 00:08:49.600 align:middle
+Yo digo: es verdad, tengo que
+agregar un descriptor de acceso
+
+00:08:52.910 --> 00:08:57.390 align:middle
+Entonces escribo
+"faces: anInteger"
+
+00:08:57.557 --> 00:09:01.520 align:middle
+Y allí escribo: "faces: anInteger"
+
+00:09:05.020 --> 00:09:08.110 align:middle
+Y mientras estoy en ello, creo
+el acceso de lectura.
+
+00:09:09.330 --> 00:09:11.500 align:middle
+Devuelvo esta.
+
+00:09:13.250 --> 00:09:14.450 align:middle
+Y aquí mi test es verde.
+
+00:09:15.240 --> 00:09:19.180 align:middle
+Entonces guardamos, "save"
+
+00:09:19.347 --> 00:09:22.250 align:middle
+mejor die creación
+método con test.
+
+00:09:22.417 --> 00:09:23.050 align:middle
+Todo bien.
+
+00:09:31.610 --> 00:09:33.670 align:middle
+Ahora podemos comenzar a
+
+00:09:33.837 --> 00:09:37.650 align:middle
+definir lo que queremos para
+
+00:09:38.690 --> 00:09:42.050 align:middle
+diceHandle. Básicamente si
+miramos, diceHandle,
+
+00:09:42.217 --> 00:09:44.000 align:middle
+¿Cómo nos gustaría escribirlo?
+
+00:09:44.167 --> 00:09:45.450 align:middle
+Nos gustaría escribir
+"diceHandle new addDie"
+
+00:09:49.300 --> 00:09:53.290 align:middle
+Aquí crearemos un nuevo
+dado, "Die faces: 6, addDie".
+
+00:09:55.210 --> 00:09:59.680 align:middle
+"die faces: 10".
+
+00:10:07.260 --> 00:10:12.040 align:middle
+Comenzamos escribiendo
+
+00:10:12.207 --> 00:10:13.580 align:middle
+una clase de test, esta vez.
+
+00:10:15.250 --> 00:10:19.930 align:middle
+Entonces, una nueva clase que
+hereda de TestCase.
+
+00:10:20.290 --> 00:10:22.330 align:middle
+Todo bien. Tengo mi nueva
+clase de test
+
+00:10:24.000 --> 00:10:26.730 align:middle
+Y defino un test.
+
+00:10:30.220 --> 00:10:32.850 align:middle
+La idea es crear una
+mano y luego
+
+00:10:33.017 --> 00:10:35.140 align:middle
+verificar que tengo los.
+dados buenos dentro.
+
+00:10:35.307 --> 00:10:39.380 align:middle
+Escribo "testAdding",
+quiero reutilizar mi
+
+00:10:39.547 --> 00:10:43.730 align:middle
+código, no hay otro motivo.
+
+00:10:45.530 --> 00:10:48.060 align:middle
+Entonces tengo mi
+
+00:10:54.310 --> 00:10:58.940 align:middle
+handle, yourself porque
+quiero
+
+00:10:59.107 --> 00:11:01.960 align:middle
+obtener el receptor del mensaje,
+es decir la mano
+
+00:11:02.127 --> 00:11:03.690 align:middle
+y no el argumento que está aquí.
+
+00:11:04.500 --> 00:11:08.260 align:middle
+Ahora, ¿qué debo hacer?
+
+00:11:08.427 --> 00:11:12.520 align:middle
+Escribo "self
+ assert: h diceNumber
+
+00:11:13.960 --> 00:11:14.593 align:middle
+ equals: 2".
+
+00:11:20.700 --> 00:11:23.380 align:middle
+Compilo. Obviamente el sistema
+me dice: "No
+
+00:11:23.547 --> 00:11:25.930 align:middle
+conozco la variable DiceHandle, quieres
+
+00:11:26.097 --> 00:11:26.730 align:middle
+que sea una clase"
+
+00:11:26.897 --> 00:11:27.960 align:middle
+Sí. Debe ser una clase.
+
+00:11:28.560 --> 00:11:29.750 align:middle
+Aquí la definirá.
+
+00:11:29.917 --> 00:11:31.340 align:middle
+Como se que de todos modos
+tengo que parar mis dados,
+
+00:11:31.507 --> 00:11:36.440 align:middle
+aprovechare para
+
+00:11:36.870 --> 00:11:39.580 align:middle
+poner una variable de instancia
+
+00:11:39.747 --> 00:11:40.860 align:middle
+Compilo todo esto
+
+00:11:41.790 --> 00:11:45.720 align:middle
+Ahora es rojo porque "AddDie:"
+no se ha definido nunca.
+
+00:11:47.620 --> 00:11:48.570 align:middle
+Entonces lo haremos.
+
+00:11:48.737 --> 00:11:51.620 align:middle
+Antes de hacer esto, estaría bien
+de inicializar la mano,
+
+00:11:54.240 --> 00:11:56.660 align:middle
+lo hacemos así,
+nos evitará
+
+00:11:56.827 --> 00:11:57.890 align:middle
+tener un error más tarde
+
+00:12:02.890 --> 00:12:04.560 align:middle
+"dice : = OrdereCollection new"
+
+00:12:04.727 --> 00:12:05.360 align:middle
+Re-categorizar.
+
+00:12:21.880 --> 00:12:24.760 align:middle
+Y ahora, debo ser capaz de
+ejecutar mi
+
+00:12:24.927 --> 00:12:27.730 align:middle
+test, que se bloqueará.
+Ok muy bien.
+
+00:12:27.897 --> 00:12:30.200 align:middle
+Crearé AddDie:
+
+00:12:30.530 --> 00:12:31.163 align:middle
+Agregando
+
+00:12:35.330 --> 00:12:38.030 align:middle
+Aquí, me dice: "Debes implementar
+este método."
+
+00:12:38.197 --> 00:12:39.080 align:middle
+Sí, tiene sentido.
+
+00:12:39.247 --> 00:12:42.430 align:middle
+Escribo "Dice add: aDie".
+
+00:12:43.590 --> 00:12:45.920 align:middle
+Ok muy bien.
+Mi prueba continua sin funcionar
+
+00:12:46.087 --> 00:12:48.150 align:middle
+porque aun no he definido
+el método
+
+00:12:48.317 --> 00:12:52.120 align:middle
+diceNumber.
+Sí, diceNumber,
+
+00:12:52.287 --> 00:12:56.780 align:middle
+lo crearemos, en
+accessing esta vez
+
+00:12:57.350 --> 00:12:58.800 align:middle
+Y diceNumber,
+¿que va a hacer?
+
+00:12:58.967 --> 00:13:00.330 align:middle
+Debe devolver
+
+00:13:06.290 --> 00:13:08.110 align:middle
+dice size. Compilo de nuevo
+proceed.
+
+00:13:09.940 --> 00:13:12.510 align:middle
+Y mi prueba debe ser verde
+Entonces, la prueba
+
+00:13:12.677 --> 00:13:14.860 align:middle
+es verde y guardo.
+
+00:13:17.250 --> 00:13:18.580 align:middle
+"With addDie and test".
+
+00:13:24.560 --> 00:13:28.090 align:middle
+Podríamos mejorar el test porque
+aquí
+
+00:13:28.257 --> 00:13:31.900 align:middle
+comprueba que agregamos 2 números,
+me gustaría
+
+00:13:32.067 --> 00:13:35.180 align:middle
+verificar que cuando
+
+00:13:35.347 --> 00:13:37.610 align:middle
+agregamos dos veces el mismo dado
+no lo perdamos.
+
+00:13:38.280 --> 00:13:39.340 align:middle
+Escribo
+"TestAddingTwiceTheSameDieIsOK".
+
+00:13:49.040 --> 00:13:50.290 align:middle
+Aquí que haré
+
+00:13:50.457 --> 00:13:54.530 align:middle
+Agrego 6 y 6 y debo
+obtener 2
+
+00:13:57.030 --> 00:13:59.940 align:middle
+Hago esto, corro mi prueba,
+es verde, súper
+
+00:14:01.230 --> 00:14:04.700 align:middle
+Ahora, seria bonito poder
+
+00:14:05.880 --> 00:14:08.960 align:middle
+definir como
+
+00:14:11.240 --> 00:14:14.900 align:middle
+agregar 2 dados. Pero antes,
+hagamos algo.
+
+00:14:15.067 --> 00:14:17.210 align:middle
+Si miras, lo que no me gusta,
+
+00:14:17.377 --> 00:14:19.030 align:middle
+es que cuando inspecciono esto,
+por ejemplo,
+
+00:14:23.950 --> 00:14:28.740 align:middle
+si hago "Inspect"
+aquí, no veo
+
+00:14:28.907 --> 00:14:31.530 align:middle
+los valores de los dados y no es
+práctico para depurar.
+
+00:14:31.697 --> 00:14:33.030 align:middle
+En el depurador, no vemos esto.
+
+00:14:33.370 --> 00:14:36.090 align:middle
+Entonces, antes de continuar, quiero
+mejorar
+
+00:14:36.257 --> 00:14:38.370 align:middle
+esto. Voy a agregar
+un método
+
+00:14:38.660 --> 00:14:41.710 align:middle
+en el protocolo printing.
+El método "PrintOn"
+
+00:14:44.220 --> 00:14:46.840 align:middle
+esta definida en todos los objetos del
+sistema y
+
+00:14:47.007 --> 00:14:50.380 align:middle
+convertirá un objeto en una
+
+00:14:50.547 --> 00:14:53.490 align:middle
+representación textual y
+
+00:14:55.380 --> 00:14:58.780 align:middle
+pasa un stream al que incorporaremos
+
+00:14:58.947 --> 00:15:00.420 align:middle
+la representación que queramos dentro.
+
+00:15:01.890 --> 00:15:03.500 align:middle
+Si hago esto, no he hecho nada.
+
+00:15:03.667 --> 00:15:07.630 align:middle
+Si hago super PrintOn,
+de hecho tengo, no he hecho nada.
+
+00:15:07.797 --> 00:15:09.230 align:middle
+Ahora voy a hacer
+
+00:15:09.397 --> 00:15:13.220 align:middle
+"aStream NextPutAll:", entonces pondré
+caracteres en el
+
+00:15:13.387 --> 00:15:15.220 align:middle
+stream, pero ¿qué voy a
+poner primero?
+
+00:15:16.090 --> 00:15:18.330 align:middle
+Escribiré un paréntesis con un
+espacio tal vez
+
+00:15:18.497 --> 00:15:19.880 align:middle
+sea mas bonito, un paréntesis.
+
+00:15:20.450 --> 00:15:23.550 align:middle
+Entonces consideraré caras (faces)
+y las convertiré
+
+00:15:23.717 --> 00:15:27.780 align:middle
+en números, en cadenas y
+concatenare todo esto
+
+00:15:28.360 --> 00:15:30.760 align:middle
+con un paréntesis de cierre.
+
+00:15:31.150 --> 00:15:34.930 align:middle
+Si hago esto ... cerré el depurador,
+entonces lo abro de nuevo.
+
+00:15:35.850 --> 00:15:38.630 align:middle
+Tengo el depurador. Ahora
+Tengo un dado de 6 caras
+
+00:15:38.797 --> 00:15:40.480 align:middle
+y un dado de 10 caras. Así es
+mucho
+
+00:15:40.647 --> 00:15:44.140 align:middle
+más bonito, verá, si
+encuentro errores, nos ayudará.
+
+00:15:44.850 --> 00:15:48.140 align:middle
+Aqui, no hice nada especial,
+mis test funcionan.
+
+00:15:49.450 --> 00:15:53.340 align:middle
+Guardo de nuevo, no cuesta
+nada, "With printing".
+
+00:15:55.220 --> 00:15:56.400 align:middle
+Escribimos "with die printOn".
+
+00:16:03.030 --> 00:16:08.000 align:middle
+Muy bien. Ahora creamos
+el test,
+
+00:16:08.167 --> 00:16:09.580 align:middle
+no lo haremos,
+iremos directamente allí
+
+00:16:10.080 --> 00:16:12.490 align:middle
+Haremos "add
+en el protocolo roll operations".
+
+00:16:13.600 --> 00:16:17.890 align:middle
+Aqui,
+
+00:16:18.057 --> 00:16:22.530 align:middle
+hay varias formas de definir
+esto.
+
+00:16:22.820 --> 00:16:25.040 align:middle
+Le propongo una, no es
+la mas bonita pero
+
+00:16:25.207 --> 00:16:27.160 align:middle
+al menos es la que probablemente
+sea mas clara para usted.
+
+00:16:27.530 --> 00:16:29.130 align:middle
+Hay maneras muy compactas, lo
+
+00:16:29.297 --> 00:16:31.490 align:middle
+podría escribir en una linea, pero
+utilizando iteradores
+
+00:16:31.657 --> 00:16:33.150 align:middle
+como "Injected to", aquí, estoy
+realizaré un bucle
+
+00:16:33.550 --> 00:16:34.210 align:middle
+¿Entonces qué hago?
+
+00:16:34.377 --> 00:16:36.860 align:middle
+Tomo un valor que
+inicializo a cero.
+
+00:16:37.390 --> 00:16:42.320 align:middle
+Luego hago un bucle en todos los dados,
+y
+
+00:16:42.487 --> 00:16:47.120 align:middle
+a cada paso del bucle recupero
+un dado y
+
+00:16:47.287 --> 00:16:47.920 align:middle
+¿Que voy a hacer con este dado?
+
+00:16:48.120 --> 00:16:51.900 align:middle
+Le pido que realice una tirada
+y agregue el resultado a
+
+00:16:52.067 --> 00:16:53.440 align:middle
+mi variable
+
+00:16:55.640 --> 00:17:00.310 align:middle
+Nada muy especial pero al menos
+es muy muy explícito
+
+00:17:02.000 --> 00:17:05.380 align:middle
+Ahora si hago "Inspect" y luego
+
+00:17:05.547 --> 00:17:10.510 align:middle
+hago "Roll", 5, esto no prueba
+que funcione.
+
+00:17:11.210 --> 00:17:12.140 align:middle
+Intentemos-lo una vez más.
+
+00:17:12.307 --> 00:17:13.140 align:middle
+11. Muy bien, funciona.
+
+00:17:13.950 --> 00:17:16.120 align:middle
+Intentaremos escribir
+un test, no hay motivo,
+
+00:17:16.287 --> 00:17:19.920 align:middle
+entonces haremos
+"Test", quiero guardarlo
+
+00:17:21.590 --> 00:17:22.940 align:middle
+y lo llamo rolling.
+
+00:17:26.960 --> 00:17:30.940 align:middle
+Entonces, ¿cómo podríamos
+probar esto?
+
+00:17:31.107 --> 00:17:35.760 align:middle
+Tendría que ser entre 1 y
+el máximo numero de dados.
+
+00:17:38.000 --> 00:17:42.100 align:middle
+Entonces haremos esto.
+
+00:17:42.267 --> 00:17:42.900 align:middle
+Nosotros
+
+00:17:48.280 --> 00:17:49.930 align:middle
+podríamos definir un método
+que haga esto.
+
+00:17:50.240 --> 00:17:53.040 align:middle
+Hagamos un método
+que defina el máximo.
+
+00:17:56.720 --> 00:18:00.100 align:middle
+operations "maxValue".
+
+00:18:02.480 --> 00:18:03.240 align:middle
+¿Qué es maxValue?
+
+00:18:03.407 --> 00:18:05.020 align:middle
+Finalmente. Está muy cerca de esto.
+
+00:18:05.780 --> 00:18:10.000 align:middle
+Aquí en lugar de hacer roll,
+
+00:18:11.440 --> 00:18:12.430 align:middle
+voy a pedir las caras (faces).
+
+00:18:16.560 --> 00:18:20.490 align:middle
+Comprobemos. Si hago
+"Inspect", aqui
+
+00:18:21.830 --> 00:18:24.820 align:middle
+voy a hacer "maxValue 16".
+
+00:18:28.490 --> 00:18:30.480 align:middle
+Sí, es solo 10 y 6.
+
+00:18:30.647 --> 00:18:33.090 align:middle
+Entonces escribimos un test para
+
+00:18:37.010 --> 00:18:41.600 align:middle
+"maxValue". Lo tengo,
+Hago "maxValue equal:
+
+00:18:41.767 --> 00:18:42.400 align:middle
+16".
+
+00:18:45.320 --> 00:18:48.150 align:middle
+Entonces, puede ver, que podría
+haber codificado algo
+
+00:18:48.317 --> 00:18:51.320 align:middle
+muy feo en mi test, pero
+finalmente es mejor
+
+00:18:51.487 --> 00:18:53.690 align:middle
+crear un método en la clase
+y utilizarlo.
+
+00:18:54.080 --> 00:18:58.370 align:middle
+Entonces, podemos probar
+que el método roll
+
+00:18:58.820 --> 00:19:02.340 align:middle
+funciona bien. Hagamos
+"roll",
+
+00:19:05.900 --> 00:19:08.770 align:middle
+y le pido que debe estar comprendido
+
+00:19:08.937 --> 00:19:11.000 align:middle
+entre
+ ... "Roll between: 1 and:
+
+00:19:14.230 --> 00:19:15.690 align:middle
+h maxValue.
+
+00:19:24.080 --> 00:19:26.000 align:middle
+Si hago esto, ok, funciona.
+
+00:19:28.120 --> 00:19:30.870 align:middle
+No es muy estadístico,
+así que aquí podríamos realizar
+
+00:19:31.037 --> 00:19:35.800 align:middle
+algo como
+1000 timesRepeat.
+
+00:19:36.000 --> 00:19:38.560 align:middle
+De acuerdo. Y aquí,
+
+00:19:42.220 --> 00:19:46.680 align:middle
+tenemos nuestras 1000 pruebas.
+
+00:19:47.740 --> 00:19:49.330 align:middle
+Guardamos. Muy bien.
+
+00:19:49.497 --> 00:19:52.440 align:middle
+Guardamos de nuevo.
+save, added maxValue
+
+00:19:54.610 --> 00:19:56.030 align:middle
+and roll with tests.
+
+00:20:03.940 --> 00:20:08.380 align:middle
+Casi hemos terminado,
+
+00:20:08.547 --> 00:20:11.070 align:middle
+nos gustaría expresar que
+
+00:20:11.237 --> 00:20:13.680 align:middle
+en lugar de tener "die faces: 6",
+
+00:20:16.290 --> 00:20:17.670 align:middle
+nos gustaría tener "1 D6".
+
+00:20:17.837 --> 00:20:18.470 align:middle
+Y finalmente,
+
+00:20:25.510 --> 00:20:27.630 align:middle
+lo que ves
+significa "enviar
+
+00:20:27.797 --> 00:20:31.050 align:middle
+el mensaje D6 a un entero.
+
+00:20:31.770 --> 00:20:34.540 align:middle
+Entonces vamos a la
+la clase Integer
+
+00:20:34.707 --> 00:20:39.620 align:middle
+Lo que vamos a hacer es
+
+00:20:39.787 --> 00:20:43.660 align:middle
+definir una extensión de la clase.
+
+00:20:43.827 --> 00:20:45.010 align:middle
+¿Qué es una extensión de la clase?
+
+00:20:45.890 --> 00:20:50.350 align:middle
+Voy a empacar mis métodos
+con el mismo nombre de mi paquete.
+
+00:20:50.800 --> 00:20:53.360 align:middle
+Entonces, ¿vera qué hago?
+Agrego un
+
+00:20:53.527 --> 00:20:57.420 align:middle
+protocolo, le pongo *, debe
+empezar por *dice que es
+
+00:20:57.587 --> 00:21:00.780 align:middle
+el nombre de mi paquete, automáticamente
+esto se pone gris lo que
+
+00:21:00.947 --> 00:21:02.900 align:middle
+significa que el método será
+empaquetado
+
+00:21:03.067 --> 00:21:04.460 align:middle
+al mismo tiempo que este paquete.
+Hagamos-lo.
+
+00:21:04.900 --> 00:21:08.950 align:middle
+Imaginemos que hacemos ...
+¿Qué es D6?
+
+00:21:10.000 --> 00:21:13.570 align:middle
+Un D6 ... tengo que pensar
+un poco sobre eso ...
+
+00:21:21.050 --> 00:21:24.250 align:middle
+Primero creamos una mano porque
+esto podría
+
+00:21:24.417 --> 00:21:25.510 align:middle
+ser dos D6 finalmente.
+
+00:21:27.210 --> 00:21:31.930 align:middle
+Entonces "handle", hacemos
+"DiceHandle
+
+00:21:32.097 --> 00:21:32.730 align:middle
+new",
+
+00:21:37.120 --> 00:21:38.280 align:middle
+ok, entonces he creado mi truco.
+
+00:21:39.380 --> 00:21:42.110 align:middle
+Ahora para cada receptor,
+voy a hacer
+
+00:21:42.277 --> 00:21:45.430 align:middle
+"self", este es mi entero,
+"TimesRepeat".
+
+00:21:46.370 --> 00:21:50.140 align:middle
+Habremos utilizado mucho
+el timesRepeat, es raro.
+
+00:21:51.900 --> 00:21:54.120 align:middle
+"TimesRepeat handle addDie:", ¿de qué?
+
+00:21:56.790 --> 00:22:01.150 align:middle
+de "die faces". Y ahí,
+
+00:22:02.000 --> 00:22:03.720 align:middle
+lo sabemos, es 6
+
+00:22:05.890 --> 00:22:09.830 align:middle
+Y de hecho, tal vez sea
+para devolver la mano.
+
+00:22:11.220 --> 00:22:12.330 align:middle
+¿Es que funciona?
+
+00:22:12.497 --> 00:22:14.950 align:middle
+Lo probamos así y
+escribimos un test.
+
+00:22:15.470 --> 00:22:20.380 align:middle
+Si hago 2 D6, inspect,
+Mira,
+
+00:22:20.547 --> 00:22:22.390 align:middle
+tengo 2 D6. Eso es genial.
+
+00:22:23.190 --> 00:22:24.290 align:middle
+Pues escribamos un test.
+
+00:22:25.640 --> 00:22:27.140 align:middle
+Clasificamos esas pruebas
+después de todo.
+
+00:22:28.150 --> 00:22:29.330 align:middle
+Escribimos "testNewSyntax".
+
+00:22:33.950 --> 00:22:36.420 align:middle
+Aquí por el momento solo tenemos
+D6, generalizaremos más tarde.
+
+00:22:38.010 --> 00:22:40.000 align:middle
+Queremos hacer exactamente 
+lo mismo
+
+00:22:40.167 --> 00:22:44.440 align:middle
+que esto, entonces tendremos
+una mano, digamos 2 D6.
+
+00:22:47.020 --> 00:22:49.620 align:middle
+Y allí haremos
+"selfAssert".
+
+00:22:53.310 --> 00:22:54.430 align:middle
+¿Qué podemos probar?
+
+00:22:54.597 --> 00:22:56.470 align:middle
+Que diceNumber equals: 2,
+
+00:23:02.880 --> 00:23:05.420 align:middle
+por ejemplo. Puedes ver
+que podria haber usado
+
+00:23:05.587 --> 00:23:09.160 align:middle
+diceHandle = 2, aquí.
+
+00:23:09.810 --> 00:23:12.080 align:middle
+En general, es mejor usar
+"assert: equal:"
+
+00:23:12.540 --> 00:23:14.310 align:middle
+porque así, cuando hay
+un error, el sistema
+
+00:23:14.477 --> 00:23:18.020 align:middle
+te muestra "He recibido esto y
+obtuve este valor en lugar de ... "
+
+00:23:18.630 --> 00:23:22.910 align:middle
+Si escribo =, dirá:
+"Tengo una expresión equivocada".
+
+00:23:23.680 --> 00:23:26.480 align:middle
+Aquí para el usuario final, que es
+usted,
+
+00:23:26.647 --> 00:23:28.850 align:middle
+como desarrollador, es mejor
+usar
+
+00:23:30.580 --> 00:23:33.340 align:middle
+"assert equals" porque le
+ dira: "He recibido 3, cuando
+
+00:23:33.560 --> 00:23:34.680 align:middle
+esperaba 2", por ejemplo.
+
+00:23:35.860 --> 00:23:37.060 align:middle
+Entonces aquí, si hago esto.
+
+00:23:37.510 --> 00:23:38.780 align:middle
+Ok, funciona.
+
+00:23:39.320 --> 00:23:41.940 align:middle
+¿Podríamos tener una versión
+
+00:23:42.107 --> 00:23:43.090 align:middle
+mas inteligente para este test?
+
+00:23:43.257 --> 00:23:44.240 align:middle
+De momento, este nos conviene.
+
+00:23:44.860 --> 00:23:46.640 align:middle
+Ahora puede ver que
+
+00:23:46.807 --> 00:23:50.200 align:middle
+en el paquete, tengo una extensión
+llamada D6.
+
+00:23:50.690 --> 00:23:55.480 align:middle
+Generalizaremos esto
+con "a number until",
+
+00:23:56.120 --> 00:23:57.550 align:middle
+"a number of faces"
+
+00:24:01.360 --> 00:24:03.870 align:middle
+Asi "aNumberOfFaces",
+lo pondremos aqui.
+
+00:24:05.200 --> 00:24:08.000 align:middle
+Y reescribimos D6 porque
+es mucho mejor D6
+
+00:24:08.137 --> 00:24:12.580 align:middle
+Escribimos D6 de esta manera.
+
+00:24:12.747 --> 00:24:16.660 align:middle
+haremos "^ self D: 6".
+
+00:24:19.050 --> 00:24:20.750 align:middle
+Haremos todos los demás.
+
+00:24:20.917 --> 00:24:24.370 align:middle
+Haremos 4,
+
+00:24:26.020 --> 00:24:30.870 align:middle
+2. Es más una moneda que un dado,
+pero 2,
+
+00:24:31.220 --> 00:24:35.640 align:middle
+10 y 20.
+
+00:24:36.440 --> 00:24:37.570 align:middle
+¿Ha entendido el principio?.
+
+00:24:41.540 --> 00:24:45.930 align:middle
+Entonces, probamos los test, puesto
+que hemos cambiado la implementación.
+
+00:24:47.010 --> 00:24:49.370 align:middle
+2 D6 ... 
+significa que funciona.
+
+00:24:49.830 --> 00:24:50.690 align:middle
+Entonces guardemos.
+
+00:24:59.670 --> 00:25:03.320 align:middle
+¿Qué nos queda por hacer?
+
+00:25:03.680 --> 00:25:08.030 align:middle
+De hecho, nos falta
+poder sumar manos.
+
+00:25:09.300 --> 00:25:11.600 align:middle
+¿Qué test me gustaría tener?
+
+00:25:11.767 --> 00:25:14.640 align:middle
+Me gustaría que si hago,
+por ejemplo,
+
+00:25:18.710 --> 00:25:23.240 align:middle
+"AddingHandles", asegurarme que
+
+371 align:middle
+00:25:23,407 --> 00:25:25,590
+Puedo utilizar la nueva sintaxis.
+
+00:25:25.757 --> 00:25:26.440 align:middle
+Muy bien.
+
+00:25:26.960 --> 00:25:28.940 align:middle
+Me gustaría que si
+
+00:25:29.107 --> 00:25:33.820 align:middle
+Escribo 2 D20 + 3 D6
+
+00:25:34.000 --> 00:25:38.570 align:middle
+no vamos a complicar las cosas
+
+00:25:38.737 --> 00:25:42.050 align:middle
+cosas. ¿Cuánto debo obtener?
+
+00:25:43.160 --> 00:25:46.770 align:middle
+diceNumber debe ser igual a 5.
+
+00:25:48.180 --> 00:25:52.270 align:middle
+Aquí ves que debemos definir
+el operador +
+
+00:25:52.870 --> 00:25:55.520 align:middle
+En Pharo + no es un operador,
+es solo un mensaje.
+
+00:25:55.687 --> 00:25:59.230 align:middle
+Entonces definimos un mensaje en la
+clase DiceHandle
+
+00:26:00.530 --> 00:26:02.850 align:middle
+Escribimos +.
+
+00:26:04.650 --> 00:26:05.520 align:middle
+Entonces "aDiceHandle".
+
+00:26:07.530 --> 00:26:09.410 align:middle
+Ahora podemos preguntarnos si
+
+00:26:09.577 --> 00:26:11.770 align:middle
+modificamos el receptor o
+si utilizamos
+
+00:26:11.937 --> 00:26:12.840 align:middle
+un enfoque funcional
+
+00:26:13.130 --> 00:26:14.740 align:middle
+Prefiero usar un enfoque funcional.
+
+00:26:14.907 --> 00:26:17.470 align:middle
+en el que creamos
+una nueva mano.
+
+00:26:20.180 --> 00:26:23.690 align:middle
+Entonces voy a crear una
+nueva mano, escribo
+
+00:26:26.060 --> 00:26:27.650 align:middle
+"handle := self class new".
+
+00:26:29.540 --> 00:26:34.060 align:middle
+Evité escribir
+diceHandle y más tarde
+
+00:26:34.227 --> 00:26:36.360 align:middle
+hay una lección que le explicara porque.
+
+00:26:36.527 --> 00:26:37.770 align:middle
+Lo prefiero, es mucho mas cercano.
+
+00:26:37.937 --> 00:26:39.800 align:middle
+En general, no codifica a palo
+el nombre de las clases.
+
+00:26:40.430 --> 00:26:42.530 align:middle
+Lo verá en la semana 7,
+
+00:26:42.697 --> 00:26:44.040 align:middle
+hay toda una explicación.
+
+00:26:44.740 --> 00:26:49.660 align:middle
+Si hago "self
+dice do:", lo que haré
+
+00:26:49.827 --> 00:26:53.480 align:middle
+es iterar con mis dados y
+agregarlos a una mano.
+
+00:26:53.647 --> 00:26:55.610 align:middle
+Así que hago
+"handle addDie: each",
+
+00:26:59.780 --> 00:27:03.660 align:middle
+y hago lo mismo ...
+Aquí no
+
+00:27:03.827 --> 00:27:05.720 align:middle
+necesito self y de hecho no
+conoce
+
+00:27:05.887 --> 00:27:07.420 align:middle
+el mensaje, eso es lo que
+quería decir y
+
+00:27:07.587 --> 00:27:09.370 align:middle
+me hace notar que, de hecho,
+no lo he definido
+
+00:27:09.820 --> 00:27:12.790 align:middle
+y no ha funcionado para
+"diceHandle", pero
+
+00:27:15.630 --> 00:27:20.480 align:middle
+no es grave, compilamos y
+ya lo solucionaremos más tarde.
+
+00:27:21.230 --> 00:27:22.450 align:middle
+Entonces, ¿qué significa?
+
+00:27:22.617 --> 00:27:24.790 align:middle
+Significa que le falta un acceso
+que es dice.
+
+00:27:25.280 --> 00:27:28.770 align:middle
+Entonces agregamos dice aquí,
+dice que me devuelve
+
+00:27:28.937 --> 00:27:32.060 align:middle
+la colección de mis dados
+
+00:27:32.227 --> 00:27:35.280 align:middle
+Ahora voy a probar, a ver si
+mi test funciona.
+
+00:27:35.700 --> 00:27:38.690 align:middle
+Mi test funciona, es súper
+significa que prácticamente
+
+00:27:38.857 --> 00:27:43.610 align:middle
+he acabado, guardo,
+"with handles
+
+00:27:44.810 --> 00:27:46.690 align:middle
+additions". Ok, muy bien.
+
+00:27:49.820 --> 00:27:53.770 align:middle
+Significa que ahora podemos escribir
+
+00:27:57.300 --> 00:28:02.210 align:middle
+2 D4 y luego
+
+00:28:02.377 --> 00:28:06.380 align:middle
+hacer "Roll", lo que nos devolverá
+un número.
+
+00:28:08.000 --> 00:28:10.400 align:middle
+Ahora está listo para jugar
+a "Calabozos y Dragones".
+
+00:28:11.200 --> 00:28:15.870 align:middle
+Lo que debe retener, 
+hemos definido
+
+00:28:17.570 --> 00:28:19.480 align:middle
+nuestro métodos, hemos definido
+nuestros test, los hemos hecho
+
+00:28:19.647 --> 00:28:23.010 align:middle
+rodar, extendimos una clase
+del sistema,
+
+00:28:23.177 --> 00:28:27.000 align:middle
+la clase Integer, con extensiones
+vinculadas a nuestro
+
+00:28:27.167 --> 00:28:30.590 align:middle
+paquete, que solo serán visibles
+cuando nuestro paquete se cargue.
+
+00:28:32.290 --> 00:28:34.580 align:middle
+También sobrecargamos a los operadores,
+pero
+
+00:28:34.747 --> 00:28:39.320 align:middle
+de hecho, solo definimos un nuevo
+mensaje +, porque
+
+00:28:39.487 --> 00:28:43.600 align:middle
+en Pharo la adición es
+solo otro mensaje
+
+00:28:43.767 --> 00:28:48.160 align:middle
+esto nos permitió
+expresar con cierta facilidad un bonito DSL.
+
+00:28:49.900 --> 00:28:50.850 align:middle
+¡Ahora os toca a vosotros!
+

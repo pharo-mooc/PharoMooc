@@ -1,0 +1,762 @@
+WEBVTT
+
+00:00:00.650 --> 00:00:03.690 align:middle
+Bonjour. Donc on va voir
+dans cette séquence le Framework
+
+00:00:03.890 --> 00:00:06.000 align:middle
+web Seaside, qui est un
+Framework innovant pour
+
+00:00:06.200 --> 00:00:07.820 align:middle
+construire des
+applications Web, en Pharo.
+
+00:00:08.550 --> 00:00:11.110 align:middle
+Donc il est extrêmement
+puissant et permet de construire
+
+00:00:11.310 --> 00:00:13.260 align:middle
+des applications
+complexes. On verra que la notion
+
+00:00:13.460 --> 00:00:14.910 align:middle
+centrale c'est une
+notion de composantes qui est
+
+00:00:15.110 --> 00:00:18.290 align:middle
+réutilisable et avec
+états, construit au-dessus d'un
+
+00:00:18.490 --> 00:00:23.000 align:middle
+protocole sans état qui est http
+ classiquement dans les applications Web.
+
+00:00:24.210 --> 00:00:26.310 align:middle
+Donc Seaside bien sûr il
+est sécurisé par défaut, il
+
+00:00:26.510 --> 00:00:29.350 align:middle
+supporte toutes les
+dernières nouveautés Web 2 0, Ajax et
+
+00:00:29.550 --> 00:00:31.850 align:middle
+caetera et ainsi les
+architectures REST.
+
+00:00:33.070 --> 00:00:35.180 align:middle
+Donc vous avez le site Web
+de Seaside sur lequel vous
+
+00:00:35.380 --> 00:00:40.000 align:middle
+pouvez aller voir de la
+documentation, notamment le livre
+
+00:00:40.200 --> 00:00:42.030 align:middle
+gratuit de Seaside qui est en ligne.
+
+00:00:42.440 --> 00:00:44.670 align:middle
+Et puis vous trouverez un
+ensemble de tutoriaux sur
+
+00:00:44.870 --> 00:00:47.380 align:middle
+Seaside, et enfin je vous
+conseille d'aller voir la
+
+00:00:47.580 --> 00:00:49.860 align:middle
+mailing list Seaside où
+vous pouvez poser vos questions
+
+00:00:50.060 --> 00:00:54.000 align:middle
+et il y a une communauté
+active qui répond à toutes les
+
+00:00:54.200 --> 00:00:55.180 align:middle
+questions qui pourraient survenir.
+
+00:00:56.350 --> 00:00:57.360 align:middle
+Donc un peu d'histoire.
+
+00:00:57.560 --> 00:00:59.900 align:middle
+Seaside c'est en
+production depuis 2002.
+
+00:01:00.190 --> 00:01:04.130 align:middle
+Il est activement maintenu
+et puis c'est aussi un un des
+
+00:01:04.330 --> 00:01:07.240 align:middle
+Frameworks qui est à la base
+de nombreux success stories
+
+00:01:07.440 --> 00:01:09.920 align:middle
+en Pharo; vous pouvez aller
+voir le site Web de Pharo et
+
+00:01:10.120 --> 00:01:12.600 align:middle
+notamment ce lien-là, vous
+verrez il y a de nombreux
+
+00:01:13.330 --> 00:01:16.240 align:middle
+projets Web, et dans la
+plupart de ces projets Web ils
+
+00:01:16.440 --> 00:01:17.550 align:middle
+utilisent le Framework seaside.
+
+00:01:19.050 --> 00:01:23.730 align:middle
+Donc comme je le disais
+seaside c'est un Framework Web
+
+00:01:24.260 --> 00:01:26.770 align:middle
+centré autour de la
+notion de composants.
+
+00:01:27.000 --> 00:01:29.810 align:middle
+Donc les composants seront
+réutilisables et avec état.
+
+00:01:30.050 --> 00:01:33.440 align:middle
+D'accord! Et on va avoir
+un langage dédié qui va nous
+
+00:01:33.640 --> 00:01:35.920 align:middle
+permettre de facilement
+rendre ces composants en HTML.
+
+00:01:36.750 --> 00:01:39.010 align:middle
+Ensuite on aura des règles de
+composition de ces composants.
+
+00:01:39.460 --> 00:01:41.640 align:middle
+On conviendra il y en a
+plusieurs et on les explicitera
+
+00:01:41.840 --> 00:01:45.000 align:middle
+dans une prochaine
+séquence. Une application Web c'est
+
+00:01:45.200 --> 00:01:48.080 align:middle
+uniquement un composant
+racines, on va être capable de
+
+00:01:48.280 --> 00:01:52.730 align:middle
+débugger les applications Web en
+live directement dans le débugger Pharo.
+
+00:01:53.750 --> 00:01:56.810 align:middle
+Et puis vous aurez une
+séquence prochaine qui va vous
+
+00:01:57.010 --> 00:01:58.900 align:middle
+expliciter comment faire
+pour générer automatiquement les
+
+00:01:59.100 --> 00:02:03.730 align:middle
+formulaires, notamment
+pour ne pas à avoir à
+
+00:02:03.930 --> 00:02:05.400 align:middle
+les écrire à la main.
+
+00:02:05.610 --> 00:02:07.440 align:middle
+Donc quelques-uns des
+exemples d'applications construites
+
+00:02:07.640 --> 00:02:09.550 align:middle
+avec Seaside, qui sont
+en production depuis 2002.
+
+00:02:10.490 --> 00:02:13.220 align:middle
+Donc si on fait un zoom, on
+a d'autres, donc ici on voit
+
+00:02:13.420 --> 00:02:15.530 align:middle
+une application qui utilise
+énormément des graphiques,
+
+00:02:16.760 --> 00:02:18.900 align:middle
+donc plein de composants qui
+sont imbriqués les uns dans
+
+00:02:19.100 --> 00:02:20.660 align:middle
+les autres pour construire
+une application complexe.
+
+00:02:20.930 --> 00:02:23.610 align:middle
+Je vous donne un autre
+exemple d'une application donc
+
+00:02:23.810 --> 00:02:25.650 align:middle
+vous pouvez les retrouver
+sur le site Web de Pharo, donc
+
+00:02:26.000 --> 00:02:30.150 align:middle
+où on a vraiment des
+tableaux de reporting qui sont assez
+
+00:02:30.350 --> 00:02:33.030 align:middle
+complexes et imbriqués les
+uns dans les autres, et on
+
+00:02:33.230 --> 00:02:35.600 align:middle
+peut construire ça vraiment
+simplement avec le Framework Seaside.
+
+00:02:38.140 --> 00:02:40.470 align:middle
+Donc en Seaside la notion
+centrale comme je vous disais c'est
+
+00:02:40.670 --> 00:02:42.630 align:middle
+la notion de composants.
+Donc un composant ce n'est ni
+
+00:02:42.830 --> 00:02:44.000 align:middle
+plus ni moins qu'une
+sous-classe de la classe
+
+00:02:44.200 --> 00:02:45.820 align:middle
+WAComponent, fournie
+par le Framework Seaside.
+
+00:02:47.780 --> 00:02:50.500 align:middle
+Un composant donc il est
+réutilisable et avec états et
+
+00:02:50.730 --> 00:02:55.000 align:middle
+seront en HTML par exemple
+sous la forme de div et caetera.
+
+00:02:56.010 --> 00:02:59.380 align:middle
+Donc une application Web en
+Seaside ce n'est ni plus ni
+
+00:02:59.580 --> 00:03:01.670 align:middle
+moins qu'un composant
+racine, donc ici par exemple
+
+00:03:01.870 --> 00:03:04.730 align:middle
+WACounter, qu'on va
+enregistrer dans le système comme une
+
+00:03:04.930 --> 00:03:07.200 align:middle
+application Web sous le nom Counter.
+
+00:03:07.400 --> 00:03:09.930 align:middle
+Donc on pourra y accéder ensuite
+dans l'url avec le nom Counter.
+
+00:03:11.060 --> 00:03:13.750 align:middle
+Donc voici un exemple ici
+donc mon application Counter
+
+00:03:13.950 --> 00:03:17.380 align:middle
+dans l'url, c'est un
+composant qui s'est rendu ici en
+
+00:03:17.580 --> 00:03:21.780 align:middle
+HTML, donc la valeur du
+Counter, et ici on a 2 liens "tac
+
+00:03:22.100 --> 00:03:24.450 align:middle
+plus plus" donc je peux
+cliquer dessus ça va incrémenter
+
+00:03:24.650 --> 00:03:26.920 align:middle
+la valeur du Counter, et
+"moins moins" si je clique
+
+00:03:27.120 --> 00:03:28.030 align:middle
+dessus ça va
+décrémenter la valeur du Counter.
+
+00:03:28.680 --> 00:03:30.210 align:middle
+Donc maintenant je vais
+vous expliciter le code pour
+
+00:03:30.410 --> 00:03:31.490 align:middle
+implémenter cette application Web.
+
+00:03:31.800 --> 00:03:32.750 align:middle
+Il extrêmement simple.
+
+00:03:33.020 --> 00:03:35.230 align:middle
+Je vais faire une sous-classe
+de WA contenant que j'appelle
+
+00:03:35.430 --> 00:03:39.150 align:middle
+WACounter, cette classe elle va
+avoir une variable d'instance: count.
+
+00:03:39.770 --> 00:03:43.420 align:middle
+Une méthode d'initialisation pour
+utiliser la valeur du Counter à 0.
+
+00:03:44.060 --> 00:03:45.770 align:middle
+Une méthode d'incrément
+pour augmenter la valeur du
+
+00:03:46.000 --> 00:03:48.630 align:middle
+Counter, une méthode de
+décrément. En fait ce qui nous
+
+00:03:48.830 --> 00:03:50.220 align:middle
+manque maintenant
+c'est la partie HTML.
+
+00:03:50.420 --> 00:03:53.180 align:middle
+Donc comment on va décrire
+que ce Counter est incapable
+
+00:03:53.380 --> 00:03:56.290 align:middle
+de se rendre en HTML? Mais
+en fait il va falloir juste
+
+00:03:56.490 --> 00:03:59.210 align:middle
+le doter d'une méthode
+renderContentOn, qui est un
+
+00:03:59.410 --> 00:04:02.720 align:middle
+paramètre, et ce paramètre va
+nous aider à générer ce code HTML.
+
+00:04:04.610 --> 00:04:05.520 align:middle
+Donc voici l'exemple.
+
+00:04:05.840 --> 00:04:08.010 align:middle
+Donc ici j'ajoute la méthode
+renderContentOn à la classe
+
+00:04:08.210 --> 00:04:12.750 align:middle
+Counter et je me sers du
+paramètre, d'accord, donc qui
+
+00:04:12.950 --> 00:04:16.410 align:middle
+est un objet classique
+Pharo, instance de la classe
+
+00:04:16.610 --> 00:04:19.640 align:middle
+WHtmlCanvas, qui est
+fournie par Seaside, et je vais
+
+00:04:19.840 --> 00:04:22.360 align:middle
+envoyer des messages à cet
+objet pour générer le code HTML.
+
+00:04:22.560 --> 00:04:25.100 align:middle
+Donc je peux générer un
+titre, générer une ancre donc une
+
+00:04:25.300 --> 00:04:27.760 align:middle
+ancre c'est un lien, et ici
+je suis capable de spécifier
+
+00:04:27.960 --> 00:04:30.650 align:middle
+à quel message callback,
+quand je clique sur ce lien
+
+00:04:30.870 --> 00:04:32.100 align:middle
+exécute ce block de codes.
+
+00:04:32.810 --> 00:04:35.500 align:middle
+Donc ici quand je clique sur
+le lien qui s'appelle "+ +",
+
+00:04:35.760 --> 00:04:38.760 align:middle
+ça va exécuter la méthode
+self increase du Counter, et
+
+00:04:38.960 --> 00:04:42.000 align:middle
+quand je clique sur le
+lien "- -" ça va exécuter la
+
+00:04:42.200 --> 00:04:44.000 align:middle
+méthode Self decrease du Counter.
+
+00:04:44.490 --> 00:04:45.250 align:middle
+Tout simple.
+
+00:04:46.940 --> 00:04:47.700 align:middle
+On peut aller plus loin.
+
+00:04:47.900 --> 00:04:50.490 align:middle
+Donc si une erreur survient
+pendant que je clique sur un
+
+00:04:50.690 --> 00:04:52.470 align:middle
+lien, c'est-à-dire que
+dans un callback ici j'ai
+
+00:04:52.670 --> 00:04:55.170 align:middle
+introduit sciemment un point d'arrêt.
+
+00:04:55.370 --> 00:04:58.890 align:middle
+Ça pourrait être une erreur
+mais j'introduis vraiment un
+
+00:04:59.090 --> 00:05:01.050 align:middle
+point d'arrêt dans la
+méthode Decrease, donc selfhaltIf.
+
+00:05:02.060 --> 00:05:05.770 align:middle
+Donc si le counter est
+décrémenté et passe sous 0 dans ce
+
+00:05:06.000 --> 00:05:07.760 align:middle
+cas-là je déclenche
+l'apparition du débugger.
+
+00:05:07.960 --> 00:05:12.230 align:middle
+Et donc on voit que si je
+fais ça dans mon application
+
+00:05:12.430 --> 00:05:15.080 align:middle
+Web j'ai bien le débugger
+ici qui s'affiche, et on voit
+
+00:05:15.280 --> 00:05:18.220 align:middle
+bien la pile d'exécution
+du programme ici, avec la
+
+00:05:18.420 --> 00:05:22.420 align:middle
+méthode
+renderCounterOn, et le decrease ici.
+
+00:05:23.670 --> 00:05:25.020 align:middle
+Donc on s'est bien
+arrêté sur le haltIf.
+
+00:05:25.850 --> 00:05:28.000 align:middle
+Donc ici je peux modifier
+directement le code de mon
+
+00:05:28.200 --> 00:05:31.340 align:middle
+application, appuyer sur
+le bouton Proceed et mon
+
+00:05:31.540 --> 00:05:35.660 align:middle
+navigateur va recevoir la réponse
+HTML comme si rien ne s'était passé.
+
+00:05:39.170 --> 00:05:41.000 align:middle
+Donc un autre problème dans
+les applications Web c'est le
+
+00:05:41.260 --> 00:05:44.350 align:middle
+problème du Back Button. Donc
+l'idée c'est que quand l'utilisateur
+
+00:05:44.550 --> 00:05:47.020 align:middle
+clique sur le Back Button
+ça désynchronise l'état entre
+
+00:05:47.220 --> 00:05:49.420 align:middle
+le serveur et le client.
+Donc un exemple: imaginons que
+
+00:05:49.620 --> 00:05:52.440 align:middle
+j'incrémente 5 fois mon
+compteur, donc il vaut 5, devant
+
+00:05:52.640 --> 00:05:56.420 align:middle
+moi j'ai 5 qui est
+affiché. Je clique sur le bouton
+
+00:05:56.620 --> 00:05:59.820 align:middle
+Retour de mon navigateur.
+Donc je vais voir la valeur 4.
+
+00:06:00.080 --> 00:06:02.000 align:middle
+Par contre le serveur
+n'est pas au courant que j'ai
+
+00:06:02.200 --> 00:06:04.550 align:middle
+cliqué sur ce bouton
+Retour. Et donc si je reclique sur
+
+00:06:04.750 --> 00:06:08.870 align:middle
+"Incrémenter la valeur du
+compteur" moi je vais voir la réponse 6.
+
+00:06:09.370 --> 00:06:12.230 align:middle
+Donc ça c'est un problème
+puisque le côté serveur il
+
+00:06:12.430 --> 00:06:14.920 align:middle
+pensait qu'il était toujours à
+5, donc incrémenté on passe à 6.
+
+00:06:15.340 --> 00:06:17.250 align:middle
+Comment gérer ça en Seaside ?
+
+00:06:17.450 --> 00:06:18.210 align:middle
+C'est extrêmement simple.
+
+00:06:18.450 --> 00:06:20.660 align:middle
+On va définir une nouvelle
+méthode sur la classe Counter
+
+00:06:20.880 --> 00:06:23.720 align:middle
+qui est la méthode States,
+donc qui va retourner l'ensemble
+
+00:06:23.920 --> 00:06:25.890 align:middle
+des objets dont il faut
+préserver l'état quand on clique
+
+00:06:26.090 --> 00:06:30.290 align:middle
+sur le bouton Retour. Donc en
+l'occurrence uniquement l'objet
+
+00:06:30.490 --> 00:06:32.200 align:middle
+Self c'est le compteur courant.
+
+00:06:33.120 --> 00:06:35.660 align:middle
+D'accord! Et maintenant si
+je fais le bouton Retour et
+
+00:06:35.860 --> 00:06:37.940 align:middle
+que je reclique sur
+Increment, j'aurai bien la valeur 5
+
+00:06:38.140 --> 00:06:38.900 align:middle
+dans l'exemple précédent.
+
+00:06:41.660 --> 00:06:46.390 align:middle
+Donc les Callback en fait
+c'est des blocks de codes
+
+00:06:46.600 --> 00:06:49.280 align:middle
+dans lesquels on a
+toute la puissance de Pharo.
+
+00:06:49.480 --> 00:06:52.880 align:middle
+Donc ici dans un Callback je peux
+écrire n'importe quel code Pharo.
+
+00:06:54.130 --> 00:06:57.090 align:middle
+Donc ici j'ai pris un
+exemple plus complexe où cette fois
+
+00:06:57.580 --> 00:07:00.270 align:middle
+je peux utiliser une
+alternative pour dire J'incrémente
+
+00:07:00.470 --> 00:07:03.120 align:middle
+le Counter d'un cran ou de
+2 crans en fonction si c'est
+
+00:07:03.320 --> 00:07:05.490 align:middle
+un nombre pair ou impair par exemple.
+
+00:07:06.040 --> 00:07:10.140 align:middle
+Mon Counter va
+s'incrémenter plus vite dans un cas au
+
+00:07:10.340 --> 00:07:11.630 align:middle
+lieu de s'incrémenter que d'une fois.
+
+00:07:12.680 --> 00:07:17.360 align:middle
+Donc on voit qu'on a
+vraiment une puissance grande dans
+
+00:07:17.560 --> 00:07:18.350 align:middle
+ces blocks de Callback.
+
+00:07:21.660 --> 00:07:24.230 align:middle
+Donc par exemple dans
+l'exemple précédent, donc si je
+
+00:07:24.430 --> 00:07:28.330 align:middle
+clique sur "+ +" ici
+donc ça va bien arriver
+
+00:07:28.890 --> 00:07:33.160 align:middle
+sur une nouvelle fenêtre qui
+me dit que c'est un nombre pair.
+
+00:07:36.560 --> 00:07:37.950 align:middle
+Je vous montre un autre exemple.
+
+00:07:38.730 --> 00:07:42.050 align:middle
+Donc cette fois c'est une
+application dans laquelle l'utilisateur
+
+00:07:42.250 --> 00:07:43.060 align:middle
+va rentrer son prénom.
+
+00:07:43.450 --> 00:07:45.340 align:middle
+On aimerait que
+l'utilisateur puisse rentrer son prénom
+
+00:07:45.540 --> 00:07:48.430 align:middle
+et quand il clique sur le
+bouton Say hello ici, on
+
+00:07:48.630 --> 00:07:50.770 align:middle
+voudrait lui afficher une
+chaîne de caractères qui est
+
+00:07:51.450 --> 00:07:54.890 align:middle
+"Hi" et son prénom, le prénom
+qu'il a rentré au début ici.
+
+00:07:55.090 --> 00:07:58.440 align:middle
+D'accord! Donc comment je
+peux faire pour écrire cette
+
+00:07:58.640 --> 00:08:00.350 align:middle
+application-là en Seaside ?
+
+00:08:00.650 --> 00:08:01.510 align:middle
+Extrêmement simple.
+
+00:08:01.940 --> 00:08:03.910 align:middle
+Je vais faire une
+sous-classe de la classe WAComplement,
+
+00:08:05.060 --> 00:08:06.750 align:middle
+que je vais doter d'une
+variable d'instances username.
+
+00:08:07.500 --> 00:08:09.500 align:middle
+Et dans la méthode
+renderContentOn, celle que je vous
+
+00:08:09.700 --> 00:08:13.760 align:middle
+montre ici, je vais juste
+afficher donc le champ username
+
+00:08:14.310 --> 00:08:15.780 align:middle
+et je vais dire un texte Input.
+
+00:08:16.040 --> 00:08:18.090 align:middle
+Donc un texte Input c'est le
+champ de texte que vous avez
+
+00:08:18.290 --> 00:08:20.270 align:middle
+vu tout à l'heure dans lequel
+l'utilisateur pouvait écrire "Bob".
+
+00:08:20.820 --> 00:08:24.040 align:middle
+Et je vais avoir un Callback,
+cette fois le Callback c'est
+
+00:08:24.240 --> 00:08:26.260 align:middle
+un block qui est a
+un paramètre Value.
+
+00:08:26.820 --> 00:08:29.290 align:middle
+Donc le paramètre Value ce
+block ça sera la chaîne de
+
+00:08:29.490 --> 00:08:31.910 align:middle
+caractères qu'a rentrée
+l'utilisateur dans le champ
+
+00:08:32.110 --> 00:08:33.530 align:middle
+texte, donc Bob dans notre exemple.
+
+00:08:33.870 --> 00:08:35.370 align:middle
+Et on va être capable de
+stocker cette chaîne de
+
+00:08:35.570 --> 00:08:38.820 align:middle
+caractères dans la variable
+d'instances du composant "Peter" donc username.
+
+00:08:39.600 --> 00:08:43.610 align:middle
+Et ensuite quand on va
+cliquer sur le SubmitButton on va
+
+00:08:43.810 --> 00:08:45.590 align:middle
+dire quand je clique sur le
+bouton je veux être capable
+
+00:08:45.790 --> 00:08:48.400 align:middle
+self inform, donc là je vais
+appeler un nouveau composant
+
+00:08:48.600 --> 00:08:51.580 align:middle
+dans lequel je vais dire
+"Affiche la chaîne Hi Bob".
+
+00:08:52.000 --> 00:08:54.770 align:middle
+Donc je concatène la chaîne
+de caractères avec le champ
+
+00:08:55.000 --> 00:08:56.390 align:middle
+Hi avec ce qu'il avait
+rentré dans le champ texte avant.
+
+00:09:00.120 --> 00:09:02.850 align:middle
+Donc j'espère que vous avez
+remarqué que, pour ceux qui
+
+00:09:03.050 --> 00:09:05.440 align:middle
+ont l'habitude de faire des
+applications Web, en Seaside
+
+00:09:05.640 --> 00:09:09.190 align:middle
+je n'ai pas parlé de
+découpage de requêtes, est-ce qu'y a
+
+00:09:09.390 --> 00:09:11.860 align:middle
+des paramètres dans la
+requête dans l'URL et caetera.
+
+00:09:12.060 --> 00:09:13.870 align:middle
+Je n'ai pas parlé de
+configuration fichier avec ses mails
+
+00:09:14.070 --> 00:09:15.620 align:middle
+compliqués, je n'ai pas
+parlé de fichiers, je n'ai pas
+
+00:09:15.820 --> 00:09:20.230 align:middle
+parlé de pages, je n'ai pas
+parlé de liens vers la page suivante.
+
+00:09:21.020 --> 00:09:24.770 align:middle
+En fait j'ai uniquement
+parlé de composants, d'objets, de
+
+00:09:25.000 --> 00:09:28.150 align:middle
+messages, de Callback et de
+la possibilité de débugger
+
+00:09:28.820 --> 00:09:31.930 align:middle
+directement du Code
+grâce au débugger Pharo.
+
+00:09:33.420 --> 00:09:35.000 align:middle
+Donc en résumé ce qu'il
+faut retenir c'est qu'une
+
+00:09:35.200 --> 00:09:37.620 align:middle
+application Web en
+Seaside c'est facile, c'est un
+
+00:09:37.820 --> 00:09:40.190 align:middle
+composant racine et on
+verra qu'on peut combiner les
+
+00:09:40.390 --> 00:09:43.790 align:middle
+composants entre eux pour
+construire des application plus complexes.
+
+00:09:44.670 --> 00:09:47.480 align:middle
+Un composant sait se rendre en HTML
+grâce à sa méthode renderCounterOn.
+
+00:09:47.680 --> 00:09:52.630 align:middle
+Et on a un langage dédié
+qui permet de générer le code
+
+00:09:52.830 --> 00:09:54.170 align:middle
+HTML pour chacun des composants.
+
+00:09:54.520 --> 00:09:57.700 align:middle
+Et on va revoir ce langage plus en
+détails dans la prochaine séquence.
+

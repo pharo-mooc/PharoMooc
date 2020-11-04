@@ -1,0 +1,480 @@
+﻿1
+00:00:00,440 --> 00:00:05,120
+In this video, we'll explain a point
+rarely covered in Pharo courses.
+
+2
+00:00:05,320 --> 00:00:08,040
+How to define variable size objects.
+
+3
+00:00:09,360 --> 00:00:13,760
+You'll notice that we already use
+objects of different sizes.
+
+4
+00:00:13,920 --> 00:00:18,040
+Here I'll create an array
+using this expression.
+
+5
+00:00:18,240 --> 00:00:21,680
+It contains ten elements,
+all set at nil.
+
+6
+00:00:21,920 --> 00:00:25,480
+Using the same expression,
+I now create an array
+
+7
+00:00:26,040 --> 00:00:28,640
+that contains five elements.
+
+8
+00:00:29,160 --> 00:00:33,720
+We see that the Array class
+creates instances of variable sizes.
+
+9
+00:00:34,120 --> 00:00:38,480
+But until now, we haven't explained
+how you can do this.
+
+10
+00:00:39,040 --> 00:00:40,040
+So,
+
+11
+00:00:40,440 --> 00:00:45,720
+here we'll show you how to define
+classes with variable size instances,
+
+12
+00:00:46,040 --> 00:00:49,080
+how to instantiate these objects,
+
+13
+00:00:49,240 --> 00:00:52,280
+and how to access these variable sizes.
+
+14
+00:00:52,800 --> 00:00:54,360
+Now for the first point.
+
+15
+00:00:55,600 --> 00:00:56,800
+It's very simple.
+
+16
+00:00:57,600 --> 00:01:02,280
+The definition uses the message
+variableSubclass: instead of subclass:.
+
+17
+00:01:02,600 --> 00:01:05,040
+We copy the Array class definition.
+
+18
+00:01:05,280 --> 00:01:09,120
+Note that we use variableSubclass,
+instanceVariableNames,
+
+19
+00:01:09,600 --> 00:01:12,240
+and so on, to create the class.
+
+20
+00:01:12,400 --> 00:01:15,760
+Whereas usually,
+when we define the Pointer class,
+
+21
+00:01:15,920 --> 00:01:18,800
+Counter class, or Dice class,
+
+22
+00:01:19,280 --> 00:01:21,520
+we would only use Subclass.
+
+23
+00:01:21,960 --> 00:01:26,800
+Using this definition, the instances
+we create have variable sizes.
+
+24
+00:01:27,200 --> 00:01:31,320
+Using this example,
+if we want to make a "strange" point,
+
+25
+00:01:31,520 --> 00:01:34,640
+using two instance variables, x and y,
+
+26
+00:01:34,800 --> 00:01:38,600
+as a point and a variable zone,
+we use this definition.
+
+27
+00:01:40,000 --> 00:01:44,640
+This creates objects that look like this,
+with a value for x,
+
+28
+00:01:45,480 --> 00:01:49,600
+a value for y,
+and one variable zone per instance.
+
+29
+00:01:49,760 --> 00:01:52,160
+We could also have another instance,
+
+30
+00:01:52,320 --> 00:01:56,000
+which also has x and y,
+with 10 here and 20 here,
+
+31
+00:01:56,160 --> 00:01:59,080
+and, for example, 100 here and 200 here,
+
+32
+00:01:59,760 --> 00:02:03,800
+with a variable zone
+that can contain different objects.
+
+33
+00:02:04,800 --> 00:02:09,600
+So, the instances of a class
+that can have variable size instances
+
+34
+00:02:09,800 --> 00:02:15,400
+have an indexed zone that is added
+after named variables, like x and y.
+
+35
+00:02:15,680 --> 00:02:18,680
+It's implicit
+and there's only one per class,
+
+36
+00:02:18,880 --> 00:02:22,360
+to avoid implementation problems
+when expanding it.
+
+37
+00:02:22,520 --> 00:02:25,520
+Now we've seen how to create classes
+
+38
+00:02:25,680 --> 00:02:28,240
+that have different sized instances.
+
+39
+00:02:28,400 --> 00:02:32,120
+Now we'll go back
+to how we can instantiate them
+
+40
+00:02:32,320 --> 00:02:34,960
+and how to access this variable size.
+
+41
+00:02:36,120 --> 00:02:38,480
+The way we instantiate them
+
+42
+00:02:38,720 --> 00:02:42,880
+is to use the message "new:"
+noting the use of the colon.
+
+43
+00:02:43,080 --> 00:02:46,520
+We discussed this
+in the course on collections.
+
+44
+00:02:46,760 --> 00:02:49,920
+Here we want to create
+a variable size object.
+
+45
+00:02:50,080 --> 00:02:54,480
+The variable size of the object
+is specified by its "max" value.
+
+46
+00:02:54,680 --> 00:02:58,280
+So, we create an object,
+an array with four elements.
+
+47
+00:02:58,880 --> 00:03:01,320
+This shows the four elements.
+
+48
+00:03:01,960 --> 00:03:04,400
+How do we access this variable size?
+
+49
+00:03:04,760 --> 00:03:09,400
+We use the messages at: and at:put:,
+which you saw in the arrays.
+
+50
+00:03:09,680 --> 00:03:13,880
+This works for all objects
+with a variable size.
+
+51
+00:03:14,280 --> 00:03:18,400
+So, if we write at: 2 here, we add 'lulu'.
+
+52
+00:03:20,480 --> 00:03:25,240
+Then if we access value 1,
+it will logically return nil.
+
+53
+00:03:25,440 --> 00:03:29,680
+And if we look at value 2,
+it will give us 'lulu.'
+
+54
+00:03:30,080 --> 00:03:33,320
+In fact, a mapping is applied here
+
+55
+00:03:33,520 --> 00:03:38,000
+between arrays and variable size objects
+using at:put: and 'lulu.'
+
+56
+00:03:38,160 --> 00:03:41,440
+This API protocol functions for arrays
+
+57
+00:03:42,560 --> 00:03:47,320
+and for all objects
+we want to have a variable size.
+
+58
+00:03:49,680 --> 00:03:52,440
+I haven't explained a great deal here,
+
+59
+00:03:52,600 --> 00:03:56,840
+only how to define Array class
+and extend it to other objects,
+
+60
+00:03:57,000 --> 00:03:58,960
+since you know the protocol.
+
+61
+00:03:59,840 --> 00:04:03,480
+So, in Pharo
+there are objects, or classes,
+
+62
+00:04:03,760 --> 00:04:05,880
+that take different forms.
+
+63
+00:04:06,080 --> 00:04:10,320
+There are classes
+that only have named instance variables,
+
+64
+00:04:10,600 --> 00:04:15,160
+like Counter class with count
+or Dice class with the number of sides.
+
+65
+00:04:15,480 --> 00:04:18,880
+Then we have classes that only have
+
+66
+00:04:19,200 --> 00:04:22,640
+a variable or indexed zone,
+like Array class.
+
+67
+00:04:22,800 --> 00:04:26,240
+Then we have other classes
+that are a mix of both.
+
+68
+00:04:26,960 --> 00:04:32,000
+However, there are some constraints,
+it's more subtle than it seems.
+
+69
+00:04:32,160 --> 00:04:35,680
+We can now decide
+on the type of class variable.
+
+70
+00:04:35,840 --> 00:04:38,280
+I'll just show you the intention.
+
+71
+00:04:38,440 --> 00:04:42,400
+This variable aspect we're talking about
+
+72
+00:04:43,240 --> 00:04:47,840
+can simply be object pointers,
+or perhaps Byte or Word variables.
+
+73
+00:04:48,440 --> 00:04:51,520
+It's used to interface
+with the outside world
+
+74
+00:04:51,680 --> 00:04:54,160
+when we need to specify a size,
+
+75
+00:04:54,360 --> 00:04:58,840
+and within it we put pointers
+to objects with a specific form.
+
+76
+00:04:59,240 --> 00:05:03,480
+This is an advanced feature,
+but I wanted to show it to you.
+
+77
+00:05:03,680 --> 00:05:06,760
+You'll usually only need
+to use "Subclass."
+
+78
+00:05:06,920 --> 00:05:10,280
+Sometimes you'll use "variableSubclass"
+
+79
+00:05:10,680 --> 00:05:14,080
+and "Bitmap,"
+which represents the screen.
+
+80
+00:05:14,280 --> 00:05:17,280
+Bitmap is an object
+
+81
+00:05:17,840 --> 00:05:20,440
+that has a variable zone, named Words.
+
+82
+00:05:21,280 --> 00:05:23,280
+Just so you know it exists.
+
+83
+00:05:23,680 --> 00:05:27,600
+Since Pharo is a reflective system,
+
+84
+00:05:27,760 --> 00:05:29,800
+we can ask it questions.
+
+85
+00:05:29,960 --> 00:05:33,680
+So, using these methods,
+we can make queries.
+
+86
+00:05:33,840 --> 00:05:37,840
+Such as whether the class size
+is fixed or variable.
+
+87
+00:05:38,000 --> 00:05:41,560
+Or whether it stores pointers or bytes,
+for example.
+
+88
+00:05:41,760 --> 00:05:46,160
+We have the entire API
+to enquire about the type of class.
+
+89
+00:05:46,400 --> 00:05:50,120
+This list was created
+by making queries to the system.
+
+90
+00:05:51,240 --> 00:05:52,640
+A constraint applies.
+
+91
+00:05:53,640 --> 00:05:58,480
+Classes that are defined using subclass
+
+92
+00:05:58,880 --> 00:06:01,080
+can have any type of subclass.
+
+93
+00:06:01,280 --> 00:06:04,040
+If we have points using x and y,
+
+94
+00:06:04,280 --> 00:06:07,600
+we'll be able to add a subclass named z
+
+95
+00:06:07,840 --> 00:06:12,440
+or a subclass named xy,
+plus a variable zone.
+
+96
+00:06:14,520 --> 00:06:20,520
+But if you want to create a subclass
+of a class that already has a variable,
+
+97
+00:06:20,720 --> 00:06:25,560
+you can only use variables
+from classes that are variable.
+
+98
+00:06:25,760 --> 00:06:30,680
+Otherwise, the system that constructs
+classes says it's incompatible.
+
+99
+00:06:30,840 --> 00:06:35,800
+It needs to know that there is one zone
+to handle the constraints.
+
+100
+00:06:36,000 --> 00:06:40,280
+In any case, the system will inform you
+if it's impossible.
+
+101
+00:06:41,000 --> 00:06:43,200
+So, what do you need to know?
+
+102
+00:06:43,440 --> 00:06:46,920
+You should now know
+how to define classes
+
+103
+00:06:47,080 --> 00:06:50,520
+that have instances of variable sizes
+
+104
+00:06:50,680 --> 00:06:56,520
+and how to instantiate them using "new:"
+
+105
+00:06:56,840 --> 00:07:02,320
+and how to access them
+using the protocol seen in the arrays.

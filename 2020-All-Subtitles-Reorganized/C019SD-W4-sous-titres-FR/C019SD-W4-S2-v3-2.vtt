@@ -1,0 +1,459 @@
+WEBVTT
+
+00:00:00.690 --> 00:00:04.950 align:middle
+Bonjour à tous. Dans cette
+seconde séquence sur l'héritage
+
+00:00:05.150 --> 00:00:07.920 align:middle
+nous allons voir plus
+en détails l'héritage de
+
+00:00:08.120 --> 00:00:10.630 align:middle
+comportement et qu'est-ce
+qui se passe quand on envoie un
+
+00:00:10.830 --> 00:00:12.030 align:middle
+message à un objet.
+
+00:00:12.480 --> 00:00:16.760 align:middle
+Donc le but de cette
+séquence c'est de voir l'envoi de
+
+00:00:17.000 --> 00:00:20.840 align:middle
+messages, de bien comprendre
+l'algorithme, de comprendre
+
+00:00:21.040 --> 00:00:24.880 align:middle
+l'algorithme qui permet de
+convertir un message envoyé à
+
+00:00:25.080 --> 00:00:29.530 align:middle
+un receveur vers une
+méthode, ou quelle méthode va être
+
+00:00:29.730 --> 00:00:33.050 align:middle
+exécutée par rapport à tel
+message qui est envoyé à tel receveur.
+
+00:00:34.410 --> 00:00:37.040 align:middle
+Et la sémantique de self donc
+qu'est-ce que self signifie vraiment.
+
+00:00:38.850 --> 00:00:42.220 align:middle
+Comme nous l'avons vu à la
+séquence précédente, l'héritage
+
+00:00:42.420 --> 00:00:47.010 align:middle
+et statique pour l'état,
+c'est-à-dire que lorsque la
+
+00:00:47.210 --> 00:00:51.350 align:middle
+sous- classe est créée son
+état est connu à la création
+
+00:00:51.550 --> 00:00:53.680 align:middle
+alors que pour le
+comportement c'est dynamique.
+
+00:00:54.090 --> 00:00:57.300 align:middle
+C'est-à-dire que durant
+l'exécution, lorsqu'on envoie un
+
+00:00:57.500 --> 00:00:59.010 align:middle
+message à un objet, on va
+aller regarder quelles sont les
+
+00:00:59.210 --> 00:01:01.880 align:middle
+méthodes de la classe et quelles
+sont les méthodes des super classes.
+
+00:01:02.500 --> 00:01:05.960 align:middle
+Envoyer un message à un
+objet se fait en 2 étapes:
+
+00:01:06.930 --> 00:01:10.950 align:middle
+première étape on cherche la
+méthode correspondante à ce message.
+
+00:01:11.800 --> 00:01:14.810 align:middle
+Deuxième étape on exécute
+cette méthode sur le receveur.
+
+00:01:16.810 --> 00:01:21.500 align:middle
+Donc là on a la classe
+"Rectangle", la classe "ColoredRectangle".
+
+00:01:24.000 --> 00:01:26.360 align:middle
+Une instance de la classe
+"ColoredRectangle" qui s'appelle
+
+00:01:26.560 --> 00:01:31.420 align:middle
+aColoredRectangle et on
+envoie le message "area" à cet
+
+00:01:31.620 --> 00:01:32.380 align:middle
+objet.
+
+00:01:34.390 --> 00:01:37.750 align:middle
+Donc on a un algorithme de
+lookup qui va chercher la
+
+00:01:37.950 --> 00:01:42.660 align:middle
+méthode correspondante au message
+area, qui va trouver cette méthode-là.
+
+00:01:44.290 --> 00:01:48.850 align:middle
+Le corps de la méthode va
+être exécuté par rapport
+
+00:01:49.570 --> 00:01:50.650 align:middle
+à l'objet aColoredRectangle.
+
+00:01:52.650 --> 00:01:57.000 align:middle
+L'algorithme de lookup
+permet de connaître la méthode à
+
+00:01:57.200 --> 00:01:59.910 align:middle
+exécuter quand un
+message est envoyé à un objet.
+
+00:02:00.280 --> 00:02:02.190 align:middle
+Donc ici on fait bien la
+distinction entre envois de
+
+00:02:02.390 --> 00:02:04.540 align:middle
+messages à un objet et
+exécutions de méthodes, ce sont 2
+
+00:02:04.740 --> 00:02:06.400 align:middle
+choses qui sont
+vraiment différentes, qui sont
+
+00:02:06.600 --> 00:02:09.620 align:middle
+fondamentales en
+ programmation objet, même si vous
+
+00:02:09.820 --> 00:02:12.000 align:middle
+utilisez un autre langage
+c'est important de comprendre
+
+00:02:12.200 --> 00:02:14.230 align:middle
+la différence entre envois de
+messages et exécutions de méthodes.
+
+00:02:15.630 --> 00:02:19.000 align:middle
+Donc ici on envoie le
+message "area" à l'objet
+
+00:02:19.200 --> 00:02:21.900 align:middle
+aColoredRectangle
+l'algorithme de Lookup, la première
+
+00:02:22.100 --> 00:02:26.240 align:middle
+chose qu'il fait c'est qu'il va
+chercher la classe du receveur.
+
+00:02:27.510 --> 00:02:30.150 align:middle
+Donc le receveur du
+message "area" c'est
+
+00:02:30.350 --> 00:02:33.640 align:middle
+aColoredRectangle,
+l'algorithme de Lookup va commencer à
+
+00:02:33.840 --> 00:02:36.240 align:middle
+chercher une méthode area à
+partir de la classe de cet objet.
+
+00:02:36.440 --> 00:02:37.200 align:middle
+C'est-à-dire ColoredRectangle.
+
+00:02:39.160 --> 00:02:41.300 align:middle
+On cherche une méthode
+area dans cette classe-là.
+
+00:02:42.180 --> 00:02:45.760 align:middle
+L'algorithme de Lookup ne va
+pas trouver la méthode area
+
+00:02:45.960 --> 00:02:48.620 align:middle
+ici, elle ne fait pas
+partie des méthodes définies dans
+
+00:02:48.820 --> 00:02:50.780 align:middle
+cette classe-là, donc
+l'algorithme de Lookup va aller
+
+00:02:51.000 --> 00:02:54.330 align:middle
+voir dans la super classe,
+c'est-à-dire dans la classe rectangle.
+
+00:02:55.710 --> 00:02:59.540 align:middle
+La méthode area est trouvée
+ici et elle est retournée.
+
+00:02:59.740 --> 00:03:01.750 align:middle
+L'algorithme de Lookup a
+fini son travail une fois qu'il
+
+00:03:01.950 --> 00:03:04.350 align:middle
+a trouvé la méthode à exécuter.
+
+00:03:04.550 --> 00:03:07.520 align:middle
+On étudie 2 cas, on revoit
+l'algorithme que je viens de
+
+00:03:07.720 --> 00:03:09.370 align:middle
+vous lister sur ces 2 cas-là.
+
+00:03:10.710 --> 00:03:13.660 align:middle
+On envoie le message
+"color" à "aColorRectangle".
+
+00:03:14.940 --> 00:03:19.350 align:middle
+Donc l'algorithme cherche
+dans la classe du receveur une
+
+00:03:19.550 --> 00:03:20.680 align:middle
+méthode qui s'appellerait color.
+
+00:03:21.550 --> 00:03:23.490 align:middle
+Il la trouve, il la retourne.
+
+00:03:25.230 --> 00:03:28.780 align:middle
+Si maintenant on
+envoie le message "area" à
+
+00:03:29.000 --> 00:03:32.010 align:middle
+aColoredRectangle
+l'algorithme cherche dans la classe du
+
+00:03:32.210 --> 00:03:34.720 align:middle
+receveur c'est-à-dire ici,
+une méthode qui s'appellerait
+
+00:03:34.920 --> 00:03:37.620 align:middle
+"area", il ne la trouve pas il
+regarde dans la super classe.
+
+00:03:38.220 --> 00:03:40.470 align:middle
+Il la trouve, l'algorithme de
+Lookup retourne cette méthode.
+
+00:03:42.260 --> 00:03:45.580 align:middle
+self représente toujours le receveur.
+
+00:03:46.030 --> 00:03:48.680 align:middle
+Au travers des exemples
+qui vont suivre vous allez
+
+00:03:48.880 --> 00:03:51.440 align:middle
+comprendre vraiment que
+l'algorithme de Lookup s'applique
+
+00:03:51.640 --> 00:03:54.240 align:middle
+dans tous les cas, et que le self
+est systématiquement le receveur.
+
+00:03:55.000 --> 00:03:57.600 align:middle
+Donc ici on a une
+instance de la classe A
+
+00:04:01.290 --> 00:04:02.580 align:middle
+à qui on envoie le message foo.
+
+00:04:03.790 --> 00:04:07.840 align:middle
+L'algorithme de Lookup cherche la
+méthode foo, il la trouve, il l'exécute.
+
+00:04:09.940 --> 00:04:14.370 align:middle
+Pour B New, on part ici de E
+B, qui est la même chose que
+
+00:04:14.570 --> 00:04:16.260 align:middle
+B new, on cherche une méthode foo.
+
+00:04:17.580 --> 00:04:22.020 align:middle
+L'algorithme de Lookup la
+trouve, il l'exécute, 50 est retourné.
+
+00:04:22.220 --> 00:04:25.250 align:middle
+Donc ici on a 10 et 50.
+
+00:04:25.720 --> 00:04:28.310 align:middle
+C'est important que vous
+preniez le temps de réfléchir à
+
+00:04:28.510 --> 00:04:29.940 align:middle
+ce que self signifie exactement.
+
+00:04:30.560 --> 00:04:34.340 align:middle
+Donc 2 points sont importants
+à décrire: que représente self?
+
+00:04:36.310 --> 00:04:41.020 align:middle
+Comment se comporte l'envoi
+de messages lorsqu'un message
+
+00:04:41.220 --> 00:04:43.430 align:middle
+est envoyé à l'objet self ?
+
+00:04:43.630 --> 00:04:48.180 align:middle
+self et this, this en Java,
+self en Pharo, alors c'est la
+
+00:04:48.380 --> 00:04:52.250 align:middle
+même chose ça représente
+toujours le receveur du message.
+
+00:04:53.000 --> 00:04:57.630 align:middle
+Donc cet exemple on l'a
+vu avec A new foo et B New
+
+00:04:57.880 --> 00:05:01.050 align:middle
+foo, là on va envoyer le message bar.
+
+00:05:02.510 --> 00:05:06.660 align:middle
+Donc bar est envoyé à une
+instance, bar est trouvé ici,
+
+00:05:06.920 --> 00:05:11.560 align:middle
+bar est exécuté et on
+envoie le message foo
+
+00:05:11.850 --> 00:05:12.610 align:middle
+à l'objet Self.
+
+00:05:13.290 --> 00:05:15.630 align:middle
+Self c'est mon
+objet qui est là A new.
+
+00:05:18.950 --> 00:05:21.900 align:middle
+Donc on cherche une méthode
+foo à partir de cet objet-là,
+
+00:05:22.620 --> 00:05:24.580 align:middle
+donc c'est-à-dire on va
+chercher dans une méthode dans sa
+
+00:05:24.780 --> 00:05:28.120 align:middle
+ classe, on la trouve, on
+l'exécute, 10 est retourné.
+
+00:05:30.540 --> 00:05:34.160 align:middle
+L'autre cas est
+exactement le même, il faut faire
+
+00:05:34.360 --> 00:05:36.700 align:middle
+attention par contre parce
+qu'à ce moment-là beaucoup de
+
+00:05:36.900 --> 00:05:38.650 align:middle
+débutants en
+ programmation objets se trompent.
+
+00:05:39.350 --> 00:05:41.020 align:middle
+Mais l'algorithme
+est exactement le même.
+
+00:05:42.630 --> 00:05:47.130 align:middle
+Donc on envoie bar à cet
+objet-là, bar n'est pas trouvé
+
+00:05:47.330 --> 00:05:51.280 align:middle
+ici il est trouvé ici,
+c'est ce bar là qui s'exécute.
+
+00:05:51.850 --> 00:05:54.500 align:middle
+À ce moment-là le
+message foo est envoyé à self.
+
+00:05:54.730 --> 00:05:58.670 align:middle
+Self c'est quoi ? EB donc B new.
+
+00:06:00.410 --> 00:06:02.680 align:middle
+On envoie le message foo à
+cet objet donc l'algorithme de
+
+00:06:02.880 --> 00:06:04.960 align:middle
+Lookup cherche une méthode
+foo dans la classe de cet objet.
+
+00:06:06.310 --> 00:06:09.010 align:middle
+Cette méthode foo est
+trouvée, 50 est retourné.
+
+00:06:09.850 --> 00:06:12.690 align:middle
+Donc ici vous avez le
+déroulé de l'algorithme et vous
+
+00:06:12.890 --> 00:06:15.110 align:middle
+pourrez regarder étape par
+étape ce qui se passe, c'est
+
+00:06:15.310 --> 00:06:16.610 align:middle
+exactement ce que je
+viens de vous raconter.
+
+00:06:18.090 --> 00:06:22.090 align:middle
+Cet exemple-là est aussi
+identique au précédent.
+
+00:06:23.560 --> 00:06:28.500 align:middle
+La classe B ici est
+maintenant vide, une nouvelle classe
+
+00:06:28.700 --> 00:06:30.930 align:middle
+ C a été créée avec une
+méthode foo qui retourne 50.
+
+00:06:31.420 --> 00:06:33.590 align:middle
+Vous déroulez l'algorithme
+exactement de la façon dont je
+
+00:06:33.790 --> 00:06:38.230 align:middle
+vous l'ai présenté et vous
+allez obtenir ici 10, 10,
+
+00:06:39.530 --> 00:06:43.160 align:middle
+c'est ce Fou-là qui est
+exécuté à la fin et ici 50.
+
+00:06:45.170 --> 00:06:48.240 align:middle
+En conclusion, self est
+l'équivalent 10 en Java
+
+00:06:48.440 --> 00:06:50.920 align:middle
+représente toujours le receveur.
+
+00:06:51.620 --> 00:06:54.020 align:middle
+Envoyer un message à un
+objet se déroule toujours en 2
+
+00:06:54.220 --> 00:06:56.700 align:middle
+étapes: première étape,
+l'algorithme de Lookup cherche
+
+00:06:56.900 --> 00:07:01.300 align:middle
+la méthode correspondante
+au message qui est envoyé.
+
+00:07:01.710 --> 00:07:04.560 align:middle
+Deuxième étape, la méthode
+trouvée est exécutée sur le receveur.
+
+00:07:05.960 --> 00:07:07.770 align:middle
+L'algorithme de Lookup va
+parcourir la hiérarchie à
+
+00:07:08.000 --> 00:07:11.080 align:middle
+partir de la classe du
+receveur. L'algorithme de Lookup
+
+00:07:11.710 --> 00:07:15.620 align:middle
+son but c'est de trouver la
+méthode correspondante à un
+
+00:07:15.820 --> 00:07:17.430 align:middle
+message qui est envoyé à un receveur.
+

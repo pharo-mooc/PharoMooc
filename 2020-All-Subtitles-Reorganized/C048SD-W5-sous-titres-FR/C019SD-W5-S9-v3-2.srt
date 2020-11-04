@@ -1,0 +1,468 @@
+1
+00:00:00,800 --> 00:00:02,450
+Bonjour. Dans ce cours je
+vais vous montrer comment on
+
+2
+00:00:02,650 --> 00:00:05,290
+peut faire du profilage
+d'application en Pharo.
+
+3
+00:00:05,660 --> 00:00:07,660
+Ça veut dire comment on
+va mesurer l'exécution de
+
+4
+00:00:07,860 --> 00:00:09,830
+certaines expressions et
+pour savoir si on peut les
+
+5
+00:00:10,030 --> 00:00:12,580
+remplacer par d'autres pour
+gagner du temps, lors de l'exécution
+
+6
+00:00:12,780 --> 00:00:13,540
+d'un programme.
+
+7
+00:00:14,830 --> 00:00:17,030
+En gros ce que disent les
+gens, c'est que quand on n'a
+
+8
+00:00:17,230 --> 00:00:20,100
+jamais fait de profilage
+d'une application, on a
+
+9
+00:00:20,300 --> 00:00:22,140
+potentiellement un
+gain entre 40 et 50 %.
+
+10
+00:00:22,340 --> 00:00:25,200
+Moi, je n'en suis pas
+convaincu ou je ne le sais pas, je
+
+11
+00:00:25,400 --> 00:00:26,310
+n'ai pas la preuve
+de ce genre de choses.
+
+12
+00:00:26,510 --> 00:00:28,250
+Par contre, je vais vous
+montrer quels sont les outils
+
+13
+00:00:28,450 --> 00:00:31,420
+qui existent en Pharo
+pour faire ce profilage.
+
+14
+00:00:32,720 --> 00:00:34,780
+La première expression qui
+existe en Pharo, c'est timeToRun.
+
+15
+00:00:36,170 --> 00:00:38,870
+C'est un message qu'on va
+envoyer à un block qui va nous
+
+16
+00:00:39,070 --> 00:00:40,760
+dire le temps
+d'exécution d'une expression.
+
+17
+00:00:41,610 --> 00:00:45,930
+Là par exemple sur
+factoriel 1 000, je veux mesurer le
+
+18
+00:00:46,130 --> 00:00:47,650
+temps d'exécution de
+factoriel 1 000, je le mets dans un
+
+19
+00:00:47,850 --> 00:00:49,770
+bloc et j'envoie le
+message timeTo Run.
+
+20
+00:00:51,150 --> 00:00:55,000
+Une fois qu'on a timeToRun, c'est
+très facile de comparer 2 exécutions.
+
+21
+00:00:55,370 --> 00:00:57,440
+Là, je vous propose un
+petit exercice qui est de dire
+
+22
+00:00:57,790 --> 00:01:01,440
+est-ce que si je fais un
+select suivi d'un collect, c'est
+
+23
+00:01:01,640 --> 00:01:04,740
+plus lent ou pas
+qu'un select puis collect.
+
+24
+00:01:05,550 --> 00:01:07,800
+Sachant que là, ça
+implique qu'il y aurait 2 passages
+
+25
+00:01:08,630 --> 00:01:10,680
+dans le premier cas et un
+passage dans le deuxième cas.
+
+26
+00:01:11,510 --> 00:01:13,600
+Je pense que ce sera plus
+lent mais on va le vérifier.
+
+27
+00:01:15,460 --> 00:01:20,040
+Je créé ma collection dans
+les 2 cas de figure avec 10
+
+28
+00:01:20,240 --> 00:01:21,360
+éléments, c'est une
+petite collection.
+
+29
+00:01:23,120 --> 00:01:27,930
+Je vais faire une
+
+30
+00:01:28,130 --> 00:01:31,000
+boucle pour pouvoir exécuter un
+certain nombre de fois les 2 expressions.
+
+31
+00:01:31,200 --> 00:01:33,480
+Ce que vous voyez, c'est que
+dans la première partie, là
+
+32
+00:01:33,680 --> 00:01:35,380
+j'ai ma collection et je
+dis que je veux sélectionner
+
+33
+00:01:35,580 --> 00:01:38,940
+tous les éléments qui sont
+plus grands que 5 et après,
+
+34
+00:01:39,140 --> 00:01:41,750
+ces éléments que j'aurais
+sélectionnés, je veux les élever au carré.
+
+35
+00:01:42,160 --> 00:01:44,940
+Et dans la deuxième
+expression, je vais dire que je veux
+
+36
+00:01:45,140 --> 00:01:49,840
+sélectionner ceux qui sont plus
+grands que 5 et les élever au carré.
+
+37
+00:01:50,390 --> 00:01:52,230
+On voit que le système
+me dit que là c'est 500
+
+38
+00:01:52,430 --> 00:01:55,670
+millisecondes et là c'est
+368 millisecondes. Finalement,
+
+39
+00:01:56,020 --> 00:01:57,520
+il vaut mieux utiliser
+la deuxième expression.
+
+40
+00:01:57,720 --> 00:01:59,010
+Vous voyez un petit peu
+comment ça fonctionne.
+
+41
+00:01:59,210 --> 00:02:00,000
+Après, c'est à vous de le faire.
+
+42
+00:02:00,210 --> 00:02:02,370
+Ce qu'il faut voir, c'est
+qu'effectivement on doit
+
+43
+00:02:02,570 --> 00:02:07,060
+parfois mettre de très
+grandes boucles à l'intérieur pour
+
+44
+00:02:07,470 --> 00:02:09,130
+amplifier la mesure.
+
+45
+00:02:09,460 --> 00:02:11,020
+Il faut le faire dans les
+2 cas pareil, évidemment.
+
+46
+00:02:12,340 --> 00:02:16,710
+Sinon, il y a un autre
+message qui s'appelle bench qui
+
+47
+00:02:17,530 --> 00:02:19,640
+va nous dire combien de fois le code,
+
+48
+00:02:22,890 --> 00:02:27,810
+qui est étudié, a été
+exécuté durant 5 secondes.
+
+49
+00:02:28,010 --> 00:02:30,250
+Là je reprends mon exemple
+factoriel 1 000, bench, là je
+
+50
+00:02:30,450 --> 00:02:33,280
+vois que je peux
+l'exécuter 110000 fois par seconde.
+
+51
+00:02:35,600 --> 00:02:38,920
+Dans ce cas de figure, ce qu'on veut
+c'est que le chiffre soit le plus haut.
+
+52
+00:02:39,550 --> 00:02:42,730
+Il y a une variante de
+bench qui s'appelle bench for où
+
+53
+00:02:42,930 --> 00:02:44,500
+vous pouvez spécifier la taille.
+
+54
+00:02:44,700 --> 00:02:48,000
+Là ce qui est sympa, c'est
+de voir que 2 secondes, c'est
+
+55
+00:02:48,200 --> 00:02:51,530
+vraiment le message secondes
+qui est envoyé au message 2,
+
+56
+00:02:52,280 --> 00:02:56,000
+ça va nous donner sûrement
+une duration, une instance de
+
+57
+00:02:56,200 --> 00:03:00,390
+la classe duration qui va
+contrôler combien de temps le
+
+58
+00:03:00,590 --> 00:03:01,350
+système va tourner.
+
+59
+00:03:01,550 --> 00:03:03,760
+Vous voyez, ça c'est encore
+une illustration que tout est
+
+60
+00:03:03,960 --> 00:03:06,870
+objet dans Pharo, donc
+spécifier les secondes, je fais 2
+
+61
+00:03:07,070 --> 00:03:10,920
+secondes, j'envoie le
+message secondes à l'objet 2.
+
+62
+00:03:12,100 --> 00:03:15,890
+Il y a aussi ce qu'on
+appelle un profiler qui est basé
+
+63
+00:03:16,090 --> 00:03:19,340
+sur des techniques de
+sample. Vous allez exécuter votre
+
+64
+00:03:20,220 --> 00:03:23,900
+ programme et lui, il va
+aller à intervalles réguliers
+
+65
+00:03:24,100 --> 00:03:27,040
+inspecter la pile
+d'exécution et voir ce qui est sur
+
+66
+00:03:27,240 --> 00:03:29,000
+cette pile d'exécution et
+collecter l'information.
+
+67
+00:03:29,920 --> 00:03:31,260
+Comment est-ce qu'on l'invoque ?
+
+68
+00:03:31,540 --> 00:03:35,680
+On fait TimeProfiler, spyOn
+et on va lui passer un block.
+
+69
+00:03:36,470 --> 00:03:38,360
+Là je dis que je veux
+répéter 20 fois que je vais
+
+70
+00:03:38,560 --> 00:03:43,060
+afficher sur le Transcript
+factoriel 100 que je convertis
+
+71
+00:03:43,260 --> 00:03:45,200
+en chaîne, c'est ça qui
+coûte le plus cher en général.
+
+72
+00:03:46,220 --> 00:03:49,800
+Et après, le profiler va
+nous donner ce genre de
+
+73
+00:03:50,000 --> 00:03:52,750
+résultats avec un arbre qui
+va nous montrer les branches
+
+74
+00:03:52,950 --> 00:03:54,100
+parmi lesquelles on a
+passé le plus de temps.
+
+75
+00:03:54,300 --> 00:03:57,360
+Là par exemple, il nous
+montre qu'on a passé 63 % du
+
+76
+00:03:57,560 --> 00:03:59,410
+temps dans la
+méthode printOn by base.
+
+77
+00:04:02,000 --> 00:04:03,790
+C'est juste pour vous
+montrer que ça existe, il y a un
+
+78
+00:04:04,000 --> 00:04:06,770
+profiler comme ça, vous pouvez
+jouer avec si vous êtes intéressé.
+
+79
+00:04:08,620 --> 00:04:11,270
+En résumé, dans une
+première approche, vous pouvez
+
+80
+00:04:11,470 --> 00:04:15,480
+utiliser timeToRun, bench
+et le profiler, il y a un
+
+81
+00:04:15,680 --> 00:04:18,390
+chapitre dans le livre
+"Deep into Pharo" qui montre ce
+
+82
+00:04:18,590 --> 00:04:20,890
+genre de techniques d'optimisation.
+
+83
+00:04:21,270 --> 00:04:24,330
+Maintenant, je voulais
+juste faire une petite remarque.
+
+84
+00:04:24,530 --> 00:04:26,860
+C'est que vous voyez que
+dans ces 3 exemples à chaque
+
+85
+00:04:27,060 --> 00:04:29,830
+fois on utilise des blocks,
+ça veut dire que là ici c'est
+
+86
+00:04:30,030 --> 00:04:31,780
+un block, là aussi c'est un block.
+
+87
+00:04:32,000 --> 00:04:34,660
+Pourquoi? Parce que ce que
+vous avez vu dans le cours
+
+88
+00:04:34,860 --> 00:04:39,520
+sur les blocks, c'est
+que la définition du block
+
+89
+00:04:39,780 --> 00:04:42,350
+n'exécute pas et donne
+la possibilité à bench de
+
+90
+00:04:43,510 --> 00:04:46,380
+contrôler le nombre
+d'exécutions, ou de décider quand on
+
+91
+00:04:46,580 --> 00:04:47,630
+commence l'exécution du programme.
+
+92
+00:04:48,370 --> 00:04:50,710
+L'autre remarque que j'ai
+à vous faire, c'est soyez
+
+93
+00:04:50,910 --> 00:04:53,370
+curieux, allez voir comment
+timeToRun est implémenté et
+
+94
+00:04:53,570 --> 00:04:55,910
+comment bench est
+implémenté. Pour ça, vous n'avez qu'à
+
+95
+00:04:56,110 --> 00:04:59,290
+cliquer sur l'expression, et
+faire browse ou implementer
+
+96
+00:04:59,490 --> 00:05:00,510
+dessus et vous allez voir le code.
+

@@ -1,0 +1,312 @@
+WEBVTT
+
+00:00:00.470 --> 00:00:02.150 align:middle
+Donc dans ce cours je vais
+vous parler de deux points,
+
+00:00:02.530 --> 00:00:05.540 align:middle
+qui sont la séquence et la
+cascade d'expression que vous
+
+00:00:05.740 --> 00:00:08.790 align:middle
+allez retrouver constamment
+en Pharo Donc l'idée, c'est
+
+00:00:09.000 --> 00:00:10.730 align:middle
+que vous allez pouvoir
+avoir, souvent, vous avez
+
+00:00:11.210 --> 00:00:14.150 align:middle
+plusieurs expressions qui se
+suivent et donc on va devoir
+
+00:00:14.350 --> 00:00:16.000 align:middle
+les séparer, donc on va
+les séparer avec un point.
+
+00:00:16.550 --> 00:00:17.780 align:middle
+Donc, c'est ce que je
+montre sur l'exemple.
+
+00:00:18.030 --> 00:00:20.640 align:middle
+Là vous avez Transcript cr.
+
+00:00:21.720 --> 00:00:24.550 align:middle
+avec un point, ça veut dire je
+veux ajouter sur le Transcript.
+
+00:00:24.750 --> 00:00:27.910 align:middle
+Le Transcript, c'est un
+petit outil pour faire du log,
+
+00:00:28.130 --> 00:00:30.900 align:middle
+donc je veux passer à la
+ligne, je veux montrer l'objet
+
+00:00:31.100 --> 00:00:34.830 align:middle
+1et je veux montrer l'objet
+2, et vous voyez j'aurais pu
+
+00:00:35.030 --> 00:00:36.200 align:middle
+mettre un point ou pas.
+
+00:00:37.080 --> 00:00:39.530 align:middle
+Et donc, mes expressions
+sont séparées par des points.
+
+00:00:41.720 --> 00:00:44.000 align:middle
+Donc, on fait ce qu'il faut
+voir là, c'est un autre exemple.
+
+00:00:44.940 --> 00:00:49.010 align:middle
+Là j'ai défini mes deux
+variables locales, je définis une
+
+00:00:49.210 --> 00:00:52.380 align:middle
+Workstation, c'est un
+simulateur de réseaux, je mets un
+
+00:00:52.580 --> 00:00:57.040 align:middle
+point parce que c'est la
+fin de cette expression, et je
+
+00:00:57.240 --> 00:00:58.310 align:middle
+continue sur mon autre expression.
+
+00:00:58.510 --> 00:01:00.690 align:middle
+J'aurais pu mettre un point
+ici parce que c'est ce qui
+
+00:01:00.890 --> 00:01:03.030 align:middle
+est expliqué, c'est qu'un
+point c'est un séparateur, ce n'est
+
+00:01:03.230 --> 00:01:05.170 align:middle
+pas un terminateur. En Java,
+vous seriez forcés de mettre
+
+00:01:05.370 --> 00:01:08.370 align:middle
+un point-virgule ici et ici, mais
+en Pharo vous n'avez pas besoin.
+
+00:01:09.910 --> 00:01:12.430 align:middle
+Donc, ce qu'il faut voir
+aussi, pour les débutants,
+
+00:01:12.630 --> 00:01:17.230 align:middle
+parfois c'est un peu
+étrange, c'est que les barres
+
+00:01:17.430 --> 00:01:19.510 align:middle
+verticales sont des
+définitions de variables locales,
+
+00:01:19.710 --> 00:01:22.240 align:middle
+vous aurez un cours là-dessus aussi
+dans le futur, et il n'y a pas de point.
+
+00:01:22.440 --> 00:01:23.590 align:middle
+On ne met pas un point ici.
+
+00:01:23.910 --> 00:01:27.180 align:middle
+Donc, en général on met
+définition de variable locale et
+
+00:01:27.380 --> 00:01:29.920 align:middle
+on attaque, et après la
+première expression, on met un point.
+
+00:01:30.960 --> 00:01:33.530 align:middle
+Donc maintenant, il y a
+autre chose, c'est que souvent on
+
+00:01:33.730 --> 00:01:35.360 align:middle
+se trouve dans la
+situation suivante où on aimerait
+
+00:01:35.560 --> 00:01:37.050 align:middle
+envoyer plusieurs
+messages au même objet.
+
+00:01:37.540 --> 00:01:39.270 align:middle
+Et comme on est un peu
+feignant, on aimerait bien éviter
+
+00:01:39.470 --> 00:01:40.890 align:middle
+de répéter toujours
+le receveur de l'objet.
+
+00:01:41.380 --> 00:01:42.490 align:middle
+Donc, regardez le cas de figure.
+
+00:01:42.850 --> 00:01:44.300 align:middle
+J'ai Transcript cr.
+
+00:01:44.630 --> 00:01:47.280 align:middle
+, Transcript show:,
+Transcript, vous avez vu que déjà j'ai
+
+00:01:47.480 --> 00:01:49.600 align:middle
+dit trois fois Transcript, alors que
+j'aimerais le dire qu'une seule fois.
+
+00:01:50.020 --> 00:01:51.550 align:middle
+Je peux le faire, je vais
+utiliser ce qu'on appelle une
+
+00:01:51.750 --> 00:01:54.210 align:middle
+cascade, c'est le point-virgule.
+Donc, là je vais faire Transcript cr.
+
+00:01:54.410 --> 00:01:58.510 align:middle
+, j'envoie un message cr à
+l'objet Transcript, et la
+
+00:01:58.710 --> 00:02:01.320 align:middle
+cascade dit "À partir de
+maintenant tous les messages
+
+00:02:01.520 --> 00:02:04.150 align:middle
+sont envoyés au même
+receveur que le premier".
+
+00:02:04.350 --> 00:02:06.790 align:middle
+Donc ça veut dire que
+show: 1 va être envoyé à
+
+00:02:07.000 --> 00:02:08.850 align:middle
+Transcript, que show: 2 va
+être envoyé à Transcript.
+
+00:02:09.660 --> 00:02:11.520 align:middle
+D'accord? Donc je répète un
+petit coup parce que c'est
+
+00:02:11.720 --> 00:02:16.290 align:middle
+un point particulier. J'envoie
+le premier message cr normalement.
+
+00:02:17.590 --> 00:02:20.050 align:middle
+Et à partir de cr, je dis
+"au lieu de mettre point, qui
+
+00:02:20.250 --> 00:02:21.710 align:middle
+est un séparateur, je vais
+mettre un point-virgule", je
+
+00:02:21.910 --> 00:02:25.550 align:middle
+vais dire "tous les autres
+messages, tu les envoies au même receveur".
+
+00:02:25.750 --> 00:02:27.530 align:middle
+Donc show: 1 va être
+envoyé au même receveur, le
+
+00:02:27.730 --> 00:02:30.370 align:middle
+point-virgule dit "show: 2 va être
+envoyé au même receveur que moi".
+
+00:02:31.240 --> 00:02:32.000 align:middle
+Voilà.
+
+00:02:32.200 --> 00:02:33.330 align:middle
+Donc, un autre exemple.
+
+00:02:34.230 --> 00:02:37.000 align:middle
+Imaginons, souvent on veut
+créer une collection, donc on
+
+00:02:37.200 --> 00:02:40.210 align:middle
+dit "moi, j'ai une collection
+donc je définis une variable c.
+
+00:02:41.030 --> 00:02:44.450 align:middle
+Dans la variable c, je mets ma
+collection, vous voyez le point ici.
+
+00:02:44.810 --> 00:02:47.420 align:middle
+Je mets 1 dans la collection,
+je mets 2 dans la collection".
+
+00:02:47.770 --> 00:02:50.000 align:middle
+Cette expression est
+strictement équivalente à celle-là.
+
+00:02:50.190 --> 00:02:52.090 align:middle
+Ça veut dire que là, je vais
+faire OrderedCollection new,
+
+00:02:53.050 --> 00:02:56.540 align:middle
+je la crée et j'envoie le
+premier message add:1 pour
+
+00:02:56.740 --> 00:02:58.690 align:middle
+ajouter un élément et je
+mets point-virgule, ça veut dire
+
+00:02:58.890 --> 00:03:01.050 align:middle
+je veux envoyer ce
+message-là à cette collection.
+
+00:03:01.590 --> 00:03:03.840 align:middle
+Donc, moi ce que je vous
+suggère quand vous abordez Pharo
+
+00:03:04.040 --> 00:03:07.050 align:middle
+c'est: ne vous prenez pas la
+tête à utiliser la cascade.
+
+00:03:07.430 --> 00:03:09.210 align:middle
+Par contre, pourquoi
+on vous l'a présentée?
+
+00:03:09.410 --> 00:03:11.940 align:middle
+C'est que vous allez lire du code et
+que dans le code les gens l'utilisent.
+
+00:03:12.290 --> 00:03:14.620 align:middle
+Et une fois que vous aurez
+compris que vous êtes à l'aise
+
+00:03:14.820 --> 00:03:17.150 align:middle
+avec cette syntaxe-là, avec
+les points, vous pouvez vous
+
+00:03:17.350 --> 00:03:20.420 align:middle
+dire "bon, là, je peux
+commencer à être un peu plus agile
+
+00:03:20.710 --> 00:03:22.020 align:middle
+et je vais utiliser la cascade".
+
+00:03:22.220 --> 00:03:24.030 align:middle
+En général, c'est comme ça
+que moi j'ai appris, c'est
+
+00:03:24.230 --> 00:03:26.950 align:middle
+tranquillement de passer
+les étapes une par une.
+
+00:03:27.420 --> 00:03:28.880 align:middle
+Donc voilà, donc
+qu'est-ce qu'on a vu?
+
+00:03:29.180 --> 00:03:32.140 align:middle
+On a vu qu’on a le point qui est
+un séparateur qui est l'équivalent
+
+00:03:32.340 --> 00:03:33.450 align:middle
+du point-virgule en Java.
+
+00:03:33.680 --> 00:03:36.170 align:middle
+On a le point-virgule qui
+est une casquette qui évite de
+
+00:03:36.370 --> 00:03:38.750 align:middle
+répéter plusieurs
+fois le même receveur.
+
+00:03:39.220 --> 00:03:43.610 align:middle
+Et la cascade rend la
+valeur du dernier message envoyé.
+

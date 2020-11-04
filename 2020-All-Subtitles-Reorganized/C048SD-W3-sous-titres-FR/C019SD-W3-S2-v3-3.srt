@@ -1,0 +1,762 @@
+1
+00:00:00,510 --> 00:00:03,790
+Bonjour. Donc dans le cours
+d'avant, on a regardé comme
+
+2
+00:00:04,000 --> 00:00:06,620
+on avait implémenté
+les booléens, not et or.
+
+3
+00:00:07,120 --> 00:00:09,250
+Et il nous restait en
+suspens la question 3: c'est
+
+4
+00:00:09,450 --> 00:00:11,750
+pourquoi diable
+a-t-on posé ces questions?
+
+5
+00:00:12,200 --> 00:00:13,710
+Donc c'est ce qu'on va
+regarder dans ce cours.
+
+6
+00:00:14,780 --> 00:00:16,460
+Donc, je vous
+rappelle l'implémentation.
+
+7
+00:00:16,660 --> 00:00:19,760
+Donc là, pour not qu'on avait vu,
+on avait vu qu'on avait deux objets.
+
+8
+00:00:20,260 --> 00:00:24,050
+On avait true et false, qui
+étaient instance de la classe
+
+9
+00:00:24,250 --> 00:00:25,100
+True et de la classe False.
+
+10
+00:00:25,300 --> 00:00:28,300
+Et quand on envoyait un
+message not, on cherchait au bon
+
+11
+00:00:28,500 --> 00:00:31,560
+endroit chacun dans sa classe
+respective et qu'on exécutait les méthodes.
+
+12
+00:00:32,600 --> 00:00:33,720
+Donc ça, pas de problème.
+
+13
+00:00:35,160 --> 00:00:37,580
+Donc maintenant, ce que
+j'avais dit, j'avais dit "mais en
+
+14
+00:00:37,780 --> 00:00:40,170
+fait si on regarde ce qu'on
+est en train de faire, c'est
+
+15
+00:00:40,370 --> 00:00:43,040
+que d'une part en fait, on
+laissait le receveur décider".
+
+16
+00:00:43,240 --> 00:00:45,430
+Ça veut dire qu'on ne
+prenait pas de décision.
+
+17
+00:00:46,360 --> 00:00:49,130
+Et que, on envoyait le message et
+que le message allait se résoudre.
+
+18
+00:00:49,520 --> 00:00:52,440
+Et donc c'étaient ces
+deux heuristiques qui étaient
+
+19
+00:00:52,640 --> 00:00:56,030
+"laisser le receveur
+décider" et "ne me demande pas, mais
+
+20
+00:00:56,230 --> 00:00:59,120
+dit de faire les choses".
+On le retrouvera encore.
+
+21
+00:00:59,320 --> 00:01:02,510
+Maintenant, regardons
+plus précisément l'exercice.
+
+22
+00:01:03,180 --> 00:01:04,940
+Donc qu'est-ce que ça illustre ?
+
+23
+00:01:05,140 --> 00:01:07,530
+Parce que vous n'allez
+sûrement jamais implémenter des
+
+24
+00:01:07,730 --> 00:01:09,410
+booléens dans votre vie. En
+tout cas, je vous le souhaite.
+
+25
+00:01:10,320 --> 00:01:13,020
+Et est-ce que c'est
+vraiment totalement inutile?
+
+26
+00:01:13,220 --> 00:01:14,160
+Quelle est la leçon ?
+
+27
+00:01:14,360 --> 00:01:15,780
+Quelles sont les leçons
+qui sont sous-jacentes?
+
+28
+00:01:16,170 --> 00:01:19,010
+Et je pense que c'est très
+important de vous poser cette
+
+29
+00:01:19,210 --> 00:01:21,470
+question, de se dire "oui,
+l'implémentation est comme ça.
+
+30
+00:01:21,670 --> 00:01:24,740
+Mais pourquoi?
+Qu'est-ce que ça illustre?"
+
+31
+00:01:24,940 --> 00:01:28,040
+Cela illustre en fait qu'à
+chaque fois que j'envoie un
+
+32
+00:01:28,240 --> 00:01:32,920
+message, en fait, j'ai
+une sorte de case statement
+
+33
+00:01:35,040 --> 00:01:38,820
+que vous retrouverez dans la
+ programmation C ou ce genre de choses.
+
+34
+00:01:39,960 --> 00:01:42,590
+Envoyer un message, c'est
+faire un choix multiple.
+
+35
+00:01:44,500 --> 00:01:46,160
+Alors ce qui est
+intéressant, c'est qu'envoyer un
+
+36
+00:01:46,360 --> 00:01:49,800
+message, finalement, c'est
+un peu plus qu'un case parce
+
+37
+00:01:50,000 --> 00:01:52,430
+que c'est un case dynamique.
+En fait, il va dépendre des
+
+38
+00:01:52,630 --> 00:01:54,890
+ classes qui sont chargées et
+des instances qui ont été créées.
+
+39
+00:01:55,820 --> 00:01:57,430
+Mais si on regarde ça
+veut dire que quand vous avez
+
+40
+00:01:57,630 --> 00:02:01,000
+ programmé en Java, vous avez
+souvent écrit, je ne sais pas, moi, x.
+
+41
+00:02:01,390 --> 00:02:03,860
+f pour invoquer la méthode F.
+
+42
+00:02:04,280 --> 00:02:06,000
+Et moi ce que je suis en
+train de vous expliquer, c'est
+
+43
+00:02:06,200 --> 00:02:09,450
+que le point, là, c'est
+un opérateur de choix.
+
+44
+00:02:10,890 --> 00:02:12,360
+Et ça, c'est vraiment fondamental.
+
+45
+00:02:13,470 --> 00:02:15,000
+Et que ce choix est dynamique.
+
+46
+00:02:15,650 --> 00:02:17,930
+Et que souvent, on ne vous l'a
+pas présenté de cette manière.
+
+47
+00:02:18,130 --> 00:02:20,630
+Mais que c'est vraiment ce que
+l'exemple est en train d'illustrer
+
+48
+00:02:20,830 --> 00:02:22,380
+et d'une manière très forte en fait.
+
+49
+00:02:23,120 --> 00:02:26,070
+Si je résume, vous avez
+vraiment envoyé un message.
+
+50
+00:02:26,270 --> 00:02:27,670
+Ça fonctionne comme
+faire un case statement.
+
+51
+00:02:28,020 --> 00:02:30,570
+Mais c'est un case
+statement dynamique dans le sens où
+
+52
+00:02:31,060 --> 00:02:33,410
+cela va dépendre des
+ classes qui ont été chargées.
+
+53
+00:02:33,610 --> 00:02:35,430
+Là, j'ai un exemple sur
+les booléens où il y a deux
+
+54
+00:02:35,630 --> 00:02:37,390
+instances et deux classes.
+Mais, il pourrait y en avoir
+
+55
+00:02:37,590 --> 00:02:39,160
+cinquante et ça
+fonctionnerait de la même manière.
+
+56
+00:02:40,370 --> 00:02:43,140
+À chaque fois que vous envoyez
+un message en fait, l'exécution,
+
+57
+00:02:43,340 --> 00:02:45,030
+la machine virtuelle
+parce que Pharo a une machine
+
+58
+00:02:45,230 --> 00:02:47,150
+virtuelle tout comme la
+machine virtuelle Java ou C Sharp.
+
+59
+00:02:47,840 --> 00:02:51,510
+La machine virtuelle,
+l'engin d'exécution va sélectionner
+
+60
+00:02:51,710 --> 00:02:53,760
+la bonne méthode
+dépendante de la classe du receveur.
+
+61
+00:02:54,620 --> 00:02:58,140
+Donc, envoyer un message
+c'est un mécanisme de choix.
+
+62
+00:02:58,370 --> 00:03:00,140
+Et vous à chaque fois
+que vous allez utiliser une
+
+63
+00:03:00,340 --> 00:03:03,530
+condition, vous allez
+vous substituer en fait à ce
+
+64
+00:03:03,730 --> 00:03:07,850
+mécanisme qui est implémenté dans la
+machine virtuelle qui fait un choix.
+
+65
+00:03:08,050 --> 00:03:12,100
+Et donc ce que les
+solutions avec not montrent, c'est:
+
+66
+00:03:12,330 --> 00:03:15,870
+utilisons le choix qui est
+donné par la machine virtuelle
+
+67
+00:03:16,220 --> 00:03:17,380
+pour implémenter nos programmes.
+
+68
+00:03:17,580 --> 00:03:19,410
+On n'a pas besoin
+d'utiliser un if en plus.
+
+69
+00:03:19,940 --> 00:03:23,800
+Puisqu'en fait, envoyer un message,
+c'est déjà faire un if ou une condition.
+
+70
+00:03:24,800 --> 00:03:27,310
+Donc la question maintenant
+qu'on peut se poser c'est:
+
+71
+00:03:27,560 --> 00:03:30,560
+si j'avais exprimé
+l'exercice de départ d'une manière
+
+72
+00:03:30,760 --> 00:03:32,640
+totalement différente, si
+j'avais dit: est-ce que vous
+
+73
+00:03:32,840 --> 00:03:34,640
+pouvez implémenter not
+dans la classe Booléen?
+
+74
+00:03:34,840 --> 00:03:36,760
+Ou or dans la classe Booléen ?
+
+75
+00:03:37,210 --> 00:03:39,000
+Vous n'auriez pas pu
+avoir cette solution.
+
+76
+00:03:40,310 --> 00:03:41,070
+Tiens, c'est étrange.
+
+77
+00:03:41,270 --> 00:03:43,520
+Donc ça veut dire qu’en
+fait, le fait qu'il y ait qu'une
+
+78
+00:03:43,720 --> 00:03:45,430
+ classe ou plusieurs, ça
+a une influence vraiment
+
+79
+00:03:45,630 --> 00:03:48,250
+importante sur la manière dont je
+vais pouvoir concevoir mon application.
+
+80
+00:03:49,220 --> 00:03:54,110
+Et en effet, les
+ classes vont jouer le rôle de
+
+81
+00:03:54,670 --> 00:03:55,930
+branches ou de choix.
+
+82
+00:03:56,790 --> 00:03:59,410
+Donc si vous avez le choix
+de choisir des yaourts, mais
+
+83
+00:03:59,610 --> 00:04:01,780
+que vous allez dans un
+magasin où il y en a qu'un, vous
+
+84
+00:04:02,000 --> 00:04:04,350
+choisirez ce yaourt-là.
+Là, c'est la même chose.
+
+85
+00:04:04,580 --> 00:04:08,100
+Cela veut dire que votre
+ classe va représenter un choix
+
+86
+00:04:08,300 --> 00:04:09,610
+dans l'arbre d'héritage.
+
+87
+00:04:09,810 --> 00:04:11,130
+Donc, qu'est-ce que ça implique ?
+
+88
+00:04:11,330 --> 00:04:14,640
+Cela implique que quand je
+regarde un design où j'ai une
+
+89
+00:04:14,840 --> 00:04:18,080
+grosse classe bien grasse
+avec plein de méthodes et à la
+
+90
+00:04:18,280 --> 00:04:20,690
+place, je peux l'exprimer
+sous une forme de hiérarchie,
+
+91
+00:04:21,280 --> 00:04:23,010
+ce design-là est de
+meilleure qualité.
+
+92
+00:04:23,210 --> 00:04:25,460
+Pourquoi? Parce qu'il
+est déjà plus modulaire.
+
+93
+00:04:25,660 --> 00:04:29,660
+Je peux facilement rajouter
+un autre choix si j'ai envie.
+
+94
+00:04:29,940 --> 00:04:31,250
+Je peux étendre un autre champ.
+
+95
+00:04:31,450 --> 00:04:32,940
+Je peux dire "ah oui,
+celui-là, il n'était pas mal, mais
+
+96
+00:04:33,140 --> 00:04:35,660
+finalement je voudrais le
+raffiner pour en avoir à nouveau".
+
+97
+00:04:36,340 --> 00:04:38,600
+Et en plus, ça me permet
+de réduire la complexité.
+
+98
+00:04:38,800 --> 00:04:41,070
+Ça veut dire que je peux
+focaliser sur une seule classe
+
+99
+00:04:41,270 --> 00:04:45,110
+et pas un truc avec plein
+de conditions de partout.
+
+100
+00:04:45,310 --> 00:04:49,250
+Donc, si on regarde, on a
+d'un côté un opérateur de choix.
+
+101
+00:04:49,450 --> 00:04:52,000
+Et d'un autre, on a quelque
+chose qui exprime du choix.
+
+102
+00:04:52,910 --> 00:04:56,120
+Et quand on les met les
+deux ensemble, on obtient de la
+
+103
+00:04:56,320 --> 00:04:57,470
+conception-objet de bonne qualité.
+
+104
+00:04:58,080 --> 00:04:59,730
+Donc maintenant, ce qui
+est encore un peu plus
+
+105
+00:04:59,930 --> 00:05:02,960
+sympathique, c'est que si
+on regarde, la solution avec
+
+106
+00:05:03,160 --> 00:05:04,900
+les hiérarchies, elle est
+encore plus chouette que ça.
+
+107
+00:05:05,220 --> 00:05:07,110
+Parce que je peux
+packager mes solutions.
+
+108
+00:05:07,310 --> 00:05:09,580
+Ça veut dire, je peux dire
+"tiens, là, j'ai le package core.
+
+109
+00:05:10,000 --> 00:05:10,930
+Et puis là, j'ai un plug-in.
+
+110
+00:05:11,740 --> 00:05:13,650
+Je vais dire à mes
+clients "oui si tu veux.
+
+111
+00:05:13,850 --> 00:05:15,910
+Cette fonctionnalité-là, il faut que
+tu download dans l'autre ce plug-in.
+
+112
+00:05:16,110 --> 00:05:17,510
+Et que tu me payes
+bien sûr au passage".
+
+113
+00:05:18,120 --> 00:05:20,150
+Je vais charger
+dynamiquement ce code.
+
+114
+00:05:20,580 --> 00:05:23,390
+Et quand je créerai une
+instance de cette classe-là,
+
+115
+00:05:25,450 --> 00:05:29,100
+quand j'enverrai mon
+message opération ici, ça sera le
+
+116
+00:05:29,300 --> 00:05:31,040
+code du plug-in qui sera
+exécuté dans le système.
+
+117
+00:05:32,310 --> 00:05:36,370
+Et donc ça, c'est vraiment, pour
+nous, l'essence de la programmation-objet.
+
+118
+00:05:36,570 --> 00:05:40,000
+J'envoie un message et je vais
+sélectionner la bonne méthode.
+
+119
+00:05:41,060 --> 00:05:43,800
+Et je vais utiliser le fait
+que je sais que le système
+
+120
+00:05:44,000 --> 00:05:45,780
+sélectionne la bonne
+méthode pour avoir des
+
+121
+00:05:46,000 --> 00:05:49,470
+implémentations encore plus
+élégantes. Donc, qu'est-ce qu'on a regardé?
+
+122
+00:05:49,670 --> 00:05:50,430
+Qu'est-ce qu'on a vu en fait ?
+
+123
+00:05:50,630 --> 00:05:54,340
+On a vu qu'envoyer un message,
+ça laisse le receveur décider.
+
+124
+00:05:54,540 --> 00:05:55,300
+Donc, il y a un choix.
+
+125
+00:05:55,500 --> 00:05:58,190
+Le client lui n'a pas
+à prendre de décision.
+
+126
+00:05:58,650 --> 00:06:00,850
+Le code du client est
+beaucoup plus déclaratif.
+
+127
+00:06:01,050 --> 00:06:01,810
+Il n'y a pas de conditions.
+
+128
+00:06:02,010 --> 00:06:04,540
+Je donne des ordres
+"fais-ci, fais ça, ouvre, ferme".
+
+129
+00:06:05,020 --> 00:06:06,870
+Et pas "est-ce que tu
+es de cette classe-là?
+
+130
+00:06:07,070 --> 00:06:08,720
+Est-ce que tu es dans cet
+état-là pour que je te ferme?"
+
+131
+00:06:08,920 --> 00:06:09,680
+Ce n'est pas du tout le point.
+
+132
+00:06:10,040 --> 00:06:12,430
+Et différents receveurs peuvent
+être substitués dynamiquement.
+
+133
+00:06:12,630 --> 00:06:14,110
+Donc ça, on le verra
+dans un autre cours.
+
+134
+00:06:14,310 --> 00:06:15,070
+Mais c'est aussi sous-jacent.
+
+135
+00:06:16,650 --> 00:06:20,080
+Donc de manière générale,
+essayez d'éviter d'écrire des if.
+
+136
+00:06:21,340 --> 00:06:23,720
+Utiliser des messages et
+des objets quand vous pouvez.
+
+137
+00:06:23,920 --> 00:06:25,260
+Ce n'est pas tous les
+jours le cas, mais au moins
+
+138
+00:06:25,460 --> 00:06:27,740
+utilisez des messages et des
+objets quand vous le pouvez.
+
+139
+00:06:29,340 --> 00:06:32,760
+L'engin d'exécution, la
+machine virtuelle, à chaque fois
+
+140
+00:06:32,960 --> 00:06:37,050
+que vous envoyez un message fait
+un conditionnal switch pour vous.
+
+141
+00:06:37,720 --> 00:06:40,930
+Donc, utilisez-le. Et vous pouvez
+vous amuser à taper le AntiIfCampaign.
+
+142
+00:06:42,090 --> 00:06:45,220
+C'est une campagne que les
+ programmeurs ont montée pour
+
+143
+00:06:45,420 --> 00:06:46,670
+éviter que les gens écrivent des if.
+
+144
+00:06:48,850 --> 00:06:50,370
+Donc, qu'est-ce qu'on a
+vu en fait dans ce cours?
+
+145
+00:06:50,570 --> 00:06:51,330
+On a vu deux choses.
+
+146
+00:06:51,530 --> 00:06:52,470
+On a vu que quand j'écris x.
+
+147
+00:06:52,670 --> 00:06:56,920
+f, je le fais en syntaxe
+Java et en syntaxe Pharo ça
+
+148
+00:06:57,120 --> 00:07:00,300
+serait F. Je fais un choix.
+
+149
+00:07:00,500 --> 00:07:03,860
+Je choisis la méthode F
+qui doit être exécutée en
+
+150
+00:07:04,060 --> 00:07:06,080
+dépendant du receveur.
+
+151
+00:07:07,090 --> 00:07:08,720
+Donc j'ai cet opérateur de choix.
+
+152
+00:07:08,920 --> 00:07:12,190
+Et j'ai une hiérarchie qui elle va
+représenter des choix potentiels.
+
+153
+00:07:12,390 --> 00:07:16,400
+Donc, c'est vraiment un squelette sur
+lequel le choix va pouvoir s'appuyer.
+
+154
+00:07:16,780 --> 00:07:18,350
+Et du coup, je n'ai
+pas de conditions.
+
+155
+00:07:18,940 --> 00:07:20,670
+Et j'ai des programmes
+qui sont plus extensibles.
+
+156
+00:07:21,860 --> 00:07:25,400
+Donc, voilà la fin du
+premier cours sur les concepts
+
+157
+00:07:25,600 --> 00:07:27,250
+objets tels qu'on
+peut les voir en Pharo.
+
+158
+00:07:28,260 --> 00:07:30,320
+Et, on en verra d'autres
+pendant les prochaines séances.
+

@@ -1,0 +1,560 @@
+﻿1
+00:00:00,720 --> 00:00:05,880
+Hello, this video will explain
+an important feature of Pharo,
+
+2
+00:00:06,080 --> 00:00:07,920
+the doesNotUnderstand hook.
+
+3
+00:00:08,080 --> 00:00:13,400
+You've no doubt already seen
+a debugger window with this message.
+
+4
+00:00:13,920 --> 00:00:16,840
+Where does it come from
+and what is it for?
+
+5
+00:00:17,280 --> 00:00:20,080
+Let's look at an example.
+
+6
+00:00:20,400 --> 00:00:22,280
+We have the object node1.
+
+7
+00:00:22,640 --> 00:00:27,520
+We'll send this object
+the message coucou: stef.
+
+8
+00:00:28,280 --> 00:00:31,280
+From node1,
+we follow the lookup method
+
+9
+00:00:31,840 --> 00:00:33,920
+back to the object's class.
+
+10
+00:00:34,200 --> 00:00:37,720
+We don't find the coucou method
+in this class.
+
+11
+00:00:37,920 --> 00:00:42,320
+So, we go to the superclass,
+but it's not there either.
+
+12
+00:00:42,720 --> 00:00:45,520
+The virtual system informs us
+
+13
+00:00:45,800 --> 00:00:51,040
+that it can't find a matching method,
+so it reifies the message.
+
+14
+00:00:51,200 --> 00:00:56,440
+We discussed reification in the video
+on introspection and reflection.
+
+15
+00:00:56,920 --> 00:01:02,640
+Reify means to represent
+an implicit concept as an object.
+
+16
+00:01:02,920 --> 00:01:04,520
+Here, it's a message.
+
+17
+00:01:04,920 --> 00:01:07,920
+We create an object
+to represent the message.
+
+18
+00:01:08,080 --> 00:01:10,400
+It's an instance of Message class.
+
+19
+00:01:10,680 --> 00:01:15,000
+The virtual system will resend a message
+
+20
+00:01:15,200 --> 00:01:17,320
+to the object node1.
+
+21
+00:01:17,760 --> 00:01:22,800
+It sends the doesNotUnderstand message,
+passing the object as a parameter.
+
+22
+00:01:22,920 --> 00:01:27,000
+This is a new execution
+of the lookup algorithm.
+
+23
+00:01:27,200 --> 00:01:32,440
+The system will not find the
+doesNotUnderstand method in Node class.
+
+24
+00:01:32,720 --> 00:01:37,640
+So, it goes back
+to search in the superclass.
+
+25
+00:01:37,840 --> 00:01:40,920
+It finds the method, abbreviated to DNU.
+
+26
+00:01:41,160 --> 00:01:44,440
+Now it can now execute the method.
+
+27
+00:01:47,080 --> 00:01:49,920
+DoesNotUnderstand is a message
+
+28
+00:01:50,200 --> 00:01:53,840
+that the virtual machine
+sends for you to objects
+
+29
+00:01:54,280 --> 00:01:56,280
+when a message has failed.
+
+30
+00:01:57,080 --> 00:02:00,680
+All classes can redefine this method
+
+31
+00:02:01,280 --> 00:02:06,800
+to give it a specific behavior
+when a message is not understood.
+
+32
+00:02:07,320 --> 00:02:09,840
+This method is an important tool
+
+33
+00:02:10,320 --> 00:02:13,800
+that allows us to build many features.
+
+34
+00:02:14,080 --> 00:02:17,440
+It's used in automatic delegation,
+
+35
+00:02:17,720 --> 00:02:20,520
+distributed programming, and so on.
+
+36
+00:02:21,400 --> 00:02:25,080
+Here we'll look at
+some uses of doesNotUnderstand.
+
+37
+00:02:25,720 --> 00:02:30,400
+Suppose we want to redirect
+all our messages to a different object.
+
+38
+00:02:31,640 --> 00:02:37,200
+In a simple delegation, I create
+an object that stores the target,
+
+39
+00:02:37,400 --> 00:02:39,320
+where messages will be sent.
+
+40
+00:02:39,520 --> 00:02:42,200
+I redefine the doesNotUnderstand method.
+
+41
+00:02:42,400 --> 00:02:45,560
+It takes the object aMessage
+as a parameter,
+
+42
+00:02:45,760 --> 00:02:49,280
+containing the failed message selector.
+
+43
+00:02:49,680 --> 00:02:53,400
+Then I can ask this message
+to resend itself.
+
+44
+00:02:53,760 --> 00:02:59,920
+I use sendTo: self target,
+which is the instance variable.
+
+45
+00:03:00,520 --> 00:03:03,320
+I resend the message to another object.
+
+46
+00:03:04,320 --> 00:03:07,400
+Be careful, this is a powerful function
+
+47
+00:03:07,920 --> 00:03:12,400
+that can interfere with
+the legibility of the code.
+
+48
+00:03:12,760 --> 00:03:15,160
+As it's explained here.
+
+49
+00:03:16,000 --> 00:03:20,360
+The code will show
+who ultimately receives the message.
+
+50
+00:03:20,920 --> 00:03:23,680
+It's very useful for constructing tools
+
+51
+00:03:24,080 --> 00:03:28,080
+and building advanced mechanisms.
+
+52
+00:03:29,720 --> 00:03:33,720
+Another example we'll look at
+is LoggingProxy.
+
+53
+00:03:33,920 --> 00:03:36,320
+The basic idea here
+
+54
+00:03:36,560 --> 00:03:40,400
+is to create a minimal object
+that contains few methods,
+
+55
+00:03:40,600 --> 00:03:44,360
+and to customize
+its doesNotUnderstand: method.
+
+56
+00:03:44,800 --> 00:03:48,840
+Then we'll swap a domain object
+
+57
+00:03:49,400 --> 00:03:53,920
+with this proxy, or minimal object,
+using "become."
+
+58
+00:03:54,840 --> 00:03:58,840
+First, we create a proxy object.
+
+59
+00:03:59,360 --> 00:04:02,840
+We give the proxy object a subject,
+
+60
+00:04:03,080 --> 00:04:06,560
+which is the object
+we're going to replace,
+
+61
+00:04:07,400 --> 00:04:08,560
+or the target.
+
+62
+00:04:08,840 --> 00:04:14,720
+We add InvocationCount to increment
+the counter with each message.
+
+63
+00:04:15,400 --> 00:04:20,760
+We put the counter in initialize at 0,
+since it has received no messages.
+
+64
+00:04:20,920 --> 00:04:25,400
+Then we add the subject,
+which is what will be replaced.
+
+65
+00:04:26,520 --> 00:04:29,760
+Now we redefine
+the DNU method on this proxy.
+
+66
+00:04:29,920 --> 00:04:33,360
+Every time a new message
+is not understood,
+
+67
+00:04:33,560 --> 00:04:38,840
+its reception appears on the Transcript,
+and the counter is incremented.
+
+68
+00:04:39,200 --> 00:04:43,400
+Then we forward the message
+to the subject.
+
+69
+00:04:44,080 --> 00:04:47,600
+Like before,
+we redirect the message elsewhere.
+
+70
+00:04:48,800 --> 00:04:52,920
+For sendTo, as you see
+in the Message class implementation,
+
+71
+00:04:53,080 --> 00:04:57,400
+we simply use the Perform method
+with Arguments.
+
+72
+00:04:57,640 --> 00:05:01,440
+We already explained this
+in an earlier course.
+
+73
+00:05:02,920 --> 00:05:05,160
+Let's look at an example.
+
+74
+00:05:06,200 --> 00:05:09,520
+How do we use this LoggingProxy?
+
+75
+00:05:10,000 --> 00:05:13,280
+We'll create an instance,
+the Object point.
+
+76
+00:05:14,040 --> 00:05:16,680
+Then we'll use "become"
+
+77
+00:05:17,040 --> 00:05:20,200
+so that everything
+that points to this point
+
+78
+00:05:20,680 --> 00:05:24,280
+will inadvertently
+point to a LoggingProxy,
+
+79
+00:05:25,520 --> 00:05:27,320
+which we instantiate.
+
+80
+00:05:27,760 --> 00:05:30,760
+Now if we send messages
+to the Object point,
+
+81
+00:05:30,920 --> 00:05:36,600
+noting that "become" is now
+an instance of LoggingProxy,
+
+82
+00:05:36,840 --> 00:05:39,200
+every time we send it a message,
+
+83
+00:05:39,840 --> 00:05:42,000
+it will display in Transcript
+
+84
+00:05:42,720 --> 00:05:45,320
+and the counter will be incremented.
+
+85
+00:05:46,000 --> 00:05:48,800
+This is what we did
+in doesNotUnderstand.
+
+86
+00:05:49,040 --> 00:05:53,200
+At the end,
+the counter shows a value of 3.
+
+87
+00:05:54,440 --> 00:05:57,840
+There are limits
+to the proxy's framework,
+
+88
+00:05:58,000 --> 00:06:00,200
+as seen in the last example.
+
+89
+00:06:00,520 --> 00:06:06,440
+For example, we can't capture
+messages an object sends to itself.
+
+90
+00:06:06,640 --> 00:06:07,840
+That gets tricky.
+
+91
+00:06:08,040 --> 00:06:14,160
+We can't use "become" with classes,
+as reflective models have limitations.
+
+92
+00:06:14,720 --> 00:06:18,720
+It's also risky when the proxy
+and the object to be replaced
+
+93
+00:06:18,920 --> 00:06:21,400
+both understand the same message.
+
+94
+00:06:21,760 --> 00:06:24,600
+When I send the message to the proxy,
+
+95
+00:06:24,840 --> 00:06:28,360
+it will reply,
+rather than capturing it with DNU
+
+96
+00:06:28,560 --> 00:06:31,520
+and transferring it
+to the target object.
+
+97
+00:06:32,280 --> 00:06:37,000
+Pharo has other more powerful
+proxy frameworks that trap everything,
+
+98
+00:06:37,160 --> 00:06:42,200
+but they're more complex
+than this simple example.
+
+99
+00:06:42,800 --> 00:06:46,760
+Another example
+of how to apply this technique
+
+100
+00:06:47,080 --> 00:06:53,280
+is to dynamically generate accessors,
+or even methods.
+
+101
+00:06:53,840 --> 00:06:58,400
+Here I've redefined
+the doesNotUnderstand method.
+
+102
+00:06:58,800 --> 00:07:01,200
+I see a message has been received,
+
+103
+00:07:01,400 --> 00:07:06,200
+so I test if I have the instance
+variables that include the message.
+
+104
+00:07:06,400 --> 00:07:11,200
+If so, I generate a new method
+using "compile,"
+
+105
+00:07:11,560 --> 00:07:14,040
+to define a new method for the class.
+
+106
+00:07:16,360 --> 00:07:19,600
+This will return
+the value of the variable.
+
+107
+00:07:19,760 --> 00:07:23,600
+Here I'm generating
+the variable's read-accessor.
+
+108
+00:07:24,080 --> 00:07:28,560
+If the message sent
+does not match the name
+
+109
+00:07:28,920 --> 00:07:32,840
+of an instance variable,
+I send a super doesNotUnderstand.
+
+110
+00:07:33,400 --> 00:07:38,400
+This enables us to load
+read-accessors automatically,
+
+111
+00:07:38,920 --> 00:07:41,840
+depending on
+if they've been called or not.
+
+112
+00:07:42,760 --> 00:07:45,280
+In conclusion,
+
+113
+00:07:45,400 --> 00:07:47,920
+we've seen how to use minimal objects.
+
+114
+00:07:48,080 --> 00:07:51,640
+They're not direct instances
+of the Object class,
+
+115
+00:07:51,840 --> 00:07:54,040
+but of the proto Object class.
+
+116
+00:07:54,200 --> 00:07:56,920
+They can be the basis for proxies.
+
+117
+00:07:57,200 --> 00:08:01,400
+By redefining the doesNotUnderstand
+method, we can capture
+
+118
+00:08:01,920 --> 00:08:07,800
+the existence of a failed message
+and then redirect the message.
+
+119
+00:08:08,320 --> 00:08:13,840
+It's a powerful hook that provides
+the basis of many tools in Pharo.
+
+120
+00:08:14,560 --> 00:08:18,000
+But you must be very careful
+when you use it.
+
+121
+00:08:18,280 --> 00:08:21,760
+It's only to be used when necessary.
+
+122
+00:08:22,080 --> 00:08:27,320
+Don't put it in the domain code yet,
+it's a highly advanced technique.

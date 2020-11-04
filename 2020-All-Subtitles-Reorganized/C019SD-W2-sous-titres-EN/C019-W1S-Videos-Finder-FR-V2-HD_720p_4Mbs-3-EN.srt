@@ -1,0 +1,341 @@
+1
+00:00:02,480 --> 00:00:04,160
+hello, I’d like to show you
+how to use 
+
+2
+00:00:04,327 --> 00:00:05,690
+the Finder to find information.
+
+3
+00:00:06,110 --> 00:00:08,010
+The Finder is a tool you will 
+find in
+
+4
+00:00:08,177 --> 00:00:09,550
+the Tools menu, here Finder.
+
+5
+00:00:10,890 --> 00:00:14,470
+Let’s imagine I want to look for
+a method
+
+6
+00:00:14,637 --> 00:00:16,750
+called match.
+I write its name, match.
+
+7
+00:00:18,640 --> 00:00:20,160
+Here I choose Selectors.
+
+8
+00:00:21,270 --> 00:00:23,060
+Now I see all methods
+containing
+
+9
+00:00:23,227 --> 00:00:28,000
+the word match, with the code 
+here.
+
+10
+00:00:28,157 --> 00:00:30,680
+As I set up big fonts,
+we wil
+
+11
+00:00:30,847 --> 00:00:33,470
+resize a little bit.
+
+12
+00:00:33,960 --> 00:00:36,460
+You see that when there is a
+little
+
+13
+00:00:36,627 --> 00:00:38,300
+triangle, it means the method
+
+14
+00:00:38,467 --> 00:00:41,930
+is defined over several classes, 
+and I can read that kind of thing.
+
+15
+00:00:43,350 --> 00:00:45,450
+So that was for methods, and 
+there is quite a lot.
+
+16
+00:00:46,260 --> 00:00:48,280
+You can look for things 
+but that’s not ideal.
+
+17
+00:00:50,250 --> 00:00:52,000
+Now we can search for
+
+18
+00:00:52,480 --> 00:00:57,000
+classes containing match,
+here we see all our classes.
+
+19
+00:00:59,000 --> 00:01:02,230
+The best way is to unbrowse
+using the code browser.
+
+20
+00:01:03,670 --> 00:01:04,880
+Now there a far better way.
+
+21
+00:01:05,150 --> 00:01:07,240
+Often we know what we are 
+looking for
+
+22
+00:01:07,407 --> 00:01:08,410
+but we don’t know how to express
+it.
+
+23
+00:01:09,260 --> 00:01:11,390
+So here, I know that I’d
+like to know if there
+
+24
+00:01:11,557 --> 00:01:16,520
+is a method matching ab,
+
+25
+00:01:16,810 --> 00:01:20,380
+abcd, for instance, I write
+ab*abcd
+
+26
+00:01:21,790 --> 00:01:23,360
+and if something matches it returns
+true.
+
+27
+00:01:25,060 --> 00:01:29,710
+And I choose Examples,
+and I get all
+
+28
+00:01:29,877 --> 00:01:33,270
+the methods returning True.
+
+29
+00:01:33,640 --> 00:01:34,850
+I’m going to explain what we
+see.
+
+30
+00:01:35,130 --> 00:01:36,790
+Here I see that superior 
+works as well.
+
+31
+00:01:36,957 --> 00:01:38,380
+Ah, match seems interesting.
+
+32
+00:01:40,250 --> 00:01:42,510
+The system shows me all
+
+33
+00:01:42,677 --> 00:01:45,230
+the classes defining
+the match method, but 
+
+34
+00:01:45,397 --> 00:01:47,630
+in particular the one with the
+little star is the one
+
+35
+00:01:47,797 --> 00:01:49,200
+which method has returned true.
+
+36
+00:01:50,150 --> 00:01:53,080
+So now, we can try other examples.
+
+37
+00:01:53,247 --> 00:01:56,000
+For example, given 11, 2
+
+38
+00:01:56,167 --> 00:01:59,810
+what methods returns 5. Here
+I will have
+
+39
+00:02:01,440 --> 00:02:06,300
+// and I see what has
+
+40
+00:02:06,467 --> 00:02:08,930
+returned true, it’s defined
+on Integer, so it is
+
+41
+00:02:09,097 --> 00:02:11,750
+this method or on aNumber
+which is this method there.
+
+42
+00:02:13,820 --> 00:02:15,820
+So I do the same, in the same way:
+
+43
+00:02:16,000 --> 00:02:19,100
+Now I want 5.5.
+Then I only get Diviser.
+
+44
+00:02:19,420 --> 00:02:20,390
+So it’s very useful.
+
+45
+00:02:21,700 --> 00:02:23,350
+There another way to do it:
+
+46
+00:02:23,517 --> 00:02:26,910
+you can look for 
+
+47
+00:02:27,077 --> 00:02:30,040
+all the Pragmas, Pragmas
+are the annotations
+
+48
+00:02:31,530 --> 00:02:33,210
+in the system. So if I 
+look what is an 
+
+49
+00:02:33,377 --> 00:02:34,920
+annotation, for instance it is
+this.
+
+50
+00:02:35,400 --> 00:02:38,910
+Here it is, I have annotated
+my method with a pragma named
+
+51
+00:02:39,077 --> 00:02:41,460
+Menu, and the system can
+make queries on it 
+
+52
+00:02:41,627 --> 00:02:44,780
+to build menus.
+Here by typing Menu, and
+
+53
+00:02:44,947 --> 00:02:49,890
+selecting Pragma,
+I can access to all the system’s
+
+54
+00:02:50,057 --> 00:02:52,910
+pragmas containing the menu
+word.
+
+55
+00:02:55,600 --> 00:02:57,320
+So here, we see that there are 2
+for instance, 2 pragmas.
+
+56
+00:02:58,820 --> 00:03:02,400
+The worldMenu, the one which is
+displayed 
+
+57
+00:03:02,567 --> 00:03:07,420
+when you are here, is defined
+by the Pragma menu.
+
+58
+00:03:07,587 --> 00:03:10,670
+You see worldMenu.
+
+59
+00:03:12,850 --> 00:03:17,000
+The screenShotCommand
+for example. HelpOn.
+
+60
+00:03:17,137 --> 00:03:19,520
+You see all these menus.
+
+61
+00:03:22,000 --> 00:03:25,200
+So know, with the Finder we 
+can also
+
+62
+00:03:25,690 --> 00:03:28,490
+look for methods
+
+63
+00:03:28,657 --> 00:03:33,000
+containing the “Menu” string,
+wherever they are.
+
+64
+00:03:33,167 --> 00:03:36,340
+I’m gonna do it: it takes a little time.
+
+65
+00:03:37,150 --> 00:03:39,650
+What happens is that the system
+scans
+
+66
+00:03:39,817 --> 00:03:41,230
+really all the body of all
+the methods, there are
+
+67
+00:03:41,397 --> 00:03:45,320
+80 000 in Pharo, or a little 
+bit more, and it displays the result.
+
+68
+00:03:46,880 --> 00:03:48,500
+So here, it’s really a textual
+search.
+
+69
+00:03:50,700 --> 00:03:52,260
+What’s interesting sometimes,
+when you see
+
+70
+00:03:52,427 --> 00:03:54,600
+a menu or something graphical
+you can find it back. 
+
+71
+00:03:55,420 --> 00:03:58,900
+So here, you have all the 
+methods containing the
+
+72
+00:03:59,067 --> 00:04:03,300
+Menu word, in their names
+as well as
+
+73
+00:04:03,467 --> 00:04:07,080
+elsewhere, here or there.
+

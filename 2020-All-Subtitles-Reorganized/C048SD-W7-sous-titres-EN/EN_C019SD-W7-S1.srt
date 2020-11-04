@@ -1,0 +1,635 @@
+﻿1
+00:00:08,000 --> 00:00:12,320
+Hi everyone, this video shows
+some advanced points on classes.
+
+2
+00:00:13,720 --> 00:00:15,320
+It has three main parts.
+
+3
+00:00:15,520 --> 00:00:20,760
+Firstly, how to share a state between
+instances of a class and its subclasses.
+
+4
+00:00:22,280 --> 00:00:27,240
+Secondly, how to enable classes
+to have their own variables.
+
+5
+00:00:28,600 --> 00:00:30,960
+Thirdly, how to initialize classes.
+
+6
+00:00:32,760 --> 00:00:36,160
+First up, how to share a state
+between instances.
+
+7
+00:00:37,560 --> 00:00:41,640
+Here we have a class
+with several instances.
+
+8
+00:00:41,920 --> 00:00:47,200
+To share a state, these instances
+require a common object.
+
+9
+00:00:47,720 --> 00:00:53,920
+In Java, we use an "instance" variable
+that takes the keyword "static."
+
+10
+00:00:55,160 --> 00:00:58,240
+The value of a static variable
+
+11
+00:00:58,680 --> 00:01:00,720
+is the same for all instances.
+
+12
+00:01:01,640 --> 00:01:04,640
+In Pharo, we use "class variables."
+
+13
+00:01:06,200 --> 00:01:11,120
+This should be a familiar expression
+that allows us to create classes.
+
+14
+00:01:11,480 --> 00:01:15,640
+Here we create the Color class,
+which is a subclass of Object.
+
+15
+00:01:15,800 --> 00:01:21,600
+First, we list its instance variables,
+then take a look at the line below.
+
+16
+00:01:21,920 --> 00:01:25,480
+It lists the class variables
+of the Color class.
+
+17
+00:01:26,640 --> 00:01:32,200
+Color class has at least two variables,
+ColorRegistry and ComponentMask.
+
+18
+00:01:32,720 --> 00:01:34,440
+A class variable's values
+
+19
+00:01:34,680 --> 00:01:39,400
+are shared between all instances
+of the class and subclasses.
+
+20
+00:01:40,480 --> 00:01:46,600
+These variables are accessible
+from both instance and class methods.
+
+21
+00:01:47,480 --> 00:01:49,920
+They start with a capital letter.
+
+22
+00:01:50,520 --> 00:01:52,840
+Let's go back to our example.
+
+23
+00:01:53,320 --> 00:01:55,600
+Here we have our Color class,
+
+24
+00:01:55,920 --> 00:01:59,520
+which is an instance
+of the metaclass Color class.
+
+25
+00:02:01,160 --> 00:02:06,760
+The Color class defines
+two standard variables, rgb and alpha.
+
+26
+00:02:06,960 --> 00:02:09,720
+These instance variables are private,
+
+27
+00:02:10,760 --> 00:02:16,240
+meaning that they're only accessible
+using Color class methods.
+
+28
+00:02:18,440 --> 00:02:24,560
+It also defines ColorRegistry,
+which is underlined and uses capitals.
+
+29
+00:02:25,240 --> 00:02:28,360
+This indicates that this variable
+is shared.
+
+30
+00:02:29,480 --> 00:02:33,080
+It's a class variable that is accessible
+
+31
+00:02:33,600 --> 00:02:39,640
+by the methods of the Color class
+and those of the class Color class.
+
+32
+00:02:40,240 --> 00:02:43,600
+Here are some examples
+of uses of this variable.
+
+33
+00:02:44,000 --> 00:02:48,520
+In one instance method,
+that of privateBlue in the Color class,
+
+34
+00:02:48,840 --> 00:02:54,320
+we access the class variable
+using its name.
+
+35
+00:02:55,360 --> 00:02:59,280
+Likewise, if we want to
+give this variable a value,
+
+36
+00:02:59,640 --> 00:03:03,560
+we use a colon-equals sign,
+as with any variable.
+
+37
+00:03:03,880 --> 00:03:06,920
+We can do this
+on the instance or class side.
+
+38
+00:03:07,400 --> 00:03:08,480
+Very often,
+
+39
+00:03:09,000 --> 00:03:14,720
+the values of these class variables
+can be read
+
+40
+00:03:15,800 --> 00:03:17,600
+within instance methods,
+
+41
+00:03:17,800 --> 00:03:21,680
+and are written within class methods.
+
+42
+00:03:22,080 --> 00:03:25,960
+This is what occurs most frequently,
+it's not obligatory.
+
+43
+00:03:28,040 --> 00:03:31,440
+Now let's look at
+instance variables of classes.
+
+44
+00:03:33,320 --> 00:03:34,920
+It's not the same thing.
+
+45
+00:03:35,200 --> 00:03:38,360
+A class is an object,
+like everything else.
+
+46
+00:03:38,520 --> 00:03:41,600
+Like all objects,
+a class can have instances.
+
+47
+00:03:42,440 --> 00:03:48,560
+The metaclass describes the class
+and lists the instance variables
+
+48
+00:03:48,760 --> 00:03:52,800
+that can only be accessed
+by its sole instance, its class.
+
+49
+00:03:53,440 --> 00:03:57,840
+To define an instance variable
+on the class side,
+
+50
+00:03:58,480 --> 00:04:02,000
+we click on the "class" button
+in the code browser.
+
+51
+00:04:02,160 --> 00:04:04,400
+That gives us the expression here.
+
+52
+00:04:04,560 --> 00:04:07,840
+So, now I'm browsing
+the RPackageSet class.
+
+53
+00:04:08,280 --> 00:04:13,400
+The metaclass of this class
+defines a variable named cachePackages.
+
+54
+00:04:15,440 --> 00:04:19,240
+These variables can only be accessed
+from class methods
+
+55
+00:04:20,280 --> 00:04:24,920
+and they always start
+with a lowercase letter.
+
+56
+00:04:25,800 --> 00:04:27,240
+Here's an example.
+
+57
+00:04:27,960 --> 00:04:32,960
+The variable cachePackages is defined
+in the metaclass RPackageSet class.
+
+58
+00:04:35,280 --> 00:04:36,720
+This means that
+
+59
+00:04:37,520 --> 00:04:42,480
+the RPackageSet class,
+which is an instance of the metaclass,
+
+60
+00:04:42,640 --> 00:04:45,560
+has a value
+associated with this variable.
+
+61
+00:04:46,840 --> 00:04:48,080
+Similarly,
+
+62
+00:04:49,280 --> 00:04:53,760
+all instances of the subclasses
+of the RPackageSet class
+
+63
+00:04:54,000 --> 00:04:58,600
+have a specific value for that variable,
+which is a different value.
+
+64
+00:04:58,760 --> 00:05:00,400
+There's no sharing here.
+
+65
+00:05:00,600 --> 00:05:04,920
+Each instance of the RPackageSet class
+or its subclasses
+
+66
+00:05:05,080 --> 00:05:07,600
+has its own value for this variable.
+
+67
+00:05:08,040 --> 00:05:14,040
+Class variables and instance variables
+on the class side are different things.
+
+68
+00:05:14,200 --> 00:05:17,960
+We'll explain this
+using the Singleton Design Pattern,
+
+69
+00:05:18,160 --> 00:05:23,240
+whose purpose is to ensure
+that a class has only one instance.
+
+70
+00:05:24,800 --> 00:05:29,720
+One solution for executing this Pattern
+is to store, within a variable,
+
+71
+00:05:30,920 --> 00:05:36,160
+the instance that is freely accessible
+and disable creation of a new instance.
+
+72
+00:05:36,920 --> 00:05:39,920
+That's what we'll do here
+with WebServer.
+
+73
+00:05:41,040 --> 00:05:45,440
+Here we use an instance variable
+on the class side.
+
+74
+00:05:46,760 --> 00:05:48,960
+Its name takes lower case.
+
+75
+00:05:49,120 --> 00:05:53,200
+This variable is defined
+in the definition of the metaclass.
+
+76
+00:05:53,760 --> 00:05:56,920
+Now we disable execution
+of the "new" method.
+
+77
+00:05:57,200 --> 00:06:02,040
+No messages can be sent to
+WebServer class to create new instances.
+
+78
+00:06:02,240 --> 00:06:05,200
+It's imperative
+to go via uniqueInstance,
+
+79
+00:06:05,360 --> 00:06:10,640
+which either returns the variable's value
+if it's not nil and has content,
+
+80
+00:06:11,200 --> 00:06:15,440
+or else it adds something
+to the variable using "super new."
+
+81
+00:06:15,600 --> 00:06:18,840
+It creates a new instance
+of WebServer class,
+
+82
+00:06:19,000 --> 00:06:21,960
+and stores it
+in the uniqueInstance variable.
+
+83
+00:06:22,560 --> 00:06:27,760
+The fact that we use
+class instance variables
+
+84
+00:06:28,400 --> 00:06:30,480
+leads to the following result.
+
+85
+00:06:31,240 --> 00:06:34,000
+Each subclass of the WebServer class
+
+86
+00:06:34,520 --> 00:06:36,640
+will have its own value
+
+87
+00:06:37,240 --> 00:06:39,640
+for uniqueInstance.
+
+88
+00:06:40,120 --> 00:06:43,040
+So, if WebServer has three subclasses,
+
+89
+00:06:43,200 --> 00:06:47,480
+the uniqueInstance variable
+will have a total of four values.
+
+90
+00:06:47,640 --> 00:06:50,600
+One for WebServer and for each subclass.
+
+91
+00:06:51,320 --> 00:06:54,600
+If we now use a class variable,
+
+92
+00:06:55,160 --> 00:07:00,000
+we edit the class on the instance side
+
+93
+00:07:00,200 --> 00:07:04,480
+and we add UniqueInstance,
+using a capital U.
+
+94
+00:07:06,720 --> 00:07:11,920
+Again we disallow sending "new" messages
+and implement UniqueInstance.
+
+95
+00:07:12,080 --> 00:07:16,200
+The only difference
+is that we use a capital U.
+
+96
+00:07:18,080 --> 00:07:21,040
+As a result of choosing a class variable,
+
+97
+00:07:22,120 --> 00:07:25,040
+the class hierarchy
+has only one singleton.
+
+98
+00:07:25,240 --> 00:07:27,520
+If WebServer has three subclasses,
+
+99
+00:07:27,680 --> 00:07:32,080
+these three subclasses and WebServer
+share the same singleton.
+
+100
+00:07:32,240 --> 00:07:35,680
+Thus we have one instance shared by all.
+
+101
+00:07:36,640 --> 00:07:38,680
+Now for class initialization.
+
+102
+00:07:38,920 --> 00:07:43,720
+We can have variables shared
+between a class and its instances,
+
+103
+00:07:43,920 --> 00:07:46,960
+but at some point
+we must give them a value.
+
+104
+00:07:47,800 --> 00:07:50,400
+We do this when we initialize the class.
+
+105
+00:07:50,560 --> 00:07:55,160
+Objects are initialized
+when the initialize message is sent.
+
+106
+00:07:55,320 --> 00:07:59,120
+Likewise, we can send
+the initialize message to a class.
+
+107
+00:07:59,320 --> 00:08:04,240
+We decide how to initialize variables
+using the initialize method code.
+
+108
+00:08:05,840 --> 00:08:09,000
+If we want to initialize
+the Color class,
+
+109
+00:08:09,320 --> 00:08:11,840
+we send the initialize message to it.
+
+110
+00:08:12,680 --> 00:08:16,840
+Typically, when a class
+is loaded in the system
+
+111
+00:08:17,160 --> 00:08:19,040
+by the version control tool,
+
+112
+00:08:19,280 --> 00:08:22,520
+the initialize message
+is sent to all classes.
+
+113
+00:08:22,880 --> 00:08:26,560
+This is automatic,
+there's no need to send the message
+
+114
+00:08:26,920 --> 00:08:28,960
+manually to all classes loaded.
+
+115
+00:08:29,120 --> 00:08:31,120
+But if we implement a class,
+
+116
+00:08:31,320 --> 00:08:35,000
+if we create a new class
+using the initialize method
+
+117
+00:08:35,400 --> 00:08:37,760
+we must send the message manually.
+
+118
+00:08:38,640 --> 00:08:41,280
+Here's an example in the Color class.
+
+119
+00:08:41,480 --> 00:08:44,360
+We can see we're on the metaclass side.
+
+120
+00:08:44,680 --> 00:08:49,000
+Here we initialize
+several class variables,
+
+121
+00:08:50,320 --> 00:08:53,000
+or instance variables on the class side.
+
+122
+00:08:53,240 --> 00:08:55,960
+There are both types of variable here.
+
+123
+00:08:57,800 --> 00:08:59,680
+In the initialize methods,
+
+124
+00:08:59,880 --> 00:09:03,360
+we never use super initialize
+on the class side.
+
+125
+00:09:03,560 --> 00:09:07,880
+When we add an initialize method
+on the instance side,
+
+126
+00:09:08,080 --> 00:09:10,920
+we systematically call super initialize
+
+127
+00:09:11,080 --> 00:09:15,320
+to initialize all instance variables
+of a newly created object.
+
+128
+00:09:15,520 --> 00:09:16,760
+But for classes,
+
+129
+00:09:16,920 --> 00:09:22,000
+since classes and superclasses exist
+when the initialize message is sent,
+
+130
+00:09:22,160 --> 00:09:25,920
+we don't call super initialize
+in the initialize method
+
+131
+00:09:26,120 --> 00:09:29,760
+on the class side
+to avoid re-initializing classes.
+
+132
+00:09:30,160 --> 00:09:31,680
+Here are the takeaways.
+
+133
+00:09:31,880 --> 00:09:35,640
+We use class variables to share a state.
+
+134
+00:09:37,200 --> 00:09:41,000
+Classes are objects
+that can have their own variables,
+
+135
+00:09:41,160 --> 00:09:44,320
+so we use instance variables
+on the class side.
+
+136
+00:09:45,000 --> 00:09:48,680
+To initialize a class,
+we send it an initialize message
+
+137
+00:09:48,840 --> 00:09:52,200
+and apply the initialize method
+on the class side.

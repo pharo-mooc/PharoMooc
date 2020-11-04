@@ -1,0 +1,171 @@
+1
+00:00:00,040 --> 00:00:00,080
+"Redo : comprendre l'historique
+des sauvegardes avec Iceberg"
+
+2
+00:00:00,120 --> 00:00:00,160
+Quentin Ducasse.
+
+3
+00:00:04,480 --> 00:00:05,320
+-Bonjour à tous.
+
+4
+00:00:05,640 --> 00:00:07,000
+Dans cette septième et dernière partie,
+
+5
+00:00:07,320 --> 00:00:10,240
+on va s'intéresser à l'historique
+qu'a pu générer Iceberg
+
+6
+00:00:10,560 --> 00:00:12,360
+qui est l'outil de version control
+
+7
+00:00:12,680 --> 00:00:15,080
+dont on s'est servi
+pour commit les changements
+
+8
+00:00:15,400 --> 00:00:18,800
+et sauvegarder quelque part ce qu'on a
+fait avec notre package MyCounter.
+
+9
+00:00:19,120 --> 00:00:21,160
+On va se diriger dans l'outil Iceberg.
+
+10
+00:00:21,960 --> 00:00:24,360
+On va se diriger
+dans le repository MyCounter.
+
+11
+00:00:25,240 --> 00:00:28,120
+On va aller faire clic droit,
+aller dans Repository
+
+12
+00:00:28,440 --> 00:00:31,280
+et on pourra avoir l'historique
+de tous les Commit qu'on a pu faire,
+
+13
+00:00:31,600 --> 00:00:35,920
+donc, le premier Commit,
+un Commit pour présenter Iceberg,
+
+14
+00:00:36,240 --> 00:00:38,280
+les méthodes d'initialisation et printOn:
+
+15
+00:00:38,600 --> 00:00:41,360
+On peut regarder la différence
+entre ce Commit et HEAD
+
+16
+00:00:41,680 --> 00:00:44,120
+qui est le Commit
+où on se situe actuellement.
+
+17
+00:00:44,440 --> 00:00:47,040
+Et on peut voir que depuis, on a rajouté
+les méthodes d'initialisation,
+
+18
+00:00:47,360 --> 00:00:49,800
+des méthodes de classes
+et des tests sur ces méthodes.
+
+19
+00:00:50,120 --> 00:00:53,000
+C'est exactement la même chose
+pour ceux d'après.
+
+20
+00:00:53,320 --> 00:00:55,480
+On peut aussi regarder la différence
+entre un Commit et le précédent.
+
+21
+00:00:55,800 --> 00:00:57,960
+Par exemple,
+pour passer de celui-là à celui-là,
+
+22
+00:00:58,280 --> 00:01:00,880
+on a rajouté toutes les méthodes
+d'initialisation et leurs tests.
+
+23
+00:01:01,200 --> 00:01:04,120
+Imaginons que les méthodes
+d'initialisation et printOn:
+
+24
+00:01:04,440 --> 00:01:06,000
+ne nous intéressent pas,
+qu'on s'est trompés
+
+25
+00:01:06,320 --> 00:01:08,440
+et qu'on aimerait retourner
+sur ce Commit, ici.
+
+26
+00:01:08,760 --> 00:01:11,840
+Il s'agit simplement de faire clic droit,
+de faire Checkout.
+
+27
+00:01:12,160 --> 00:01:16,240
+Iceberg va nous montrer
+ce qui va changer dans notre image
+
+28
+00:01:16,560 --> 00:01:18,160
+et on va pouvoir checkout.
+
+29
+00:01:19,000 --> 00:01:21,760
+Si on va inspecter
+le package dans le situ,
+
+30
+00:01:22,080 --> 00:01:26,080
+on voit qu'on n'a plus de méthode
+d'initialisation ni de printOn:,
+
+31
+00:01:26,400 --> 00:01:28,240
+donc c'est une bonne manière
+de revenir en arrière
+
+32
+00:01:28,560 --> 00:01:31,000
+sur un choix
+qui a été mauvais de votre part
+
+33
+00:01:31,320 --> 00:01:33,360
+ou si vous aimeriez essayer
+autre chose.
+
+34
+00:01:33,680 --> 00:01:35,760
+Iceberg peut s'occuper de ça pour vous.
+
+35
+00:01:36,200 --> 00:01:39,000
+C'était un dernier regard
+sur l'outil Iceberg
+
+36
+00:01:39,320 --> 00:01:41,480
+dont on s'est servi,
+au cours de ce Redo.

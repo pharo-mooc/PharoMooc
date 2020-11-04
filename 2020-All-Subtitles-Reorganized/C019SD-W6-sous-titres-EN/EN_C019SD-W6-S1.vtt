@@ -1,0 +1,461 @@
+WEBVTT
+
+00:00:07.280 --> 00:00:11.520 align:middle
+Hello, everybody.
+In today's class, we are going to see
+
+00:00:11.680 --> 00:00:14.520 align:middle
+if you have understood
+our previous classes,
+
+00:00:14.680 --> 00:00:16.440 align:middle
+namely as regards super.
+
+00:00:16.680 --> 00:00:19.440 align:middle
+The idea is to make you think hard.
+
+00:00:19.600 --> 00:00:22.480 align:middle
+I have a test to see
+if you've understood.
+
+00:00:23.360 --> 00:00:25.080 align:middle
+What will you learn?
+
+00:00:25.240 --> 00:00:27.520 align:middle
+You'll think about what super is,
+
+00:00:27.680 --> 00:00:29.960 align:middle
+revisit message lookup,
+
+00:00:30.120 --> 00:00:32.240 align:middle
+and think about class methods.
+
+00:00:32.400 --> 00:00:35.520 align:middle
+It's a lot of material for one class,
+but it's fun.
+
+00:00:36.360 --> 00:00:42.040 align:middle
+Imagine that I defined a method
+in the dice class,
+
+00:00:42.200 --> 00:00:44.560 align:middle
+and redefined
+the "new" method as follows:
+
+00:00:44.720 --> 00:00:47.800 align:middle
+Here is "new" and here is the code.
+
+00:00:47.960 --> 00:00:50.960 align:middle
+inst := super new.
+
+00:00:51.120 --> 00:00:52.840 align:middle
+inst initialize. Return inst.
+
+00:00:53.000 --> 00:00:56.920 align:middle
+Now I execute
+the expression dice new.
+
+00:00:57.960 --> 00:01:01.560 align:middle
+Now my question for you is:
+
+00:01:01.720 --> 00:01:05.320 align:middle
+In this expression, what is inst?
+
+00:01:05.480 --> 00:01:07.120 align:middle
+What is super?
+
+00:01:07.280 --> 00:01:09.280 align:middle
+And what is super new?
+
+00:01:09.720 --> 00:01:14.120 align:middle
+I'll give you a few seconds
+to think it over.
+
+00:01:16.600 --> 00:01:19.000 align:middle
+I'll give you a few clues.
+
+00:01:20.040 --> 00:01:23.560 align:middle
+They're based on my teaching experience.
+
+00:01:24.400 --> 00:01:28.200 align:middle
+No, super is not the superclass.
+
+00:01:28.360 --> 00:01:30.360 align:middle
+Get that out of your heads.
+
+00:01:30.520 --> 00:01:33.560 align:middle
+No, inst is not
+an instance of the superclass.
+
+00:01:33.720 --> 00:01:38.200 align:middle
+If it was, we could never
+write instances for the classes below.
+
+00:01:38.760 --> 00:01:40.440 align:middle
+So what is it?
+
+00:01:41.120 --> 00:01:42.120 align:middle
+Let's take a look.
+
+00:01:42.280 --> 00:01:44.200 align:middle
+We said in the video on super
+
+00:01:44.360 --> 00:01:47.000 align:middle
+that super was the receiver
+of the message.
+
+00:01:47.440 --> 00:01:50.800 align:middle
+Like self, super points out
+the receiver of the message.
+
+00:01:50.960 --> 00:01:52.840 align:middle
+This is not specific to Pharo.
+
+00:01:53.000 --> 00:01:56.920 align:middle
+It's true in all object-oriented
+languages such as Java, C#,
+
+00:01:57.760 --> 00:01:59.040 align:middle
+and Smalltalk.
+
+00:01:59.840 --> 00:02:03.400 align:middle
+Here the message is dice new.
+
+00:02:03.560 --> 00:02:07.040 align:middle
+So what's the receiver?
+Syntactically speaking, it's dice.
+
+00:02:07.200 --> 00:02:09.880 align:middle
+The class is dice.
+
+00:02:10.040 --> 00:02:14.720 align:middle
+With these clues,
+you should understand better.
+
+00:02:16.160 --> 00:02:17.280 align:middle
+Let's see.
+
+00:02:18.160 --> 00:02:21.560 align:middle
+You remember how message lookup works?
+
+00:02:21.720 --> 00:02:24.000 align:middle
+I send a message to an instance,
+
+00:02:24.160 --> 00:02:26.000 align:middle
+for example,
+ColoredRectangle.
+
+00:02:26.160 --> 00:02:29.480 align:middle
+I look inside
+the ColoredRectangle class
+
+00:02:29.640 --> 00:02:32.880 align:middle
+to see if the method in question
+is defined. It's not.
+
+00:02:33.040 --> 00:02:35.680 align:middle
+"Area" is not defined.
+I find it up here.
+
+00:02:35.840 --> 00:02:40.120 align:middle
+I apply the definition I found.
+
+00:02:40.280 --> 00:02:42.600 align:middle
+On what? On the receiver.
+
+00:02:43.280 --> 00:02:46.320 align:middle
+Now you should understand
+what this method does.
+
+00:02:46.480 --> 00:02:51.560 align:middle
+I look up "new" in the dice class.
+
+00:02:51.720 --> 00:02:56.760 align:middle
+I look it up and apply it on dice.
+
+00:02:56.920 --> 00:02:59.480 align:middle
+Let's take a closer look.
+
+00:02:59.640 --> 00:03:01.440 align:middle
+As I explained previously,
+
+00:03:01.600 --> 00:03:05.600 align:middle
+in Pharo, only one message is sent
+with one method lookup.
+
+00:03:05.760 --> 00:03:09.560 align:middle
+So when I send a message
+to any object whatsoever,
+
+00:03:09.720 --> 00:03:12.600 align:middle
+I always look in the class.
+I follow this link.
+
+00:03:12.760 --> 00:03:14.160 align:middle
+Then this one here.
+
+00:03:14.320 --> 00:03:16.320 align:middle
+It's always these two steps.
+
+00:03:16.480 --> 00:03:18.720 align:middle
+What does this say about our system?
+
+00:03:18.880 --> 00:03:21.640 align:middle
+I told you, super is the receiver.
+
+00:03:22.920 --> 00:03:25.320 align:middle
+The receiver was dice.
+
+00:03:26.000 --> 00:03:31.000 align:middle
+So I look for new
+in the superclass of the dice class.
+
+00:03:31.160 --> 00:03:34.680 align:middle
+The key here is that it's dice class
+and not dice.
+
+00:03:34.840 --> 00:03:36.960 align:middle
+We'll see it graphically afterwards.
+
+00:03:37.120 --> 00:03:39.520 align:middle
+Once I've found the new "new,"
+
+00:03:39.680 --> 00:03:42.640 align:middle
+I apply it to the receiver,
+which is dice.
+
+00:03:42.800 --> 00:03:44.680 align:middle
+What does this do?
+
+00:03:44.840 --> 00:03:47.200 align:middle
+I apply new to dice,
+
+00:03:47.360 --> 00:03:51.800 align:middle
+which will create and initialize
+a new instance of dice.
+
+00:03:51.960 --> 00:03:54.240 align:middle
+Inst will be my new instance.
+
+00:03:54.400 --> 00:03:55.920 align:middle
+One dice.
+
+00:03:56.360 --> 00:03:58.760 align:middle
+And I will initialize and return it.
+
+00:03:58.920 --> 00:04:01.640 align:middle
+Let's take a look at a diagram.
+
+00:04:01.800 --> 00:04:04.240 align:middle
+When I send new to dice,
+
+00:04:04.400 --> 00:04:07.960 align:middle
+where do I look?
+Which class do I look in?
+
+00:04:08.120 --> 00:04:09.760 align:middle
+I look in dice class.
+
+00:04:10.440 --> 00:04:12.720 align:middle
+This is where I use my famous method.
+
+00:04:12.880 --> 00:04:16.920 align:middle
+What do I do now?
+What did we say about super?
+
+00:04:18.720 --> 00:04:21.800 align:middle
+Super is the dice class.
+It is the receiver.
+
+00:04:21.960 --> 00:04:23.840 align:middle
+I sent the message to this object.
+
+00:04:25.400 --> 00:04:27.680 align:middle
+Super tells me to look inside
+
+00:04:27.840 --> 00:04:31.440 align:middle
+the superclass
+of the class containing the expression.
+
+00:04:31.600 --> 00:04:36.720 align:middle
+So I look in the superclass
+of the dice class.
+
+00:04:36.880 --> 00:04:39.760 align:middle
+I look up here.
+And somewhere up here,
+
+00:04:39.920 --> 00:04:41.200 align:middle
+we'll see later on,
+
+00:04:41.360 --> 00:04:42.920 align:middle
+new is defined.
+
+00:04:43.080 --> 00:04:44.360 align:middle
+What about lookup?
+
+00:04:44.520 --> 00:04:46.920 align:middle
+We said that the method
+is defined here,
+
+00:04:47.080 --> 00:04:51.960 align:middle
+and we apply it on the receiver.
+I apply it on dice.
+
+00:04:52.120 --> 00:04:55.480 align:middle
+And this gives me a new instance.
+I'll draw it in.
+
+00:04:55.640 --> 00:04:58.120 align:middle
+It returns an instance: A dice.
+
+00:04:58.280 --> 00:05:02.000 align:middle
+And inst is pointed at
+this new instance.
+
+00:05:03.000 --> 00:05:05.400 align:middle
+So inst is a new dice.
+
+00:05:06.040 --> 00:05:10.680 align:middle
+I send the initialize message to inst,
+and then I return it.
+
+00:05:10.840 --> 00:05:15.760 align:middle
+You often struggle with this example
+because it's very rhetorical.
+
+00:05:15.920 --> 00:05:19.840 align:middle
+I do it on purpose
+to see if you've understood.
+
+00:05:20.000 --> 00:05:21.920 align:middle
+It mixes two things.
+
+00:05:22.080 --> 00:05:23.880 align:middle
+One, super.
+
+00:05:24.040 --> 00:05:29.040 align:middle
+I look in the superclass of the class
+that contains the expression super,
+
+00:05:29.200 --> 00:05:31.440 align:middle
+knowing that super is the receiver.
+
+00:05:31.600 --> 00:05:35.240 align:middle
+And two, new.
+It's a method that creates objects.
+
+00:05:35.400 --> 00:05:37.120 align:middle
+This is where the two meet,
+
+00:05:37.280 --> 00:05:40.080 align:middle
+and you have
+a hard time understanding this.
+
+00:05:40.240 --> 00:05:43.520 align:middle
+I suggest that you really review
+this lesson,
+
+00:05:43.680 --> 00:05:45.640 align:middle
+because it's very important.
+
+00:05:45.800 --> 00:05:46.920 align:middle
+I'll repeat it.
+
+00:05:47.080 --> 00:05:50.240 align:middle
+Super is the receiver of the message,
+
+00:05:50.400 --> 00:05:53.160 align:middle
+which in this case is dice.
+
+00:05:53.320 --> 00:05:57.560 align:middle
+I look in the superclass
+of the dice class for the new method
+
+00:05:57.720 --> 00:06:02.320 align:middle
+that I will apply to dice, the receiver,
+to find my terminal instance.
+
+00:06:03.120 --> 00:06:04.280 align:middle
+Okay?
+
+00:06:05.760 --> 00:06:11.080 align:middle
+In sum: Sending a message is looking up
+a method in the receiver class.
+
+00:06:11.240 --> 00:06:13.080 align:middle
+That's what we do each time.
+
+00:06:13.240 --> 00:06:15.960 align:middle
+That's all you can do in Pharo,
+so it's easy.
+
+00:06:16.160 --> 00:06:20.400 align:middle
+By now you know that super means looking
+in the superclass of the class
+
+00:06:20.560 --> 00:06:22.680 align:middle
+containing the expression super.
+
+00:06:22.880 --> 00:06:26.440 align:middle
+And that super is the receiver,
+but it can be a class too.
+
+00:06:26.880 --> 00:06:30.160 align:middle
+We're not done yet.
+I have another problem for you.
+
+00:06:30.320 --> 00:06:33.520 align:middle
+If you're studying Pharo,
+you must like challenges.
+
+00:06:33.680 --> 00:06:37.520 align:middle
+Here we go. Imagine that I have
+the following problem:
+
+00:06:37.680 --> 00:06:41.120 align:middle
+The method says:
+"Make super-space-class
+
+00:06:41.280 --> 00:06:42.880 align:middle
+"equal equal self class."
+
+00:06:43.040 --> 00:06:46.520 align:middle
+What does "equal equal" mean?
+It's the pointer's identity.
+
+00:06:46.680 --> 00:06:49.800 align:middle
+In fact, I'm asking:
+Is the object obtained
+
+00:06:49.960 --> 00:06:53.200 align:middle
+with super-space-class the same
+
+00:06:53.360 --> 00:06:56.160 align:middle
+as the object obtained
+with self-equal-class?
+
+00:06:56.360 --> 00:06:59.760 align:middle
+I defined this method,
+which will return true or false.
+
+00:06:59.920 --> 00:07:01.280 align:middle
+My question for you is:
+
+00:07:01.440 --> 00:07:05.200 align:middle
+What is the result of A new foo?
+
+00:07:05.360 --> 00:07:07.600 align:middle
+I create a new instance of A
+
+00:07:07.760 --> 00:07:11.360 align:middle
+and I send the message foo,
+which will edit this message.
+
+00:07:11.520 --> 00:07:13.600 align:middle
+What is the result and why?
+
+00:07:13.760 --> 00:07:17.120 align:middle
+You'll have to think
+because I won't give you this answer.
+

@@ -1,0 +1,710 @@
+1
+00:00:00,770 --> 00:00:03,090
+Bonjour. Dans cette
+séquence on va revenir sur Seaside,
+
+2
+00:00:03,290 --> 00:00:06,810
+et notamment sur la partie des
+générations du code HTML, d'un composant.
+
+3
+00:00:07,590 --> 00:00:10,260
+Donc je vous rappelle en
+Seaside il y a des composants.
+
+4
+00:00:10,460 --> 00:00:12,720
+Tous les composants
+répondent au message renderCounterOn,
+
+5
+00:00:14,160 --> 00:00:17,890
+qui permet de générer le code
+HTML qui correspond à un composant.
+
+6
+00:00:19,060 --> 00:00:22,610
+Donc cette méthode a un
+paramètre qui s'appelle HTML qui
+
+7
+00:00:22,810 --> 00:00:26,320
+est un objet instance de la
+ classe WAHtmlCanvas ou d'une
+
+8
+00:00:26,520 --> 00:00:28,890
+sous-classe, qui est
+spécialisée donc qui offre une API
+
+9
+00:00:29,180 --> 00:00:31,090
+aux programmeurs, pour
+générer des codes HTML valides.
+
+10
+00:00:32,170 --> 00:00:35,570
+Donc je vous rappelle ici
+le code du Counter donc cet
+
+11
+00:00:35,770 --> 00:00:38,180
+objet HTML ici il est
+utilisé pour générer des titres,
+
+12
+00:00:38,380 --> 00:00:40,300
+des ancres, des
+espaces et une autre ancre.
+
+13
+00:00:40,500 --> 00:00:41,360
+D'accord !
+
+14
+00:00:41,920 --> 00:00:44,500
+Donc on va revenir sur ce
+langage dédié dans cette séquence.
+
+15
+00:00:46,240 --> 00:00:48,650
+Donc ce langage dédié en
+fait il est constitué de
+
+16
+00:00:48,850 --> 00:00:52,350
+pinceau, donc brushes,
+d'accord, et chaque pinceau va
+
+17
+00:00:52,550 --> 00:00:55,610
+être spécialisé dans la
+génération d'une balise HTML particulière.
+
+18
+00:00:56,150 --> 00:00:59,260
+Donc mais avec une API qui est objet.
+
+19
+00:00:59,680 --> 00:01:01,380
+D'accord !
+
+20
+00:01:01,580 --> 00:01:03,880
+Et par construction
+forcément, vu que j'ai utilisé des
+
+21
+00:01:04,080 --> 00:01:06,640
+envois de messages à des
+objets, par construction le code
+
+22
+00:01:06,840 --> 00:01:09,920
+HTML généré sera toujours
+valide si on ne s'est pas
+
+23
+00:01:10,120 --> 00:01:12,900
+trompé dans les envois de messages.
+
+24
+00:01:15,090 --> 00:01:16,370
+Je vous donne un exemple ici.
+
+25
+00:01:16,610 --> 00:01:20,390
+Donc si j'utilise le langage
+dédié et cet objet HTML, je
+
+26
+00:01:20,590 --> 00:01:23,650
+lui envoie le message div
+donc ça ça va me rendre un
+
+27
+00:01:23,850 --> 00:01:27,450
+objet, et cet objet c'est
+un pinceau spécialisé dans la
+
+28
+00:01:27,650 --> 00:01:30,200
+génération de codes HTML div.
+
+29
+00:01:30,400 --> 00:01:35,310
+Donc qui comprend le
+message "Id" et il comprend
+
+30
+00:01:35,510 --> 00:01:39,350
+le message "With". Donc
+ici ça me génère bien une div
+
+31
+00:01:39,550 --> 00:01:44,240
+avec un attribut "Id =
+Title" et puis au message div
+
+32
+00:01:44,440 --> 00:01:45,810
+le paramètre, j'avais
+placé une chaîne de caractères
+
+33
+00:01:46,010 --> 00:01:47,810
+title qui se retrouvent dans la div.
+
+34
+00:01:49,390 --> 00:01:51,960
+Je peux générer des
+choses plus complexes, donc
+
+35
+00:01:52,160 --> 00:01:55,330
+typiquement le message c'est
+toujours le même début, donc
+
+36
+00:01:55,530 --> 00:02:00,160
+HTML div id:list, d'accord
+donc c'est ici div, sauf qu'à
+
+37
+00:02:00,360 --> 00:02:02,470
+l'intérieur de cette div je
+peux avoir plein d'autres balises.
+
+38
+00:02:02,910 --> 00:02:05,650
+Donc pour ça with au lieu
+de lui passer directement une
+
+39
+00:02:05,850 --> 00:02:08,410
+chaîne de caractères je vais lui
+passer un block, et à l'intérieur
+
+40
+00:02:08,610 --> 00:02:11,460
+de ce block je vais pouvoir
+réutiliser mon objet HTML et
+
+41
+00:02:11,660 --> 00:02:13,560
+d'autres pinceaux pour
+générer d'autres types de balises.
+
+42
+00:02:14,020 --> 00:02:18,790
+Donc HTML span class Item,
+donc je mets une spam qui est
+
+43
+00:02:19,000 --> 00:02:21,110
+un attribut classe avec un contenu.
+
+44
+00:02:24,410 --> 00:02:27,370
+Je peux maintenant utiliser
+des boucles puisque c'est un
+
+45
+00:02:27,570 --> 00:02:29,670
+langage dédié chez
+toute la puissance de Pharo.
+
+46
+00:02:30,010 --> 00:02:34,290
+Donc par exemple je vais générer
+une liste non ordonnée, donc ici.
+
+47
+00:02:35,260 --> 00:02:40,060
+UnordererList ici "ul",
+qui a un attribut Id list.
+
+48
+00:02:40,570 --> 00:02:42,860
+Et puis à l'intérieur de
+cette liste non ordonnée je vais
+
+49
+00:02:43,060 --> 00:02:46,510
+avoir des listItem donc
+listitem qui sont ici, sauf que
+
+50
+00:02:46,710 --> 00:02:48,290
+je les ai générées en
+utilisant une boucle For.
+
+51
+00:02:48,550 --> 00:02:50,930
+Donc ici j'ai une boucle 1 to do.
+
+52
+00:02:51,130 --> 00:02:54,660
+Donc 1 tout simple, do une
+boucle classique Pharo, donc
+
+53
+00:02:55,000 --> 00:02:58,390
+je vais générer 5 listes
+Item avec un attribut classe
+
+54
+00:02:59,030 --> 00:03:02,620
+Item, donc le même
+attribut classe et puis le nom de
+
+55
+00:03:02,820 --> 00:03:06,540
+chacun des listeItem j'ai
+concatèné le curseur de boucles
+
+56
+00:03:08,300 --> 00:03:09,720
+: donc Item 1, Item
+2, Item 3, Item 4.
+
+57
+00:03:12,680 --> 00:03:14,650
+On peut aller encore
+un petit cran plus loin.
+
+58
+00:03:14,910 --> 00:03:17,060
+On pourrait dire en fait
+je voudrais des classes CSS
+
+59
+00:03:17,260 --> 00:03:21,770
+différentes pour chacune
+des listeItems, en fonction de
+
+60
+00:03:22,110 --> 00:03:23,650
+si le curseur de
+boucles est pair ou impair.
+
+61
+00:03:24,470 --> 00:03:27,080
+Donc typiquement par
+exemple ici je vais utiliser le
+
+62
+00:03:27,280 --> 00:03:31,860
+message "class if", donc
+ajoute cette classe si cette
+
+63
+00:03:32,060 --> 00:03:35,000
+condition est vérifiée ou
+alors ajoute cette classe CSS
+
+64
+00:03:35,550 --> 00:03:37,000
+si cette condition est vérifiée.
+
+65
+00:03:37,340 --> 00:03:40,080
+Et on peut voir que dans
+le code généré on a bien le
+
+66
+00:03:40,280 --> 00:03:45,180
+premier listItem qui a
+cette classe CSS là, Itemodd, et
+
+67
+00:03:45,380 --> 00:03:47,810
+le deuxième list Item
+qui à cette classe CSS là.
+
+68
+00:03:49,110 --> 00:03:51,690
+Donc là c'est un élément pair,
+impair, et cetera et caetera.
+
+69
+00:03:52,860 --> 00:03:55,800
+Donc on voit qu'ici on a une
+syntaxe concise qui utilise
+
+70
+00:03:56,000 --> 00:03:57,600
+toute la puissance de Faro
+pour générer le code HTML
+
+71
+00:03:58,150 --> 00:03:59,190
+grâce à ce langage dédié.
+
+72
+00:04:00,820 --> 00:04:03,160
+Donc ce langage dédié il a
+une autre propriété c'est qu'il
+
+73
+00:04:03,360 --> 00:04:05,390
+est extensible, donc il est
+facile de lui faire supporter
+
+74
+00:04:05,590 --> 00:04:07,920
+les Frameworks CSS
+modernes tels que le Framework CSS
+
+75
+00:04:08,120 --> 00:04:11,750
+Tweeter Bootstrap par
+exemple. Donc ce Framework CSS
+
+76
+00:04:11,950 --> 00:04:14,430
+utilise des classes CSS
+pour générer des éléments HTML
+
+77
+00:04:14,630 --> 00:04:19,440
+qui sont jolis, donc par
+exemple des Champs vert, bleu et
+
+78
+00:04:19,640 --> 00:04:20,400
+caetera et caetera.
+
+79
+00:04:20,600 --> 00:04:23,130
+Et comment ça marche pour
+étendre ce langage dédié?
+
+80
+00:04:23,400 --> 00:04:27,390
+On va avoir des pinceaux
+particuliers donc ici ils sont
+
+81
+00:04:27,590 --> 00:04:28,740
+tous préfixés par tbs.
+
+82
+00:04:28,940 --> 00:04:30,070
+Tbs ça veut dire Tweeter BootStrap.
+
+83
+00:04:30,270 --> 00:04:33,900
+. Donc mon objet HTML je
+lui envoie le message tbsAlert
+
+84
+00:04:34,950 --> 00:04:38,350
+pour dire génère une div
+HTML, ou un élément HTML,
+
+85
+00:04:38,640 --> 00:04:40,270
+conforme aux
+Framework Tweeter BootStrap.
+
+86
+00:04:43,620 --> 00:04:47,840
+Donc il y va y en avoir
+plein des pinceaux relatifs à ce
+
+87
+00:04:48,040 --> 00:04:50,460
+Framework Tweeter Boot
+Strap, donc je peux générer des
+
+88
+00:04:50,660 --> 00:04:52,120
+éléments de type
+boutons ou tbsButton.
+
+89
+00:04:53,190 --> 00:04:56,440
+Des Tbsbutton group pour
+faire des groupes de boutons on
+
+90
+00:04:56,640 --> 00:05:00,480
+voit que les 3 boutons sont liés dans
+un même groupe, et caetera et caetera.
+
+91
+00:05:02,560 --> 00:05:05,080
+Donc par exemple si on
+reprend l'exemple du Counter qu'on
+
+92
+00:05:05,280 --> 00:05:08,000
+avait dans la séquence
+précédente, donc on avait défini
+
+93
+00:05:08,200 --> 00:05:10,120
+un Counter tout simple et
+maintenant je veux faire la
+
+94
+00:05:10,320 --> 00:05:12,260
+version tweeter
+Bootstrap de ce Counter là.
+
+95
+00:05:12,670 --> 00:05:13,750
+Donc c'est extrêmement facile.
+
+96
+00:05:14,040 --> 00:05:15,940
+Je vais faire une
+sous-classe de mon compteur précédent
+
+97
+00:05:16,140 --> 00:05:21,070
+que je vais appeler
+"WATwitterCounter" Je vais passer
+
+98
+00:05:21,270 --> 00:05:25,790
+du côté classe de cette classe
+
+99
+00:05:26,220 --> 00:05:28,260
+et je vais définir la
+méthode initialize dans lequel je
+
+100
+00:05:28,460 --> 00:05:31,930
+vais déclarer attention ce
+composant-là va utiliser la
+
+101
+00:05:32,130 --> 00:05:33,350
+bibliothèque
+TbsDevelopmentLibrary, JQDeploymentLibrary.
+
+102
+00:05:37,720 --> 00:05:42,180
+Donc c'est le Framework
+Javascript et le Framework CSS.
+
+103
+00:05:46,000 --> 00:05:50,190
+Ensuite je vais revenir côté
+instance de cette classe et
+
+104
+00:05:50,390 --> 00:05:52,130
+je vais définir la nouvelle
+méthode renderCounterOn, vous
+
+105
+00:05:52,330 --> 00:05:54,750
+pouvez redéfinir celle
+qu'on avait défini précédemment,
+
+106
+00:05:55,270 --> 00:05:57,500
+et je vais utiliser des
+pinceaux qui commencent tous par Tbs.
+
+107
+00:05:58,470 --> 00:06:01,780
+Donc TbsButtongroup,
+TbsButton, et caetera et caetera.
+
+108
+00:06:02,490 --> 00:06:05,320
+Mais ça ne va rien changer à
+mon code classique donc c'est
+
+109
+00:06:05,520 --> 00:06:10,060
+toujours des Callback vous voyez
+avec Self increase, et Self decrease.
+
+110
+00:06:10,400 --> 00:06:11,160
+Ça ne change absolument rien.
+
+111
+00:06:11,370 --> 00:06:16,280
+D'accord! Donc c'est juste
+les pinceaux de rendu du code
+
+112
+00:06:16,480 --> 00:06:18,050
+HTML qui utilisent Tbs.
+
+113
+00:06:19,740 --> 00:06:22,420
+Maintenant on peut voir la
+nouvelle apparence de mon Counter.
+
+114
+00:06:22,660 --> 00:06:25,850
+On voit que j'ai utilisé un
+ButtonGroup avec 2 boutons +
+
+115
+00:06:26,050 --> 00:06:28,740
+et -, il y a un joli badge
+pour afficher la valeur du
+
+116
+00:06:28,940 --> 00:06:31,220
+Counter qui est la version
+Boot strap de mon Counter.
+
+117
+00:06:34,600 --> 00:06:36,600
+Mais vous pouvez aller encore
+plus loin en fait, vous n'êtes
+
+118
+00:06:36,800 --> 00:06:38,430
+pas obligé d'utiliser Boot
+strap vous pouvez définir
+
+119
+00:06:38,630 --> 00:06:40,860
+votre propre règle de
+style sur votre compteur.
+
+120
+00:06:41,140 --> 00:06:45,750
+Par exemple ici j'ai décidé
+de dire que tous les éléments
+
+121
+00:06:46,110 --> 00:06:50,180
+qui sont impairs odd,
+vont avoir la classe odd.
+
+122
+00:06:51,470 --> 00:06:53,500
+En fait à chaque fois que
+je rends la valeur de mon
+
+123
+00:06:53,700 --> 00:06:57,950
+Counter ici sous la forme
+d'un tbsBadge, donc qu'est-ce
+
+124
+00:06:58,150 --> 00:06:59,390
+qui va être affiché ?
+
+125
+00:06:59,590 --> 00:07:02,020
+Ça va être la valeur de
+mon Counter, sauf que je vais
+
+126
+00:07:02,220 --> 00:07:06,860
+rajouter la classe CSS odd
+ici, seulement si la valeur
+
+127
+00:07:07,060 --> 00:07:08,550
+est impaire. D'accord !
+
+128
+00:07:08,750 --> 00:07:09,570
+Donc ici 7.
+
+129
+00:07:10,810 --> 00:07:14,270
+Donc cette classe CSS a été ajoutée
+seulement si cette condition est vraie.
+
+130
+00:07:16,290 --> 00:07:18,440
+Et comment j'ai
+défini la classe CSS odd.
+
+131
+00:07:18,830 --> 00:07:21,940
+En fait je peux définir la
+méthode style sur mon compteur
+
+132
+00:07:22,140 --> 00:07:23,940
+qui va rendre une chaîne de
+caractères avec les règles de
+
+133
+00:07:24,140 --> 00:07:25,300
+style CSS qui vont s'appliquer.
+
+134
+00:07:25,500 --> 00:07:27,030
+Donc point odd color red.
+
+135
+00:07:27,230 --> 00:07:30,050
+Donc la valeur du compteur va
+passer en rouge si elle est impaire.
+
+136
+00:07:31,490 --> 00:07:34,940
+Donc en conclusion: un
+composant, une application Web
+
+137
+00:07:35,150 --> 00:07:37,230
+Seaside c'est un composant racine.
+
+138
+00:07:37,840 --> 00:07:40,610
+Tous les composants savent
+se rendre en HTLM grâce à leur
+
+139
+00:07:40,810 --> 00:07:43,950
+méthode renderCounterOn.
+Et on a un langage dédié qui
+
+140
+00:07:44,150 --> 00:07:48,220
+extrêmement puissant et
+extensible qui permet d'écrire
+
+141
+00:07:48,420 --> 00:07:51,370
+cette génération de codes
+HTML très simplement, grâce à
+
+142
+00:07:51,570 --> 00:07:55,940
+des pinceaux et grâce à une
+extensibilité pour supporter
+
+143
+00:07:56,140 --> 00:07:58,720
+les Framework CSS existants,
+tels que Boot strap, jQuery
+
+144
+00:07:58,920 --> 00:07:59,720
+UI, et caetera et caetera.
+
+145
+00:08:00,850 --> 00:08:03,680
+Et vous profitez en fait de
+toute la puissance de ce qui
+
+146
+00:08:03,880 --> 00:08:06,000
+stripping Pharo, donc les
+boucles et caetera, pour
+
+147
+00:08:06,200 --> 00:08:07,810
+pouvoir facilement
+générer un ensemble d'éléments.
+

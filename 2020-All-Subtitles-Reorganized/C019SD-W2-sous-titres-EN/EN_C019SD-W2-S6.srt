@@ -1,0 +1,505 @@
+﻿1
+00:00:00,000 --> 00:00:02,160
+In this session, I'll introduce blocks.
+
+2
+00:00:02,320 --> 00:00:06,640
+They're sort of anonymous methods
+also called lexical closures.
+
+3
+00:00:06,800 --> 00:00:08,720
+They're everywhere in Pharo.
+
+4
+00:00:08,880 --> 00:00:12,160
+They're the base of loops,
+conditionals, iterators,
+
+5
+00:00:12,320 --> 00:00:14,680
+and even GUIs or dedicated languages.
+
+6
+00:00:14,840 --> 00:00:17,120
+They're at the heart of the system.
+
+7
+00:00:17,280 --> 00:00:21,280
+They've only been introduced
+in the latest version of Java.
+
+8
+00:00:23,000 --> 00:00:27,400
+To define a block, use square brackets.
+
+9
+00:00:27,560 --> 00:00:28,920
+This an example:
+
+10
+00:00:29,080 --> 00:00:32,760
+[expressions...]
+
+11
+00:00:34,840 --> 00:00:37,840
+We'll talk about block definition.
+
+12
+00:00:38,000 --> 00:00:40,000
+Another example:
+
+13
+00:00:40,160 --> 00:00:42,840
+this expression, 1/0,
+
+14
+00:00:43,000 --> 00:00:46,760
+returns an error when executed.
+
+15
+00:00:47,760 --> 00:00:50,600
+Let's encapsulate it in a block
+
+16
+00:00:50,760 --> 00:00:54,920
+by defining a block that contains
+the expression 1/0.
+
+17
+00:00:55,080 --> 00:01:00,040
+If I evaluate this block's definition,
+nothing happens: no error.
+
+18
+00:01:00,200 --> 00:01:02,400
+It returns the block
+
+19
+00:01:02,560 --> 00:01:06,160
+as a block definition
+doesn't execute its body.
+
+20
+00:01:07,720 --> 00:01:11,480
+You can define as many blocks
+as you wish:
+
+21
+00:01:11,640 --> 00:01:14,240
+the expressions in its body are frozen.
+
+22
+00:01:15,240 --> 00:01:18,560
+To evaluate a block
+and the expressions in its body,
+
+23
+00:01:18,720 --> 00:01:21,760
+you must do it explicitly
+through the message value.
+
+24
+00:01:21,920 --> 00:01:24,520
+For instance, this is a block:
+[2 + 6]
+
+25
+00:01:24,680 --> 00:01:26,640
+You send it the message value.
+
+26
+00:01:26,800 --> 00:01:29,760
+The expressions in the body
+are evaluated.
+
+27
+00:01:29,920 --> 00:01:33,360
+It returns the result, 8.
+
+28
+00:01:34,320 --> 00:01:37,760
+However, if the block
+contains erroneous expressions,
+
+29
+00:01:37,920 --> 00:01:40,960
+the error is returned
+when the block is evaluated,
+
+30
+00:01:41,120 --> 00:01:42,720
+as in the example 2.
+
+31
+00:01:42,880 --> 00:01:46,560
+[1/0]: I send the message value
+to the block.
+
+32
+00:01:46,720 --> 00:01:48,400
+It returns an error.
+
+33
+00:01:49,760 --> 00:01:52,960
+Blocks can also take arguments
+
+34
+00:01:53,120 --> 00:01:56,240
+as in this argument.
+It's just like methods.
+
+35
+00:01:56,400 --> 00:02:01,400
+A block is always opened by [
+
+36
+00:02:01,560 --> 00:02:03,120
+and closed by ].
+
+37
+00:02:03,280 --> 00:02:08,360
+All the arguments are prefixed
+by a colon.
+
+38
+00:02:08,520 --> 00:02:11,760
+Then there's |, a pipe.
+
+39
+00:02:11,920 --> 00:02:16,240
+It separates the argument declaration
+from the block's body,
+
+40
+00:02:16,400 --> 00:02:18,200
+the expressions it contains.
+
+41
+00:02:18,360 --> 00:02:21,560
+The argument in this example is x.
+
+42
+00:02:21,720 --> 00:02:24,360
+x + 2 is the only expression
+in the block.
+
+43
+00:02:24,520 --> 00:02:27,120
+If I send the message value
+to the block,
+
+44
+00:02:27,280 --> 00:02:31,040
+you have to use a specific message,
+value: with a parameter.
+
+45
+00:02:31,200 --> 00:02:35,600
+At the same time, you pass the value 5
+which replaces the argument x
+
+46
+00:02:35,760 --> 00:02:38,560
+when the expressions of the block
+are evaluated.
+
+47
+00:02:38,720 --> 00:02:42,880
+If I send the message value: 5
+to this block,
+
+48
+00:02:43,040 --> 00:02:44,400
+it returns 7
+
+49
+00:02:44,560 --> 00:02:48,160
+since the value of x is 5
+when the block is evaluated.
+
+50
+00:02:48,800 --> 00:02:50,680
+This is like my previous example,
+
+51
+00:02:50,840 --> 00:02:55,200
+but with several expressions
+in the block.
+
+52
+00:02:55,360 --> 00:02:58,720
+I have two here: x+33 and x+2.
+
+53
+00:02:58,880 --> 00:03:01,400
+When I send value: 5
+
+54
+00:03:01,560 --> 00:03:04,680
+to evaluate the expressions
+in the block,
+
+55
+00:03:04,840 --> 00:03:07,600
+the evaluation returns
+
+56
+00:03:07,760 --> 00:03:12,120
+only the value of the last expression
+in the block.
+
+57
+00:03:12,280 --> 00:03:16,200
+It only returns the result of x+2,
+
+58
+00:03:16,960 --> 00:03:17,960
+7.
+
+59
+00:03:19,640 --> 00:03:22,480
+Blocks are normal objects in Pharo.
+
+60
+00:03:22,640 --> 00:03:25,120
+They can be stored
+in temporary variables.
+
+61
+00:03:25,280 --> 00:03:28,160
+They can be sent messages
+like normal objects.
+
+62
+00:03:28,320 --> 00:03:31,120
+This is the example I have for you here.
+
+63
+00:03:31,280 --> 00:03:35,160
+You can store the definition
+of this block, x+2,
+
+64
+00:03:35,320 --> 00:03:37,080
+in a variable called add2.
+
+65
+00:03:37,240 --> 00:03:40,680
+Then you send messages
+to evaluate the block several times.
+
+66
+00:03:40,840 --> 00:03:43,000
+I send the message value: once
+
+67
+00:03:43,160 --> 00:03:46,640
+by telling it to evaluate itself
+with the value 5: it returns 7.
+
+68
+00:03:46,800 --> 00:03:49,720
+Then the message value: 33.
+
+69
+00:03:49,880 --> 00:03:51,920
+It returns 35.
+
+70
+00:03:52,080 --> 00:03:55,800
+You can also define blocks
+with several arguments.
+
+71
+00:03:55,960 --> 00:04:00,720
+For instance, x and y.
+This block has two arguments.
+
+72
+00:04:00,880 --> 00:04:05,160
+But how would you evaluate this block
+
+73
+00:04:05,320 --> 00:04:09,840
+since you need to pass two values
+to trigger its evaluation,
+
+74
+00:04:10,000 --> 00:04:13,200
+5 and 7 which would replace x and y?
+
+75
+00:04:13,840 --> 00:04:19,040
+The answer is that you use
+the message value: value:,
+
+76
+00:04:19,760 --> 00:04:22,760
+a method of the class block.
+
+77
+00:04:22,920 --> 00:04:28,080
+5 replaces x and 7 replaces y.
+
+78
+00:04:28,240 --> 00:04:29,880
+It returns 12.
+
+79
+00:04:32,880 --> 00:04:36,960
+Like methods, blocks
+can also define temporary variables.
+
+80
+00:04:37,120 --> 00:04:40,680
+This example is an actual example:
+
+81
+00:04:40,840 --> 00:04:43,360
+it comes from the class Collection.
+
+82
+00:04:43,520 --> 00:04:47,880
+The block starts here.
+It ends there.
+
+83
+00:04:48,880 --> 00:04:52,800
+It takes one argument called :index.
+
+84
+00:04:53,800 --> 00:04:57,520
+It takes one temporary variable
+defined here between two |.
+
+85
+00:04:57,680 --> 00:04:58,960
+It's called args.
+
+86
+00:04:59,760 --> 00:05:02,200
+This temporary variable args
+
+87
+00:05:02,360 --> 00:05:07,160
+exists only during the evaluation
+of the expressions in the block.
+
+88
+00:05:09,080 --> 00:05:11,920
+Blocks are defined in methods.
+
+89
+00:05:12,080 --> 00:05:16,240
+In a block, you can also use a return.
+
+90
+00:05:16,400 --> 00:05:20,600
+This is an example
+from the class Integer.
+
+91
+00:05:20,760 --> 00:05:23,280
+The method is called factorial.
+
+92
+00:05:24,040 --> 00:05:27,960
+There are several blocks in the method.
+
+93
+00:05:28,120 --> 00:05:31,760
+These blocks contain returns, or ^.
+
+94
+00:05:31,920 --> 00:05:35,720
+The return helps
+to exit the method factorial.
+
+95
+00:05:35,880 --> 00:05:39,600
+For instance, if I send the message
+factorial to the integer 0,
+
+96
+00:05:39,760 --> 00:05:41,640
+it returns the answer 1.
+
+97
+00:05:41,800 --> 00:05:46,880
+I get this answer thanks to this ^,
+the first in the block,
+
+98
+00:05:47,040 --> 00:05:49,640
+which helps
+to exit the method factorial.
+
+99
+00:05:49,800 --> 00:05:52,920
+A return in a block helps
+to exit the method
+
+100
+00:05:53,080 --> 00:05:54,960
+which defines the block.
+
+101
+00:05:56,680 --> 00:05:59,360
+A piece of advice
+for when you use blocks:
+
+102
+00:05:59,520 --> 00:06:02,400
+blocks are extremely powerful elements.
+
+103
+00:06:02,560 --> 00:06:04,480
+You must use them carefully.
+
+104
+00:06:04,640 --> 00:06:08,440
+Don't go beyond two to three arguments
+for one block.
+
+105
+00:06:08,600 --> 00:06:11,320
+If you have more,
+it becomes incomprehensible.
+
+106
+00:06:11,480 --> 00:06:15,280
+It's better to define a class
+with instance variables and methods:
+
+107
+00:06:15,440 --> 00:06:17,200
+it'll be much more legible.
+
+108
+00:06:17,960 --> 00:06:22,160
+In the course, we studied blocks,
+their syntax,
+
+109
+00:06:22,320 --> 00:06:25,600
+the fact they were some sort
+of anonymous methods,
+
+110
+00:06:25,760 --> 00:06:27,800
+that is, lexical closures;
+
+111
+00:06:27,960 --> 00:06:31,960
+they can be stored in variables
+as they're like any other object.
+
+112
+00:06:32,120 --> 00:06:37,400
+In other lessons, we'll see that blocks
+are the basis of many constructions
+
+113
+00:06:37,560 --> 00:06:40,440
+such as loops, iterations, etc.

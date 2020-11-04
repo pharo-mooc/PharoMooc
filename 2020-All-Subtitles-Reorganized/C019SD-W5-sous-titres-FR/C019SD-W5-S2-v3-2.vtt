@@ -1,0 +1,436 @@
+WEBVTT
+
+00:00:00.460 --> 00:00:03.110 align:middle
+Bonjour. Donc dans ce
+cours, on va vraiment prendre le
+
+00:00:03.310 --> 00:00:06.180 align:middle
+temps de comprendre comment
+marchent les méthodes de classe.
+
+00:00:06.670 --> 00:00:08.590 align:middle
+Donc normalement, vous
+avez fait l'exercice avec le
+
+00:00:08.790 --> 00:00:11.550 align:middle
+counter et puis vous avez
+fait une méthode de classe, ça
+
+00:00:11.750 --> 00:00:14.800 align:middle
+a marché, très bien.
+Maintenant, on va vraiment regarder
+
+00:00:15.000 --> 00:00:16.420 align:middle
+pour que vous ayez
+compris une fois pour toutes.
+
+00:00:17.510 --> 00:00:19.390 align:middle
+Donc ce que vous allez
+apprendre dans ce cours, c'est qu'en
+
+00:00:19.590 --> 00:00:21.270 align:middle
+fait dans Pharo il n'y a
+pas de différence entre une
+
+00:00:21.470 --> 00:00:23.190 align:middle
+méthode de classes et une
+méthode d'instances au niveau
+
+00:00:23.390 --> 00:00:25.530 align:middle
+de la recherche de la
+méthode, il n'y a qu'un seul
+
+00:00:25.730 --> 00:00:29.340 align:middle
+mécanisme de recherche de
+méthode qui est invoqué, et qui
+
+00:00:29.540 --> 00:00:31.210 align:middle
+est utilisé et qui existe
+d'ailleurs, qui a été défini
+
+00:00:31.410 --> 00:00:34.360 align:middle
+dans la machine virtuelle.
+Et vous allez voir que, alors
+
+00:00:34.560 --> 00:00:36.650 align:middle
+que l'on aurait pu dire
+que les méthodes de classe en
+
+00:00:37.600 --> 00:00:39.730 align:middle
+première approche sont
+comme des méthodes statiques en
+
+00:00:39.930 --> 00:00:41.560 align:middle
+Java, ce n'est pas le
+cas. En fait, elles sont
+
+00:00:41.870 --> 00:00:44.710 align:middle
+dynamiquement liées, ça veut
+dire qu'il y a une recherche
+
+00:00:44.910 --> 00:00:46.840 align:middle
+à l'exécution qui se fait
+alors qu'en Java typiquement,
+
+00:00:47.040 --> 00:00:49.210 align:middle
+les méthodes statiques ne
+sont pas cherchées dynamiquement.
+
+00:00:50.360 --> 00:00:51.590 align:middle
+Donc regardons comment ça marche.
+
+00:00:51.950 --> 00:00:56.250 align:middle
+En fait, ce que vous avez
+vu, c'est qu'il n'y a qu'une
+
+00:00:56.450 --> 00:00:59.040 align:middle
+seule recherche de méthode qui
+commence toujours dans la classe du receveur.
+
+00:00:59.850 --> 00:01:02.470 align:middle
+Donc si la méthode est
+définie dans la classe, alors elle
+
+00:01:02.670 --> 00:01:05.880 align:middle
+est rendue, sinon on va
+chercher dans la super classe.
+
+00:01:06.210 --> 00:01:09.480 align:middle
+Donc ce que ça donne
+graphiquement, c'est que j'ai mon
+
+00:01:09.680 --> 00:01:12.660 align:middle
+instance de la classe
+Counter, quand je lui envoie le
+
+00:01:12.860 --> 00:01:15.010 align:middle
+message Increment,
+qu'est-ce qui va se passer?
+
+00:01:15.210 --> 00:01:19.390 align:middle
+Première étape, je cherche
+dans la classe du Counter et
+
+00:01:19.590 --> 00:01:22.670 align:middle
+je remonte donc si
+j'incrémente, il est défini là, si c'est
+
+00:01:24.600 --> 00:01:26.350 align:middle
+une méthode qui est définie
+plus haut dans la hiérarchie,
+
+00:01:26.550 --> 00:01:27.310 align:middle
+elle sera cherchée plus haut.
+
+00:01:28.380 --> 00:01:31.130 align:middle
+Et en fait, ce mécanisme-là
+dans Pharo, il est utilisé,
+
+00:01:31.330 --> 00:01:33.750 align:middle
+il n'y en a qu'un, il est
+utilisé aussi bien pour les
+
+00:01:33.950 --> 00:01:35.050 align:middle
+instances que pour les classes.
+
+00:01:36.810 --> 00:01:39.850 align:middle
+Donc quand vous avez fait
+l'exercice avec la classe
+
+00:01:40.050 --> 00:01:43.110 align:middle
+Counter et que vous avez
+envoyé le message with value à
+
+00:01:43.310 --> 00:01:46.420 align:middle
+la classe Counter, pour créer une
+instance, qu'est-ce qui s'est passé?
+
+00:01:46.760 --> 00:01:49.720 align:middle
+La classe Counter est
+instance d'une classe qui s'appelle
+
+00:01:49.920 --> 00:01:54.000 align:middle
+Counter class et on a
+cherché, on a suivi le même
+
+00:01:54.200 --> 00:01:57.040 align:middle
+principe que précédemment,
+on a cherché dans la classe du
+
+00:01:57.240 --> 00:01:59.570 align:middle
+receveur, le receveur
+c'était Counter, donc on a cherché
+
+00:01:59.770 --> 00:02:02.400 align:middle
+dans la classe Counter
+ classe, on a trouvé la méthode
+
+00:02:03.140 --> 00:02:06.520 align:middle
+withValue et on l'a
+appliquée sur le receveur et ça nous
+
+00:02:06.720 --> 00:02:07.900 align:middle
+a rendu une nouvelle instance.
+
+00:02:08.930 --> 00:02:13.030 align:middle
+Donc on a appliqué
+exactement le même procédé que pour
+
+00:02:13.700 --> 00:02:16.290 align:middle
+les messages qu'on a envoyés à
+une instance de la classe Counter.
+
+00:02:18.210 --> 00:02:19.730 align:middle
+Donc maintenant, qu'est-ce
+que c'est qu'une classe en
+
+00:02:19.930 --> 00:02:20.780 align:middle
+fait finalement dans Pharo ?
+
+00:02:21.000 --> 00:02:22.070 align:middle
+Une classe, c'est une instance.
+
+00:02:22.800 --> 00:02:25.230 align:middle
+C'est une instance, c'est un
+objet comme tous les objets,
+
+00:02:25.430 --> 00:02:26.710 align:middle
+de toute façon dans Pharo
+il n'y a que des objets.
+
+00:02:26.910 --> 00:02:29.010 align:middle
+Donc une classe est une
+instance d'une autre classe qu'on
+
+00:02:29.210 --> 00:02:31.220 align:middle
+appelle une méta classe,
+c'est juste pour les distinguer.
+
+00:02:31.420 --> 00:02:34.570 align:middle
+En fait une méta classe,
+c'est juste une classe dont les
+
+00:02:34.770 --> 00:02:37.770 align:middle
+instances sont des
+ classes. Pour faire la différence
+
+00:02:38.000 --> 00:02:40.190 align:middle
+entre les instances terminales et
+les instances qui sont des classes.
+
+00:02:40.910 --> 00:02:42.560 align:middle
+Donc maintenant ce qu'il
+faut voir, c'est que la classe
+
+00:02:42.760 --> 00:02:45.060 align:middle
+Counter, c'est ce que je
+dis dans cette ligne-là, la
+
+00:02:45.260 --> 00:02:48.610 align:middle
+ classe Counter et l'unique
+instance de la classe Counter class.
+
+00:02:50.280 --> 00:02:52.240 align:middle
+Et cette classe
+Counter class, elle est créée
+
+00:02:52.440 --> 00:02:53.550 align:middle
+automatiquement, ça veut
+dire que vous ne vous en êtes
+
+00:02:53.750 --> 00:02:56.350 align:middle
+pas rendu compte mais quand
+vous avez défini la classe
+
+00:02:56.550 --> 00:02:58.530 align:middle
+Counter, le système a
+automatiquement créé la classe
+
+00:02:58.730 --> 00:03:02.000 align:middle
+Counter class et cette classe
+Counter class a créé la classe Counter.
+
+00:03:02.170 --> 00:03:04.130 align:middle
+Donc il vous a donné
+l'illusion que vous n'avez créé qu'une
+
+00:03:04.330 --> 00:03:05.800 align:middle
+seule classe, mais en
+fait vous en avez créé 2.
+
+00:03:06.290 --> 00:03:09.310 align:middle
+Et ce qu'il faut voir dans
+Pharo, c'est que toutes les
+
+00:03:09.510 --> 00:03:12.600 align:middle
+ classes d'une classe qui
+s'appellerait xxx s'appellent
+
+00:03:12.800 --> 00:03:17.620 align:middle
+xxx classe donc si j'ai
+Counter, la classe de Counter ça
+
+00:03:17.820 --> 00:03:21.830 align:middle
+sera Counter class systématiquement.
+
+00:03:23.730 --> 00:03:26.590 align:middle
+Donc en fait dans la
+réalité, ce que vous faites, on vous
+
+00:03:27.090 --> 00:03:28.430 align:middle
+montre juste comment ça fonctionne.
+
+00:03:28.630 --> 00:03:30.570 align:middle
+On aurait très bien pu par
+ailleurs ne pas vous l'expliquer,
+
+00:03:31.180 --> 00:03:34.220 align:middle
+mais ça veut dire que
+quand le browser vous montre la
+
+00:03:34.420 --> 00:03:38.340 align:middle
+ classe Counter, il vous
+montre le code qui va être
+
+00:03:38.540 --> 00:03:40.300 align:middle
+exécuté sur les
+instances de cette classe.
+
+00:03:40.500 --> 00:03:43.340 align:middle
+Ça veut dire
+qu'incrémente-là, c'est le code qui va être
+
+00:03:43.540 --> 00:03:45.530 align:middle
+exécuté sur cette instance-là.
+
+00:03:45.730 --> 00:03:50.670 align:middle
+Quand vous cliquez sur
+le bouton class, pour
+
+00:03:50.870 --> 00:03:54.070 align:middle
+définir une méthode de
+ classe, il vous montre le code qui
+
+00:03:54.270 --> 00:03:56.260 align:middle
+va être exécuté sur cet objet-là.
+
+00:03:58.780 --> 00:04:01.760 align:middle
+Et en fait, si on regarde,
+quand j'envoie le message
+
+00:04:01.960 --> 00:04:06.100 align:middle
+Increment à l'instance
+Counter, je vais chercher dans la
+
+00:04:06.300 --> 00:04:09.230 align:middle
+ classe Counter, ah bah
+tiens, c'est bien cette méthode-là
+
+00:04:09.430 --> 00:04:13.600 align:middle
+qui est exécutée, quand
+j'envoie le message withValue à
+
+00:04:13.800 --> 00:04:16.460 align:middle
+la classe Counter, où
+est-ce que je vais chercher?
+
+00:04:16.660 --> 00:04:18.290 align:middle
+Je vais chercher dans sa
+ classe donc je suis ce lien-là
+
+00:04:19.070 --> 00:04:20.640 align:middle
+et donc c'est bien cette méthode là.
+
+00:04:22.410 --> 00:04:24.100 align:middle
+Donc qu'est-ce que
+vous devez savoir en fait?
+
+00:04:24.320 --> 00:04:27.190 align:middle
+Une classe c'est un objet
+dans Pharo, les classes peuvent
+
+00:04:27.390 --> 00:04:29.380 align:middle
+recevoir des messages,
+d'ailleurs je vous l'avais dit
+
+00:04:29.580 --> 00:04:33.780 align:middle
+quand on a fait la syntaxe, je
+vous ai dit Date today c'est quoi?
+
+00:04:34.000 --> 00:04:37.160 align:middle
+C'est bien un message
+qu'on a envoyé à une classe.
+
+00:04:37.920 --> 00:04:39.900 align:middle
+Il n'y a pas d'éléments
+syntaxiques différenciants.
+
+00:04:40.300 --> 00:04:43.430 align:middle
+C'est la même chose qu'envoyer un
+message syntaxiquement à une instance.
+
+00:04:44.330 --> 00:04:46.880 align:middle
+Et de plus, là, ce que ce
+cours vous montre c'est qu'il n'y
+
+00:04:47.080 --> 00:04:48.500 align:middle
+a qu'une seule
+recherche de la méthode.
+
+00:04:48.920 --> 00:04:51.910 align:middle
+Les méthodes de
+ classessont recherchées dynamiquement
+
+00:04:52.110 --> 00:04:54.320 align:middle
+comme les méthodes d'instances, où
+est-ce qu'elles sont recherchées?
+
+00:04:54.750 --> 00:04:56.270 align:middle
+Dans la classe du receveur.
+
+00:04:56.780 --> 00:04:59.490 align:middle
+Quand c'est une instance,
+c'est recherché dans la classe,
+
+00:04:59.750 --> 00:05:01.610 align:middle
+quand c'est une instance
+de classe comme la classe
+
+00:05:01.810 --> 00:05:03.680 align:middle
+Counter, c'est recherché
+dans la méta classe donc dans la
+
+00:05:03.880 --> 00:05:05.230 align:middle
+ classe qui s'appelle Counter class.
+
+00:05:06.140 --> 00:05:08.840 align:middle
+Donc une classe en fait
+est une instance d'une autre
+
+00:05:09.040 --> 00:05:11.450 align:middle
+ classe qui s'appelle une
+méta classe, et il n'y a qu'un
+
+00:05:11.650 --> 00:05:12.860 align:middle
+seul lookup qui fonctionne.
+
+00:05:13.800 --> 00:05:16.250 align:middle
+Donc on va revenir sur
+cette notion-là lors de la
+
+00:05:16.450 --> 00:05:19.160 align:middle
+dernière séance pour,
+dans le cours qui s'appelle
+
+00:05:19.360 --> 00:05:22.280 align:middle
+Understanding Metaclasses
+et on va revisiter, et on va
+
+00:05:22.480 --> 00:05:24.760 align:middle
+ouvrir vraiment le capot
+de Pharo, et vous montrer
+
+00:05:24.960 --> 00:05:26.670 align:middle
+comment ça fonctionne et que
+c'est complètement uniforme.
+

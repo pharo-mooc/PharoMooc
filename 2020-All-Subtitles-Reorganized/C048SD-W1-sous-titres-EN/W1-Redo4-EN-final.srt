@@ -1,0 +1,199 @@
+1
+00:00:03,080 --> 00:00:05,560
+-If we are coming back
+from the last part,
+
+2
+00:00:05,880 --> 00:00:08,720
+with the methods we defined,
+
+3
+00:00:09,240 --> 00:00:10,840
+the tests and everything,
+
+4
+00:00:11,480 --> 00:00:15,080
+now is a good time to save your image
+and that is what we have done.
+
+5
+00:00:15,400 --> 00:00:18,160
+But how to save everything locally?
+
+6
+00:00:18,480 --> 00:00:21,800
+We can see there
+that there is a small star on our package.
+
+7
+00:00:22,120 --> 00:00:27,120
+This means that it is not saved anywhere
+except from within our image.
+
+8
+00:00:27,440 --> 00:00:30,360
+We can just use a tool called Iceberg
+
+9
+00:00:30,920 --> 00:00:34,680
+that will use version control
+on your package.
+
+10
+00:00:35,000 --> 00:00:37,080
+For example, here, we can add a package,
+
+11
+00:00:37,400 --> 00:00:40,560
+then go to a new repository
+
+12
+00:00:41,120 --> 00:00:43,760
+that we will call "MyCounter".
+
+13
+00:00:44,080 --> 00:00:47,120
+The source directory will be "src".
+
+14
+00:00:47,800 --> 00:00:49,360
+Then, we can just press OK.
+
+15
+00:00:50,480 --> 00:00:55,560
+So, MyCounter is there,
+but then, if we double-click on it,
+
+16
+00:00:56,920 --> 00:01:00,440
+we can see that there is nothing in it
+but we can add a package.
+
+17
+00:01:00,760 --> 00:01:04,120
+So, we will add our package "MyCounter".
+
+18
+00:01:04,520 --> 00:01:06,880
+Okay, "MyCounter". Add.
+
+19
+00:01:07,520 --> 00:01:08,680
+"Uncommitted changes."
+
+20
+00:01:09,000 --> 00:01:10,640
+If you are familiar with Git,
+
+21
+00:01:10,960 --> 00:01:14,040
+it is using the exact same way
+but locally.
+
+22
+00:01:14,360 --> 00:01:16,360
+Right now, we can do Commit.
+
+23
+00:01:16,680 --> 00:01:22,800
+These are all the things we added
+to our package MyCounter
+
+24
+00:01:23,760 --> 00:01:27,920
+plus some internal files,
+.project, .properties.
+
+25
+00:01:28,240 --> 00:01:31,080
+We can write a comment
+for our commit, for example...
+
+26
+00:01:32,200 --> 00:01:35,360
+"Initial commit of a Counter
+
+27
+00:01:37,520 --> 00:01:43,640
+(increment
+and decrement methods tested)".
+
+28
+00:01:44,760 --> 00:01:46,640
+And let's just commit.
+
+29
+00:01:50,120 --> 00:01:50,880
+Okay.
+
+30
+00:01:51,280 --> 00:01:54,400
+There we have a package
+that has been saved.
+
+31
+00:01:54,720 --> 00:01:57,200
+Now, if we make some changes,
+
+32
+00:01:57,520 --> 00:01:58,960
+for example imagine
+
+33
+00:01:59,280 --> 00:02:04,560
+that we want to add another increment
+called "increment2" that will add 2.
+
+34
+00:02:04,880 --> 00:02:06,000
+We can save this.
+
+35
+00:02:06,320 --> 00:02:08,200
+The method has been created.
+
+36
+00:02:08,520 --> 00:02:10,280
+Now, if we want
+
+37
+00:02:11,080 --> 00:02:13,640
+to save these changes in our package,
+you can see that,
+
+38
+00:02:13,960 --> 00:02:18,800
+if we go back to our "MyCounter" package
+from within Iceberg,
+
+39
+00:02:19,240 --> 00:02:21,320
+it has some uncommitted changes.
+
+40
+00:02:21,640 --> 00:02:22,800
+So, let's just commit.
+
+41
+00:02:23,120 --> 00:02:25,440
+We can see
+that "increment2" has been added
+
+42
+00:02:26,520 --> 00:02:30,760
+and we can just write "Add increment2"
+and commit.
+
+43
+00:02:32,160 --> 00:02:35,280
+This is our package
+that is now up-to-date.
+
+44
+00:02:35,920 --> 00:02:40,000
+This is a good way to save a version,
+a history, of what you are doing
+
+45
+00:02:40,320 --> 00:02:42,920
+as well as saving your package somewhere.

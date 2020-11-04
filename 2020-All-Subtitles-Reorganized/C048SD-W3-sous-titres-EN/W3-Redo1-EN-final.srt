@@ -1,0 +1,680 @@
+1
+00:00:04,160 --> 00:00:04,920
+-Hi.
+
+2
+00:00:05,240 --> 00:00:08,040
+In the redo of the third week,
+so right now,
+
+3
+00:00:08,360 --> 00:00:12,280
+we will look at how we can handle
+an expression to represent dice.
+
+4
+00:00:12,760 --> 00:00:13,640
+For example,
+
+5
+00:00:14,160 --> 00:00:17,360
+imagine that we would like
+to know the result of an expression
+
+6
+00:00:17,680 --> 00:00:21,120
+being "2 D20 + 1 D4".
+
+7
+00:00:22,160 --> 00:00:25,920
+This expression is what you might
+encounter in a role-playing game
+
+8
+00:00:26,240 --> 00:00:28,400
+such as "Dungeons and Dragons"
+for example,
+
+9
+00:00:28,720 --> 00:00:30,360
+where this would mean
+
+10
+00:00:30,680 --> 00:00:36,480
+"give me the result of a roll
+of two dice with 20 faces
+
+11
+00:00:36,800 --> 00:00:40,040
+plus the result
+of one dice with four faces."
+
+12
+00:00:40,760 --> 00:00:42,600
+In order to make everything work,
+
+13
+00:00:42,920 --> 00:00:46,400
+we will need a class to represent a die,
+a class to represent dice handle,
+
+14
+00:00:46,800 --> 00:00:49,000
+and we will look
+at how we might implement it.
+
+15
+00:00:49,320 --> 00:00:52,560
+Let's go over to our System Browser.
+
+16
+00:00:52,880 --> 00:00:57,160
+We will create a die class
+that is a subclass of Object.
+
+17
+00:00:57,960 --> 00:01:02,440
+We will give it an instance variable
+to be the number of faces,
+
+18
+00:01:03,040 --> 00:01:05,400
+and we will put everything
+in the "Dice" package.
+
+19
+00:01:05,720 --> 00:01:07,400
+Let's save this, Cmd+S.
+
+20
+00:01:07,960 --> 00:01:10,000
+We will filter out
+all the other packages
+
+21
+00:01:10,320 --> 00:01:13,200
+and we will write an initialize method.
+
+22
+00:01:13,520 --> 00:01:14,920
+When you write an initialize method,
+
+23
+00:01:15,240 --> 00:01:16,200
+it is good practice
+
+24
+00:01:16,520 --> 00:01:20,120
+to always check for the initialization
+of the superclasses.
+
+25
+00:01:20,440 --> 00:01:21,800
+We will write "super initialize".
+
+26
+00:01:22,120 --> 00:01:25,200
+Then, we will set
+for the number of faces to be six
+
+27
+00:01:25,800 --> 00:01:29,920
+so we will have by default
+a dice with six faces.
+
+28
+00:01:30,240 --> 00:01:31,120
+Let's save this.
+
+29
+00:01:32,000 --> 00:01:36,800
+And what we will do
+is instantly test this behavior.
+
+30
+00:01:37,120 --> 00:01:39,520
+Go over to your Class,
+
+31
+00:01:41,040 --> 00:01:42,840
+we are going to write "DieTest",
+
+32
+00:01:43,520 --> 00:01:45,600
+to be a subclass of "TestCase",
+
+33
+00:01:46,160 --> 00:01:49,360
+we do not need this anymore,
+and save everything.
+
+34
+00:01:49,960 --> 00:01:52,400
+OK, we have our "DieTest", we will write
+
+35
+00:01:54,280 --> 00:01:57,760
+our "testInitializationIsOk".
+
+36
+00:01:58,600 --> 00:02:00,280
+So, what do we need to test?
+
+37
+00:02:00,600 --> 00:02:05,200
+We need to create dice,
+so "d = Die new"
+
+38
+00:02:05,520 --> 00:02:06,760
+and we would like to check
+
+39
+00:02:07,080 --> 00:02:13,720
+that the number of faces of d
+is actually equal to 6.
+
+40
+00:02:15,200 --> 00:02:17,240
+"Faces" is in red
+because we have not defined it
+
+41
+00:02:17,560 --> 00:02:18,640
+but as we saw last week,
+
+42
+00:02:18,960 --> 00:02:22,080
+this is fine, the debugger will handle it
+so let's just save it
+
+43
+00:02:22,400 --> 00:02:24,200
+and then, run the test.
+
+44
+00:02:25,000 --> 00:02:28,040
+"Faces" has not been understood,
+that is fine
+
+45
+00:02:28,400 --> 00:02:30,080
+because we will just create it right now.
+
+46
+00:02:30,400 --> 00:02:32,800
+Create in the Class Die
+
+47
+00:02:33,440 --> 00:02:37,880
+under the "accessing" protocol. OK.
+
+48
+00:02:38,680 --> 00:02:43,000
+This is exactly what we want,
+the default behavior of the getter.
+
+49
+00:02:43,320 --> 00:02:45,040
+Let's press "Proceed".
+
+50
+00:02:46,280 --> 00:02:49,520
+Our test passed,
+so we can just click there
+
+51
+00:02:50,360 --> 00:02:51,280
+and now it is refreshed.
+
+52
+00:02:51,600 --> 00:02:52,720
+Our test passed.
+
+53
+00:02:53,280 --> 00:02:57,240
+So, right now, what we can write
+and what we will need
+
+54
+00:02:57,560 --> 00:02:59,680
+is a way to roll our dice.
+
+55
+00:03:00,080 --> 00:03:02,880
+Let's go over there
+and write a "roll" method.
+
+56
+00:03:03,200 --> 00:03:04,360
+What we will use
+
+57
+00:03:05,280 --> 00:03:06,920
+is "faces atRandom".
+
+58
+00:03:07,240 --> 00:03:12,160
+Basically, we would like to get a result
+from 1 to the number of faces.
+
+59
+00:03:12,480 --> 00:03:14,840
+Let's look into the Playground.
+
+60
+00:03:15,520 --> 00:03:17,840
+If I write 6 atRandom,
+
+61
+00:03:18,920 --> 00:03:20,640
+double-click, Cmd+P,
+
+62
+00:03:21,520 --> 00:03:25,040
+you can see that it output
+a result from 1 to 6.
+
+63
+00:03:25,360 --> 00:03:29,400
+This is exactly the behavior
+we would like to use for our dice.
+
+64
+00:03:29,800 --> 00:03:33,800
+This is our roll function
+that we will save by pressing Cmd+S.
+
+65
+00:03:34,520 --> 00:03:36,000
+We will test it right away,
+
+66
+00:03:36,320 --> 00:03:39,160
+so "testRolling".
+
+67
+00:03:39,920 --> 00:03:43,760
+And what is good practice
+for random behavior
+
+68
+00:03:44,080 --> 00:03:48,360
+is to repeat the test
+on the random result,
+
+69
+00:03:48,680 --> 00:03:50,680
+so "timesRepeat:" is the way to go.
+
+70
+00:03:51,000 --> 00:03:53,640
+This method is applied to a number
+
+71
+00:03:53,960 --> 00:03:57,960
+and this means it will repeat 10 times
+the thing we will get.
+
+72
+00:03:58,680 --> 00:04:01,560
+What we will give to this method
+is a code block,
+
+73
+00:04:01,880 --> 00:04:04,560
+so basically,
+it will be between brackets.
+
+74
+00:04:05,000 --> 00:04:07,040
+We will write "self assert"
+
+75
+00:04:07,360 --> 00:04:10,320
+and what we would like to assert
+is basically
+
+76
+00:04:11,240 --> 00:04:16,840
+that the roll of a dice
+is between 1 and 6.
+
+77
+00:04:17,960 --> 00:04:21,600
+This means it will check
+for the result of a dice
+
+78
+00:04:21,920 --> 00:04:24,320
+to be between 1 and 6 with the "assert"
+
+79
+00:04:24,640 --> 00:04:27,040
+and it will repeat this check 10 times
+
+80
+00:04:27,360 --> 00:04:29,200
+so let's save it, run it,
+
+81
+00:04:29,800 --> 00:04:31,160
+and if you are not confident
+
+82
+00:04:31,480 --> 00:04:34,880
+in the number of times
+you tested your random behavior,
+
+83
+00:04:35,280 --> 00:04:38,880
+you might increment it up to 100
+for example, save it, run it.
+
+84
+00:04:39,200 --> 00:04:42,040
+Everything is running,
+we have a good start,
+
+85
+00:04:42,360 --> 00:04:45,680
+it is a good time to save our repository.
+
+86
+00:04:46,000 --> 00:04:47,880
+Let's go over to Iceberg.
+
+87
+00:04:48,920 --> 00:04:52,200
+Let's go to Add,
+we will save the project under "Dice".
+
+88
+00:04:52,520 --> 00:04:53,320
+OK.
+
+89
+00:04:54,960 --> 00:04:56,440
+Double-click on the project,
+
+90
+00:04:57,200 --> 00:04:58,520
+our project "Dice".
+
+91
+00:04:58,840 --> 00:05:02,920
+We will add our Dice package.
+
+92
+00:05:04,040 --> 00:05:04,800
+Add.
+
+93
+00:05:05,120 --> 00:05:06,960
+It says that we have uncommitted changes
+
+94
+00:05:07,280 --> 00:05:08,520
+so let's commit right away.
+
+95
+00:05:09,600 --> 00:05:11,960
+"Initial commit", what did we do?
+
+96
+00:05:12,280 --> 00:05:15,720
+We created "Dice initialization
+
+97
+00:05:17,080 --> 00:05:19,960
+and rolling with tests".
+
+98
+00:05:20,440 --> 00:05:21,840
+Perfect, press "Commit".
+
+99
+00:05:23,160 --> 00:05:26,280
+This is our GitHub properties,
+so "QDucasse"
+
+100
+00:05:28,480 --> 00:05:29,880
+and your email address.
+
+101
+00:05:31,240 --> 00:05:32,040
+Cool.
+
+102
+00:05:33,840 --> 00:05:35,120
+Everything is saved now.
+
+103
+00:05:36,280 --> 00:05:37,680
+We can just keep it here.
+
+104
+00:05:38,000 --> 00:05:39,160
+Keep this one as well,
+
+105
+00:05:39,520 --> 00:05:44,120
+and we will write another test
+and the associated method.
+
+106
+00:05:44,440 --> 00:05:45,200
+For example,
+
+107
+00:05:45,600 --> 00:05:49,320
+one thing we will need if we need
+a die with 20 faces or with 4 faces
+
+108
+00:05:49,640 --> 00:05:51,680
+is a way to specify the number of faces,
+
+109
+00:05:52,000 --> 00:05:54,760
+for example we will write
+something called:
+
+110
+00:05:55,080 --> 00:05:56,800
+"CreationIsOk".
+
+111
+00:05:57,120 --> 00:05:58,280
+And remove this.
+
+112
+00:05:59,040 --> 00:06:04,040
+I would like to have a method that
+I can call like this: "withFaces: 20"
+
+113
+00:06:04,360 --> 00:06:05,480
+and I would like to assert
+
+114
+00:06:06,000 --> 00:06:11,080
+that my number of faces is equal to 20.
+
+115
+00:06:11,920 --> 00:06:13,440
+How do I handle this?
+
+116
+00:06:13,760 --> 00:06:16,240
+You can see it is written in red
+but as we saw last week,
+
+117
+00:06:16,560 --> 00:06:19,800
+we will let the debugger handle it
+so press Cmd+S.
+
+118
+00:06:20,640 --> 00:06:21,400
+Run it.
+
+119
+00:06:21,720 --> 00:06:25,040
+The method "withFaces"
+has not been understood
+
+120
+00:06:25,360 --> 00:06:27,440
+so let's press "Create".
+
+121
+00:06:27,760 --> 00:06:29,880
+We will define "withFaces"
+in the die Class.
+
+122
+00:06:30,200 --> 00:06:35,520
+"Die Class",
+under the instance creation protocol.
+
+123
+00:06:36,320 --> 00:06:37,120
+OK.
+
+124
+00:06:37,920 --> 00:06:40,160
+This time,
+it does know how to handle it
+
+125
+00:06:40,480 --> 00:06:42,480
+so we will write for it:
+
+126
+00:06:43,680 --> 00:06:44,560
+"d"...
+
+127
+00:06:45,240 --> 00:06:49,560
+"d" will be our new dice
+and I would like it
+
+128
+00:06:49,880 --> 00:06:55,160
+to have the number we provided
+as faces,
+
+129
+00:06:55,800 --> 00:06:56,640
+"d faces",
+
+130
+00:06:56,960 --> 00:06:59,440
+and just give us d.
+
+131
+00:07:00,560 --> 00:07:01,720
+Cmd+S.
+
+132
+00:07:02,520 --> 00:07:03,840
+We will proceed.
+
+133
+00:07:04,440 --> 00:07:06,440
+"Faces:" has not been understood.
+
+134
+00:07:06,760 --> 00:07:09,320
+This is because we have not defined
+the setter.
+
+135
+00:07:09,640 --> 00:07:12,400
+So, let's create it in Die
+
+136
+00:07:13,160 --> 00:07:16,280
+under the accessing protocol.
+
+137
+00:07:16,600 --> 00:07:17,360
+OK.
+
+138
+00:07:17,680 --> 00:07:18,920
+This time, it recognize it
+
+139
+00:07:19,240 --> 00:07:22,520
+so "faces : = anInteger",
+that is perfect.
+
+140
+00:07:22,840 --> 00:07:23,600
+Let's proceed.
+
+141
+00:07:24,040 --> 00:07:24,840
+It is red,
+
+142
+00:07:25,160 --> 00:07:28,960
+but if we click on it again,
+it is green, so that is perfect.
+
+143
+00:07:29,560 --> 00:07:31,800
+You can see that now we have three tests,
+
+144
+00:07:32,120 --> 00:07:35,920
+we have the basic functionalities
+of our Dice running, up and ready,
+
+145
+00:07:36,240 --> 00:07:40,200
+so it is a good time to save everything
+on our repository,
+
+146
+00:07:40,520 --> 00:07:43,120
+so it is there or we can see it there.
+
+147
+00:07:43,600 --> 00:07:44,560
+Let's just commit
+
+148
+00:07:44,880 --> 00:07:45,840
+and we will write:
+
+149
+00:07:46,160 --> 00:07:53,320
+"Class method to specify
+the number of faces with test."
+
+150
+00:07:53,920 --> 00:07:54,680
+Cool.
+
+151
+00:07:55,080 --> 00:07:55,840
+"Commit".
+
+152
+00:07:56,160 --> 00:07:59,400
+Right now, we have
+all the basic functionalities of our die
+
+153
+00:07:59,720 --> 00:08:03,360
+and we will see in the next part
+how we can handle a dice handle
+
+154
+00:08:03,680 --> 00:08:06,920
+and how we can handle
+multiple dice together.

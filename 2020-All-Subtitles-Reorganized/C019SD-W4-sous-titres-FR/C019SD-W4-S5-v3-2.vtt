@@ -1,0 +1,273 @@
+WEBVTT
+
+00:00:00.490 --> 00:00:05.430 align:middle
+Bonjour à tous. Dans cette
+cinquième séquence sur l'héritage
+
+00:00:06.140 --> 00:00:10.250 align:middle
+et le Lookup, nous allons
+parler de l'envoi de messages
+
+00:00:10.650 --> 00:00:12.910 align:middle
+et de l'algorithme de Lookup
+dans le cadre des métaclasses.
+
+00:00:13.500 --> 00:00:14.470 align:middle
+Alors en Pharo tout est objet.
+
+00:00:16.560 --> 00:00:20.230 align:middle
+Les objets peuvent recevoir
+des messages, donc puisque
+
+00:00:20.430 --> 00:00:24.130 align:middle
+tout est objet les classes
+sont des objets, et puisque
+
+00:00:24.330 --> 00:00:26.910 align:middle
+les objets peuvent
+recevoir des messages les classes
+
+00:00:27.110 --> 00:00:28.070 align:middle
+peuvent recevoir des messages aussi.
+
+00:00:28.520 --> 00:00:33.210 align:middle
+Le mécanisme d'envoi de
+messages est exactement le même
+
+00:00:33.790 --> 00:00:36.700 align:middle
+que le receveur soit un
+objet quelconque ou une classe.
+
+00:00:37.380 --> 00:00:40.930 align:middle
+Donc il n'y a qu'une seule
+façon de chercher une méthode
+
+00:00:41.130 --> 00:00:43.490 align:middle
+quand un message est envoyé,
+c'est l'algorithme de Lookup
+
+00:00:43.930 --> 00:00:48.000 align:middle
+qu'on a vu et revu dans
+les séquences précédentes.
+
+00:00:49.250 --> 00:00:52.360 align:middle
+Donc maintenant je vais
+prendre l'exemple d'un envoi de
+
+00:00:52.560 --> 00:00:54.200 align:middle
+message sur une classe.
+
+00:00:56.270 --> 00:00:59.930 align:middle
+Bon il faut bien comprendre
+que puisque les classes sont
+
+00:01:00.130 --> 00:01:04.380 align:middle
+des objets et que tous les
+objets sont liés à une classe,
+
+00:01:04.580 --> 00:01:07.230 align:middle
+donc tous les objets sont
+instance d'une classe, donc là
+
+00:01:07.470 --> 00:01:09.940 align:middle
+aNode est une
+instance de la classe Node.
+
+00:01:10.140 --> 00:01:15.050 align:middle
+Puisque la classe Node est un objet,
+
+00:01:16.250 --> 00:01:18.720 align:middle
+la classe Node est
+instance d'une classe.
+
+00:01:19.790 --> 00:01:22.560 align:middle
+On appelle cette classe Node class.
+
+00:01:22.890 --> 00:01:26.000 align:middle
+Donc aNode est une
+instance de la classe Node et la
+
+00:01:26.200 --> 00:01:29.630 align:middle
+ classe Node est un objet qui est
+une instance de la classe Node class.
+
+00:01:30.880 --> 00:01:35.000 align:middle
+Là vous pouvez vous demander
+puisque c'est ça Node class
+
+00:01:35.200 --> 00:01:38.320 align:middle
+est une classe, cette classe
+est un objet donc c'est une
+
+00:01:38.520 --> 00:01:42.670 align:middle
+instance d'une classe, et de quelle
+ classe Node class est-elle instance.
+
+00:01:42.870 --> 00:01:46.820 align:middle
+Et vous verrez ça dans une
+séquence suivante, la séquence
+
+00:01:47.020 --> 00:01:47.780 align:middle
+sur les métaclasses.
+
+00:01:48.210 --> 00:01:49.860 align:middle
+Donc quelques exemples.
+
+00:01:50.910 --> 00:01:55.740 align:middle
+Ici on a un objet
+aWorkstation, instance d'une classe
+
+00:01:56.200 --> 00:01:58.400 align:middle
+Workstation, qui est une
+sous- classe de Node qui est une
+
+00:01:58.600 --> 00:02:01.860 align:middle
+sous-classe d'Object. Donc
+ici il faut faire attention
+
+00:02:02.060 --> 00:02:06.220 align:middle
+aux flèches, ici cette
+flèche avec un triangle vide
+
+00:02:07.060 --> 00:02:08.820 align:middle
+indique une
+relation de sous-classage.
+
+00:02:09.420 --> 00:02:11.700 align:middle
+Donc Node est une
+sous-classe de Object.
+
+00:02:11.900 --> 00:02:14.230 align:middle
+Workstation est une
+sous-classe de Node.
+
+00:02:15.170 --> 00:02:18.700 align:middle
+Cette flèche avec un
+triangle plein qu'on représente
+
+00:02:18.900 --> 00:02:23.700 align:middle
+parfois de cette façon-là aussi,
+indique une relation d'instanciation.
+
+00:02:24.340 --> 00:02:28.310 align:middle
+Donc aWorkstation est une
+instance de Workstation et
+
+00:02:28.510 --> 00:02:29.900 align:middle
+Workstation est une
+instance de workstation Class.
+
+00:02:30.900 --> 00:02:34.090 align:middle
+De la même façon object
+une instance de Object Class.
+
+00:02:34.670 --> 00:02:37.420 align:middle
+Si j'envoie un message à
+l'objet aWorkstation, l'algorithme
+
+00:02:37.620 --> 00:02:41.760 align:middle
+de Lookup cherche dans
+la classe de aWorkstation
+
+00:02:43.400 --> 00:02:45.920 align:middle
+puis remonte un dans les
+super classes jusqu'à ce qu'il
+
+00:02:46.120 --> 00:02:48.340 align:middle
+trouve une méthode correspondante.
+
+00:02:48.780 --> 00:02:52.000 align:middle
+Eh bien c'est exactement le
+même mécanisme qui s'applique
+
+00:02:52.460 --> 00:02:55.410 align:middle
+si j'envoie un message
+à la classe Workstation.
+
+00:02:56.730 --> 00:03:01.270 align:middle
+Donc par exemple si
+j'envoie le message New à
+
+00:03:01.470 --> 00:03:03.520 align:middle
+Workstation, l'algorithme
+de Lookup va chercher dans la
+
+00:03:03.720 --> 00:03:05.840 align:middle
+ classe de Workstation,
+c'est-à-dire Workstation Class,
+
+00:03:06.040 --> 00:03:07.900 align:middle
+pour une méthode
+qui s'appellerait New.
+
+00:03:08.620 --> 00:03:11.410 align:middle
+S'il la trouve ici elle est
+exécutée, si l'algorithme de
+
+00:03:11.610 --> 00:03:14.380 align:middle
+Lookup ne la trouve pas ici
+il va chercher dans la super
+
+00:03:14.580 --> 00:03:17.890 align:middle
+ classe, s'il ne la trouve pas ici
+il va chercher dans la super classe.
+
+00:03:19.130 --> 00:03:21.330 align:middle
+Et caetera, cette
+hiérarchie continue.
+
+00:03:23.040 --> 00:03:26.180 align:middle
+Donc je vous laisse ce
+slide-là pour revoir l'envoi de
+
+00:03:26.380 --> 00:03:29.550 align:middle
+messages sur les objets
+standards et sur les classes qui
+
+00:03:29.750 --> 00:03:30.680 align:middle
+sont aussi des objets standards.
+
+00:03:31.760 --> 00:03:32.890 align:middle
+Ce que vous devez retenir.
+
+00:03:33.480 --> 00:03:36.060 align:middle
+Une classe qui est un
+objet comme les autres.
+
+00:03:37.160 --> 00:03:38.830 align:middle
+On peut envoyer des
+messages à des objets donc on peut
+
+00:03:39.030 --> 00:03:40.000 align:middle
+envoyer des messages à des classes.
+
+00:03:40.170 --> 00:03:45.000 align:middle
+L'algorithme de Lookup
+est exactement le même
+
+00:03:45.200 --> 00:03:45.960 align:middle
+dans les 2 cas.
+
+00:03:47.750 --> 00:03:49.870 align:middle
+L'algorithme de Lookup va
+commencer par chercher quelle
+
+00:03:50.070 --> 00:03:52.590 align:middle
+est la classe du
+receveur, puis va remonter dans la
+
+00:03:52.790 --> 00:03:56.350 align:middle
+hiérarchie donc en visitant
+les super classes, jusqu'à
+
+00:03:56.550 --> 00:03:58.070 align:middle
+trouver une méthode
+correspondante au message.
+
+00:03:58.640 --> 00:04:01.120 align:middle
+Vous en saurez plus sur
+les métaclasses en suivant la
+
+00:04:01.320 --> 00:04:02.460 align:middle
+séquence Understanding Metaclasses.
+

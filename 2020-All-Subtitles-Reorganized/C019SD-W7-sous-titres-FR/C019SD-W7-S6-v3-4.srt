@@ -1,0 +1,897 @@
+1
+00:00:00,610 --> 00:00:03,720
+Bonjour. Ce cours va
+traiter d'un sujet avancé.
+
+2
+00:00:04,120 --> 00:00:06,080
+Ce que je voudrais vous
+montrer c'est comment à la
+
+3
+00:00:06,280 --> 00:00:08,940
+demande, on peut
+transformer la pile d'exécution en un
+
+4
+00:00:09,140 --> 00:00:12,540
+objet Pharo et le manipuler.
+L'idée de ce cours n'est pas
+
+5
+00:00:12,740 --> 00:00:15,380
+d'aller dans les détails, mais
+vraiment de vous donner l'intuition.
+
+6
+00:00:17,090 --> 00:00:19,290
+L'idée, c'est qu'on peut
+manipuler la pile, on peut la
+
+7
+00:00:19,490 --> 00:00:21,260
+naviguer, on peut la
+changer. Je vais essentiellement
+
+8
+00:00:21,460 --> 00:00:23,000
+vous montrer comment
+on peut la naviguer.
+
+9
+00:00:23,540 --> 00:00:27,280
+Il y a 2 chapitres que vous
+pouvez lire, qui traitent un
+
+10
+00:00:27,480 --> 00:00:31,450
+petit peu de ce sujet:
+c'est le chapitre sur les blocks
+
+11
+00:00:31,850 --> 00:00:34,470
+et le chapitre sur les
+exceptions du livre "Deep into Pharo".
+
+12
+00:00:35,150 --> 00:00:37,390
+Pour ceux qui sont
+intéressés, il faut vraiment les lire
+
+13
+00:00:37,660 --> 00:00:39,080
+parce que c'est
+vraiment bien expliqué.
+
+14
+00:00:39,560 --> 00:00:42,080
+Sinon, vous avez la classe
+"Context", qui se trouve dans
+
+15
+00:00:42,280 --> 00:00:43,280
+Pharo, qui représente la pile.
+
+16
+00:00:46,280 --> 00:00:47,140
+J'ai pris le scénario suivant.
+
+17
+00:00:47,340 --> 00:00:50,100
+Si vous regardez, on vous a fait
+coder dans le débuggeur depuis le début.
+
+18
+00:00:50,380 --> 00:00:51,700
+Qu'est-ce qui se
+passe dans le débuggeur?
+
+19
+00:00:52,000 --> 00:00:53,800
+Vous envoyez un message,
+il n'est pas connu parce que
+
+20
+00:00:54,000 --> 00:00:55,870
+vous ne l'avez pas défini,
+vous êtes en train de faire
+
+21
+00:00:56,070 --> 00:00:58,690
+tourner votre test unitaire,
+vous arrivez dans le débugger.
+
+22
+00:00:58,910 --> 00:01:01,520
+Dans le débugger, il vous demande
+"Voulez-vous créer une méthode?"
+
+23
+00:01:01,720 --> 00:01:02,640
+Oui, vous créez votre méthode.
+
+24
+00:01:02,930 --> 00:01:05,120
+Là, le système compile la
+méthode au vol et l'installe
+
+25
+00:01:05,320 --> 00:01:07,660
+dans la classe puis
+relance cette méthode.
+
+26
+00:01:08,090 --> 00:01:10,680
+Cette méthode, en général,
+va lever une exception parce
+
+27
+00:01:10,880 --> 00:01:14,820
+que le système n'est pas
+magique: avec l'exception
+
+28
+00:01:15,100 --> 00:01:18,030
+"ShouldBeImplemented", il vous
+dit que c'est à vous d'implémenter
+
+29
+00:01:18,280 --> 00:01:19,200
+la méthode dans le débugger.
+
+30
+00:01:19,400 --> 00:01:22,220
+Vous implémentez la
+méthode dans le débugger, vous
+
+31
+00:01:22,420 --> 00:01:24,730
+recompilez cette méthode au
+vol, vous faites "Proceed",
+
+32
+00:01:24,930 --> 00:01:27,850
+le système repart et
+votre programme continue.
+
+33
+00:01:28,940 --> 00:01:32,320
+En fait si on regarde dans ce
+scénario, il y a 2 points vraiment importants.
+
+34
+00:01:32,910 --> 00:01:35,710
+Il y a, d'une part, le fait
+qu'on a recompilé la méthode
+
+35
+00:01:35,910 --> 00:01:38,350
+au vol, plusieurs fois
+d'ailleurs, mais ça c'est le
+
+36
+00:01:38,550 --> 00:01:39,940
+travail du compilateur, on va dire.
+
+37
+00:01:40,900 --> 00:01:44,220
+Mais surtout c'est qu'on a
+transformé et modifié la pile
+
+38
+00:01:44,420 --> 00:01:48,640
+d'exécution de façon à
+pouvoir injecter des morceaux de
+
+39
+00:01:48,840 --> 00:01:51,620
+piles de façon à ce qu'on
+puisse continuer l'exécution,
+
+40
+00:01:51,820 --> 00:01:52,890
+alors qu'au départ
+on avait une erreur.
+
+41
+00:01:53,710 --> 00:01:55,760
+Ce que je veux vous
+montrer, c'est que finalement il ne
+
+42
+00:01:56,000 --> 00:01:58,450
+s'agit pas juste de réifier
+la pile ou rendre objet la
+
+43
+00:01:58,650 --> 00:02:00,460
+pile, il ne s'agit pas juste
+d'un exercice de style, c'est
+
+44
+00:02:00,660 --> 00:02:02,550
+quelque chose qui va
+permettre d'améliorer l'expérience
+
+45
+00:02:02,750 --> 00:02:05,450
+utilisateur et de créer des
+outils beaucoup plus puissants.
+
+46
+00:02:05,660 --> 00:02:08,410
+Ce que je vais vous montrer
+aussi que c'est utilisé dans
+
+47
+00:02:08,610 --> 00:02:10,430
+Seaside pour servir
+des applications Web.
+
+48
+00:02:11,150 --> 00:02:13,050
+En fait, ce qu'il faut voir,
+c'est que la pile Pharo, en
+
+49
+00:02:13,250 --> 00:02:15,650
+général c'est une pile C, la
+machine virtuelle a sa pile,
+
+50
+00:02:16,060 --> 00:02:19,110
+et que, à la demande, on peut la
+transformer en un objet vivant.
+
+51
+00:02:19,310 --> 00:02:20,940
+Ce qui est sympa, c'est
+qu'on peut naviguer cet objet
+
+52
+00:02:21,140 --> 00:02:25,380
+vivant, mais aussi
+qu'on peut le modifier.
+
+53
+00:02:25,790 --> 00:02:27,540
+Quand je dis le "modifier",
+ça veut dire que, quand je
+
+54
+00:02:27,740 --> 00:02:31,840
+vais modifier cet objet "Pharo", ça
+va modifier la pile C sous-jacente.
+
+55
+00:02:32,040 --> 00:02:34,070
+Ça, c'est vraiment très puissant.
+
+56
+00:02:35,770 --> 00:02:38,840
+C'est le support aussi pour
+toutes les exceptions, c'est
+
+57
+00:02:39,040 --> 00:02:40,830
+pour ça que je vous suggère de
+lire le chapitre sur les exceptions.
+
+58
+00:02:42,320 --> 00:02:46,360
+En effet, on va naviguer
+cette pile pour chercher les
+
+59
+00:02:46,560 --> 00:02:51,100
+Block Catch, qu'on
+appelle les handlers, des
+
+60
+00:02:51,300 --> 00:02:54,860
+exceptions. Et c'est aussi
+la transformation de cette
+
+61
+00:02:55,060 --> 00:02:59,410
+pile en objet permet de
+construire des continuations, et
+
+62
+00:02:59,610 --> 00:03:02,730
+donc de faire des serveurs
+Web comme dans les langages
+
+63
+00:03:02,930 --> 00:03:04,480
+fonctionnels, tels
+que Scheme par exemple.
+
+64
+00:03:05,660 --> 00:03:07,000
+Comment ça marche ?
+
+65
+00:03:07,200 --> 00:03:10,330
+En fait, Pharo vous propose une
+variable qui s'appelle thisContext.
+
+66
+00:03:11,100 --> 00:03:15,180
+En général, on dit que Pharo
+a 3 pseudo-variables: self,
+
+67
+00:03:15,380 --> 00:03:16,520
+super et thisContext.
+
+68
+00:03:19,340 --> 00:03:21,090
+Quand vous demandez la
+valeur de thisContext, ça va
+
+69
+00:03:21,290 --> 00:03:24,130
+retourner la pile
+d'exécution que vous pouvez naviguer.
+
+70
+00:03:24,330 --> 00:03:26,410
+C'est la pile qui est
+affichée quand vous ouvrez un
+
+71
+00:03:26,610 --> 00:03:31,470
+débugger, et c'est
+basé sur thisContext.
+
+72
+00:03:31,670 --> 00:03:34,090
+Donc, ce que je vous
+suggère, c'est par exemple de vous
+
+73
+00:03:34,290 --> 00:03:37,070
+amuser à définir une petite
+méthode dans laquelle vous
+
+74
+00:03:37,270 --> 00:03:40,710
+allez mettre un halt, ça
+va vous ouvrir un débugger;
+
+75
+00:03:40,910 --> 00:03:42,360
+mais vous pouvez aussi,
+dans cette méthode, taper
+
+76
+00:03:42,610 --> 00:03:47,000
+littéralement thisContext, et
+vous allez pouvoir l'inspecter
+
+77
+00:03:47,200 --> 00:03:49,640
+et vous allez avoir un inspecteur
+sur la pile d'exécution elle-même.
+
+78
+00:03:50,720 --> 00:03:55,420
+Là, je voudrais vous montrer 2
+petits exemples d'utilisation
+
+79
+00:03:55,620 --> 00:03:57,480
+de thisContext. Le
+premier, c'est la déprécation.
+
+80
+00:03:58,430 --> 00:04:00,860
+Quand on veut changer une
+API en disant "N'utilisez plus
+
+81
+00:04:01,060 --> 00:04:04,650
+cette API, utilisez cette API", que
+va-t-on faire en tant que programmeur?
+
+82
+00:04:04,850 --> 00:04:07,770
+En tant que programmeur, je
+vais éditer ma méthode et je
+
+83
+00:04:08,000 --> 00:04:11,410
+vais utiliser le message
+"Deprecated on in", c'est ce que
+
+84
+00:04:11,610 --> 00:04:13,370
+je vous avais montré dans
+le cours sur les exceptions.
+
+85
+00:04:14,650 --> 00:04:19,150
+Donc là, je veux juste
+exprimer un petit message "Utilise
+
+86
+00:04:19,350 --> 00:04:24,150
+Bar". Qu'est-ce que la
+déprécation va afficher à l'
+
+87
+00:04:24,350 --> 00:04:28,690
+utilisateur? Elle va
+afficher "Message foo is deprecated
+
+88
+00:04:29,110 --> 00:04:33,000
+in Pharo". Il faut voir ici
+que moi, en tant qu'utilisateur,
+
+89
+00:04:33,200 --> 00:04:37,030
+je n'ai pas écrit dans
+quelle méthode j'étais, par
+
+90
+00:04:37,230 --> 00:04:40,750
+contre, lui il sait identifier que
+"foo", c'était la méthode appelante.
+
+91
+00:04:42,270 --> 00:04:45,230
+C'est ça le point, dans
+les arguments du message
+
+92
+00:04:45,430 --> 00:04:48,380
+"Deprecated", je n'utilise pas
+"foo" ou la méthode appelante.
+
+93
+00:04:49,130 --> 00:04:50,420
+Maintenant, voyons
+comment c'est implémenter.
+
+94
+00:04:52,610 --> 00:04:57,360
+Le message "Deprecated" est
+une exception, deprecation.
+
+95
+00:04:59,410 --> 00:05:02,020
+Il va prendre les arguments,
+la chaîne d'explications, la
+
+96
+00:05:02,220 --> 00:05:05,150
+date et puis la version, mais en
+plus il va rajouter l'expression
+
+97
+00:05:05,350 --> 00:05:06,220
+"thisContext sender method".
+
+98
+00:05:06,920 --> 00:05:08,310
+Qu'est-ce que ça veut dire ?
+
+99
+00:05:08,510 --> 00:05:12,440
+thisContext, c'est la pile
+au moment de l'exécution de la
+
+100
+00:05:12,640 --> 00:05:17,430
+méthode Deprecated. Ça veut
+dire que là, avec Sender, je
+
+101
+00:05:17,630 --> 00:05:20,510
+vais pouvoir accéder à la
+méthode appelante, ça, ça va me
+
+102
+00:05:20,710 --> 00:05:24,080
+rendre "fou", puisque
+c'était l'exemple, et je vais
+
+103
+00:05:24,280 --> 00:05:25,440
+pouvoir lui demander
+quelle est ta méthode.
+
+104
+00:05:25,650 --> 00:05:28,160
+Donc, en fait,
+thisContext sender method, ça va me
+
+105
+00:05:28,360 --> 00:05:30,950
+retourner la méthode
+compilée, puisque c'est un objet en
+
+106
+00:05:31,150 --> 00:05:34,350
+Pharo bien sûr, la
+méthode compilée à foo.
+
+107
+00:05:35,300 --> 00:05:38,390
+Et donc l'exception va
+pouvoir vraiment utiliser ce qu'il
+
+108
+00:05:38,590 --> 00:05:41,340
+faut et aller extraire le
+sélecteur de cette méthode,
+
+109
+00:05:41,540 --> 00:05:43,730
+pour pouvoir faire un message
+qui soit plus compréhensible.
+
+110
+00:05:44,340 --> 00:05:46,820
+Donc ça, c'était juste
+pour faire en sorte que les
+
+111
+00:05:47,020 --> 00:05:49,770
+messages soient plus
+compréhensibles pour l'utilisateur
+
+112
+00:05:50,000 --> 00:05:53,730
+sans forcer le programmeur à coder en
+dur à chaque fois d'où c'était appelé.
+
+113
+00:05:54,340 --> 00:05:56,370
+Maintenant, je vais vous
+montrer une autre fonctionnalité
+
+114
+00:05:57,220 --> 00:05:58,880
+qui est vraiment
+extrêmement puissante.
+
+115
+00:05:59,870 --> 00:06:03,880
+Quand on a un problème,
+souvent on veut débugger, on
+
+116
+00:06:04,080 --> 00:06:07,160
+aimerait pouvoir mettre un
+Breakpoint dans une méthode
+
+117
+00:06:07,360 --> 00:06:10,070
+qui est extrêmement
+utilisée. Ça peut être par exemple
+
+118
+00:06:10,270 --> 00:06:13,130
+utilisé par un Framework, et vous
+vous voulez juste débugger votre version.
+
+119
+00:06:13,610 --> 00:06:16,690
+Vous ne voulez pas
+arrêter tout le système, et les
+
+120
+00:06:16,890 --> 00:06:20,920
+conditions qu'on a, comme
+halt once, vont arrêter une
+
+121
+00:06:21,120 --> 00:06:23,110
+fois, alors que ce que vous
+voulez dire, c'est que vous n'aimeriez
+
+122
+00:06:23,310 --> 00:06:27,800
+vous arrêter que si cette
+méthode a été appelée par cette
+
+123
+00:06:28,000 --> 00:06:30,070
+autre méthode.
+Comment exprime-t-on ça?
+
+124
+00:06:31,240 --> 00:06:33,380
+D'un point de vue des outils
+du programmeur je vais juste
+
+125
+00:06:33,580 --> 00:06:35,080
+exprimer ça de la manière
+suivante: nous allons dire "Je
+
+126
+00:06:35,600 --> 00:06:38,310
+veux m'arrêter seulement si
+j'ai été appelé, si foo a été
+
+127
+00:06:38,510 --> 00:06:39,470
+appelé par la
+méthode testSetInitialized.
+
+128
+00:06:39,740 --> 00:06:42,710
+Maintenant, voyons
+comme on implémente ça.
+
+129
+00:06:43,000 --> 00:06:45,330
+Vous voyez bien en effet que
+dans tous les autres cas, il
+
+130
+00:06:45,530 --> 00:06:46,790
+faut que cette
+méthode ne s'arrête pas.
+
+131
+00:06:47,000 --> 00:06:48,890
+Comment donc est-ce implémenté ?
+
+132
+00:06:49,090 --> 00:06:51,940
+Vous pouvez le voir dans Pharo,
+je vous invite à ouvrir le code.
+
+133
+00:06:52,260 --> 00:06:56,910
+Vous avez Halt qui est une
+exception, et vous avez la méthode "if".
+
+134
+00:06:57,820 --> 00:06:58,580
+Qu'est ce qu'on fait ?
+
+135
+00:06:58,780 --> 00:07:00,040
+Elle a plusieurs cas parce
+que vous pouvez passer un
+
+136
+00:07:00,240 --> 00:07:01,860
+block, on va juste
+regarder le cas qui nous intéresse
+
+137
+00:07:02,060 --> 00:07:03,720
+quand on a un symbole:
+donc, il regarde la condition
+
+138
+00:07:03,920 --> 00:07:04,680
+"est-ce que c'est un symbole ?",
+
+139
+00:07:04,880 --> 00:07:09,680
+si oui, alors regarde si la
+chaîne d'appel contient le
+
+140
+00:07:09,880 --> 00:07:11,400
+symbole. Donc regardons.
+
+141
+00:07:12,560 --> 00:07:16,030
+Voilà, on tombe sur cette
+méthode-là, que fait cette méthode?
+
+142
+00:07:16,230 --> 00:07:18,940
+Là, vous imaginez que vous
+avez "testSetInitialized"
+
+143
+00:07:23,830 --> 00:07:24,590
+qui est un argument ici.
+
+144
+00:07:26,290 --> 00:07:28,110
+La première chose qu'elle
+fait, déjà, c'est de dire "Je
+
+145
+00:07:28,840 --> 00:07:33,010
+veux récupérer la pile
+d'exécution", donc Context, en
+
+146
+00:07:33,210 --> 00:07:36,140
+Pharo c'est souvent
+synonyme de pile d'exécution, donc
+
+147
+00:07:36,340 --> 00:07:38,340
+Context, je veux
+avoir la pile d'exécution.
+
+148
+00:07:38,540 --> 00:07:41,660
+Et maintenant, je vais
+faire un WhileFalse, tant que je
+
+149
+00:07:41,860 --> 00:07:43,570
+ne suis pas en haut de la
+pile d'exécution… Alors,
+
+150
+00:07:43,770 --> 00:07:45,270
+comment définir "en
+haut de la pile exécution"?
+
+151
+00:07:45,470 --> 00:07:47,010
+Ça veut dire qu'il n'y a
+plus de Sender, il n'y a plus
+
+152
+00:07:47,210 --> 00:07:51,700
+personne qui m'invoque. Donc en
+haut, c'est quand l'invocation
+
+153
+00:07:51,900 --> 00:07:55,330
+est nil. Donc tant que
+l'invocation n'est pas nil, je
+
+154
+00:07:55,530 --> 00:07:59,860
+vais passer d'un morceau
+de pile à l'autre, donc vous
+
+155
+00:08:00,060 --> 00:08:02,420
+avez vos morceaux de pile
+comme ça, conceptuellement au
+
+156
+00:08:02,620 --> 00:08:05,400
+moins, et vous allez monter de l'un
+à l'autre, et là vous faites Sender.
+
+157
+00:08:06,930 --> 00:08:11,340
+Et là on va regarder si le
+
+158
+00:08:11,540 --> 00:08:15,500
+sélecteur, par exemple
+quelque part ici je vais avoir
+
+159
+00:08:15,700 --> 00:08:20,300
+"Test", est-ce que le
+symbole d'appel de cette
+
+160
+00:08:20,500 --> 00:08:23,280
+pile correspond à l'endroit
+où je voudrais m'arrêter, où
+
+161
+00:08:23,480 --> 00:08:26,450
+j'ai dit "Est-ce que je
+suis appelé par TestSet?"
+
+162
+00:08:26,650 --> 00:08:29,120
+Oui, si c'est le cas, je
+m'arrête, je fais un signal
+
+163
+00:08:29,320 --> 00:08:31,170
+parce que la classe
+est une exception.
+
+164
+00:08:32,060 --> 00:08:35,140
+Et donc, ce dont il faut bien se
+rendre compte, c'est qu'implémenter
+
+165
+00:08:35,340 --> 00:08:38,100
+ça dans un langage qui n'a
+pas de réification de la pile
+
+166
+00:08:38,330 --> 00:08:41,540
+c'est extrêmement compliqué.
+Là vous l'avez en 5 lignes.
+
+167
+00:08:41,810 --> 00:08:43,800
+Dans Pharo, ça paraît un
+peu complexe peut-être à
+
+168
+00:08:44,000 --> 00:08:47,130
+comprendre mais c'est super
+puissant, c'est super compact
+
+169
+00:08:47,330 --> 00:08:49,550
+et on ne peut faire ça que
+parce qu'on a cette réification.
+
+170
+00:08:50,180 --> 00:08:52,660
+Donc ce qu'il faut voir,
+c'est qu'on ne va pas souvent se
+
+171
+00:08:52,860 --> 00:08:54,120
+servir de thisContext parce que
+c'est une fonctionnalité avancée.
+
+172
+00:08:54,320 --> 00:08:57,780
+Maintenant, c'est super
+important pour l'innovation.
+
+173
+00:08:58,000 --> 00:08:59,410
+Ça peut être de l'innovation
+au niveau des outils, c'est
+
+174
+00:08:59,610 --> 00:09:03,740
+ce qu'on a montré avec ces
+tests qui sont extrêmement
+
+175
+00:09:03,940 --> 00:09:06,320
+compliqués à exprimer dans
+d'autres langages, mais ça va
+
+176
+00:09:06,520 --> 00:09:09,030
+être par exemple la possibilité
+de représenter les continuations.
+
+177
+00:09:09,470 --> 00:09:11,080
+Et donc c'est pour ça que la
+personne qui a fait Seaside
+
+178
+00:09:11,280 --> 00:09:13,390
+l'a fait dans l'ancêtre de
+Pharo, parce qu'il pouvait
+
+179
+00:09:14,100 --> 00:09:16,410
+manipuler la pile pour
+représenter des continuations qui
+
+180
+00:09:16,610 --> 00:09:20,180
+allaient être la base du
+mécanisme Call and Answer, qu'on
+
+181
+00:09:20,380 --> 00:09:21,730
+vous a présentés dans Seaside.
+
+182
+00:09:23,440 --> 00:09:25,280
+Je vous ai présenté une
+fonctionnalité assez avancée de
+
+183
+00:09:25,480 --> 00:09:26,760
+Pharo, vous pouvez vous amuser avec.
+

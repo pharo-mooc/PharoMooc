@@ -1,0 +1,957 @@
+1
+00:00:00,650 --> 00:00:03,690
+Bonjour. Donc on va voir
+dans cette séquence le Framework
+
+2
+00:00:03,890 --> 00:00:06,000
+web Seaside, qui est un
+Framework innovant pour
+
+3
+00:00:06,200 --> 00:00:07,820
+construire des
+applications Web, en Pharo.
+
+4
+00:00:08,550 --> 00:00:11,110
+Donc il est extrêmement
+puissant et permet de construire
+
+5
+00:00:11,310 --> 00:00:13,260
+des applications
+complexes. On verra que la notion
+
+6
+00:00:13,460 --> 00:00:14,910
+centrale c'est une
+notion de composantes qui est
+
+7
+00:00:15,110 --> 00:00:18,290
+réutilisable et avec
+états, construit au-dessus d'un
+
+8
+00:00:18,490 --> 00:00:23,000
+protocole sans état qui est http
+ classiquement dans les applications Web.
+
+9
+00:00:24,210 --> 00:00:26,310
+Donc Seaside bien sûr il
+est sécurisé par défaut, il
+
+10
+00:00:26,510 --> 00:00:29,350
+supporte toutes les
+dernières nouveautés Web 2 0, Ajax et
+
+11
+00:00:29,550 --> 00:00:31,850
+caetera et ainsi les
+architectures REST.
+
+12
+00:00:33,070 --> 00:00:35,180
+Donc vous avez le site Web
+de Seaside sur lequel vous
+
+13
+00:00:35,380 --> 00:00:40,000
+pouvez aller voir de la
+documentation, notamment le livre
+
+14
+00:00:40,200 --> 00:00:42,030
+gratuit de Seaside qui est en ligne.
+
+15
+00:00:42,440 --> 00:00:44,670
+Et puis vous trouverez un
+ensemble de tutoriaux sur
+
+16
+00:00:44,870 --> 00:00:47,380
+Seaside, et enfin je vous
+conseille d'aller voir la
+
+17
+00:00:47,580 --> 00:00:49,860
+mailing list Seaside où
+vous pouvez poser vos questions
+
+18
+00:00:50,060 --> 00:00:54,000
+et il y a une communauté
+active qui répond à toutes les
+
+19
+00:00:54,200 --> 00:00:55,180
+questions qui pourraient survenir.
+
+20
+00:00:56,350 --> 00:00:57,360
+Donc un peu d'histoire.
+
+21
+00:00:57,560 --> 00:00:59,900
+Seaside c'est en
+production depuis 2002.
+
+22
+00:01:00,190 --> 00:01:04,130
+Il est activement maintenu
+et puis c'est aussi un un des
+
+23
+00:01:04,330 --> 00:01:07,240
+Frameworks qui est à la base
+de nombreux success stories
+
+24
+00:01:07,440 --> 00:01:09,920
+en Pharo; vous pouvez aller
+voir le site Web de Pharo et
+
+25
+00:01:10,120 --> 00:01:12,600
+notamment ce lien-là, vous
+verrez il y a de nombreux
+
+26
+00:01:13,330 --> 00:01:16,240
+projets Web, et dans la
+plupart de ces projets Web ils
+
+27
+00:01:16,440 --> 00:01:17,550
+utilisent le Framework seaside.
+
+28
+00:01:19,050 --> 00:01:23,730
+Donc comme je le disais
+seaside c'est un Framework Web
+
+29
+00:01:24,260 --> 00:01:26,770
+centré autour de la
+notion de composants.
+
+30
+00:01:27,000 --> 00:01:29,810
+Donc les composants seront
+réutilisables et avec état.
+
+31
+00:01:30,050 --> 00:01:33,440
+D'accord! Et on va avoir
+un langage dédié qui va nous
+
+32
+00:01:33,640 --> 00:01:35,920
+permettre de facilement
+rendre ces composants en HTML.
+
+33
+00:01:36,750 --> 00:01:39,010
+Ensuite on aura des règles de
+composition de ces composants.
+
+34
+00:01:39,460 --> 00:01:41,640
+On conviendra il y en a
+plusieurs et on les explicitera
+
+35
+00:01:41,840 --> 00:01:45,000
+dans une prochaine
+séquence. Une application Web c'est
+
+36
+00:01:45,200 --> 00:01:48,080
+uniquement un composant
+racines, on va être capable de
+
+37
+00:01:48,280 --> 00:01:52,730
+débugger les applications Web en
+live directement dans le débugger Pharo.
+
+38
+00:01:53,750 --> 00:01:56,810
+Et puis vous aurez une
+séquence prochaine qui va vous
+
+39
+00:01:57,010 --> 00:01:58,900
+expliciter comment faire
+pour générer automatiquement les
+
+40
+00:01:59,100 --> 00:02:03,730
+formulaires, notamment
+pour ne pas à avoir à
+
+41
+00:02:03,930 --> 00:02:05,400
+les écrire à la main.
+
+42
+00:02:05,610 --> 00:02:07,440
+Donc quelques-uns des
+exemples d'applications construites
+
+43
+00:02:07,640 --> 00:02:09,550
+avec Seaside, qui sont
+en production depuis 2002.
+
+44
+00:02:10,490 --> 00:02:13,220
+Donc si on fait un zoom, on
+a d'autres, donc ici on voit
+
+45
+00:02:13,420 --> 00:02:15,530
+une application qui utilise
+énormément des graphiques,
+
+46
+00:02:16,760 --> 00:02:18,900
+donc plein de composants qui
+sont imbriqués les uns dans
+
+47
+00:02:19,100 --> 00:02:20,660
+les autres pour construire
+une application complexe.
+
+48
+00:02:20,930 --> 00:02:23,610
+Je vous donne un autre
+exemple d'une application donc
+
+49
+00:02:23,810 --> 00:02:25,650
+vous pouvez les retrouver
+sur le site Web de Pharo, donc
+
+50
+00:02:26,000 --> 00:02:30,150
+où on a vraiment des
+tableaux de reporting qui sont assez
+
+51
+00:02:30,350 --> 00:02:33,030
+complexes et imbriqués les
+uns dans les autres, et on
+
+52
+00:02:33,230 --> 00:02:35,600
+peut construire ça vraiment
+simplement avec le Framework Seaside.
+
+53
+00:02:38,140 --> 00:02:40,470
+Donc en Seaside la notion
+centrale comme je vous disais c'est
+
+54
+00:02:40,670 --> 00:02:42,630
+la notion de composants.
+Donc un composant ce n'est ni
+
+55
+00:02:42,830 --> 00:02:44,000
+plus ni moins qu'une
+sous-classe de la classe
+
+56
+00:02:44,200 --> 00:02:45,820
+WAComponent, fournie
+par le Framework Seaside.
+
+57
+00:02:47,780 --> 00:02:50,500
+Un composant donc il est
+réutilisable et avec états et
+
+58
+00:02:50,730 --> 00:02:55,000
+seront en HTML par exemple
+sous la forme de div et caetera.
+
+59
+00:02:56,010 --> 00:02:59,380
+Donc une application Web en
+Seaside ce n'est ni plus ni
+
+60
+00:02:59,580 --> 00:03:01,670
+moins qu'un composant
+racine, donc ici par exemple
+
+61
+00:03:01,870 --> 00:03:04,730
+WACounter, qu'on va
+enregistrer dans le système comme une
+
+62
+00:03:04,930 --> 00:03:07,200
+application Web sous le nom Counter.
+
+63
+00:03:07,400 --> 00:03:09,930
+Donc on pourra y accéder ensuite
+dans l'url avec le nom Counter.
+
+64
+00:03:11,060 --> 00:03:13,750
+Donc voici un exemple ici
+donc mon application Counter
+
+65
+00:03:13,950 --> 00:03:17,380
+dans l'url, c'est un
+composant qui s'est rendu ici en
+
+66
+00:03:17,580 --> 00:03:21,780
+HTML, donc la valeur du
+Counter, et ici on a 2 liens "tac
+
+67
+00:03:22,100 --> 00:03:24,450
+plus plus" donc je peux
+cliquer dessus ça va incrémenter
+
+68
+00:03:24,650 --> 00:03:26,920
+la valeur du Counter, et
+"moins moins" si je clique
+
+69
+00:03:27,120 --> 00:03:28,030
+dessus ça va
+décrémenter la valeur du Counter.
+
+70
+00:03:28,680 --> 00:03:30,210
+Donc maintenant je vais
+vous expliciter le code pour
+
+71
+00:03:30,410 --> 00:03:31,490
+implémenter cette application Web.
+
+72
+00:03:31,800 --> 00:03:32,750
+Il extrêmement simple.
+
+73
+00:03:33,020 --> 00:03:35,230
+Je vais faire une sous-classe
+de WA contenant que j'appelle
+
+74
+00:03:35,430 --> 00:03:39,150
+WACounter, cette classe elle va
+avoir une variable d'instance: count.
+
+75
+00:03:39,770 --> 00:03:43,420
+Une méthode d'initialisation pour
+utiliser la valeur du Counter à 0.
+
+76
+00:03:44,060 --> 00:03:45,770
+Une méthode d'incrément
+pour augmenter la valeur du
+
+77
+00:03:46,000 --> 00:03:48,630
+Counter, une méthode de
+décrément. En fait ce qui nous
+
+78
+00:03:48,830 --> 00:03:50,220
+manque maintenant
+c'est la partie HTML.
+
+79
+00:03:50,420 --> 00:03:53,180
+Donc comment on va décrire
+que ce Counter est incapable
+
+80
+00:03:53,380 --> 00:03:56,290
+de se rendre en HTML? Mais
+en fait il va falloir juste
+
+81
+00:03:56,490 --> 00:03:59,210
+le doter d'une méthode
+renderContentOn, qui est un
+
+82
+00:03:59,410 --> 00:04:02,720
+paramètre, et ce paramètre va
+nous aider à générer ce code HTML.
+
+83
+00:04:04,610 --> 00:04:05,520
+Donc voici l'exemple.
+
+84
+00:04:05,840 --> 00:04:08,010
+Donc ici j'ajoute la méthode
+renderContentOn à la classe
+
+85
+00:04:08,210 --> 00:04:12,750
+Counter et je me sers du
+paramètre, d'accord, donc qui
+
+86
+00:04:12,950 --> 00:04:16,410
+est un objet classique
+Pharo, instance de la classe
+
+87
+00:04:16,610 --> 00:04:19,640
+WHtmlCanvas, qui est
+fournie par Seaside, et je vais
+
+88
+00:04:19,840 --> 00:04:22,360
+envoyer des messages à cet
+objet pour générer le code HTML.
+
+89
+00:04:22,560 --> 00:04:25,100
+Donc je peux générer un
+titre, générer une ancre donc une
+
+90
+00:04:25,300 --> 00:04:27,760
+ancre c'est un lien, et ici
+je suis capable de spécifier
+
+91
+00:04:27,960 --> 00:04:30,650
+à quel message callback,
+quand je clique sur ce lien
+
+92
+00:04:30,870 --> 00:04:32,100
+exécute ce block de codes.
+
+93
+00:04:32,810 --> 00:04:35,500
+Donc ici quand je clique sur
+le lien qui s'appelle "+ +",
+
+94
+00:04:35,760 --> 00:04:38,760
+ça va exécuter la méthode
+self increase du Counter, et
+
+95
+00:04:38,960 --> 00:04:42,000
+quand je clique sur le
+lien "- -" ça va exécuter la
+
+96
+00:04:42,200 --> 00:04:44,000
+méthode Self decrease du Counter.
+
+97
+00:04:44,490 --> 00:04:45,250
+Tout simple.
+
+98
+00:04:46,940 --> 00:04:47,700
+On peut aller plus loin.
+
+99
+00:04:47,900 --> 00:04:50,490
+Donc si une erreur survient
+pendant que je clique sur un
+
+100
+00:04:50,690 --> 00:04:52,470
+lien, c'est-à-dire que
+dans un callback ici j'ai
+
+101
+00:04:52,670 --> 00:04:55,170
+introduit sciemment un point d'arrêt.
+
+102
+00:04:55,370 --> 00:04:58,890
+Ça pourrait être une erreur
+mais j'introduis vraiment un
+
+103
+00:04:59,090 --> 00:05:01,050
+point d'arrêt dans la
+méthode Decrease, donc selfhaltIf.
+
+104
+00:05:02,060 --> 00:05:05,770
+Donc si le counter est
+décrémenté et passe sous 0 dans ce
+
+105
+00:05:06,000 --> 00:05:07,760
+cas-là je déclenche
+l'apparition du débugger.
+
+106
+00:05:07,960 --> 00:05:12,230
+Et donc on voit que si je
+fais ça dans mon application
+
+107
+00:05:12,430 --> 00:05:15,080
+Web j'ai bien le débugger
+ici qui s'affiche, et on voit
+
+108
+00:05:15,280 --> 00:05:18,220
+bien la pile d'exécution
+du programme ici, avec la
+
+109
+00:05:18,420 --> 00:05:22,420
+méthode
+renderCounterOn, et le decrease ici.
+
+110
+00:05:23,670 --> 00:05:25,020
+Donc on s'est bien
+arrêté sur le haltIf.
+
+111
+00:05:25,850 --> 00:05:28,000
+Donc ici je peux modifier
+directement le code de mon
+
+112
+00:05:28,200 --> 00:05:31,340
+application, appuyer sur
+le bouton Proceed et mon
+
+113
+00:05:31,540 --> 00:05:35,660
+navigateur va recevoir la réponse
+HTML comme si rien ne s'était passé.
+
+114
+00:05:39,170 --> 00:05:41,000
+Donc un autre problème dans
+les applications Web c'est le
+
+115
+00:05:41,260 --> 00:05:44,350
+problème du Back Button. Donc
+l'idée c'est que quand l'utilisateur
+
+116
+00:05:44,550 --> 00:05:47,020
+clique sur le Back Button
+ça désynchronise l'état entre
+
+117
+00:05:47,220 --> 00:05:49,420
+le serveur et le client.
+Donc un exemple: imaginons que
+
+118
+00:05:49,620 --> 00:05:52,440
+j'incrémente 5 fois mon
+compteur, donc il vaut 5, devant
+
+119
+00:05:52,640 --> 00:05:56,420
+moi j'ai 5 qui est
+affiché. Je clique sur le bouton
+
+120
+00:05:56,620 --> 00:05:59,820
+Retour de mon navigateur.
+Donc je vais voir la valeur 4.
+
+121
+00:06:00,080 --> 00:06:02,000
+Par contre le serveur
+n'est pas au courant que j'ai
+
+122
+00:06:02,200 --> 00:06:04,550
+cliqué sur ce bouton
+Retour. Et donc si je reclique sur
+
+123
+00:06:04,750 --> 00:06:08,870
+"Incrémenter la valeur du
+compteur" moi je vais voir la réponse 6.
+
+124
+00:06:09,370 --> 00:06:12,230
+Donc ça c'est un problème
+puisque le côté serveur il
+
+125
+00:06:12,430 --> 00:06:14,920
+pensait qu'il était toujours à
+5, donc incrémenté on passe à 6.
+
+126
+00:06:15,340 --> 00:06:17,250
+Comment gérer ça en Seaside ?
+
+127
+00:06:17,450 --> 00:06:18,210
+C'est extrêmement simple.
+
+128
+00:06:18,450 --> 00:06:20,660
+On va définir une nouvelle
+méthode sur la classe Counter
+
+129
+00:06:20,880 --> 00:06:23,720
+qui est la méthode States,
+donc qui va retourner l'ensemble
+
+130
+00:06:23,920 --> 00:06:25,890
+des objets dont il faut
+préserver l'état quand on clique
+
+131
+00:06:26,090 --> 00:06:30,290
+sur le bouton Retour. Donc en
+l'occurrence uniquement l'objet
+
+132
+00:06:30,490 --> 00:06:32,200
+Self c'est le compteur courant.
+
+133
+00:06:33,120 --> 00:06:35,660
+D'accord! Et maintenant si
+je fais le bouton Retour et
+
+134
+00:06:35,860 --> 00:06:37,940
+que je reclique sur
+Increment, j'aurai bien la valeur 5
+
+135
+00:06:38,140 --> 00:06:38,900
+dans l'exemple précédent.
+
+136
+00:06:41,660 --> 00:06:46,390
+Donc les Callback en fait
+c'est des blocks de codes
+
+137
+00:06:46,600 --> 00:06:49,280
+dans lesquels on a
+toute la puissance de Pharo.
+
+138
+00:06:49,480 --> 00:06:52,880
+Donc ici dans un Callback je peux
+écrire n'importe quel code Pharo.
+
+139
+00:06:54,130 --> 00:06:57,090
+Donc ici j'ai pris un
+exemple plus complexe où cette fois
+
+140
+00:06:57,580 --> 00:07:00,270
+je peux utiliser une
+alternative pour dire J'incrémente
+
+141
+00:07:00,470 --> 00:07:03,120
+le Counter d'un cran ou de
+2 crans en fonction si c'est
+
+142
+00:07:03,320 --> 00:07:05,490
+un nombre pair ou impair par exemple.
+
+143
+00:07:06,040 --> 00:07:10,140
+Mon Counter va
+s'incrémenter plus vite dans un cas au
+
+144
+00:07:10,340 --> 00:07:11,630
+lieu de s'incrémenter que d'une fois.
+
+145
+00:07:12,680 --> 00:07:17,360
+Donc on voit qu'on a
+vraiment une puissance grande dans
+
+146
+00:07:17,560 --> 00:07:18,350
+ces blocks de Callback.
+
+147
+00:07:21,660 --> 00:07:24,230
+Donc par exemple dans
+l'exemple précédent, donc si je
+
+148
+00:07:24,430 --> 00:07:28,330
+clique sur "+ +" ici
+donc ça va bien arriver
+
+149
+00:07:28,890 --> 00:07:33,160
+sur une nouvelle fenêtre qui
+me dit que c'est un nombre pair.
+
+150
+00:07:36,560 --> 00:07:37,950
+Je vous montre un autre exemple.
+
+151
+00:07:38,730 --> 00:07:42,050
+Donc cette fois c'est une
+application dans laquelle l'utilisateur
+
+152
+00:07:42,250 --> 00:07:43,060
+va rentrer son prénom.
+
+153
+00:07:43,450 --> 00:07:45,340
+On aimerait que
+l'utilisateur puisse rentrer son prénom
+
+154
+00:07:45,540 --> 00:07:48,430
+et quand il clique sur le
+bouton Say hello ici, on
+
+155
+00:07:48,630 --> 00:07:50,770
+voudrait lui afficher une
+chaîne de caractères qui est
+
+156
+00:07:51,450 --> 00:07:54,890
+"Hi" et son prénom, le prénom
+qu'il a rentré au début ici.
+
+157
+00:07:55,090 --> 00:07:58,440
+D'accord! Donc comment je
+peux faire pour écrire cette
+
+158
+00:07:58,640 --> 00:08:00,350
+application-là en Seaside ?
+
+159
+00:08:00,650 --> 00:08:01,510
+Extrêmement simple.
+
+160
+00:08:01,940 --> 00:08:03,910
+Je vais faire une
+sous-classe de la classe WAComplement,
+
+161
+00:08:05,060 --> 00:08:06,750
+que je vais doter d'une
+variable d'instances username.
+
+162
+00:08:07,500 --> 00:08:09,500
+Et dans la méthode
+renderContentOn, celle que je vous
+
+163
+00:08:09,700 --> 00:08:13,760
+montre ici, je vais juste
+afficher donc le champ username
+
+164
+00:08:14,310 --> 00:08:15,780
+et je vais dire un texte Input.
+
+165
+00:08:16,040 --> 00:08:18,090
+Donc un texte Input c'est le
+champ de texte que vous avez
+
+166
+00:08:18,290 --> 00:08:20,270
+vu tout à l'heure dans lequel
+l'utilisateur pouvait écrire "Bob".
+
+167
+00:08:20,820 --> 00:08:24,040
+Et je vais avoir un Callback,
+cette fois le Callback c'est
+
+168
+00:08:24,240 --> 00:08:26,260
+un block qui est a
+un paramètre Value.
+
+169
+00:08:26,820 --> 00:08:29,290
+Donc le paramètre Value ce
+block ça sera la chaîne de
+
+170
+00:08:29,490 --> 00:08:31,910
+caractères qu'a rentrée
+l'utilisateur dans le champ
+
+171
+00:08:32,110 --> 00:08:33,530
+texte, donc Bob dans notre exemple.
+
+172
+00:08:33,870 --> 00:08:35,370
+Et on va être capable de
+stocker cette chaîne de
+
+173
+00:08:35,570 --> 00:08:38,820
+caractères dans la variable
+d'instances du composant "Peter" donc username.
+
+174
+00:08:39,600 --> 00:08:43,610
+Et ensuite quand on va
+cliquer sur le SubmitButton on va
+
+175
+00:08:43,810 --> 00:08:45,590
+dire quand je clique sur le
+bouton je veux être capable
+
+176
+00:08:45,790 --> 00:08:48,400
+self inform, donc là je vais
+appeler un nouveau composant
+
+177
+00:08:48,600 --> 00:08:51,580
+dans lequel je vais dire
+"Affiche la chaîne Hi Bob".
+
+178
+00:08:52,000 --> 00:08:54,770
+Donc je concatène la chaîne
+de caractères avec le champ
+
+179
+00:08:55,000 --> 00:08:56,390
+Hi avec ce qu'il avait
+rentré dans le champ texte avant.
+
+180
+00:09:00,120 --> 00:09:02,850
+Donc j'espère que vous avez
+remarqué que, pour ceux qui
+
+181
+00:09:03,050 --> 00:09:05,440
+ont l'habitude de faire des
+applications Web, en Seaside
+
+182
+00:09:05,640 --> 00:09:09,190
+je n'ai pas parlé de
+découpage de requêtes, est-ce qu'y a
+
+183
+00:09:09,390 --> 00:09:11,860
+des paramètres dans la
+requête dans l'URL et caetera.
+
+184
+00:09:12,060 --> 00:09:13,870
+Je n'ai pas parlé de
+configuration fichier avec ses mails
+
+185
+00:09:14,070 --> 00:09:15,620
+compliqués, je n'ai pas
+parlé de fichiers, je n'ai pas
+
+186
+00:09:15,820 --> 00:09:20,230
+parlé de pages, je n'ai pas
+parlé de liens vers la page suivante.
+
+187
+00:09:21,020 --> 00:09:24,770
+En fait j'ai uniquement
+parlé de composants, d'objets, de
+
+188
+00:09:25,000 --> 00:09:28,150
+messages, de Callback et de
+la possibilité de débugger
+
+189
+00:09:28,820 --> 00:09:31,930
+directement du Code
+grâce au débugger Pharo.
+
+190
+00:09:33,420 --> 00:09:35,000
+Donc en résumé ce qu'il
+faut retenir c'est qu'une
+
+191
+00:09:35,200 --> 00:09:37,620
+application Web en
+Seaside c'est facile, c'est un
+
+192
+00:09:37,820 --> 00:09:40,190
+composant racine et on
+verra qu'on peut combiner les
+
+193
+00:09:40,390 --> 00:09:43,790
+composants entre eux pour
+construire des application plus complexes.
+
+194
+00:09:44,670 --> 00:09:47,480
+Un composant sait se rendre en HTML
+grâce à sa méthode renderCounterOn.
+
+195
+00:09:47,680 --> 00:09:52,630
+Et on a un langage dédié
+qui permet de générer le code
+
+196
+00:09:52,830 --> 00:09:54,170
+HTML pour chacun des composants.
+
+197
+00:09:54,520 --> 00:09:57,700
+Et on va revoir ce langage plus en
+détails dans la prochaine séquence.
+

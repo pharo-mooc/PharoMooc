@@ -1,0 +1,497 @@
+WEBVTT
+
+00:00:01.220 --> 00:00:02.580 align:middle
+Dans cette séance, j'ai
+envie de vous montrer comme on
+
+00:00:02.747 --> 00:00:05.220 align:middle
+doit utiliser le debugger
+pour programmer différemment.
+
+00:00:05.760 --> 00:00:09.330 align:middle
+On va ré-implémenter
+l'application counter mais d'une
+
+00:00:09.497 --> 00:00:14.190 align:middle
+manière différente, avec un flow
+de développement plus interactif.
+
+00:00:16.940 --> 00:00:18.290 align:middle
+La première chose que je
+vais faire, je vais créer un
+
+00:00:18.457 --> 00:00:20.840 align:middle
+nouveau package avec
+Counter comme précédemment.
+
+00:00:26.050 --> 00:00:28.810 align:middle
+Je vais filtrer aussi parce
+qu'au moins j'aurai moins de choses.
+
+00:00:29.270 --> 00:00:33.240 align:middle
+Dans MyCounter, je
+vais commencer par définir
+
+00:00:34.960 --> 00:00:37.100 align:middle
+un test, une classe de test.
+
+00:00:37.267 --> 00:00:39.090 align:middle
+Donc, les classes de
+test héritent de TestCase.
+
+00:00:40.260 --> 00:00:41.650 align:middle
+Je vais l'appeler Counter Test.
+
+00:00:42.790 --> 00:00:44.870 align:middle
+Je vais compiler. Je le
+fais encore une fois au menu et
+
+00:00:45.037 --> 00:00:46.340 align:middle
+puis après, je vais le
+faire avec les commentaires.
+
+00:00:46.507 --> 00:00:47.830 align:middle
+Ça m'a créé ma classe de test.
+
+00:00:48.260 --> 00:00:51.610 align:middle
+Dans ma classe de test, je
+vais écrire une méthode de
+
+00:00:53.260 --> 00:00:56.150 align:middle
+test. Les méthodes de
+test commencent par test.
+
+00:01:02.260 --> 00:01:04.160 align:middle
+Qu'est -ce que je fais ?
+
+00:01:04.520 --> 00:01:07.820 align:middle
+Comme précédemment je
+définis une variable locale, dans
+
+00:01:08.000 --> 00:01:12.570 align:middle
+cette variable
+locale je vais mettre un
+
+00:01:12.737 --> 00:01:15.150 align:middle
+objet de la classe Counter.
+
+00:01:16.770 --> 00:01:21.130 align:middle
+Je vais initialiser la
+valeur de ce Counter et je vais
+
+00:01:21.297 --> 00:01:25.500 align:middle
+vérifier que le
+Counter a la bonne valeur.
+
+00:01:31.450 --> 00:01:32.083 align:middle
+Je compile.
+
+00:01:33.320 --> 00:01:36.070 align:middle
+Maintenant, le système me
+dit attention, je ne sais pas
+
+00:01:36.237 --> 00:01:38.250 align:middle
+ce que c'est que le
+Counter. Il me l'avait déjà indiqué
+
+00:01:38.417 --> 00:01:39.670 align:middle
+parce que c'était
+déjà en italique ici.
+
+00:01:40.030 --> 00:01:42.460 align:middle
+Il me propose: "Est-ce que tu veux
+dire définir une nouvelle classe?
+
+00:01:42.627 --> 00:01:44.040 align:middle
+Une nouvelle globale ou
+une variable de classe?"
+
+00:01:44.207 --> 00:01:45.000 align:middle
+Moi c'est une nouvelle classe.
+
+00:01:45.137 --> 00:01:48.260 align:middle
+Là, il me propose la définition
+de la classe qui pourrait définir.
+
+00:01:48.427 --> 00:01:50.790 align:middle
+Je dis, oui c'est correct,
+dans le bon package, ça hérite
+
+00:01:50.957 --> 00:01:51.590 align:middle
+d'object, très bien, fais-le.
+
+00:01:51.757 --> 00:01:55.160 align:middle
+Et là, il a crée une classe vide.
+
+00:01:56.050 --> 00:01:58.520 align:middle
+Maintenant, on va reclasser ça.
+
+00:02:00.520 --> 00:02:04.260 align:middle
+Maintenant ce que je peux
+voir ma classe Counter est vide.
+
+00:02:04.610 --> 00:02:07.130 align:middle
+Maintenant si j'exécute
+mon test, il est rouge.
+
+00:02:07.297 --> 00:02:08.820 align:middle
+Pourquoi est-il rouge ?
+
+00:02:09.000 --> 00:02:09.860 align:middle
+Parce que j'ai une erreur.
+
+00:02:10.290 --> 00:02:11.760 align:middle
+Alors comment je
+dois lire ce message?
+
+00:02:11.927 --> 00:02:13.470 align:middle
+Prenons 2 minutes pour faire ça.
+
+00:02:14.630 --> 00:02:19.590 align:middle
+Le système me dit: "un
+message Count a été envoyé à
+
+00:02:19.757 --> 00:02:23.440 align:middle
+une instance de la classe
+Counter et on n'a pas trouvé la
+
+00:02:23.607 --> 00:02:28.240 align:middle
+méthode qui
+correspond". Je vais regarder.
+
+00:02:31.590 --> 00:02:32.360 align:middle
+J'ouvre le debugger.
+
+00:02:32.760 --> 00:02:36.050 align:middle
+Le débugger me présente la
+pile d'exécution, donc je peux
+
+00:02:36.217 --> 00:02:39.760 align:middle
+voir et il me montre qu'il y a eu
+un message qui n'a pas été compris.
+
+00:02:39.927 --> 00:02:42.960 align:middle
+Et là, il me montre l'endroit
+où ce message a été invoqué.
+
+00:02:43.760 --> 00:02:46.020 align:middle
+Ce que je vois, c'est que
+si je viens ici, je vois les
+
+00:02:46.187 --> 00:02:50.770 align:middle
+variables du système, si je
+regarde C, ça me permet d'accéder
+
+00:02:50.937 --> 00:02:55.010 align:middle
+à la variable temporaire C,
+qui elle, vaut un Counter.
+
+00:02:55.177 --> 00:02:56.920 align:middle
+De toute façon, si je
+fais C class par exemple,
+
+00:02:57.830 --> 00:03:00.730 align:middle
+selfclass, il me dit
+c'est la classe Counter.
+
+00:03:03.790 --> 00:03:08.230 align:middle
+C'est évident. Pour le
+moment, dans ma classe, je n'ai
+
+00:03:08.397 --> 00:03:12.620 align:middle
+pas de méthode. Je vais demander
+au système d'en créer une pour moi.
+
+00:03:12.787 --> 00:03:13.590 align:middle
+Je vais dire Create.
+
+00:03:14.290 --> 00:03:15.630 align:middle
+Il me propose dans quelle classe.
+
+00:03:15.797 --> 00:03:17.370 align:middle
+Je vais dire dans la classe Counter.
+
+00:03:17.537 --> 00:03:18.670 align:middle
+Est-ce que tu peux créer cela ?
+
+00:03:18.837 --> 00:03:20.330 align:middle
+Je fais oui dans Accessing.
+
+00:03:21.780 --> 00:03:23.620 align:middle
+Et là, qu'est-ce
+qu'il a fait finalement?
+
+00:03:25.930 --> 00:03:29.200 align:middle
+Il a compilé automatiquement une
+méthode avec la bonne signature.
+
+00:03:30.310 --> 00:03:31.850 align:middle
+Pour le corps de la
+méthode, il ne sait pas quoi faire,
+
+00:03:32.017 --> 00:03:36.010 align:middle
+donc il utilise
+ShouldBeImplemented. Qu'est-ce que ça fait?
+
+00:03:36.177 --> 00:03:40.360 align:middle
+Ça va lever une exception à
+l'exécution et le système a
+
+00:03:40.527 --> 00:03:41.630 align:middle
+ré-exécuté cette méthode.
+
+00:03:41.797 --> 00:03:44.140 align:middle
+Maintenant, j'ai une
+nouvelle erreur et je dois
+
+00:03:44.570 --> 00:03:46.680 align:middle
+implémenter le corps de la méthode.
+
+00:03:48.090 --> 00:03:49.950 align:middle
+Je sais Count.
+Qu'est-ce que je vais faire?
+
+00:03:50.117 --> 00:03:53.020 align:middle
+J'ai envie de stocker cette
+variable, cette valeur dans
+
+00:03:53.187 --> 00:03:55.450 align:middle
+une variable d'instance. Donc là
+
+00:03:58.180 --> 00:04:02.600 align:middle
+c'est rouge, parce que pour le
+moment ma classe n'a pas cette instance.
+
+00:04:02.860 --> 00:04:04.170 align:middle
+Je vais faire Compile.
+
+00:04:05.130 --> 00:04:07.360 align:middle
+Le système me propose:
+"Est-ce que tu veux une variable
+
+00:04:07.527 --> 00:04:09.140 align:middle
+temporaire ou une
+variable d'instance?"
+
+00:04:09.307 --> 00:04:11.350 align:middle
+Je veux une variable d'instance.
+
+00:04:14.330 --> 00:04:19.040 align:middle
+Donc je fais ça. Si je
+regarde dans ma classe, j'ai bien
+
+00:04:19.207 --> 00:04:21.640 align:middle
+une variable d'instance
+Count qui a été créée et la
+
+00:04:21.807 --> 00:04:26.650 align:middle
+méthode, le Setter qui va bien mettre
+
+00:04:26.817 --> 00:04:27.450 align:middle
+la valeur.
+
+00:04:29.790 --> 00:04:31.390 align:middle
+Une fois que j'ai fait
+ça, je peux dire au debugger
+
+00:04:31.557 --> 00:04:34.550 align:middle
+continue, Proceed, ça veut
+dire continue l'exécution
+
+00:04:34.717 --> 00:04:37.610 align:middle
+comme si de rien n'était.
+
+00:04:38.470 --> 00:04:39.103 align:middle
+Qu'est ce qui se passe ?
+
+00:04:39.270 --> 00:04:40.020 align:middle
+J'ai encore une erreur.
+
+00:04:41.310 --> 00:04:44.600 align:middle
+Le système me dit
+toujours, il y a une instance de la
+
+00:04:44.767 --> 00:04:47.000 align:middle
+ classe Counter qui a reçu le
+message count et je n'ai pas
+
+00:04:47.167 --> 00:04:50.360 align:middle
+trouvé la bonne méthode.
+C'est normal parce que si je
+
+00:04:50.527 --> 00:04:54.250 align:middle
+regarde C, je peux
+voir que C a bien 7
+
+00:04:55.680 --> 00:05:00.420 align:middle
+dans son Counter, dans sa
+variable count, mais par contre
+
+00:05:00.587 --> 00:05:01.850 align:middle
+la méthode count n'existe pas.
+
+00:05:02.250 --> 00:05:03.080 align:middle
+Je vais la recréer.
+
+00:05:03.247 --> 00:05:05.360 align:middle
+Je vais faire
+Create, Dans quelle classe?
+
+00:05:05.527 --> 00:05:09.000 align:middle
+Toujours la classe Counter,
+dans le protocole accessing
+
+00:05:09.460 --> 00:05:14.310 align:middle
+car c'est un
+accesseur. Et là, ce que vous
+
+00:05:14.477 --> 00:05:18.260 align:middle
+voyez, c'est que le système
+est un peu plus intelligent.
+
+00:05:18.427 --> 00:05:21.680 align:middle
+Il s'est dit qu'il y avait une
+variable d'instance qui s'appelait
+
+00:05:21.847 --> 00:05:26.000 align:middle
+count, il veut définir une
+méthode qui s'appelle count
+
+00:05:27.120 --> 00:05:29.240 align:middle
+donc proposons-lui un accesseur.
+
+00:05:29.410 --> 00:05:30.140 align:middle
+C'est ce que je voulais.
+
+00:05:30.307 --> 00:05:31.050 align:middle
+Donc là maintenant je
+peux donc faire Proceed.
+
+00:05:32.440 --> 00:05:33.350 align:middle
+Qu'est-ce que je vois ?
+
+00:05:33.517 --> 00:05:37.750 align:middle
+Mon test est vert. J'ai
+mon test qui est vert et ma
+
+00:05:37.917 --> 00:05:42.050 align:middle
+ classe a bien 2
+méthodes qui ont été créées.
+
+00:05:44.240 --> 00:05:45.470 align:middle
+Maintenant je vais faire la
+même chose pour increment.
+
+00:05:49.640 --> 00:05:51.100 align:middle
+En fait finalement ce que je
+suis en train de faire c'est
+
+00:05:51.267 --> 00:05:54.490 align:middle
+que je suis en train de
+spécifier ce que la méthode doit
+
+00:05:54.657 --> 00:05:56.240 align:middle
+faire, et de vérifier
+qu'elle le fait bien.
+
+00:05:58.360 --> 00:06:03.090 align:middle
+Donc là je dois obtenir
+9, je compile, j'exécute.
+
+00:06:03.300 --> 00:06:07.730 align:middle
+Et là le système me dit, je ne
+connais pas la méthode increment.
+
+00:06:07.897 --> 00:06:12.490 align:middle
+Oui c'est normal, Je vais
+faire Create, ici dans opération.
+
+00:06:15.960 --> 00:06:19.950 align:middle
+Si je regarde
+increment, je peux faire count.
+
+00:06:20.750 --> 00:06:25.230 align:middle
+= count + 1. Je compile.
+
+00:06:27.080 --> 00:06:29.570 align:middle
+Proceed. J'ai bien mon test.
+
+00:06:30.370 --> 00:06:31.760 align:middle
+Dans la foulée, on
+va faire decrement.
+
+00:06:31.927 --> 00:06:36.050 align:middle
+L'idée, c'est que vous le
+fassiez, que vous le pratiquiez.
+
+00:06:39.520 --> 00:06:43.120 align:middle
+Donc là ce sera 5.
+Je définis mon test.
+
+00:06:45.460 --> 00:06:46.750 align:middle
+Je crée ma méthode.
+
+00:06:51.480 --> 00:06:55.000 align:middle
+OK. Donc à vous commencez
+à savoir count: = count,
+
+00:07:00.330 --> 00:07:01.660 align:middle
+je compile dans le debugger.
+
+00:07:01.827 --> 00:07:05.640 align:middle
+Je fais Proceed. Et
+mes tests sont verts.
+
+00:07:05.807 --> 00:07:10.060 align:middle
+Ma classe a maintenant 2
+opérations: increment et decrement.
+
+00:07:10.420 --> 00:07:11.770 align:middle
+C'est le moment de
+sauver, par exemple.
+
+00:07:12.010 --> 00:07:14.500 align:middle
+Je vais sauver comme je
+vous l'ai montré précédemment.
+
+00:07:15.280 --> 00:07:19.180 align:middle
+Je sauve, je vais faire
+Save, je sauve et là je vais
+
+00:07:20.040 --> 00:07:20.760 align:middle
+lui dire "with
+
+00:07:25.740 --> 00:07:29.430 align:middle
+accessors and decrement
+increment covered by green tests".
+
+00:07:29.597 --> 00:07:34.000 align:middle
+Donc voila j'ai sauvé ça,
+
+00:07:47.250 --> 00:07:47.883 align:middle
+très bien.
+
+00:07:49.100 --> 00:07:52.860 align:middle
+Ce qui est important de
+voir dans cette session, c'est
+
+00:07:53.390 --> 00:07:58.250 align:middle
+que le debugger nous a
+permis d'accéder à l'état d'
+
+00:07:58.417 --> 00:08:02.340 align:middle
+objet, et d'être vraiment dans
+le contexte d'appel et d'utiliser
+
+00:08:02.507 --> 00:08:04.460 align:middle
+ce contexte d'appel pour
+avoir toutes les informations
+
+00:08:04.627 --> 00:08:07.390 align:middle
+nécessaires pour
+pouvoir écrire notre code.
+
+00:08:07.557 --> 00:08:08.690 align:middle
+Et ça, c'est vraiment
+très, très puissant.
+

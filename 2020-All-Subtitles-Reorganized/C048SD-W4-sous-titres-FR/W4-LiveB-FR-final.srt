@@ -1,0 +1,217 @@
+1
+00:00:04,360 --> 00:00:05,160
+-Bonjour à tous.
+
+2
+00:00:05,480 --> 00:00:07,040
+Dans cette vidéo, on va s'intéresser
+
+3
+00:00:07,360 --> 00:00:12,240
+à la façon de mettre
+notre package compteur sur GitHub.
+
+4
+00:00:12,560 --> 00:00:14,760
+On a déjà sauvegardé notre package
+MyCounter en local.
+
+5
+00:00:15,080 --> 00:00:19,200
+Maintenant, on va voir comment
+le lier à un repository GitHub.
+
+6
+00:00:19,520 --> 00:00:22,280
+On va d'abord commencer
+par créer un repository GitHub
+
+7
+00:00:22,600 --> 00:00:24,920
+dans Repository, New.
+
+8
+00:00:25,240 --> 00:00:27,400
+On va l'appeler "MyCounter".
+
+9
+00:00:27,720 --> 00:00:31,000
+"Simple counter in Pharo".
+
+10
+00:00:31,320 --> 00:00:32,640
+On va créer ce repository.
+
+11
+00:00:34,560 --> 00:00:36,000
+Voilà, il est vide.
+
+12
+00:00:36,320 --> 00:00:38,600
+Maintenant,
+on va retourner sur Iceberg,
+
+13
+00:00:38,920 --> 00:00:40,880
+dans "MyCounter",
+on va double-cliquer
+
+14
+00:00:41,200 --> 00:00:45,320
+et on va aller
+dans l'onglet Repository.
+
+15
+00:00:45,640 --> 00:00:47,720
+Ça va nous montrer
+nos différents commits.
+
+16
+00:00:48,040 --> 00:00:49,800
+"Initial commit",
+c'est le premier commit.
+
+17
+00:00:50,120 --> 00:00:53,000
+On a ajouté
+"Increment and decrement", "PrintOn".
+
+18
+00:00:53,320 --> 00:00:56,000
+Ça ne doit pas ressembler exactement
+à ça, c'est juste un exemple.
+
+19
+00:00:56,320 --> 00:00:58,840
+Vous devez normalement
+avoir ici vos différents commits.
+
+20
+00:00:59,160 --> 00:01:01,640
+On va cliquer
+sur le bouton "Add remote".
+
+21
+00:01:01,960 --> 00:01:06,720
+Un remote, ça va être
+un lien vers un Git en ligne.
+
+22
+00:01:07,040 --> 00:01:10,920
+Donc, dans "Remote name",
+on va l'appeler "origin",
+
+23
+00:01:11,240 --> 00:01:13,560
+et "Remote URL", ça va être
+l'URL qu'on peut trouver ici,
+
+24
+00:01:13,880 --> 00:01:15,760
+en le mettant en HTTPS.
+
+25
+00:01:16,080 --> 00:01:17,920
+"https://github", voilà.
+
+26
+00:01:18,240 --> 00:01:21,720
+Votre identifiant Git
+et le nom de votre repository.
+
+27
+00:01:22,040 --> 00:01:22,960
+Cmd+P.
+
+28
+00:01:23,280 --> 00:01:24,440
+OK, le remote est ajouté.
+
+29
+00:01:24,760 --> 00:01:27,440
+Vous pouvez voir qu'on a
+un point rouge à côté de "Push".
+
+30
+00:01:27,760 --> 00:01:28,800
+On va cliquer dessus.
+
+31
+00:01:29,120 --> 00:01:32,120
+Il va nous dire qu'il va push
+les trois commits que j'ai pu faire
+
+32
+00:01:32,440 --> 00:01:33,600
+sur GitHub.
+
+33
+00:01:33,920 --> 00:01:35,200
+Je clique sur "Push".
+
+34
+00:01:36,320 --> 00:01:41,200
+Donc, identifiant
+et mot de passe GitHub,
+
+35
+00:01:41,520 --> 00:01:44,160
+puisqu'on ne se connecte pas
+en SSH, mais en HTTPS.
+
+36
+00:01:44,480 --> 00:01:47,160
+On peut cocher la case pour
+que ces identifiants soient stockés
+
+37
+00:01:47,480 --> 00:01:49,400
+si on doit refaire
+une opération de ce type.
+
+38
+00:01:49,720 --> 00:01:50,720
+OK.
+
+39
+00:01:51,600 --> 00:01:55,520
+Ça push vers le remote "origin",
+qui est celui qu'on a déterminé.
+
+40
+00:01:55,840 --> 00:01:57,360
+On voit que c'est toujours Up to date.
+
+41
+00:01:57,680 --> 00:01:59,560
+On n'a plus le cachet rouge
+à côté de "Push".
+
+42
+00:01:59,880 --> 00:02:02,800
+Si on va sur GitHub
+et qu'on recharge cette page,
+
+43
+00:02:03,120 --> 00:02:06,720
+on peut voir qu'on a maintenant
+notre package "MyCounter".
+
+44
+00:02:07,040 --> 00:02:11,600
+Je vous ai montré comment vous pouvez
+pousser votre repository local,
+
+45
+00:02:11,920 --> 00:02:14,840
+c'était notre compteur,
+pour le mettre sur GitHub
+
+46
+00:02:15,160 --> 00:02:20,360
+tout simplement en ajoutant un remote
+à votre package Iceberg
+
+47
+00:02:20,680 --> 00:02:23,680
+et en créant le repository sur GitHub.

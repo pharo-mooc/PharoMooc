@@ -1,0 +1,425 @@
+﻿1
+00:00:00,360 --> 00:00:01,800
+Hello. In this course
+
+2
+00:00:01,960 --> 00:00:06,440
+we'll take the time to really
+understand the class methods.
+
+3
+00:00:06,600 --> 00:00:08,960
+You should have done the exercise
+with the counter,
+
+4
+00:00:09,120 --> 00:00:12,520
+you have done a class method,
+it worked very well.
+
+5
+00:00:12,680 --> 00:00:16,440
+Now we'll take a good look,
+so you understand for once and all.
+
+6
+00:00:17,400 --> 00:00:20,800
+You'll learn in this course
+that there's no difference in Pharo
+
+7
+00:00:20,960 --> 00:00:24,240
+between class and instance methods
+on a search algorithm level.
+
+8
+00:00:24,400 --> 00:00:27,320
+There's only one search algorithm
+
+9
+00:00:27,480 --> 00:00:32,400
+alluded to and used,
+that's defined in the virtual machine,
+
+10
+00:00:32,560 --> 00:00:37,240
+and you'll see that, while we could
+have said that the class methods,
+
+11
+00:00:37,400 --> 00:00:40,320
+at first glance, are like static
+Java methods, they're not.
+
+12
+00:00:40,480 --> 00:00:43,200
+In fact, they are dynamically linked.
+
+13
+00:00:43,360 --> 00:00:45,600
+There's a search at execution,
+
+14
+00:00:45,760 --> 00:00:50,080
+while in Java, typically,
+static methods aren't dynamically sought.
+
+15
+00:00:50,240 --> 00:00:51,720
+Let's see how it works.
+
+16
+00:00:51,880 --> 00:00:54,680
+In fact, what you've seen
+
+17
+00:00:54,840 --> 00:00:59,600
+is that there's only one lookup,
+which starts in the receiver's class.
+
+18
+00:00:59,760 --> 00:01:02,600
+If the method is defined in the class,
+
+19
+00:01:02,760 --> 00:01:06,000
+it's returned, otherwise
+it continues in the superclass.
+
+20
+00:01:06,160 --> 00:01:08,560
+What this means, graphically,
+
+21
+00:01:08,720 --> 00:01:11,720
+is that I've my example
+of the Counter class.
+
+22
+00:01:11,880 --> 00:01:14,880
+When I send the increment message,
+what will happen?
+
+23
+00:01:15,040 --> 00:01:20,160
+Step 1, I look in the Counter class,
+and I'll go back up...
+
+24
+00:01:20,320 --> 00:01:22,040
+If I've "increment" it's defined here,
+
+25
+00:01:22,200 --> 00:01:26,120
+if it's a method defined
+higher up in the hierarchy
+
+26
+00:01:26,280 --> 00:01:28,120
+it will be sought higher up.
+
+27
+00:01:28,280 --> 00:01:31,760
+In fact, this mechanism is used
+in Pharo, there's only one,
+
+28
+00:01:31,920 --> 00:01:35,280
+it's used for both instances and classes.
+
+29
+00:01:36,680 --> 00:01:41,640
+When you did the exercise with
+the class counter and sent the message
+
+30
+00:01:41,840 --> 00:01:44,320
+"with value" to the class counter
+
+31
+00:01:44,480 --> 00:01:46,480
+to create an instance, what happened?
+
+32
+00:01:46,640 --> 00:01:50,960
+The class counter is instance
+of a class called "Counter class"
+
+33
+00:01:51,120 --> 00:01:55,400
+and we looked, we used
+the same method as before.
+
+34
+00:01:55,560 --> 00:01:58,600
+We looked in the receiver class,
+the receiver was "Counter",
+
+35
+00:01:58,760 --> 00:02:02,920
+so we looked in the class
+"Counter class" and found the method
+
+36
+00:02:03,080 --> 00:02:05,960
+"with value" which we applied
+to the receiver
+
+37
+00:02:06,120 --> 00:02:08,680
+and it gave us a new instance.
+
+38
+00:02:08,840 --> 00:02:14,760
+So we used exactly the same process
+as for the messages we sent
+
+39
+00:02:14,920 --> 00:02:16,960
+to an instance of the Counter class.
+
+40
+00:02:18,080 --> 00:02:22,560
+So what is a "class" in Pharo?
+A class is an instance.
+
+41
+00:02:22,760 --> 00:02:26,480
+It's an object like any object.
+In Pharo there are only objects.
+
+42
+00:02:26,640 --> 00:02:30,040
+A class is an instance
+of another class, called a metaclass.
+
+43
+00:02:30,200 --> 00:02:34,000
+It's just to distinguish them.
+A metaclass is just a class
+
+44
+00:02:34,160 --> 00:02:36,080
+whose instances are classes,
+
+45
+00:02:36,880 --> 00:02:40,680
+to differentiate between
+terminal instances and classes.
+
+46
+00:02:40,840 --> 00:02:44,680
+The next thing is that
+the Counter class, in this line,
+
+47
+00:02:44,840 --> 00:02:49,040
+the Counter class is the only instance
+of the class Counter class.
+
+48
+00:02:50,160 --> 00:02:54,640
+This Counter class is created
+automatically, without you knowing it.
+
+49
+00:02:54,800 --> 00:02:58,040
+When you defined the Counter class,
+the system automatically created
+
+50
+00:02:58,200 --> 00:03:01,960
+the class Counter class,
+and it created the Counter class.
+
+51
+00:03:02,120 --> 00:03:06,040
+You thought you were creating 1 class,
+but in fact you were creating 2.
+
+52
+00:03:06,200 --> 00:03:09,640
+What you have to know in Pharo
+is that all the classes
+
+53
+00:03:09,800 --> 00:03:13,680
+in a class called XXX
+are called XXX class.
+
+54
+00:03:13,840 --> 00:03:18,120
+So if I have Counter,
+the Counter class will be
+
+55
+00:03:18,280 --> 00:03:22,080
+Counter class, systematically.
+
+56
+00:03:23,600 --> 00:03:26,680
+So, in fact, what you do in reality,
+
+57
+00:03:26,840 --> 00:03:30,920
+we're just showing you how it works.
+We needn't have explained it,
+
+58
+00:03:31,080 --> 00:03:33,800
+but it means that when
+the browser shows you
+
+59
+00:03:33,960 --> 00:03:36,560
+the Counter class, it shows you
+
+60
+00:03:36,720 --> 00:03:40,240
+the code that will be executed
+on the instances of this class.
+
+61
+00:03:40,400 --> 00:03:42,000
+That means, "increment"
+
+62
+00:03:42,160 --> 00:03:45,840
+is the code that will be executed
+on this instance here.
+
+63
+00:03:47,440 --> 00:03:52,280
+When you click on the "class" button
+to define a class method,
+
+64
+00:03:52,440 --> 00:03:56,800
+it shows you the code that will be
+executed on this object here.
+
+65
+00:03:58,720 --> 00:04:03,000
+And in fact, if we look,
+when I send the message "increment"
+
+66
+00:04:03,160 --> 00:04:07,680
+to the counter instance,
+I'll look in the Counter class.
+
+67
+00:04:07,840 --> 00:04:10,240
+Look, that's the method executed.
+
+68
+00:04:10,400 --> 00:04:15,360
+When I send the message
+"with value" to the Counter class,
+
+69
+00:04:15,520 --> 00:04:18,800
+where will I look? In its class.
+I follow this link,
+
+70
+00:04:18,960 --> 00:04:21,040
+and it's this method here.
+
+71
+00:04:22,320 --> 00:04:24,000
+So what should you know?
+
+72
+00:04:24,240 --> 00:04:26,320
+A class is an object in Pharo.
+
+73
+00:04:26,480 --> 00:04:27,960
+A class can receive messages.
+
+74
+00:04:28,120 --> 00:04:30,680
+I told you when we did the syntax,
+
+75
+00:04:30,840 --> 00:04:32,720
+I told you date, today...
+
+76
+00:04:32,880 --> 00:04:37,680
+What's that? It's a message
+that we sent to a class.
+
+77
+00:04:37,840 --> 00:04:40,040
+There are no elements
+syntaxed differently.
+
+78
+00:04:40,200 --> 00:04:44,040
+It's the same as sending a message
+syntactically to an instance.
+
+79
+00:04:44,200 --> 00:04:48,640
+What's more, this course shows you,
+there's only one method lookup.
+
+80
+00:04:48,800 --> 00:04:51,760
+The class methods
+are looked up dynamically
+
+81
+00:04:51,920 --> 00:04:54,520
+like the instance methods.
+Where are they looked up?
+
+82
+00:04:54,680 --> 00:04:56,560
+In the class of the receiver.
+
+83
+00:04:56,720 --> 00:04:59,520
+When it's an instance,
+it's looked up in the class,
+
+84
+00:04:59,680 --> 00:05:01,800
+when it's an instance class
+like the Counter class
+
+85
+00:05:01,960 --> 00:05:05,880
+it's looked up in the metaclass,
+in the class called Counter class.
+
+86
+00:05:06,040 --> 00:05:10,520
+So a class is an instance
+of another class, called a metaclass,
+
+87
+00:05:10,680 --> 00:05:13,560
+and only one look up works.
+
+88
+00:05:13,720 --> 00:05:17,480
+So we'll return to this notion
+in the final session,
+
+89
+00:05:17,640 --> 00:05:20,640
+in the lecture
+Understanding Metaclasses
+
+90
+00:05:20,800 --> 00:05:24,040
+and we're going to revisit,
+we're going to lift the lid on Pharo
+
+91
+00:05:24,200 --> 00:05:27,080
+and show you how it works,
+and it's completely uniform.

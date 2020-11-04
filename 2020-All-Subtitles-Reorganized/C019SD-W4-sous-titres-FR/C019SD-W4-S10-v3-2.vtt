@@ -1,0 +1,642 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:02.910 align:middle
+Salut. Donc bienvenue dans ce cours.
+
+00:00:03.320 --> 00:00:05.930 align:middle
+Là, ce que je vais vous
+montrer c'est 2 aspects, je ne
+
+00:00:06.130 --> 00:00:07.890 align:middle
+vais pas aller en profondeur
+dedans, de toute façon vous
+
+00:00:08.090 --> 00:00:11.420 align:middle
+allez les faire lors des
+exercices avec Tiny blog.
+
+00:00:11.620 --> 00:00:13.160 align:middle
+C'est, qu'est-ce qu'on peut
+faire une fois qu'on a des
+
+00:00:13.360 --> 00:00:16.070 align:middle
+données qu'on a décrites
+pour faire du développement web?
+
+00:00:16.440 --> 00:00:19.450 align:middle
+Et comment est-ce que
+Seaside fait du REST, c'est un des
+
+00:00:19.650 --> 00:00:20.460 align:middle
+frameworks pour
+faire du REST en Pharo.
+
+00:00:20.660 --> 00:00:22.010 align:middle
+Vous allez voir, c'est
+relativement élégant.
+
+00:00:22.380 --> 00:00:24.230 align:middle
+Donc commençons par le premier sujet.
+
+00:00:24.740 --> 00:00:27.940 align:middle
+Magritte c'est un framework
+qui fait l'hypothèse de dire
+
+00:00:28.140 --> 00:00:31.360 align:middle
+: si vous décrivez vos
+données, à ce moment-là je vais
+
+00:00:31.560 --> 00:00:33.190 align:middle
+pouvoir générer des
+choses basées sur ces données.
+
+00:00:33.550 --> 00:00:35.350 align:middle
+Je vais pouvoir par
+exemple générer des formulaires,
+
+00:00:35.550 --> 00:00:38.000 align:middle
+générer des interfaces graphiques.
+Et c'est ce que je vais vous montrer.
+
+00:00:38.190 --> 00:00:39.680 align:middle
+Donc là en particulier,
+dans le cours, je vais vous
+
+00:00:39.880 --> 00:00:42.000 align:middle
+montrer comment est-ce qu'on
+peut générer des composants
+
+00:00:42.200 --> 00:00:44.030 align:middle
+Seaside, qui vont vous
+permettre de faire des
+
+00:00:44.230 --> 00:00:45.680 align:middle
+applications Web plus rapidement.
+
+00:00:46.450 --> 00:00:49.180 align:middle
+Ok donc si on voit, par exemple,
+on a une classe, la classe Address.
+
+00:00:49.380 --> 00:00:51.720 align:middle
+Donc ça c'est des adresses en Suisse.
+
+00:00:51.920 --> 00:00:53.050 align:middle
+Qu'est-ce que c'est qu'une adresse ?
+
+00:00:53.250 --> 00:00:57.820 align:middle
+C'est une rue, un endroit,
+un code postal et puis un
+
+00:00:58.020 --> 00:00:58.780 align:middle
+canton par exemple.
+
+00:00:59.760 --> 00:01:04.390 align:middle
+J'ai une instance qui
+décrit une rue particulière, donc
+
+00:01:04.590 --> 00:01:05.480 align:middle
+rien de spécifique.
+
+00:01:05.680 --> 00:01:07.200 align:middle
+C'est juste de la
+ programmation, juste standard.
+
+00:01:07.480 --> 00:01:10.590 align:middle
+maintenant ce que Magritte
+va faire, Magritte va décrire
+
+00:01:10.790 --> 00:01:12.950 align:middle
+les champs de cette
+ classe de la manière suivante.
+
+00:01:13.150 --> 00:01:14.950 align:middle
+On va avoir une description
+de chaîne qui va nous dire:
+
+00:01:15.150 --> 00:01:16.290 align:middle
+ça, c'est le nom de la rue.
+
+00:01:16.600 --> 00:01:19.800 align:middle
+Donc ce qui est plus intéressant
+c'est la description du code postal.
+
+00:01:20.000 --> 00:01:22.040 align:middle
+Le code postal en Suisse,
+déjà premièrement on dit que
+
+00:01:22.240 --> 00:01:25.270 align:middle
+une adresse n'est valide que
+si le code postal est spécifié.
+
+00:01:25.470 --> 00:01:27.560 align:middle
+Si je ne spécifie pas de code
+postal je vais dire que l'adresse
+
+00:01:27.760 --> 00:01:30.400 align:middle
+n'est pas valide. Et en
+Suisse, les codes postaux
+
+00:01:30.600 --> 00:01:34.000 align:middle
+commencent entre 1 000 jusqu'à 9 999.
+
+00:01:34.190 --> 00:01:38.120 align:middle
+Et donc là, on le décrit
+dans la description et on va
+
+00:01:38.320 --> 00:01:40.250 align:middle
+pouvoir prendre en compte
+cette information pour faire de
+
+00:01:40.450 --> 00:01:41.720 align:middle
+la validation
+automatique de formulaires.
+
+00:01:42.000 --> 00:01:45.050 align:middle
+Bon après pour l'endroit on
+va dire qu'il est requis et
+
+00:01:45.250 --> 00:01:48.450 align:middle
+puis que c'est place. Et
+l'autre chose par exemple en
+
+00:01:48.650 --> 00:01:50.690 align:middle
+Suisse, vous avez 26
+cantons, ce qu'on va dire c'est que
+
+00:01:50.930 --> 00:01:53.740 align:middle
+le canton c'est un énuméré,
+donc c'est pour ça qu'on a un
+
+00:01:53.940 --> 00:01:56.370 align:middle
+single option description,
+il est requis, on veut qu'il
+
+00:01:56.570 --> 00:01:58.740 align:middle
+soit à trier et les
+options vont être listées.
+
+00:01:58.940 --> 00:02:01.630 align:middle
+Donc on va donner la
+liste, l'énumération de tous les
+
+00:02:01.830 --> 00:02:03.270 align:middle
+cantons suisses, il ne
+pourra pas y en avoir un autre.
+
+00:02:03.880 --> 00:02:06.870 align:middle
+Une fois qu'on a fait ça qu'est-ce
+qu'on va pouvoir faire avec Magritte?
+
+00:02:07.070 --> 00:02:09.740 align:middle
+Alors comment on le décrit en Pharo ?
+
+00:02:10.000 --> 00:02:13.210 align:middle
+On va donner ce genre, on va
+dire: j'ai une description Street.
+
+00:02:13.410 --> 00:02:15.670 align:middle
+La description Street,
+c'est une stream description.
+
+00:02:15.870 --> 00:02:20.030 align:middle
+Elle a cette
+étiquette, cette priorité.
+
+00:02:20.310 --> 00:02:23.680 align:middle
+Pour les nombres, je vais dire:
+c'est une description de nombres.
+
+00:02:25.050 --> 00:02:27.600 align:middle
+Je vais avoir une autre
+priorité, une étiquette.
+
+00:02:27.800 --> 00:02:31.720 align:middle
+Je dis qu'elle est requise et puis
+je vais donner mes valeurs de borne.
+
+00:02:32.550 --> 00:02:33.780 align:middle
+Maintenant qu'est-ce
+que je peux faire avec ça?
+
+00:02:34.000 --> 00:02:35.620 align:middle
+La première des choses que
+je peux faire, je ne vais pas
+
+00:02:35.820 --> 00:02:37.280 align:middle
+aller dans le détail du
+code, mais ce que je peux faire
+
+00:02:37.480 --> 00:02:39.040 align:middle
+je peux écrire un tout petit
+ programme qui est en fait un
+
+00:02:39.240 --> 00:02:41.100 align:middle
+interprète, qui va me
+générer des rapports.
+
+00:02:41.540 --> 00:02:43.850 align:middle
+Ça veut dire que là, étant
+donné une adresse, je prends
+
+00:02:44.050 --> 00:02:46.770 align:middle
+une adresse, j'ai ce petit
+ programme qui va me générer
+
+00:02:47.510 --> 00:02:51.330 align:middle
+par exemple un petit rapport qui
+va dire: la rue, elle s'appelle
+
+00:02:51.530 --> 00:02:56.200 align:middle
+Schutzenmattstrasse. La ville ça va
+
+00:02:56.400 --> 00:02:59.460 align:middle
+être Berne, le canton c'est
+Berne et le code postal 2012.
+
+00:02:59.660 --> 00:03:02.910 align:middle
+Donc je vais pouvoir
+utiliser le fait que mes données
+
+00:03:03.110 --> 00:03:06.200 align:middle
+sont décrites pour
+pouvoir générer des rapports.
+
+00:03:06.940 --> 00:03:09.000 align:middle
+Donc là c'était le plus
+débile qu'on puisse faire.
+
+00:03:09.360 --> 00:03:13.220 align:middle
+Mais donc ce qu'on va faire
+maintenant avec Seaside, je
+
+00:03:13.420 --> 00:03:14.950 align:middle
+vais créer un composant visuel Web.
+
+00:03:15.490 --> 00:03:19.490 align:middle
+Donc là, je dis: tu es un
+objet adresse, je veux te voir
+
+00:03:19.690 --> 00:03:20.500 align:middle
+comme un composant.
+
+00:03:20.700 --> 00:03:22.180 align:middle
+Donc ça ça va
+générer cette partie-là.
+
+00:03:24.820 --> 00:03:27.460 align:middle
+Je vais ajouter une forme
+pour faire de la validation,
+
+00:03:27.660 --> 00:03:29.050 align:middle
+donc ça ça va
+m'ajouter le Save et Cancel.
+
+00:03:30.350 --> 00:03:32.750 align:middle
+Et je vais faire un call donc
+je vais l'afficher à l'écran.
+
+00:03:33.390 --> 00:03:35.020 align:middle
+Et donc ce que vous voyez
+c'est que là je n'ai pas
+
+00:03:35.220 --> 00:03:38.810 align:middle
+manipulé, je n'ai même pas
+utilisé le DSL de Seaside pour
+
+00:03:39.010 --> 00:03:41.590 align:middle
+décrire mes composants Web,
+ils sont générés automatiquement.
+
+00:03:42.250 --> 00:03:43.190 align:middle
+Et ça c'est super puissant.
+
+00:03:44.000 --> 00:03:45.860 align:middle
+Donc je voulais vous
+montrer, par exemple, la société
+
+00:03:46.060 --> 00:03:50.070 align:middle
+Cuve, qui est une société qui
+fait une gestion de portfolios aux U.
+
+00:03:50.270 --> 00:03:52.470 align:middle
+S, tout ce que vous voyez à
+l'écran c'est tout fait avec
+
+00:03:52.670 --> 00:03:55.620 align:middle
+Seaside et avec Magritte.
+Tous les rapports en fait sont
+
+00:03:55.820 --> 00:04:00.400 align:middle
+générés automatiquement. Et ça, ça
+a un gain de productivité sérieux.
+
+00:04:01.640 --> 00:04:05.050 align:middle
+Donc l'idée de ce cours,
+c'était vraiment de vous donner
+
+00:04:05.250 --> 00:04:07.600 align:middle
+l'intuition de qu'est-ce
+qu'on peut faire quand on a des
+
+00:04:07.800 --> 00:04:11.190 align:middle
+données qui sont décrites
+et en particulier dans la
+
+00:04:11.390 --> 00:04:13.000 align:middle
+génération de composants Web.
+
+00:04:13.950 --> 00:04:15.510 align:middle
+Donc vous en ferez dans Tiny blog.
+
+00:04:15.810 --> 00:04:17.240 align:middle
+Maintenant ce que je vais
+vous montrer c'est que Seaside
+
+00:04:19.260 --> 00:04:22.430 align:middle
+a aussi une couche REST,
+pour faire de la communication
+
+00:04:22.630 --> 00:04:25.260 align:middle
+client/serveur sans passer
+forcément par des composants
+
+00:04:25.460 --> 00:04:29.830 align:middle
+visuels, et donc l'intégration de
+REST dans Seaside est vraiment élégante.
+
+00:04:30.120 --> 00:04:33.070 align:middle
+On va annoter en fait des
+objets de notre domaine et on
+
+00:04:33.270 --> 00:04:37.070 align:middle
+va avoir une conversion
+entre les paramètres d'URL et les
+
+00:04:37.270 --> 00:04:38.460 align:middle
+méthodes Smalltalk ou Pharo.
+
+00:04:39.910 --> 00:04:40.670 align:middle
+Donc comment on fait ?
+
+00:04:41.730 --> 00:04:44.540 align:middle
+Pour vous donner une idée de
+la complexité, en fait ce qu'on
+
+00:04:44.740 --> 00:04:48.040 align:middle
+fait c'est que on va définir
+ce qu'on appelle un filtre,
+
+00:04:48.240 --> 00:04:51.620 align:middle
+donc là je définis Tiny
+blog REST fulFilter qui est une
+
+00:04:51.820 --> 00:04:55.010 align:middle
+sous-classe de
+WARestfulfilter, peu importe.
+
+00:04:55.210 --> 00:04:57.660 align:middle
+Et puis la chose
+intéressante c'est que je vais ajouter
+
+00:04:57.860 --> 00:05:00.360 align:middle
+un filtre quand je crée
+mon application là en bas.
+
+00:05:00.560 --> 00:05:02.240 align:middle
+Donc ça vous le verrez dans
+l'exercice de toute façon.
+
+00:05:03.070 --> 00:05:05.170 align:middle
+Et maintenant, imaginons que
+je veuille par exemple avoir
+
+00:05:05.370 --> 00:05:09.920 align:middle
+toute la liste de tous les blogs
+que j'ai sur mon serveur Tiny blog.
+
+00:05:11.110 --> 00:05:12.050 align:middle
+Comment je vais exprimer ça ?
+
+00:05:12.250 --> 00:05:13.700 align:middle
+Je vais exprimer ça
+de la manière suivante.
+
+00:05:13.900 --> 00:05:18.270 align:middle
+Je vais définir une méthode
+dans la classe Restfulfilter,
+
+00:05:19.200 --> 00:05:23.800 align:middle
+qui s'appelle listAll, et qui
+correspond en fait à l'encre
+
+00:05:24.150 --> 00:05:25.220 align:middle
+que je vais utiliser.
+
+00:05:26.330 --> 00:05:31.000 align:middle
+Et je lui dis: toi tu as un
+get pour le protocole rest
+
+00:05:31.230 --> 00:05:32.930 align:middle
+et tu vas me générer du
+texte mais sous forme Json.
+
+00:05:33.480 --> 00:05:34.760 align:middle
+Et là, je vais écrire
+ce que je vais faire.
+
+00:05:34.960 --> 00:05:37.150 align:middle
+Donc là, je lui dis: je
+crée une stream Pharo.
+
+00:05:38.150 --> 00:05:41.180 align:middle
+Dans cette stream je vais
+prendre tous les blogs qui sont
+
+00:05:41.380 --> 00:05:44.190 align:middle
+disponibles, je vais prendre
+chacun des blogs, donc vous
+
+00:05:44.390 --> 00:05:46.700 align:middle
+voyez encore un itérateur.
+Je vais prendre chacun des
+
+00:05:46.900 --> 00:05:49.030 align:middle
+blogs et puis je vais le
+convertir en Javascript et je
+
+00:05:49.230 --> 00:05:50.270 align:middle
+vais les séparer par des virgules.
+
+00:05:51.400 --> 00:05:53.660 align:middle
+Et donc j'obtiens
+bien ce que je voulais.
+
+00:05:53.860 --> 00:05:57.370 align:middle
+Donc maintenant on voudrait faire
+quelque chose d'un petit peu plus avancé.
+
+00:05:58.020 --> 00:06:00.620 align:middle
+Imaginons que moi je
+veuille trouver un blog.
+
+00:06:00.820 --> 00:06:03.450 align:middle
+Je veux trouver donne-moi le
+blog qui correspond à un titre.
+
+00:06:04.510 --> 00:06:07.590 align:middle
+Donc là je vais utiliser,
+par exemple le post et puis je
+
+00:06:07.790 --> 00:06:11.320 align:middle
+veux dire: je veux ce blog
+post en donnant le titre à côté.
+
+00:06:11.520 --> 00:06:12.940 align:middle
+Donc comment est-ce
+que je vais faire?
+
+00:06:13.140 --> 00:06:15.390 align:middle
+Je vais définir une méthode
+Post qui prend un titre en
+
+00:06:15.590 --> 00:06:18.140 align:middle
+paramètres, et j'ai
+la notion de chemin.
+
+00:06:18.340 --> 00:06:21.300 align:middle
+Donc je vais dire:
+attention, quand dans l'URL vous avez
+
+00:06:21.500 --> 00:06:26.330 align:middle
+http quelque chose
+post avec quelque chose
+
+00:06:26.530 --> 00:06:29.690 align:middle
+ici, ce quelque chose ça
+sera le titre et c'est ce qu'on
+
+00:06:29.890 --> 00:06:32.390 align:middle
+voit ici avec les parenthèses.
+
+00:06:35.650 --> 00:06:37.240 align:middle
+Et là, de la même
+manière, je dis: attention ça va
+
+00:06:37.440 --> 00:06:39.390 align:middle
+produire du texte qui est
+formaté sous forme Json.
+
+00:06:40.160 --> 00:06:43.010 align:middle
+Et donc vous voyez, donc là, ce
+que je fais c'est que j'appelle
+
+00:06:43.210 --> 00:06:44.290 align:middle
+les fonctionnalités de Tiny blog.
+
+00:06:44.490 --> 00:06:47.240 align:middle
+Je dis: est-ce que tu as un
+post avec un titre qui est
+
+00:06:47.440 --> 00:06:49.430 align:middle
+spécifié en paramètres ?
+
+00:06:49.630 --> 00:06:51.620 align:middle
+Oui. Si c'est vide, je rends
+une erreur et puis sinon ce
+
+00:06:51.820 --> 00:06:56.000 align:middle
+que je fais, je vais le mettre
+dans ma stream et je rends ma stream.
+
+00:06:56.170 --> 00:06:59.000 align:middle
+Donc il y a d'autres choses, je
+vais juste montrer rapidement.
+
+00:06:59.180 --> 00:07:01.050 align:middle
+Si je veux faire un
+search ça sera pareil.
+
+00:07:01.760 --> 00:07:05.940 align:middle
+Si dans mon URL, je
+
+00:07:06.440 --> 00:07:08.540 align:middle
+tape "search title" et
+que je mets une valeur,
+
+00:07:09.060 --> 00:07:12.570 align:middle
+automatiquement ça sera matché,
+donc mon titre ce sera la même chose.
+
+00:07:12.770 --> 00:07:13.930 align:middle
+Et donc j'aurai mon titre ici.
+
+00:07:15.530 --> 00:07:19.930 align:middle
+Donc voilà la manière en fait
+de faire du REST dans Seaside.
+
+00:07:20.130 --> 00:07:22.170 align:middle
+Ça veut dire que dans
+Seaside vous pouvez avoir vos
+
+00:07:22.370 --> 00:07:24.160 align:middle
+composants graphiques, et
+d'un autre côté vous allez
+
+00:07:24.360 --> 00:07:26.930 align:middle
+avoir la possibilité
+d'exposer vos fonctionnalités de
+
+00:07:27.130 --> 00:07:28.710 align:middle
+votre domaine via une API REST.
+
+00:07:29.020 --> 00:07:33.000 align:middle
+Alors là je vous ai montré
+que des get mais en fait vous
+
+00:07:33.200 --> 00:07:36.700 align:middle
+avez l'API, vous avez toutes
+les fonctionnalités REST qui
+
+00:07:36.900 --> 00:07:39.190 align:middle
+sont disponibles, comme
+delete, post, get et puis les autres.
+
+00:07:40.410 --> 00:07:41.790 align:middle
+Ce que je vous ai montré
+aussi c'est que Seaside,
+
+00:07:42.000 --> 00:07:44.100 align:middle
+finalement, couplé avec
+Magritte, vous permet de faire
+
+00:07:44.300 --> 00:07:47.230 align:middle
+des formulaires extrêmement
+puissants et rapidement, et
+
+00:07:47.430 --> 00:07:48.480 align:middle
+que c'est bien intégré.
+
+00:07:49.150 --> 00:07:51.670 align:middle
+Donc sinon, il y a une autre
+solution pour faire du REST.
+
+00:07:51.870 --> 00:07:54.220 align:middle
+Les gens utilisent souvent
+Teapot, qui est une surcouche
+
+00:07:54.420 --> 00:07:57.430 align:middle
+as in pour faire du REST,
+pour faire des prototypes très
+
+00:07:57.630 --> 00:08:00.260 align:middle
+rapides, pour voir si
+leur API REST fonctionne.
+
+00:08:00.960 --> 00:08:03.150 align:middle
+Donc là, vous pouvez aussi
+vous amuser avec, c'est un
+
+00:08:03.350 --> 00:08:06.180 align:middle
+petit package et il y a une
+doc de Web enterprise book.
+

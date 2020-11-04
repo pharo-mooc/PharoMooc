@@ -1,0 +1,501 @@
+WEBVTT
+
+00:00:08.000 --> 00:00:12.320 align:middle
+Hola a todos, este video muestra
+algunos puntos avanzados en las clases.
+
+00:00:13.720 --> 00:00:15.320 align:middle
+Tiene tres partes principales.
+
+00:00:15.520 --> 00:00:20.760 align:middle
+En primer lugar, cómo compartir un estado entre
+instancias de una clase y sus subclases.
+
+00:00:22.280 --> 00:00:27.240 align:middle
+En segundo lugar, cómo habilitar las clases
+tener sus propias variables
+
+00:00:28.600 --> 00:00:30.960 align:middle
+En tercer lugar, cómo inicializar las clases.
+
+00:00:32.760 --> 00:00:36.160 align:middle
+Primero, cómo compartir un estado
+entre instancias
+
+00:00:37.560 --> 00:00:41.640 align:middle
+Aquí tenemos una clase
+con varias instancias
+
+00:00:41.920 --> 00:00:47.200 align:middle
+Para compartir un estado, estas instancias
+requieren un objeto común
+
+00:00:47.720 --> 00:00:53.920 align:middle
+En Java, utilizamos una variable de "instancia"
+que toma la palabra clave "estática".
+
+00:00:55.160 --> 00:00:58.240 align:middle
+El valor de una variable estática
+
+00:00:58.680 --> 00:01:00.720 align:middle
+es el mismo para todas las instancias.
+
+00:01:01.640 --> 00:01:04.640 align:middle
+En Pharo, usamos "variables de clase".
+
+00:01:06.200 --> 00:01:11.120 align:middle
+Esto debería ser una expresión familiar
+Eso nos permite crear clases.
+
+00:01:11.480 --> 00:01:15.640 align:middle
+Aquí creamos la clase Color,
+que es una subclase de objeto.
+
+00:01:15.800 --> 00:01:21.600 align:middle
+Primero, enumeramos sus variables de instancia,
+luego eche un vistazo a la línea a continuación.
+
+00:01:21.920 --> 00:01:25.480 align:middle
+Enumera las variables de clase
+de la clase Color.
+
+00:01:26.640 --> 00:01:32.200 align:middle
+La clase de color tiene al menos dos variables,
+ColorRegistry y ComponentMask.
+
+00:01:32.720 --> 00:01:34.440 align:middle
+Valores de una variable de clase
+
+00:01:34.680 --> 00:01:39.400 align:middle
+se comparten entre todas las instancias
+de la clase y las subclases.
+
+00:01:40.480 --> 00:01:46.600 align:middle
+Estas variables son accesibles
+desde ambos métodos de instancia y clase.
+
+00:01:47.480 --> 00:01:49.920 align:middle
+Comienzan con una letra mayúscula.
+
+00:01:50.520 --> 00:01:52.840 align:middle
+Volvamos a nuestro ejemplo.
+
+00:01:53.320 --> 00:01:55.600 align:middle
+Aquí tenemos nuestra clase de Color,
+
+00:01:55.920 --> 00:01:59.520 align:middle
+que es una instancia
+de la clase de color metaclase.
+
+00:02:01.160 --> 00:02:06.760 align:middle
+La clase Color define
+dos variables estándar, rgb y alfa.
+
+00:02:06.960 --> 00:02:09.720 align:middle
+Estas variables de instancia son privadas,
+
+00:02:10.760 --> 00:02:16.240 align:middle
+lo que significa que solo son accesibles
+utilizando los métodos de la clase Color.
+
+00:02:18.440 --> 00:02:24.560 align:middle
+También define ColorRegistry,
+que está subrayado y usa mayúsculas.
+
+00:02:25.240 --> 00:02:28.360 align:middle
+Esto indica que esta variable
+está compartido.
+
+00:02:29.480 --> 00:02:33.080 align:middle
+Es una variable de clase que es accesible.
+
+00:02:33.600 --> 00:02:39.640 align:middle
+por los métodos de la clase Color
+y los de la clase Clase de color.
+
+00:02:40.240 --> 00:02:43.600 align:middle
+Aquí hay unos ejemplos
+de los usos de esta variable.
+
+00:02:44.000 --> 00:02:48.520 align:middle
+En un método de instancia,
+el de privateBlue en la clase Color,
+
+00:02:48.840 --> 00:02:54.320 align:middle
+accedemos a la variable de clase
+usando su nombre
+
+00:02:55.360 --> 00:02:59.280 align:middle
+Del mismo modo, si queremos
+darle a esta variable un valor,
+
+00:02:59.640 --> 00:03:03.560 align:middle
+usamos un signo de igual a dos puntos,
+como con cualquier variable.
+
+00:03:03.880 --> 00:03:06.920 align:middle
+Podemos hacer esto
+en el lado de la instancia o de la clase.
+
+00:03:07.400 --> 00:03:08.480 align:middle
+Muy a menudo,
+
+00:03:09.000 --> 00:03:14.720 align:middle
+los valores de estas variables de clase
+se puede leer
+
+00:03:15.800 --> 00:03:17.600 align:middle
+dentro de los métodos de instancia,
+
+00:03:17.800 --> 00:03:21.680 align:middle
+y están escritos dentro de los métodos de clase.
+
+00:03:22.080 --> 00:03:25.960 align:middle
+Esto es lo que ocurre con mayor frecuencia,
+no es obligatorio
+
+00:03:28.040 --> 00:03:31.440 align:middle
+Ahora veamos
+Variables de instancia de clases.
+
+00:03:33.320 --> 00:03:34.920 align:middle
+No es lo mismo
+
+00:03:35.200 --> 00:03:38.360 align:middle
+Una clase es un objeto,
+Como todo lo demás.
+
+00:03:38.520 --> 00:03:41.600 align:middle
+Como todos los objetos,
+una clase puede tener instancias.
+
+00:03:42.440 --> 00:03:48.560 align:middle
+La metaclase describe la clase
+y enumera las variables de instancia
+
+00:03:48.760 --> 00:03:52.800 align:middle
+que solo se puede acceder
+por su única instancia, su clase.
+
+00:03:53.440 --> 00:03:57.840 align:middle
+Para definir una variable de instancia
+en el lado de la clase,
+
+00:03:58.480 --> 00:04:02.000 align:middle
+hacemos clic en el botón "clase"
+en el navegador de código.
+
+00:04:02.160 --> 00:04:04.400 align:middle
+Eso nos da la expresión aquí.
+
+00:04:04.560 --> 00:04:07.840 align:middle
+Entonces, ahora estoy navegando
+la clase RPackageSet.
+
+00:04:08.280 --> 00:04:13.400 align:middle
+La metaclase de esta clase
+define una variable denominada cachePackages.
+
+00:04:15.440 --> 00:04:19.240 align:middle
+Estas variables solo se pueden acceder.
+de los métodos de clase
+
+00:04:20.280 --> 00:04:24.920 align:middle
+y siempre comienzan
+con una letra minúscula.
+
+00:04:25.800 --> 00:04:27.240 align:middle
+Aquí hay un ejemplo.
+
+00:04:27.960 --> 00:04:32.960 align:middle
+La variable cachePackages se define
+en la clase metaclass RPackageSet.
+
+00:04:35.280 --> 00:04:36.720 align:middle
+Esto significa que
+
+00:04:37.520 --> 00:04:42.480 align:middle
+la clase RPackageSet,
+que es una instancia de la metaclase,
+
+00:04:42.640 --> 00:04:45.560 align:middle
+tiene un valor
+asociado con esta variable.
+
+00:04:46.840 --> 00:04:48.080 align:middle
+Similar,
+
+00:04:49.280 --> 00:04:53.760 align:middle
+todas las instancias de las subclases
+de la clase RPackageSet
+
+00:04:54.000 --> 00:04:58.600 align:middle
+tener un valor específico para esa variable,
+que es un valor diferente.
+
+00:04:58.760 --> 00:05:00.400 align:middle
+No se puede compartir aquí.
+
+00:05:00.600 --> 00:05:04.920 align:middle
+Cada instancia de la clase RPackageSet
+o sus subclases
+
+00:05:05.080 --> 00:05:07.600 align:middle
+tiene su propio valor para esta variable.
+
+00:05:08.040 --> 00:05:14.040 align:middle
+Variables de clase y variables de instancia
+En el lado de la clase hay cosas diferentes.
+
+00:05:14.200 --> 00:05:17.960 align:middle
+Explicaremos esto
+usando el patrón de diseño Singleton,
+
+00:05:18.160 --> 00:05:23.240 align:middle
+cuyo objetivo es garantizar
+que una clase tiene solo una instancia.
+
+00:05:24.800 --> 00:05:29.720 align:middle
+Una solución para ejecutar este patrón
+es almacenar, dentro de una variable,
+
+00:05:30.920 --> 00:05:36.160 align:middle
+la instancia que es de libre acceso
+y deshabilitar la creación de una nueva instancia.
+
+00:05:36.920 --> 00:05:39.920 align:middle
+Eso es lo que haremos aquí
+con WebServer
+
+00:05:41.040 --> 00:05:45.440 align:middle
+Aquí utilizamos una variable de instancia
+en el lado de la clase.
+
+00:05:46.760 --> 00:05:48.960 align:middle
+Su nombre toma minúsculas.
+
+00:05:49.120 --> 00:05:53.200 align:middle
+Esta variable se define
+en la definición de la metaclase.
+
+00:05:53.760 --> 00:05:56.920 align:middle
+Ahora deshabilitamos la ejecución.
+del método "nuevo".
+
+00:05:57.200 --> 00:06:02.040 align:middle
+No se pueden enviar mensajes a
+Clase WebServer para crear nuevas instancias.
+
+00:06:02.240 --> 00:06:05.200 align:middle
+Es imperativo
+ir a través de uniqueInstance,
+
+00:06:05.360 --> 00:06:10.640 align:middle
+que devuelve el valor de la variable
+si no es nada y tiene contenido,
+
+00:06:11.200 --> 00:06:15.440 align:middle
+o bien agrega algo
+a la variable usando "super nuevo".
+
+00:06:15.600 --> 00:06:18.840 align:middle
+Crea una nueva instancia
+de la clase WebServer,
+
+00:06:19.000 --> 00:06:21.960 align:middle
+y lo almacena
+en la variable uniqueInstance.
+
+00:06:22.560 --> 00:06:27.760 align:middle
+El hecho de que usemos
+variables de instancia de clase
+
+00:06:28.400 --> 00:06:30.480 align:middle
+conduce al siguiente resultado.
+
+00:06:31.240 --> 00:06:34.000 align:middle
+Cada subclase de la clase WebServer
+
+00:06:34.520 --> 00:06:36.640 align:middle
+tendrá su propio valor
+
+00:06:37.240 --> 00:06:39.640 align:middle
+para una instancia única.
+
+00:06:40.120 --> 00:06:43.040 align:middle
+Entonces, si WebServer tiene tres subclases,
+
+00:06:43.200 --> 00:06:47.480 align:middle
+la variable uniqueInstance
+Tendrá un total de cuatro valores.
+
+00:06:47.640 --> 00:06:50.600 align:middle
+Uno para WebServer y para cada subclase.
+
+00:06:51.320 --> 00:06:54.600 align:middle
+Si ahora usamos una variable de clase,
+
+00:06:55.160 --> 00:07:00.000 align:middle
+editamos la clase en el lado de la instancia
+
+00:07:00.200 --> 00:07:04.480 align:middle
+y agregamos UniqueInstance,
+usando una U mayúscula.
+
+00:07:06.720 --> 00:07:11.920 align:middle
+Nuevamente rechazamos el envío de mensajes "nuevos"
+e implementa UniqueInstance.
+
+00:07:12.080 --> 00:07:16.200 align:middle
+La unica diferencia
+es que usamos una U mayúscula.
+
+00:07:18.080 --> 00:07:21.040 align:middle
+Como resultado de elegir una variable de clase,
+
+00:07:22.120 --> 00:07:25.040 align:middle
+la jerarquía de clase
+tiene solo un singleton
+
+00:07:25.240 --> 00:07:27.520 align:middle
+Si WebServer tiene tres subclases,
+
+00:07:27.680 --> 00:07:32.080 align:middle
+estas tres subclases y WebServer
+comparten el mismo singleton
+
+00:07:32.240 --> 00:07:35.680 align:middle
+Por lo tanto, tenemos una instancia compartida por todos.
+
+00:07:36.640 --> 00:07:38.680 align:middle
+Ahora para la inicialización de clases.
+
+00:07:38.920 --> 00:07:43.720 align:middle
+Podemos tener variables compartidas
+entre una clase y sus instancias,
+
+00:07:43.920 --> 00:07:46.960 align:middle
+pero en algun momento
+debemos darles un valor.
+
+00:07:47.800 --> 00:07:50.400 align:middle
+Hacemos esto cuando inicializamos la clase.
+
+00:07:50.560 --> 00:07:55.160 align:middle
+Los objetos se inicializan
+cuando se envía el mensaje de inicialización.
+
+00:07:55.320 --> 00:07:59.120 align:middle
+Del mismo modo, podemos enviar
+el mensaje de inicialización a una clase.
+
+00:07:59.320 --> 00:08:04.240 align:middle
+Decidimos cómo inicializar variables
+usando el código del método de inicialización.
+
+00:08:05.840 --> 00:08:09.000 align:middle
+Si queremos inicializar
+la clase de color,
+
+00:08:09.320 --> 00:08:11.840 align:middle
+le enviamos el mensaje de inicialización.
+
+00:08:12.680 --> 00:08:16.840 align:middle
+Típicamente, cuando una clase
+se carga en el sistema
+
+00:08:17.160 --> 00:08:19.040 align:middle
+por la herramienta de control de versiones,
+
+00:08:19.280 --> 00:08:22.520 align:middle
+el mensaje de inicialización
+Se envía a todas las clases.
+
+00:08:22.880 --> 00:08:26.560 align:middle
+Esto es automático,
+no hay necesidad de enviar el mensaje
+
+00:08:26.920 --> 00:08:28.960 align:middle
+manualmente a todas las clases cargadas.
+
+00:08:29.120 --> 00:08:31.120 align:middle
+Pero si implementamos una clase,
+
+00:08:31.320 --> 00:08:35.000 align:middle
+si creamos una nueva clase
+usando el método de inicialización
+
+00:08:35.400 --> 00:08:37.760 align:middle
+debemos enviar el mensaje manualmente.
+
+00:08:38.640 --> 00:08:41.280 align:middle
+Aquí hay un ejemplo en la clase Color.
+
+00:08:41.480 --> 00:08:44.360 align:middle
+Podemos ver que estamos en el lado de la metaclase.
+
+00:08:44.680 --> 00:08:49.000 align:middle
+Aquí inicializamos
+varias variables de clase,
+
+00:08:50.320 --> 00:08:53.000 align:middle
+o variables de instancia en el lado de la clase.
+
+00:08:53.240 --> 00:08:55.960 align:middle
+Hay dos tipos de variables aquí.
+
+00:08:57.800 --> 00:08:59.680 align:middle
+En los métodos de inicialización,
+
+00:08:59.880 --> 00:09:03.360 align:middle
+nunca usamos super inicializar
+en el lado de la clase.
+
+00:09:03.560 --> 00:09:07.880 align:middle
+Cuando agregamos un método de inicialización
+Por el lado de la instancia,
+
+00:09:08.080 --> 00:09:10.920 align:middle
+nosotros sistemáticamente llamamos súper inicializar
+
+00:09:11.080 --> 00:09:15.320 align:middle
+para inicializar todas las variables de instancia
+de un objeto recién creado.
+
+00:09:15.520 --> 00:09:16.760 align:middle
+Pero para las clases,
+
+00:09:16.920 --> 00:09:22.000 align:middle
+ya que existen clases y superclases
+cuando se envía el mensaje de inicialización,
+
+00:09:22.160 --> 00:09:25.920 align:middle
+no llamamos súper inicialización
+en el método de inicialización
+
+00:09:26.120 --> 00:09:29.760 align:middle
+en el lado de la clase
+para evitar reiniciar las clases.
+
+00:09:30.160 --> 00:09:31.680 align:middle
+Aquí están las comidas para llevar.
+
+00:09:31.880 --> 00:09:35.640 align:middle
+Utilizamos las variables de clase para compartir un estado.
+
+00:09:37.200 --> 00:09:41.000 align:middle
+Las clases son objetos
+que puede tener sus propias variables,
+
+00:09:41.160 --> 00:09:44.320 align:middle
+entonces usamos variables de instancia
+en el lado de la clase.
+
+00:09:45.000 --> 00:09:48.680 align:middle
+Para inicializar una clase,
+le enviamos un mensaje de inicialización
+
+00:09:48.840 --> 00:09:52.200 align:middle
+y aplicar el método de inicialización
+en el lado de la clase.
+

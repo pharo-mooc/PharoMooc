@@ -1,0 +1,366 @@
+WEBVTT
+
+00:00:02.560 --> 00:00:04.600 align:middle
+Dans cette vidéo,
+j'aimerais vous expliquer comment
+
+00:00:04.767 --> 00:00:07.080 align:middle
+marche le debugger et
+comment vous pouvez vous en servir
+
+00:00:07.247 --> 00:00:10.780 align:middle
+pour identifier des bugs,
+et exécuter des expressions,
+
+00:00:10.947 --> 00:00:12.710 align:middle
+interagir avec les objets.
+
+00:00:14.080 --> 00:00:16.030 align:middle
+Alors ce que j'ai envie de
+faire, j'ai envie de reprendre
+
+00:00:16.197 --> 00:00:18.820 align:middle
+l'exercice qu'on avait
+fini et fait ensemble sur le
+
+00:00:19.000 --> 00:00:21.220 align:middle
+compteur, donc là, pour
+cela je prends Monticello, je
+
+00:00:21.387 --> 00:00:25.240 align:middle
+vais dans mon Package cache,
+dans mon cache de package, et
+
+00:00:25.407 --> 00:00:26.320 align:middle
+je vois que j'ai un package Counter.
+
+00:00:27.050 --> 00:00:29.010 align:middle
+Alors ça me permet un petit
+peu de vous expliquer aussi
+
+00:00:29.177 --> 00:00:31.560 align:middle
+cette fonctionnalité-là. Ce
+que je peux faire pour m'assurer
+
+00:00:31.727 --> 00:00:35.300 align:middle
+que c'est le bon package,
+je peux browser, c'est-à-dire
+
+00:00:35.560 --> 00:00:37.650 align:middle
+je vais aller voir les classes
+qui sont définies dans le package.
+
+00:00:38.240 --> 00:00:39.830 align:middle
+Donc là, je vois que j'ai
+un package qui s'appelle
+
+00:00:40.000 --> 00:00:42.500 align:middle
+MyCounter, qui
+contient 2 classes, Counter et
+
+00:00:42.667 --> 00:00:44.830 align:middle
+CounterTest, et que si je
+regarde toutes les opérations
+
+00:00:45.000 --> 00:00:48.130 align:middle
+de Counter, j'ai bien les 4
+méthodes qu'on avait définies
+
+00:00:48.297 --> 00:00:51.240 align:middle
+ensemble et de la même
+manière pour le test.
+
+00:00:51.407 --> 00:00:53.180 align:middle
+Donc maintenant, je sais
+que c'est ce package-là que je
+
+00:00:53.347 --> 00:00:54.490 align:middle
+veux charger, je vais faire Load.
+
+00:00:58.300 --> 00:01:02.160 align:middle
+Donc maintenant, je vais
+browser la classe Counter.
+
+00:01:08.200 --> 00:01:11.710 align:middle
+Donc la classe Counter, les tests
+sont verts, donc on peut commencer.
+
+00:01:15.000 --> 00:01:16.680 align:middle
+Donc ce que j'aimerais
+faire, j'aimerais vous montrer
+
+00:01:16.847 --> 00:01:19.470 align:middle
+comment on peut utiliser le
+debugger pour exécuter une
+
+00:01:19.637 --> 00:01:22.260 align:middle
+expression pas à pas,
+et aller ou pas dans les
+
+00:01:22.427 --> 00:01:23.720 align:middle
+expressions qu'on a
+envie de voir de plus près.
+
+00:01:24.530 --> 00:01:26.800 align:middle
+Donc pour ça, je vais
+prendre par exemple le
+
+00:01:27.000 --> 00:01:30.300 align:middle
+TestDecrement, je
+vais faire DebugTest.
+
+00:01:30.467 --> 00:01:35.420 align:middle
+Debug test, voilà,
+donc là encore une fois,
+
+00:01:35.587 --> 00:01:36.700 align:middle
+donc qu'est-ce que
+me montre le debugger?
+
+00:01:36.867 --> 00:01:38.880 align:middle
+Le debugger me montre
+la pile d'exécution.
+
+00:01:39.047 --> 00:01:41.830 align:middle
+Donc comme en Pharo tout
+est message, vous voyez qu'on
+
+00:01:42.000 --> 00:01:46.860 align:middle
+peut aller loin dans la
+pile, qu'au départ on a
+
+00:01:47.027 --> 00:01:50.160 align:middle
+exécuté la méthode Run,
+Undo, des tas de choses comme ça.
+
+00:01:50.327 --> 00:01:53.240 align:middle
+Donc pour le moment, c'est le système
+qui le fait donc on s'en fiche un peu.
+
+00:01:54.530 --> 00:01:59.300 align:middle
+Là, j'ai le code qui est en
+cours d'exécution sur la pile
+
+00:01:59.730 --> 00:02:00.930 align:middle
+et j'ai l'état du système.
+
+00:02:01.097 --> 00:02:03.060 align:middle
+Donc là, voyez, j'ai une
+variable locale C, pour le
+
+00:02:03.227 --> 00:02:05.480 align:middle
+moment, elle n'a pas été
+affectée, donc il y a nil dedans.
+
+00:02:06.150 --> 00:02:08.800 align:middle
+Et là, je vois que Self
+en fait est une classe de
+
+00:02:09.380 --> 00:02:13.770 align:middle
+CounterTest, c'est la
+méthode CounterTest>>
+
+00:02:14.880 --> 00:02:15.580 align:middle
+#testDecrement
+
+00:02:16.690 --> 00:02:21.420 align:middle
+Donc ce que je fais,
+quand je fais Over, là
+
+00:02:21.587 --> 00:02:24.370 align:middle
+j’arrive sur la première
+expression à exécuter.
+
+00:02:24.537 --> 00:02:26.540 align:middle
+Donc notez que là je peux
+vraiment créer, si j'ai envie,
+
+00:02:26.707 --> 00:02:28.720 align:middle
+je peux créer, tout de
+suite, je peux exécuter cette
+
+00:02:28.887 --> 00:02:32.340 align:middle
+expression parce qu'elle
+est complète, 
+
+00:02:32.507 --> 00:02:34.190 align:middle
+dans le sens où la classe
+Counter est définie et puis que
+
+00:02:34.357 --> 00:02:35.380 align:middle
+je peux lui envoyer le message New.
+
+00:02:36.120 --> 00:02:38.790 align:middle
+Donc là je vois que C est
+toujours comme ça, et donc là
+
+00:02:38.957 --> 00:02:40.650 align:middle
+maintenant, ce que je vais faire,
+je vais lui dire, ben je veux Over.
+
+00:02:40.817 --> 00:02:41.910 align:middle
+Over qu'est-ce que ça veut dire ?
+
+00:02:42.077 --> 00:02:45.840 align:middle
+Ça veut dire que je veux exécuter
+l'expression sans aller à l'intérieur.
+
+00:02:47.430 --> 00:02:52.150 align:middle
+Donc là, je suis sur la
+seconde expression qui est une
+
+00:02:52.317 --> 00:02:55.400 align:middle
+affectation, et je vais
+faire Over encore une fois et là
+
+00:02:55.567 --> 00:02:59.940 align:middle
+tout d'un coup ma variable
+ C pointe bien sur un Counter
+
+00:03:00.340 --> 00:03:04.300 align:middle
+que je peux voir ici, donc là pour le
+moment la valeur du Counter est nil.
+
+00:03:04.467 --> 00:03:07.960 align:middle
+Maintenant, si j'avais
+envie de voir comment count:
+
+00:03:08.127 --> 00:03:11.600 align:middle
+est implémenté, au
+lieu d'utiliser Over ce que je
+
+00:03:11.767 --> 00:03:12.520 align:middle
+fais c'est que j'utilise Into.
+
+00:03:12.687 --> 00:03:16.140 align:middle
+Into ça va aller à
+l'intérieur de la méthode,
+
+00:03:17.510 --> 00:03:20.050 align:middle
+comme ça. Donc là, je vois
+la définition de la méthode et
+
+00:03:20.217 --> 00:03:22.160 align:middle
+encore une fois, je peux
+interagir avec les arguments.
+
+00:03:22.580 --> 00:03:26.350 align:middle
+Donc là j'ai anInteger, si
+je fais Print, ah ben oui je
+
+00:03:26.517 --> 00:03:28.230 align:middle
+vois bien que c'est 7, et
+puis de toute façon anInteger
+
+00:03:28.397 --> 00:03:32.930 align:middle
+je l'ai ici et count pour le
+moment, ce que je vois, c'est
+
+00:03:33.097 --> 00:03:35.460 align:middle
+la variable d'instance,
+c'est que ça vaut nil.
+
+00:03:35.627 --> 00:03:37.210 align:middle
+Et c’est ce qui est affiché 
+ici aussi.
+
+00:03:38.750 --> 00:03:41.530 align:middle
+Et donc là je vais
+continuer, je vais faire Over, parce
+
+00:03:41.697 --> 00:03:44.450 align:middle
+que je veux dire, ben
+je veux sauter au-dessus.
+
+00:03:44.617 --> 00:03:46.360 align:middle
+Je veux continuer
+l'exécution de cette expression.
+
+00:03:49.740 --> 00:03:50.373 align:middle
+Donc là.
+
+00:03:51.860 --> 00:03:53.370 align:middle
+Maintenant imaginons que je
+veuille aller dans decrement,
+
+00:03:53.537 --> 00:03:55.690 align:middle
+eh ben je vais faire la
+même chose, je vais faire Into,
+
+00:03:56.190 --> 00:04:00.670 align:middle
+decrement voilà, j'ai le code de 
+decrement et
+
+00:04:01.310 --> 00:04:04.890 align:middle
+vous avez compris le
+principe je vais comme ça pouvoir
+
+00:04:05.057 --> 00:04:07.190 align:middle
+faire pas à pas l'expression.
+
+00:04:11.230 --> 00:04:13.280 align:middle
+Donc maintenant Proceed,
+qu'est-ce que ça permet de faire?
+
+00:04:13.447 --> 00:04:15.950 align:middle
+Ça permet de dire, bah à
+partir de ce moment-là continue
+
+00:04:16.117 --> 00:04:18.310 align:middle
+comme si de rien n'était.
+Donc c'est ce que je vais faire
+
+00:04:18.750 --> 00:04:22.750 align:middle
+et mon test sera vert.
+Donc maintenant ce que je peux
+
+00:04:22.917 --> 00:04:27.760 align:middle
+faire aussi, c'est
+ce morceau de code j'
+
+00:04:27.927 --> 00:04:29.810 align:middle
+aurais pu l'exécuter
+indépendamment, ça veut dire que je
+
+00:04:30.000 --> 00:04:32.850 align:middle
+peux très bien le mettre
+dans un PlayGround comme ceci,
+
+00:04:33.017 --> 00:04:37.920 align:middle
+et là avoir Debug it,
+ça me donne la même chose.
+
+00:04:38.960 --> 00:04:40.630 align:middle
+C'est juste que là
+c'est compilé un petit peu
+
+00:04:40.797 --> 00:04:43.930 align:middle
+différemment mais je vais
+avoir exactement les mêmes
+
+00:04:44.097 --> 00:04:47.710 align:middle
+fonctionnalités, avec
+mon Counter qui vaut 7,
+
+00:04:49.550 --> 00:04:52.080 align:middle
+et si je clique sur le
+counter je vois bien que j'ai 7
+
+00:04:52.350 --> 00:04:57.020 align:middle
+ici et je vais
+faire Into par exemple,
+
+00:04:57.960 --> 00:04:59.850 align:middle
+je vais aller dans
+decrement, Over, Over
+
+00:05:03.030 --> 00:05:05.320 align:middle
+et puis la même chose sur Over.
+
+00:05:08.810 --> 00:05:12.430 align:middle
+Donc là, ça va me rendre la
+valeur de la cascade donc ça
+
+00:05:12.597 --> 00:05:13.440 align:middle
+va me rendre le Counter C
+

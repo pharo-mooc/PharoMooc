@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smpte="http://www.smpte-ra.org/schemas/2052-1/2010/smpte-tt" ttp:timeBase="smpte" ttp:frameRate="25" ttp:dropMode="nonDrop" ttp:frameRateMultiplier="1 1">
+    <head>
+        <ttm:title>EN_C019SD-W4-S6</ttm:title>
+        <ttm:desc>SMPTE Timed Text</ttm:desc>
+        <ttm:copyright>Copyright (C) No Author</ttm:copyright>
+        <styling>
+            <style tts:fontStyle="normal" tts:fontWeight="normal" xml:id="normal" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+            <style tts:fontStyle="italic" tts:fontWeight="normal" xml:id="italic" tts:color="black" tts:fontFamily="Verdana" tts:textAlign="center" tts:fontSize="80%"></style>
+        </styling>
+        <layout>
+            <region xml:id="top" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="before" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="bottom" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="after" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+            <region xml:id="center" tts:backgroundColor="transparent" tts:showBackground="whenActive" tts:displayAlign="center" tts:origin="10% 10%" tts:extent="80% 80%"></region>
+        </layout>
+    </head>
+    <body>
+        <div style="normal" xml:id="d1">
+            <p xml:id="p1" begin="00:00:00:10" end="00:00:01:15" region="bottom">Hello to all.</p>
+            <p xml:id="p2" begin="00:00:01:19" end="00:00:05:21" region="bottom">This sequence<br/>will focus on class methods.</p>
+            <p xml:id="p3" begin="00:00:06:08" end="00:00:08:08" region="bottom">As we saw earlier,</p>
+            <p xml:id="p4" begin="00:00:08:13" end="00:00:12:21" region="bottom">class methods are normal methods,<br/>like other methods.</p>
+            <p xml:id="p5" begin="00:00:13:13" end="00:00:17:11" region="bottom">Generally, they are used<br/>to create new instances,</p>
+            <p xml:id="p6" begin="00:00:17:19" end="00:00:19:19" region="bottom">but can be used for other things.</p>
+            <p xml:id="p7" begin="00:00:20:05" end="00:00:24:02" region="bottom">We'll be seeing two examples<br/>of uses for class methods.</p>
+            <p xml:id="p8" begin="00:00:24:18" end="00:00:28:07" region="bottom">Imagine we want to parse<br/>these lines</p>
+            <p xml:id="p9" begin="00:00:28:11" end="00:00:30:21" region="bottom">in a computer program.</p>
+            <p xml:id="p10" begin="00:00:32:03" end="00:00:34:20" region="bottom">The lines create a structure.</p>
+            <p xml:id="p11" begin="00:00:36:00" end="00:00:39:18" region="bottom">If a line starts<br/>with an exclamation point,</p>
+            <p xml:id="p12" begin="00:00:40:03" end="00:00:42:01" region="bottom">it is read as a title.</p>
+            <p xml:id="p13" begin="00:00:42:12" end="00:00:47:18" region="bottom">Lines that start with dashes<br/>are list items.</p>
+            <p xml:id="p14" begin="00:00:49:06" end="00:00:51:23" region="bottom">Lines that start<br/>with more than one dash</p>
+            <p xml:id="p15" begin="00:00:52:03" end="00:00:54:19" region="bottom">are subitems on a list.</p>
+            <p xml:id="p16" begin="00:00:55:17" end="00:00:58:00" region="bottom">In any other case, it is a paragraph.</p>
+            <p xml:id="p17" begin="00:00:58:20" end="00:01:01:14" region="bottom">Take a program with this input:</p>
+            <p xml:id="p18" begin="00:01:03:02" end="00:01:05:16" region="bottom">It creates instances<br/>for the classes here,</p>
+            <p xml:id="p19" begin="00:01:05:20" end="00:01:07:24" region="bottom">subclasses of DocumentItem.</p>
+            <p xml:id="p20" begin="00:01:10:02" end="00:01:13:02" region="bottom">We also want to design<br/>this program</p>
+            <p xml:id="p21" begin="00:01:13:07" end="00:01:16:15" region="bottom">so that each subclass<br/>of DocumentItem is responsible</p>
+            <p xml:id="p22" begin="00:01:16:19" end="00:01:17:22" region="bottom">for parsing lines,</p>
+            <p xml:id="p23" begin="00:01:18:01" end="00:01:21:16" region="bottom">and for deciding "canParse" (or cannot)<br/>for a given line.</p>
+            <p xml:id="p24" begin="00:01:21:20" end="00:01:26:17" region="bottom">In the "canParse" method here,<br/>we submit a line of text.</p>
+            <p xml:id="p25" begin="00:01:27:00" end="00:01:30:11" region="bottom">If the line starts<br/>with an exclamation point,</p>
+            <p xml:id="p26" begin="00:01:30:15" end="00:01:32:23" region="bottom">the canParse method must return true.</p>
+            <p xml:id="p27" begin="00:01:33:02" end="00:01:35:21" region="bottom">The line belongs<br/>to the Section Title class.</p>
+            <p xml:id="p28" begin="00:01:36:11" end="00:01:37:23" region="bottom">In the ListItem class,</p>
+            <p xml:id="p29" begin="00:01:38:16" end="00:01:43:23" region="bottom">the canParse method returns true<br/>if the line starts with a dash.</p>
+            <p xml:id="p30" begin="00:01:44:19" end="00:01:48:10" region="bottom">And the canParse line we see here<br/>must always return true.</p>
+            <p xml:id="p31" begin="00:01:49:06" end="00:01:54:08" region="bottom">The idea is to write an algorithm<br/>that looks at classes one by one.</p>
+            <p xml:id="p32" begin="00:01:54:23" end="00:01:58:03" region="bottom">As soon as one returns<br/>canParse for a given line,</p>
+            <p xml:id="p33" begin="00:01:58:21" end="00:02:03:12" region="bottom">we use that class to create<br/>a new instance for that line.</p>
+            <p xml:id="p34" begin="00:02:04:15" end="00:02:06:21" region="bottom">That's the goal of canParse method.</p>
+            <p xml:id="p35" begin="00:02:07:00" end="00:02:11:21" region="bottom">The newFromLine method also<br/>takes a line of text as a parameter.</p>
+            <p xml:id="p36" begin="00:02:12:24" end="00:02:17:14" region="bottom">But it returns an instance in the class<br/>in which the line is implemented.</p>
+            <p xml:id="p37" begin="00:02:17:23" end="00:02:22:23" region="bottom">If I send a newFromLine message<br/>to the SectionTitle class,</p>
+            <p xml:id="p38" begin="00:02:23:05" end="00:02:27:03" region="bottom">with a chain of characters<br/>starting with an exclamation point,</p>
+            <p xml:id="p39" begin="00:02:27:13" end="00:02:31:22" region="bottom">the newFromLine method will return<br/>an instance of the SectionTitle class.</p>
+            <p xml:id="p40" begin="00:02:32:09" end="00:02:33:19" region="bottom">This is what happens:</p>
+            <p xml:id="p41" begin="00:02:34:02" end="00:02:36:22" region="bottom">The ClassParser does this work.</p>
+            <p xml:id="p42" begin="00:02:37:01" end="00:02:39:17" region="bottom">It searches<br/>DocumentItem subclasses</p>
+            <p xml:id="p43" begin="00:02:40:00" end="00:02:42:04" region="bottom">for the one<br/>in charge of a given line.</p>
+            <p xml:id="p44" begin="00:02:42:13" end="00:02:46:09" region="bottom">The Parser has a method<br/>called documentClasses.</p>
+            <p xml:id="p45" begin="00:02:47:08" end="00:02:51:18" region="bottom">Its goal is to return<br/>the list of Subclasses</p>
+            <p xml:id="p46" begin="00:02:52:04" end="00:02:53:13" region="bottom">in DocumentItem.</p>
+            <p xml:id="p47" begin="00:02:53:21" end="00:02:58:01" region="bottom">It returns a collection<br/>containing these three classes.</p>
+            <p xml:id="p48" begin="00:02:58:16" end="00:03:02:08" region="bottom">We do this by sending the message<br/>"allSubclasses" to DocumentItem.</p>
+            <p xml:id="p49" begin="00:03:02:12" end="00:03:05:20" region="bottom">The allSubclasses method<br/>already exists in the Pharo system.</p>
+            <p xml:id="p50" begin="00:03:05:24" end="00:03:09:04" region="bottom">It returns the list of subclasses<br/>in a given class.</p>
+            <p xml:id="p51" begin="00:03:09:16" end="00:03:13:00" region="bottom">That message yields a collection</p>
+            <p xml:id="p52" begin="00:03:13:04" end="00:03:16:11" region="bottom">containing SectionTitle,<br/>ListItem, and Text.</p>
+            <p xml:id="p53" begin="00:03:17:24" end="00:03:20:13" region="bottom">I want the collection<br/>sorted by priority.</p>
+            <p xml:id="p54" begin="00:03:20:17" end="00:03:24:10" region="bottom">The idea is for the text class<br/>to come at the end</p>
+            <p xml:id="p55" begin="00:03:24:17" end="00:03:27:24" region="bottom">because its canParse method<br/>always returns true.</p>
+            <p xml:id="p56" begin="00:03:28:03" end="00:03:31:16" region="bottom">The text class<br/>can parse any line at random.</p>
+            <p xml:id="p57" begin="00:03:32:24" end="00:03:36:02" region="bottom">We will test that method<br/>after testing the others.</p>
+            <p xml:id="p58" begin="00:03:36:06" end="00:03:39:13" region="bottom">We have the concept<br/>of priority here.</p>
+            <p xml:id="p59" begin="00:03:41:04" end="00:03:44:24" region="bottom">As you see, many methods<br/>are underlined.</p>
+            <p xml:id="p60" begin="00:03:45:06" end="00:03:48:19" region="bottom">If I underline the methods here,</p>
+            <p xml:id="p61" begin="00:03:49:04" end="00:03:51:18" region="bottom">this indicates they are class methods.</p>
+            <p xml:id="p62" begin="00:03:52:01" end="00:03:56:06" region="bottom">To execute these methods,<br/>the message must be sent to the Class.</p>
+            <p xml:id="p63" begin="00:03:56:12" end="00:04:01:10" region="bottom">I must send the canParse method<br/>to the SectionTitle class</p>
+            <p xml:id="p64" begin="00:04:01:19" end="00:04:05:21" region="bottom">to find out if the SectionTitle class<br/>can parse a given line.</p>
+            <p xml:id="p65" begin="00:04:08:06" end="00:04:12:14" region="bottom">The Parse method of the Parser class<br/>takes a line as a parameter.</p>
+            <p xml:id="p66" begin="00:04:12:24" end="00:04:18:19" region="bottom">It searches all DocumentItem subclasses<br/>for a class that can parse the line.</p>
+            <p xml:id="p67" begin="00:04:19:01" end="00:04:22:15" region="bottom">If it detects one, it creates an instance<br/>of this class.</p>
+            <p xml:id="p68" begin="00:04:24:05" end="00:04:28:15" region="bottom">Sending the command "detect:"<br/>to a collection</p>
+            <p xml:id="p69" begin="00:04:29:04" end="00:04:33:13" region="bottom">yields one among n elements<br/>in a collection, following a predicate.</p>
+            <p xml:id="p70" begin="00:04:34:10" end="00:04:38:23" region="bottom">Now we'll look at another example<br/>of using class methods.</p>
+            <p xml:id="p71" begin="00:04:39:08" end="00:04:43:20" region="bottom">We'll look at how command-line<br/>parameters are handled.</p>
+            <p xml:id="p72" begin="00:04:44:12" end="00:04:48:04" region="bottom">Here we see a program<br/>receiving parameters,</p>
+            <p xml:id="p73" begin="00:04:49:01" end="00:04:52:24" region="bottom">detecting the parameters<br/>that will make it do things differently.</p>
+            <p xml:id="p74" begin="00:04:53:09" end="00:04:57:04" region="bottom">The first parameter indicates<br/>the action to be carried out.</p>
+            <p xml:id="p75" begin="00:04:57:17" end="00:05:02:02" region="bottom">We will design the program so that<br/>we have one class per action type.</p>
+            <p xml:id="p76" begin="00:05:02:10" end="00:05:06:00" region="bottom">The "eval" action is represented<br/>by one class:</p>
+            <p xml:id="p77" begin="00:05:06:09" end="00:05:08:04" region="bottom">eval CommandLineHandler.</p>
+            <p xml:id="p78" begin="00:05:09:23" end="00:05:13:20" region="bottom">What action is carried out<br/>when the "eval" parameter appears?</p>
+            <p xml:id="p79" begin="00:05:14:11" end="00:05:17:00" region="bottom">It executes...</p>
+            <p xml:id="p80" begin="00:05:17:07" end="00:05:21:03" region="bottom">This chain of characters<br/>is interpreted as Pharo code,</p>
+            <p xml:id="p81" begin="00:05:21:14" end="00:05:24:01" region="bottom">and return the result<br/>of the expression.</p>
+            <p xml:id="p82" begin="00:05:24:17" end="00:05:27:11" region="bottom">3628800 is the result<br/>of 10 factorial.</p>
+            <p xml:id="p83" begin="00:05:27:23" end="00:05:29:11" region="bottom">This is implemented</p>
+            <p xml:id="p84" begin="00:05:30:09" end="00:05:32:23" region="bottom">using the Command-Line Handler<br/>class.</p>
+            <p xml:id="p85" begin="00:05:33:24" end="00:05:36:11" region="bottom">EvaluateCommandLineHandler<br/>is a subclass</p>
+            <p xml:id="p86" begin="00:05:36:23" end="00:05:41:12" region="bottom">assigned to processing<br/>the "eval" parameter.</p>
+            <p xml:id="p87" begin="00:05:41:20" end="00:05:45:14" region="bottom">If "eval" is sent as the first parameter<br/>in a command line,</p>
+            <p xml:id="p88" begin="00:05:45:18" end="00:05:47:14" region="bottom">this class has to work.</p>
+            <p xml:id="p89" begin="00:05:48:17" end="00:05:52:14" region="bottom">The isReponsibleFor method<br/>must return true</p>
+            <p xml:id="p90" begin="00:05:53:05" end="00:05:54:24" region="bottom">if there is one subclass</p>
+            <p xml:id="p91" begin="00:05:55:03" end="00:05:59:23" region="bottom">capable of taking the command line<br/>into account.</p>
+            <p xml:id="p92" begin="00:06:01:10" end="00:06:02:19" region="bottom">Underneath, we see</p>
+            <p xml:id="p93" begin="00:06:03:06" end="00:06:07:16" region="bottom">a mechanism identical to the one<br/>we saw in the preceding example.</p>
+            <p xml:id="p94" begin="00:06:08:02" end="00:06:13:04" region="bottom">Once again, we are using class methods<br/>and sending messages to classes</p>
+            <p xml:id="p95" begin="00:06:14:10" end="00:06:16:20" region="bottom">for tasks other than creating instances.</p>
+            <p xml:id="p96" begin="00:06:17:15" end="00:06:21:12" region="bottom">This sequence showed us<br/>two possible uses for class methods.</p>
+            <p xml:id="p97" begin="00:06:22:05" end="00:06:26:09" region="bottom">Class methods<br/>are mostly used to create new instances.</p>
+            <p xml:id="p98" begin="00:06:26:17" end="00:06:29:08" region="bottom">But they can also be used<br/>in other cases.</p>
+        </div>
+    </body>
+</tt>

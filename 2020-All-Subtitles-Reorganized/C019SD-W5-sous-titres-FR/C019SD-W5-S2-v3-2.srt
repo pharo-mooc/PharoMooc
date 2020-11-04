@@ -1,0 +1,546 @@
+1
+00:00:00,460 --> 00:00:03,110
+Bonjour. Donc dans ce
+cours, on va vraiment prendre le
+
+2
+00:00:03,310 --> 00:00:06,180
+temps de comprendre comment
+marchent les méthodes de classe.
+
+3
+00:00:06,670 --> 00:00:08,590
+Donc normalement, vous
+avez fait l'exercice avec le
+
+4
+00:00:08,790 --> 00:00:11,550
+counter et puis vous avez
+fait une méthode de classe, ça
+
+5
+00:00:11,750 --> 00:00:14,800
+a marché, très bien.
+Maintenant, on va vraiment regarder
+
+6
+00:00:15,000 --> 00:00:16,420
+pour que vous ayez
+compris une fois pour toutes.
+
+7
+00:00:17,510 --> 00:00:19,390
+Donc ce que vous allez
+apprendre dans ce cours, c'est qu'en
+
+8
+00:00:19,590 --> 00:00:21,270
+fait dans Pharo il n'y a
+pas de différence entre une
+
+9
+00:00:21,470 --> 00:00:23,190
+méthode de classes et une
+méthode d'instances au niveau
+
+10
+00:00:23,390 --> 00:00:25,530
+de la recherche de la
+méthode, il n'y a qu'un seul
+
+11
+00:00:25,730 --> 00:00:29,340
+mécanisme de recherche de
+méthode qui est invoqué, et qui
+
+12
+00:00:29,540 --> 00:00:31,210
+est utilisé et qui existe
+d'ailleurs, qui a été défini
+
+13
+00:00:31,410 --> 00:00:34,360
+dans la machine virtuelle.
+Et vous allez voir que, alors
+
+14
+00:00:34,560 --> 00:00:36,650
+que l'on aurait pu dire
+que les méthodes de classe en
+
+15
+00:00:37,600 --> 00:00:39,730
+première approche sont
+comme des méthodes statiques en
+
+16
+00:00:39,930 --> 00:00:41,560
+Java, ce n'est pas le
+cas. En fait, elles sont
+
+17
+00:00:41,870 --> 00:00:44,710
+dynamiquement liées, ça veut
+dire qu'il y a une recherche
+
+18
+00:00:44,910 --> 00:00:46,840
+à l'exécution qui se fait
+alors qu'en Java typiquement,
+
+19
+00:00:47,040 --> 00:00:49,210
+les méthodes statiques ne
+sont pas cherchées dynamiquement.
+
+20
+00:00:50,360 --> 00:00:51,590
+Donc regardons comment ça marche.
+
+21
+00:00:51,950 --> 00:00:56,250
+En fait, ce que vous avez
+vu, c'est qu'il n'y a qu'une
+
+22
+00:00:56,450 --> 00:00:59,040
+seule recherche de méthode qui
+commence toujours dans la classe du receveur.
+
+23
+00:00:59,850 --> 00:01:02,470
+Donc si la méthode est
+définie dans la classe, alors elle
+
+24
+00:01:02,670 --> 00:01:05,880
+est rendue, sinon on va
+chercher dans la super classe.
+
+25
+00:01:06,210 --> 00:01:09,480
+Donc ce que ça donne
+graphiquement, c'est que j'ai mon
+
+26
+00:01:09,680 --> 00:01:12,660
+instance de la classe
+Counter, quand je lui envoie le
+
+27
+00:01:12,860 --> 00:01:15,010
+message Increment,
+qu'est-ce qui va se passer?
+
+28
+00:01:15,210 --> 00:01:19,390
+Première étape, je cherche
+dans la classe du Counter et
+
+29
+00:01:19,590 --> 00:01:22,670
+je remonte donc si
+j'incrémente, il est défini là, si c'est
+
+30
+00:01:24,600 --> 00:01:26,350
+une méthode qui est définie
+plus haut dans la hiérarchie,
+
+31
+00:01:26,550 --> 00:01:27,310
+elle sera cherchée plus haut.
+
+32
+00:01:28,380 --> 00:01:31,130
+Et en fait, ce mécanisme-là
+dans Pharo, il est utilisé,
+
+33
+00:01:31,330 --> 00:01:33,750
+il n'y en a qu'un, il est
+utilisé aussi bien pour les
+
+34
+00:01:33,950 --> 00:01:35,050
+instances que pour les classes.
+
+35
+00:01:36,810 --> 00:01:39,850
+Donc quand vous avez fait
+l'exercice avec la classe
+
+36
+00:01:40,050 --> 00:01:43,110
+Counter et que vous avez
+envoyé le message with value à
+
+37
+00:01:43,310 --> 00:01:46,420
+la classe Counter, pour créer une
+instance, qu'est-ce qui s'est passé?
+
+38
+00:01:46,760 --> 00:01:49,720
+La classe Counter est
+instance d'une classe qui s'appelle
+
+39
+00:01:49,920 --> 00:01:54,000
+Counter class et on a
+cherché, on a suivi le même
+
+40
+00:01:54,200 --> 00:01:57,040
+principe que précédemment,
+on a cherché dans la classe du
+
+41
+00:01:57,240 --> 00:01:59,570
+receveur, le receveur
+c'était Counter, donc on a cherché
+
+42
+00:01:59,770 --> 00:02:02,400
+dans la classe Counter
+ classe, on a trouvé la méthode
+
+43
+00:02:03,140 --> 00:02:06,520
+withValue et on l'a
+appliquée sur le receveur et ça nous
+
+44
+00:02:06,720 --> 00:02:07,900
+a rendu une nouvelle instance.
+
+45
+00:02:08,930 --> 00:02:13,030
+Donc on a appliqué
+exactement le même procédé que pour
+
+46
+00:02:13,700 --> 00:02:16,290
+les messages qu'on a envoyés à
+une instance de la classe Counter.
+
+47
+00:02:18,210 --> 00:02:19,730
+Donc maintenant, qu'est-ce
+que c'est qu'une classe en
+
+48
+00:02:19,930 --> 00:02:20,780
+fait finalement dans Pharo ?
+
+49
+00:02:21,000 --> 00:02:22,070
+Une classe, c'est une instance.
+
+50
+00:02:22,800 --> 00:02:25,230
+C'est une instance, c'est un
+objet comme tous les objets,
+
+51
+00:02:25,430 --> 00:02:26,710
+de toute façon dans Pharo
+il n'y a que des objets.
+
+52
+00:02:26,910 --> 00:02:29,010
+Donc une classe est une
+instance d'une autre classe qu'on
+
+53
+00:02:29,210 --> 00:02:31,220
+appelle une méta classe,
+c'est juste pour les distinguer.
+
+54
+00:02:31,420 --> 00:02:34,570
+En fait une méta classe,
+c'est juste une classe dont les
+
+55
+00:02:34,770 --> 00:02:37,770
+instances sont des
+ classes. Pour faire la différence
+
+56
+00:02:38,000 --> 00:02:40,190
+entre les instances terminales et
+les instances qui sont des classes.
+
+57
+00:02:40,910 --> 00:02:42,560
+Donc maintenant ce qu'il
+faut voir, c'est que la classe
+
+58
+00:02:42,760 --> 00:02:45,060
+Counter, c'est ce que je
+dis dans cette ligne-là, la
+
+59
+00:02:45,260 --> 00:02:48,610
+ classe Counter et l'unique
+instance de la classe Counter class.
+
+60
+00:02:50,280 --> 00:02:52,240
+Et cette classe
+Counter class, elle est créée
+
+61
+00:02:52,440 --> 00:02:53,550
+automatiquement, ça veut
+dire que vous ne vous en êtes
+
+62
+00:02:53,750 --> 00:02:56,350
+pas rendu compte mais quand
+vous avez défini la classe
+
+63
+00:02:56,550 --> 00:02:58,530
+Counter, le système a
+automatiquement créé la classe
+
+64
+00:02:58,730 --> 00:03:02,000
+Counter class et cette classe
+Counter class a créé la classe Counter.
+
+65
+00:03:02,170 --> 00:03:04,130
+Donc il vous a donné
+l'illusion que vous n'avez créé qu'une
+
+66
+00:03:04,330 --> 00:03:05,800
+seule classe, mais en
+fait vous en avez créé 2.
+
+67
+00:03:06,290 --> 00:03:09,310
+Et ce qu'il faut voir dans
+Pharo, c'est que toutes les
+
+68
+00:03:09,510 --> 00:03:12,600
+ classes d'une classe qui
+s'appellerait xxx s'appellent
+
+69
+00:03:12,800 --> 00:03:17,620
+xxx classe donc si j'ai
+Counter, la classe de Counter ça
+
+70
+00:03:17,820 --> 00:03:21,830
+sera Counter class systématiquement.
+
+71
+00:03:23,730 --> 00:03:26,590
+Donc en fait dans la
+réalité, ce que vous faites, on vous
+
+72
+00:03:27,090 --> 00:03:28,430
+montre juste comment ça fonctionne.
+
+73
+00:03:28,630 --> 00:03:30,570
+On aurait très bien pu par
+ailleurs ne pas vous l'expliquer,
+
+74
+00:03:31,180 --> 00:03:34,220
+mais ça veut dire que
+quand le browser vous montre la
+
+75
+00:03:34,420 --> 00:03:38,340
+ classe Counter, il vous
+montre le code qui va être
+
+76
+00:03:38,540 --> 00:03:40,300
+exécuté sur les
+instances de cette classe.
+
+77
+00:03:40,500 --> 00:03:43,340
+Ça veut dire
+qu'incrémente-là, c'est le code qui va être
+
+78
+00:03:43,540 --> 00:03:45,530
+exécuté sur cette instance-là.
+
+79
+00:03:45,730 --> 00:03:50,670
+Quand vous cliquez sur
+le bouton class, pour
+
+80
+00:03:50,870 --> 00:03:54,070
+définir une méthode de
+ classe, il vous montre le code qui
+
+81
+00:03:54,270 --> 00:03:56,260
+va être exécuté sur cet objet-là.
+
+82
+00:03:58,780 --> 00:04:01,760
+Et en fait, si on regarde,
+quand j'envoie le message
+
+83
+00:04:01,960 --> 00:04:06,100
+Increment à l'instance
+Counter, je vais chercher dans la
+
+84
+00:04:06,300 --> 00:04:09,230
+ classe Counter, ah bah
+tiens, c'est bien cette méthode-là
+
+85
+00:04:09,430 --> 00:04:13,600
+qui est exécutée, quand
+j'envoie le message withValue à
+
+86
+00:04:13,800 --> 00:04:16,460
+la classe Counter, où
+est-ce que je vais chercher?
+
+87
+00:04:16,660 --> 00:04:18,290
+Je vais chercher dans sa
+ classe donc je suis ce lien-là
+
+88
+00:04:19,070 --> 00:04:20,640
+et donc c'est bien cette méthode là.
+
+89
+00:04:22,410 --> 00:04:24,100
+Donc qu'est-ce que
+vous devez savoir en fait?
+
+90
+00:04:24,320 --> 00:04:27,190
+Une classe c'est un objet
+dans Pharo, les classes peuvent
+
+91
+00:04:27,390 --> 00:04:29,380
+recevoir des messages,
+d'ailleurs je vous l'avais dit
+
+92
+00:04:29,580 --> 00:04:33,780
+quand on a fait la syntaxe, je
+vous ai dit Date today c'est quoi?
+
+93
+00:04:34,000 --> 00:04:37,160
+C'est bien un message
+qu'on a envoyé à une classe.
+
+94
+00:04:37,920 --> 00:04:39,900
+Il n'y a pas d'éléments
+syntaxiques différenciants.
+
+95
+00:04:40,300 --> 00:04:43,430
+C'est la même chose qu'envoyer un
+message syntaxiquement à une instance.
+
+96
+00:04:44,330 --> 00:04:46,880
+Et de plus, là, ce que ce
+cours vous montre c'est qu'il n'y
+
+97
+00:04:47,080 --> 00:04:48,500
+a qu'une seule
+recherche de la méthode.
+
+98
+00:04:48,920 --> 00:04:51,910
+Les méthodes de
+ classessont recherchées dynamiquement
+
+99
+00:04:52,110 --> 00:04:54,320
+comme les méthodes d'instances, où
+est-ce qu'elles sont recherchées?
+
+100
+00:04:54,750 --> 00:04:56,270
+Dans la classe du receveur.
+
+101
+00:04:56,780 --> 00:04:59,490
+Quand c'est une instance,
+c'est recherché dans la classe,
+
+102
+00:04:59,750 --> 00:05:01,610
+quand c'est une instance
+de classe comme la classe
+
+103
+00:05:01,810 --> 00:05:03,680
+Counter, c'est recherché
+dans la méta classe donc dans la
+
+104
+00:05:03,880 --> 00:05:05,230
+ classe qui s'appelle Counter class.
+
+105
+00:05:06,140 --> 00:05:08,840
+Donc une classe en fait
+est une instance d'une autre
+
+106
+00:05:09,040 --> 00:05:11,450
+ classe qui s'appelle une
+méta classe, et il n'y a qu'un
+
+107
+00:05:11,650 --> 00:05:12,860
+seul lookup qui fonctionne.
+
+108
+00:05:13,800 --> 00:05:16,250
+Donc on va revenir sur
+cette notion-là lors de la
+
+109
+00:05:16,450 --> 00:05:19,160
+dernière séance pour,
+dans le cours qui s'appelle
+
+110
+00:05:19,360 --> 00:05:22,280
+Understanding Metaclasses
+et on va revisiter, et on va
+
+111
+00:05:22,480 --> 00:05:24,760
+ouvrir vraiment le capot
+de Pharo, et vous montrer
+
+112
+00:05:24,960 --> 00:05:26,670
+comment ça fonctionne et que
+c'est complètement uniforme.
+

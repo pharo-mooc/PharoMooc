@@ -1,0 +1,675 @@
+1
+00:00:00,040 --> 00:00:00,080
+"TDD Xtrême"
+
+2
+00:00:00,120 --> 00:00:00,160
+Quentin Ducasse.
+
+3
+00:00:06,760 --> 00:00:07,520
+-Bonjour à tous.
+
+4
+00:00:07,840 --> 00:00:09,240
+Dans ce 2e Redo, on s'intéressera
+
+5
+00:00:09,560 --> 00:00:11,640
+au compteur qu'on a pu faire
+dans la 1re semaine,
+
+6
+00:00:11,960 --> 00:00:15,360
+mais on va utiliser
+un nouveau flot de développement.
+
+7
+00:00:15,680 --> 00:00:17,320
+On va commencer par définir les tests
+
+8
+00:00:17,640 --> 00:00:20,040
+et créer les méthodes
+jusqu'à ce que les tests soient verts.
+
+9
+00:00:20,360 --> 00:00:23,640
+Le débugger peut nous aider,
+car il peut créer les méthodes pour nous
+
+10
+00:00:23,960 --> 00:00:27,520
+et être suffisamment intelligent
+pour proposer une structure correcte.
+
+11
+00:00:27,840 --> 00:00:29,800
+D'abord, on va ouvrir
+notre System Browser.
+
+12
+00:00:30,120 --> 00:00:31,560
+Cliquez dans l'environnement Pharo.
+
+13
+00:00:31,880 --> 00:00:34,280
+Vous allez dans l'onglet Tools,
+puis System Browser.
+
+14
+00:00:34,600 --> 00:00:38,360
+Ensuite, on crée notre classe de test,
+donc "CounterTest",
+
+15
+00:00:38,680 --> 00:00:42,560
+qui sera une sous-classe de "TestCase"
+puisqu'on va écrire le test.
+
+16
+00:00:42,880 --> 00:00:46,400
+Le package, on va l'appeler "MyCounter".
+On sauvegarde, donc Cmd+S.
+
+17
+00:00:46,720 --> 00:00:47,880
+Ça nous crée le package.
+
+18
+00:00:48,200 --> 00:00:51,080
+On veut pas voir les autres packages
+donc on filtre tout ça.
+
+19
+00:00:51,400 --> 00:00:53,880
+Voilà. On a notre package
+avec notre classe de tests.
+
+20
+00:00:54,200 --> 00:00:55,960
+On va écrire directement
+notre premier test
+
+21
+00:00:56,280 --> 00:01:00,520
+qu'on va calquer sur celui
+qu'on avait écrit dans le premier Redo.
+
+22
+00:01:00,840 --> 00:01:03,600
+"CounterIsSetAndRead".
+
+23
+00:01:04,200 --> 00:01:07,400
+On crée une variable temporaire "c"
+qui va être notre compteur,
+
+24
+00:01:07,720 --> 00:01:09,160
+donc "Counter new".
+
+25
+00:01:09,840 --> 00:01:13,960
+Ensuite, on met son count à 7
+
+26
+00:01:14,640 --> 00:01:18,520
+et on vérifie
+que son count est bien à 7.
+
+27
+00:01:18,840 --> 00:01:20,840
+Donc, "count equals:7"
+
+28
+00:01:21,160 --> 00:01:24,880
+On n'a absolument rien défini,
+ni la classe, ni les accesseurs,
+
+29
+00:01:25,200 --> 00:01:28,000
+donc le setter "count:"
+ou le getter "count".
+
+30
+00:01:28,480 --> 00:01:32,600
+Mais on va quand même compiler
+en faisant Cmd+S et vous voyez...
+
+31
+00:01:32,920 --> 00:01:35,360
+Il me demande mon prénom.
+Très bien. OK.
+
+32
+00:01:35,680 --> 00:01:38,040
+La variable compteur
+n'a pas été reconnue.
+
+33
+00:01:38,360 --> 00:01:41,280
+On veut définir une nouvelle classe. On
+clique sur Définir une nouvelle classe.
+
+34
+00:01:41,600 --> 00:01:44,600
+Il propose une définition de classe,
+sous-classe d'objet, c'est bien.
+
+35
+00:01:44,920 --> 00:01:48,080
+Catégorie, donc le package MyCounter.
+Très bien. OK.
+
+36
+00:01:48,520 --> 00:01:50,920
+On voit que notre classe est apparue.
+Notre test aussi.
+
+37
+00:01:51,600 --> 00:01:54,400
+On peut cliquer pour exécuter le test.
+
+38
+00:01:55,000 --> 00:01:57,880
+Et on se rend compte
+qu'il n'a pas compris "count:".
+
+39
+00:01:58,200 --> 00:01:59,840
+C'est normal, on ne l'a pas défini.
+
+40
+00:02:00,160 --> 00:02:01,760
+Le débugger s'est ouvert.
+
+41
+00:02:02,080 --> 00:02:04,280
+On a notre pile d'exécution
+dans la fenêtre en haut.
+
+42
+00:02:04,600 --> 00:02:06,480
+On a la méthode
+sur laquelle il s'est arrêté,
+
+43
+00:02:06,800 --> 00:02:11,080
+avec, surlignée,
+la méthode qu'il n'a pas comprise.
+
+44
+00:02:11,400 --> 00:02:14,840
+En bas, on a les variables temporaires
+avec leurs valeurs associées.
+
+45
+00:02:15,400 --> 00:02:18,720
+On voit que "c" a la valeur "aCounter".
+Donc, ça n'a pas fonctionné.
+
+46
+00:02:19,040 --> 00:02:23,720
+Il suffit de cliquer sur Create, ici,
+pour qu'il définisse la méthode count.
+
+47
+00:02:24,040 --> 00:02:25,760
+On va la définir dans Compteur,
+
+48
+00:02:26,080 --> 00:02:29,080
+dans le protocole "accessing".
+
+49
+00:02:30,200 --> 00:02:30,960
+OK.
+
+50
+00:02:31,280 --> 00:02:34,240
+Il a créé le corps de méthode
+avec "self shouldBeImplemented".
+
+51
+00:02:34,560 --> 00:02:35,480
+C'est à remplacer.
+
+52
+00:02:35,800 --> 00:02:41,920
+On veut qu'il mette "anInteger"
+dans la variable d'instance count.
+
+53
+00:02:42,240 --> 00:02:44,080
+Sauf qu'elle est en rouge. Pourquoi ?
+
+54
+00:02:44,400 --> 00:02:49,160
+Car si on regarde ici, dans le compteur,
+on ne l'a pas définie.
+
+55
+00:02:49,480 --> 00:02:52,240
+Mais le débugger est assez intelligent
+pour faire ça pour nous.
+
+56
+00:02:52,560 --> 00:02:54,480
+On va sauvegarder
+notre corps de méthode.
+
+57
+00:02:54,800 --> 00:02:57,520
+Il va nous dire
+que la variable count n'est pas reconnue.
+
+58
+00:02:57,840 --> 00:03:01,200
+On ne veut pas définir une variable
+temporaire, mais une variable d'instance.
+
+59
+00:03:01,520 --> 00:03:04,800
+Il l'a définie. C'est redevenu bleu.
+On peut cliquer sur Proceed.
+
+60
+00:03:05,920 --> 00:03:07,960
+L'exécution du test s'est arrêtée
+
+61
+00:03:08,280 --> 00:03:11,080
+sur la deuxième méthode
+qu'on n'a pas définie, le getter,
+
+62
+00:03:11,400 --> 00:03:13,600
+qu'on va définir
+en cliquant sur Create.
+
+63
+00:03:13,920 --> 00:03:16,320
+On va le définir
+dans la classe Compteur.
+
+64
+00:03:16,920 --> 00:03:20,360
+C'est toujours
+dans le protocole "accessing".
+
+65
+00:03:21,680 --> 00:03:22,440
+OK.
+
+66
+00:03:22,760 --> 00:03:25,360
+Cette fois, il propose
+un getter qui est correct.
+
+67
+00:03:25,680 --> 00:03:28,840
+Donc, on n'a qu'à cliquer sur Proceed.
+On clique sur Proceed.
+
+68
+00:03:29,160 --> 00:03:31,760
+Le test est rouge, mais
+si on le réexécute, il sera vert.
+
+69
+00:03:32,080 --> 00:03:35,160
+Si on inspecte la classe Compteur,
+on peut voir
+
+70
+00:03:35,480 --> 00:03:37,560
+qu'on aura un protocole accessing,
+
+71
+00:03:37,880 --> 00:03:40,080
+une méthode count:,
+une méthode count.
+
+72
+00:03:40,400 --> 00:03:43,600
+Ça veut dire que tout a bien été créé,
+
+73
+00:03:43,920 --> 00:03:46,440
+malgré le fait qu'on a tout défini
+depuis le débugger.
+
+74
+00:03:46,760 --> 00:03:49,160
+Notre variable d'instance
+est bien intégrée aussi.
+
+75
+00:03:49,680 --> 00:03:51,120
+On va écrire un nouveau test.
+
+76
+00:03:51,760 --> 00:03:53,240
+Si vous vous souvenez bien,
+
+77
+00:03:53,560 --> 00:03:58,440
+on avait un test qui utilisait
+une méthode de classe.
+
+78
+00:03:58,760 --> 00:04:01,400
+On va la réécrire.
+Elle s'appelait "startingAt".
+
+79
+00:04:01,720 --> 00:04:03,600
+On pouvait lui donner un entier
+
+80
+00:04:03,920 --> 00:04:08,640
+et ça faisait commencer le compteur
+à l'entier qu'on lui donnait.
+
+81
+00:04:08,960 --> 00:04:12,240
+Donc, on va vérifier, en créant
+le compteur de cette méthode de classe,
+
+82
+00:04:12,560 --> 00:04:15,480
+qu'il est effectivement bien mis
+au bon entier.
+
+83
+00:04:15,800 --> 00:04:18,840
+On sauvegarde. Notre test est créé.
+La méthode n'est pas reconnue.
+
+84
+00:04:19,160 --> 00:04:21,240
+Ce n'est pas grave.
+On lance le test directement.
+
+85
+00:04:21,560 --> 00:04:22,640
+On verra qu'effectivement,
+
+86
+00:04:22,960 --> 00:04:26,600
+la méthode qui n'a pas été reconnue
+bloque l'exécution.
+
+87
+00:04:26,920 --> 00:04:28,800
+On veut la créer. On clique sur Créer.
+
+88
+00:04:29,120 --> 00:04:30,520
+On va la définir dans Counter class
+
+89
+00:04:30,840 --> 00:04:35,040
+et cette fois, le protocole
+sera "instance creation".
+
+90
+00:04:35,720 --> 00:04:38,440
+OK. "self shouldBeImplemented".
+Que veut-on faire ?
+
+91
+00:04:38,760 --> 00:04:46,240
+On veut définir un nouveau compteur,
+donc "c: Counter new."
+
+92
+00:04:46,560 --> 00:04:51,040
+qui commence à 5...
+"anInteger", pardon.
+
+93
+00:04:51,360 --> 00:04:53,640
+Qui commence
+à la valeur qu'on lui donne.
+
+94
+00:04:54,240 --> 00:04:57,160
+Et on veut qu'il nous rende ce "c".
+Très bien. On sauvegarde.
+
+95
+00:04:58,600 --> 00:05:01,760
+La méthode a été sauvegardée.
+On clique sur Proceed. Le test est vert.
+
+96
+00:05:02,080 --> 00:05:05,360
+La méthode n'est pas reconnue,
+car la fenêtre n'a pas été rafraîchie.
+
+97
+00:05:05,680 --> 00:05:08,760
+Si on clique ici, on voit
+que tous nos tests sont verts.
+
+98
+00:05:09,400 --> 00:05:10,360
+On va écrire un nouveau test
+
+99
+00:05:10,680 --> 00:05:13,680
+pour les méthodes "increment"
+et "decrement" qu'on a pu avoir.
+
+100
+00:05:14,000 --> 00:05:19,360
+On va faire : "c increment;increment."
+et on veut que ce soit égal à 7.
+
+101
+00:05:19,680 --> 00:05:21,120
+N'oubliez pas de changer le nom.
+
+102
+00:05:21,440 --> 00:05:23,600
+C'est "CounterIncrement".
+
+103
+00:05:24,320 --> 00:05:25,400
+On sauvegarde ça.
+
+104
+00:05:26,520 --> 00:05:28,760
+La méthode est créée. On va l'exécuter.
+
+105
+00:05:30,080 --> 00:05:32,400
+La méthode increment
+n'a pas été comprise
+
+106
+00:05:32,720 --> 00:05:34,640
+et c'est normal,
+car on ne l'a pas créée.
+
+107
+00:05:34,960 --> 00:05:37,600
+On va cliquer sur Create.
+On va la définir dans Compteur.
+
+108
+00:05:38,520 --> 00:05:41,120
+On va la mettre
+dans le protocole "operation".
+
+109
+00:05:42,320 --> 00:05:43,080
+OK.
+
+110
+00:05:43,400 --> 00:05:45,080
+"Increment".
+Que veut-on qu'increment fasse ?
+
+111
+00:05:45,400 --> 00:05:51,160
+On veut qu'increment, ça fasse :
+"count:=count+1".
+
+112
+00:05:51,680 --> 00:05:54,280
+Ce n'est pas plus compliqué que ça.
+On sauvegarde. Cmd+S.
+
+113
+00:05:55,160 --> 00:05:58,480
+En cliquant sur Proceed,
+on voit que notre test passe.
+
+114
+00:05:58,800 --> 00:06:02,000
+On va faire la même chose
+avec "decrement".
+
+115
+00:06:02,480 --> 00:06:03,760
+On va changer ça.
+
+116
+00:06:04,480 --> 00:06:05,520
+"Decrement".
+
+117
+00:06:07,640 --> 00:06:10,560
+"CounterDecrement"
+et on veut que ce soit égal à 3.
+
+118
+00:06:11,160 --> 00:06:12,280
+On sauvegarde.
+
+119
+00:06:12,600 --> 00:06:13,680
+On exécute le test.
+
+120
+00:06:14,200 --> 00:06:16,560
+La méthode decrement n'est pas comprise.
+C'est normal.
+
+121
+00:06:16,880 --> 00:06:17,880
+On clique sur Create.
+
+122
+00:06:18,200 --> 00:06:23,640
+On la définit dans Compteur
+sous le protocole "operation".
+
+123
+00:06:24,200 --> 00:06:24,960
+OK.
+
+124
+00:06:25,280 --> 00:06:30,960
+"Decrement" qui va enlever 1
+à la variable d'instance "count".
+
+125
+00:06:31,280 --> 00:06:32,680
+Donc "count-1".
+
+126
+00:06:33,080 --> 00:06:34,120
+On sauvegarde.
+
+127
+00:06:34,440 --> 00:06:36,320
+On clique sur Proceed.
+Le test est vert.
+
+128
+00:06:36,640 --> 00:06:38,720
+Là, tous nos tests sont verts.
+
+129
+00:06:39,600 --> 00:06:41,640
+Et si on s'intéresse
+à la classe Compteur,
+
+130
+00:06:41,960 --> 00:06:44,680
+on voit que toutes nos méthodes
+ont été créées comme il faut.
+
+131
+00:06:45,000 --> 00:06:46,200
+Même la méthode de classe,
+
+132
+00:06:46,520 --> 00:06:49,120
+en cliquant sur Class side,
+on va bien avoir startingAt.
+
+133
+00:06:49,920 --> 00:06:52,480
+Le débugger est un outil très puissant
+dans Pharo.
+
+134
+00:06:52,800 --> 00:06:55,280
+Vous pouvez voir ici
+qu'on a créé des tests
+
+135
+00:06:55,600 --> 00:06:57,240
+qui sont déjà verts et déjà écrits.
+
+136
+00:06:57,560 --> 00:07:00,960
+Donc, notre classe fonctionne déjà
+comme on voulait qu'elle fonctionne.
+
+137
+00:07:01,280 --> 00:07:04,360
+Je vous encourage à penser de cette
+manière, Test Driven Development.
+
+138
+00:07:04,680 --> 00:07:07,000
+C'est un développement
+qui est conduit par le test.
+
+139
+00:07:07,320 --> 00:07:08,320
+Vous allez écrire votre test,
+
+140
+00:07:08,640 --> 00:07:11,200
+puis vos méthodes jusqu'à ce que
+votre test devienne vert.
+
+141
+00:07:11,520 --> 00:07:13,640
+Ce type de développement
+est encouragé dans Pharo,
+
+142
+00:07:13,960 --> 00:07:18,040
+car le débugger peut vous aider
+à accélérer la création de méthodes,
+
+143
+00:07:18,360 --> 00:07:19,920
+que ce soit des méthodes de classe,
+
+144
+00:07:20,240 --> 00:07:23,360
+la définition de variables d'instance,
+des accesseurs.
+
+145
+00:07:23,680 --> 00:07:25,160
+Donc, c'est vraiment encouragé.

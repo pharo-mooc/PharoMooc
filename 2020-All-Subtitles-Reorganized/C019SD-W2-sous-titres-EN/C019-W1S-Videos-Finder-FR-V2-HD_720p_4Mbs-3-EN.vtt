@@ -1,0 +1,271 @@
+WEBVTT
+
+00:00:02.480 --> 00:00:04.160 align:middle
+hello, I’d like to show you
+how to use 
+
+00:00:04.327 --> 00:00:05.690 align:middle
+the Finder to find information.
+
+00:00:06.110 --> 00:00:08.010 align:middle
+The Finder is a tool you will 
+find in
+
+00:00:08.177 --> 00:00:09.550 align:middle
+the Tools menu, here Finder.
+
+00:00:10.890 --> 00:00:14.470 align:middle
+Let’s imagine I want to look for
+a method
+
+00:00:14.637 --> 00:00:16.750 align:middle
+called match.
+I write its name, match.
+
+00:00:18.640 --> 00:00:20.160 align:middle
+Here I choose Selectors.
+
+00:00:21.270 --> 00:00:23.060 align:middle
+Now I see all methods
+containing
+
+00:00:23.227 --> 00:00:28.000 align:middle
+the word match, with the code 
+here.
+
+00:00:28.157 --> 00:00:30.680 align:middle
+As I set up big fonts,
+we wil
+
+00:00:30.847 --> 00:00:33.470 align:middle
+resize a little bit.
+
+00:00:33.960 --> 00:00:36.460 align:middle
+You see that when there is a
+little
+
+00:00:36.627 --> 00:00:38.300 align:middle
+triangle, it means the method
+
+00:00:38.467 --> 00:00:41.930 align:middle
+is defined over several classes, 
+and I can read that kind of thing.
+
+00:00:43.350 --> 00:00:45.450 align:middle
+So that was for methods, and 
+there is quite a lot.
+
+00:00:46.260 --> 00:00:48.280 align:middle
+You can look for things 
+but that’s not ideal.
+
+00:00:50.250 --> 00:00:52.000 align:middle
+Now we can search for
+
+00:00:52.480 --> 00:00:57.000 align:middle
+classes containing match,
+here we see all our classes.
+
+00:00:59.000 --> 00:01:02.230 align:middle
+The best way is to unbrowse
+using the code browser.
+
+00:01:03.670 --> 00:01:04.880 align:middle
+Now there a far better way.
+
+00:01:05.150 --> 00:01:07.240 align:middle
+Often we know what we are 
+looking for
+
+00:01:07.407 --> 00:01:08.410 align:middle
+but we don’t know how to express
+it.
+
+00:01:09.260 --> 00:01:11.390 align:middle
+So here, I know that I’d
+like to know if there
+
+00:01:11.557 --> 00:01:16.520 align:middle
+is a method matching ab,
+
+00:01:16.810 --> 00:01:20.380 align:middle
+abcd, for instance, I write
+ab*abcd
+
+00:01:21.790 --> 00:01:23.360 align:middle
+and if something matches it returns
+true.
+
+00:01:25.060 --> 00:01:29.710 align:middle
+And I choose Examples,
+and I get all
+
+00:01:29.877 --> 00:01:33.270 align:middle
+the methods returning True.
+
+00:01:33.640 --> 00:01:34.850 align:middle
+I’m going to explain what we
+see.
+
+00:01:35.130 --> 00:01:36.790 align:middle
+Here I see that superior 
+works as well.
+
+00:01:36.957 --> 00:01:38.380 align:middle
+Ah, match seems interesting.
+
+00:01:40.250 --> 00:01:42.510 align:middle
+The system shows me all
+
+00:01:42.677 --> 00:01:45.230 align:middle
+the classes defining
+the match method, but 
+
+00:01:45.397 --> 00:01:47.630 align:middle
+in particular the one with the
+little star is the one
+
+00:01:47.797 --> 00:01:49.200 align:middle
+which method has returned true.
+
+00:01:50.150 --> 00:01:53.080 align:middle
+So now, we can try other examples.
+
+00:01:53.247 --> 00:01:56.000 align:middle
+For example, given 11, 2
+
+00:01:56.167 --> 00:01:59.810 align:middle
+what methods returns 5. Here
+I will have
+
+00:02:01.440 --> 00:02:06.300 align:middle
+// and I see what has
+
+00:02:06.467 --> 00:02:08.930 align:middle
+returned true, it’s defined
+on Integer, so it is
+
+00:02:09.097 --> 00:02:11.750 align:middle
+this method or on aNumber
+which is this method there.
+
+00:02:13.820 --> 00:02:15.820 align:middle
+So I do the same, in the same way:
+
+00:02:16.000 --> 00:02:19.100 align:middle
+Now I want 5.5.
+Then I only get Diviser.
+
+00:02:19.420 --> 00:02:20.390 align:middle
+So it’s very useful.
+
+00:02:21.700 --> 00:02:23.350 align:middle
+There another way to do it:
+
+00:02:23.517 --> 00:02:26.910 align:middle
+you can look for 
+
+00:02:27.077 --> 00:02:30.040 align:middle
+all the Pragmas, Pragmas
+are the annotations
+
+00:02:31.530 --> 00:02:33.210 align:middle
+in the system. So if I 
+look what is an 
+
+00:02:33.377 --> 00:02:34.920 align:middle
+annotation, for instance it is
+this.
+
+00:02:35.400 --> 00:02:38.910 align:middle
+Here it is, I have annotated
+my method with a pragma named
+
+00:02:39.077 --> 00:02:41.460 align:middle
+Menu, and the system can
+make queries on it 
+
+00:02:41.627 --> 00:02:44.780 align:middle
+to build menus.
+Here by typing Menu, and
+
+00:02:44.947 --> 00:02:49.890 align:middle
+selecting Pragma,
+I can access to all the system’s
+
+00:02:50.057 --> 00:02:52.910 align:middle
+pragmas containing the menu
+word.
+
+00:02:55.600 --> 00:02:57.320 align:middle
+So here, we see that there are 2
+for instance, 2 pragmas.
+
+00:02:58.820 --> 00:03:02.400 align:middle
+The worldMenu, the one which is
+displayed 
+
+00:03:02.567 --> 00:03:07.420 align:middle
+when you are here, is defined
+by the Pragma menu.
+
+00:03:07.587 --> 00:03:10.670 align:middle
+You see worldMenu.
+
+00:03:12.850 --> 00:03:17.000 align:middle
+The screenShotCommand
+for example. HelpOn.
+
+00:03:17.137 --> 00:03:19.520 align:middle
+You see all these menus.
+
+00:03:22.000 --> 00:03:25.200 align:middle
+So know, with the Finder we 
+can also
+
+00:03:25.690 --> 00:03:28.490 align:middle
+look for methods
+
+00:03:28.657 --> 00:03:33.000 align:middle
+containing the “Menu” string,
+wherever they are.
+
+00:03:33.167 --> 00:03:36.340 align:middle
+I’m gonna do it: it takes a little time.
+
+00:03:37.150 --> 00:03:39.650 align:middle
+What happens is that the system
+scans
+
+00:03:39.817 --> 00:03:41.230 align:middle
+really all the body of all
+the methods, there are
+
+00:03:41.397 --> 00:03:45.320 align:middle
+80 000 in Pharo, or a little 
+bit more, and it displays the result.
+
+00:03:46.880 --> 00:03:48.500 align:middle
+So here, it’s really a textual
+search.
+
+00:03:50.700 --> 00:03:52.260 align:middle
+What’s interesting sometimes,
+when you see
+
+00:03:52.427 --> 00:03:54.600 align:middle
+a menu or something graphical
+you can find it back. 
+
+00:03:55.420 --> 00:03:58.900 align:middle
+So here, you have all the 
+methods containing the
+
+00:03:59.067 --> 00:04:03.300 align:middle
+Menu word, in their names
+as well as
+
+00:04:03.467 --> 00:04:07.080 align:middle
+elsewhere, here or there.
+
+

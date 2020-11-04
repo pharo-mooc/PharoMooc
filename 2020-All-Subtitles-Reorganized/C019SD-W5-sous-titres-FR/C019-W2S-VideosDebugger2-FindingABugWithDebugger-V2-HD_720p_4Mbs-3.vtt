@@ -1,0 +1,115 @@
+WEBVTT
+
+00:00:02.090 --> 00:00:04.310 align:middle
+Dans cette séance,
+j'aimerais compléter celle sur le
+
+00:00:04.477 --> 00:00:08.230 align:middle
+debugger pour vous montrer
+comment on peut identifier un bug.
+
+00:00:08.397 --> 00:00:12.440 align:middle
+Imaginons que l'on change
+la définition de decrement
+
+00:00:13.610 --> 00:00:14.350 align:middle
+et qu'on se trompe.
+
+00:00:14.660 --> 00:00:17.950 align:middle
+Là, je vais faire un ajout
+au lieu d'une soustraction.
+
+00:00:19.160 --> 00:00:22.000 align:middle
+Quand je fais tourner mes tests,
+j'ai un TestDecrement qui est faux.
+
+00:00:22.157 --> 00:00:26.440 align:middle
+Là, je l'exécute, je
+regarde l'exécution et là je me
+
+00:00:26.607 --> 00:00:30.550 align:middle
+rends compte que count
+effectivement me rend 9 au lieu de me rendre 5.
+
+00:00:30.717 --> 00:00:33.540 align:middle
+Donc c'est bien que je dois
+avoir une erreur parmi ces
+
+00:00:33.707 --> 00:00:36.120 align:middle
+expressions, si je considère
+que le Counter a bien été crée.
+
+00:00:36.690 --> 00:00:38.520 align:middle
+Là ce que j'aimerais
+pouvoir faire, c'est pouvoir
+
+00:00:38.800 --> 00:00:42.930 align:middle
+exécuter le code et
+m'arrêter juste après
+
+00:00:43.630 --> 00:00:46.200 align:middle
+que le Counter ait été
+créé, pour voir quelles sont les
+
+00:00:46.720 --> 00:00:47.840 align:middle
+méthodes qui ont un problème.
+
+00:00:48.650 --> 00:00:51.400 align:middle
+J'ajoute Self halt, c'est
+une des manières de proposer un
+
+00:00:51.567 --> 00:00:55.040 align:middle
+break point dans Pharo. Je
+recompile la méthode, je fais
+
+00:00:55.207 --> 00:00:59.630 align:middle
+Proceed, le code s'exécute et
+va s'arrêter sur la méthode halt.
+
+00:01:00.580 --> 00:01:01.710 align:middle
+Donc là maintenant
+je peux faire Over.
+
+00:01:02.370 --> 00:01:04.850 align:middle
+Et maintenant, je peux
+décider soit d'aller à l'intérieur
+
+00:01:05.017 --> 00:01:07.110 align:middle
+de la méthode count, ce que
+je fais par exemple, donc là
+
+00:01:07.277 --> 00:01:09.790 align:middle
+je vois que count est
+nil et Integer vaut 7
+
+00:01:13.500 --> 00:01:17.910 align:middle
+comme ici, et donc là je
+vais pouvoir faire Over.
+
+00:01:20.770 --> 00:01:22.580 align:middle
+Là je reviens, j'ai decrement.
+
+00:01:22.747 --> 00:01:25.730 align:middle
+Donc, je me dis que je
+vais aller voir à l'intérieur
+
+00:01:25.897 --> 00:01:27.540 align:middle
+parce que ça doit être là
+qu'est le problème, et là je
+
+00:01:27.707 --> 00:01:29.680 align:middle
+vois decrement qui est = à moins 1.
+
+00:01:33.070 --> 00:01:35.680 align:middle
+Je le transforme, Over.
+
+00:01:39.170 --> 00:01:41.000 align:middle
+Et donc là, je peux faire Proceed.
+
+00:01:42.620 --> 00:01:47.530 align:middle
+Quand je fais Proceed il va me
+rester le debug, que j'enlève,
+
+00:01:47.697 --> 00:01:51.490 align:middle
+je fais Proceed et mon test est vert.
+

@@ -1,0 +1,214 @@
+1
+00:00:03,840 --> 00:00:04,600
+-Bonjour à tous.
+
+2
+00:00:04,920 --> 00:00:07,520
+Dans cette vidéo,
+on va s'intéresser à deux options :
+
+3
+00:00:07,840 --> 00:00:11,480
+les Implémenteurs et les Senders,
+qu'on peut appliquer à des méthodes.
+
+4
+00:00:11,800 --> 00:00:15,040
+On verra qu'on peut obtenir ces options
+via le System Browser,
+
+5
+00:00:15,360 --> 00:00:19,720
+donc en allant dans l'environnement
+Pharo, puis Tools et System Browser.
+
+6
+00:00:20,040 --> 00:00:22,480
+Et on voit que,
+quand on va dans AST-Core,
+
+7
+00:00:22,800 --> 00:00:25,120
+le RBComment qu'on a utilisé
+dans les vidéos précédentes
+
+8
+00:00:25,440 --> 00:00:28,400
+et qu'on fait clic droit sur size,
+toutes ces options vont s'ouvrir,
+
+9
+00:00:28,720 --> 00:00:31,680
+mais surtout Implementors et Senders.
+
+10
+00:00:32,000 --> 00:00:33,920
+Qu'est-ce que c'est, Implementors ?
+
+11
+00:00:34,240 --> 00:00:37,160
+Si on clique dessus, on va avoir
+toutes les classes du système
+
+12
+00:00:37,480 --> 00:00:39,840
+qui implémentent une méthode
+qui s'appelle size.
+
+13
+00:00:40,160 --> 00:00:41,800
+On verra les classes du système à gauche,
+
+14
+00:00:42,120 --> 00:00:43,840
+le package dans lequel
+elles sont définies à droite
+
+15
+00:00:44,160 --> 00:00:47,320
+et le nom de la méthode,
+mais c'est size dans tous les cas.
+
+16
+00:00:47,640 --> 00:00:49,560
+Et on peut voir en cliquant dessus...
+
+17
+00:00:49,880 --> 00:00:52,840
+On peut naviguer à travers
+les différentes méthodes size
+
+18
+00:00:53,160 --> 00:00:56,520
+et on peut aussi browse
+en cliquant ici, la classe associée.
+
+19
+00:00:56,840 --> 00:01:00,720
+Là, on est dans FFIExternalArray
+qui définit size, qui le définit ainsi.
+
+20
+00:01:01,040 --> 00:01:03,680
+On voit qu'on est
+dans le package UnifiedFFI,
+
+21
+00:01:04,000 --> 00:01:06,120
+qu'on est dans la classe
+FFIExternalArray.
+
+22
+00:01:06,440 --> 00:01:09,320
+Ça vous permet d'avoir un exemple
+d'autres méthodes qui ont le même nom.
+
+23
+00:01:09,640 --> 00:01:12,880
+Une option tout aussi intéressante,
+c'est Senders qu'on peut trouver ici.
+
+24
+00:01:13,240 --> 00:01:15,920
+Senders, ça va nous présenter
+toutes les méthodes
+
+25
+00:01:16,240 --> 00:01:18,160
+qui appellent size
+dans leur corps de méthode.
+
+26
+00:01:18,480 --> 00:01:21,640
+Par exemple, ici, subbricksCount,
+on va avoir "self subbricks size".
+
+27
+00:01:21,960 --> 00:01:23,840
+On peut voir qu'il y en a 4 378.
+
+28
+00:01:24,160 --> 00:01:26,440
+Donc, on a pris une méthode
+qui est très appelée,
+
+29
+00:01:26,760 --> 00:01:29,000
+mais on voit qu'à chaque fois
+qu'on clique sur une méthode,
+
+30
+00:01:29,320 --> 00:01:30,880
+le "size" va être surligné
+
+31
+00:01:31,200 --> 00:01:35,840
+et on va pouvoir, comme les autres,
+cliquer dessus et aller browse le code.
+
+32
+00:01:36,160 --> 00:01:38,920
+Les Senders sont très utiles,
+car ça vous donne des exemples
+
+33
+00:01:39,240 --> 00:01:40,680
+de comment ce size est utilisé.
+
+34
+00:01:41,000 --> 00:01:43,000
+Ces deux options sont très intéressantes.
+
+35
+00:01:43,320 --> 00:01:46,040
+C'est implémenté dans de nombreux
+langages orientés objets.
+
+36
+00:01:46,360 --> 00:01:48,160
+Une dernière chose
+que je vous montrerai,
+
+37
+00:01:48,480 --> 00:01:52,600
+c'est les différents shortcuts,
+donc raccourcis pour accéder à ça.
+
+38
+00:01:52,920 --> 00:01:55,680
+Un moyen mnémotechnique,
+c'est pour les Implementors,
+
+39
+00:01:56,000 --> 00:01:59,040
+le M de Implementors
+qui va vous servir de raccourci,
+
+40
+00:01:59,360 --> 00:02:02,360
+tandis que pour les Senders,
+c'est le N. Senders, donc le N, ici.
+
+41
+00:02:02,880 --> 00:02:05,960
+Si je veux ouvrir les Implementors,
+Cmd+M. Voilà.
+
+42
+00:02:06,280 --> 00:02:09,840
+Si je veux ouvrir les Senders, Cmd+N.
+Ça ouvre les Senders de size.
+
+43
+00:02:10,160 --> 00:02:13,480
+Ce sont deux fonctionnalités que
+je vous encourage à apprendre à utiliser,
+
+44
+00:02:13,800 --> 00:02:16,520
+car ça vous permettra
+d'en apprendre très rapidement
+
+45
+00:02:16,840 --> 00:02:19,280
+sur une méthode et ses utilisations.

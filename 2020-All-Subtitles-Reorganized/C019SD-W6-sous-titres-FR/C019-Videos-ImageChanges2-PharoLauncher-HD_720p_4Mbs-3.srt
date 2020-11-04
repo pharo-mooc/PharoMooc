@@ -1,0 +1,453 @@
+1
+00:00:02,420 --> 00:00:04,090
+Je voudrais vous
+montrer le Pharo Launcher.
+
+2
+00:00:04,257 --> 00:00:06,030
+Pharo Launcher c'est un
+outil qui a été développé
+
+3
+00:00:06,670 --> 00:00:09,590
+indépendamment de Pharo et
+qui, à terme, va prendre la
+
+4
+00:00:09,757 --> 00:00:14,460
+place de Pharo App qu'on a vu dans
+l'autre session sur comprendre l'échange.
+
+5
+00:00:15,320 --> 00:00:18,630
+C'est une application qui
+va vous permettre de gérer
+
+6
+00:00:20,640 --> 00:00:23,730
+tout un ensemble d'images,
+et surtout d'accéder à tous
+
+7
+00:00:23,897 --> 00:00:26,790
+les serveurs d'intégration
+qui vont vous permettre, à
+
+8
+00:00:26,957 --> 00:00:28,250
+chaque fois que vous
+faites un commit, de recréer une
+
+9
+00:00:28,417 --> 00:00:30,920
+image et vous allez pouvoir
+la downloader très facilement.
+
+10
+00:00:31,087 --> 00:00:33,880
+J'ai tapé PharoLauncher
+dans Google pour vous montrer.
+
+11
+00:00:34,810 --> 00:00:38,450
+Si vous allez sur le Jenkins
+Inria, qu'est-ce que vous obtenez?
+
+12
+00:00:38,617 --> 00:00:41,140
+Vous obtenez cette page.
+
+13
+00:00:41,520 --> 00:00:42,630
+Il y a un site officiel.
+
+14
+00:00:42,797 --> 00:00:45,040
+Ok, le site officiel,
+c'est sûr SmallTalk Hub.
+
+15
+00:00:46,830 --> 00:00:51,680
+Et donc là, si je veux
+l'installer sur Mac OSX,
+
+16
+00:00:52,790 --> 00:00:54,250
+je vais faire
+
+17
+00:00:58,730 --> 00:01:00,070
+un download d'un dmg.
+
+18
+00:01:07,490 --> 00:01:12,370
+Si je dézippe le dmg,
+j'obtiens une application qui s'
+
+19
+00:01:12,537 --> 00:01:14,520
+appelle Pharo et qui devrait
+s'appeler Pharo Launcher, ça serait mieux.
+
+20
+00:01:15,340 --> 00:01:18,430
+Ce qui est sympa sur cette
+application, et moi je l'utilise
+
+21
+00:01:18,597 --> 00:01:23,580
+tout le temps, là
+
+22
+00:01:23,747 --> 00:01:25,390
+il va vous montrer,
+normalement quand vous, vous allez le
+
+23
+00:01:25,557 --> 00:01:26,190
+lancer, vous n'allez rien avoir.
+
+24
+00:01:26,357 --> 00:01:29,230
+Moi là, il me montre toutes les
+choses que j'ai installées sur mon système.
+
+25
+00:01:29,397 --> 00:01:32,900
+Ce qui est vraiment
+sympa, c'est qu'à gauche, cette
+
+26
+00:01:33,067 --> 00:01:35,640
+liste, ce sont les images
+sur lesquelles je suis en train
+
+27
+00:01:35,807 --> 00:01:40,500
+de travailler et à
+droite, ce sont des
+
+28
+00:01:40,667 --> 00:01:45,420
+raccourcis sur, par
+exemple vous pouvez obtenir la
+
+29
+00:01:45,587 --> 00:01:48,250
+version 5 Pharo Beta,
+la version 4 stable.
+
+30
+00:01:48,520 --> 00:01:50,270
+Donc celle-là, ce sont des favoris.
+
+31
+00:01:50,650 --> 00:01:55,240
+Après, vous allez pouvoir
+accéder à toutes les images que
+
+32
+00:01:55,407 --> 00:01:59,060
+vous avez downloadées
+récemment et qu'il stocke de
+
+33
+00:01:59,227 --> 00:02:01,950
+manière locale, histoire
+que vous n'ayez pas toujours à
+
+34
+00:02:02,117 --> 00:02:04,400
+faire un download depuis le
+serveur, parce que suivant
+
+35
+00:02:05,080 --> 00:02:07,960
+votre connexion
+Internet, ça peut être pénible.
+
+36
+00:02:08,127 --> 00:02:11,340
+La mienne étant très
+lente, c'est pénible.
+
+37
+00:02:11,507 --> 00:02:12,460
+Donc, vous avez tout
+ce genre de choses.
+
+38
+00:02:12,627 --> 00:02:13,920
+Maintenant ce qui est super
+sympa, c'est que vous avez
+
+39
+00:02:14,087 --> 00:02:16,750
+accès aux Pharo Contribution Jenkins.
+
+40
+00:02:19,600 --> 00:02:20,233
+Qu'est-ce que c'est ?
+
+41
+00:02:20,650 --> 00:02:24,520
+C'est un serveur Jenkins
+sur lequel les gens peuvent
+
+42
+00:02:24,687 --> 00:02:26,060
+héberger un certain nombre
+de projets, il suffit que vous
+
+43
+00:02:26,227 --> 00:02:27,570
+demandiez et vous
+pouvez y avoir accès.
+
+44
+00:02:28,180 --> 00:02:31,290
+Il y a plein de choses, je ne
+sais pas exactement ce que c'est.
+
+45
+00:02:31,540 --> 00:02:34,150
+Vous allez pouvoir prendre
+
+46
+00:02:36,560 --> 00:02:37,490
+différentes versions.
+
+47
+00:02:37,657 --> 00:02:40,580
+Je vais vous montrer sur
+Seaside, le serveur d'application
+
+48
+00:02:41,410 --> 00:02:48,130
+dynamique web, je
+
+49
+00:02:48,297 --> 00:02:49,710
+vais avoir, par
+exemple, tous les build.
+
+50
+00:02:50,220 --> 00:02:53,800
+Pour un build, je vais avoir
+"est-ce que tu veux une version Pharo 2.0,
+
+51
+00:02:54,000 --> 00:02:55,300
+ une version Pharo 3.0,
+
+52
+00:02:55,467 --> 00:02:56,100
+une version de Pharo 4.0,
+
+53
+00:02:56,267 --> 00:02:58,890
+en BleedInEdge, en
+développement, en release, en release
+
+54
+00:02:59,057 --> 00:02:59,690
+1.3.
+
+55
+00:02:59,857 --> 00:03:02,520
+Je ne vais pas le prendre
+parce que je l'ai déjà pris
+
+56
+00:03:03,000 --> 00:03:05,000
+mais ce qui est super
+sympa, donc là moi je l'ai ici,
+
+57
+00:03:06,110 --> 00:03:11,000
+donc si je lui dis de
+me créer une image, je
+
+58
+00:03:11,167 --> 00:03:16,000
+vais l'appeler
+Seaside, là il extrait l'
+
+59
+00:03:16,167 --> 00:03:19,810
+image de mon cache et elle vient
+ici, et maintenant je peux l'exécuter.
+
+60
+00:03:20,180 --> 00:03:21,210
+Et là, j'ai mon image Seaside.
+
+61
+00:03:21,710 --> 00:03:23,750
+Ce qui est super, c'est que
+si vous regardez Seaside un
+
+62
+00:03:23,917 --> 00:03:26,670
+petit peu, Seaside c'est
+assez conséquent, il y a tout ça
+
+63
+00:03:26,837 --> 00:03:30,790
+comme package dans le
+système avec je ne sais pas combien
+
+64
+00:03:30,957 --> 00:03:36,600
+de classes à
+
+65
+00:03:36,767 --> 00:03:37,400
+ charger.
+
+66
+00:03:37,640 --> 00:03:40,110
+Donc, c'est pratique parce
+que ce qui est génial, je vais
+
+67
+00:03:40,277 --> 00:03:41,580
+vous prendre un autre exemple.
+
+68
+00:03:41,747 --> 00:03:46,120
+Si je quitte, en ce
+moment je travaille sur…
+
+69
+00:03:47,040 --> 00:03:51,260
+J'ai de la library mathematic
+Smalltalk, qui s'appelle Sci
+
+70
+00:03:51,427 --> 00:03:54,750
+Smalltalk, j'ai mon environnement.
+
+71
+00:03:55,000 --> 00:03:58,420
+A chaque fois que je vais
+commiter du code depuis cette
+
+72
+00:03:58,587 --> 00:04:03,510
+image, sur le
+repository de Sci Smalltalk, il
+
+73
+00:04:03,677 --> 00:04:05,870
+va y avoir un job Jenkins
+qui va voir ça et qui va
+
+74
+00:04:06,037 --> 00:04:09,300
+reconstruire l'image, et
+qui va me la proposer après
+
+75
+00:04:09,620 --> 00:04:13,120
+avoir fait tourner des tests, va
+me la re-proposer à télécharger.
+
+76
+00:04:13,390 --> 00:04:16,380
+Donc là, si je viens dans
+contribution et qu'on va
+
+77
+00:04:16,547 --> 00:04:23,140
+chercher Sci Smalltalk,
+
+78
+00:04:23,307 --> 00:04:25,790
+c’est pareil, on a tous les build
+avec différentes versions de Pharo.
+
+79
+00:04:25,957 --> 00:04:27,110
+Là, on en a moins. On en a 4.0
+
+80
+00:04:27,277 --> 00:04:28,460
+en développement stable,
+
+81
+00:04:29,300 --> 00:04:30,310
+5.0 en développement instable.
+
+82
+00:04:30,477 --> 00:04:34,020
+Si je veux en prendre une,
+je vais faire un download.
+
+83
+00:04:34,380 --> 00:04:35,550
+Je vais faire une Create image.
+
+84
+00:04:36,410 --> 00:04:39,910
+Et automatiquement, je vais
+pouvoir obtenir la dernière
+
+85
+00:04:40,077 --> 00:04:42,330
+configuration qui a
+été chargée, suivant les
+
+86
+00:04:42,497 --> 00:04:46,400
+configurations et suivant
+comment j'ai configuré mon job Jenkins.
+
+87
+00:04:46,630 --> 00:04:50,640
+Pharo Launcher, je vous
+suggère vivement de l'utiliser
+
+88
+00:04:50,807 --> 00:04:51,440
+parce que c'est super.
+
+89
+00:04:52,620 --> 00:04:54,530
+En conclusion, Pharo
+Launcher, c'est vraiment très bien
+
+90
+00:04:54,697 --> 00:04:59,540
+parce que ça combine à la
+fois l'accès à vos jobs et l'
+
+91
+00:04:59,707 --> 00:05:01,420
+organisation sur
+votre système de fichiers.
+
+92
+00:05:01,700 --> 00:05:03,230
+Quand vous travaillez sur
+plusieurs projets, c'est
+
+93
+00:05:03,397 --> 00:05:06,290
+toujours agréable d'avoir une
+vue d'ensemble de vos projets.
+
+94
+00:05:07,090 --> 00:05:09,920
+Donc, Pharo Launcher a été
+développé par Damien Cassou,
+
+95
+00:05:10,087 --> 00:05:12,900
+qui est un des 3 auteurs de
+ce Mooc, et vraiment je le
+
+96
+00:05:13,067 --> 00:05:14,210
+remercie pour ça, c'est super cool.
+

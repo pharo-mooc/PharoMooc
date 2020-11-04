@@ -1,0 +1,443 @@
+WEBVTT
+
+00:00:00.560 --> 00:00:04.680 align:middle
+Hoy vamos a revisar
+algo que ya has aprendido,
+
+00:00:04.840 --> 00:00:07.120 align:middle
+pero realmente quiero llevarlo a casa.
+
+00:00:07.280 --> 00:00:09.920 align:middle
+Personajes, Cuerdas y Símbolos.
+
+00:00:10.920 --> 00:00:14.560 align:middle
+Lo que vas a aprender
+es como manejar personajes,
+
+00:00:14.720 --> 00:00:16.360 align:middle
+cómo se representan las cadenas,
+
+00:00:16.520 --> 00:00:19.160 align:middle
+y que simbolo esta en relacion
+a una cuerda
+
+00:00:19.520 --> 00:00:21.960 align:middle
+Tomémoslo desde el principio:
+Caracteres.
+
+00:00:22.120 --> 00:00:25.920 align:middle
+En Pharo,
+los personajes comienzan con el signo de dólar,
+
+00:00:26.200 --> 00:00:28.600 align:middle
+seguido de una carta.
+
+00:00:28.880 --> 00:00:32.680 align:middle
+Esto es para representar caracteres literales.
+
+00:00:33.200 --> 00:00:36.960 align:middle
+Caracteres no imprimibles
+que no tienen una forma
+
+00:00:37.120 --> 00:00:40.720 align:middle
+use espacio, pestaña o retorno de carro,
+
+00:00:40.880 --> 00:00:42.920 align:middle
+que salta a una nueva línea.
+
+00:00:43.080 --> 00:00:46.200 align:middle
+Enviamos un mensaje
+a esta clase de personaje
+
+00:00:46.360 --> 00:00:47.920 align:middle
+para obtener este personaje
+
+00:00:49.960 --> 00:00:51.160 align:middle
+Ahora para cadenas.
+
+00:00:51.320 --> 00:00:54.720 align:middle
+Cadenas de caracteres
+están delimitados por comillas simples.
+
+00:00:54.880 --> 00:00:56.880 align:middle
+Este personaje aquí mismo.
+
+00:00:57.040 --> 00:01:00.320 align:middle
+Aquí tenemos la cadena:
+'eclair au chocolat'.
+
+00:01:00.480 --> 00:01:02.440 align:middle
+Comienza aquí y termina aquí.
+
+00:01:02.680 --> 00:01:05.520 align:middle
+Podemos enviarle un mensaje,
+por ejemplo, tamaño
+
+00:01:05.680 --> 00:01:08.400 align:middle
+Y devuelve "18".
+
+00:01:08.560 --> 00:01:11.760 align:middle
+De hecho, esta cadena
+contiene 18 caracteres
+
+00:01:12.240 --> 00:01:14.320 align:middle
+Incluso podemos jugar con esta cuerda.
+
+00:01:14.480 --> 00:01:16.880 align:middle
+Puedo decir división de espacio de personajes.
+
+00:01:17.120 --> 00:01:21.440 align:middle
+Esto significa que cortaré esta cadena
+de acuerdo con los espacios,
+
+00:01:21.600 --> 00:01:25.040 align:middle
+y obtengo una colección ordenada
+con 3 elementos
+
+00:01:25.200 --> 00:01:28.160 align:middle
+La cuerda se cortó en 3 elementos.
+
+00:01:28.960 --> 00:01:34.000 align:middle
+Cadenas de caracteres
+Son colecciones como cualquier otra en Pharo.
+
+00:01:34.160 --> 00:01:37.440 align:middle
+Una cuerda es realmente
+una colección de personajes,
+
+00:01:37.600 --> 00:01:41.120 align:middle
+pero la clase de cadena heredará
+de la clase de colección.
+
+00:01:41.560 --> 00:01:44.360 align:middle
+Entonces puedo usar todos los métodos clásicos.
+
+00:01:44.520 --> 00:01:49.120 align:middle
+Recuerda,
+Tenemos clases comunes de recolección.
+
+00:01:49.280 --> 00:01:52.960 align:middle
+Por ejemplo, "en:"
+para todas las colecciones indexadas.
+
+00:01:53.120 --> 00:01:55.240 align:middle
+'eclair au chocolat' en:1
+
+00:01:55.400 --> 00:01:59.160 align:middle
+significa que quiero el elemento "1"
+de esta colección y obtengo "e".
+
+00:01:59.520 --> 00:02:01.480 align:middle
+Corresponde a esta "e".
+
+00:02:02.480 --> 00:02:06.560 align:middle
+También puedo usar "do:" que se ejecuta
+los elementos de una colección
+
+00:02:06.720 --> 00:02:09.320 align:middle
+Y después de cada ciclo, la configuración de bloque
+
+00:02:09.480 --> 00:02:13.960 align:middle
+es igual al primer elemento
+de la colección, luego la segunda, etc.
+
+00:02:14.120 --> 00:02:15.640 align:middle
+Una pequeña sutileza.
+
+00:02:15.800 --> 00:02:19.720 align:middle
+Dado que las cadenas de caracteres
+están delimitados por comillas simples,
+
+00:02:19.880 --> 00:02:22.200 align:middle
+si quiero poner el código en una cadena,
+
+00:02:22.360 --> 00:02:24.960 align:middle
+el truco es usar dos comillas,
+lado a lado.
+
+00:02:25.120 --> 00:02:29.960 align:middle
+Esto significa que quiero insertar una cita
+en mi cadena de personajes ...
+
+00:02:30.120 --> 00:02:32.440 align:middle
+Pero ten cuidado, la sutileza es que
+
+00:02:32.600 --> 00:02:35.640 align:middle
+solo cuenta como
+Un elemento en la cadena.
+
+00:02:35.800 --> 00:02:39.720 align:middle
+Por ejemplo:
+'L'' eclair au chocolat 'en:2
+
+00:02:39.880 --> 00:02:42.560 align:middle
+significa que quiero el elemento 2
+de esta colección
+
+00:02:42.720 --> 00:02:45.040 align:middle
+Y devuelve el carácter de cita.
+
+00:02:45.200 --> 00:02:49.160 align:middle
+Y si lo pido en:3
+Recibo la "e" que está aquí.
+
+00:02:49.320 --> 00:02:54.640 align:middle
+Entonces, incluso si ingrese dos comillas simples,
+ellos cuentan como uno.
+
+00:02:56.800 --> 00:03:01.240 align:middle
+Cadenas de caracteres
+se tratan como cualquier otra colección.
+
+00:03:01.400 --> 00:03:05.440 align:middle
+Puedo decir que quiero
+el último elemento de una cadena.
+
+00:03:05.600 --> 00:03:10.320 align:middle
+Si pido "str at:str size"
+Recibo el último elemento.
+
+00:03:10.480 --> 00:03:13.960 align:middle
+No te olvides, en Pharo
+Las cadenas comienzan con el valor de índice 1,
+
+00:03:14.120 --> 00:03:17.400 align:middle
+por lo tanto, el último elemento
+es el tamaño de la cadena.
+
+00:03:17.640 --> 00:03:22.320 align:middle
+O simplemente podemos usar
+"último" para recuperar el último elemento.
+
+00:03:22.840 --> 00:03:26.200 align:middle
+Para generar cadenas,
+hay varias técnicas
+
+00:03:26.360 --> 00:03:29.760 align:middle
+El más fácil
+es el método de conversión.
+
+00:03:29.920 --> 00:03:33.560 align:middle
+Convierto un símbolo en
+una cadena de caracteres con asString.
+
+00:03:33.720 --> 00:03:36.960 align:middle
+O bien, puedo enviar
+printString a cualquier objeto.
+
+00:03:37.120 --> 00:03:41.200 align:middle
+Esto me dará
+una representación de cadena del objeto.
+
+00:03:42.400 --> 00:03:46.240 align:middle
+O puedo generar un método de creación
+directamente de una colección.
+
+00:03:46.400 --> 00:03:49.840 align:middle
+Recuerde, puede enviar "con"
+a cualquier clase de colección
+
+00:03:50.000 --> 00:03:54.640 align:middle
+para generar una nueva colección que
+automáticamente contiene ciertos objetos.
+
+00:03:54.800 --> 00:03:56.600 align:middle
+Si uso String con:$ A,
+
+00:03:56.760 --> 00:04:00.520 align:middle
+Obtengo una cuerda
+que contiene un solo carácter:"A."
+
+00:04:00.680 --> 00:04:02.120 align:middle
+Para la concatenación,
+
+00:04:02.280 --> 00:04:05.640 align:middle
+ya has visto esto,
+utilizamos el mensaje "coma".
+
+00:04:05.800 --> 00:04:09.640 align:middle
+Envío "," a una cadena
+y ejecutarlo a través de otra cadena
+
+00:04:09.800 --> 00:04:13.800 align:middle
+para crear una nueva cadena que sea
+la concatenación de los dos.
+
+00:04:14.560 --> 00:04:16.160 align:middle
+Sin embargo, ten cuidado.
+
+00:04:16.320 --> 00:04:19.400 align:middle
+Si tomo el mismo ejemplo,
+Debes entender
+
+00:04:19.560 --> 00:04:23.440 align:middle
+que generé
+versiones intermedias que son inútiles
+
+00:04:23.600 --> 00:04:27.440 align:middle
+Entonces tengo este primer mensaje
+eso fue enviado
+
+00:04:27.600 --> 00:04:30.120 align:middle
+a esta cadena, con este valor.
+
+00:04:30.280 --> 00:04:34.600 align:middle
+Tenemos una primera cadena de concatenación.
+eso fue generado
+
+00:04:34.920 --> 00:04:38.800 align:middle
+Esta concatenación envió el mensaje
+"," con este valor,
+
+00:04:38.960 --> 00:04:41.680 align:middle
+y se creó otra cadena:
+El resultado final
+
+00:04:41.840 --> 00:04:45.280 align:middle
+Una cuerda intermedia
+no hemos visto fue generado,
+
+00:04:45.440 --> 00:04:48.680 align:middle
+y te hace perder el tiempo
+en tus cálculos
+
+00:04:48.840 --> 00:04:51.560 align:middle
+Tuve una sesión sobre benchmarking.
+
+00:04:51.720 --> 00:04:55.840 align:middle
+Puedes usar benchmarking
+para ver realmente lo que está pasando
+
+00:04:56.000 --> 00:04:59.240 align:middle
+y si no sería
+vale la pena usar una transmisión.
+
+00:04:59.400 --> 00:05:02.000 align:middle
+Genero una cadena de caracteres
+
+00:05:02.160 --> 00:05:06.000 align:middle
+y digo que definiré
+una secuenciaContenido con:s
+
+00:05:06.160 --> 00:05:11.320 align:middle
+Y puedo enviar cadenas directamente a esto
+transmitir para generar la cadena final.
+
+00:05:11.480 --> 00:05:14.200 align:middle
+De esta forma, evito las cadenas intermedias.
+
+00:05:14.360 --> 00:05:16.760 align:middle
+Ahora por símbolos.
+
+00:05:16.920 --> 00:05:21.200 align:middle
+Sintácticamente hablando,
+Los símbolos comienzan con un hashtag,
+
+00:05:21.360 --> 00:05:23.120 align:middle
+luego una cadena de personajes.
+
+00:05:23.280 --> 00:05:24.880 align:middle
+Este es un símbolo literal.
+
+00:05:25.040 --> 00:05:29.760 align:middle
+Es una especie de cuerda, pero ten cuidado,
+Son únicos en el sistema.
+
+00:05:29.920 --> 00:05:33.200 align:middle
+Si escribo el hashtag "bla, bla"
+en cualquier parte de mi programa,
+
+00:05:33.360 --> 00:05:36.320 align:middle
+en cualquier otro lugar
+en el programa esto aparece,
+
+00:05:36.480 --> 00:05:38.760 align:middle
+Estoy designando el mismo objeto.
+
+00:05:38.920 --> 00:05:40.680 align:middle
+Es la misma instancia.
+
+00:05:41.400 --> 00:05:43.640 align:middle
+Entonces, los símbolos son únicos.
+
+00:05:43.800 --> 00:05:48.480 align:middle
+Aquí tenemos #calvin == #calvin
+y devuelve verdadero.
+
+00:05:48.640 --> 00:05:50.120 align:middle
+Es el mismo objeto.
+
+00:05:50.280 --> 00:05:53.760 align:middle
+Este no es el caso de las cadenas.
+Para cadenas, depende.
+
+00:05:53.920 --> 00:05:57.000 align:middle
+Depende de
+las optimizaciones del compilador.
+
+00:05:57.400 --> 00:06:01.440 align:middle
+Entonces esta es la verdadera diferencia.
+entre símbolos y cadenas.
+
+00:06:01.600 --> 00:06:05.360 align:middle
+Un símbolo está únicamente en solo lectura.
+
+00:06:05.520 --> 00:06:08.600 align:middle
+Los símbolos no se pueden modificar,
+debes crear una nueva.
+
+00:06:08.760 --> 00:06:13.080 align:middle
+Es un objeto único,
+por lo que siempre apunta al mismo objeto.
+
+00:06:13.240 --> 00:06:17.440 align:middle
+Las cadenas son objetos mutables,
+puedes modificar su contenido
+
+00:06:17.600 --> 00:06:22.440 align:middle
+Dice "por ahora" porque
+este punto está en discusión.
+
+00:06:24.080 --> 00:06:26.440 align:middle
+Los símbolos se usan a menudo como
+
+00:06:27.560 --> 00:06:30.320 align:middle
+selectores de método
+
+00:06:31.480 --> 00:06:35.160 align:middle
+Y simbolos
+son buenos candidatos para llaves
+
+00:06:35.320 --> 00:06:37.160 align:middle
+en diccionarios,
+
+00:06:37.320 --> 00:06:39.080 align:middle
+a saber, identityDictionary
+
+00:06:39.240 --> 00:06:40.560 align:middle
+¿Recuerdas esto?
+
+00:06:40.720 --> 00:06:43.160 align:middle
+Comparamos elementos,
+
+00:06:43.320 --> 00:06:48.600 align:middle
+y podemos fácilmente
+para calcular hashes que comienzan con un símbolo,
+
+00:06:48.760 --> 00:06:51.200 align:middle
+para generarlo en un diccionario.
+
+00:06:52.680 --> 00:06:56.360 align:middle
+Lo importante para recordar
+desde esta sesión,
+
+00:06:56.520 --> 00:07:00.120 align:middle
+es que las cuerdas
+son como cualquier otra colección.
+
+00:07:00.280 --> 00:07:03.360 align:middle
+Y esos símbolos son únicos,
+
+00:07:03.520 --> 00:07:06.320 align:middle
+en modo de solo lectura, e inmutable.
+

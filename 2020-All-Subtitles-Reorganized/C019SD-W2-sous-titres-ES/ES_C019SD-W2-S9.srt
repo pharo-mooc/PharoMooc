@@ -1,0 +1,232 @@
+﻿1
+00:00:00,840 --> 00:00:03,400
+En esta sesión, me gustaría que se enfoque.
+
+2
+00:00:03,560 --> 00:00:06,320
+en el uso de paréntesis y corchetes.
+
+3
+00:00:06,480 --> 00:00:08,520
+No los mezcle.
+
+4
+00:00:09,160 --> 00:00:12,480
+Los paréntesis cambian la prioridad
+de una ejecución
+
+5
+00:00:12,640 --> 00:00:15,040
+en expresiones o en código,
+
+6
+00:00:15,200 --> 00:00:17,760
+mientras que los corchetes definen los bloques.
+
+7
+00:00:17,920 --> 00:00:22,840
+Cuando las expresiones en un bloque
+se definen, no se ejecutan.
+
+8
+00:00:23,000 --> 00:00:27,160
+Usted controla la ejecución. Debe enviar
+el mensaje value el bloque
+
+9
+00:00:27,320 --> 00:00:29,960
+para desencadenar la ejecución
+de sus expresiones
+
+10
+00:00:31,960 --> 00:00:36,760
+Hablemos de nuevo
+sobre cuándo debes usar los paréntesis.
+
+11
+00:00:36,920 --> 00:00:38,960
+Los usa alrededor de expresiones
+
+12
+00:00:39,120 --> 00:00:44,600
+si no sabe
+si se ejecutarán.
+
+13
+00:00:45,280 --> 00:00:49,320
+Por ejemplo, ¿usan if? 
+¿Pertenecen a la rama de una desviación?
+
+14
+00:00:50,440 --> 00:00:53,440
+También usa corchetes
+
+15
+00:00:53,600 --> 00:00:57,040
+si no sabe cuántas veces
+debes ejecutar
+
+16
+00:00:58,200 --> 00:01:01,760
+las expresiones que contiene un bloque
+
+17
+00:01:02,760 --> 00:01:07,120
+Por ejemplo:
+n timesRepeat:[self doSomething]
+
+18
+00:01:07,280 --> 00:01:11,840
+self doAlgo
+está encapsulado en un bloque.
+
+19
+00:01:12,480 --> 00:01:18,080
+¿Por qué? Porque debe
+ejecutar sus expresiones varias veces.
+
+20
+00:01:18,240 --> 00:01:22,840
+Debes ponerlos en un bloque para enviarles
+el valor del mensaje varias veces.
+
+21
+00:01:25,840 --> 00:01:29,680
+Otro ejemplo:esta vez,
+Envío el mensaje si es cierto :.
+
+22
+00:01:29,840 --> 00:01:32,000
+Según el receptor,
+
+23
+00:01:32,160 --> 00:01:36,240
+dependiendo de si ésta expresión
+es verdadero o falso,
+
+24
+00:01:36,920 --> 00:01:41,120
+usted ejecuta o no ejecuta
+la expresión self doSomething.
+
+25
+00:01:41,280 --> 00:01:46,120
+No puedo usar paréntesis ya que, si es necesario,
+no se ejecutará en absoluto.
+
+26
+00:01:47,120 --> 00:01:48,840
+Si lo pone en un bloque,
+
+27
+00:01:49,000 --> 00:01:52,640
+puedes decidir
+si le envía el valor del mensaje.
+
+28
+00:01:55,080 --> 00:01:59,240
+Esto es lo mismo
+pero con whileTrue :.
+
+29
+00:01:59,400 --> 00:02:04,120
+Es lo mismo con el bloque receptor
+y el bloque pasado como un parámetro.
+
+30
+00:02:04,280 --> 00:02:10,040
+Dependiendo de si la evaluación
+devuelve el valor booleano verdadero o falso,
+
+31
+00:02:10,200 --> 00:02:14,280
+debe ejecutar una vez, varias veces,
+o ni siquiera en absoluto
+
+32
+00:02:14,440 --> 00:02:18,000
+la expresión self doSomething:
+Se debe poner en un bloque.
+
+33
+00:02:19,400 --> 00:02:22,240
+Hagamos un pequeño ejercicio.
+
+34
+00:02:23,160 --> 00:02:26,400
+Si le doy
+las dos siguientes expresiones,
+
+35
+00:02:26,560 --> 00:02:30,360
+repeat from 1 to: n self doSomething,
+
+36
+00:02:30,520 --> 00:02:33,040
+¿Debo usar paréntesis o corchetes?
+
+37
+00:02:33,200 --> 00:02:36,800
+Si escribo x ifEmpty:self doSomething,
+
+38
+00:02:36,960 --> 00:02:39,520
+¿Debo usar paréntesis o corchetes?
+
+39
+00:02:41,720 --> 00:02:43,440
+Le daré las respuestas.
+
+40
+00:02:44,360 --> 00:02:46,920
+En ambos casos, debe usar corchetes.
+
+41
+00:02:47,080 --> 00:02:51,600
+En el primer caso,
+si quieres repetir self doSomething,
+
+42
+00:02:51,760 --> 00:02:55,360
+tienes que enviar el valor del mensaje
+a este bloque varias veces.
+
+43
+00:02:56,080 --> 00:02:59,000
+En el segundo caso, x ifEmpty:,
+
+44
+00:02:59,160 --> 00:03:04,360
+si x no está vacío,
+no deberías ejecutar self doSomething.
+
+45
+00:03:04,520 --> 00:03:07,560
+Si x está vacío, debes hacerlo.
+
+46
+00:03:07,720 --> 00:03:10,280
+En resumen, vimos en este curso
+
+47
+00:03:10,440 --> 00:03:13,720
+que no debere confundir
+paréntesis y corchetes.
+
+48
+00:03:13,880 --> 00:03:19,120
+Los paréntesis tratan de cambiar el orden.
+de cálculo en una expresión.
+
+49
+00:03:19,280 --> 00:03:23,800
+Los corchetes son sobre congelar
+
+50
+00:03:23,960 --> 00:03:27,040
+expresiones
+
+51
+00:03:27,200 --> 00:03:31,400
+y para controlar su ejecución
+o incluso para ejecutarlos varias veces.

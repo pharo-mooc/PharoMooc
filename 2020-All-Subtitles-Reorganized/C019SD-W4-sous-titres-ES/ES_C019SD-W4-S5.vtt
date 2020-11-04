@@ -1,0 +1,268 @@
+WEBVTT
+
+00:00:00.490 --> 00:00:05.430 align:middle
+Buenos días a todos. En esta 
+quinta secuencia sobre la herencia
+
+00:00:06.140 --> 00:00:10.250 align:middle
+y la búsqueda, hablaremos
+del envío de mensajes
+
+00:00:10.650 --> 00:00:12.910 align:middle
+y el algoritmo de búsqueda
+en cuanto a las metaclases.
+
+00:00:13.500 --> 00:00:14.470 align:middle
+Así que en Pharo todo es un objeto.
+
+00:00:16.560 --> 00:00:20.230 align:middle
+Los objetos pueden recibir
+mensaje, así que como
+
+00:00:20.430 --> 00:00:24.130 align:middle
+todo es un objeto las clases
+són objetos, y como
+
+00:00:24.330 --> 00:00:26.910 align:middle
+los objetos pueden recibir
+mensaje las clases 
+
+00:00:27.110 --> 00:00:28.070 align:middle
+pueden también recibir mensajes.
+
+00:00:28.520 --> 00:00:33.210 align:middle
+El envío de mensajes es exactamente
+el mismo cuando
+
+00:00:33.790 --> 00:00:36.700 align:middle
+el receptor es un objecto
+cualquiera o es una clase.
+
+00:00:37.380 --> 00:00:40.930 align:middle
+Así que solo hay una manera
+de encontrar un método
+
+00:00:41.130 --> 00:00:43.490 align:middle
+cuando se envía un mensaje,
+es el algoritmo de búsqueda
+
+00:00:43.930 --> 00:00:48.000 align:middle
+que hemos visto y repasado en las
+secuencias anteriores.
+
+00:00:49.250 --> 00:00:52.360 align:middle
+Ahora tomare como ejemplo
+el envío de
+
+00:00:52.560 --> 00:00:54.200 align:middle
+un mensaje sobre una clase.
+
+00:00:56.270 --> 00:00:59.930 align:middle
+es necesario comprender que
+como las clases son 
+
+00:01:00.130 --> 00:01:04.380 align:middle
+objetos y que todos los objetos 
+están ligados a un clase,
+
+00:01:04.580 --> 00:01:07.230 align:middle
+así todos los objetos son instancia
+de una clase, aquí en
+
+19 align:middle
+00:01:07,470 --> 00:01:09,940
+aNode es una instancia de la
+clase Node.
+
+00:01:10.140 --> 00:01:15.050 align:middle
+Como la clase Node es un objeto,
+21
+00:01:16,250 --> 00:01:18,720
+la clase Node es una instancia de
+una clase.
+
+00:01:19.790 --> 00:01:22.560 align:middle
+Llamamos a esta clase Node class.
+
+00:01:22.890 --> 00:01:26.000 align:middle
+Así que aNode es una instancia de 
+la clase Node y la 
+
+00:01:26.200 --> 00:01:29.630 align:middle
+la clase Node es un objeto que 
+es una instancia de la clase Node class.
+
+00:01:30.880 --> 00:01:35.000 align:middle
+Os podéis preguntar, como es así, 
+Node class
+
+00:01:35.200 --> 00:01:38.320 align:middle
+es una clase, esta clase
+es un objeto así que es 
+
+00:01:38.520 --> 00:01:42.670 align:middle
+una instancia de una clase,
+¿de que clase Node class es instancia?
+
+28 align:middle
+00:01:42,870 --> 00:01:46,820
+Veréis esto en la próxima secuencia,
+la secuencia
+
+00:01:47.020 --> 00:01:47.780 align:middle
+sobre las metaclases.
+
+00:01:48.210 --> 00:01:49.860 align:middle
+Algunos ejemplos.
+
+00:01:50.910 --> 00:01:55.740 align:middle
+aquí tenemos un objeto
+aWorkstation, instancia de una clase
+
+00:01:56.200 --> 00:01:58.400 align:middle
+Workstation, que es una subclase
+de Node que es una subclase
+
+00:01:58.600 --> 00:02:01.860 align:middle
+de Object. aquí tenemos que prestar
+
+00:02:02.060 --> 00:02:06.220 align:middle
+atención a las flechas, esta
+flecha con un triangulo vacío
+
+00:02:07.060 --> 00:02:08.820 align:middle
+indica una relación su subclase.
+
+00:02:09.420 --> 00:02:11.700 align:middle
+NOde es un subclase de Object.
+
+00:02:11.900 --> 00:02:14.230 align:middle
+Workstation es una subclase de Node.
+
+00:02:15.170 --> 00:02:18.700 align:middle
+Esta flecha con un triangulo
+lleno representa,
+
+00:02:18.900 --> 00:02:23.700 align:middle
+a veces de esta manera,
+una relación de instancia.
+
+00:02:24.340 --> 00:02:28.310 align:middle
+aWorkstation es una instancia de
+Workstation y
+
+00:02:28.510 --> 00:02:29.900 align:middle
+Workstation es una instancia
+de workstation Class.
+
+00:02:30.900 --> 00:02:34.090 align:middle
+De la misma manera que object
+es una instancia de  Object Class.
+
+00:02:34.670 --> 00:02:37.420 align:middle
+Si envío un mensaje a el objeto
+aWorkstation, el algoritmo
+
+00:02:37.620 --> 00:02:41.760 align:middle
+de búsqueda busca en la 
+clase de aWorkstation
+
+00:02:43.400 --> 00:02:45.920 align:middle
+luego sube uno en las super
+clase hasta que
+
+00:02:46.120 --> 00:02:48.340 align:middle
+encuentra un método que corresponda.
+
+00:02:48.780 --> 00:02:52.000 align:middle
+Pues bien es exactamente el
+mismo mecanismo que se aplica
+
+00:02:52.460 --> 00:02:55.410 align:middle
+si envío un mensaje a la clase
+Workstation.
+
+00:02:56.730 --> 00:03:01.270 align:middle
+Por ejemplo si envío el mensaje New
+
+00:03:01.470 --> 00:03:03.520 align:middle
+a Workstation, el algoritmo
+de búsqueda buscara en la 
+
+00:03:03.720 --> 00:03:05.840 align:middle
+la clase de Workstation,
+es decir Workstation Class,
+
+00:03:06.040 --> 00:03:07.900 align:middle
+un método llamado New.
+
+00:03:08.620 --> 00:03:11.410 align:middle
+Si lo encuentra aquí sera
+ejecutado, si el algoritmo de
+
+00:03:11.610 --> 00:03:14.380 align:middle
+búsqueda no lo encuentra aquí
+buscara en la super
+
+00:03:14.580 --> 00:03:17.890 align:middle
+clase, si no la encuentra aquí
+buscara en la super clase.
+
+00:03:19.130 --> 00:03:21.330 align:middle
+Y ect... , esta
+hierarquía continua.
+
+00:03:23.040 --> 00:03:26.180 align:middle
+Os dejo este slide para repasar
+el envío de 
+
+00:03:26.380 --> 00:03:29.550 align:middle
+mensajes a los objetos estándar
+y a las clase que
+
+00:03:29.750 --> 00:03:30.680 align:middle
+también son objetos estándar.
+
+00:03:31.760 --> 00:03:32.890 align:middle
+Lo que debéis recordar.
+
+00:03:33.480 --> 00:03:36.060 align:middle
+Una clase que es un objeto como
+los otros.
+
+00:03:37.160 --> 00:03:38.830 align:middle
+Puede enviar mensajes a objetos
+puede enviar
+
+00:03:39.030 --> 00:03:40.000 align:middle
+mensajes a clases.
+
+00:03:40.170 --> 00:03:45.000 align:middle
+El algoritmo de búsqueda
+es exactamente el mismo
+
+00:03:45.200 --> 00:03:45.960 align:middle
+en los dos casos.
+
+00:03:47.750 --> 00:03:49.870 align:middle
+El algoritmo de búsqueda empezara
+a buscar cual
+
+00:03:50.070 --> 00:03:52.590 align:middle
+es la clase del receptor,
+subirá en la hierarquía
+
+00:03:52.790 --> 00:03:56.350 align:middle
+visitando las superclase, hasta
+
+00:03:56.550 --> 00:03:58.070 align:middle
+encontrar un método que corresponda
+al mensaje.
+
+00:03:58.640 --> 00:04:01.120 align:middle
+conoceréis mas sobre las 
+metaclases siguiendo 
+
+00:04:01.320 --> 00:04:02.460 align:middle
+la secuencia Understanding Metaclasses.
+

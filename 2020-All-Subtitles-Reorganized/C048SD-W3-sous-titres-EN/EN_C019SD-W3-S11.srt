@@ -1,0 +1,287 @@
+﻿1
+00:00:00,000 --> 00:00:03,520
+Hello. In this session,
+we will learn about return.
+
+2
+00:00:03,680 --> 00:00:07,440
+How can you return a value
+
+3
+00:00:07,600 --> 00:00:09,600
+from a block or method?
+
+4
+00:00:10,480 --> 00:00:12,840
+And what are the default return values?
+
+5
+00:00:13,520 --> 00:00:15,840
+There are four cases to study:
+
+6
+00:00:16,000 --> 00:00:20,640
+a method which uses the caret to return,
+
+7
+00:00:20,800 --> 00:00:23,080
+a method without the caret,
+
+8
+00:00:23,240 --> 00:00:25,720
+a block with the caret,
+
+9
+00:00:25,880 --> 00:00:28,000
+and a block without the caret.
+
+10
+00:00:29,000 --> 00:00:31,040
+In a method,
+
+11
+00:00:31,200 --> 00:00:34,120
+if you use the caret to return a value,
+
+12
+00:00:36,280 --> 00:00:39,120
+here, it will return
+
+13
+00:00:39,280 --> 00:00:42,160
+a specific value.
+
+14
+00:00:43,240 --> 00:00:44,920
+It will exit the method.
+
+15
+00:00:46,360 --> 00:00:48,640
+If I don't use the caret,
+
+16
+00:00:48,800 --> 00:00:51,680
+the method returns self by default.
+
+17
+00:00:53,560 --> 00:00:56,720
+This part is optional.
+You don't usually write it.
+
+18
+00:00:56,880 --> 00:01:01,640
+The return value of a block
+is its last expression.
+
+19
+00:01:01,800 --> 00:01:03,720
+In the case of this block,
+
+20
+00:01:04,320 --> 00:01:06,120
+between these, I have a block
+
+21
+00:01:06,280 --> 00:01:08,960
+which takes a value x as a parameter.
+
+22
+00:01:09,120 --> 00:01:11,200
+I add 33 to x.
+
+23
+00:01:12,280 --> 00:01:16,560
+The value, the result
+of this expression x+33
+
+24
+00:01:16,720 --> 00:01:19,120
+is not used, so it was erased.
+
+25
+00:01:19,760 --> 00:01:23,640
+The following instruction is x+2,
+so I add 2 to the value x.
+
+26
+00:01:24,960 --> 00:01:28,040
+As it's the block's last expression,
+
+27
+00:01:28,200 --> 00:01:30,720
+its value
+
+28
+00:01:30,880 --> 00:01:33,960
+represents the return value
+of the block.
+
+29
+00:01:34,920 --> 00:01:36,800
+So my block, value:5.
+
+30
+00:01:36,960 --> 00:01:39,800
+It means I execute the block
+
+31
+00:01:39,960 --> 00:01:42,360
+with x taking the value 5.
+
+32
+00:01:42,520 --> 00:01:44,800
+So I compute 33+5;
+
+33
+00:01:44,960 --> 00:01:47,840
+the result gets erased,
+since it's useless.
+
+34
+00:01:48,000 --> 00:01:50,840
+5+2 gives the value 7
+
+35
+00:01:51,000 --> 00:01:53,480
+which is used
+as the block's return value.
+
+36
+00:01:53,640 --> 00:01:57,360
+So the entire expression's value is 7.
+
+37
+00:01:59,640 --> 00:02:02,440
+If I use the caret in a block,
+
+38
+00:02:05,800 --> 00:02:09,400
+the behavior is totally different
+from a method.
+
+39
+00:02:10,320 --> 00:02:14,320
+You shouldn't expect
+the block to be terminated,
+
+40
+00:02:15,120 --> 00:02:17,440
+but the method.
+
+41
+00:02:17,600 --> 00:02:21,120
+Let's look at the example
+of the method factorial
+
+42
+00:02:21,280 --> 00:02:22,760
+in the class Integer.
+
+43
+00:02:24,200 --> 00:02:27,800
+There's one return here and one there.
+
+44
+00:02:27,960 --> 00:02:31,040
+These two returns
+terminate the method's execution.
+
+45
+00:02:32,680 --> 00:02:35,920
+So if the receiver self is zero
+
+46
+00:02:36,080 --> 00:02:38,480
+during the execution of the method,
+
+47
+00:02:38,640 --> 00:02:40,680
+the block is executed,
+
+48
+00:02:40,840 --> 00:02:44,160
+1 is immediately returned,
+and the method will terminate.
+
+49
+00:02:44,320 --> 00:02:46,080
+So the method returns 1.
+
+50
+00:02:47,000 --> 00:02:51,360
+return is not used to terminate
+the block but the embracing method.
+
+51
+00:02:52,680 --> 00:02:55,720
+In the second example,
+if self is bigger than zero,
+
+52
+00:02:56,600 --> 00:03:00,000
+you compute with a recursive call
+
+53
+00:03:00,160 --> 00:03:02,400
+and immediately return the result.
+
+54
+00:03:02,560 --> 00:03:05,520
+So the method
+doesn't continue to execute
+
+55
+00:03:05,680 --> 00:03:07,360
+when self is bigger than zero.
+
+56
+00:03:08,000 --> 00:03:11,480
+In the other cases,
+if you reach the third instruction,
+
+57
+00:03:11,640 --> 00:03:15,760
+you get an error message, meaning
+that the receiver is a negative number.
+
+58
+00:03:16,440 --> 00:03:18,280
+You should remember
+
+59
+00:03:18,440 --> 00:03:23,560
+that the caret allows you
+to terminate the method
+
+60
+00:03:23,720 --> 00:03:27,760
+whether caret is located in the method
+or in the block in the method.
+
+61
+00:03:27,920 --> 00:03:30,240
+The caret always terminates the method
+
+62
+00:03:30,400 --> 00:03:33,200
+and returns a value
+specified after the caret.
+
+63
+00:03:34,320 --> 00:03:37,280
+By default, a method returns self.
+
+64
+00:03:38,040 --> 00:03:40,720
+It's useless to write method self
+at the end
+
+65
+00:03:40,880 --> 00:03:43,920
+as it is the value
+which is returned by default.
+
+66
+00:03:45,760 --> 00:03:50,240
+A block returns the result
+of its last expression.

@@ -1,0 +1,226 @@
+WEBVTT
+
+00:00:00.200 --> 00:00:03.290 align:middle
+Bonjour. Dans cette séquence,
+nous allons parler du return.
+
+00:00:04.460 --> 00:00:09.110 align:middle
+Comment peut-on retourner
+une valeur d'un block ou d'une
+
+00:00:09.310 --> 00:00:12.630 align:middle
+méthode? Quelles sont les
+valeurs de retour par défaut?
+
+00:00:13.630 --> 00:00:16.290 align:middle
+Il y a 4 cas à étudier.
+
+00:00:16.490 --> 00:00:21.140 align:middle
+Une méthode qui utilise le
+chapeau pour faire un return,
+
+00:00:21.340 --> 00:00:22.820 align:middle
+une méthode qui n'utilise
+pas le chapeau pour faire un
+
+00:00:23.020 --> 00:00:25.850 align:middle
+return, un block qui
+utilise le chapeau pour faire un
+
+00:00:26.050 --> 00:00:29.680 align:middle
+return et un block qui n'utilise
+pas le chapeau pour faire un return.
+
+00:00:30.000 --> 00:00:33.590 align:middle
+Dans une méthode, si on
+utilise le chapeau pour retourner
+
+00:00:33.790 --> 00:00:38.540 align:middle
+une valeur, ici ce return
+
+00:00:39.230 --> 00:00:44.110 align:middle
+va retourner une valeur en
+particulier et va quitter
+
+00:00:44.310 --> 00:00:45.070 align:middle
+la méthode.
+
+00:00:46.410 --> 00:00:51.290 align:middle
+Si je ne mets pas le chapeau, par
+défaut la méthode à la fin retourne self.
+
+00:00:53.670 --> 00:00:56.200 align:middle
+Cette partie-là est optionnelle
+et en général on ne la mettra pas.
+
+00:00:57.010 --> 00:01:01.580 align:middle
+La valeur de retour d'un block est
+la valeur de sa dernière expression.
+
+00:01:02.320 --> 00:01:05.900 align:middle
+Dans le cadre de ce block
+là, entre ici et ici, j'ai un
+
+00:01:06.100 --> 00:01:08.540 align:middle
+block qui prend comme
+paramètre une valeur x.
+
+00:01:09.210 --> 00:01:14.060 align:middle
+J'ajoute 33 à x.
+
+00:01:14.260 --> 00:01:17.250 align:middle
+Le résultat de cette
+expression x plus 33 n'est pas
+
+00:01:17.450 --> 00:01:21.490 align:middle
+utilisé, donc est effacé et
+à l'instruction suivante, je
+
+00:01:21.690 --> 00:01:25.490 align:middle
+fais x plus 2, donc j'ajoute 2
+à ma valeur x, et comme c'est
+
+00:01:25.690 --> 00:01:29.200 align:middle
+la dernière expression
+du bloc, sa valeur c'est
+
+00:01:31.000 --> 00:01:33.880 align:middle
+celle qui représentera la
+valeur de retour du block.
+
+00:01:35.190 --> 00:01:39.580 align:middle
+Mon block value: 5, ça ça
+veut dire j'exécute mon block
+
+00:01:40.000 --> 00:01:42.230 align:middle
+avec x prenant la valeur 5.
+
+00:01:42.610 --> 00:01:44.450 align:middle
+Donc je calcule 33 plus 5.
+
+00:01:45.210 --> 00:01:47.570 align:middle
+Le résultat de ce calcul
+est effacé, il ne sert à rien.
+
+00:01:48.060 --> 00:01:52.030 align:middle
+5 plus 2 me donne la
+valeur 7 qui est utilisée comme
+
+00:01:52.230 --> 00:01:53.230 align:middle
+valeur de retour du block.
+
+00:01:53.650 --> 00:01:57.280 align:middle
+Et donc l'ensemble de cette
+expression a pour valeur 7.
+
+00:01:59.700 --> 00:02:02.380 align:middle
+Si j'utilise le
+chapeau dans un block,
+
+00:02:05.880 --> 00:02:09.340 align:middle
+le comportement est
+complètement différent d'une méthode.
+
+00:02:10.350 --> 00:02:13.290 align:middle
+Ici, disons qu'on ne va pas
+s'attendre à ce que le block
+
+00:02:13.490 --> 00:02:17.000 align:middle
+se coupe, mais c'est la
+méthode qui va se couper.
+
+00:02:17.870 --> 00:02:21.490 align:middle
+Si je regarde l'exemple de
+la méthode factorielle dans la
+
+00:02:21.690 --> 00:02:26.220 align:middle
+ classe Intenger, le return qui est
+
+00:02:26.420 --> 00:02:30.830 align:middle
+ici et celui qui est là, ces 2
+return coupent l'exécution de la méthode.
+
+00:02:32.750 --> 00:02:36.800 align:middle
+Donc si self, si le receveur
+est égal à 0 lors de l'exécution
+
+00:02:37.000 --> 00:02:41.550 align:middle
+de la méthode factorielle,
+le block est exécuté et 1 est
+
+00:02:41.750 --> 00:02:44.420 align:middle
+retourné immédiatement
+et la méthode se coupe.
+
+00:02:44.620 --> 00:02:46.010 align:middle
+Donc, la méthode retourne 1.
+
+00:02:47.110 --> 00:02:49.560 align:middle
+Donc le return ne sert pas à
+couper le bloc mais à couper
+
+00:02:49.760 --> 00:02:51.250 align:middle
+la méthode qui englobe le block.
+
+00:02:52.720 --> 00:02:55.680 align:middle
+Dans le deuxième exemple,
+si self est plus grand que 0,
+
+00:02:56.660 --> 00:03:01.240 align:middle
+alors on calcule avec un
+appel récursif et on retourne le
+
+00:03:01.440 --> 00:03:02.460 align:middle
+résultat de cet appel immédiatement.
+
+00:03:02.670 --> 00:03:06.880 align:middle
+Donc la méthode ne continue pas à
+s'exécuter si self est plus grand que 0.
+
+00:03:08.060 --> 00:03:11.000 align:middle
+Dans les autres cas, si
+on arrive à la troisième
+
+00:03:11.200 --> 00:03:13.550 align:middle
+instruction, on lève une
+erreur ça veut dire que le
+
+00:03:14.040 --> 00:03:16.590 align:middle
+receveur est un nombre négatif.
+
+00:03:16.790 --> 00:03:21.300 align:middle
+Ce que vous devez retenir,
+c'est que le chapeau permet de
+
+00:03:21.890 --> 00:03:24.860 align:middle
+quitter la méthode, que le
+chapeau se trouve dans la
+
+00:03:25.060 --> 00:03:27.840 align:middle
+méthode ou dans un block
+qui se trouve dans la méthode,
+
+00:03:28.050 --> 00:03:30.650 align:middle
+le chapeau quitte
+systématiquement la méthode et retourne
+
+00:03:31.050 --> 00:03:33.050 align:middle
+une valeur
+spécifiée après le chapeau.
+
+00:03:34.370 --> 00:03:37.010 align:middle
+Par défaut, une
+méthode retourne self.
+
+00:03:38.220 --> 00:03:40.770 align:middle
+Mettre return self à la fin
+d'une méthode ne sert à rien
+
+00:03:41.000 --> 00:03:43.460 align:middle
+puisque c'est la valeur qui est
+retournée par défaut systématiquement.
+
+00:03:45.800 --> 00:03:50.090 align:middle
+Et un block retourne la
+valeur de sa dernière expression.
+

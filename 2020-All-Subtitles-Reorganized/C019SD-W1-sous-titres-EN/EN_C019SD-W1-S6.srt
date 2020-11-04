@@ -1,0 +1,431 @@
+﻿1
+00:00:00,400 --> 00:00:01,800
+Hello, everyone.
+
+2
+00:00:01,960 --> 00:00:06,120
+In this lecture we'll present
+class and method definitions
+
+3
+00:00:06,280 --> 00:00:07,560
+in Pharo.
+
+4
+00:00:08,400 --> 00:00:10,920
+The specific thing about Pharo is that
+
+5
+00:00:11,080 --> 00:00:15,360
+there's no dedicated syntax
+for defining methods and classes.
+
+6
+00:00:15,760 --> 00:00:17,840
+They're defined within tools.
+
+7
+00:00:18,000 --> 00:00:22,200
+The tools give the context
+to the creation of a class or method.
+
+8
+00:00:23,760 --> 00:00:27,640
+Here's the main code browser in Pharo:
+
+9
+00:00:27,800 --> 00:00:29,200
+Nautilus.
+
+10
+00:00:29,360 --> 00:00:32,720
+You can see in the bottom part
+
+11
+00:00:32,880 --> 00:00:35,280
+the definition of the class Point.
+
+12
+00:00:35,440 --> 00:00:40,880
+You can see that the class Point
+has the class Object as superclass
+
+13
+00:00:41,040 --> 00:00:44,080
+and two instance variables, x and y.
+
+14
+00:00:44,480 --> 00:00:49,480
+The superclass and
+the two instance variables, x and y.
+
+15
+00:00:51,240 --> 00:00:53,960
+And we see at the bottom
+the name of the package
+
+16
+00:00:54,120 --> 00:00:56,560
+in which this class is added.
+
+17
+00:00:56,840 --> 00:01:02,240
+In the slides we have code like this
+for creating a new subclass.
+
+18
+00:01:02,680 --> 00:01:05,200
+We can see that
+to create a class in Pharo
+
+19
+00:01:05,360 --> 00:01:08,200
+we send a dedicated message
+to the superclass
+
+20
+00:01:08,360 --> 00:01:11,160
+with the name of the subclass
+as parameter.
+
+21
+00:01:12,960 --> 00:01:15,600
+The message
+subclass: instanceVariableNames:
+
+22
+00:01:15,760 --> 00:01:17,560
+classVariableNames: package:
+
+23
+00:01:17,720 --> 00:01:20,440
+is a message sent to the class Object
+
+24
+00:01:20,600 --> 00:01:23,480
+with the name of the subclass
+as parameter,
+
+25
+00:01:23,640 --> 00:01:26,480
+the list of the instance variable
+names as parameter
+
+26
+00:01:26,640 --> 00:01:29,000
+and the name of the package
+as parameter.
+
+27
+00:01:30,160 --> 00:01:31,800
+As for the method definition,
+
+28
+00:01:32,080 --> 00:01:35,240
+we have, still in the bottom part...
+
+29
+00:01:35,760 --> 00:01:37,520
+the name of the method,
+
+30
+00:01:37,960 --> 00:01:39,600
+a comment
+
+31
+00:01:40,400 --> 00:01:42,320
+and the method's code.
+
+32
+00:01:42,480 --> 00:01:44,560
+And the method belongs to a class.
+
+33
+00:01:44,720 --> 00:01:47,360
+In the syntax
+to define the method
+
+34
+00:01:47,520 --> 00:01:51,960
+we have no information about the class
+to which the method should belong.
+
+35
+00:01:52,120 --> 00:01:56,840
+In fact, it's the selection
+of the class in the code browser
+
+36
+00:01:57,840 --> 00:02:01,720
+which tells us the class
+to which the method belongs.
+
+37
+00:02:04,440 --> 00:02:07,840
+In the slides
+we also need this information.
+
+38
+00:02:08,000 --> 00:02:12,520
+So we can't just copy the content
+of the definition of a method.
+
+39
+00:02:12,680 --> 00:02:15,360
+We have to add a prefix
+to the method name
+
+40
+00:02:15,520 --> 00:02:19,320
+to indicate the class
+to which this method belongs.
+
+41
+00:02:20,280 --> 00:02:21,960
+So we add...
+
+42
+00:02:23,960 --> 00:02:27,240
+Before the name of the method
+we add the name of the class
+
+43
+00:02:27,400 --> 00:02:31,280
+to which we're going to add
+the method we're defining.
+
+44
+00:02:31,520 --> 00:02:33,960
+So, in the code browser,
+
+45
+00:02:34,200 --> 00:02:37,000
+this class only appears as a selection
+
+46
+00:02:37,160 --> 00:02:39,160
+in the browser.
+
+47
+00:02:40,000 --> 00:02:44,080
+Here we define the method factorial
+of the class Integer.
+
+48
+00:02:44,920 --> 00:02:47,760
+A little reminder about the messages.
+
+49
+00:02:48,000 --> 00:02:51,760
+Here we're defining
+the method factorial.
+
+50
+00:02:53,080 --> 00:02:55,840
+We have all these binary messages...
+
+51
+00:02:56,000 --> 00:03:01,800
+equals, superior to,
+multiply by and minus...
+
+52
+00:03:01,960 --> 00:03:04,040
+Binary messages.
+
+53
+00:03:04,200 --> 00:03:09,040
+We have a recursive call
+to the method factorial.
+
+54
+00:03:09,200 --> 00:03:12,280
+Factorial, here, is a unary message
+
+55
+00:03:12,440 --> 00:03:15,040
+sent to an object of a number type.
+
+56
+00:03:16,240 --> 00:03:18,600
+And we have two keyword messages...
+
+57
+00:03:19,680 --> 00:03:23,560
+IfTrue:, twice, and error:.
+
+58
+00:03:24,640 --> 00:03:27,120
+And finally we have the caret,
+
+59
+00:03:27,280 --> 00:03:29,560
+used for returning a value
+
+60
+00:03:29,720 --> 00:03:31,520
+and leaving the method.
+
+61
+00:03:33,000 --> 00:03:35,360
+Regarding the return,
+
+62
+00:03:35,520 --> 00:03:37,640
+by default in Pharo
+
+63
+00:03:37,800 --> 00:03:39,560
+all methods return self,
+
+64
+00:03:39,720 --> 00:03:41,480
+the current object.
+
+65
+00:03:42,080 --> 00:03:43,880
+The code above
+
+66
+00:03:44,040 --> 00:03:47,080
+is exactly the same
+as the code below.
+
+67
+00:03:47,240 --> 00:03:51,960
+So the return self part
+at the end of the method is optional.
+
+68
+00:03:52,920 --> 00:03:56,720
+Class methods let you send messages
+to classes.
+
+69
+00:03:56,880 --> 00:03:58,520
+Classes are objects too,
+
+70
+00:03:58,680 --> 00:04:01,280
+so you can send messages to classes.
+
+71
+00:04:01,440 --> 00:04:03,840
+And to define a class method
+
+72
+00:04:04,000 --> 00:04:07,000
+you press the class button
+in Nautilus...
+
+73
+00:04:09,040 --> 00:04:11,920
+and define the class method.
+
+74
+00:04:12,160 --> 00:04:16,320
+In the slides we systematically add
+the word class,
+
+75
+00:04:17,880 --> 00:04:22,040
+to distinguish a method
+that'll be executed on a class
+
+76
+00:04:22,200 --> 00:04:25,320
+rather than on an instance
+of the class.
+
+77
+00:04:25,760 --> 00:04:30,440
+So here the method x: y:
+will be executed on the class Point,
+
+78
+00:04:30,600 --> 00:04:33,040
+not on an instance of the class Point.
+
+79
+00:04:33,960 --> 00:04:35,960
+What you should remember
+
+80
+00:04:36,200 --> 00:04:37,840
+from this lecture...
+
+81
+00:04:38,640 --> 00:04:41,520
+A class isn't defined
+by a particular syntax
+
+82
+00:04:41,680 --> 00:04:45,480
+but by sending a message
+to its superclass.
+
+83
+00:04:46,960 --> 00:04:49,560
+Classes are defined inside packages,
+
+84
+00:04:49,720 --> 00:04:53,600
+the names of which are passed
+as parameters of the message.
+
+85
+00:04:54,880 --> 00:04:56,720
+All methods are public.
+
+86
+00:04:56,880 --> 00:05:01,480
+There's no keyword to indicate that
+a method is public. They all are.
+
+87
+00:05:01,640 --> 00:05:05,120
+There's no notion of it being
+protected or private.
+
+88
+00:05:07,240 --> 00:05:10,880
+By default a method returns
+the receiver, which is self.
+
+89
+00:05:11,040 --> 00:05:14,520
+You can use the caret to return
+something other than self.
+
+90
+00:05:17,160 --> 00:05:19,880
+And class methods
+are methods like any other.
+
+91
+00:05:20,040 --> 00:05:22,320
+To add them,
+press the button class
+
+92
+00:05:22,480 --> 00:05:24,440
+before creating the method.
+
+93
+00:05:24,840 --> 00:05:27,840
+This concludes
+this first week of lectures.
+
+94
+00:05:28,000 --> 00:05:29,400
+In the coming weeks
+
+95
+00:05:29,560 --> 00:05:32,800
+we'll look in more detail
+at the syntax of Pharo,
+
+96
+00:05:32,960 --> 00:05:37,480
+blocks and a tool
+that is an object inspector.

@@ -1,0 +1,543 @@
+﻿1
+00:00:00,720 --> 00:00:06,000
+Hi everyone, in this video
+we'll talk about the Anti-IF Campaign.
+
+2
+00:00:06,480 --> 00:00:09,480
+In particular,
+we'll explain the reasons why
+
+3
+00:00:09,920 --> 00:00:13,720
+the Return Nil and Null Check
+functions are not great.
+
+4
+00:00:13,920 --> 00:00:18,520
+Here's an example of a code,
+which is not an object.
+
+5
+00:00:19,040 --> 00:00:21,680
+Its method parameter is an animal.
+
+6
+00:00:21,880 --> 00:00:24,680
+Its actions vary
+according to the animal.
+
+7
+00:00:24,880 --> 00:00:30,560
+For example, we can ask a dog
+to wag its tail or a duck to quack.
+
+8
+00:00:31,000 --> 00:00:33,440
+For a cat, we request other actions.
+
+9
+00:00:34,040 --> 00:00:38,080
+So, why is it problematic
+to use If statements?
+
+10
+00:00:39,120 --> 00:00:43,800
+Particularly when they're used
+to check the type of receiver.
+
+11
+00:00:45,080 --> 00:00:49,200
+For example, if we want to add
+a new animal here,
+
+12
+00:00:49,360 --> 00:00:53,400
+we would need to check
+the entire project code
+
+13
+00:00:53,680 --> 00:00:56,880
+to search for If statements
+that may apply.
+
+14
+00:00:57,040 --> 00:01:01,280
+We would have to modify
+numerous codes throughout the project.
+
+15
+00:01:01,640 --> 00:01:06,560
+Additionally, adding cases to methods
+makes them cumbersome,
+
+16
+00:01:06,840 --> 00:01:10,440
+and they become lost
+in too many details.
+
+17
+00:01:10,720 --> 00:01:13,760
+Adding animals
+makes this method very long,
+
+18
+00:01:13,920 --> 00:01:17,160
+and each animal type
+can have many details.
+
+19
+00:01:17,320 --> 00:01:21,760
+Even for a simple feature,
+such as not all dogs having tails,
+
+20
+00:01:21,920 --> 00:01:25,920
+we would have to create
+separate cases for each option.
+
+21
+00:01:26,120 --> 00:01:31,640
+The code would become
+complicated and harder to understand.
+
+22
+00:01:32,240 --> 00:01:35,760
+So, to replace these actions,
+we send messages.
+
+23
+00:01:36,080 --> 00:01:38,480
+This is a point we keep reiterating.
+
+24
+00:01:38,640 --> 00:01:42,240
+The key point to remember
+is the sending of messages.
+
+25
+00:01:42,880 --> 00:01:46,280
+We can replace
+the previous code with this one.
+
+26
+00:01:47,040 --> 00:01:51,160
+It applies the showHappiness method
+in each relevant class.
+
+27
+00:01:51,320 --> 00:01:56,480
+Each class will decide how each animal
+will show its "happiness."
+
+28
+00:01:56,760 --> 00:02:02,720
+For each animal, all we need to do
+is send the message
+
+29
+00:02:05,560 --> 00:02:07,560
+showHappiness to the animal,
+
+30
+00:02:08,600 --> 00:02:11,360
+and one of its methods will be executed.
+
+31
+00:02:11,520 --> 00:02:15,040
+We see here that Pharo
+is pursuing the If function.
+
+32
+00:02:15,200 --> 00:02:19,960
+Pharo decides which method to apply
+to a particular type of animal.
+
+33
+00:02:20,120 --> 00:02:22,920
+This is executed automatically.
+
+34
+00:02:23,120 --> 00:02:27,480
+There's no need for us
+to specify Ifs for object types.
+
+35
+00:02:28,040 --> 00:02:31,200
+It only makes codes
+less coherent and dynamic.
+
+36
+00:02:32,560 --> 00:02:36,040
+Now we'll discuss
+the specific case of Nil.
+
+37
+00:02:36,440 --> 00:02:39,160
+If a method returns nil,
+
+38
+00:02:39,320 --> 00:02:43,120
+you'll oblige your clients
+to use If statements.
+
+39
+00:02:43,280 --> 00:02:46,200
+Whereas, using If is rarely recommended.
+
+40
+00:02:47,520 --> 00:02:50,520
+Here we use an example of a code
+
+41
+00:02:50,760 --> 00:02:55,440
+based on a parameter and an inferencer.
+
+42
+00:02:55,600 --> 00:02:57,880
+The type of code is not important.
+
+43
+00:02:58,160 --> 00:03:01,440
+Here we see that in some cases,
+nil is returned.
+
+44
+00:03:01,840 --> 00:03:04,480
+This means that when we use this code,
+
+45
+00:03:04,760 --> 00:03:08,600
+we need to test
+the message rulesForFact.
+
+46
+00:03:08,800 --> 00:03:11,480
+Did rulesForFact return nil?
+
+47
+00:03:11,680 --> 00:03:14,560
+We act differently
+depending on the reply.
+
+48
+00:03:14,720 --> 00:03:17,280
+We see that in this case,
+
+49
+00:03:17,880 --> 00:03:20,280
+since we're using a plural term,
+
+50
+00:03:20,440 --> 00:03:23,960
+the method will probably
+return a collection.
+
+51
+00:03:24,200 --> 00:03:26,880
+An effective solution for avoiding nil
+
+52
+00:03:27,080 --> 00:03:31,000
+in this situation
+is to return an empty collection.
+
+53
+00:03:31,200 --> 00:03:33,080
+This works in many cases.
+
+54
+00:03:33,400 --> 00:03:38,520
+Returning an empty collection
+instead of nil simplifies the code.
+
+55
+00:03:38,880 --> 00:03:42,400
+Because clients can simply
+iterate the collection,
+
+56
+00:03:42,560 --> 00:03:45,360
+and if it's empty, nothing will happen.
+
+57
+00:03:46,480 --> 00:03:48,400
+For exceptional cases,
+
+58
+00:03:48,840 --> 00:03:52,360
+such as when you have a file stream
+
+59
+00:03:52,520 --> 00:03:56,320
+that has not been opened for writing
+and shows an error,
+
+60
+00:03:56,560 --> 00:04:01,640
+instead of returning nil, we inform
+the system by raising an exception.
+
+61
+00:04:01,920 --> 00:04:05,600
+In Pharo,
+we call this filing an exception.
+
+62
+00:04:05,760 --> 00:04:09,560
+We create an instance
+of the Exception class or subclass
+
+63
+00:04:09,720 --> 00:04:11,960
+and send the message, or signal.
+
+64
+00:04:13,680 --> 00:04:19,640
+This avoids obliging
+the client of the method nextPutAll
+
+65
+00:04:19,800 --> 00:04:23,960
+to test if it is nil,
+when a problem has likely occurred.
+
+66
+00:04:24,200 --> 00:04:26,800
+Either the client handles the exception
+
+67
+00:04:26,960 --> 00:04:31,680
+or it's handled
+by the client of the client, and so on.
+
+68
+00:04:31,880 --> 00:04:37,840
+We can focus on one specific level
+to capture the exception.
+
+69
+00:04:38,560 --> 00:04:40,240
+It avoids overuse of Ifs.
+
+70
+00:04:40,880 --> 00:04:45,720
+Another case where we find checks
+for the nil value
+
+71
+00:04:45,880 --> 00:04:49,280
+is in instance variables
+that are not initialized.
+
+72
+00:04:49,600 --> 00:04:54,800
+If a code says that if the variable
+is still nil, it must react a certain way,
+
+73
+00:04:54,960 --> 00:04:59,200
+it's better to initialize the variable
+straightaway,
+
+74
+00:04:59,360 --> 00:05:01,960
+with a value that works for all cases.
+
+75
+00:05:02,120 --> 00:05:03,120
+So, here,
+
+76
+00:05:03,600 --> 00:05:06,680
+for "members,"
+which contains a collection,
+
+77
+00:05:06,840 --> 00:05:10,600
+we initialize an empty collection
+instead of using nil.
+
+78
+00:05:10,920 --> 00:05:13,520
+Once again, this often works well.
+
+79
+00:05:13,960 --> 00:05:18,000
+If you want to give a value
+to a variable,
+
+80
+00:05:18,400 --> 00:05:22,680
+and if it's costly
+to calculate its value,
+
+81
+00:05:22,840 --> 00:05:26,560
+you can wait until the last moment
+to calculate it.
+
+82
+00:05:26,720 --> 00:05:30,520
+It may never be calculated,
+so it saves execution time.
+
+83
+00:05:31,320 --> 00:05:35,040
+In such cases,
+we use lazy initialization.
+
+84
+00:05:35,200 --> 00:05:38,280
+This is used when a value is required.
+
+85
+00:05:38,680 --> 00:05:42,400
+If the value is still nil,
+we assign it a value.
+
+86
+00:05:42,560 --> 00:05:47,240
+If it's no longer nil,
+we return its value immediately.
+
+87
+00:05:48,000 --> 00:05:52,600
+Here we have an If associated with nil,
+but we have only one.
+
+88
+00:05:53,160 --> 00:05:57,920
+All other users of the variable
+utilize the descent method,
+
+89
+00:05:58,520 --> 00:06:00,720
+and have not tested if it is nil.
+
+90
+00:06:01,320 --> 00:06:03,960
+Sometimes we come across cases
+
+91
+00:06:04,520 --> 00:06:09,840
+in which it's necessary to check
+whether or not we need to respond.
+
+92
+00:06:10,320 --> 00:06:12,160
+As we see in this example.
+
+93
+00:06:12,800 --> 00:06:15,840
+Here we have a ToolPalette.
+
+94
+00:06:16,120 --> 00:06:19,440
+If a tool is selected, we can respond,
+
+95
+00:06:19,600 --> 00:06:22,960
+but if none is selected,
+we prefer not to act.
+
+96
+00:06:23,640 --> 00:06:26,480
+Look at the selectedTool function.
+
+97
+00:06:26,720 --> 00:06:31,600
+If it returns nil, no tools are selected,
+so no action is required.
+
+98
+00:06:31,800 --> 00:06:35,760
+If selectedTool returns something,
+
+99
+00:06:36,000 --> 00:06:40,080
+we will ask it to perform an action.
+
+100
+00:06:41,040 --> 00:06:42,920
+A good way of replacing this
+
+101
+00:06:43,360 --> 00:06:45,720
+is to use the NullObject pattern.
+
+102
+00:06:45,880 --> 00:06:50,400
+Instead of having two cases,
+one with tools and one without,
+
+103
+00:06:50,600 --> 00:06:54,440
+we have one case
+in which one of our tools does nothing.
+
+104
+00:06:54,600 --> 00:06:57,120
+This tool will be selected by default.
+
+105
+00:06:57,360 --> 00:07:01,840
+We create a tool that does nothing
+when asked to perform actions.
+
+106
+00:07:03,120 --> 00:07:09,000
+Instead of not selecting anything,
+we enable a tool that does nothing.
+
+107
+00:07:10,360 --> 00:07:14,800
+To find out more about NullObject,
+see these references.
+
+108
+00:07:15,680 --> 00:07:16,840
+In conclusion,
+
+109
+00:07:17,000 --> 00:07:19,640
+messages are more effective than Ifs.
+
+110
+00:07:19,840 --> 00:07:22,520
+You will utilize Ifs in certain cases,
+
+111
+00:07:22,680 --> 00:07:27,680
+but you can often avoid using them
+and send messages instead.
+
+112
+00:07:28,840 --> 00:07:34,160
+Avoid returning nil because
+it obliges you to insert If checks
+
+113
+00:07:34,360 --> 00:07:38,280
+to find out whether or not
+the value is nil.
+
+114
+00:07:39,440 --> 00:07:44,720
+Initialize variables either on creation
+or using lazy initialization.
+
+115
+00:07:45,680 --> 00:07:50,760
+Create objects representing default
+behavior or an absence of behavior.
+
+116
+00:07:50,960 --> 00:07:54,960
+This applies not only to Pharo
+but to all object languages.
+
+117
+00:07:55,200 --> 00:08:00,840
+It's important to remember these points
+whichever language you use.

@@ -1,0 +1,718 @@
+WEBVTT
+
+00:00:00.650 --> 00:00:02.350 align:middle
+Buenos días. En esta secuencia
+os hablaré de 
+
+00:00:02.550 --> 00:00:04.520 align:middle
+Voyage un wrapper
+para bases de datos NoSQL.
+
+00:00:05.900 --> 00:00:07.570 align:middle
+Veremos un poco que es Voyage.
+
+00:00:08.330 --> 00:00:11.410 align:middle
+Aqui, el objetivo és el de poder
+crear una verdadera aplicación.
+
+00:00:11.800 --> 00:00:16.310 align:middle
+Tiny blog, la podréis
+guardar con Voyage en
+
+00:00:16.510 --> 00:00:19.120 align:middle
+una base de datos Mongo y
+instalarla en un verdadero servidor.
+
+00:00:19.420 --> 00:00:20.920 align:middle
+La idea, es de enseñarle
+también como
+
+00:00:21.280 --> 00:00:24.340 align:middle
+guardar objetos fácilmente,
+y hemos elegido esta 
+
+00:00:24.540 --> 00:00:27.320 align:middle
+solución porque es realmente
+muy sencilla para el curso.
+
+00:00:28.940 --> 00:00:31.000 align:middle
+MongoDB, de que se trata?
+
+00:00:31.200 --> 00:00:34.250 align:middle
+MongoDB, son las nuevas
+bases de datos NoSQL  que
+
+00:00:34.450 --> 00:00:38.340 align:middle
+estan orientadas a documentos.
+Usted dispone de un lenguaje 
+
+00:00:39.510 --> 00:00:42.220 align:middle
+de consultas incorporado y
+es una de las más populares.
+
+00:00:42.420 --> 00:00:44.420 align:middle
+También, tiene Couch DB y Riak.
+
+00:00:44.840 --> 00:00:47.750 align:middle
+De momento, utilizaremos
+MongoDB y Voyage.
+
+00:00:48.350 --> 00:00:49.200 align:middle
+Que es Voyage?
+
+00:00:49.400 --> 00:00:51.010 align:middle
+Voyage, es un replicador que
+
+00:00:51.210 --> 00:00:54.750 align:middle
+tomará los objets y los 
+replicará en MongoDB esto lo
+
+00:00:54.950 --> 00:00:56.370 align:middle
+hará casi automáticamente para usted.
+
+00:00:56.760 --> 00:01:00.260 align:middle
+Para aquellos que hayan trabajado
+con Java en hibernate, Voyage, és
+
+00:01:00.460 --> 00:01:03.750 align:middle
+el equivalente de hibernate para
+MongoDB y claro, esta realizado para Pharo.
+
+00:01:05.380 --> 00:01:07.550 align:middle
+Cuales son las funcionalidades
+de Voyage?
+
+00:01:07.750 --> 00:01:10.150 align:middle
+De hecho, Voyage es muy simple,
+nos va a garantizar la identidad de
+
+00:01:10.350 --> 00:01:12.470 align:middle
+de nuestros objetos cuando se guarden
+en la base de datos y los recargue.
+
+00:01:13.030 --> 00:01:15.570 align:middle
+Ofrece capacidades para gestionar
+Errores.
+
+00:01:16.150 --> 00:01:20.470 align:middle
+También dispone de un pool 
+de conexión para que ello 
+
+00:01:20.670 --> 00:01:23.080 align:middle
+funcione más rápido.
+
+00:01:23.280 --> 00:01:25.120 align:middle
+Para empezar y enseñaros,
+la primera cosa que haremos
+
+00:01:25.320 --> 00:01:27.000 align:middle
+es crear un repositorio Mongo
+
+00:01:29.880 --> 00:01:31.520 align:middle
+con esta expresión.
+
+00:01:32.320 --> 00:01:34.340 align:middle
+Aquí, és si usted quier acceder
+a su base de datos Mongo
+
+00:01:34.590 --> 00:01:37.930 align:middle
+Que esta gestiona de modo 
+externo a Pharo.
+
+00:01:38.320 --> 00:01:40.770 align:middle
+Ahora lo que hacemos a menudo
+es trabajar en modo
+
+00:01:41.000 --> 00:01:44.420 align:middle
+prototipo, y utilizaremos una
+base de datos Mongo en memoria.
+
+00:01:44.800 --> 00:01:47.000 align:middle
+A visto la diferencia, aquí se
+encuentra Mongo memory repository.
+
+00:01:48.090 --> 00:01:49.880 align:middle
+La idea, es que no necesita
+una base de datos Mongo,
+
+00:01:50.080 --> 00:01:52.270 align:middle
+usted podrá simular su
+aplicación.
+
+00:01:53.080 --> 00:01:56.080 align:middle
+Y cuando finalmente funcione, 
+entonces podrá cambiar
+
+00:01:56.550 --> 00:01:59.670 align:middle
+el repositorio en memoria por
+un repositorio verdadero y
+
+00:01:59.870 --> 00:02:04.090 align:middle
+trabajar con su base exterior, esta
+és una buena practica a utilizar.
+
+00:02:06.180 --> 00:02:10.760 align:middle
+Para ilustra Mongo, construiremos
+un modelo
+
+00:02:10.960 --> 00:02:14.370 align:middle
+objeto que se compone de super-heroes
+con super-poderes, con armaduras.
+
+00:02:17.340 --> 00:02:19.450 align:middle
+Tendrá un ejercicio,
+lo podrá hacer de todas maneras,
+
+00:02:19.650 --> 00:02:21.590 align:middle
+todo lo que le mostraré durante
+este curso, dispondrá
+
+00:02:21.790 --> 00:02:23.260 align:middle
+del soporte para poder realizarlo.
+
+00:02:23.730 --> 00:02:26.370 align:middle
+Y le sugiero de hacerlo porque es
+divertido de codear Superman.
+
+00:02:28.210 --> 00:02:32.330 align:middle
+Miraremos como funciona Heroes
+y super poderes.
+
+00:02:33.730 --> 00:02:35.490 align:middle
+Simplificando, tenemos una clase Héros.
+
+00:02:35.750 --> 00:02:39.310 align:middle
+Tiene un nombre, un nivel
+y luego tiene unos poderes.
+
+00:02:40.190 --> 00:02:42.090 align:middle
+El nombre, tengo un accesor
+con el nombre.
+
+00:02:42.290 --> 00:02:44.000 align:middle
+Tengo un setter para introducir
+el nombre.
+
+00:02:44.200 --> 00:02:45.690 align:middle
+Tengo un nivel parecido aquí.
+
+00:02:46.000 --> 00:02:48.130 align:middle
+Y los poderes, los gestiono
+de manera conjunta.
+
+00:02:48.330 --> 00:02:51.440 align:middle
+Así aquí, digo los poderes,
+al inicio si es vacío pongo
+
+00:02:51.640 --> 00:02:55.350 align:middle
+un conjunto, y cuando pueda
+incorporo un poder, esto
+
+00:02:55.610 --> 00:02:56.670 align:middle
+añade un poder al conjunto.
+
+00:02:56.870 --> 00:02:59.170 align:middle
+Así pues, realmente muy simple.
+
+00:03:00.820 --> 00:03:02.810 align:middle
+Y los poderes,
+de que se trata?
+
+00:03:03.010 --> 00:03:07.880 align:middle
+De momento, nuestro poder tiene
+simplemente un nombre que
+
+00:03:08.080 --> 00:03:09.060 align:middle
+podemos poner o no.
+
+00:03:10.310 --> 00:03:13.570 align:middle
+De Momento, el punto está en
+como lo hago para declarar
+
+00:03:13.770 --> 00:03:17.480 align:middle
+que las clases de mi dominio
+se guardan en la base?
+
+00:03:17.680 --> 00:03:21.000 align:middle
+Aquí tenemos el concepto de root class,
+cuales son los puntos de entrada
+
+00:03:21.320 --> 00:03:23.270 align:middle
+que tendremos en nuestra base
+de datos?
+
+00:03:23.470 --> 00:03:24.870 align:middle
+Esto puede ser cualquier
+clase del sistema.
+
+00:03:25.830 --> 00:03:26.850 align:middle
+Como declararemos esto?
+
+00:03:27.050 --> 00:03:30.240 align:middle
+Lo declararemos con un método
+de clase, insisto
+
+00:03:30.440 --> 00:03:32.090 align:middle
+en la clase, un método de clase
+que se llama isVoyageRoot.
+
+00:03:32.290 --> 00:03:35.180 align:middle
+como hacemos para los heroes?
+
+00:03:35.410 --> 00:03:38.560 align:middle
+Es super fácil, haremos clase
+heroe isVoyage devuelve verdadero.
+
+00:03:39.390 --> 00:03:42.800 align:middle
+A partir de este momento,
+Voyage sabe que puedo 
+
+00:03:43.000 --> 00:03:45.680 align:middle
+guardar mis heroes en la 
+base de datos Mongo.
+
+00:03:47.000 --> 00:03:50.420 align:middle
+Si hacemos Spiderman,
+Spiderman se llama Spiderman,
+
+00:03:50.620 --> 00:03:54.260 align:middle
+es de nivel épico,
+tiene como super poder una
+
+00:03:54.460 --> 00:03:59.150 align:middle
+super fuerza, también puede
+escalar los muros y ademas
+
+00:03:59.420 --> 00:04:01.920 align:middle
+dispone de un instinto de araña.
+
+00:04:02.500 --> 00:04:03.370 align:middle
+Luego tenemos otro.
+
+00:04:03.570 --> 00:04:08.420 align:middle
+Aquí veis, lo guardo,
+save, esto muestra a Voyage "OK,
+
+00:04:08.620 --> 00:04:11.130 align:middle
+tomas un super heroe y lo 
+guardas en tu base.
+
+00:04:11.510 --> 00:04:13.930 align:middle
+Y de la misma manera con
+Wolverine, habéis comprendido
+
+00:04:14.130 --> 00:04:16.460 align:middle
+que tiene otras propiedades y
+lo mismo, puedo guardar.
+
+00:04:17.460 --> 00:04:20.260 align:middle
+Luego si miro a mi base de datos
+Mongo, si hago DB
+
+00:04:20.460 --> 00:04:22.570 align:middle
+Hero encuentra 0, que és lo que veo?
+
+00:04:22.870 --> 00:04:26.160 align:middle
+Veo a mi heroe Spiderman
+y que tiene?
+
+00:04:26.360 --> 00:04:29.090 align:middle
+Aquí justamente se tiene que 
+prestar atención, vemos claramente
+
+00:04:29.290 --> 00:04:34.050 align:middle
+que tiene su super poder
+que esta perfectamente descrito
+
+00:04:34.360 --> 00:04:37.410 align:middle
+aquí. Tendrías lo mismo con
+Wolverine, y ect...
+
+00:04:37.790 --> 00:04:40.140 align:middle
+De acuerdo?
+
+00:04:40.340 --> 00:04:42.250 align:middle
+Una vez que hacemos esto al 
+nivel de Pharo, podemos hacer
+
+00:04:42.450 --> 00:04:44.830 align:middle
+un montón de expresiones.
+No entraré en los detalles
+
+00:04:45.030 --> 00:04:48.180 align:middle
+pero puedo seleccionar a todos
+los puer héroes.
+
+00:04:48.380 --> 00:04:51.240 align:middle
+Aquí, tendré 
+Spiderman y Wolverine.
+
+00:04:51.760 --> 00:04:54.830 align:middle
+Puedo decir que quiero encontrar
+los héroes que se llaman Spiderman.
+
+00:04:55.280 --> 00:04:59.670 align:middle
+Aquí, puedo decir que quiero
+encontrar a todos los super
+
+00:04:59.870 --> 00:05:00.750 align:middle
+héroes que tienen un nivel épico.
+
+00:05:00.950 --> 00:05:04.930 align:middle
+Aquí, encontrare mis 2 super héroes.
+
+00:05:06.620 --> 00:05:10.670 align:middle
+Ahora, me expresaré de forma
+diferente porque de hecho,
+
+00:05:10.870 --> 00:05:14.390 align:middle
+la base de datos mongo comprende
+Json, así puedo crear json
+
+00:05:14.590 --> 00:05:18.470 align:middle
+al vuelo y inyectarlo y realizar
+una consulta a la base de json.
+
+00:05:18.670 --> 00:05:23.580 align:middle
+Aquí, me gustaría conoces al 
+super héroe cuyo nombre
+
+00:05:23.780 --> 00:05:25.670 align:middle
+es Spiderman pero podéis ver que 
+lo he expresado bajo la forma
+
+00:05:25.870 --> 00:05:29.930 align:middle
+de Json, y escribiendo  as
+directory me devuelve un diccionario.
+
+00:05:30.730 --> 00:05:32.570 align:middle
+Puedo hacer lo mismo para
+select as many.
+
+00:05:32.770 --> 00:05:35.700 align:middle
+Esto dependerá de las consulta, 
+hay consultas mas fáciles de
+
+00:05:35.900 --> 00:05:38.050 align:middle
+expresar de esta forma que de
+la otra,
+
+00:05:38.250 --> 00:05:40.000 align:middle
+pero para usted y ahora no 
+tiene más importancia.
+
+00:05:41.220 --> 00:05:44.000 align:middle
+También podemos realizar consultas
+que son mucho más avanzadas.
+
+00:05:44.200 --> 00:05:48.930 align:middle
+Puedo decir "Quiero seleccionar
+la mayoría de 
+
+00:05:49.720 --> 00:05:52.750 align:middle
+super héroes que tienen
+un nivel épico, cuyo nombre se
+
+00:05:52.950 --> 00:05:55.870 align:middle
+ordena de forma ascendente y
+lo quiero limitar a 10,
+
+00:05:56.090 --> 00:06:00.270 align:middle
+y quiero empezar en la página 0
+para poder buscar
+
+00:06:00.470 --> 00:06:01.720 align:middle
+porciones en mi base de datos.
+
+113 align:middle
+00:06:03,120 --> 00:06:05,040
+Esto, cuando lo necesite solo
+tiene que mirar en la documentación.
+
+00:06:06.620 --> 00:06:07.890 align:middle
+Podemos realizar otras operaciones
+encima.
+
+00:06:08.090 --> 00:06:10.280 align:middle
+Puedo contar el numero de 
+héroes, lo que esta muy bien.
+
+00:06:10.810 --> 00:06:14.020 align:middle
+Luego, puedo contar aquellos que
+satisfacen cierta propiedad.
+
+00:06:14.720 --> 00:06:16.820 align:middle
+Por supuesto, puedo eliminar,
+entonces si aquí hace remove
+
+00:06:17.020 --> 00:06:20.040 align:middle
+all, no tendrá mas objetos en 
+la base, se debe ser consciente.
+
+00:06:20.610 --> 00:06:23.520 align:middle
+Aquí, puedo decir "Voy a seleccionar
+uno y luego lo eliminare.
+
+00:06:23.720 --> 00:06:26.650 align:middle
+Y habría podido eliminar mi 
+heroe de mi base de datos.
+
+00:06:26.850 --> 00:06:30.740 align:middle
+No es solo las operaciones
+que tienen sentido, digamos.
+
+00:06:32.110 --> 00:06:34.630 align:middle
+Ahora la cuestión que se plantea
+al fin cuando
+
+00:06:34.830 --> 00:06:38.690 align:middle
+utilice MongoDB, 
+es lo que llamamos 
+
+00:06:38.890 --> 00:06:41.330 align:middle
+una raíz de base, y cuando
+definimos una
+
+00:06:41.530 --> 00:06:42.560 align:middle
+clase como raíz de base?
+
+00:06:43.090 --> 00:06:45.900 align:middle
+Definimos una clase como 
+raíz de base cuando
+
+00:06:46.100 --> 00:06:46.860 align:middle
+necesitamos realizar consultas.
+
+00:06:47.060 --> 00:06:49.710 align:middle
+Esta, es la primera regla;
+realizo una consulta porque
+
+00:06:49.960 --> 00:06:52.130 align:middle
+he definido mi clase como
+una raíz porque quiero poder
+
+00:06:52.330 --> 00:06:54.020 align:middle
+acceder a todos los objetos
+de esta clase.
+
+00:06:56.620 --> 00:07:00.380 align:middle
+El otro punto, es "Quiero 
+compartir objetos entre
+
+00:07:02.370 --> 00:07:05.130 align:middle
+mis objetos" Así, aquí por
+ejemplo quiero compartir 
+
+00:07:05.330 --> 00:07:07.420 align:middle
+poderes, porque la frase
+no es muy clara, quiero
+
+00:07:07.620 --> 00:07:10.190 align:middle
+compartir poderes entre
+mis héroes.
+
+00:07:11.850 --> 00:07:14.750 align:middle
+En este caso, debería poder
+definir "poderes" como
+
+00:07:14.950 --> 00:07:16.480 align:middle
+una raíz, así que vamos a ver esto.
+
+00:07:18.100 --> 00:07:20.570 align:middle
+Si miramos héroes, es realmente
+una raíz en nuestro
+
+00:07:20.770 --> 00:07:22.770 align:middle
+ejemplo, pero de hecho los 
+poderes también podrían ser
+
+00:07:23.000 --> 00:07:24.190 align:middle
+una raíz, no hay problema.
+
+00:07:24.560 --> 00:07:28.310 align:middle
+En Voyage, podemos declarar
+cualquier clase como raíz.
+
+00:07:29.170 --> 00:07:31.790 align:middle
+Como lo hacemos?
+
+00:07:32.310 --> 00:07:34.350 align:middle
+Igual que antes, 
+voy a decir que mi clase
+
+00:07:34.550 --> 00:07:39.450 align:middle
+power, es una raíz.
+Esto quiere decir que
+
+00:07:39.650 --> 00:07:43.500 align:middle
+creo el poder fly que 
+quiere decir volar y que 
+
+00:07:43.700 --> 00:07:47.590 align:middle
+lo guardo, se guardara en base;
+la fuerza sobrehumana, lo mismo.
+
+00:07:48.090 --> 00:07:49.590 align:middle
+Y ahora lo que voy a hacer, 
+podre realizar una 
+
+00:07:49.790 --> 00:07:54.530 align:middle
+consulta que me dirá "Quiero
+recuperar el poder 
+
+00:07:54.830 --> 00:07:59.120 align:middle
+También quiero recuperar el poder
+de tener una fuerza sobrehumana.
+
+00:07:59.320 --> 00:08:04.190 align:middle
+"Y aquí ahora, vuelvo a crear
+Superman diciendo que 
+
+00:08:07.060 --> 00:08:08.630 align:middle
+he recuperado estos 2 poderes,
+esto quiere decir que solo existe
+
+00:08:08.830 --> 00:08:10.460 align:middle
+uno en el sistema cada vez
+que guardo.
+
+00:08:11.380 --> 00:08:13.190 align:middle
+Que esta pasando a nivel de 
+mi base?
+
+00:08:13.600 --> 00:08:17.000 align:middle
+Es importante, se debe realizar
+un reset para que todo
+
+00:08:18.250 --> 00:08:19.910 align:middle
+funcione bien. En general, cada
+vez que modifica el
+
+00:08:20.110 --> 00:08:22.130 align:middle
+el esquema de la base, es necesario
+de utilizar esta expresión.
+
+00:08:22.530 --> 00:08:25.070 align:middle
+Pero lo que me interesa aquí,
+de enseñarle es que
+
+00:08:26.180 --> 00:08:29.430 align:middle
+ahora en los poderes de
+Superman, ya no tengo el
+
+00:08:29.630 --> 00:08:33.870 align:middle
+poder que se ha descrito de
+manera compuesta en el interior.
+
+00:08:34.070 --> 00:08:35.730 align:middle
+pero tengo una referencia
+hacia un poder.
+
+00:08:36.720 --> 00:08:38.000 align:middle
+Y aqui, voy a tener otra 
+referencia.
+
+00:08:38.160 --> 00:08:38.920 align:middle
+Así que, que quiere decir esto?
+
+00:08:39.120 --> 00:08:41.130 align:middle
+Esto quiere decir que si
+tengo otro super héroe que sabe
+
+00:08:41.330 --> 00:08:45.870 align:middle
+volar, podre compartir este
+poder en lugar de
+
+00:08:46.070 --> 00:08:49.290 align:middle
+tener 2. Y esto, esto depende
+de su dominio así que
+
+00:08:49.490 --> 00:08:50.920 align:middle
+en función del dominio y según
+como usted quiera modelizar
+
+00:08:51.120 --> 00:08:54.230 align:middle
+su dominio, tendrá que definir
+raíces diferentes.
+
+00:08:54.430 --> 00:08:57.590 align:middle
+Este, es sobre un ejemplo tonto pero
+solo era para facilitarle la intuición.
+
+00:08:58.520 --> 00:09:02.860 align:middle
+Si repito, tendrá que definir
+un dominio si usted
+
+00:09:03.060 --> 00:09:05.220 align:middle
+necesita hacer consultas
+o si quiere 
+
+00:09:05.420 --> 00:09:07.210 align:middle
+compartir los objetos de esta raíz.
+
+00:09:10.890 --> 00:09:14.180 align:middle
+Como expresamos las
+relaciones en Voyage?
+
+00:09:14.450 --> 00:09:16.100 align:middle
+De hecho, és el equivalente
+a las llaves foráneas en las
+
+00:09:16.300 --> 00:09:18.650 align:middle
+bases de datos relacionales.
+Voyage gestionara
+
+00:09:18.850 --> 00:09:21.360 align:middle
+automáticamente las referencias
+cíclicas entres sus raíces.
+
+00:09:21.870 --> 00:09:22.680 align:middle
+Usted no tiene que hacer nada.
+
+00:09:23.240 --> 00:09:25.580 align:middle
+Por contra debe prestar 
+atención, Voyage no gestiona
+
+00:09:25.780 --> 00:09:28.350 align:middle
+las referencias cíclicas entre
+objetos compuestos en su 
+
+00:09:28.550 --> 00:09:32.570 align:middle
+interior. Usted debe
+experimentar y luego 
+
+00:09:32.770 --> 00:09:34.220 align:middle
+vera que la mayoría de las
+veces cuando tiene raíces
+
+00:09:34.420 --> 00:09:35.280 align:middle
+usted no tiene ningún problema.
+
+00:09:36.710 --> 00:09:39.070 align:middle
+Lo que le quería enseñar en
+este curso, es que 
+
+00:09:39.270 --> 00:09:43.360 align:middle
+podemos guardar muy fácilmente
+objetos en una base de datos Mongo.
+
+00:09:43.710 --> 00:09:46.550 align:middle
+Si usted quiere conocer mas,
+encontrara un capitulo
+
+00:09:46.750 --> 00:09:48.730 align:middle
+en el libro Enterprise Pharo,
+Web perspectives que se encuentra
+
+00:09:48.930 --> 00:09:51.720 align:middle
+en las fuentes del MOOC. De todas
+maneras tendrá un 
+
+00:09:51.920 --> 00:09:54.000 align:middle
+pequeño tutorial que le 
+acompañara
+
+00:09:54.200 --> 00:09:58.130 align:middle
+reconstruyendo los super héroes,
+así que lo podrá aprender todo.
+

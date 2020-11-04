@@ -1,0 +1,196 @@
+1
+00:00:04,160 --> 00:00:04,960
+-Hello, everyone.
+
+2
+00:00:05,280 --> 00:00:07,720
+In this part 7 of the redo
+and the last part,
+
+3
+00:00:08,040 --> 00:00:09,280
+we will look at the history
+
+4
+00:00:09,600 --> 00:00:12,960
+that the tool Iceberg will use
+to save our changes
+
+5
+00:00:13,280 --> 00:00:14,640
+and commit them somewhere.
+
+6
+00:00:14,960 --> 00:00:17,600
+We will generate
+the history of these changes
+
+7
+00:00:17,920 --> 00:00:20,080
+so let's go into the Iceberg tool.
+
+8
+00:00:20,560 --> 00:00:23,120
+We can go to our repository MyCounter,
+
+9
+00:00:23,440 --> 00:00:25,360
+right-click and go to Repository.
+
+10
+00:00:25,920 --> 00:00:28,160
+There we have a history
+of the commits we did.
+
+11
+00:00:28,480 --> 00:00:30,640
+For example, the initial commit,
+
+12
+00:00:30,960 --> 00:00:32,680
+the time I added "increment2"
+
+13
+00:00:33,000 --> 00:00:35,720
+to show you the Iceberg way
+to commit things,
+
+14
+00:00:36,040 --> 00:00:39,480
+then the initialization methods
+and then printOn.
+
+15
+00:00:40,280 --> 00:00:44,600
+So, we can also see a difference
+between these commits and HEAD,
+
+16
+00:00:44,920 --> 00:00:47,600
+which is the commit we are writing
+right now in this image.
+
+17
+00:00:47,920 --> 00:00:49,160
+For example, here,
+
+18
+00:00:49,480 --> 00:00:51,680
+since the first commit,
+we added "increment2",
+
+19
+00:00:52,080 --> 00:00:53,720
+"initialize",
+
+20
+00:00:54,040 --> 00:00:57,160
+started at the "printOn" method
+and some test methods.
+
+21
+00:00:57,680 --> 00:01:00,120
+We can look at the difference
+between these commits
+
+22
+00:01:00,560 --> 00:01:02,800
+and the commit before it.
+
+23
+00:01:03,120 --> 00:01:05,920
+Between "added 'increment2'"
+and "initialization methods",
+
+24
+00:01:06,240 --> 00:01:09,040
+we can see that we added
+the initialization methods.
+
+25
+00:01:09,800 --> 00:01:15,000
+We can have a good insight
+of how our project development went.
+
+26
+00:01:15,560 --> 00:01:18,000
+And another interesting thing is that,
+
+27
+00:01:18,320 --> 00:01:21,880
+imagine that we do not need
+the "printOn" or initialization methods
+
+28
+00:01:22,200 --> 00:01:23,480
+or they were wrong,
+
+29
+00:01:23,800 --> 00:01:25,720
+we can just go back
+to this commit right here
+
+30
+00:01:26,040 --> 00:01:29,120
+by right-clicking and using Checkout.
+
+31
+00:01:29,720 --> 00:01:32,920
+This will show us the changes
+that happened to the image.
+
+32
+00:01:33,240 --> 00:01:34,640
+This will remove "printOn"
+
+33
+00:01:34,960 --> 00:01:37,520
+and the initialization methods
+and tests we made.
+
+34
+00:01:38,480 --> 00:01:41,560
+Press "Checkout" and if we look
+at the System Browser here,
+
+35
+00:01:42,000 --> 00:01:46,000
+we can see that the "printOn"
+and initialization methods
+
+36
+00:01:46,320 --> 00:01:47,320
+have just disappeared.
+
+37
+00:01:47,640 --> 00:01:50,120
+It is a good way for you
+to come back to your code
+
+38
+00:01:50,440 --> 00:01:52,840
+if you made a choice that was not right
+
+39
+00:01:53,160 --> 00:01:55,520
+or if you feel
+like there is another solution.
+
+40
+00:01:56,040 --> 00:01:58,000
+Iceberg can handle that for you.
+
+41
+00:01:58,920 --> 00:02:02,680
+So, this video was about
+how to use Iceberg
+
+42
+00:02:03,000 --> 00:02:06,400
+to get a more insightful look
+in your own project development
+
+43
+00:02:06,720 --> 00:02:10,720
+and how you might do things differently
+by going back to a previous commit.

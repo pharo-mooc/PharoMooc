@@ -1,0 +1,647 @@
+1
+00:00:00,520 --> 00:00:04,240
+Bonjour à tous. Dans cette
+troisième séquence, après s'être
+
+2
+00:00:04,440 --> 00:00:08,830
+intéressés à l'héritage et à
+self et au lookup, on va s'
+
+3
+00:00:09,030 --> 00:00:09,790
+intéresser à super.
+
+4
+00:00:11,130 --> 00:00:12,690
+Dans cette séquence,
+nous allons nous intéresser
+
+5
+00:00:12,890 --> 00:00:17,690
+particulièrement à l'envoi de messages
+dans le cas où super est le receveur.
+
+6
+00:00:18,380 --> 00:00:19,460
+Alors qu'est-ce que super ?
+
+7
+00:00:20,090 --> 00:00:23,000
+Prenez quelques minutes
+pour vous poser la question et
+
+8
+00:00:23,200 --> 00:00:24,860
+notamment répondre à ces 2 questions.
+
+9
+00:00:26,120 --> 00:00:28,330
+Qu'est-ce que super représente ?
+
+10
+00:00:30,480 --> 00:00:35,310
+Comment se passe l'envoi de
+messages quand super est le receveur?
+
+11
+00:00:35,510 --> 00:00:39,000
+Ce que je vais vous dire ici,
+c'est pareil en Pharo et en Java.
+
+12
+00:00:39,820 --> 00:00:44,680
+Dans cet exemple-là, qui
+est proche des exemples vus
+
+13
+00:00:44,880 --> 00:00:48,840
+dans la séquence précédente, on
+utilise super dans une des méthodes.
+
+14
+00:00:52,640 --> 00:00:55,470
+On va essayer de réfléchir
+un peu à ce qui se passe.
+
+15
+00:00:56,670 --> 00:01:01,370
+Pour A new bar,
+aucune difficulté, même
+
+16
+00:01:01,570 --> 00:01:02,530
+exemple que précédemment.
+
+17
+00:01:03,830 --> 00:01:08,090
+Cette méthode bar est
+exécutée et Foo retourne 10.
+
+18
+00:01:10,380 --> 00:01:12,710
+Dans le cas de B new bar,
+on va le faire étape par
+
+19
+00:01:15,630 --> 00:01:19,600
+étape. On envoie le
+message bar à l'objet B new.
+
+20
+00:01:19,800 --> 00:01:24,250
+L'algorithme de
+lookup cherche une méthode
+
+21
+00:01:24,450 --> 00:01:26,940
+bar à partir de la
+ classe de cet objet.
+
+22
+00:01:27,440 --> 00:01:31,880
+La méthode bar est
+trouvée, elle s'exécute
+
+23
+00:01:32,210 --> 00:01:36,660
+sur le receveur. Donc c'est
+cette méthode bar là qui est
+
+24
+00:01:36,860 --> 00:01:38,350
+exécutée sur le receveur.
+
+25
+00:01:40,420 --> 00:01:44,910
+Il faut maintenant que je
+calcule super bar, self foo et
+
+26
+00:01:45,110 --> 00:01:46,010
+que je fasse la somme des 2.
+
+27
+00:01:47,140 --> 00:01:48,110
+On peut faire self foo.
+
+28
+00:01:48,310 --> 00:01:52,780
+Self foo envoie le
+message foo à l'objet
+
+29
+00:01:53,000 --> 00:01:55,580
+self. Self, c'est mon B new.
+
+30
+00:01:56,020 --> 00:02:00,190
+Il n'y a qu'un seul foo possible,
+c'est celui qui est dans la classe A.
+
+31
+00:02:01,320 --> 00:02:02,080
+Self foo retourne 10.
+
+32
+00:02:04,870 --> 00:02:09,270
+Super bar : super, c'est le
+
+33
+00:02:09,470 --> 00:02:13,310
+receveur. Par contre,
+l'algorithme de lookup change en
+
+34
+00:02:13,510 --> 00:02:15,530
+présence du receveur super.
+
+35
+00:02:16,730 --> 00:02:21,550
+On v a chercher la
+méthode bar à partir de la super
+
+36
+00:02:21,750 --> 00:02:23,390
+ classe de là où se
+trouve le mot-clé super.
+
+37
+00:02:25,350 --> 00:02:29,930
+Super se trouve dans la
+méthode bar de la classe B, donc
+
+38
+00:02:30,130 --> 00:02:34,080
+on va chercher une
+méthode bar à partir de la super
+
+39
+00:02:34,280 --> 00:02:35,040
+ classe de B, c'est-à-dire A.
+
+40
+00:02:36,550 --> 00:02:40,780
+On trouve cette méthode-là et c'est
+cette méthode-là qui est exécutée.
+
+41
+00:02:41,000 --> 00:02:43,230
+Donc foo est envoyé à self.
+
+42
+00:02:43,480 --> 00:02:47,630
+Self, c'est toujours le même objet,
+c'est toujours le receveur, c'est B new.
+
+43
+00:02:48,130 --> 00:02:53,000
+Foo est donc envoyé sur
+l'objet initial et donc c'est ce
+
+44
+00:02:53,200 --> 00:02:57,210
+foo-là qui est
+exécuté qui retourne 10.
+
+45
+00:02:57,410 --> 00:02:58,250
+10 et 10 : 20.
+
+46
+00:03:00,380 --> 00:03:04,280
+Dans le cas de C new bar,
+on a notre C new qui est ici
+
+47
+00:03:04,480 --> 00:03:08,950
+qui est une instance de la classe
+ C et on lui envoie le message bar.
+
+48
+00:03:09,870 --> 00:03:13,270
+Bar est cherché dans la
+ classe de C new, c'est-à-dire C.
+
+49
+00:03:14,700 --> 00:03:16,230
+Il n'est pas trouvé là,
+il est cherché au-dessus.
+
+50
+00:03:17,550 --> 00:03:22,110
+Il est trouvé là, c'est donc
+ce bar là qui va être exécuté.
+
+51
+00:03:23,530 --> 00:03:27,680
+Ce bar là est la somme
+de 2 envois de messages.
+
+52
+00:03:28,720 --> 00:03:32,550
+On peut commencer par le
+second encore une fois, on
+
+53
+00:03:32,750 --> 00:03:34,410
+envoie le message foo à l'objet self.
+
+54
+00:03:34,880 --> 00:03:37,660
+Self, c'est toujours
+mon C new qui est ici.
+
+55
+00:03:38,130 --> 00:03:39,170
+J'envoie le message foo.
+
+56
+00:03:40,170 --> 00:03:41,000
+Cette méthode-là est trouvée.
+
+57
+00:03:41,480 --> 00:03:45,400
+50 est retourné, là j'ai 50.
+
+58
+00:03:46,490 --> 00:03:49,640
+Super bar, maintenant il
+nous manque la première partie
+
+59
+00:03:49,840 --> 00:03:51,530
+de l'addition de super bar.
+
+60
+00:03:51,730 --> 00:03:53,720
+J'envoie le message bar à super.
+
+61
+00:03:53,920 --> 00:03:56,540
+Super, c'est toujours le
+receveur mais l'algorithme de
+
+62
+00:03:56,740 --> 00:04:00,690
+lookup change et va
+chercher bar à partir de la super
+
+63
+00:04:00,890 --> 00:04:03,930
+ classe de là où se trouve
+l'expression qui contient
+
+64
+00:04:04,130 --> 00:04:07,920
+super, c'est-à-dire la méthode
+bar de la classe B, c'est-à-dire
+
+65
+00:04:08,130 --> 00:04:11,600
+la classe B, donc on
+commence à chercher bar à partir de
+
+66
+00:04:11,800 --> 00:04:12,620
+la super classe de B, c'est-à-dire A.
+
+67
+00:04:12,820 --> 00:04:14,700
+Bar est trouvé ici.
+
+68
+00:04:14,900 --> 00:04:17,310
+Ce bar là est exécuté.
+
+69
+00:04:17,650 --> 00:04:20,880
+Self, c'est toujours C
+new, c'est toujours celui-là,
+
+70
+00:04:21,160 --> 00:04:24,040
+toujours le receveur et on
+lui envoie le message foo.
+
+71
+00:04:24,700 --> 00:04:29,430
+On tombe sur 50.
+Ici j'ai 50: 50 et 50,
+
+72
+00:04:30,720 --> 00:04:31,480
+100.
+
+73
+00:04:31,890 --> 00:04:35,280
+Dans ce slide, vous avez les
+détails de l'exécution de l'algorithme
+
+74
+00:04:35,590 --> 00:04:38,570
+pour pouvoir réviser et
+retravailler cet exemple.
+
+75
+00:04:39,710 --> 00:04:44,060
+Super référence toujours le
+receveur, c'est exactement
+
+76
+00:04:44,460 --> 00:04:47,100
+comme self ou comme this en Java.
+
+77
+00:04:47,300 --> 00:04:50,100
+Et pareil, super en Java,
+c'est comme this en Java, ça
+
+78
+00:04:50,300 --> 00:04:51,250
+représente toujours le receveur.
+
+79
+00:04:53,220 --> 00:04:56,340
+Par contre lorsqu'un message
+est envoyé à super, l'algorithme
+
+80
+00:04:56,540 --> 00:04:59,790
+de lookup change et
+commence à chercher une méthode à
+
+81
+00:05:00,000 --> 00:05:02,920
+partir de la super classe,
+de la classe qui contient la
+
+82
+00:05:03,120 --> 00:05:05,230
+méthode en train d'être
+exécutée dans laquelle super se trouve.
+
+83
+00:05:06,100 --> 00:05:11,000
+Self et super ont donc une
+différence fondamentale: self
+
+84
+00:05:11,200 --> 00:05:13,880
+est dynamique tandis
+que super est statique.
+
+85
+00:05:14,120 --> 00:05:15,150
+Qu'est-ce que je veux dire par là ?
+
+86
+00:05:17,140 --> 00:05:20,510
+Je veux dire que quand
+foo est envoyé à self, le
+
+87
+00:05:20,710 --> 00:05:23,680
+développeur n'a aucune idée de la
+méthode foo qui va être exécutée.
+
+88
+00:05:24,930 --> 00:05:27,950
+Ça peut être le foo qui se
+trouve dans la même classe,
+
+89
+00:05:29,920 --> 00:05:32,860
+dans une sous-classe
+existante ou dans une sous-classe
+
+90
+00:05:33,080 --> 00:05:37,750
+qui sera créée par un autre
+développeur avant l'exécution du programme.
+
+91
+00:05:38,760 --> 00:05:41,880
+Donc lorsque le développeur
+de la méthode bar écrit self
+
+92
+00:05:42,080 --> 00:05:45,140
+foo, il n'a aucune idée de la
+méthode foo qui va être exécutée.
+
+93
+00:05:46,260 --> 00:05:48,660
+C'est particulièrement
+pratique, ça veut dire que les
+
+94
+00:05:48,860 --> 00:05:51,330
+développeurs peuvent créer
+de nouvelles sous-classes pour
+
+95
+00:05:51,530 --> 00:05:54,440
+changer le
+comportement de la classe A.
+
+96
+00:05:55,500 --> 00:05:58,200
+Super, à l'inverse, est statique.
+
+97
+00:05:58,910 --> 00:06:03,240
+Lorsque le
+développeur écrit "Super foo",
+
+98
+00:06:04,070 --> 00:06:06,550
+il sait quelle est la
+méthode foo qui sera exécutée
+
+99
+00:06:07,500 --> 00:06:09,740
+lorsque le programme sera exécuté.
+
+100
+00:06:09,940 --> 00:06:14,820
+Donc en écrivant ça, il
+sait que ça sera cette méthode
+
+101
+00:06:15,020 --> 00:06:16,210
+foo-là qui sera exécutée.
+
+102
+00:06:16,890 --> 00:06:20,110
+Toujours. Super est
+statique, à la compilation on sait
+
+103
+00:06:20,310 --> 00:06:21,330
+quelle méthode sera exécutée.
+
+104
+00:06:23,200 --> 00:06:27,000
+Malheureusement, certains
+livres se trompent dans la
+
+105
+00:06:27,200 --> 00:06:30,210
+définition de super et donnent des
+définitions qui n'ont pas de sens.
+
+106
+00:06:31,000 --> 00:06:34,460
+Voici une définition qu'on
+a trouvée dans un livre et
+
+107
+00:06:34,660 --> 00:06:39,400
+dans cette définition-là,
+on nous dit que super cherche
+
+108
+00:06:40,720 --> 00:06:42,920
+la méthode. Donc
+l'algorithme de lookup quand il voit
+
+109
+00:06:43,120 --> 00:06:46,140
+super va chercher la méthode à
+partir de la super classe du receveur.
+
+110
+00:06:48,040 --> 00:06:50,080
+Donc la super classe de
+la classe du receveur.
+
+111
+00:06:50,410 --> 00:06:51,680
+En fait cette définition est fausse.
+
+112
+00:06:52,210 --> 00:06:55,580
+Si on prend l'exemple
+ci-dessous, si on prend comme
+
+113
+00:06:55,780 --> 00:06:58,570
+receveur AC, sa classe c'est C.
+
+114
+00:06:59,740 --> 00:07:02,750
+La super classe du
+receveur c'est donc B.
+
+115
+00:07:04,060 --> 00:07:08,240
+Et si ici, j'exécute cette partie-là
+
+116
+00:07:09,020 --> 00:07:12,120
+avec la définition qui est
+donnée plus haut et qui est
+
+117
+00:07:12,320 --> 00:07:16,210
+fausse, on enverrait le message foo
+
+118
+00:07:16,880 --> 00:07:20,720
+à super, et la méthode foo
+qui serait exécutée, c'est la
+
+119
+00:07:20,920 --> 00:07:23,840
+méthode foo qui se trouve
+dans la super classe de la
+
+120
+00:07:24,040 --> 00:07:27,950
+ classe du receveur,
+c'est-à-dire cette méthode foo là qui
+
+121
+00:07:28,150 --> 00:07:30,930
+exécuterait ça, qui
+enverrait le message foo à super, qui
+
+122
+00:07:31,130 --> 00:07:33,400
+exécuterait ça, et cetera.
+Et donc on voit ici qu'on a
+
+123
+00:07:33,600 --> 00:07:38,010
+une boucle infinie, c'est
+bien que la définition est
+
+124
+00:07:38,210 --> 00:07:42,100
+fausse parce que dans la pratique cet
+exemple n'est pas une boucle infinie.
+
+125
+00:07:42,300 --> 00:07:43,540
+Cet exemple fonctionne parfaitement.
+
+126
+00:07:44,620 --> 00:07:47,430
+Et donc la
+définition est juste fausse.
+
+127
+00:07:47,630 --> 00:07:51,440
+Ce que de vous devez
+retenir: Self représente toujours
+
+128
+00:07:51,640 --> 00:07:53,710
+le receveur ainsi que Super.
+
+129
+00:07:54,100 --> 00:07:58,120
+Et c'est pareil en Java, This et
+Super représentent toujours le receveur.
+
+130
+00:07:58,940 --> 00:08:01,030
+Par contre, Super change
+l'algorithme de lookup.
+
+131
+00:08:01,690 --> 00:08:04,450
+L'algorithme de lookup
+va chercher une méthode
+
+132
+00:08:04,650 --> 00:08:08,100
+correspondante à partir de
+la super classe de la classe
+
+133
+00:08:08,300 --> 00:08:12,140
+qui contient la méthode,
+qui contient le mot-clé Super.
+
+134
+00:08:12,770 --> 00:08:16,090
+Les envois de messages à
+Self sont dynamiques, et on peut
+
+135
+00:08:16,290 --> 00:08:19,150
+s'en servir en tant que
+développeur pour étendre le
+
+136
+00:08:19,350 --> 00:08:21,370
+comportement d'une classe
+existante en faisant une
+
+137
+00:08:21,570 --> 00:08:23,300
+sous-classe, qui
+redéfinit une méthode.
+
