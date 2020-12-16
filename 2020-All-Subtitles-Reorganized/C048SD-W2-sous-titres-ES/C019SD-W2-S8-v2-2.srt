@@ -1,0 +1,492 @@
+1
+00:00:00,670 --> 00:00:02,840
+Dans cette séquence, nous
+allons voir les booléens et les
+
+2
+00:00:03,040 --> 00:00:07,220
+conditions en Pharo. Donc en
+fait, il existe deux objets
+
+3
+00:00:07,420 --> 00:00:11,430
+booléens, true et false sauf
+que true, en fait c'est l'unique
+
+4
+00:00:11,630 --> 00:00:13,630
+instance de la case true
+et false, c'est l'unique
+
+5
+00:00:13,830 --> 00:00:16,390
+instance de la classe
+false. Et on va envoyer des
+
+6
+00:00:16,590 --> 00:00:19,930
+messages à ces objets pour
+mettre en place ces opérations
+
+7
+00:00:20,130 --> 00:00:22,380
+booléennes, mouvoir des
+ structures alternatives telles
+
+8
+00:00:22,580 --> 00:00:26,130
+que ifFalse, ifTrue, etc., donc
+on va voir ça dans cette séquence.
+
+9
+00:00:27,000 --> 00:00:29,920
+Donc, par exemple, dans le
+premier exemple sur ce slide,
+
+10
+00:00:30,120 --> 00:00:34,270
+on envoie le message &, donc
+qui est un opérateur binaire
+
+11
+00:00:34,670 --> 00:00:37,480
+à l'objet false et puis on
+lui passe un paramètre, donc
+
+12
+00:00:37,680 --> 00:00:40,100
+le paramètre c'est tout ça,
+qui est une expression ici
+
+13
+00:00:40,300 --> 00:00:43,050
+entre parenthèses, donc
+c'est 1 error:'crazy', donc cette
+
+14
+00:00:43,410 --> 00:00:47,080
+expression va déclencher une
+erreur et on voit que l'évaluation
+
+15
+00:00:47,280 --> 00:00:50,130
+totale de toute cette
+expression déclenche bien une erreur.
+
+16
+00:00:50,500 --> 00:00:54,780
+Pourquoi? Parce que
+l'opérande a été aussi évalué dans
+
+17
+00:00:55,000 --> 00:00:55,740
+cette expression booléenne.
+
+18
+00:00:56,650 --> 00:01:01,000
+Donc l'opérande a bien été
+évalué, ce qui produit l'erreur.
+
+19
+00:01:01,270 --> 00:01:03,480
+Donc si on voulait en fait
+la version paresseuse des
+
+20
+00:01:03,680 --> 00:01:07,780
+opérateurs booléens, il faut
+utiliser la méthode and: de
+
+21
+00:01:08,650 --> 00:01:12,800
+la classe booléen, et
+cette méthode and: prend en
+
+22
+00:01:13,000 --> 00:01:15,150
+paramètre un block, donc
+je vous rappelle, les blocks
+
+23
+00:01:15,400 --> 00:01:17,610
+commencent par un crochet
+ouvrant et se terminent par un
+
+24
+00:01:17,810 --> 00:01:20,130
+crochet fermant,
+contiennent des expressions, mais la
+
+25
+00:01:20,330 --> 00:01:23,720
+définition d'un block ne
+déclenche pas l'exécution des
+
+26
+00:01:23,920 --> 00:01:26,300
+expressions qu'il
+contient, donc pour l'instant, les
+
+27
+00:01:26,500 --> 00:01:29,110
+expressions qu'il contient
+ne sont pas évaluées et c'est
+
+28
+00:01:29,310 --> 00:01:33,280
+seulement si le premier
+opérande est vrai ou faux que le
+
+29
+00:01:33,480 --> 00:01:35,270
+block passé en
+paramètre sera évalué ou non.
+
+30
+00:01:35,940 --> 00:01:39,450
+Donc on a bien, dans ce
+deuxième exemple, false and: un
+
+31
+00:01:39,650 --> 00:01:43,810
+block qui retourne false
+sans avoir évalué le contenu du
+
+32
+00:01:44,010 --> 00:01:47,090
+block passé en paramètre,
+donc un opérateur paresseux
+
+33
+00:01:47,290 --> 00:01:49,340
+ classique, mais construit
+cette fois avec des blocks.
+
+34
+00:01:51,530 --> 00:01:55,090
+Donc en Pharo, les conditionnels,
+donc les if, les false, les why, etc.
+
+35
+00:01:55,430 --> 00:01:59,140
+sont toujours des messages
+envoyés à des booléens ou à des blocks.
+
+36
+00:02:00,420 --> 00:02:02,680
+Donc, on va prendre un
+autre exemple, donc le message
+
+37
+00:02:02,880 --> 00:02:05,000
+ifTrue:if:False qui est
+la structure alternative
+
+38
+00:02:05,200 --> 00:02:07,580
+ classique dans tous les
+langages de programmation, donc
+
+39
+00:02:07,780 --> 00:02:09,860
+sauf qu'en Pharo, c'est
+vraiment un message et je peux
+
+40
+00:02:10,060 --> 00:02:13,550
+envoyer le message
+ifTrue:ifFalse ici à un objet booléen
+
+41
+00:02:13,750 --> 00:02:16,420
+donc ça c'est une expression
+qui va retourner un booléen.
+
+42
+00:02:17,930 --> 00:02:21,530
+Et on va passer en paramètre
+de ce message ifTrue:ifFalse
+
+43
+00:02:21,730 --> 00:02:25,270
+deux blocks, un premier
+block qui serait évalué si le
+
+44
+00:02:25,470 --> 00:02:27,730
+booléen receveur était
+vrai et un deuxième block qui
+
+45
+00:02:27,930 --> 00:02:29,300
+serait évalué si le
+receveur était faux.
+
+46
+00:02:30,670 --> 00:02:33,600
+Donc attention, ce
+message ifTrue:ifFalse:, il est
+
+47
+00:02:33,800 --> 00:02:36,620
+extrêmement utilisé au cœur
+de Pharo, il est au cœur du
+
+48
+00:02:36,820 --> 00:02:39,630
+système, il est tellement
+important qu'il a été optimisé
+
+49
+00:02:39,830 --> 00:02:44,690
+de façon assez avancée pour
+pouvoir être efficace et ne
+
+50
+00:02:44,890 --> 00:02:46,420
+pas ralentir tout le
+système bien évidemment.
+
+51
+00:02:48,390 --> 00:02:51,000
+Donc, si on revient sur
+l'implantation des booléens en
+
+52
+00:02:51,200 --> 00:02:53,000
+Pharo, en fait elle est
+extrêmement élégante, comme je le
+
+53
+00:02:53,200 --> 00:02:56,380
+disais, les deux objets
+true et false sont tous deux
+
+54
+00:02:56,580 --> 00:02:59,180
+respectivement instance de
+la classe true et de la classe
+
+55
+00:02:59,380 --> 00:03:01,020
+false qui elle-même
+hérite de la casse booléen.
+
+56
+00:03:01,590 --> 00:03:04,230
+Et puis chacune de ces
+ classes va définir un ensemble de
+
+57
+00:03:04,430 --> 00:03:07,300
+méthodes de façon à avoir
+le comportement attendu.
+
+58
+00:03:08,000 --> 00:03:10,430
+Donc, vous aurez plus
+d'informations sur cette
+
+59
+00:03:10,630 --> 00:03:14,230
+implantation des booléens qui est
+élégante dans une prochaine séquence.
+
+60
+00:03:14,540 --> 00:03:18,300
+Donc, revenons sur le
+message ifTrue:ifFalse,
+
+61
+00:03:19,880 --> 00:03:23,560
+donc il existe différentes
+versions de ces messages, donc
+
+62
+00:03:23,760 --> 00:03:27,170
+on a la version où on a
+juste le message ifTrue avec un
+
+63
+00:03:27,370 --> 00:03:30,510
+block en paramètre quand on
+veut faire juste la première
+
+64
+00:03:30,710 --> 00:03:33,000
+part de l'alternative
+ou le message complet
+
+65
+00:03:33,200 --> 00:03:35,570
+ifTrue:ifFalse qui compte
+bien deux blocks qui permet de
+
+66
+00:03:35,770 --> 00:03:39,310
+faire l'alternative avec le cas
+où le booléen est vrai ou faux.
+
+67
+00:03:40,540 --> 00:03:42,790
+Donc vous avez un
+exemple, vous avez même plusieurs
+
+68
+00:03:43,000 --> 00:03:45,790
+exemples ici, donc
+l'exemple où on n'envoie que le
+
+69
+00:03:46,000 --> 00:03:49,050
+message ifTrue, on a juste un
+block à exécuter si l'expression
+
+70
+00:03:49,250 --> 00:03:52,790
+booléenne est vraie ou un
+exemple ici où on a un block à
+
+71
+00:03:53,000 --> 00:03:55,930
+exécuter donc celui-là, si
+le booléen receveur était vrai
+
+72
+00:03:56,130 --> 00:03:57,920
+et celui-là, si le
+booléen receveur était faux.
+
+73
+00:04:01,170 --> 00:04:03,840
+Donc c'est bien deux
+messages différents, là on a le
+
+74
+00:04:04,040 --> 00:04:07,760
+pendant pour ifFalse sur les
+ classes booléen, les classes
+
+75
+00:04:07,960 --> 00:04:08,720
+true et les classes false.
+
+76
+00:04:10,480 --> 00:04:13,570
+Donc on a d'autres types de
+messages pour exprimer les
+
+77
+00:04:13,770 --> 00:04:16,350
+alternatives, en fait,
+les conditions, donc on a le
+
+78
+00:04:16,550 --> 00:04:18,790
+message par exemple,
+ifEmpty:ifNotEmpty: que je peux
+
+79
+00:04:19,000 --> 00:04:23,880
+envoyer à une collection.
+Donc ifEmpty:, je passe un block.
+
+80
+00:04:24,940 --> 00:04:27,290
+Et puis le block sera
+évalué seulement si la collection
+
+81
+00:04:27,490 --> 00:04:32,240
+receveur est vide ou pas.
+Et puis ifNotEmpty:, c'est
+
+82
+00:04:33,590 --> 00:04:36,000
+la condition inverse donc
+si la collection n'est pas
+
+83
+00:04:36,200 --> 00:04:38,100
+vide, alors il faut
+exécuter ce block.
+
+84
+00:04:38,610 --> 00:04:42,420
+Sauf qu'on a une subtilité
+supplémentaire, ce block prend un argument.
+
+85
+00:04:42,820 --> 00:04:46,920
+L'argument en paramètres,
+c'est la collection elle-même
+
+86
+00:04:47,120 --> 00:04:49,230
+qui n'était pas vide
+puisque la collection, on a
+
+87
+00:04:49,430 --> 00:04:52,600
+peut-être le résultat d'un
+calcul complexe et donc on ne
+
+88
+00:04:52,800 --> 00:04:55,060
+va pas redemander la
+collection dans le block, donc la
+
+89
+00:04:55,260 --> 00:04:58,140
+collection, si elle n'était
+pas vide, elle est passée en
+
+90
+00:04:58,340 --> 00:04:59,890
+paramètres du block et elle
+peut être utilisée dans les
+
+91
+00:05:00,090 --> 00:05:01,000
+expressions du block ici.
+
+92
+00:05:02,280 --> 00:05:04,750
+Donc en résumé, dans cette
+séquence, on a vu que les
+
+93
+00:05:04,950 --> 00:05:07,410
+booléens sont des objets
+comme les autres en Pharo, sont
+
+94
+00:05:07,610 --> 00:05:10,400
+instances des classes
+true et false qui héritent de
+
+95
+00:05:10,600 --> 00:05:12,920
+booléens, et puis qu'on peut
+leur envoyer des messages et
+
+96
+00:05:13,120 --> 00:05:16,440
+que ces messages en
+fait définissent toutes les
+
+97
+00:05:16,640 --> 00:05:20,430
+constructions
+d'alternatives ou de conditions possibles
+
+98
+00:05:20,800 --> 00:05:23,070
+dans Pharo alors que dans
+d'autres langages, ce seraient
+
+99
+00:05:23,270 --> 00:05:26,440
+plutôt des structures
+câblées dans le compilateur.
+

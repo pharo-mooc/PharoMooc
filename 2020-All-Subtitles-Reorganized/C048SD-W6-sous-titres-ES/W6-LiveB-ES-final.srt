@@ -1,0 +1,142 @@
+1
+00:00:04,080 --> 00:00:06,280
+-Hi. In this video,
+we are going to have a look
+
+2
+00:00:06,600 --> 00:00:10,720
+at how you can basically customize
+the startup of your Pharo image.
+
+3
+00:00:11,040 --> 00:00:16,480
+In order to do so, first we are going to
+have a look at the StartupAction class.
+
+4
+00:00:16,800 --> 00:00:21,600
+So, StartupAction.
+This is how it is used.
+
+5
+00:00:22,120 --> 00:00:25,000
+On startup, Pharo will call
+a StartupPreference
+
+6
+00:00:25,320 --> 00:00:28,760
+in order to run
+a specific series of startup actions.
+
+7
+00:00:29,080 --> 00:00:33,960
+In order to see this, what I am going
+to do is to plug in StartupAction.
+
+8
+00:00:34,280 --> 00:00:38,480
+In order to find them, you go to your
+Pharo environment, System, Startup,
+
+9
+00:00:38,800 --> 00:00:41,960
+Version Preferences folder.
+And from there,
+
+10
+00:00:42,280 --> 00:00:46,720
+you select Create file
+and you name your file "startup.st".
+
+11
+00:00:47,040 --> 00:00:47,800
+Press OK.
+
+12
+00:00:48,120 --> 00:00:54,280
+For now, what I will do is copy a piece
+of code that should remove the logo.
+
+13
+00:00:54,600 --> 00:00:59,240
+You can see that basically it is
+consisting of a StartupPreferencesLoader
+
+14
+00:00:59,560 --> 00:01:03,160
+that will execute
+a series of startup actions.
+
+15
+00:01:03,480 --> 00:01:07,280
+This one is named "Logo" and you can
+plug any piece of code you want.
+
+16
+00:01:07,600 --> 00:01:10,040
+So, they are simply
+"showDesktopLogo: false".
+
+17
+00:01:10,360 --> 00:01:14,360
+I will remove this Pharo logo
+in the background. I will save this.
+
+18
+00:01:14,680 --> 00:01:18,120
+You can quit this.
+Now juste save and quit.
+
+19
+00:01:18,440 --> 00:01:21,840
+Go back to our Pharo launcher,
+double click on your image,
+
+20
+00:01:22,160 --> 00:01:25,200
+and you can see
+that the logo has disappeared.
+
+21
+00:01:25,520 --> 00:01:27,000
+You can plug in any code you want.
+
+22
+00:01:27,320 --> 00:01:30,200
+You might log your GitHub credentials
+for example
+
+23
+00:01:30,520 --> 00:01:33,840
+or if you want to change the color
+to some colors you like better.
+
+24
+00:01:34,160 --> 00:01:36,400
+You can do what you want.
+This is how it is done.
+
+25
+00:01:36,720 --> 00:01:38,920
+If we want to revert it,
+what we will have to do
+
+26
+00:01:39,240 --> 00:01:44,680
+is to go back to System. I can change
+it there by going to startup.st.
+
+27
+00:01:45,000 --> 00:01:49,080
+For example, if we would like the logo
+to come back, we set it to "true".
+
+28
+00:01:49,400 --> 00:01:54,000
+You do not have to close
+and reopen your image.
+
+29
+00:01:54,320 --> 00:01:58,040
+You can simply go to Run startup script.
+And our logo is back again.

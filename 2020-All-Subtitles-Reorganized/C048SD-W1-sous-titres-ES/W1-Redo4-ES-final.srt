@@ -1,0 +1,242 @@
+﻿1
+00:00:03,000 --> 00:00:05,880
+-Buenos días a todos.
+Estamos en la parte 4 del redo.
+
+2
+00:00:06,200 --> 00:00:07,720
+En esta parte, vamos a ver
+
+3
+00:00:08,040 --> 00:00:12,000
+como crear una copia del paquete
+creado en las versiones previas,
+
+4
+00:00:12,320 --> 00:00:14,640
+y como guardar
+un historial de cambios realizados
+
+5
+00:00:14,960 --> 00:00:16,760
+sobre el código presente en el package.
+
+6
+00:00:17,080 --> 00:00:20,040
+Observamos que el package
+que creamos previamente, MyCounter,
+
+7
+00:00:21,160 --> 00:00:24,760
+no se guardó en ninguna parte,
+porque tenemos esta estrella roja presente.
+
+8
+00:00:25,080 --> 00:00:27,040
+Para remediar esto,
+utilizamos una herramienta,
+
+9
+00:00:27,360 --> 00:00:30,400
+en la pestaña Tools,
+que se llama Iceberg,
+
+10
+00:00:30,720 --> 00:00:34,200
+que es una herramienta de control de versiones
+y gestión de packages.
+
+11
+00:00:34,880 --> 00:00:37,760
+Entonces, para agregar nuestro package,
+vamos a Add.
+
+12
+00:00:38,080 --> 00:00:42,600
+Creamos un nuevo repositorio
+que llamamos MyCounter,
+
+13
+00:00:43,120 --> 00:00:45,640
+que nos lo creará localmente.
+
+14
+00:00:45,960 --> 00:00:47,320
+Presionamos OK.
+
+15
+00:00:47,880 --> 00:00:49,240
+Nuestro repositorio está aquí.
+
+16
+00:00:49,560 --> 00:00:54,680
+Ahora, podemos hacer doble-click encima
+y vemos que está bastante vacío.
+
+17
+00:00:55,000 --> 00:00:58,240
+Para agregar un package,
+cliqueamos sobre el + verde.
+
+18
+00:00:58,560 --> 00:01:05,000
+Add package, y seleccionamos
+MyCounter, el package que vamos a agregar.
+
+19
+00:01:06,320 --> 00:01:07,920
+Nuestro package acaba de ser agregado.
+
+20
+00:01:08,240 --> 00:01:10,400
+pero algunos cambios
+no fueron "commiteados". 
+
+21
+00:01:10,720 --> 00:01:12,320
+Si estás familiarizado con Git,
+
+22
+00:01:12,640 --> 00:01:15,640
+esto significa que los cambios no fueron
+agregados en tu versión.
+
+23
+00:01:15,960 --> 00:01:17,200
+Cliqueamos sobre Commit.
+
+24
+00:01:18,240 --> 00:01:20,480
+Podemos ver todos los cambios
+que fueron hechos en el package.
+
+25
+00:01:20,800 --> 00:01:24,520
+Así, es la adición de nuestra clase,
+de nuestros métodos,
+
+26
+00:01:24,840 --> 00:01:27,640
+de nuestra clase de test
+y de nuestros archivos específicos del sistema,
+
+27
+00:01:27,960 --> 00:01:29,840
+.project y .properties
+
+28
+00:01:30,160 --> 00:01:34,320
+Por lo tanto, lo llamamos
+"Initial commit of Counter".
+
+29
+00:01:35,960 --> 00:01:40,880
+"Increment
+and decrement methods tested".
+
+30
+00:01:41,800 --> 00:01:44,160
+Es bueno darle un comentario
+interesante a nuestro commit
+
+31
+00:01:44,480 --> 00:01:46,800
+para poderlo encontrar
+si alguna vez lo necesitamos
+
+32
+00:01:47,120 --> 00:01:48,240
+Así, hacemos commit.
+
+33
+00:01:48,560 --> 00:01:51,280
+Y listo. Nuestro package está actualizado.
+
+34
+00:01:51,600 --> 00:01:54,440
+eso significa que está guardado
+localmente y actualizado.
+
+35
+00:01:54,920 --> 00:01:57,040
+Ahora,
+si queremos agregar un método
+
+36
+00:01:57,360 --> 00:02:00,880
+como "increment2" que adicionará 2...
+
+37
+00:02:02,040 --> 00:02:02,960
+Lo guardamos.
+
+38
+00:02:03,280 --> 00:02:04,800
+El método es creado.
+
+39
+00:02:05,120 --> 00:02:08,080
+Podemos ver que los cambios
+no fueron "commiteados".
+
+40
+00:02:08,400 --> 00:02:12,680
+Para remediarlo,
+hacemos click sobre el tick verde, Commit.
+
+41
+00:02:13,000 --> 00:02:15,840
+Vemos que quiere agregar
+el método "increment2".
+
+42
+00:02:17,000 --> 00:02:23,240
+Podemos comentarle diciendo: 
+"Added increment2".
+
+43
+00:02:23,960 --> 00:02:24,800
+Commit.
+
+44
+00:02:25,280 --> 00:02:28,240
+Y nuestro package está actualizado.
+
+45
+00:02:29,120 --> 00:02:31,920
+Has visto
+como crear y guardar
+
+46
+00:02:32,240 --> 00:02:35,080
+los diferentes cambios
+que puedes hacer sobre uno o varios packages.
+
+47
+00:02:35,400 --> 00:02:37,720
+En nuestro caso, solo agregamos uno,
+pero podemos agregar varios.
+
+48
+00:02:38,040 --> 00:02:39,360
+Podemos guardar estos cambios
+
+49
+00:02:39,680 --> 00:02:41,840
+y es interesante
+tener acceso a la historia,
+
+50
+00:02:42,160 --> 00:02:45,000
+porque podremos volver
+a una versión antigua
+
+51
+00:02:45,320 --> 00:02:48,320
+si alguna vez no se está de acuerdo
+con un cambio hecho en un momento
+
+52
+00:02:48,640 --> 00:02:50,480
+en el desarrollo de nuestro package.
+

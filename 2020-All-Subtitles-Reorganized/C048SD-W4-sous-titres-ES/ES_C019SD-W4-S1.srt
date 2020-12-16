@@ -1,0 +1,401 @@
+﻿1
+00:00:07,560 --> 00:00:08,600
+Hello, everyone.
+
+2
+00:00:09,120 --> 00:00:12,720
+Welcome to Sequence 1 of Week 4.
+
+3
+00:00:13,200 --> 00:00:17,960
+This week, we'll be covering
+Pharo inheritance basics,
+
+4
+00:00:18,440 --> 00:00:21,840
+and look-up
+and web-development mechanisms.
+
+5
+00:00:22,480 --> 00:00:24,280
+In the first sequence,
+
+6
+00:00:24,840 --> 00:00:29,120
+we'll introduce inheritance basics.
+
+7
+00:00:29,440 --> 00:00:32,360
+These concepts are quite similar
+
+8
+00:00:32,520 --> 00:00:35,360
+to inheritance
+in other languages with classes,
+
+9
+00:00:35,520 --> 00:00:36,840
+like Java.
+
+10
+00:00:37,120 --> 00:00:40,560
+Even if you are familiar
+with these basics, please watch.
+
+11
+00:00:40,720 --> 00:00:42,840
+We'll introduce some vocabulary,
+
+12
+00:00:44,040 --> 00:00:47,680
+and a graphic representation
+you'll be seeing again
+
+13
+00:00:48,120 --> 00:00:50,720
+throughout the rest of the course.
+
+14
+00:00:51,200 --> 00:00:54,280
+This sequence will cover
+what inheritance is,
+
+15
+00:00:54,480 --> 00:00:55,800
+and how to use it.
+
+16
+00:00:56,120 --> 00:00:59,040
+Two classes are represented
+on the right:
+
+17
+00:00:59,200 --> 00:01:02,840
+the Rectangle class,
+with its name, first of all,
+
+18
+00:01:03,880 --> 00:01:05,280
+its instance variables,
+
+19
+00:01:06,120 --> 00:01:07,160
+and its methods.
+
+20
+00:01:07,560 --> 00:01:11,800
+Under it, you see the same thing.
+The class name, ColoredRectangle,
+
+21
+00:01:12,480 --> 00:01:15,360
+its instance variables, and its methods.
+
+22
+00:01:16,800 --> 00:01:22,160
+The vertical arrow here, with
+its point represented as a blank triangle,
+
+23
+00:01:22,320 --> 00:01:25,200
+indicates an inheritance relationship.
+
+24
+00:01:25,360 --> 00:01:29,720
+The ColoredRectangle subclass
+inherits from the Rectangle class.
+
+25
+00:01:29,880 --> 00:01:33,000
+Generally, subclasses like
+ColoredRectangle
+
+26
+00:01:33,160 --> 00:01:37,320
+refine the behavior and state
+of their superclass.
+
+27
+00:01:37,960 --> 00:01:42,400
+A subclass like ColoredRectangle
+can add state and behavior
+
+28
+00:01:42,760 --> 00:01:43,960
+to its superclass.
+
+29
+00:01:45,120 --> 00:01:49,080
+Here, the ColoredRectangle class
+adds state
+
+30
+00:01:49,320 --> 00:01:53,840
+in the form of two instance variables,
+color and border color.
+
+31
+00:01:55,240 --> 00:01:57,640
+It also adds a method: color.
+
+32
+00:01:58,120 --> 00:02:01,160
+At some point, we could say
+that every class
+
+33
+00:02:01,520 --> 00:02:04,280
+inherits from the Object class.
+
+34
+00:02:04,480 --> 00:02:06,160
+But that's not quite true.
+
+35
+00:02:06,480 --> 00:02:10,240
+It is true that every class
+inherits from ProtoObject class.
+
+36
+00:02:10,520 --> 00:02:15,600
+The ProtoObject superclass
+is used for very special cases.
+
+37
+00:02:15,960 --> 00:02:18,440
+For the purposes of this course
+in Pharo,
+
+38
+00:02:18,600 --> 00:02:21,600
+we'll say that all classes inherit
+from Object.
+
+39
+00:02:21,760 --> 00:02:23,880
+That will suffice, for our needs.
+
+40
+00:02:24,120 --> 00:02:28,320
+The ProtoObject class is reserved
+only for certain specific cases.
+
+41
+00:02:28,800 --> 00:02:33,440
+You're not likely to need it
+to learn the basics of Pharo.
+
+42
+00:02:34,360 --> 00:02:37,360
+Inheritance behaves
+in two different ways,
+
+43
+00:02:37,520 --> 00:02:41,320
+depending on whether state
+or behavior is being inherited.
+
+44
+00:02:41,840 --> 00:02:43,840
+Inheritance of state is static.
+
+45
+00:02:44,040 --> 00:02:47,400
+That means that
+when you create the subclass,
+
+46
+00:02:47,760 --> 00:02:53,320
+you know exactly what
+all the instance variables are.
+
+47
+00:02:54,280 --> 00:02:57,240
+However, inheritance of behavior
+is dynamic.
+
+48
+00:02:57,400 --> 00:03:00,840
+During the program's execution,
+you look at the methods
+
+49
+00:03:01,000 --> 00:03:02,920
+defined in sub and superclasses.
+
+50
+00:03:03,480 --> 00:03:05,240
+Concerning instance variables,
+
+51
+00:03:05,560 --> 00:03:08,840
+inheritance happens
+during class definition.
+
+52
+00:03:09,240 --> 00:03:11,160
+When you define the subclass,
+
+53
+00:03:12,800 --> 00:03:16,760
+you take the instance variables
+defined in the subclass -
+
+54
+00:03:16,920 --> 00:03:21,080
+here, they are color and border color,
+
+55
+00:03:21,600 --> 00:03:26,080
+and you merge them
+with all the instance variables
+
+56
+00:03:26,240 --> 00:03:29,960
+defined in the superclass
+and the line of the superclasses,
+
+57
+00:03:30,120 --> 00:03:31,960
+all the way up to the Object.
+
+58
+00:03:34,080 --> 00:03:37,000
+Here, the instance variables
+of ColoredRectangle
+
+59
+00:03:37,160 --> 00:03:40,200
+will be with a color and border color.
+
+60
+00:03:41,400 --> 00:03:44,120
+For behavior,
+inheritance mechanism changes.
+
+61
+00:03:44,560 --> 00:03:47,120
+Watch the following sequences
+
+62
+00:03:47,760 --> 00:03:50,280
+to see exactly how it occurs.
+
+63
+00:03:50,560 --> 00:03:51,680
+So, on the whole,
+
+64
+00:03:52,000 --> 00:03:54,720
+behavior inheritance happens at runtime.
+
+65
+00:03:55,520 --> 00:03:59,040
+In other words, when you send
+a message to an object,
+
+66
+00:04:00,040 --> 00:04:03,480
+a method match is searched for
+in the class hierarchy.
+
+67
+00:04:04,480 --> 00:04:07,440
+Here, if I send a message
+to ColoredRectangle...
+
+68
+00:04:08,200 --> 00:04:11,280
+The "area" message, for example...
+
+69
+00:04:11,880 --> 00:04:14,880
+it will be searched in the class.
+
+70
+00:04:15,040 --> 00:04:18,920
+The method will be searched
+in the ColoredRectangle class.
+
+71
+00:04:19,360 --> 00:04:22,080
+The "area" method is missing.
+
+72
+00:04:22,240 --> 00:04:24,640
+So we go up to the superclass.
+
+73
+00:04:25,160 --> 00:04:29,120
+We find the "area" method.
+It is selected and executed.
+
+74
+00:04:30,040 --> 00:04:31,080
+Now, I'll sum up:
+
+75
+00:04:31,480 --> 00:04:35,280
+For inheritance, the concepts
+of subclass and superclass
+
+76
+00:04:35,600 --> 00:04:38,600
+enables the subclass
+to refine the behavior
+
+77
+00:04:38,760 --> 00:04:41,280
+of its superclass, and extend it.
+
+78
+00:04:41,560 --> 00:04:45,600
+The subclass can also extend, or add,
+
+79
+00:04:46,000 --> 00:04:47,960
+state to its superclass.
+
+80
+00:04:48,400 --> 00:04:52,640
+Pharo's simple inheritance model
+stipulates one superclass per class.
+
+81
+00:04:52,920 --> 00:04:56,440
+The concept of traits
+enables you multiply inheritance,
+
+82
+00:04:56,600 --> 00:04:58,280
+but we will not cover that.
+
+83
+00:04:58,920 --> 00:05:01,120
+Object is at the top of the hierarchy.
+
+84
+00:05:01,320 --> 00:05:05,320
+So is ProtoObject,
+but we will not go into that detail.
+
+85
+00:05:05,800 --> 00:05:08,240
+Inheritance of state is static.
+
+86
+00:05:08,640 --> 00:05:11,960
+It happens when the subclass is defined.
+
+87
+00:05:12,200 --> 00:05:14,640
+But inheritance of behavior is dynamic,
+
+88
+00:05:14,920 --> 00:05:16,280
+happening at runtime,
+
+89
+00:05:16,440 --> 00:05:19,000
+whenever you send a message
+to an object.

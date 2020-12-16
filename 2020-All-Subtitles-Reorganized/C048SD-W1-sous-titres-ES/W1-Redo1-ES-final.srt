@@ -1,0 +1,291 @@
+﻿1
+00:00:03,040 --> 00:00:03,840
+-Buenos días a todos.
+
+2
+00:00:04,160 --> 00:00:06,360
+En este video
+que corresponde al primer rehacer,
+
+3
+00:00:06,680 --> 00:00:08,720
+veremos cómo crear un package,
+
+4
+00:00:09,040 --> 00:00:12,120
+cómo crear una clase dentro de este package
+y un método.
+
+5
+00:00:12,440 --> 00:00:14,760
+Y verificaremos que
+todo lo que hacemos funcione bien.
+
+6
+00:00:15,080 --> 00:00:16,680
+Bien, abrimos el menu Pharo,
+
+7
+00:00:17,000 --> 00:00:19,800
+ir a la opción Tools,
+luego System Browser.
+
+8
+00:00:21,000 --> 00:00:24,240
+El System Browser mostrará
+todos los paquetes presentes en nuestra imagen
+
+9
+00:00:24,560 --> 00:00:28,360
+que son utilizados en el sistema
+y que son integrados de base.
+
+10
+00:00:28,680 --> 00:00:30,000
+Nosotros crearemos uno nuevo.
+
+11
+00:00:30,320 --> 00:00:32,280
+Haremos click derecho
+en cualquier lugar,
+
+12
+00:00:32,600 --> 00:00:36,280
+hacer New package
+y llamarlo MyCounter.
+
+13
+00:00:36,760 --> 00:00:38,040
+Marcamos OK.
+
+14
+00:00:38,360 --> 00:00:42,120
+El paquete está aquí. Está creado, pero
+no podemos ver los otros.
+
+15
+00:00:42,440 --> 00:00:46,920
+Entonces, filtramos para ver
+solamente el nuestro, MyCounter.
+
+16
+00:00:47,240 --> 00:00:50,400
+Así, el paquete está aquí.
+puedes verlo, está vacío.
+
+17
+00:00:50,720 --> 00:00:54,680
+Para crear nuestra clase,
+un modelo se presenta en la parte inferior.
+
+18
+00:00:55,000 --> 00:00:59,520
+Por lo tanto, veremos una subclase de objeto.
+se llamará Counter.
+
+19
+00:00:59,840 --> 00:01:03,080
+Le agregaremos una variable
+de instancia que llamamos count.
+
+20
+00:01:03,400 --> 00:01:07,320
+Y el triángulo naranja aquí nos indica
+que lo escrito no se ha compilado.
+
+21
+00:01:07,640 --> 00:01:11,080
+Entonces, para compilar,
+podemos hacer click derecho, Aceptar
+
+22
+00:01:11,400 --> 00:01:13,000
+O el atajo Cmd+S.
+
+23
+00:01:14,120 --> 00:01:17,720
+Nuestra clase apareció,
+pero con un signo de exclamación rojo.
+
+24
+00:01:18,040 --> 00:01:19,560
+Se se pasa sobre el signo de exclamación,
+
+25
+00:01:19,880 --> 00:01:21,640
+Hay una marca: "There is no comment".
+
+26
+00:01:21,960 --> 00:01:23,400
+Nuestra clase no está comentada.
+
+27
+00:01:23,720 --> 00:01:27,360
+En efecto, vemos aquí
+las recomendaciones que podemos seguir
+
+28
+00:01:27,680 --> 00:01:30,280
+para presentar de manera más práctica
+la clase a los usuarios.
+
+29
+00:01:30,600 --> 00:01:34,560
+No lo haremos en este video,
+pero es recomendado.
+
+30
+00:01:36,000 --> 00:01:40,840
+Ahora, para crear un método,
+nos dirigimos a la pestaña del costado
+
+31
+00:01:41,160 --> 00:01:43,400
+en, Instance side method.
+
+32
+00:01:43,760 --> 00:01:47,480
+Podemos crear los accesores
+de nuestra variable de instancia count.
+
+33
+00:01:47,800 --> 00:01:50,840
+Entonces, creamos un getter, count,
+
+34
+00:01:52,000 --> 00:01:54,600
+que simplemente retornará
+la variable de instancia.
+
+35
+00:01:55,080 --> 00:01:56,440
+Y aquí aparece nuestro getter.
+
+36
+00:01:56,760 --> 00:02:00,040
+Vemos el triángulo naranja,
+se puede presionar Cmd+S.
+
+37
+00:02:00,360 --> 00:02:01,440
+Y el método aparece
+
+38
+00:02:01,760 --> 00:02:05,920
+Y vemos que fue agregado
+dentro del protocolo accessing.
+
+39
+00:02:06,840 --> 00:02:10,480
+Ahora, creamos nuestro setter
+entonces nos quedamos sobre el mismo sitio.
+
+40
+00:02:10,800 --> 00:02:14,800
+"count: anInteger"
+le pasamos un entero
+
+41
+00:02:15,120 --> 00:02:17,840
+y queremos que le atribuya este entero
+a la variable de instancia.
+
+42
+00:02:18,160 --> 00:02:22,440
+Entonces "count := anInteger".
+
+43
+00:02:23,480 --> 00:02:26,320
+No olvidemos compilar para que
+el método aparezca en el costado.
+
+44
+00:02:26,640 --> 00:02:31,040
+Y aquí, vemos que tenemos
+nuestro getter, nuestro setter.
+
+45
+00:02:31,360 --> 00:02:33,280
+Para ver
+que todo se creó bien,
+
+46
+00:02:33,600 --> 00:02:36,000
+abrimos otra herramienta,
+llamada el Playground
+
+47
+00:02:36,320 --> 00:02:41,880
+que podemos encontrar en el menu,
+dentro de la pestaña Tools, luego Playground.
+
+48
+00:02:42,800 --> 00:02:46,400
+Dentro de este Playground, definimos una variable temporal,
+
+49
+00:02:47,920 --> 00:02:53,600
+luego definimos un nuevo contador,
+entonces "Counter new"
+
+50
+00:02:54,760 --> 00:02:59,280
+y entonces atribuimos a la variable
+de instancia count el valor 7.
+
+51
+00:03:00,160 --> 00:03:04,120
+Ahora, para poder verlo,
+usaremos nuestro getter,
+
+52
+00:03:04,440 --> 00:03:05,440
+es count.
+
+53
+00:03:05,760 --> 00:03:07,880
+Ahora,
+si lo ejecutamos y lo imprimimos,
+
+54
+00:03:08,200 --> 00:03:12,120
+Cmd+P, o podemos hacer clic derecho, Print it,
+
+55
+00:03:13,120 --> 00:03:18,000
+vemos que nuestra variable tiene bien asignado\el valor correcto,
+
+56
+00:03:18,320 --> 00:03:21,160
+7, que le solicitamos
+en la línea superior.
+
+57
+00:03:22,400 --> 00:03:24,040
+Así que eso hicimos
+dentro del Playground.
+
+58
+00:03:24,360 --> 00:03:26,520
+En el próximo video,
+veremos como hacer un pequeño test
+
+59
+00:03:26,840 --> 00:03:29,600
+que resimulará esta funcionalidad.
+
+60
+00:03:30,160 --> 00:03:32,640
+Pero en cuanto a este video,
+vimos como crear un package,
+
+61
+00:03:32,960 --> 00:03:34,640
+cómo crear
+una clase dentro de un package
+
+62
+00:03:34,960 --> 00:03:37,200
+y cómo crear
+dos métodos dentro de esta clase.
+

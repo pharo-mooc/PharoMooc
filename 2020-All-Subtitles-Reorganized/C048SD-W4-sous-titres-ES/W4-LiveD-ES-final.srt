@@ -1,0 +1,444 @@
+1
+00:00:03,600 --> 00:00:06,560
+-Hi. In this video, we are going to look
+at the refactorings
+
+2
+00:00:06,880 --> 00:00:09,960
+and how we can use them in Pharo
+at different levels.
+
+3
+00:00:10,280 --> 00:00:14,640
+Refactorings were introduced
+in Smalltalk in 1995.
+
+4
+00:00:14,960 --> 00:00:19,240
+They are extremely handy because they
+allow you to refactor pieces of code,
+
+5
+00:00:19,560 --> 00:00:23,800
+change the relation between your classes
+and methods, etc., extremely quickly.
+
+6
+00:00:24,120 --> 00:00:29,240
+I have taken back the counter
+we made in the redo of week 2.
+
+7
+00:00:31,040 --> 00:00:33,160
+It still has the four methods
+we implemented:
+
+8
+00:00:33,480 --> 00:00:36,520
+count, count:, decrement, increment,
+and then the tests.
+
+9
+00:00:36,840 --> 00:00:38,680
+You can check that they are still green.
+Cool.
+
+10
+00:00:39,000 --> 00:00:42,920
+The first level of refactoring
+you can have is within the class.
+
+11
+00:00:43,240 --> 00:00:45,960
+You can right-click on the class,
+go to...
+
+12
+00:00:46,280 --> 00:00:50,680
+You will have Rename, Copy,
+Jump to test class, Remove, etc.
+
+13
+00:00:51,000 --> 00:00:52,480
+Then, you have got Refactorings
+
+14
+00:00:52,800 --> 00:00:55,840
+that will allow you
+to insert subclass, superclass,
+
+15
+00:00:56,160 --> 00:00:59,120
+and/or change this class
+from a package to another.
+
+16
+00:00:59,440 --> 00:01:02,600
+We will look at Rename.
+Let's click on it.
+
+17
+00:01:02,920 --> 00:01:04,720
+We will just rename it "Counter2".
+
+18
+00:01:05,280 --> 00:01:06,040
+Ok.
+
+19
+00:01:06,360 --> 00:01:09,920
+You can see that our counter
+is now renamed "Counter2".
+
+20
+00:01:10,240 --> 00:01:11,600
+If you go to the CounterTest,
+
+21
+00:01:11,920 --> 00:01:15,200
+we can see
+that every occurrence of "Counter"
+
+22
+00:01:15,520 --> 00:01:17,920
+has been replaced by "Counter2".
+
+23
+00:01:18,240 --> 00:01:20,560
+You can run the tests,
+check that they are still green.
+
+24
+00:01:20,880 --> 00:01:22,040
+It is the case. Great.
+
+25
+00:01:22,360 --> 00:01:26,320
+Now, we will look into another level
+of refactoring that is methods.
+
+26
+00:01:26,640 --> 00:01:29,320
+If you right-click on a method,
+for example "increment",
+
+27
+00:01:29,640 --> 00:01:33,080
+you still have Rename
+because it is extremely useful.
+
+28
+00:01:33,400 --> 00:01:37,280
+So it has been moved to another level.
+But you can go to the Refactorings tab
+
+29
+00:01:37,600 --> 00:01:39,600
+and you can see that you have Push up,
+
+30
+00:01:39,920 --> 00:01:44,400
+so you can bring this method
+to its superclass or subclass.
+
+31
+00:01:44,720 --> 00:01:48,440
+Then you have Move to class side
+or Move to another class,
+
+32
+00:01:48,760 --> 00:01:51,760
+Move to another package.
+You can Add argument, etc.
+
+33
+00:01:52,080 --> 00:01:54,200
+We are going to look
+into the Rename for now.
+
+34
+00:01:54,520 --> 00:01:56,280
+We press Rename,
+
+35
+00:01:56,600 --> 00:01:59,800
+and we would like to rename
+our "increment" method to "increment2".
+
+36
+00:02:00,560 --> 00:02:01,680
+Press Rename.
+
+37
+00:02:02,160 --> 00:02:05,320
+You can see that this will modify
+all 9 implementors.
+
+38
+00:02:05,640 --> 00:02:06,760
+But we only have one.
+
+39
+00:02:07,080 --> 00:02:10,520
+This might mean that we are modifying
+things that we would not like to.
+
+40
+00:02:10,840 --> 00:02:12,080
+So, let's press No.
+
+41
+00:02:12,400 --> 00:02:16,760
+Just to remind you, the shortcut
+for implementors is Cmd+M.
+
+42
+00:02:17,080 --> 00:02:18,160
+So, let's press that.
+
+43
+00:02:18,480 --> 00:02:21,440
+You can see that there are many
+implementors of increment.
+
+44
+00:02:21,760 --> 00:02:26,520
+Some of them will rather not change,
+such as JobProgressBarMorph.
+
+45
+00:02:28,000 --> 00:02:30,920
+In order to contain our actions
+to the actual package,
+
+46
+00:02:31,240 --> 00:02:32,560
+we will set up a scoped view.
+
+47
+00:02:32,880 --> 00:02:36,200
+You can either right-click
+and select Set up scope
+
+48
+00:02:36,520 --> 00:02:38,720
+or you can simply,
+since we only have one package,
+
+49
+00:02:39,040 --> 00:02:40,880
+press the button Scoped View.
+
+50
+00:02:41,200 --> 00:02:44,680
+We will do that for now. Scoped View.
+Now, if we right-click
+
+51
+00:02:45,000 --> 00:02:49,000
+and try to rename it again,
+"increment2", Rename,
+
+52
+00:02:49,320 --> 00:02:51,640
+this time we have
+only modified this method,
+
+53
+00:02:51,960 --> 00:02:55,680
+and you can see that this would be
+the changes that would apply.
+
+54
+00:02:56,000 --> 00:03:01,160
+It will add a method called "increment2"
+in the class Counter2. That is great.
+
+55
+00:03:01,480 --> 00:03:04,120
+That will change the test path
+using increment,
+
+56
+00:03:04,440 --> 00:03:06,560
+changing "increment" to "increment2",
+
+57
+00:03:07,160 --> 00:03:09,640
+and then remove
+the actual increment method.
+
+58
+00:03:09,960 --> 00:03:11,880
+That is perfect,
+that is exactly what we want.
+
+59
+00:03:12,200 --> 00:03:13,520
+Let's just press Apply.
+
+60
+00:03:14,080 --> 00:03:17,040
+You can see that we now have
+a method increment2.
+
+61
+00:03:17,360 --> 00:03:23,320
+If we go to the testCounterIncrement,
+you can see that it changed.
+
+62
+00:03:23,760 --> 00:03:28,360
+Now, we are going to look at another
+level of refactoring which is protocols.
+
+63
+00:03:28,680 --> 00:03:31,040
+You can right-click on them,
+you can rename them,
+
+64
+00:03:31,360 --> 00:03:32,640
+you can remove empty protocols.
+
+65
+00:03:32,960 --> 00:03:35,840
+Basically, this happens
+when you create new methods,
+
+66
+00:03:36,160 --> 00:03:41,080
+tag them into protocols, and then remove
+them without changing the protocol.
+
+67
+00:03:41,400 --> 00:03:43,680
+This might happen.
+You can simply press this button
+
+68
+00:03:44,000 --> 00:03:46,920
+or you can categorize all methods
+that are uncategorized.
+
+69
+00:03:47,680 --> 00:03:52,320
+The last level of refactoring that you
+can use is from within the source code.
+
+70
+00:03:52,640 --> 00:03:55,840
+Let's go, for example,
+to testCounterStartingAt5.
+
+71
+00:03:56,160 --> 00:03:59,520
+We will just select that, highlight it,
+and you can right-click
+
+72
+00:03:59,840 --> 00:04:04,560
+and go to Source code, and there you
+will have all the possible refactorings,
+
+73
+00:04:04,880 --> 00:04:08,320
+Rename, etc.,
+and you can extract methods.
+
+74
+00:04:08,640 --> 00:04:11,560
+This is interesting because...
+Let's click on it.
+
+75
+00:04:12,120 --> 00:04:16,120
+We can say we will call it
+"startingAt5".
+
+76
+00:04:16,800 --> 00:04:17,760
+Rename.
+
+77
+00:04:18,080 --> 00:04:20,200
+You can see
+that we now have a method there
+
+78
+00:04:20,520 --> 00:04:23,720
+that is doing exactly
+what we have highlighted earlier on.
+
+79
+00:04:24,040 --> 00:04:26,640
+You can see that it is doing
+"Counter2 startingAt: 5",
+
+80
+00:04:26,960 --> 00:04:31,560
+and then, in the test, you can see
+that it is calling "self startingAt5".
+
+81
+00:04:31,880 --> 00:04:35,120
+So, it has really extracted
+what we highlighted in the method.
+
+82
+00:04:35,440 --> 00:04:37,680
+This might not be the best idea here
+
+83
+00:04:38,000 --> 00:04:41,040
+because we are talking
+about a test class.
+
+84
+00:04:41,360 --> 00:04:45,520
+But it is just to give you the idea that
+you can simply highlight a piece of code
+
+85
+00:04:45,840 --> 00:04:47,080
+to extract its method.
+
+86
+00:04:47,680 --> 00:04:51,800
+I really encourage you to learn
+refactorings and how you can use them
+
+87
+00:04:52,120 --> 00:04:55,520
+because you will
+really be faster in your writing.
+
+88
+00:04:55,840 --> 00:04:57,760
+You will simply develop faster
+and maybe better
+
+89
+00:04:58,080 --> 00:05:03,200
+because this will help you to not forget
+some references you might have written
+
+90
+00:05:03,520 --> 00:05:07,680
+to a method when you rename it
+or it will save you time
+
+91
+00:05:08,360 --> 00:05:11,080
+when you remove a method
+then write it back again.
+
+92
+00:05:11,400 --> 00:05:15,360
+You can simply refactor, push up,
+push down, move to class side.
+
+93
+00:05:16,240 --> 00:05:18,800
+Please, use refactorings,
+they will really help you.

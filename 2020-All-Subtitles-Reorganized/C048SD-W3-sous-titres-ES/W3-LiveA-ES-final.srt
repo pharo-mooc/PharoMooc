@@ -1,0 +1,211 @@
+1
+00:00:06,320 --> 00:00:10,320
+-Hi! In this video, we are going to look
+at two extremely important features
+
+2
+00:00:10,640 --> 00:00:15,080
+in the object-oriented language,
+which are senders and implementors.
+
+3
+00:00:15,400 --> 00:00:17,400
+In order to understand
+what they mean,
+
+4
+00:00:17,720 --> 00:00:19,000
+let us open the System Browser.
+
+5
+00:00:19,320 --> 00:00:22,400
+Once again, go to Tools,
+then System Browser.
+
+6
+00:00:22,720 --> 00:00:24,960
+We will go to a package,
+let us say in AST-Core.
+
+7
+00:00:25,280 --> 00:00:28,840
+We will go to our RBComment,
+and we will look at the size.
+
+8
+00:00:29,160 --> 00:00:31,280
+If you right click
+on the method Size,
+
+9
+00:00:31,600 --> 00:00:36,040
+you will see that the Implementors
+and Senders options show up.
+
+10
+00:00:36,360 --> 00:00:39,560
+So, what are the implementors of size?
+
+11
+00:00:39,880 --> 00:00:42,680
+Basically, the implementors of size,
+if we look at them,
+
+12
+00:00:43,000 --> 00:00:47,760
+will be all of the different classes,
+and their associated packages,
+
+13
+00:00:48,080 --> 00:00:50,400
+that implement a method called "size".
+
+14
+00:00:50,720 --> 00:00:53,960
+We can see that we have
+quite a lot of them, 109.
+
+15
+00:00:54,280 --> 00:00:55,640
+We can look inside them.
+
+16
+00:00:55,960 --> 00:01:01,960
+For example, LGitDiffFile,
+Pointer Layout, RBComment.
+
+17
+00:01:02,280 --> 00:01:03,480
+But if we look at it,
+
+18
+00:01:03,800 --> 00:01:07,640
+we can see that we have the package
+from which it is defined,
+
+19
+00:01:07,960 --> 00:01:09,800
+so System-Sources,
+the class SourceFile,
+
+20
+00:01:10,120 --> 00:01:12,520
+and we can simply browse it
+by clicking on Browse.
+
+21
+00:01:12,840 --> 00:01:16,840
+It will open another System Browser
+on the correct class method.
+
+22
+00:01:17,840 --> 00:01:20,320
+So, the implementors
+are all the different classes
+
+23
+00:01:20,640 --> 00:01:23,360
+that have size method defined.
+
+24
+00:01:23,680 --> 00:01:25,760
+Now, if we look at the senders...
+
+25
+00:01:26,080 --> 00:01:27,760
+So, Senders...
+
+26
+00:01:28,080 --> 00:01:29,560
+We can see that the senders of size
+
+27
+00:01:29,880 --> 00:01:32,560
+are all the methods
+that call "size" in their body.
+
+28
+00:01:32,880 --> 00:01:36,480
+For example, here,
+we have "at:put:" that shows its "size",
+
+29
+00:01:36,800 --> 00:01:38,520
+we have "extendMaxAsciiTo:"...
+
+30
+00:01:38,840 --> 00:01:42,040
+So, any method, basically,
+that will call "size" in its body.
+
+31
+00:01:42,360 --> 00:01:45,920
+This is really useful,
+because implementors will show you
+
+32
+00:01:46,240 --> 00:01:49,080
+all the classes that define
+a method of the same name
+
+33
+00:01:49,400 --> 00:01:53,920
+and how it can be used,
+while senders will show you examples
+
+34
+00:01:54,240 --> 00:01:57,040
+of how the method "size"
+is used concretely.
+
+35
+00:01:58,440 --> 00:02:01,480
+So, in order to have
+a quicker access to them,
+
+36
+00:02:01,800 --> 00:02:03,680
+you can see
+that there are some shortcuts.
+
+37
+00:02:04,000 --> 00:02:07,360
+So, basically, implementors...
+This is the M, right there, that is used.
+
+38
+00:02:07,680 --> 00:02:11,680
+So, Cmd+M will open the implementors.
+
+39
+00:02:12,000 --> 00:02:16,760
+While the senders...
+N will be the shortcut.
+
+40
+00:02:17,080 --> 00:02:18,440
+So, Cmd+N.
+
+41
+00:02:18,760 --> 00:02:21,920
+So, senders and implementors
+will really help you
+
+42
+00:02:22,240 --> 00:02:24,520
+understand the method
+you do not understand.
+
+43
+00:02:24,840 --> 00:02:28,320
+You will see how it is used,
+and I really encourage you to learn
+
+44
+00:02:28,640 --> 00:02:30,920
+both the shortcuts and how to use them,
+
+45
+00:02:31,240 --> 00:02:35,440
+just to navigate and to understand
+the structure and class better.

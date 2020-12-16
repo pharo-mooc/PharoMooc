@@ -1,0 +1,213 @@
+1
+00:00:04,120 --> 00:00:07,320
+-Hi. In the last video,
+what we used was the Debugger
+
+2
+00:00:07,640 --> 00:00:12,000
+when the state of a method we were
+looking at was already correct.
+
+3
+00:00:12,320 --> 00:00:15,120
+Let us try to change it
+the other way around.
+
+4
+00:00:15,440 --> 00:00:19,920
+We will say that decrement
+is now equal to +1. Save this.
+
+5
+00:00:20,240 --> 00:00:24,720
+Now, if we go over to CounterTest
+and run the testCounterDecrement,
+
+6
+00:00:25,040 --> 00:00:29,200
+you can see that "Got 7 instead of 3".
+We cannot do much
+
+7
+00:00:29,520 --> 00:00:34,800
+apart from looking at the c count
+being 7 against 3.
+
+8
+00:00:35,120 --> 00:00:37,000
+The state of the Debugger
+is too advanced.
+
+9
+00:00:37,320 --> 00:00:41,120
+What we should do is stop right after
+the creation of the counter.
+
+10
+00:00:41,440 --> 00:00:44,840
+In order to do so,
+what you can do is, go over here,
+
+11
+00:00:45,160 --> 00:00:49,720
+write some debugging code: "self halt.".
+Save this.
+
+12
+00:00:50,040 --> 00:00:53,000
+It will say that there is a halt
+debugging code left in the method,
+
+13
+00:00:53,320 --> 00:00:55,640
+but that is what we are planning to do
+so that is fine.
+
+14
+00:00:55,960 --> 00:00:57,080
+Let us run it again.
+
+15
+00:00:57,400 --> 00:00:59,320
+This time, it runs
+against the Halt method.
+
+16
+00:00:59,640 --> 00:01:04,480
+What we can do is use the same method
+as what we did in the last video.
+
+17
+00:01:04,800 --> 00:01:09,200
+So, press Into in order to look
+at where our problems come from.
+
+18
+00:01:09,520 --> 00:01:13,520
+We can press Over.
+We are now in the decrement.
+
+19
+00:01:13,840 --> 00:01:16,920
+If we look at our counter, Raw,
+
+20
+00:01:17,240 --> 00:01:20,840
+we can see that our counter is still
+equal to 5, so the creation was fine.
+
+21
+00:01:21,160 --> 00:01:22,640
+And we can dive into the decrement.
+
+22
+00:01:22,960 --> 00:01:27,560
+We can see that we should change
+this count +1 to a count -1.
+
+23
+00:01:27,880 --> 00:01:30,760
+We can do it directly inside
+the Debugger. Press Cmd+S.
+
+24
+00:01:31,080 --> 00:01:36,360
+This will change the actual decrement
+method. Press Over, Over, Over.
+
+25
+00:01:36,680 --> 00:01:39,600
+Now, we can see
+that our count is equal to 4,
+
+26
+00:01:39,920 --> 00:01:45,120
+so this is the kind of behavior
+we were expecting. Press Over, etc.
+
+27
+00:01:46,040 --> 00:01:49,240
+We have finished our debugging,
+we can press Proceed.
+
+28
+00:01:50,000 --> 00:01:52,400
+If we press it again,
+it will still halt.
+
+29
+00:01:52,720 --> 00:01:56,680
+So, what we can do is simply remove
+the halt from within the Debugger.
+
+30
+00:01:57,000 --> 00:01:58,160
+Press Cmd+S.
+
+31
+00:01:58,800 --> 00:02:00,080
+And press Proceed.
+
+32
+00:02:00,400 --> 00:02:03,160
+This is how you should try
+to debug your test.
+
+33
+00:02:03,480 --> 00:02:08,400
+You should try to break your test
+into small pieces by using halts.
+
+34
+00:02:08,720 --> 00:02:11,680
+Or what you can do
+is go over to the source code
+
+35
+00:02:12,000 --> 00:02:15,720
+and press Add breakpoint.
+This will add a breakpoint for your test
+
+36
+00:02:16,040 --> 00:02:17,600
+and for your debugging.
+
+37
+00:02:17,920 --> 00:02:21,160
+Or you can simply write
+"self halt." from within the method.
+
+38
+00:02:21,480 --> 00:02:24,280
+Pharo will always tell you
+that there are some debugging codes
+
+39
+00:02:24,600 --> 00:02:27,600
+left inside the method,
+so you clearly cannot forget it.
+
+40
+00:02:27,920 --> 00:02:31,440
+You even have a protocol
+with the different breakpoints
+
+41
+00:02:31,760 --> 00:02:34,200
+that you might have forgotten
+inside of the code.
+
+42
+00:02:34,520 --> 00:02:36,800
+So, you can simply remove it
+and save it again.
+
+43
+00:02:37,560 --> 00:02:40,680
+This was one example
+of how you can use breakpoints
+
+44
+00:02:41,000 --> 00:02:45,080
+to help you understand your methods
+and investigate your bugs.

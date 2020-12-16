@@ -1,0 +1,730 @@
+﻿1
+00:00:07,110 --> 00:00:09,680
+Buenos días, esta semana,
+vamos a comenzar a meternos
+
+2
+00:00:09,880 --> 00:00:11,940
+más en el meollo del asunto,
+particular de la sintaxis.
+
+3
+00:00:12,350 --> 00:00:14,930
+Este curso, es esencialmente cómo
+
+4
+00:00:15,270 --> 00:00:17,740
+abordar la sintaxis de
+los mensajes que se utilizan
+
+5
+00:00:17,940 --> 00:00:19,190
+en Pharo, eso significa todo Pharo de hecho.
+
+6
+00:00:20,800 --> 00:00:22,320
+Lo que hay que ver, es que
+en Pharo, tienes
+
+7
+00:00:22,640 --> 00:00:26,740
+principalmente tres cosas:
+objetos, mensajes y
+
+8
+00:00:26,940 --> 00:00:28,170
+clausuras que
+se llaman bloques.
+
+9
+00:00:28,520 --> 00:00:30,000
+Tendrás un curso
+especial sobre los bloques.
+
+10
+00:00:30,400 --> 00:00:32,710
+Y con eso, tienes toda
+la sintaxis de Pharo, prácticamente.
+
+11
+00:00:34,190 --> 00:00:36,600
+Lo que tienes que ver, es que la sintaxis de Pharo hereda
+
+12
+00:00:36,800 --> 00:00:38,820
+de la de Smalltalk
+que fue inventada para
+
+13
+00:00:39,210 --> 00:00:42,460
+enseñar a los niños a
+programar. La idea, es escribir
+
+14
+00:00:42,660 --> 00:00:44,890
+programas que sean
+como pequeñas frases que
+
+15
+00:00:45,090 --> 00:00:47,700
+un niño podría escribir.
+También, una de las ideas detrás
+
+16
+00:00:47,900 --> 00:00:49,630
+de la sintaxis, es minimizar
+el número de paréntesis y
+
+17
+00:00:49,830 --> 00:00:52,370
+lo veremos al trabajar.
+
+18
+00:00:52,570 --> 00:00:53,330
+Tomemos un ejemplo.
+
+19
+00:00:54,120 --> 00:00:57,270
+Tomemos un mosaico en
+OpenStreetMap y queremos abrirlo
+
+20
+00:00:57,470 --> 00:00:59,370
+en una ventana gráfica.
+
+21
+00:00:59,800 --> 00:01:03,060
+Esto te dará una idea de la
+sintaxis, tengo paréntesis,
+
+22
+00:01:03,260 --> 00:01:05,610
+porque primero quiero
+recuperar un PNG, así tengo
+
+23
+00:01:05,810 --> 00:01:08,600
+paréntesis y este PNG, voy a convertirlo en un objeto
+
+24
+00:01:08,800 --> 00:01:10,900
+gráfico Pharo y luego
+voy a abrirlo en una ventana.
+
+25
+00:01:11,170 --> 00:01:14,820
+Te sugiero que lo hagas
+en Pharo, obtendrás
+
+26
+00:01:15,020 --> 00:01:16,740
+el resultado, probablemente agua,
+porque en los mosaicos,
+
+27
+00:01:16,940 --> 00:01:17,700
+hay muchas con agua.
+
+28
+00:01:19,240 --> 00:01:23,170
+En Pharo, la sintaxis, hay tres tipos de mensajes
+
+29
+00:01:23,370 --> 00:01:26,240
+que están realmente hechos para
+minimizar el número de paréntesis.
+
+30
+00:01:26,480 --> 00:01:29,350
+Tienes mensajes
+unarios, mensajes binarios y
+
+31
+00:01:29,550 --> 00:01:31,620
+mensajes de palabras-clave. Ahora los vamos a ver.
+
+32
+00:01:32,850 --> 00:01:37,130
+Los mensajes unarios, son
+un receptor, el nombre del método
+
+33
+00:01:37,360 --> 00:01:40,050
+Los mensajes binarios,
+son un receptor, el nombre de
+
+34
+00:01:40,250 --> 00:01:44,260
+selector y un argumento. Los
+mensajes de palabras-clave, son
+
+35
+00:01:44,670 --> 00:01:47,940
+un receptor, argumentos
+o uno y esencialmente el
+
+36
+00:01:48,450 --> 00:01:51,330
+signo distintivo, es los
+dos puntos que hay aquí y
+
+37
+00:01:51,530 --> 00:01:52,420
+veremos este tipo de cosas.
+
+38
+00:01:54,150 --> 00:01:55,950
+Ce qu'il faut voir, c'est
+qu'une fois qu'on a fait trois
+
+39
+00:01:57,080 --> 00:01:58,250
+types de messages, à quoi ça sert ?
+
+40
+00:01:58,450 --> 00:02:02,180
+Sirve para poder
+diferenciarlos, por lo que cambiará la ejecución
+
+41
+00:02:02,380 --> 00:02:04,750
+de los programas. Siempre
+vamos a ejecutar primero
+
+42
+00:02:04,950 --> 00:02:07,390
+los paréntesis, las
+expresiones en paréntesis, y los
+
+43
+00:02:07,590 --> 00:02:09,480
+mensajes unarios, los mensajes
+binarios y los mensajes de palabra-clave.
+
+44
+00:02:10,000 --> 00:02:13,570
+Y luego, si estamos en el mismo
+nivel, lo haremos en el
+
+45
+00:02:13,770 --> 00:02:15,290
+mismo orden de izquierda a derecha.
+
+46
+00:02:17,930 --> 00:02:21,350
+Si tomamos ejemplos
+de mensajes unarios, si pido
+
+47
+00:02:21,550 --> 00:02:23,570
+al entero 1
+"¿Cuál es tu clase?",
+
+48
+00:02:23,770 --> 00:02:24,530
+me dirá "Es SmallInteger".
+
+49
+00:02:24,730 --> 00:02:27,610
+Si envío el mensaje
+"not", eso sería
+
+50
+00:02:27,810 --> 00:02:32,340
+un ejercicio para la semana
+próxima, al booleano false, obtengo
+
+51
+00:02:32,540 --> 00:02:35,530
+el booleano true. Si
+pido a la clase Date
+
+52
+00:02:35,730 --> 00:02:37,750
+"Dame la fecha
+de hoy", me dará
+
+53
+00:02:37,950 --> 00:02:40,490
+por ejemplo, el 24 de Mayo de 2009
+que es un objeto "date".
+
+54
+00:02:40,690 --> 00:02:43,660
+Si envío el mensaje "pi"
+a la clase "Float", me dará
+
+55
+00:02:43,860 --> 00:02:46,120
+una representación
+dl objeto "pi".
+
+56
+00:02:48,660 --> 00:02:50,890
+No sé si has notado
+que, de hecho
+
+57
+00:02:51,090 --> 00:02:55,090
+envié mensajes a objetos
+y también envié
+
+58
+00:02:55,290 --> 00:02:57,660
+mensajes a clases y
+lo hice de la misma forma.
+
+59
+00:02:57,860 --> 00:03:00,430
+No dije "Atención,
+es una clase, aprieta
+
+60
+00:03:00,630 --> 00:03:02,340
+los dientes, necesitamos hacer algo especial", no.
+
+61
+00:03:02,680 --> 00:03:06,740
+Allí, envié el mensaje clase al
+entero, eso me da la clase.
+
+62
+00:03:06,940 --> 00:03:11,080
+Envié el mensaje today a
+la clase Date, eso me da una fecha.
+
+63
+00:03:11,280 --> 00:03:14,580
+Nada especial, en Pharo,
+las clases también son objetos
+
+64
+00:03:14,780 --> 00:03:16,670
+y los mensajes
+enviados a clases son tratados
+
+65
+00:03:16,870 --> 00:03:19,100
+como mensajes enviados
+a las instancias, no hay diferencia
+
+66
+00:03:19,300 --> 00:03:20,560
+y esto es
+completamente natural.
+
+67
+00:03:22,760 --> 00:03:25,440
+Ahora, quisiera proponerte
+un pequeño ejercicio
+
+68
+00:03:25,640 --> 00:03:28,000
+que no tiene nada que ver con
+la sintaxis para divertirse un poco.
+
+69
+00:03:28,860 --> 00:03:30,670
+Ahí también, me dije
+"Aquí, esto sería divertido
+
+70
+00:03:30,870 --> 00:03:34,360
+quisiera saber cuáles son
+todos los métodos que son
+
+71
+00:03:34,560 --> 00:03:35,850
+implementados en la clase
+Point", así que puedo hacer eso
+
+72
+00:03:36,050 --> 00:03:37,000
+con Pharo y
+un mensaje unario.
+
+73
+00:03:37,210 --> 00:03:41,500
+Puedo decir "clase Point,
+dame todos los nombres
+
+74
+00:03:41,700 --> 00:03:43,420
+de mensajes que entiendes"
+y me responde una gran
+
+75
+00:03:43,620 --> 00:03:47,410
+lista con todos los mensajes.
+Ves la facilidad
+
+76
+00:03:47,610 --> 00:03:48,700
+con la cual podemos
+construir herramientas.
+
+77
+00:03:49,000 --> 00:03:52,050
+Con eso, si lo pongo en
+una lista, voy a poder tener,
+
+78
+00:03:52,250 --> 00:03:54,350
+por ejemplo, una
+lista con todos los métodos
+
+79
+00:03:54,550 --> 00:03:56,010
+que la clase responde y
+así es como funciona
+
+80
+00:03:56,210 --> 00:03:57,240
+el navegador que utilizarás.
+
+81
+00:03:58,170 --> 00:03:59,430
+Ahora, podemos
+refinar un poco esto.
+
+82
+00:03:59,630 --> 00:04:01,780
+Podríamos decir
+"Finalmente, quisiera pedirle
+
+83
+00:04:02,000 --> 00:04:05,480
+al sistema todos los selectores
+de la clase Point, que son unarios.
+
+84
+00:04:05,680 --> 00:04:08,090
+Lo escribo así,
+digo "Clase Point, dame
+
+85
+00:04:08,290 --> 00:04:12,670
+todos los selectores", me dará
+una tabla o una colección.
+
+86
+00:04:13,000 --> 00:04:17,510
+Así, es un mensaje de
+palabras-clave, digo
+
+87
+00:04:18,490 --> 00:04:21,870
+"Quiero seleccionar entre estos
+selectores aquellos que son unarios"
+
+88
+00:04:22,070 --> 00:04:25,130
+Ahí, hay una consulta que
+se llama isUnary, que es un
+
+89
+00:04:25,330 --> 00:04:28,490
+mensaje sobre los nombres de los métodos que
+seleccionarán estas cosas.
+
+90
+00:04:29,550 --> 00:04:34,040
+Ahí, te hice un apartado
+de la sintaxis,
+
+91
+00:04:34,240 --> 00:04:36,810
+Lo verás durante el curso
+sobre los iteradores
+
+92
+00:04:37,010 --> 00:04:38,570
+Porque select es un iterador.
+Pero ves lo elegante que es,
+
+93
+00:04:38,770 --> 00:04:40,910
+como en una línea, puedo realizar consultas al sistema.
+
+94
+00:04:41,800 --> 00:04:46,520
+Hay mensajes binarios,
+esto es
+
+95
+00:04:46,880 --> 00:04:50,230
+un objeto, un selector binario
+y un argumento.
+
+96
+00:04:50,530 --> 00:04:52,590
+Los selectores binarios,
+son una combinación entre todos
+
+97
+00:04:52,790 --> 00:04:55,860
+estos trucos incomprensibles o
+que no podemos pronunciar: %, |.
+
+98
+00:04:58,310 --> 00:04:59,730
+Cualquier cosa que no sea comprensible, hay mensajes
+
+99
+00:04:59,930 --> 00:05:02,030
+binarios, o todo lo que se parezca a las matemáticas,
+
+100
+00:05:02,230 --> 00:05:05,510
+estos son mensajes binarios.
+Un ejemplo, envío el mensaje
+
+101
+00:05:05,710 --> 00:05:10,290
+más al objeto 1 con un argumento
+el objeto 2, esto me da 3, estamos felices.
+
+102
+00:05:10,800 --> 00:05:14,180
+Tengo >, es lo mismo
+es un mensaje binario.
+
+103
+00:05:14,380 --> 00:05:17,950
+El @ que crea puntos,
+también es un mensaje binario.
+
+104
+00:05:18,300 --> 00:05:21,390
+La concatenación de cadenas con coma
+, es un mensaje binario.
+
+105
+00:05:21,590 --> 00:05:24,430
+Aquí voy a hacer 'Black
+chocolate ' coma ' is good', obtengo
+
+106
+00:05:24,630 --> 00:05:25,670
+la cadena "Black chocolate is good".
+
+107
+00:05:29,150 --> 00:05:33,570
+Los mensajes de palabras-clave,
+es lo que a menudo frustra a la gente
+
+108
+00:05:35,320 --> 00:05:37,560
+Cuando estás acostumbrado
+a una sintaxis como C o Java
+
+109
+00:05:37,760 --> 00:05:41,480
+con una sintaxis
+con un punto y paréntesis
+
+110
+00:05:41,680 --> 00:05:44,230
+y una coma en el medio,
+lo hacemos así,
+
+111
+00:05:45,610 --> 00:05:46,910
+lo ponemos en el medio.
+
+112
+00:05:47,110 --> 00:05:48,760
+Ver aquí,
+en este ejemplo, que
+
+113
+00:05:48,960 --> 00:05:50,750
+el mensaje se llama
+keyword1 , keyword2.
+
+114
+00:05:59,240 --> 00:06:02,680
+El mensaje está todo ahí,
+está compuesto de dos partes.
+
+115
+00:06:06,070 --> 00:06:08,660
+Para verificar, hagamos un juego dos segundos
+
+116
+00:06:08,860 --> 00:06:12,470
+¿A quíen corresponden estos mensajes?
+
+117
+00:06:14,260 --> 00:06:16,200
+¿Cuáles son sus tipos?
+
+118
+00:06:16,400 --> 00:06:18,130
+Vemos que el primero, no hay
+argumento, entonces diré que es unario.
+
+119
+00:06:18,430 --> 00:06:20,480
+El segundo, no hay argumento, diré que es unario.
+
+120
+00:06:20,720 --> 00:06:22,680
+Aquí, hay dos puntos,
+debe ser uno de palabras-clave.
+
+121
+00:06:23,200 --> 00:06:25,650
+Hay algo que no entiendo
+con una coma, es binario.
+
+122
+00:06:25,850 --> 00:06:29,000
+Es algo raro, es binario.
+
+123
+00:06:29,190 --> 00:06:30,800
+No hay argumentos
+, es unario.
+
+124
+00:06:31,760 --> 00:06:33,720
+Hay dos puntos,
+es uno de  palabra-clave.
+
+125
+00:06:33,920 --> 00:06:38,170
+Parece difícil,
+pero... he aquí la solución.
+
+126
+00:06:39,280 --> 00:06:42,890
+Un ejemplo, imaginemos que quiero
+cambiar el valor de un punto.
+
+127
+00:06:43,090 --> 00:06:47,210
+Tengo un punto que
+es un mensaje binario
+
+128
+00:06:48,050 --> 00:06:51,410
+y haré este x con
+un argumento, me devolverá un punto
+
+129
+00:06:51,610 --> 00:06:53,410
+dentro del cual 2 fue cambiado.
+
+130
+00:06:54,250 --> 00:06:55,650
+Ça n'a pas l'air bien fou quand même.
+
+131
+00:06:57,830 --> 00:07:00,250
+Otra cosa, un mensaje
+at:put:, así que ahí tengo
+
+132
+00:07:00,450 --> 00:07:05,040
+una tabla que contiene
+
+133
+00:07:05,240 --> 00:07:09,320
+las cadenas 'Calvin "hates" Suzie' y
+
+134
+00:07:10,070 --> 00:07:14,730
+quiero cambiar el segundo
+elemento, haré
+
+135
+00:07:15,220 --> 00:07:18,610
+put:'loves'; 2, ça va être
+celui-là et loves va venir ici.
+
+136
+00:07:19,300 --> 00:07:21,960
+Ahí en la tabla lo que ves,
+es que el método
+
+137
+00:07:22,160 --> 00:07:26,460
+se llama at:put:, es
+el método para cambiar
+
+138
+00:07:26,660 --> 00:07:28,180
+el valor de una colección
+en un índice dado.
+
+139
+00:07:28,440 --> 00:07:30,900
+Lo que también ves y
+tendremos una lección al respecto,
+
+
+140
+00:07:31,100 --> 00:07:33,250
+es que las colecciones en Pharo
+comienzan en 1 y no en 0.
+
+141
+00:07:33,450 --> 00:07:36,290
+Así que digo "Quiero el segundo
+elemento", hago 1 2 y no
+
+142
+00:07:36,490 --> 00:07:38,150
+"Ah sí, aquí comienza y tengo que restar algo".
+
+143
+00:07:40,000 --> 00:07:44,460
+Otro ejemplo que muestra
+una vez más
+
+144
+00:07:44,880 --> 00:07:45,910
+los mensajes de palabras-clave.
+
+145
+00:07:46,530 --> 00:07:50,340
+Cuando pido "¿Es 12 un entero
+
+146
+00:07:50,540 --> 00:07:55,310
+entre 10 y 20?",
+es el mensaje
+
+147
+00:07:55,510 --> 00:08:00,320
+between:and: que corresponderá
+
+148
+00:08:00,520 --> 00:08:03,180
+dans ma syntaxe "Est-ce
+que 12 point beetween: and:
+
+149
+00:08:05,390 --> 00:08:09,790
+10, 20 ?"
+
+150
+00:08:10,680 --> 00:08:13,520
+Je pense que je me suis assez alourdi
+dessus pour qu'on passe à autre chose.
+
+151
+00:08:15,080 --> 00:08:16,840
+En résumé, vous avez
+trois sortes de messages: les
+
+152
+00:08:17,040 --> 00:08:19,300
+messages unaires, les
+messages binaires et les messages à
+
+153
+00:08:19,500 --> 00:08:20,260
+mots-clefs, et c'est tout.
+

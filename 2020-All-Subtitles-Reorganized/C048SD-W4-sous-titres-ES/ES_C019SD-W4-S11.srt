@@ -1,0 +1,716 @@
+﻿1
+00:00:00,560 --> 00:00:05,040
+Hello. I'll be introducing Voyage,
+a wrapper for NoSQL databases,
+
+2
+00:00:05,560 --> 00:00:07,880
+in this class.
+
+3
+00:00:08,120 --> 00:00:11,520
+The goal is to let you build
+a real application.
+
+4
+00:00:11,680 --> 00:00:15,680
+You'll be able to store objects
+like TinyBlog with Voyage,
+
+5
+00:00:16,080 --> 00:00:19,200
+in a Mongo database,
+and deploy on a real service.
+
+6
+00:00:19,400 --> 00:00:20,880
+I also wanted to show you
+
+7
+00:00:21,200 --> 00:00:23,680
+an easy way to store objects.
+
+8
+00:00:24,080 --> 00:00:27,120
+Voyage is a simple solution.
+
+9
+00:00:28,640 --> 00:00:30,320
+First, what is MongoDB?
+
+10
+00:00:30,760 --> 00:00:35,680
+Mongo is a new document-oriented
+NoSQL database.
+
+11
+00:00:36,840 --> 00:00:40,280
+It features a powerful query language.
+
+12
+00:00:40,440 --> 00:00:44,440
+Mongo is also one of the most popular
+DBs, with CouchDB and Riak.
+
+13
+00:00:44,600 --> 00:00:48,240
+We'll be using Mongo and Voyage.
+
+14
+00:00:48,480 --> 00:00:52,480
+Actually, Voyage is a mapper.
+It takes objects and maps them
+
+15
+00:00:53,360 --> 00:00:56,680
+on MongoDB, almost automatically,
+for the programmer.
+
+16
+00:00:56,840 --> 00:00:58,880
+If you've done Java on Hibernate
+
+17
+00:00:59,040 --> 00:01:02,120
+Voyage is the equivalent of Hibernate
+for MongoDB.
+
+18
+00:01:02,400 --> 00:01:03,960
+And it's made for Pharo.
+
+19
+00:01:05,120 --> 00:01:08,680
+Here are Voyage's features.
+It's very simple.
+
+20
+00:01:08,840 --> 00:01:12,320
+It ensures object identity
+when you reload them.
+
+21
+00:01:13,000 --> 00:01:15,320
+It provides error-handling.
+
+22
+00:01:15,480 --> 00:01:18,840
+And it also implements
+a connection pool
+
+23
+00:01:19,000 --> 00:01:21,160
+to speed things up.
+
+24
+00:01:22,720 --> 00:01:25,360
+To start simple,
+the first thing we'll do
+
+25
+00:01:25,520 --> 00:01:28,640
+is create a MongoRepository.
+
+26
+00:01:28,800 --> 00:01:31,520
+It uses these expressions:
+
+27
+00:01:32,240 --> 00:01:35,680
+You want to access
+your Mongo database,
+
+28
+00:01:35,840 --> 00:01:37,920
+which is managed from outside Pharo.
+
+29
+00:01:38,320 --> 00:01:41,880
+Often, when we are in prototype mode,
+
+30
+00:01:42,040 --> 00:01:44,440
+we use a Mongo database
+in the memory.
+
+31
+00:01:44,600 --> 00:01:47,600
+It's referred to here
+as Mongo Memory Repository.
+
+32
+00:01:48,040 --> 00:01:52,440
+You don't need a Mongo database.
+First, you prototype your application.
+
+33
+00:01:53,040 --> 00:01:58,080
+When it is running right,
+you switch the memory repository
+
+34
+00:01:58,360 --> 00:02:01,560
+into a real repository,
+and tackle your outside DB.
+
+35
+00:02:01,720 --> 00:02:04,000
+That's the way to proceed.
+
+36
+00:02:07,400 --> 00:02:08,680
+To illustrate Mongo,
+
+37
+00:02:09,040 --> 00:02:13,240
+we have a simple model
+of superheroes with superpowers,
+
+38
+00:02:13,680 --> 00:02:16,440
+their armor and weapons.
+
+39
+00:02:16,880 --> 00:02:21,440
+You'll be able to do the exercise
+based on what I show you in the course.
+
+40
+00:02:21,600 --> 00:02:23,160
+This is the support.
+
+41
+00:02:23,560 --> 00:02:26,680
+I think you'll enjoy scripting Superman.
+
+42
+00:02:27,280 --> 00:02:32,240
+First, let's look at how
+Hero and Power operate.
+
+43
+00:02:33,400 --> 00:02:38,920
+Basically, we have a Hero class,
+with a name, level, and powers.
+
+44
+00:02:39,880 --> 00:02:43,720
+I have an accessory for the name,
+a setter for the name.
+
+45
+00:02:43,880 --> 00:02:45,640
+Same for the level, here.
+
+46
+00:02:46,000 --> 00:02:48,040
+And I manage the powers
+as a set.
+
+47
+00:02:48,200 --> 00:02:53,000
+If powers is empty,
+I put in a set.
+
+48
+00:02:53,600 --> 00:02:56,400
+When I can add a power,
+I add one to the set.
+
+49
+00:02:56,560 --> 00:02:59,040
+So it's really very basic.
+
+50
+00:03:00,720 --> 00:03:04,560
+For the moment, the powers
+only have a name.
+
+51
+00:03:05,720 --> 00:03:08,920
+You can write the name or not.
+
+52
+00:03:10,000 --> 00:03:13,360
+Now, the point is
+to find a way to declare
+
+53
+00:03:13,800 --> 00:03:17,000
+that my domain classes
+are stored in a database.
+
+54
+00:03:17,240 --> 00:03:22,600
+The root class idea gives us
+an entry point for our database.
+
+55
+00:03:23,160 --> 00:03:27,720
+It can be any class in the system,
+and it is marked as the root
+
+56
+00:03:28,080 --> 00:03:32,280
+with a class method (I emphasize class)
+called isVoyageRoot.
+
+57
+00:03:33,800 --> 00:03:38,640
+This is how we do it for Hero class:
+isVoyageRoot returns true.
+
+58
+00:03:39,360 --> 00:03:43,400
+At this point, Voyage knows
+I will be able to store my heroes
+
+59
+00:03:43,800 --> 00:03:45,360
+in the Mongo database.
+
+60
+00:03:46,640 --> 00:03:48,960
+Let's do Spiderman.
+
+61
+00:03:49,240 --> 00:03:51,880
+His name is Spiderman,
+his level is epic.
+
+62
+00:03:52,240 --> 00:03:56,720
+His powers are his super strength,
+his ability to climb walls,
+
+63
+00:03:57,160 --> 00:04:01,760
+and the spider instincts
+he is purported to have.
+
+64
+00:04:02,440 --> 00:04:04,480
+I save that information.
+
+65
+00:04:04,880 --> 00:04:09,400
+"Save" tells Voyage
+to take this superhero,
+
+66
+00:04:09,560 --> 00:04:11,160
+and store it in the base.
+
+67
+00:04:11,400 --> 00:04:15,000
+We do the same thing
+with Wolverine and his powers,
+
+68
+00:04:15,160 --> 00:04:16,600
+and save that data.
+
+69
+00:04:16,880 --> 00:04:18,880
+Now, if I look at my Mongo base,
+
+70
+00:04:19,040 --> 00:04:21,440
+using db.Hero.find,
+
+71
+00:04:21,800 --> 00:04:21,840
+I see my hero Spiderman,
+
+72
+00:04:25,480 --> 00:04:27,280
+and I should see his powers.
+
+73
+00:04:27,640 --> 00:04:29,960
+This is where you have
+to be careful.
+
+74
+00:04:30,360 --> 00:04:34,920
+His superpowers are described
+in full here.
+
+75
+00:04:35,360 --> 00:04:37,480
+Same for Wolverine, etc.
+
+76
+00:04:39,880 --> 00:04:43,640
+Once you've done that,
+you can do lots with Pharo.
+
+77
+00:04:43,800 --> 00:04:48,080
+I won't go into the details.
+But I can select all the superheroes...
+
+78
+00:04:48,240 --> 00:04:51,320
+That gives me Spiderman
+and Wolverine.
+
+79
+00:04:51,640 --> 00:04:54,960
+I can say find Spiderman...
+
+80
+00:04:55,240 --> 00:05:01,160
+I can say I want to find all superheroes
+who have an epic level.
+
+81
+00:05:02,080 --> 00:05:04,720
+That gives me my two superheroes.
+
+82
+00:05:06,560 --> 00:05:09,280
+I can also express it differently.
+
+83
+00:05:09,440 --> 00:05:12,720
+Actually, the Mongo database
+
+84
+00:05:13,040 --> 00:05:16,160
+understands Json,
+so I can create Json on the fly,
+
+85
+00:05:16,440 --> 00:05:18,800
+inject it, and do Json-based queries.
+
+86
+00:05:19,080 --> 00:05:21,600
+Let's say I want to know
+
+87
+00:05:22,320 --> 00:05:24,560
+which superhero is named Spiderman.
+
+88
+00:05:24,760 --> 00:05:29,760
+But I've expressed it in Json form,
+as dictionary, so it returns an entry.
+
+89
+00:05:30,880 --> 00:05:33,440
+I can do the same thing
+with "select Many."
+
+90
+00:05:33,680 --> 00:05:38,000
+It depends on the easiest way
+for expressing your query.
+
+91
+00:05:38,160 --> 00:05:40,640
+But that's a detail for you, right now.
+
+92
+00:05:40,960 --> 00:05:43,400
+You can do much more advanced queries.
+
+93
+00:05:43,680 --> 00:05:46,280
+I can say "select all" the heroes
+
+94
+00:05:46,920 --> 00:05:51,280
+or "many" of the superheroes
+with an epic level.
+
+95
+00:05:51,440 --> 00:05:54,480
+I can sort their names
+in ascending order.
+
+96
+00:05:54,640 --> 00:05:58,400
+I set a limit of 10,
+and say I want to start at page 0.
+
+97
+00:05:58,560 --> 00:06:01,880
+That will bring me sections
+of the database.
+
+98
+00:06:03,120 --> 00:06:05,760
+When you need that,
+look in the documentation.
+
+99
+00:06:06,360 --> 00:06:10,280
+We can do other operations,
+like count our superheroes.
+
+100
+00:06:10,680 --> 00:06:14,160
+I can count those whose possess
+a certain property.
+
+101
+00:06:14,440 --> 00:06:18,240
+I can remove some.
+If I remove all, I empty the database.
+
+102
+00:06:18,560 --> 00:06:20,360
+Be careful of that command.
+
+103
+00:06:20,520 --> 00:06:23,680
+Here, I can select one,
+and remove it.
+
+104
+00:06:24,520 --> 00:06:26,960
+That hero will be removed from the base.
+
+105
+00:06:28,360 --> 00:06:31,000
+These are all operations
+that make sense.
+
+106
+00:06:31,880 --> 00:06:35,600
+Now, the question that will arise
+when using MongoDB
+
+107
+00:06:35,760 --> 00:06:39,840
+is, what is the base root,
+in Mongo lingo?
+
+108
+00:06:40,280 --> 00:06:42,760
+When is a class defined as a root?
+
+109
+00:06:43,080 --> 00:06:46,640
+The answer is,
+if you want to query that class.
+
+110
+00:06:46,800 --> 00:06:48,200
+That's the first rule.
+
+111
+00:06:48,320 --> 00:06:51,440
+I define that class as a root,
+
+112
+00:06:51,600 --> 00:06:55,600
+because I want to have access
+to all the objects in the class.
+
+113
+00:06:55,880 --> 00:06:58,880
+The other reason
+is wanting to be able to share
+
+114
+00:06:59,200 --> 00:07:02,800
+these objects between roots.
+
+115
+00:07:03,640 --> 00:07:06,800
+Say I want to share powers,
+to make it clearer.
+
+116
+00:07:07,240 --> 00:07:10,440
+I want to be able to share powers
+between heroes.
+
+117
+00:07:11,000 --> 00:07:15,160
+In that case, I have to define
+power as a root.
+
+118
+00:07:15,560 --> 00:07:16,760
+Watch this.
+
+119
+00:07:17,560 --> 00:07:21,560
+In our example, hero is a root.
+
+120
+00:07:21,720 --> 00:07:24,240
+But power can also be a root.
+
+121
+00:07:24,520 --> 00:07:28,520
+In Voyage, you can declare
+any class as a root.
+
+122
+00:07:29,120 --> 00:07:31,160
+Here is how to do it.
+
+123
+00:07:32,280 --> 00:07:37,040
+I say Power class isVoyageRoot.
+
+124
+00:07:37,880 --> 00:07:42,040
+Now, if I create the power "Fly,"
+
+125
+00:07:42,400 --> 00:07:44,960
+and save it, it is in the base.
+
+126
+00:07:45,920 --> 00:07:47,840
+Superstrength? The same.
+
+127
+00:07:48,000 --> 00:07:52,280
+Now I'll be able to make a query
+
+128
+00:07:52,680 --> 00:07:55,520
+that tells Voyage to get
+the power to fly.
+
+129
+00:07:55,760 --> 00:08:00,160
+I also want Voyage to get
+the power of superhuman strength.
+
+130
+00:08:00,920 --> 00:08:03,240
+And now I recreate Superman.
+
+131
+00:08:03,640 --> 00:08:05,080
+I say, "Hey!
+
+132
+00:08:06,840 --> 00:08:11,120
+I got these two powers, so there's
+only one in the system, and I save it.
+
+133
+00:08:11,400 --> 00:08:15,280
+But it's important for me
+to reset the base
+
+134
+00:08:15,480 --> 00:08:18,720
+so that it works right,
+
+135
+00:08:18,880 --> 00:08:22,240
+whenever you change the basic schema.
+
+136
+00:08:23,600 --> 00:08:26,880
+But now I want to show you
+what I have now.
+
+137
+00:08:27,320 --> 00:08:30,520
+Superman's powers
+are described differently.
+
+138
+00:08:31,360 --> 00:08:35,640
+The power isn't composed inside.
+I have a reference to a power.
+
+139
+00:08:36,640 --> 00:08:41,440
+That means if I have another superhero
+who knows how to fly,
+
+140
+00:08:42,160 --> 00:08:46,640
+I can share that superpower,
+instead of having two instances.
+
+141
+00:08:47,440 --> 00:08:51,920
+So, depending on your domain
+and how you want to modelize it,
+
+142
+00:08:52,280 --> 00:08:54,320
+you'll define roots differently.
+
+143
+00:08:54,480 --> 00:08:57,440
+This silly example
+is just to give you an idea.
+
+144
+00:08:57,720 --> 00:09:01,240
+Actually, if I repeat myself,
+you define a domain root
+
+145
+00:09:01,600 --> 00:09:07,040
+if you want to query it
+or share objects in the root.
+
+146
+00:09:09,560 --> 00:09:13,880
+In Voyage, relationships are expressed
+
+147
+00:09:14,320 --> 00:09:17,360
+the way "foreign keys" are
+in relational databases.
+
+148
+00:09:17,640 --> 00:09:21,640
+Voyage automatically handles
+cyclic references of root objects.
+
+149
+00:09:21,840 --> 00:09:26,440
+But be careful:
+Voyage does not support cyclic references
+
+150
+00:09:26,880 --> 00:09:29,600
+between embedded objects.
+
+151
+00:09:31,240 --> 00:09:35,800
+You'll experiment, and see.
+If you have roots, you're home safe.
+
+152
+00:09:36,320 --> 00:09:40,600
+In this course, I wanted to show you
+how easy it is to store objects
+
+153
+00:09:41,040 --> 00:09:43,160
+in a Mongo database.
+
+154
+00:09:43,680 --> 00:09:48,120
+If you want to know more, look at
+Enterprise Pharo: a Web Perspective.
+
+155
+00:09:48,280 --> 00:09:50,200
+It's in the MOOC resources.
+
+156
+00:09:50,600 --> 00:09:55,680
+You can also refer to a little tutorial
+on building the superhero base.
+
+157
+00:09:56,840 --> 00:09:58,200
+You can learn it all.

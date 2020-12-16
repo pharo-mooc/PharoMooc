@@ -1,0 +1,817 @@
+﻿1
+00:00:00,440 --> 00:00:04,440
+In this session, I'll talk
+about iterators and collections.
+
+2
+00:00:04,600 --> 00:00:09,000
+We'll see how to easily browse collections
+thanks to iterators in Pharo.
+
+3
+00:00:09,160 --> 00:00:13,000
+You'll understand
+the power of iterators in Pharo.
+
+4
+00:00:13,160 --> 00:00:17,640
+I'll review the main iterators
+you may use.
+
+5
+00:00:17,800 --> 00:00:19,360
+An example first:
+
+6
+00:00:19,520 --> 00:00:22,680
+this is the code
+you should write in Java
+
+7
+00:00:23,880 --> 00:00:25,320
+to browse a collection.
+
+8
+00:00:25,480 --> 00:00:28,160
+I'll browse the collection persons
+
+9
+00:00:28,320 --> 00:00:31,920
+to extract the list of people
+(object persons).
+
+10
+00:00:32,480 --> 00:00:35,240
+In Pharo, you'd write this code.
+
+11
+00:00:35,400 --> 00:00:39,880
+You'd use the iterator collect.
+We'll talk about it later.
+
+12
+00:00:40,040 --> 00:00:43,360
+You collect all the names of people.
+
+13
+00:00:43,520 --> 00:00:47,920
+By the way, in Java 8,
+the latest version of Java,
+
+14
+00:00:48,080 --> 00:00:51,120
+they've introduced blocks,
+
+15
+00:00:51,280 --> 00:00:53,640
+the equivalent of lexical closures.
+
+16
+00:00:53,800 --> 00:00:57,000
+As a result, the syntax
+is close to Pharo's.
+
+17
+00:00:57,160 --> 00:01:00,200
+But in Pharo, we've had it
+since the beginning.
+
+18
+00:01:00,360 --> 00:01:02,440
+It's at the heart of the language.
+
+19
+00:01:02,600 --> 00:01:07,320
+It gives big power of expression
+to a programmer.
+
+20
+00:01:08,200 --> 00:01:11,320
+There are plenty of iterators.
+
+21
+00:01:11,480 --> 00:01:16,400
+First, there's collect. What's the use
+of collect when sent to a collection?
+
+22
+00:01:16,560 --> 00:01:20,240
+This is a collection
+of positive and negative numbers.
+
+23
+00:01:20,400 --> 00:01:23,200
+I send the message collect,
+and I pass a block.
+
+24
+00:01:23,360 --> 00:01:25,560
+Whenever you browse the collection,
+
+25
+00:01:25,720 --> 00:01:30,160
+the parameter of the block
+will be in turn: 2, -3, 4, etc.
+
+26
+00:01:30,320 --> 00:01:33,760
+Then you send the message abs,
+for absolute.
+
+27
+00:01:33,920 --> 00:01:36,840
+It means you want the absolute value
+of this number.
+
+28
+00:01:37,000 --> 00:01:40,720
+Once you've applied the block
+to every element of the collection,
+
+29
+00:01:40,880 --> 00:01:43,360
+you aggregate the results in a new one.
+
+30
+00:01:43,520 --> 00:01:46,520
+The result returned by collect
+is a new collection.
+
+31
+00:01:46,680 --> 00:01:50,160
+The block has been applied
+to every element of the collection:
+
+32
+00:01:50,320 --> 00:01:53,800
+the absolute value of 2,
+the absolute value of -3, which is 3,
+
+33
+00:01:53,960 --> 00:01:58,480
+the absolute value of 4, 4,
+the absolute value of -35, 35.
+
+34
+00:01:58,640 --> 00:02:00,320
+and the absolute value of 4, 4.
+
+35
+00:02:01,080 --> 00:02:04,200
+The interesting thing
+which you must remember
+
+36
+00:02:04,360 --> 00:02:06,760
+is that you must think object.
+
+37
+00:02:06,920 --> 00:02:09,720
+We ask the collection
+to do something for us.
+
+38
+00:02:09,880 --> 00:02:14,440
+The collection
+browses its own elements by itself.
+
+39
+00:02:14,600 --> 00:02:17,240
+We provide the processing
+of each element.
+
+40
+00:02:17,400 --> 00:02:20,400
+That's where the secret
+of iterators lies.
+
+41
+00:02:21,040 --> 00:02:23,280
+This is another example of collect.
+
+42
+00:02:23,440 --> 00:02:27,000
+This is a collection
+to which I send the message collect.
+
+43
+00:02:27,160 --> 00:02:31,000
+In the block, I'll ask every time
+
+44
+00:02:31,760 --> 00:02:34,200
+whether the element is odd.
+
+45
+00:02:34,360 --> 00:02:37,160
+I'll aggregate all the results:
+
+46
+00:02:37,320 --> 00:02:40,080
+false, true, false, true.
+
+47
+00:02:43,720 --> 00:02:47,480
+Of course, you can write
+
+48
+00:02:47,640 --> 00:02:50,400
+what you'd usually write
+in other languages
+
+49
+00:02:50,560 --> 00:02:52,680
+devoid of blocks and iterators.
+
+50
+00:02:52,840 --> 00:02:55,160
+You could write: I take the collection,
+
+51
+00:02:55,760 --> 00:02:58,680
+I build a collection of results.
+
+52
+00:02:59,320 --> 00:03:03,560
+I'll browse from one
+to the collection size.
+
+53
+00:03:03,720 --> 00:03:04,960
+I'll use do.
+
+54
+00:03:05,120 --> 00:03:08,920
+I browse the collection
+and add things in the collection result.
+
+55
+00:03:09,080 --> 00:03:12,400
+You could write all this.
+It's exactly the same.
+
+56
+00:03:12,560 --> 00:03:15,440
+It's up to you.
+Do you want to write something simple
+
+57
+00:03:15,600 --> 00:03:19,000
+or something complicated?
+That's the question.
+
+58
+00:03:19,160 --> 00:03:22,000
+I much prefer the first solution.
+
+59
+00:03:24,200 --> 00:03:27,120
+In the hierarchy
+of the Pharo collections,
+
+60
+00:03:28,320 --> 00:03:32,000
+there's something crucial:
+all collections are polymorphic
+
+61
+00:03:32,160 --> 00:03:35,080
+and inherit the class.
+So you have a common API.
+
+62
+00:03:35,240 --> 00:03:39,720
+The upside is that the iterators
+will also work
+
+63
+00:03:39,880 --> 00:03:42,840
+with most collections.
+
+64
+00:03:44,480 --> 00:03:48,080
+It's really about thinking object:
+
+65
+00:03:48,240 --> 00:03:51,280
+you tell the collection
+to iterate on itself.
+
+66
+00:03:51,440 --> 00:03:54,800
+We don't know whether
+we're using a dictionary.
+
+67
+00:03:54,960 --> 00:03:58,880
+We don't want to know about the internal
+logic of keys, values, etc.
+
+68
+00:03:59,400 --> 00:04:02,320
+So you ask the collection to be nice
+
+69
+00:04:02,480 --> 00:04:04,960
+and to process its elements.
+
+70
+00:04:06,640 --> 00:04:11,320
+Many iterators can be used to do this.
+We already saw do: and collect:.
+
+71
+00:04:11,480 --> 00:04:14,280
+There are more:
+select:, reject:, detect:, etc.
+
+72
+00:04:14,440 --> 00:04:17,840
+We'll study a few of these
+later in this course.
+
+73
+00:04:19,320 --> 00:04:22,760
+do: is the simplest iterator.
+
+74
+00:04:22,920 --> 00:04:26,960
+It browses every element of the
+collection: they're in the transcript.
+
+75
+00:04:27,120 --> 00:04:30,560
+We already studied it many times.
+
+76
+00:04:30,720 --> 00:04:33,320
+This is a new iterator: select:.
+
+77
+00:04:33,480 --> 00:04:36,560
+I want to get all the elements
+of the collection
+
+78
+00:04:36,720 --> 00:04:38,360
+which match a criterion.
+
+79
+00:04:38,520 --> 00:04:41,960
+I want all the odd elements
+of the collection.
+
+80
+00:04:42,120 --> 00:04:45,040
+I send select: to the collection.
+
+81
+00:04:45,200 --> 00:04:46,440
+I pass a block.
+
+82
+00:04:46,600 --> 00:04:49,560
+Whenever the value of the block is true,
+
+83
+00:04:49,720 --> 00:04:53,080
+the element concerned
+is added to the result collection.
+
+84
+00:04:55,040 --> 00:04:58,080
+It's exactly the same as select: #odd.
+
+85
+00:04:58,240 --> 00:05:01,120
+When I have a block here
+
+86
+00:05:01,280 --> 00:05:05,400
+or what amounts to a single message send
+to the element of the collection,
+
+87
+00:05:05,560 --> 00:05:06,920
+the block's parameter,
+
+88
+00:05:07,080 --> 00:05:10,760
+I can display the name of the message
+to be sent as a symbol.
+
+89
+00:05:10,920 --> 00:05:12,480
+It's even shorter.
+
+90
+00:05:12,640 --> 00:05:16,000
+It only works with unary messages.
+
+91
+00:05:17,920 --> 00:05:20,880
+You may use other types of iterators
+such as reject:.
+
+92
+00:05:21,040 --> 00:05:24,160
+I want to get rid of the odd elements
+of the collection.
+
+93
+00:05:24,320 --> 00:05:27,520
+In the results,
+I'll only have even elements left.
+
+94
+00:05:28,520 --> 00:05:30,160
+Or I want to use detect:.
+
+95
+00:05:30,320 --> 00:05:34,000
+I want to detect the first element
+that matches a criterion:
+
+96
+00:05:34,160 --> 00:05:37,000
+the value of the block must be true.
+
+97
+00:05:37,160 --> 00:05:40,920
+I want the first odd element
+of the collection: 11.
+
+98
+00:05:42,320 --> 00:05:46,880
+Sometimes, you want to detect the first
+element that matches a criterion.
+
+99
+00:05:47,040 --> 00:05:50,120
+If there isn't any,
+you want a default value:
+
+100
+00:05:50,280 --> 00:05:52,440
+detect: ifNone:.
+
+101
+00:05:52,600 --> 00:05:57,360
+If there is no match,
+it will return the value of this block,
+
+102
+00:05:57,520 --> 00:05:59,640
+which is 0.
+
+103
+00:05:59,800 --> 00:06:04,800
+There are other iterators
+which make a programmer's life easier.
+
+104
+00:06:04,960 --> 00:06:06,800
+For instance, anySatisfy:
+
+105
+00:06:06,960 --> 00:06:10,600
+tests if one object
+meets the criterion.
+
+106
+00:06:10,760 --> 00:06:13,320
+I can test if all objects
+meet the criterion.
+
+107
+00:06:13,480 --> 00:06:17,320
+I can browse the collection in reverse,
+from the end.
+
+108
+00:06:17,480 --> 00:06:22,360
+I can browse the collection with an
+index or browse its elements in pairs.
+
+109
+00:06:22,520 --> 00:06:26,480
+I can browse all the possible
+circular permutations, etc.
+
+110
+00:06:26,640 --> 00:06:28,960
+There are many iterators.
+
+111
+00:06:29,120 --> 00:06:31,480
+You can build new ones, too.
+
+112
+00:06:31,640 --> 00:06:35,320
+I want to browse one collection 1 2 3
+
+113
+00:06:35,480 --> 00:06:38,440
+as well as another collection.
+
+114
+00:06:38,600 --> 00:06:42,600
+In the block do:, I have
+:x and :y which are two parameters.
+
+115
+00:06:42,760 --> 00:06:46,840
+:x is an element
+of the first collection;
+
+116
+00:06:47,000 --> 00:06:48,920
+y:, of the second.
+
+117
+00:06:49,080 --> 00:06:51,080
+I can multiply these elements:
+
+118
+00:06:51,240 --> 00:06:53,720
+the results are 10, 40, and 90.
+
+119
+00:06:54,840 --> 00:06:59,440
+Of course, with this iterator, the two
+collections must be of the same length.
+
+120
+00:07:01,360 --> 00:07:04,720
+There are other ways:
+
+121
+00:07:04,880 --> 00:07:08,120
+here I use do: separatedBy:.
+
+122
+00:07:08,280 --> 00:07:11,280
+I have a collection.
+I browse every element.
+
+123
+00:07:11,440 --> 00:07:14,040
+Whenever one element is browsed,
+
+124
+00:07:14,200 --> 00:07:17,680
+I give value to one block
+which matches a comma.
+
+125
+00:07:17,840 --> 00:07:20,480
+So I can browse a,
+
+126
+00:07:20,640 --> 00:07:23,320
+display a comma, then b,
+then a comma, then c.
+
+127
+00:07:23,480 --> 00:07:26,400
+Between each element,
+I perform one action.
+
+128
+00:07:28,880 --> 00:07:31,640
+This is the iterator groupedBy:.
+
+129
+00:07:31,800 --> 00:07:36,040
+I can use it to group
+the elements of a collection
+
+130
+00:07:36,200 --> 00:07:37,720
+with respect to criteria.
+
+131
+00:07:37,880 --> 00:07:42,040
+I sent this message
+to the collection 1 2 3 4 5 6 7.
+
+132
+00:07:42,200 --> 00:07:45,480
+As a result, I get a dictionary:
+
+133
+00:07:47,000 --> 00:07:50,440
+all the elements which returned false
+to this criterion,
+
+134
+00:07:50,600 --> 00:07:52,800
+which was #even, the even elements.
+
+135
+00:07:52,960 --> 00:07:56,000
+As you can see,
+I have all the odd elements.
+
+136
+00:07:56,160 --> 00:07:59,520
+All the even elements returned true.
+
+137
+00:08:02,280 --> 00:08:04,520
+It's often the case, when you compute,
+
+138
+00:08:04,680 --> 00:08:07,720
+that you tend to nest collections
+in collections.
+
+139
+00:08:07,880 --> 00:08:11,440
+You end up with huge nesting levels.
+
+140
+00:08:11,600 --> 00:08:14,480
+This is an example built by hand.
+
+141
+00:08:14,640 --> 00:08:17,560
+These are collections
+nested in collections.
+
+142
+00:08:17,720 --> 00:08:22,200
+We'd like to flatten the collection:
+to even everything out.
+
+143
+00:08:22,880 --> 00:08:26,960
+In Pharo, there's an easy way:
+
+144
+00:08:27,120 --> 00:08:29,120
+the flatCollect: iterator.
+
+145
+00:08:29,280 --> 00:08:33,520
+I browse the elements and build a new
+collection where everything is even.
+
+146
+00:08:35,240 --> 00:08:38,280
+You end up
+with the 1 2 3 4 5 6 collection.
+
+147
+00:08:38,440 --> 00:08:40,600
+The nesting levels are all gone.
+
+148
+00:08:44,040 --> 00:08:48,520
+I don't intend to tell you
+about every Pharo iterator.
+
+149
+00:08:48,680 --> 00:08:52,480
+It'd be long and unpleasant.
+I just want to show there are many.
+
+150
+00:08:52,640 --> 00:08:54,280
+You can define your own
+
+151
+00:08:54,440 --> 00:08:57,760
+by reading about collection classes.
+
+152
+00:08:57,920 --> 00:08:59,560
+Find out about them.
+
+153
+00:08:59,720 --> 00:09:02,960
+For instance, start
+with the iterators you already know.
+
+154
+00:09:03,120 --> 00:09:05,840
+You can wonder how do: is implemented.
+
+155
+00:09:06,000 --> 00:09:08,600
+I look for it
+in the hierarchy of collections.
+
+156
+00:09:08,760 --> 00:09:13,760
+I realize it's implemented
+as SequenceableCollection.
+
+157
+00:09:13,920 --> 00:09:16,680
+The method do:
+selects aBlock as its parameter.
+
+158
+00:09:16,840 --> 00:09:19,400
+This is the collection's implementation.
+
+159
+00:09:19,560 --> 00:09:23,320
+1 to: self size do: [i:| aBlock.
+
+160
+00:09:23,480 --> 00:09:26,600
+I evaluate the block
+used as the parameter
+
+161
+00:09:26,760 --> 00:09:29,840
+by passing it the element i.
+
+162
+00:09:30,000 --> 00:09:31,160
+It's very easy.
+
+163
+00:09:31,960 --> 00:09:37,280
+In Pharo, iterators are very powerful,
+as we just saw.
+
+164
+00:09:37,440 --> 00:09:41,880
+Every collection
+supports the iterators polymorphically.
+
+165
+00:09:42,040 --> 00:09:45,200
+Programmers use iterators
+
+166
+00:09:45,360 --> 00:09:48,240
+which get implemented
+by collection classes
+
+167
+00:09:49,000 --> 00:09:51,720
+according to the collection
+they represent.
+
+168
+00:09:52,520 --> 00:09:55,200
+You can define new ones.
+It's very interesting.
+
+169
+00:09:55,360 --> 00:09:58,840
+I can define my own iterators
+on the collection classes.
+
+170
+00:10:00,480 --> 00:10:04,480
+There's a small nuance for those
+who know the iterator design pattern:
+
+171
+00:10:05,160 --> 00:10:10,480
+a developer cannot choose
+when to go to the next element.
+
+172
+00:10:10,640 --> 00:10:14,120
+The collection decides it internally.
+
+173
+00:10:14,280 --> 00:10:17,160
+next isn't sent directly
+to the iterator.
+
+174
+00:10:17,320 --> 00:10:20,920
+It's a nuance for those
+who know the Iterator design pattern.
+
+175
+00:10:21,520 --> 00:10:25,720
+Iterators are very powerful.
+
+176
+00:10:25,880 --> 00:10:28,960
+They're a programmer's best friends.
+
+177
+00:10:29,120 --> 00:10:31,120
+It makes writing programs easier:
+
+178
+00:10:31,280 --> 00:10:34,280
+you can write short, simple,
+and elegant code.
+
+179
+00:10:34,440 --> 00:10:37,320
+It ensures
+
+180
+00:10:37,960 --> 00:10:40,720
+data encapsulation in a collection.

@@ -1,0 +1,198 @@
+1
+00:00:04,080 --> 00:00:06,080
+-Hi everyone. In this video,
+we are going to look
+
+2
+00:00:06,400 --> 00:00:08,240
+at how we can use the tool Metacello
+
+3
+00:00:08,920 --> 00:00:12,240
+to load external packages
+inside your Pharo environment.
+
+4
+00:00:12,560 --> 00:00:16,000
+The package we are going to look at
+is called "Containers-Stack".
+
+5
+00:00:16,320 --> 00:00:21,200
+It basically consists
+of stack implementations
+
+6
+00:00:21,520 --> 00:00:25,600
+with push, size, top,
+and pop variations.
+
+7
+00:00:25,920 --> 00:00:31,520
+A really simple stack implementation.
+You can see in the paragraph Loading
+
+8
+00:00:31,840 --> 00:00:36,360
+that you will have a piece of code
+that is calling Metacello
+
+9
+00:00:36,680 --> 00:00:39,560
+along with a baseline
+and repository arguments.
+
+10
+00:00:39,880 --> 00:00:42,880
+We are going to look into the baseline
+a bit later on.
+
+11
+00:00:43,200 --> 00:00:48,600
+But if we look at the repository, it is
+basically this URL slightly modified.
+
+12
+00:00:48,920 --> 00:00:52,800
+Let's just try to copy this
+into our Pharo environment.
+
+13
+00:00:53,960 --> 00:00:56,640
+Navigate to our Pharo environment,
+System Browser open.
+
+14
+00:00:57,160 --> 00:00:59,520
+We are going to look for containers.
+
+15
+00:00:59,840 --> 00:01:01,960
+We have the definitions
+of containers, rings.
+
+16
+00:01:02,280 --> 00:01:05,520
+If we go to Pharo,
+Tools then Playground,
+
+17
+00:01:05,840 --> 00:01:10,800
+you can paste the code I just copied
+and then, if we execute it with Cmd+D,
+
+18
+00:01:11,120 --> 00:01:13,120
+you can see
+that it is loading everything,
+
+19
+00:01:13,440 --> 00:01:18,200
+and we can now see those 3 new packages.
+Basically, we have the Containers-Stack
+
+20
+00:01:18,520 --> 00:01:21,800
+where there is the actual
+implementation of the stack.
+
+21
+00:01:22,120 --> 00:01:26,760
+Then a test package which we can check
+if it is green. It is, great.
+
+22
+00:01:27,080 --> 00:01:30,960
+And we have got
+BaselineOfContainersStack.
+
+23
+00:01:31,280 --> 00:01:33,880
+This was what I was talking about.
+Basically,
+
+24
+00:01:34,200 --> 00:01:40,200
+baselines are classes which only have
+one method called baseline.
+
+25
+00:01:40,520 --> 00:01:47,600
+It will specify which packages every
+package in your actual project will need
+
+26
+00:01:47,920 --> 00:01:49,040
+in order to work correctly.
+
+27
+00:01:49,360 --> 00:01:54,680
+Here, we can see that we have got a spec
+package for the Containers-Stack-Tests
+
+28
+00:01:55,000 --> 00:01:57,840
+that requires the actual
+Containers-Stack in order to work.
+
+29
+00:01:58,160 --> 00:02:01,440
+It is a real simple baseline,
+but this will help you
+
+30
+00:02:01,760 --> 00:02:04,760
+specify how your project
+will work altogether.
+
+31
+00:02:05,080 --> 00:02:07,400
+We can see, if we go back
+to the GitHub page,
+
+32
+00:02:07,720 --> 00:02:11,000
+that "If you want to depend on it".
+So, basically,
+
+33
+00:02:11,320 --> 00:02:14,680
+if you want to use Containers-Stack
+in a bigger project,
+
+34
+00:02:15,000 --> 00:02:17,400
+you can use the spec baseline
+Containers-Stack
+
+35
+00:02:17,720 --> 00:02:18,720
+with spec repositories.
+
+36
+00:02:19,040 --> 00:02:21,520
+So, this is something you have
+to include in your baseline
+
+37
+00:02:21,840 --> 00:02:24,360
+in order to depend on this project here.
+
+38
+00:02:25,240 --> 00:02:27,320
+We learned how to use Metacello
+
+39
+00:02:27,640 --> 00:02:31,840
+in order to load GitHub repositories
+with a baseline.
+
+40
+00:02:32,160 --> 00:02:37,160
+A baseline is something that specifies
+what a project needs
+
+41
+00:02:37,480 --> 00:02:40,880
+in terms of dependencies
+in order to load correctly.

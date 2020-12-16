@@ -1,0 +1,668 @@
+﻿1
+00:00:00,400 --> 00:00:03,560
+Hello. In this sequence
+we'll be looking at Reflection,
+
+2
+00:00:03,720 --> 00:00:08,640
+the capacity for Introspection
+in Pharo and why it's useful.
+
+3
+00:00:09,600 --> 00:00:11,880
+A reflective system,
+
+4
+00:00:12,040 --> 00:00:15,960
+reflection is divided
+into 2 major families,
+
+5
+00:00:16,120 --> 00:00:18,000
+Introspection
+
+6
+00:00:18,160 --> 00:00:21,240
+is a program's ability
+to observe its own state,
+
+7
+00:00:21,400 --> 00:00:25,880
+Intercession is a program's ability
+to modify itself.
+
+8
+00:00:26,040 --> 00:00:29,040
+To modify its own state
+or interpretation.
+
+9
+00:00:30,640 --> 00:00:34,560
+Reification is a concept that consists
+
+10
+00:00:34,720 --> 00:00:39,760
+of making explicit (objects) things
+that are normally implicit.
+
+11
+00:00:39,920 --> 00:00:43,920
+For example, the execution stack
+
+12
+00:00:44,080 --> 00:00:49,400
+in Pharo is explicit,
+but can be got as a classic object.
+
+13
+00:00:49,920 --> 00:00:55,280
+More classically, a class in Pharo
+is a totally classic object.
+
+14
+00:00:55,480 --> 00:00:58,960
+In other languages,
+classes aren't objects.
+
+15
+00:01:00,040 --> 00:01:02,160
+A reflective system, as I said,
+
+16
+00:01:02,320 --> 00:01:06,600
+has its own representation of itself.
+
+17
+00:01:06,760 --> 00:01:09,600
+It's capable of representing itself,
+
+18
+00:01:09,760 --> 00:01:14,840
+and it can act on this representation
+to modify itself,
+
+19
+00:01:15,000 --> 00:01:19,600
+and when it modifies itself
+it changes its state and representation.
+
+20
+00:01:19,760 --> 00:01:22,600
+We call it a "causal connection"
+
+21
+00:01:22,760 --> 00:01:25,520
+between its representation
+and its state.
+
+22
+00:01:25,680 --> 00:01:27,720
+If we change the state,
+
+23
+00:01:27,880 --> 00:01:32,520
+the system representation changes
+as well as the state of the system.
+
+24
+00:01:33,000 --> 00:01:37,080
+Why is this interesting?
+It's interesting because we'll use
+
+25
+00:01:37,480 --> 00:01:41,160
+this introspection and intercession
+
+26
+00:01:41,320 --> 00:01:43,240
+to look inside objects.
+
+27
+00:01:43,400 --> 00:01:48,800
+I'm defining a collection,
+which I make an "OrderedCollection"
+
+28
+00:01:49,680 --> 00:01:54,680
+then I'll use the Pharo Inspector,
+which is a tool,
+
+29
+00:01:54,840 --> 00:01:57,960
+which can look inside this object.
+
+30
+00:01:58,120 --> 00:02:02,200
+It's an instance object
+of the OrderedCollection class,
+
+31
+00:02:02,360 --> 00:02:05,840
+as we see here,
+it has instance variables,
+
+32
+00:02:06,000 --> 00:02:07,720
+"first index", "last index",
+
+33
+00:02:07,880 --> 00:02:10,600
+we have the values of this
+object's instance variables
+
+34
+00:02:10,760 --> 00:02:15,400
+so 1, 12 and then
+an array of 12 elements, OK?
+
+35
+00:02:15,560 --> 00:02:19,400
+We might wonder how
+this Inspector tool
+
+36
+00:02:19,560 --> 00:02:22,000
+is able to look inside objects.
+
+37
+00:02:22,160 --> 00:02:25,120
+How can it see
+the internal state of objects?
+
+38
+00:02:26,600 --> 00:02:31,160
+It uses introspection methods
+to look inside the objects,
+
+39
+00:02:31,320 --> 00:02:34,360
+There are lots of them,
+defined as "objects".
+
+40
+00:02:34,520 --> 00:02:37,800
+So "instVarAt" allows us to see
+
+41
+00:02:37,960 --> 00:02:40,960
+an instance invariable
+according to its number.
+
+42
+00:02:41,120 --> 00:02:44,480
+I'll see instance variable
+number 1 of this object.
+
+43
+00:02:44,640 --> 00:02:49,600
+I can modify instance variable number 1
+of this object by setting a new value,
+
+44
+00:02:49,760 --> 00:02:52,160
+or I can access an instance
+variable by its name,
+
+45
+00:02:52,320 --> 00:02:56,000
+or change it by its name,
+"instVarNamed put". OK?
+
+46
+00:02:58,320 --> 00:03:01,160
+Here are some examples.
+Typically we create a point,
+
+47
+00:03:01,320 --> 00:03:04,880
+and then we do...
+the point is 10@3
+
+48
+00:03:05,040 --> 00:03:07,360
+instVarNamed: 'x'.
+
+49
+00:03:07,520 --> 00:03:11,760
+I'll get the value of the instance
+variable called 'x' of this point,
+
+50
+00:03:11,920 --> 00:03:14,080
+which gives me 10.
+
+51
+00:03:14,240 --> 00:03:17,960
+Then "instVarNamed: 'x' put:33"
+
+52
+00:03:18,120 --> 00:03:21,840
+I've changed the value of
+the instance variable 'x' of this point.
+
+53
+00:03:22,000 --> 00:03:25,680
+It's gone from 10 to 33.
+
+54
+00:03:25,840 --> 00:03:30,080
+I've been able to change
+the inner state of an object,
+
+55
+00:03:30,240 --> 00:03:34,120
+by using introspection and intercession,
+
+56
+00:03:34,280 --> 00:03:38,200
+particularly intercession,
+"instVarNamed put". OK?
+
+57
+00:03:38,360 --> 00:03:40,800
+The main point is that
+we've violated encapsulation.
+
+58
+00:03:40,960 --> 00:03:45,560
+An external object has modified
+this object, without being internal,
+
+59
+00:03:45,720 --> 00:03:49,600
+so it violates encapsulation
+but it's extremely useful
+
+60
+00:03:49,760 --> 00:03:52,960
+when building tools
+and during development.
+
+61
+00:03:53,120 --> 00:03:56,840
+It's not to be used in the normal
+code of an application,
+
+62
+00:03:57,000 --> 00:04:00,160
+but it's extremely powerful
+for building generic tools,
+
+63
+00:04:00,320 --> 00:04:02,320
+typically code inspectors.
+
+64
+00:04:03,680 --> 00:04:07,360
+I'll give you another example
+of introspection, the class method,
+
+65
+00:04:07,520 --> 00:04:11,240
+for getting the class of an object.
+It's defined in "Object>>class".
+
+66
+00:04:11,400 --> 00:04:14,760
+I ask this string its class,
+it gives me the class string,
+
+67
+00:04:14,920 --> 00:04:17,880
+this point what is its class,
+the class point,
+
+68
+00:04:18,040 --> 00:04:21,600
+"Smalltalk class",
+I can ask the class of the class class.
+
+69
+00:04:21,760 --> 00:04:23,840
+etcetera, then I add class class...
+
+70
+00:04:24,000 --> 00:04:26,560
+Basically, I can query the system
+
+71
+00:04:26,720 --> 00:04:30,880
+by sending the message "class"
+to objects to discover their class.
+
+72
+00:04:31,320 --> 00:04:34,040
+There are many methods
+for querying the system.
+
+73
+00:04:34,200 --> 00:04:38,360
+Here, I take "OrderedCollection"
+and send it lots of query messages.
+
+74
+00:04:38,520 --> 00:04:41,200
+I'll get all of its superclasses,
+
+75
+00:04:41,360 --> 00:04:45,520
+all of its selectors,
+the name of its instance variables,
+
+76
+00:04:45,680 --> 00:04:50,680
+all of the selectors,
+the name of its instance variables,
+
+77
+00:04:50,840 --> 00:04:54,120
+all of its subclasses, etc...
+
+78
+00:04:54,280 --> 00:04:56,160
+And all of its lines of code.
+
+79
+00:04:57,320 --> 00:05:00,920
+All of this allows us to build
+top level tools,
+
+80
+00:05:01,080 --> 00:05:04,840
+such as the navigation system here.
+
+81
+00:05:05,000 --> 00:05:09,600
+This navigation system lets us
+show or browse the system.
+
+82
+00:05:09,760 --> 00:05:14,360
+For example,
+I can see all the classes
+
+83
+00:05:15,440 --> 00:05:18,880
+that implement the method "#,".
+
+84
+00:05:19,040 --> 00:05:21,720
+Here we've a window that will open.
+
+85
+00:05:21,880 --> 00:05:24,600
+We'll see all the implementors of #,
+
+86
+00:05:24,760 --> 00:05:29,200
+so the class "AbstractFileReference"
+implements the method "#,".
+
+87
+00:05:29,360 --> 00:05:32,280
+I've a list of all the classes
+implemented by this method.
+
+88
+00:05:33,880 --> 00:05:37,520
+Another example,
+we'd like to implement
+
+89
+00:05:38,280 --> 00:05:41,240
+a menu or a button.
+
+90
+00:05:41,400 --> 00:05:45,520
+By clicking on it, we want to send
+a message to the object behind it,
+
+91
+00:05:45,680 --> 00:05:48,680
+according to the button's name,
+for example.
+
+92
+00:05:48,840 --> 00:05:53,760
+How do I turn a string into a message
+to send to an object?
+
+93
+00:05:54,560 --> 00:05:59,480
+I've an intercession method for that.
+"Perform" defined under "object".
+
+94
+00:05:59,640 --> 00:06:03,320
+I pass it a symbol,
+the name of a message to execute,
+
+95
+00:06:03,480 --> 00:06:06,360
+and it will send this message
+to the object in question.
+
+96
+00:06:06,520 --> 00:06:10,560
+I've a 2nd kind of message,
+"perform with".
+
+97
+00:06:10,720 --> 00:06:14,960
+I can give the name of the symbol,
+the name of the method to execute,
+
+98
+00:06:15,120 --> 00:06:16,800
+and then pass a list of arguments.
+
+99
+00:06:16,960 --> 00:06:19,400
+An example, if I do "5 factorial"
+
+100
+00:06:19,560 --> 00:06:23,280
+sending a classic message,
+and send the reflective message,
+
+101
+00:06:23,440 --> 00:06:28,960
+its "5 perform # factorial"
+that's a symbol which means,
+
+102
+00:06:29,280 --> 00:06:34,680
+"Object 5, please execute
+or receive the message factorial".
+
+103
+00:06:34,880 --> 00:06:39,600
+The normal lookup is applied
+and these two forms are the same.
+
+104
+00:06:40,240 --> 00:06:41,920
+Here's another example.
+
+105
+00:06:42,120 --> 00:06:44,480
+Here we have a code inspector
+
+106
+00:06:44,640 --> 00:06:49,600
+"Ordered collection", we can see inside
+the class "Ordered Collection".
+
+107
+00:06:49,760 --> 00:06:54,480
+This class contains attributes,
+
+108
+00:06:54,640 --> 00:06:57,000
+instance variables,
+for example "methodDict".
+
+109
+00:06:57,160 --> 00:07:01,680
+In "methodDict" we see
+that the class "OrderedCollection"
+
+110
+00:07:01,840 --> 00:07:05,960
+comes from "Behaviour"
+so it has a "methodDict' here,
+
+111
+00:07:06,120 --> 00:07:10,360
+an instance of "MethodDictionary"
+containing "CompiledMethod".
+
+112
+00:07:10,520 --> 00:07:14,360
+So we can see
+this method dictionary contains
+
+113
+00:07:14,520 --> 00:07:17,360
+a compiled method here, etc...
+
+114
+00:07:17,520 --> 00:07:20,360
+another compiled method...
+Lots of compiled methods.
+
+115
+00:07:20,840 --> 00:07:25,480
+We'll be able to ask each
+of these compiled methods
+
+116
+00:07:25,920 --> 00:07:28,280
+for their source code.
+If I do "self getSource"
+
+117
+00:07:28,440 --> 00:07:30,600
+I'll get the source code
+of the compiled method.
+
+118
+00:07:30,880 --> 00:07:32,200
+But we can go further.
+
+119
+00:07:32,400 --> 00:07:35,800
+A compiled method can be asked
+to execute itself directly
+
+120
+00:07:35,960 --> 00:07:39,200
+with the message,
+"valueWithReceiver:arguments".
+
+121
+00:07:39,360 --> 00:07:42,200
+But watch out!
+If I do that, there's no lookup.
+
+122
+00:07:42,360 --> 00:07:45,920
+Seeing as I already have
+a compiled method,
+
+123
+00:07:46,080 --> 00:07:48,600
+it executes itself directly
+without a message.
+
+124
+00:07:48,760 --> 00:07:53,520
+Here I'll ask the integer class
+to get its compiled method "factorial",
+
+125
+00:07:53,680 --> 00:07:56,240
+which I get from the
+class compiled method.
+
+126
+00:07:56,400 --> 00:07:59,320
+I send it the message,
+"valueWithReceiver:arguments".
+
+127
+00:07:59,480 --> 00:08:03,200
+I pass it the arguments,
+the receiver will be 5,
+
+128
+00:08:03,360 --> 00:08:06,320
+the arguments will be (),
+because it's a unary message,
+
+129
+00:08:06,480 --> 00:08:08,800
+and we'll get the result.
+
+130
+00:08:09,760 --> 00:08:14,880
+It triggers execution of the
+compiled method without lookup.
+
+131
+00:08:15,240 --> 00:08:18,360
+So to summarize,
+reflection is extremely powerful.
+
+132
+00:08:18,560 --> 00:08:22,360
+We've seen it's something
+that allows us to introspect
+
+133
+00:08:22,840 --> 00:08:25,240
+the whole system
+because it represents it
+
+134
+00:08:25,400 --> 00:08:26,880
+in itself as an object,
+
+135
+00:08:27,040 --> 00:08:29,440
+but also to modify
+the state of the system.
+
+136
+00:08:29,600 --> 00:08:33,240
+It lets us build tools
+in a generic way in all objects.
+
+137
+00:08:33,960 --> 00:08:36,400
+So you can really talk to objects
+
+138
+00:08:36,560 --> 00:08:40,000
+with a protocol that's structurally
+the same for all objects.
+
+139
+00:08:40,160 --> 00:08:43,800
+But watch out!
+It violates encapsulation.
+
+140
+00:08:43,960 --> 00:08:48,080
+It isn't used in operational code,
+but for tool building.
+
+141
+00:08:48,240 --> 00:08:52,840
+It facilitates the writing
+of code inspectors as we saw,
+
+142
+00:08:53,000 --> 00:08:56,560
+and you can see how
+it's implemented in Pharo.

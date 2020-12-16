@@ -1,0 +1,588 @@
+1
+00:00:03,640 --> 00:00:07,240
+-Hi. In this last part
+of the redo of week 3,
+
+2
+00:00:07,560 --> 00:00:11,200
+we are going to look at how we can
+finally implement this actual language.
+
+3
+00:00:11,640 --> 00:00:12,720
+So, basically,
+
+4
+00:00:13,040 --> 00:00:17,520
+what we will have to do is send
+the message "D4" to the Integer 1,
+
+5
+00:00:17,920 --> 00:00:19,800
+send "D6" to the Integer 2.
+
+6
+00:00:20,120 --> 00:00:23,960
+We would expect "2 D6"
+to output a handle
+
+7
+00:00:24,280 --> 00:00:27,440
+and finally, we will have to implement
+the operation between handles.
+
+8
+00:00:27,760 --> 00:00:33,360
+First, let's go over to the Integer class
+as we will have to extend it.
+
+9
+00:00:33,880 --> 00:00:35,000
+Cmd+B,
+
+10
+00:00:35,320 --> 00:00:39,280
+to open the System Browser
+for the correct class and package.
+
+11
+00:00:39,600 --> 00:00:44,080
+What we will do is create a new method
+called "D20" for example.
+
+12
+00:00:45,240 --> 00:00:46,400
+What should it do?
+
+13
+00:00:46,720 --> 00:00:49,720
+It should output a handle
+so we have to create a handle.
+
+14
+00:00:50,040 --> 00:00:52,840
+"handle := DieHandle new".
+
+15
+00:00:53,440 --> 00:00:54,760
+Then, we will have to add...
+
+16
+00:00:55,080 --> 00:00:57,240
+For example, if we look at "2 D6",
+
+17
+00:00:57,560 --> 00:01:00,800
+we will have to add a die with 6 faces
+
+18
+00:01:01,120 --> 00:01:03,440
+for each time
+the Integer here represents.
+
+19
+00:01:03,760 --> 00:01:07,920
+What this means is that we will have
+to do "self timesRepeat".
+
+20
+00:01:08,640 --> 00:01:11,480
+Then, we will have to add the die,
+so "addDie:
+
+21
+00:01:13,200 --> 00:01:16,920
+(Die withFaces: 20)"
+
+22
+00:01:17,240 --> 00:01:18,960
+because we are using the D20.
+
+23
+00:01:19,720 --> 00:01:22,160
+Basically, this will be the Integer,
+
+24
+00:01:22,480 --> 00:01:25,960
+"1 D20", "2 D20" for example, "2 D20",
+
+25
+00:01:26,280 --> 00:01:31,400
+we will repeat twice
+the adding of a die with 20 faces
+
+26
+00:01:31,720 --> 00:01:33,440
+and then it will output the handle.
+
+27
+00:01:33,840 --> 00:01:35,240
+We will save that.
+
+28
+00:01:35,960 --> 00:01:36,840
+As you can see,
+
+29
+00:01:37,160 --> 00:01:40,720
+it has been saved in the Kernel
+"Numbers" package
+
+30
+00:01:41,040 --> 00:01:44,040
+so we might not want
+to put our method there.
+
+31
+00:01:44,360 --> 00:01:47,000
+What we can do is either right-click,
+
+32
+00:01:47,320 --> 00:01:50,280
+go to Refactorings
+and put it in our package,
+
+33
+00:01:50,680 --> 00:01:54,600
+or we can just check the box
+that is hidden there, "extension".
+
+34
+00:01:54,920 --> 00:01:59,640
+We will check this and go to "Dice",
+click that, press OK.
+
+35
+00:02:00,360 --> 00:02:01,760
+And now, we can go back there
+
+36
+00:02:02,080 --> 00:02:04,720
+and see that we have an Integer class
+that just appeared
+
+37
+00:02:05,040 --> 00:02:08,640
+and if we click on it,
+we can look back for our D20 method.
+
+38
+00:02:08,960 --> 00:02:11,000
+That is great. We will write a test for it.
+
+39
+00:02:11,320 --> 00:02:14,880
+Basically, "testSimpleHandle".
+
+40
+00:02:15,640 --> 00:02:20,160
+What we will do is "self assert"
+
+41
+00:02:21,720 --> 00:02:24,200
+that "2 D20 diceNumber"
+
+42
+00:02:25,640 --> 00:02:26,760
+equals: 2".
+
+43
+00:02:27,080 --> 00:02:29,800
+What does "2 D20" represent
+if we inspect it?
+
+44
+00:02:30,120 --> 00:02:35,560
+We can see that it is a "dieHandle"
+with the two "Die" with 20 faces.
+
+45
+00:02:36,080 --> 00:02:37,120
+This should be correct
+
+46
+00:02:37,440 --> 00:02:40,320
+because it will output
+the diceNumber of this handle there.
+
+47
+00:02:40,920 --> 00:02:43,080
+Let's save it, run it,
+
+48
+00:02:43,400 --> 00:02:45,560
+and perfect, our test is green.
+
+49
+00:02:46,280 --> 00:02:52,960
+Now, we would like to have our "D4",
+"D6", "D10", "D16", "D12", whatever.
+
+50
+00:02:53,400 --> 00:02:58,160
+We can just go there
+and copy this while changing this one
+
+51
+00:02:58,560 --> 00:03:01,840
+or what we can do
+that might be a bit smarter,
+
+52
+00:03:02,720 --> 00:03:05,960
+is write a "D: aNumber"
+
+53
+00:03:06,280 --> 00:03:09,240
+and to replace the "20" there
+with "aNumber"
+
+54
+00:03:09,560 --> 00:03:14,240
+because this way,
+we can simplify this call each time.
+
+55
+00:03:14,560 --> 00:03:17,800
+For example, let's save it,
+let's now call "D6".
+
+56
+00:03:18,120 --> 00:03:19,240
+What do we have to call?
+
+57
+00:03:19,560 --> 00:03:24,920
+We simply have to call "self D: 6".
+
+58
+00:03:25,320 --> 00:03:28,080
+This will output the same thing
+as with "D20"
+
+59
+00:03:28,400 --> 00:03:30,800
+except with a die with 6 faces.
+
+60
+00:03:31,120 --> 00:03:32,080
+So, let's save this.
+
+61
+00:03:33,360 --> 00:03:35,240
+We can even rewrite this one
+
+62
+00:03:35,560 --> 00:03:40,440
+and call the "D:" method, "D: 20".
+
+63
+00:03:40,760 --> 00:03:42,960
+We will do a couple more,
+for example "10",
+
+64
+00:03:45,200 --> 00:03:46,040
+"6".
+
+65
+00:03:46,360 --> 00:03:47,680
+Wait, I already did 6.
+
+66
+00:03:48,040 --> 00:03:51,200
+"4" and "12".
+
+67
+00:03:52,000 --> 00:03:54,040
+We have most of the dice needed.
+
+68
+00:03:54,360 --> 00:03:55,800
+Perfect, we have everything
+
+69
+00:03:56,120 --> 00:03:58,520
+and now we will check
+that it is correctly working.
+
+70
+00:04:01,400 --> 00:04:04,120
+What we can do is simply go over there,
+
+71
+00:04:04,720 --> 00:04:06,400
+inspect this part.
+
+72
+00:04:06,720 --> 00:04:11,720
+We can see that we have a DieHandle
+within a die collection,
+
+73
+00:04:12,040 --> 00:04:14,720
+2 Die with 6 faces.
+
+74
+00:04:15,240 --> 00:04:19,160
+And if we go over to this one
+and press 3, inspect it,
+
+75
+00:04:19,480 --> 00:04:21,160
+we have 3 Die with 4 faces.
+
+76
+00:04:21,480 --> 00:04:22,480
+That seems correct.
+
+77
+00:04:22,800 --> 00:04:25,480
+Right now, what we need
+is the "+" function to work
+
+78
+00:04:26,000 --> 00:04:27,960
+so we have to go over to the DieHandle
+
+79
+00:04:28,640 --> 00:04:31,760
+and implement the "+ aDieHandle".
+
+80
+00:04:32,080 --> 00:04:35,480
+Basically, what will happen
+is we will create another DieHandle
+
+81
+00:04:35,800 --> 00:04:38,720
+that will be the result
+of a combination of both at once
+
+82
+00:04:39,040 --> 00:04:40,480
+and we will have to combine
+
+83
+00:04:40,800 --> 00:04:45,160
+the dice collection
+from the D4 result there
+
+84
+00:04:45,680 --> 00:04:50,240
+with the dice collection
+from the handle of D6.
+
+85
+00:04:50,720 --> 00:04:52,760
+So, we will create the handle.
+
+86
+00:04:53,720 --> 00:04:56,160
+We will say "self class new"
+
+87
+00:04:56,800 --> 00:04:58,920
+because right now,
+we are already in the DieHandle.
+
+88
+00:04:59,520 --> 00:05:03,480
+And we will go to "self dice do:"
+
+89
+00:05:03,800 --> 00:05:05,640
+so we will iterate
+all the dice collection
+
+90
+00:05:05,960 --> 00:05:08,240
+from the dice handle
+we are currently in.
+
+91
+00:05:08,560 --> 00:05:15,720
+So,
+"do: [ :each | handle addDie: each ]".
+
+92
+00:05:17,360 --> 00:05:20,840
+This will add all the dice
+from within the current handle
+
+93
+00:05:21,160 --> 00:05:22,040
+into the results.
+
+94
+00:05:22,360 --> 00:05:24,960
+Now, we need to add
+the one in the argument,
+
+95
+00:05:25,440 --> 00:05:30,320
+so: "aDieHandle dice do:"
+and the same thing.
+
+96
+00:05:31,520 --> 00:05:36,240
+Once we have added both together,
+we can simply return the handle.
+
+97
+00:05:38,120 --> 00:05:42,320
+Let's try to test to see
+if the correct result is being output,
+
+98
+00:05:42,640 --> 00:05:44,240
+so, "testSumming".
+
+99
+00:05:45,120 --> 00:05:47,720
+We will say "self assert"
+
+100
+00:05:48,040 --> 00:05:55,040
+that "3 D4 + 2 D6",
+
+101
+00:05:56,280 --> 00:05:58,240
+within parentheses,
+
+102
+00:06:00,120 --> 00:06:05,120
+actually holds 5 dice.
+
+103
+00:06:06,080 --> 00:06:07,280
+Let's save this.
+
+104
+00:06:07,760 --> 00:06:09,080
+We can run it now
+
+105
+00:06:09,520 --> 00:06:11,280
+and I can see that the test is green.
+
+106
+00:06:11,600 --> 00:06:13,600
+I will just remove this.
+
+107
+00:06:13,920 --> 00:06:15,240
+If we inspect this,
+
+108
+00:06:15,800 --> 00:06:20,920
+we can see that we have
+our 3 dice with 4 faces
+
+109
+00:06:21,240 --> 00:06:23,440
+and our 2 dice with 6 faces.
+
+110
+00:06:23,760 --> 00:06:26,520
+That is exactly
+what we would like to see.
+
+111
+00:06:27,040 --> 00:06:28,120
+But now, we will see
+
+112
+00:06:28,440 --> 00:06:31,720
+if the roll function is working,
+so "roll".
+
+113
+00:06:33,880 --> 00:06:38,280
+We know that we can have a result
+between 5, the number of dice,
+
+114
+00:06:38,600 --> 00:06:41,600
+and the maxValue,
+that we can call right now, "maxValue",
+
+115
+00:06:43,040 --> 00:06:44,240
+which is 24.
+
+116
+00:06:45,120 --> 00:06:47,720
+So, we have correctly implemented a way
+
+117
+00:06:48,040 --> 00:06:52,480
+to understand this kind of language,
+"3 D4 + 2D6",
+
+118
+00:06:52,800 --> 00:06:54,680
+and then just roll the whole handle.
+
+119
+00:06:56,280 --> 00:06:58,800
+And right before I stop the video,
+
+120
+00:06:59,120 --> 00:07:02,720
+we are going to save
+in our Repository for the last time.
+
+121
+00:07:03,040 --> 00:07:04,440
+So, go over to your Iceberg.
+
+122
+00:07:05,040 --> 00:07:07,320
+We can see there
+that we have uncommitted changes
+
+123
+00:07:07,640 --> 00:07:09,360
+so double-click on that, press Commit.
+
+124
+00:07:10,120 --> 00:07:14,160
+We have added the method "+"
+for the DieHandle,
+
+125
+00:07:14,800 --> 00:07:19,040
+two simple tests and then,
+the extension of the Integer class
+
+126
+00:07:19,360 --> 00:07:20,880
+for our "D10", "D12",
+
+127
+00:07:21,200 --> 00:07:23,840
+or basically any dice
+since we have this method right there.
+
+128
+00:07:24,400 --> 00:07:25,200
+We will say
+
+129
+00:07:25,520 --> 00:07:32,560
+"Extensions of the Integer class
+for Dies
+
+130
+00:07:34,560 --> 00:07:37,880
+and operation on DieHandle".
+
+131
+00:07:38,520 --> 00:07:39,880
+Then, we just commit.
+
+132
+00:07:40,200 --> 00:07:43,120
+And this is the end
+of the redo of week 3.

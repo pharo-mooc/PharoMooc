@@ -1,0 +1,156 @@
+﻿1
+00:00:04,000 --> 00:00:04,800
+-Buenos días a todos.
+
+2
+00:00:05,120 --> 00:00:06,960
+En esta parte seis del Redo,
+vamos a ver
+
+3
+00:00:07,280 --> 00:00:10,360
+como modificar lo que nos
+retorna el objeto Counter
+
+4
+00:00:10,680 --> 00:00:13,600
+cuando se le envía
+el comando Print it o Cmd+P.
+
+5
+00:00:14,360 --> 00:00:17,640
+Por ahora, nuestro objeto Counter,
+no necesitamos incremenntarlo.
+
+6
+00:00:17,960 --> 00:00:20,920
+Si seleccionamos todo esto,
+y presionamos Cmd+P,
+
+7
+00:00:21,240 --> 00:00:22,880
+hacemos click derecho, Print it,
+
+8
+00:00:24,120 --> 00:00:25,400
+nos muestra: "aCounter".
+
+9
+00:00:25,720 --> 00:00:28,360
+Es interesante,
+pero quisiéramos tener
+
+10
+00:00:28,680 --> 00:00:30,600
+información sobre
+su variable de instancia
+
+11
+00:00:30,920 --> 00:00:32,560
+y donde está su contador.
+
+12
+00:00:32,880 --> 00:00:38,040
+Entonces, para esto, veremos
+el método printOn:,
+
+13
+00:00:38,640 --> 00:00:40,040
+que redefiniremos aquí.
+
+14
+00:00:40,360 --> 00:00:43,080
+Así "printOn: aStream".
+
+15
+00:00:43,400 --> 00:00:50,160
+En primer lugar, quisiéramos mantener
+el printOn: que ya ha sido definido
+
+16
+00:00:50,600 --> 00:00:56,400
+para tener el "aCounter" que se muestra,
+pero quisiéramos también agregar...
+
+17
+00:00:56,720 --> 00:01:01,520
+Así, hacemos: "aStream nextPutAll:"
+para agregar algo después.
+
+18
+00:01:02,720 --> 00:01:05,320
+Agregamos la cadena "withValue".
+
+19
+00:01:07,960 --> 00:01:11,400
+La concatenación de la cadena
+de caracteres se hace con la coma.
+
+20
+00:01:11,720 --> 00:01:16,040
+Y agregamos el valor
+que convertiremos en String.
+
+21
+00:01:16,360 --> 00:01:21,840
+Nos enviará "aCounter".
+eso agregará "withValue".
+
+22
+00:01:22,160 --> 00:01:25,720
+Y esta parte va a concatenar
+el valor del contador.
+
+23
+00:01:26,040 --> 00:01:31,000
+Finalmente, agregamos un retorno de línea.
+
+24
+00:01:32,160 --> 00:01:33,640
+Muy bien. Guardamos esto.
+
+25
+00:01:33,960 --> 00:01:36,440
+Ahora,
+si volvemos sobre el Playground
+
+26
+00:01:36,760 --> 00:01:43,840
+e imprimimos estas expresiones,
+obtenemos: "aCounter withValue: 0".
+
+27
+00:01:44,320 --> 00:01:45,280
+Así, lo podemos ver.
+
+28
+00:01:45,600 --> 00:01:54,120
+Si hacemos: "aCounter startingAt: 23",
+"aCounter withValue: 23".
+
+29
+00:01:54,440 --> 00:01:57,720
+Perfecto. Podemos hacer commit
+de nuestros cambios.
+
+30
+00:01:58,040 --> 00:02:00,000
+Volvemos aquí. Hacemos commit.
+
+31
+00:02:01,000 --> 00:02:07,360
+y, "printOn corrected with value".
+
+32
+00:02:08,240 --> 00:02:09,560
+Y hacemos commit.
+
+33
+00:02:09,880 --> 00:02:11,360
+Por lo tanto, vimos como modificar
+
+34
+00:02:11,680 --> 00:02:14,840
+el valor de retorno que podemos pedirle
+a un objeto via el comando Print it.
+
