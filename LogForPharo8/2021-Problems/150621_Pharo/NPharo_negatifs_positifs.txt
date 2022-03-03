@@ -1,0 +1,2585 @@
+Début 10:55 25/07/2020
+
+
+25/07/2020 : +2 heures
+28/07/2020 : +2 heures
+02/08/2020 : D10:30 - F12:25 - "Pharo by example 5"
+05/08/2020 : D09:58 - F12:04 - "Pharo by example 5"
+06/08/2020 : D07:38 - F13:00 - "Pharo by example 5"
+07/08/2020 : D08:47 - F - "Pharo by example 5" - 2.13
+
+
+[faut pas se prendre la tête]
+https://www.fun-mooc.fr/courses/course-v1:inria+41010+self_paced/about
+
+
+Points négatifs : 
+-----------------
+
+1. Aucune correspondance avec la page "Week 1: Welcome (symboles)" et les vidéos "Subtitles in french". 
+"Objectives of this MOOC" n'est pas présent dans la liste. 
+	"Objectives of this MOOC" = 
+Du coup, j'ai commencé par le début de la liste et ç’a été déstabilisant et incompréhensible.
+Lorsqu'enfin, j'ai découvert la présentation de Pharo alors j'ai réalisé qu'il fallait prendre en compte 
+le titre du contenu au lieu du nom. (asm tram gram)
+
+2. Téléchargement Pharo, bouton bleu « Download ».
+	1 Je télécharge : OK, 2 J'installe : OK,  3 incompatible : :-(
+* Pour éviter les surprises peut-être serait-il plus judicieux d'indiquer sur le bouton bleu : 
+	"Windows" 
+	 (64 bit)
+* De plus, lors de l'installation du programme « Pharo Launcher », celui-ci pourrait déterminer 
+ le système d'exploitation et afficher un message :
+	« Votre système n'est pas compatible avec Pharo Launcher “64 bits”.
+* Puis proposer un lien à cliquer qui ouvrira le navigateur et la page de téléchargement.
+* Sinon, l'exécutable “Pharo Launcher” lancerait “Wget” et le “script” pour télécharger la version adéquate.
+Mais en prenant en compte que “Wget 1.20.3 — Windows” ne prend pas en compte la commande “| bash”.
+
+3. Téléchargement et contrôle de l'application Pharo.
+Il n'y a aucun contrôle de l'application par clé md5, sha256 ou PGP.
+Un bon exemple simple et efficace est celui de « Tails » proposant un plug-in à télécharger et un contrôle de l'ISO depuis sa page. 
+
+4. Installer Pharo Launcher. :-(
+L'installation de Pharo Launcher est trop restrictive ou moins cohérente que celles des 99 % autres programment.
+4.1 Installation de Pharo - depuis un compte Admin. (répertoire non standard)
+Installer information - Error writing to file :
+D:\Liberkeys\MyApps\Pharo\FileAttributesPlugin.dll_Zone.Identifier. 
+Verify that you have access to that directory.
+4.2 Installer Information - The installer has insufficient privileges to access this directory : (répertoire standard)
+C:\Program Files\PharoLauncher.
+The installation cannot continue. Log on as administrator or contact your system administrator.
+4.3 Message : « Cette application ne peut pas s'exécuter sur ce PC ». (Indiquer « 64 bits » dès le départ serait plus mieux. :-))
+4.4 Lors de l'exécution de « pharo-launcher-2.2.msi », laisser le choix à l'utilisateur « installation pour tous les utilisateurs » ou « installation pour l'utilisateur en cours ».
+Sinon cela présuppose que les autres utilisateurs d'un même poste installent une seconde fois, une troisième fois, une quatrième fois le programme.
+Installation standard « C:\Program Files\» - installation contraignante « C:\Users\[pharo]\AppData\Local\PharoLauncher\ ».
+4.5 Le programme « CCleaner » se libère des restrictions tout en proposant un exécutable 32 et 64 bits dans son répertoire ainsi que la portabilité de celui-ci.
+4.6 L'installation de Pharo Launcher « En tant qu'administrateur » depuis un « Compte local — protéger par un mot de passe » n'est pas possible.
+En exécutant, un clic droit sur « pharo-launcher-2.2.msi » s'affiche « installer, réparer, désinstaller », mais c'est impossible d'« Exécuter en tant qu'administrateur ».
+4.7 Lorsque je clique sur le programme « pharo-launcher-2.2.msi », aucune fenêtre n'apparaît de « Contrôle de compte d'utilisateur ».
+(Voulez-vous autoriser cette application à apporter des modifications à votre ordinateur ?)
+Extrait : "Pharo by example 5".
+"2.4 Pharo Launcher" 
+Il aurait été judicieux d'indiquer : 64 bits
+
+5. Installer Pharo 32 bits.
+Télécharger Pharo 32 bits et une image zippée c'est passablement surprenant puisque s'unis toute une équipe de programmeurs chevronnés.
+Lorsque j'ai visionné les vidéos de Pharo montrant l'objet dynamique, l'utilisation de Workspace, des formes en 3D qui bougent c'est beau et impressionnant.
+Quelle déception lorsque j'ai dû télécharger deux zips, faire quatorze cliques et créer un répertoire pour Pharo !
+Le gros Flop ! 
+J'ai eu l'impression d'être revenu à Windows 95 et l'insertion des disquettes.
+PharoLauncher = 5 clics, Pharo 32 bits = 14 clics.
+Extrait : "Pharo by example 5"
+"Installer Pharo
+Pharo n'a pas besoin d'installer quoi que ce soit dans votre système, car il est parfaitement capable de fonctionner de
+manière autonome. Selon votre plate-forme, téléchargez le fichier zip approprié, décompressez-le dans un répertoire
+de votre choix et vous êtes maintenant prêt à lancer Pharo."
+
+6. Pharo Launcher 
+Pourquoi l'utilisateur doit-il télécharger une image 64 bits alors qu'une image spécial "Mooc" pourrait être intégré dans Pharo comme la version 32 bits ?
+
+7. "La fenêtre "Filtrage" n'est plus en haut et en blanc mais en bas avec une couleur identique à la liste des packages".
+
+8. Pharo 32 bits - touche clavier (avant la lecture de "Pharo by example 5")
+Aucun lien entre la touche clavier et le nom du package.
+06/08/2020 - 09:43
+"Pharo by example 5" - 2.12 Finding Methods - With Finder
+To scroll to now itself, move the cursor to the list and type ”n”;
+this type-ahead trick works in all scrolling windows. 
+Pour faire défiler jusqu'à  maintenant, déplacez le curseur sur la liste et tapez «n»; 
+cette astuce de frappe à l'avance fonctionne dans toutes les fenêtres de défilement.
+NON, la liste de package ne fonctionne pas.
+
+9. Pharo 32 bits - Workspace
+Aucun menu, lien pour accéder au Workspace pourquoi ? réponse "Pharo by example 5"
+" L'outil Playground s'ouvre (vous pouvez le reconnaître comme l'outil Workspace , des versions
+précédentes de Pharo. " 
+
+10.Vidéo - Mycounter - counter
+ * Exercice - erreur - comment traiter l'erreur ?
+ * Pourquoi Workspace n'est pas utilisé ?
+ * L'intérêt de se projet en W1 ?
+ * C'est impressionnant le nombre de retour chariot "erreur = perte de temps" pour un simple projet de compteur.
+
+11. Exercice 12 - 27. Défi 0
+Messages d'erreurs impossibles à résoudre.
+1 traduire 2 comprendre 3 résoudre :-(
+
+12. Le navigateur système - The system browser
+05/08/2020 D09:58 - F12:04
+Système : Windows 10, 32 bits
+Programme : Pharo 8.0 
+
+12.1. "Pharo by example 5" - 2.10 The system browser
+execute the following code snippet:
+Nautilus openOnMethod: Integer>>#factorial
+Fenêtre : Unknown variable: Nautilus please correct, or cancel:
+
+Le Nautilus est absent, aurait-il coulé ?
+
+12.2. Réponse pour « System Browser ».
+System Browser openOnMethod: Integer>>#factorial
+Fenêtre : Unknown variable: Nautilus please correct, or cancel:
+
+Donc, le nom du navigateur n'est pas celui que l'on voit, mais celui que l'on signe.
+Cela revient à appeler le navigateur « Goggle chrome », mais son nom serait « quatre couleurs », 
+ce n'est pas cohérent cette histoire. 
+
+Je m'appelle : System Browser 		Mon nom est : ClyFullBrowser
+
+pharobyexemple 2.10				Classe	Methode
+System Browser -> ClyFullBrowser openOnMethod: Integer>>#factorial - CTRL + P -> ouvre System Browser
+06/08/2020 D07:38 - F
+pharobyexemple 2.16				Classe	Methode
+System Browser -> ClyFullBrowser openOnMethod: Object>>#printString - CTRL + P -> ouvre System Browser
+
+13. Playground
+"Pharo by example 5" - 2.11
+Ne rappelle pas la commande précédente.
+
+13.1. Commande
+Playground -> ClyFullBrowser openOnMethod: Point>># -> sélectionne "Point" -> CTL + B -> ouvre System Browser classe point (kernel)
+
+13.2. Commande
+Playground -> Point browse -> CTRL + B -> similaire à dessus -> ouvre 2 fenêtres :
+									System Browser classe Point (Kernel)
+									System Browser classe ClyFullBrowser (Calypso-SystemToolsxxx)
+13.3. Commande : rappel de la commande impossible.
+Playground -> ClyFullBrowser openOnMethod: Point>>#
+Playground -> Play pages : commandes ci-dessus non enregistrées.
+
+14.Spotter
+"Pharo by example 5" - 2.11 Using Spotter
+Pourquoi #implementor plutôt que #methode ? (#package, #classe, #methode, #protocol)
+Les autres catégories sont le menu, les packages, 
+la méthode 		 #implementor	//#methode
+les exemples		 #example
+le pragma		 #pragma
+les expéditeurs 	 #sender
+les références de classe #reference
+terrain de jeu		 #playground
+exemple :  #ref Point vs #classe point
+
+15. Pharo_neg_pros.png
+
+16. ProfStef 17/29
+Message syntax: Cascade (17/29)
+Les trois exercices ne sont pas clairs quant à démontrer la liaison entre le code et la fenêtre "Transcript".
+Tandis que le dernier exercice fait croire une liaison entre le mot 'next' 
+et les mots 'hello', 'Pharo' accompagné du code "Transcript".
+La réponse a été trouvée par hasard et par tâtonnement. 
+
+17. ProfStef Conditionals 21/29
+Lorsque la fenêtre "Transcript" est ouverte, il faut retourner sur "Playground" pour sélectionner le code. (Transcript open.)
+Or, la fenêtre "Transcript" est :
+ 1. Derrière "Playground", (Idem exercice 17/21)
+ 2. La sélection du code et l'envoi du message CTRL + P n'affichent pas la fenêtre "Transcript",
+ 3. Lorsque la fenêtre "Transcript" est fermée, la réponse devrait ouvrir la fenêtre "Transcript",
+ 4. Obligé de rappeler la fenêtre cachée derrière "Playground",
+ 5. En tant que débutant non familiarisé, ce n'est pas pratique.
+ 6. En tant que débutant, pas encore d'automatisme à regarder les onglets ouverts en bas de Pharo,
+ 7. L'onglet en cours devrait clignoter ou apparaître. (Point n°3)
+
+18. ProfStef Iterators 23/29
+Où se trouve "Workspace, Playground" comme annoncé ?
+C'est ce que j'attendais lorsque j'ai visionné la vidéo "https://www.canal-u.tv/video/inria/redo_coding_a_counter.32705".
+D'un côté le code et de l'autre le projet dynamique (résultat).
+Car, je suis obligé de m'arranger de la fenêtre "Transcript" pour voir le résultat.
+
+19. ProfStef Iterators 24/29
+"Do it" ne fonctionne pas sur "SimpleButtonMorph (1) et (4)" et "Print it"="CTRL + P" a été utilisé depuis le début.
+De plus, combiner "Do it" et "Print it" affiche deux boutons qui se chevauchent.
+Un complet mais pas deux. :-(
+ 
+20. ProfStef Iterators 24/29
+20.1 Comment faire pour aller à un exercice précis sans passer toutes les étapes ? (par exemple exercice 24/29)
+It's coool : -) ouf enfin.
+
+20.2. L'exercice "A nice button" fait apparaître la couleur vert et blanc pourquoi celles-ci ?
+
+20.3. Alors que la couleur "Cyan" est définie lors de l'exercice "ProfStef is cooxxl!", 
+est-ce qu'une couleur est définie par défaut par Pharo ?
+
+20.4. En fin de compte, la couleur "Cyan" m'empêche de lire le contenu du bouton.
+Comment faire apparaître une liste de couleur ?
+Il faut connaître les noms des couleurs par coeur et en anglais s.v.p., sinon tu es à la rue. :-(
+
+20.5. Les deux boutons se chevauchent et m'empêche sa lecture : "ProfStef is cooooool!", 
+lorsque je mets le curseur à droite du point et que j'appuie sur les touches clavier CTRL + P pourquoi ?
+(curseur + CTRL+P fait chevaucher les boutons alors que Print it le remplace/l'efface ?)
+(En général, c'est "Do it" qui fait chevaucher les boutons).
+20.5.1 Le second bouton "ProfStef is cooooool!" remplace le premier "A nice button" grâce à "Print it", 
+alors qu'avec "CTRL+P" c'est dû côte à côte ?
+Un coup c'est bon, puis le suivant c'est autre chose. Cette histoire n'est pas très stable.
+
+20.6 Est-ce qu'il y aurait une astuce pour réduire toutes les fenêtres et afficher "World" ? (3 clics+1+1)
+Exemple : Alt+TAb
+
+20.7 J'aimerai remettre l'exercice à "zéros" et que les boutons disparaissent de "Word", comment faire ?
+Réponse : Exercice suivant : SimpleButtonMorph allInstances last delete.
+
+21. ProfStef Debugger 28/29
+21.1. Je ne comprends pas tellement la finalité de cet exercice.
+Le débogage de la première ligne, affiche le message " Unmatched " in comment. ->", bon OK.
+La seconde ouvre un code, bon c'est super.
+Et donc ? 
+Dans le cas où la première ligne n'est pas bonne pourquoi n'est-elle pas en rouge ?
+Du coup, "ProfStef next" n'apparaît pas, est-ce que l'exercice n'est pas concluant ?
+Où est-ce que je dois taper "ProfStef next" ?
+
+21.2. CTRL + Z fait revenir à l'exercice précédent ou "ProfStef previous."
+Sauf que là, il m'a fait revenir à l'exercice "Doing (2/29)", mais a gardé le contenu de l'exercice "Debugger (28/29).
+Pourquoi tant de misère !
+Mercredi.
+Je dois retaper l'ensemble :-(
+CTRL + Z
+Parce que j'ai lancé ProfStef go.
+CTRL + Z ou previous : le résultat sera le même !
+Bon ba voilà ! magic
+
+22. ProfStef Tutorial done! (29/29) - 13:37 09/08/2020
+L'adresse de téléchargement n'est pas correcte : https vs http
+19/07/2020
+http://books.pharo.org
+
+23. "Pharo by example 5" - 2.13 Définition d'une nouvelle méthode
+Le nom du package auquel se rattache la classe "String" ou "StringTest" n'a pas été indiqué ?
+(Relecture des chapitres "Finder" et "Spotter")
+La classe "StringTest" n'a pas été trouvée par le navigateur.
+Du coup, je m'appuie sur la capture d'écran 2.20. (Pifomètre)
+Ensuite, je tente la recherche avec "Spotter" et "Finder".
+
+23.1. "Pharo by example 5" - 2.13 Définition d'une nouvelle méthode
+Compiler et enregistrer la méthode, une fenêtre apparaît "Author identification", 
+ce n'est pas similaire à ce qui est indiqué dans le livre.
+Tu aurais pu l'indiquer avant.
+TestShout ????
+Bon je vais relire 12:28 à table.
+Solution : CTRL + S > Author id > mettre un prénom/nom> Testshout apparaît.
+
+23.2. "Pharo by example 5" - 2.13 Exécution de votre méthode de test
+Lorsqu'on exécute un clic droit dans l'espace "Package" ou "Protocol", 
+une fenêtre permet de créer un "New package" ou un "New protocol".
+C'est une source de confusion de modifier un "protocol" pour créer une méthode.
+Créer une "New classe" ou une "New methode", serait plus simple et moins emmêlant.
+
+23.3. "Pharo by example 5" - 2.13 Implémentation de la méthode testée
+Le message " MessageNotUnderstood: ByteString >> shout" se situe sur le bandeau de la fenêtre.
+Or, je cherchais cette erreur dans la fenêtre.
+
+23.4. "Pharo by example 5" - 2.13 Implémentation de la méthode testée
+"Test Runner" n'affiche pas "Collections-Test", pourquoi ? Et alors, "StringTest" est rattaché à quoi ? 
+Est-ce que cela signifie que chaque "Collections-xxx" rattachée à "TestRunner" possède un "StringTest" ?
+Comment être sûr que "StringTest" rattaché à "Collections-Tests" n'a pas d'erreur ?
+(À ce stade, ce n'est pas sur puisque l'icône de la classe "StringTest" est jaune au lieu de vert).
+J'ai déjà modifié en "^ self asUppercase,'!'" - C'est pas bon cette histoire.
+
+23.5. "Pharo by example 5" - 2.13 Implémentation de la méthode testée - TestRunner
+???? le test passe !
+shout
+^ self asUppercase,'!'
+mais le code est : 
+testShout
+self assert: 'No panic' shout = 'NO PANIC!'
+Incompréhensible !
+
+24. Listing 3-4 LOCell class definition
+Le "listing 3-4" n'est pas à sa place, de plus c'est la figure 3-5 qui affiche le code.
+Donc, lorsque je lis le livre, je me demande ce que vient faire ce code. 
+
+25. 3.3 Définition de la classe LOCell - CTRL + S - figure 3.5
+Message envoyé à "SimpleSwitchMorph" et compilation de la nouvelle classe.
+Situation illustrée à la figure 3.5 = Je n'obtiens pas la situation illustrée.
+La seconde fois, c'est la bonne.
+
+26. 3.4 Ajouter des méthodes à une classe
+Le protocole "no message" est introuvable.
+?????
+
+26.1. 3.4 Ajouter des méthodes à une classe - No message vs Initialize
+Il faut le décoder votre livre ?
+Je dois SELECTIONNER un protocole "no messages" qui n'existe pas.
+Lorsque je continue la lecture du document et que je décrypte la figure 3.-7 c'est alors que je réalise
+qu'il s'agit d'un protocole "initialization" et une méthode "initialize".
+Dans la rubrique "protocol", il y a "initialization" et "initialize".
+CTRL + S
+
+27. Initialisez les méthodes - p. 54/376 EN.
+Ce n'est pas clair du tout votre truc.
+"Si une classe définit une méthode nommée "initialize" ? La classe ne définit rien du tout là.
+						Classe > Protocol > Method
+					classe SimpleSwitchMorph aucun initialize
+					sous classe LOCell = Protocol > Initialization et initialize
+					Protocol : Initialisation > CTRL+S
+					Method : initialize
+new ?
+
+28. Appel de l'initialisation de la superclasse - p. 54/376 EN.
+En tant que lecteur vous m'embrouillez avec votre vocabulaire, 
+mais surtout lorsque vous renommez ou changez quelque chose.
+Ce n'est pas clair, on s'y perd.
+Exemple : 
+Avant d'arriver à la lecture de "Appel de l'initialisation de la superclasse.",
+SimpleSwitchMorph est une "Classe" puis devient une "superclasse" ?
+
+Sous-classe SimpleSwitchMorph:
+ classe existante  SimpleSwitchMorph 
+
+29. Inspection d'un objet - À propos du reste -  p. 55/376 EN.	
+Je suis plutôt en mesure d'attendre un "Workspace/Playground", d'un côté me montrant le code et de
+l'autre le résultat qui peut être modifié à la volée.
+Ce qui a été très justement publicité dans des vidéos Pharos.
+Donc ?			
+(Une (classe, objet) "Point" imaginaire c'est déjà bien suffisant)
+
+30. Inspection d'un objet - À propos du reste -  p. 55/376 EN.
+La flèche verte à côté de la méthode "initialize". 
+Cela signifie :
+la méthode existe dans la superclasse "SimpleSwitchMorph" et qu'elle est remplacée dans votre classe "LOCell".
+									----------?
+Pourquoi faire compliquer quand on peut faire simple ? Et pourquoi remplacer dans la classe ?
+Dans Pharo, visuellement c'est simple.
+------------------------------------------------------------------
+   Package	| Classe	    | Protocol	     | Method	  |	
+PBE-LightsOut	| LOCell	    | initialization | initialize |
+------------------------------------------------------------------
+		| SuperClasse	    |
+		| SimpleSwitchMorph |
+De mon point de vue, le package est rattaché à classe, superclasse au protocole et enfin la méthode. (remplacée ?)
+LOCell est "Parents" alors que "SimpleSwitchMorph" est superclasse.
+1 Superclasse		1 Admin	
+	1.1 classe		1.1 utilisateur
+Ce n'est pas cohérent cette histoire.
+
+31. Inspection d'un objet - Figure 3.10 An LOCell - p. 57/376 EN.
+Super et ?
+Pourquoi "openInWorld" n'a pas été mis dans le code "initialize" ?
+Exemple :  
+initialize
+super initialize.
+self label: ''.
+self borderWidth: 2.
+self openInWorld			//???
+bounds := 0 @ 0 corner: 16 @ 16.
+offColor := Color paleYellow.
+onColor := Color paleBlue darker.
+self useSquareCorners.
+self turnOff
+
+32. Inspection d'un objet - Figure 3.10 An LOCell - p. 57/376 EN.
+Le volet de gauche ou de droite ? Volet de gauche, le carré apparaît.
+bounds: (200@200 corner: 250@250)
+Je ne sais pas si c'est bon ! 
+
+Volet gauche - test
+self bounds: (0@0 corner: 16@16)
+self bounds: (200@200 corner: 250@250)
+self bounds: (0@18 corner: 16@34)
+self openInWorld
+
+Volet droit - test
+"(0@0) corner: (16@16)"
+"(200@200) corner: (250@250)"
+"(0.0@18.0) corner: (16.0@34.0)"
+
+33. Inspection d'un objet - Figure 3.10 An LOCell - p. 57/376 EN.
+La cellule doit apparaître près du coin supérieur gauche de l'écran (comme illustré dans la figure 3-10) 
+NON, aucune cellule n'apparaît dans la figure 3-10 !! 
+
+34. Inspection d'un objet - Cellule - poignée brune - poignée jaune - p. 57/376 EN. 
+Impossible de déplacer la cellule ou de la redimensionner avec les poignées.
+3 cliques = 3 fenêtres :-(
+minuscule
+:-(( ?
+
+35. Inspection d'un objet - Cellule - poignée rose - p. 57/376 EN.
+Supprimez la cellule en cliquant sur le  x  dans la poignée rose.
+La poignée rose ?
+
+36. 3.6 Définition de la classe LOGame - p. 57/376 EN.
+* L'icône de la classe "LOCell" est un carré au lieu d'un rond bleu contenant la lettre "c".
+Dans la fenêtre, il n'apparaît pas alors que sur l'onglet il est disponible ? (contradictoire)
+* (ou cliquez avec le bouton droit sur le volet Classe et sélectionnez "Ajouter une classe" )
+Ajouter une classe n'existe pas ! 
+Une seconde ligne "PBE-LightsOut", se crée ?
+Note : En mettant bout à bout les "points négatifs", cela devient vite agaçant.
+Mdr, le déplacement.
+La capture d'écran n'est pas adapté au résultat.
+Impossible
+
+37. Chap. 3 - Une première application - figure 3.12 Initialize the game
+Création d'une seconde ligne "PBE-LightsOut" et déplacement de "Logame" dans la première ligne "PBE-LightsOut".
+Listing 3.12 - ajout du code, une fenêtre m'invite à choisir différentes possibilités, non renseignées dans le livre.
+Livre -> une variable inconnue "Cells",
+Pharo -> une variable inconnue "Matrix" ?
+Figure 3.13 Declaring cells as a new instance variable -> aucune ligne similaire à "new instance variable".
+Je ne sais pas !!!
+
+38. Chap. 3 - Une première application - figure 3.13 Declaring cells as a new instance variable
+Ha ba voilà !
+Il faut cliquer sur "Leave variable undeclared".
+Franchement, au petit bonheur la chance.
+Décrypter, tâtonner.
+
+39. Chap. 3 - Une première application - 3.7 Organisation des méthodes en protocoles 
+"déplacez la méthode initial-ize  vers un nouveau protocole appelé initialisation."
+Les protocoles sont déjà créés, c'est quoi la finalité ?
+"categorize all uncategorized" -> cette option ne fait rien.
+
+40. Chap. 3 - Une première application - 3.7 Organisation des méthodes en protocoles - initialize  
+" ... Pharo ne peut pas savoir exactement.... "
+Pharo ne le sait pas, ce n'est pas étonnant avec toutes ces pirouettes.
+" ... une initialize méthode dans la superclase, ..."
+
+41. À force je m'y perds, je dois faire une recherche pour un rappel de ce qu'est une "superclasse". 
+"une  initialize  méthode dans la superclasse" -> page 45 -> 78/259 FR
+"superclasse" -> page 78/259 FR
+"Chaque classe de Pharo hérite de son comportement et de la description de sa structure d'une seule superclasse. 
+Cela signifie que Smalltalk a un héritage unique."
+Ce n'est pas clair.
+	* une seule superclasse - NON -> SimpleSwitchMorph, Initialize
+ 	* Chaque classe hérite de son comportement, donc une méthode et un protocole aussi ? (initialize-methode)
+	* classe <-> superclasse <-> méthode
+	* classe <-> superclasse <-> protocole
+
+42. Chap. 3 - Une première application - 3.8 Terminer le jeu
+"Faites attention, le code suivant n'est pas entièrement correct. Par conséquent, 
+il produira une erreur et c'est exprès."
+À mon avis, il ne faut pas mettre la charrue avant les boeufs. 
+Je m'étais déjà interrogé sur un précédent exercice.
+Parce que même si soi-disant la syntaxe est facile, 
+il y a tout le Mac-micmac logiciel à s'approprier et donc essayer de comprendre comment tous s'imbriquent dans Pharo.
+Donc, on balance du code qui n'est pas évident à comprendre 
+puis des catégories (volets) qui peuvent être créées, déplacées, etc.
+Pour couronner tout ça, on agrémente le code d'erreurs alors qu'on ne sait même pas encore marcher.
+Balancer plusieurs projets simples permettant de s'approprier le code et les volets (packages, classes, méthodes, protocoles).
+Puis, tout en progressant, mettre en place par intermittence des projets contenant des "bogues".
+
+43. Chap. 3 - Une première application - 3.8 Terminer le jeu - nouveau LOCell
+Je suis complètement perdu après la commande "CTRL+Shift+F -> cela formatera votre méthode." 
+
+43.1 Chap. 3 - Une première application - 3.8 Finishing the game - Terminer le jeu - Formatting.
+"vous pouvez cliquer droit sur la méthode zone d'édition et cliquez sur Format (ou utilisez CMD-Shift-f raccourci)."
+Dans la zone d'édition aucun "Format", ni de touche de raccourcie correspondant à "CTRL-Shift-F". (cmd=Mac, ctrl=win)
+Par contre, le fait d'appuyer sur les touches claviers "CTRL+Shift+F", amorce un résultat.
+Maintenant, CTRL+S. Bizarre !
+
+44. Chap. 3 - Une première application - 3.8 Terminer le jeu - Figure 3-20
+En m'appuyant sur la capture "Figure 3.20", le nom correspond à "newCellAt:at:.
+Or, le programme m'indique une erreur et il faut laisser les lettres "i" et "j". (newCellAt: i at: j)
+Alors, la méthode sera enregistrée avec le nom "newCellAt:at:". 
+Perturbant.
+Idem pour "toggleNeighboursOfCellAt:at:".
+
+45. Chap. 3 - Une première application - 3.8 Terminer le jeu - Figure 3-20
+Les quatres lignes sont dans "initialization" au lieu de "all".
+"all", n'a pas été trouvé. (3.7 Organisation des méthodes en protocoles - protocole virtuel --all--)
+p.45/259 (all) FR - p.64/376 EN (figure 3-20)
+Je ne sais pas.
+
+46. Chap. 3 - Une première application - 3.8 Terminer le jeu - Figure 3-20
+Il y a un problème entre :
+"La méthode définie ci-dessus a créé un nouveau LOCell, initialisé à la position (i, j) 
+dans la matrice des cellules. La dernière ligne définit l'action mouseAction de la nouvelle cellule à"
+
+"La méthode définie ci-dessus a créé un nouveau  LOCell" ?????????
+
+et 
+
+"Listing 3-21 Une méthode de setter typique 
+LOCell >> mouseAction: aBlock 
+mouseAction: = aBlock"
+
+Je ne sais pas de ce que je dois en faire de ce code "Listing 3-21" puisqu'aucun "nouveau locell" n'a été créé ?
+mouseAction  ???? il faut le rajouter ????
+C'est la merde.
+
+47. J'ai l'impression qu'on n'a pas la même conception du mot "suivant".
+Dictionnaire : "Suivant" : Qui vient après, qui suit. La semaine suivante. Dans la pièce suivante.
+Or, le code "listing 3-18" n'est pas après, mais bien avant même très en avant.
+Précédemment, c'était contrariant, mais cette fois-ci c'est enquiquinant.
+
+47.1. Encore une fois, il faut décrypter votre book.
+
+48. Chap. 3 - Une première application - 3.8 Terminer le jeu - game logic 
+"Place this method in a new protocol called game logic. (Right-click in the protocol pane to add a new protocol.)"
+Ça se complique, car il faut mettre la méthode "toggleNeighboursOfCellAt:at:" dans une autre méthode "logic game".
+Au début, la présentation du programme Pharo était cohérente, mais plus j'avance dans le livre et plus cela devient confus.
+Donc, c'est difficile de s'approprier le langage, mais en plus on rajoute une couche de complexité, complication, confusion, subtilité, intrication dans l'utilisation du programme Pharo.
+(Ce n'est plus une couche c'est une dalle de béton :-)
+(Situation confuse, embrouillée. Quel micmac !)
+"Je me demande "est-ce que ceux qui ont créé le programme Pharo et le livre se rendent compte de tous ce micmac ?"
+D'ailleurs, c'est en relisant le chapitre que je décrypte mieux la "Figure 3-20 Drag a method to a protocol".
+
+49. 3.9 Essayons notre code - Let's try our code
+Le débogueur affiche une erreur "LOGame>>initialize", n'a rien à voir avec "LOGame >> toggleNeighboursOfCellAt: at:".
+#Matrix is missing, and does not understand #new:tabulate:
+LOGame>>initialize
+cells := Matrix new: n tabulate: [ :i :j | self newCellAt: i at: j ]
+
+50. 3.9 Essayons notre code - Let's try our code
+Le jeu est composé de 2 classes et 7 méthodes = NON (p. 47/259 FR - 66/376 EN.) 
+Le jeu est composé de 2 classes et 14 méthodes.
+
+Rappel : 
+-------
+
+p. 45/259 FR - 62/376 EN
+"le volet protocole nous permet de catégoriser les méthodes afin que nous ne soyons pas submergés 
+par une très longue liste de noms de méthodes dans le volet méthodes. 
+Ces groupes de méthodes sont appelés «protocoles».
+
+	* protocoles = méthodes et méthodes = méthodes
+
+Package ------ Class ---- Protocols ------------ Methods
+		 	  (Methods)		    
+		\/	     \/			    \/
+PBE-LightsOut  
+	|----- 1 LOCell - 1 accessing ---------- 2 mouseAction:
+	|	  |------ 3 event handing ------ 4 mouseUp:
+	|	  |------ 5 initialization ----- 6 initialize
+	|
+	------ 2 LOGame - 7 accessing ---------- 8 cellsPerSide
+		  |------ 9 game logic --------- 10 toggleNeighboursOfCellAt:at: (toggleNeighboursOfCellAt: i at: j)
+		  |------ 11 initialization ---- 12 initialize (erreur = suppression)
+		  |------ 13 instance creation - 14 newCellAt:at: (newCellAt: i at: j)
+
+51. 3.9 Essayons notre code - Let's try our code
+"le message "toggleState" a été envoyé à une instance de "LOGame", alors qu'il aurait clairement dû être 
+une instance de "LOCell". Le problème est très probablement lié à l'initialisation de la matrice de cellules. 
+Parcourez le code de "LOGame >> initialize les spectacles."
+ * Je parcours le code et la suite ?
+ * Pharo affichait une erreur de "LOGame>>initialize" qui a été supprimée.
+ * Précédemment, j'ai supprimé "LOGame>>initialize", et je ne peux plus le recréer en tant que "new instance variable".
+ * Revenue comme au début.
+ * Donc, je vais devoir encore recommencer. (x4)
+ * Ou bien terminer le débogage "Listing 3-24 et Listing 3-25".
+
+52. 3.9 Essayons notre code - Let's try our code 
+"Listing 3-25 Remplacer les actions de déplacement de la souris
+LOCell >> mouseMove: anEvent"
+
+"We can fix this simply by overriding mouseMove: to do nothing:"
+"Nous pouvons résoudre ce problème simplement en remplaçant mouseMove: pour ne rien faire :"
+
+L'auteur n'indique à aucun moment la création de cette méthode, mais le remplacement des actions de déplacement 
+de la souris.
+Donc, est-ce que je dois remplacer "mouseAction:" par "mouseMove:", ou alors ajouter "mouseMove" ?
+(:-? - Situation confuse, embrouillée. Quel micmac !)
+Au final, il manque une ou des captures d'écran parce que la manière d'expliquer est tarabiscotée.
+Une image vaut mille mots : [Proverbe] une image apporte plus d’information qu’un long discours.
+
+53. 3.9 Essayons notre code - Let's try our code - execution context  
+"L'avantage de ceci est que vous voyez la méthode que vous écrivez car elle sera exécutée, 
+avec des paramètres réels dans le contexte d'exécution réel." (p. 47/259 FR)
+"The advantage of this is that you see the method that you are writing as it will be executed, 
+with real parameters in the actual execution context." (p. 66/376 EN) 
+
+C'est ce que j'attends depuis le début du Week 1 et qui a été montré dans les vidéos, au lieu d'être bombardé 
+par du vocabulaire au milieu d'une phrase qui ne me dit rien et ne m'avance à rien.
+Je me fonde sur l’action, les résultats concrets et l’efficacité. (pragmatique) 
+
+Exemples : simple
+"La méthode "toggleNeighboursOfCellAt:at:" fait basculer l'état des quatre cellules vers le nord, le sud, l'ouest 
+et l'est de la cellule (i, j)." (p. 46/259 FR - p. 64/376 EN)
+"paramètres réels dans le contexte d'exécution réel" -> Non
+
+"Par exemple, il est assez clair que les lignes de la matrice: 5 colonnes: 2  ont 5 lignes et 2 colonnes, 
+et non 2 lignes et 5 colonnes." (p. 44/259 FR - p. 62/376 EN)
+C'est sans doute clair, mais cela a été souligné.
+"exécution réel."  -> Non
+
+54. 3.9 Essayons notre code - Let's try our code - debogage
+"initialize" est toujours "undeclared" dans "LOGame".
+J'ai créé une classe "Matrix" et en parallèle lancé "LOGame new", "Restart", "Proced", "CTRL + Shift + F", etc.
+Tout un tas de commandes pour qu'il accepte "Matrix".
+J'ai ajouté la méthode "mousemouve:" dans "LOCell".
+J'ai lancé "LOGame new openInWorld" et un gros carré bleu est apparu.
+Ce n'est pas du tout ce à quoi je m'attendais.
+"un jeu simple appelé Lights Out", c'est autant la merde, je n'ose même pas imaginer le reste.
+Super le jeu ! 
+
+55. 3.9 Essayons notre code - Let's try our code -  
+Suppression du package "PBE-LightsOut", enregistrement et redémarrage de Pharo.
+Les carrés sont toujours présents.
+Comment est-ce que je fais pour supprimer tous ces carrés ? 
+La solution serait de re-installer Pharo. Pfff !!!!
+
+56. Chapitre 3 Créer une nouvelle application - 3.2 Créer un nouveau package
+Il n'est pas possible de faire "New package" alors qu'il y a un mot dans la case "filtre".
+
+57. Chapitre 3 Créer une nouvelle application - 3.4 Ajouter des méthodes à une classe - bug
+Dans volet "Protocol" quand une liste s'affiche, il n'y a pas de visibilité sur la case "Filter...".
+Idem dans le voltet "Method".
+Les lettres "st" affichent la ligne "geometry testing". Ouah !
+J'ai compris : 
+Il y avait deux fenêtres "LOCell" et c'est sur la seconde qu'il n'a pas affiché correctement les mots.
+Parce que sur la première fenêtre ça fonctionne. < "NON, ne fonctionne pas, c'est le même problème".
+Mais bon, ce n'est quand même pas normal que ça arrive lors de la création d'un petit jeu.
+Ça y est, j'ai trouvé le "bug".
+
+Il suffit de cliquer sur les différents protocoles, ainsi les lignes cliquées sont chargées en mémoire 
+et provoque une saturation.
+Ensuite, la recherche "Filter..." par mot est "kapout".
+ 
+58. Lorsque la souris est mise sur une option et que celle-ci est liée à un raccourci clavier alors, 
+la surbrillance (bleu) efface le raccourci clavier tandis que l'option s'affiche clairement.
+
+59. Lorsque j'exécute un clic droit dans la rubrique "method", l'option "Find method" est proposée 
+contrairement à la rubrique "Protocol".
+Alors que la case "Filter..." est proposée dans les deux cas.
+
+60. Chapitre 4 - Unaire> Binaire> Mots-clés - p.65/259 93/376 EN
+Les listings 5-4 et 5-5 font ressortir exactement ce que je pensais précédemment.
+ * Quel est l'intérêt d'avoir "color:" et "Color yellow" ?
+ * Les résultats ne sont pas similaires.
+
+Listing 5-4 : 
+
+[1) aPen color: Color yellow (< Pourquoi "color:" et "Color" ?)
+		    \/
+(2) aPen color: Color yellow (aColor = erreur tandis que "Color yellow" = correct)
+
+(1) aPen go: 100 + 20 (Ici est-ce qu'on indique "Chiffre 100 + 20" ? ou "Addition 100 + 20" ? )	 
+  		\/
+(2) aPen go:    120 (Ici 120 au lieu de "aChiffre")
+
+Dans ce cas :
+(1) aPen color: yellow	
+   		  \/
+(2) aPen color: yellow  (Pourquoi "aColor" ? dans ce cas, au lieu de "120" mettre "aChiffre")
+
+61. Chap. 6 6.4 Methods - p.74 FR 106 EN
+"Cette pratique a une certaine valeur, mais elle encombre également l'interface de vos classes, 
+et pire, elle expose son état privé au monde."
+Parce que le fait qu'une méthode soit publique et qu'elle puisse accéder à toutes les variables d'instance "privées"
+c'est ne pas exposer son état privé au monde ?
+
+62. Chap. 6 Figure 6-2 - p.74 FR 107 EN 
+Côté instance "Int. side" et côté classe "Class side".
+Ce n'est pas particulièrement flagrant cette différence et surtout, on est loin du simple code contenu dans une carte postale.
+"Vous trouverez donc la méthode blue définie du côté classe de Color, et non du côté instance."
+Il n'y a que le protocole qui change : 
+Inst. side
+Graphics-Primitives> Color> accessing> blue
+Class side
+Graphics-Primitives> Color> defaults> blue
+Sinon c'est deux chemins mènent à Rome.
+Effectivement, ce n'est pas la même chose, mais c'est quand même compliqué cette histoire.
+Plus j'avance dans ce document et plus ça devient compliqué. 
+
+63. Chap. 6 Figure 6-2 - p.75 FR 107 EN 
+"double-click just at the beginning of the comment "(Color wheel: 12) inspect" and press CMD-d. 
+You will see the effect of executing this method."
+Comment verrais-je cette exécution, le résultat ? Parce que rien ne se passe en cliquant au début de la ligne.
+CTRL + P clavier donne Color .................................?????
+
+64. Chap. 6 - p.84 FR 122 EN - Figure 6-25 - p.122 EN - Tournicoti - (Vous voulez bien cesser de tournicoter autour de moi, vous m’étourdissez !)				
+                                                         ----------<--------------------------------<---------------------------<---------	
+							\|										 |\
+message						  class recepteur		method		       class				 |\	                 					        	       
+anEllipse constructorString-> envoie message(1)-> (C)anEllipse-> recherche(2)-> (M)constructorString-> (C)Morph-> message(3)-> self fullPrintOn:  
+							\|		        (M)fullPrintOn:	                  -------->----------------------------->---------|\
+							\|	    						 /|                                          method		    class                               
+							\|-----> recherche(4)-> (M)fullPrintOn:------> (SC)BorderedMorph-> message(5)-> super fullPrintOn:-> (M)constructorString-> (C)Morph
+							\|				/|								     (M)fullPrintOn:
+							\|				/|----------<---------|\		    						     					   
+							\|--> instance-of---->  (M)defaultColor------> (C)EllipseMorph
+
+65. Chap. 6 - p.85 FR 122 EN - EllipseMorph Classe ou sous-classe ? 
+Après avoir tournicoté, c'est autour de jongler avec les mots. 
+(Réflexion. Elle est encore perdue dans ses jongleries.)
+p.85 FR
+"Le message fullPrintOn: est recherché à partir de la classe EllipseMorph, et la méthode BorderedMorph>>fullPrintOn: 
+se trouve dans BorderedMorph (voir Figure  6-25)."
+p.122 EN
+"The message fullPrintOn: is looked up starting in the class EllipseMorph, and the method BorderedMorph>>fullPrintOn: 
+is found in BorderedMorph (see Figure 6-25)."
+
+p.85 FR
+".....redéfinissez la méthode dans cette sous-classe. 
+Ici, EllipseMorph pourrait redéfinir la méthode fullPrintOn: et cette méthode serait exécutée par la méthode constructorString."
+p.123 EN 							      
+".....redefine the method in that subclass. 
+Here EllipseMorph could redefine the method fullPrintOn: and this method would be executed by method constructorString." 
+
+66. Chap. 6 - p.85 FR 123 EN - 6.8 La recherche de méthode suit la chaîne d'héritage
+"Notez qu'en regardant uniquement la méthode construc-torString, nous ne pouvons pas prédire quelle méthode 
+fullPrintOn: (soit celle d' EllipseMorph, BorderedMorph ou Morph) sera exécutée"
+Or, d'après la "Figure 6-25 self and super sends p.122", aucune méthode "fullPrintOn:" 
+n'est rattachée à EllipseMorph. Vérifions cela sur les Figures ci-dessous, 6-25, et Pharo. :-) 
+				
+                                                         ----------<--------------------------------<---------------------------<---------	
+							\|										 |\
+message						  class recepteur		method		       class				 |\	                 					        	       
+anEllipse constructorString-> envoie message(1)-> (C)anEllipse-> recherche(2)-> (M)constructorString-> (C)Morph-> message(3)-> self fullPrintOn:  
+							\|		        (M)fullPrintOn:	                  -------->----------------------------->---------|\
+							\|	    						 /|                                          method		    class                               
+							\|-----> recherche(4)-> (M)fullPrintOn:------> (SC)BorderedMorph-> message(5)-> super fullPrintOn:-> (M)constructorString-> (C)Morph
+							\|				/|								     (M)fullPrintOn:
+							\|				/|----------<---------|\		    						     					   
+							\|--> instance-of---->  (M)defaultColor------> (C)EllipseMorph
+
+Tournicoti - (Vous voulez bien cesser de tournicoter autour de moi, vous m’étourdissez !)
+Que ce soit anEllipse, anEllipse constructorString, EllipseMorph, BorderedMorph ou Morph aucun n'affiche les
+méthodes "fullPrintOn:" ou "constructorString".
+Je nage pas dans le brouillard, je coule carrément.  :-(
+
+67. Chap. 6 - p.86 FR 124 EN - Variables globales
+p.86 FR 124 EN
+"Les variables globales sont accessibles partout. 
+Chaque classe est nommée par une variable globale."
+
+p.86 124 EN
+"La pratique recommandée est de limiter strictement l'utilisation de variables globales."
+
+Je m'interroge alors que chaque classe est nommée par une variable globale accessible partout, 
+et l'on recommande de limiter son utilisation.
+C'est une situation confuse, embrouillée et carrément contradictoire.
+Limiter strictement son utilisation alors que chaque classe est nommée par une variable globale !
+Supprimez là où changer la manière de procéder.
+Pourquoi faire simple quand on peut écrire une carte postale ?
+Franchement, à ce stade de lecture en plus d'être au fond de l'océan, il faut se pendre.
+
+68. Chap. 6 - p.86 FR 124 EN - Variables globales - SystemDictionary
+J'ai interrogé "SystemDictionary" pensant voir "Smaltalk" ainsi que les variables partagées globales.
+Or, il n'en est rien 
+et 
+j'ai découvert dans la hiérarchie des classes qu'"Object" et "ProtoObject" sont deux classes distinctes 
+alors que dans le livret s'accorde à dire que c'est la même chose.
+p.85 FR 123 EN
+"jusqu'à Object (ou plutôt ProtoObject)"
+"the way up to Object (or rather ProtoObject)"
+Pourquoi faire simple quand on peut écrire une carte postale ? 
+
+69. Chap. 6 - p.86 FR 124 EN - Variables globales - SystemDictionary 2
+J'ai compris une autre manière pour accéder au "Variables partagées globale" en prenant exemple avec
+"Processor class" donc "SystemDictionary" -> CTRL + I
+
+Inspector on a SystemDictionary class (SystemDictionary)
+(C)aSystemDictionary (9097 items) (lots of globals)-> Items-> Keys -> (VPG)#IceTipHistoryDiffUpdater->
+Smalltalk-> 
+(C)SystemDictionary-> Instance d'une  classe=metaclasse-> (C)Object-> (SC)#IceTipHistoryDiffUpdater->
+									(C)IceTipHistoryDiffUpdater
+
+C'est tiré par les cheveux cette histoire, le chemin est long et semé d'embuche.
+Visuellement, ce sont des valeurs en doublons, car (C) est le doublon de (SC), qui est le doublon de (VPG).
+En dehors de #.
+
+70. Chap. 6 - p.86 FR 125 EN - Variables globales - variable d'instance de classe Processor
+p.86 FR 125 EN
+"La variable Processor nomme une instance de ProcessScheduler, le principal ordonnanceur de processus de Pharo."
+"The variable Processor names an instance of ProcessScheduler, the main process schedler of Pharo.
+
+Processor class
+>>> ProcessorScheduler"
+Inspector on a ProcessorScheduler class (ProcessorScheduler)
+a ProcessorScheduler class (ProcessorScheduler)
+
+Processor
+>>> Processor
+Inspector on a ProcessorScheduler (Processor)
+a ProcessorScheduler (Processor)
+
+Je ne comprends pas la différence entre "Processor class" et "Processor" puisque "Processor" est une classe.
+Alors, pourquoi lancer "Processor class" puisque cela concerne "Processor" et qu'il est possible de le lancer 
+à partir de "Processor" ?
+De plus, la commande "Processor class" est lancé alors pourquoi l'inspecteur ne met pas plutôt :
+"a Processor class (ProcessorScheduler)" ou alors "ProcessorScheduler class (Processor class) 
+au lieu de "a ProcessorScheduler class (ProcessorScheduler)" ?
+Les commandes A et B ci-dessous ne sont pas cohérentes.
+
+12:24 25/10/2020 (Supplément) - SystemDictionary stocke les variables partagées globales.
+		A						B
+Playground> SystemDictionary class > CTRL + I		Processor class
+Inspector on a Metaclass (SystemDictionary class)	Inspector on a ProcessorScheduler class (ProcessorScheduler)
+a Metaclass (SystemDictionary class)			a ProcessorScheduler class (ProcessorScheduler)
+
+Playground> SystemDictionary> CTRL + I			Processor
+Inspector on a SystemDictionary class (SystemDictionary)Inspector on a ProcessorScheduler (Processor)
+a SystemDictionary class (SystemDictionary)		a ProcessorScheduler class (Processor)
+
+Dormir sur la tête !
+Si une simple syntaxe peut tenir sur une carte postale.
+Alors, faudrait-il penser à faire tenir toutes ces classes, méthodes, variables, protocoles, sous-classes, 
+super-classes, etc. sur la face d'un timbre.
+
+71. Chap. 6 - p.86 FR 125 EN - Playground-> code-> ouvre-> fenêtre
+La fenêtre "Instance of SmalltalkImage did not understrand" s'ouvre lorsque le code est erroné.
+Sous Windows les touches claviers ALT + F4 permet de fermer la fenêtre.
+Or, sous Pharo ce n'est pas la fenêtre active qui se ferme, mais une fenêtre "Pharo Virtual Machine" qui s'ouvre
+pour choisir de "Quit Pharo Virtual Machine without saving?" (Oui - NON).
+
+72. Chap. 6 - p.87 FR 126 EN - Figure 6-27 Méthodes d'instance et de classe accédant à différentes variables
+La Figure 6-27, affiche dans la case "Color class", superclass, subclass et methodDict, 
+pourquoi ce n'est pas le cas dans "Color" ?
+
+La Figure 6-27, affiche "name isBlack" et "initializeNames", introuvable dans les fenêtres de l'inspecteur ?
+Color 	    -> name -> #Color.
+Color class -> ?
+
+La Figure 6-27, affiche "subclass" alors que l'inspecteur indique "subclasses" ?
+
+La Figure 6-27, affiche dans la rubrique "Color" -> ColorNames", non présente dans l'inspecteur. 
+C'est sans doute dû à une version différente du programme ?
+
+Les quatre autres exemples ci-dessous, l'inspecteur montre une variable "name" et une "valeur" tandis que "Color" 
+et "Color class" rien, pourquoi ?
+
+Autre exemple :
+---------------
+Playground> BorderedMorph CTRL + I (inspect it)
+	    SimpleSwitchMorph
+	    (C)LOGame
+	    (C)LOCell
+
+
+Playground> Color> CTRL + I						Playground> Color class> CTRL + I
+Inspector on a Color class (Color)					Inspector on a Metaclass (Color class)
+a Color class (Color)							a Metaclass (Color class)
+	\/									\/
+----------------------------------------------------------------------------------------------------------------------------------------
+	Color							|	Color class							|	
+----------------------------------------------------------------------------------------------------------------------------------------|
+	superclass Objet					|	superclass Objet class						|
+	subclasses nil (subclass ?)				|	subclass ? (subclasses ?)					|
+	methodDict a MethodDictionary (129 items) (size 129)	|	methodDict a MethodDictionary (88 items) (#aaFontsxxxxxxx)	|
+----------------------------------------------------------------------------------------------------------------------------------------|
+instanceVariableNames: 'rgb cachedDepth cachedBitPattern alpha' |									|
+classVariableNames: 'BlueShift CachedColormaps ColorRegistry	|									|
+ComponentMask ComponentMax GrayToIndexMap GreenShift 		|									|
+HalfComponentMask IndexedColors MaskingMap RedShift'  \		|									|
+package: 'Colors-Base'				       \	|									|
+--------------------------------------------------------\-------------------------------------------------------------------------------
+		name isBlack ?			         \	|		initializeNames ?					|
+----------------/-----------\-----------------------------\--------------/----------------------\---------------------------------------
+               /	     \				   \	     	/			 \
+     ColorNames		      \				    \/	      \/		 ColorNames
+			      rgb			     shared
+							   ColorNames
+			private				CachedColormaps			private
+			  rgb								superclass
+			cachedDepth							subclass
+
+73. Chap. 6 - p.87 FR 126 EN - variables de classe vs variables de classe ?
+Après plusieurs questions et rebondissements, j'ai perdu le fil et ce paragraphe n'est pas clair 
+quant à savoir qui est quoi.
+Est-ce que c'est la "variable de classe" ou la "variable de classe" ? MDR
+
+Je reformule.
+Est-ce que c'est la "variable d'instance de classe" ou la "Variable partagée de classe" ?
+
+De plus, la figure 6-27 n'indique pas que "CachedColormaps" ou "ColorRegistry" soient partagés à part le "V" 
+majuscule, mais alors dans ce cas, "instanceVariableNames" et "classVariableNames" sont partagés.
+
+Majuscule = Variables partagées globales, Variables partagées de classe, Variables partagées de pool, 
+noms de classe.	
+
+C’est à y perdre son latin !
+Dans quoi me suis-je embarqué ?
+
+Playground> Color> CTRL + I						Playground> Color class> CTRL + I
+Inspector on a Color class (Color)					Inspector on a Metaclass (Color class)
+a Color class (Color)							a Metaclass (Color class)
+	\/									\/
+----------------------------------------------------------------------------------------------------------------------------------------
+	Color							|	Color class							|
+----------------------------------------------------------------------------------------------------------------------------------------|
+	superclass Objet					|	superclass Objet class						|
+	subclasses nil (subclass ?)				|	subclass ? (subclasses ?)					|
+	methodDict a MethodDictionary (129 items) (size 129)	|	methodDict a MethodDictionary (88 items) (#aaFontsxxxxxxx)	|
+----------------------------------------------------------------------------------------------------------------------------------------|
+instanceVariableNames: 'rgb cachedDepth cachedBitPattern alpha' |									|
+classVariableNames: 'BlueShift CachedColormaps ColorRegistry	|									|
+ComponentMask ComponentMax GrayToIndexMap GreenShift 		|									|
+HalfComponentMask IndexedColors MaskingMap RedShift'  \		|									|
+package: 'Colors-Base'				       \	|									|
+--------------------------------------------------------\-------------------------------------------------------------------------------
+
+74. Chap. 6 - p.87 FR 126 EN - variables d'instance de classe vs variables partagées de classe ?
+"Une variable de classe est déclarée dans le modèle de définition de classe. 
+Par exemple, la classe Color définit un grand nombre de variables de classe pour accélérer la création de couleur"
+Je pourrais dire qu'il s'agit d'une "variable d'instance de classe" sans être absolument sure.
+Cela semble évident pour vous, mais le lecteur est perdu et doit faire un effort considérable pour décrypter les différentes interactions. 
+À savoir s'il s'agit d'une variable de classe d'instance ou partagée ? 
+"Singleton, Carte d’une couleur différente des autres dans la main d’un joueur après la donne."
+Donc, si (C) est un rond bleu indiquant une classe alors pourquoi ne pas faire la même chose pour le reste ?
+(VIC) rouge, (VPC) orange, etc..
+On est loin d'une simple syntaxe qui peut tenir sur une carte postale.
+
+75. Chap. 6 - p.87 FR 126 EN - Listing 6-29
+J'ai fait planter Pharo (Peut-être qu'il cherche ?) avec la commande "Color class initialize".
+Puisque celle proposée sur le livret ne fonctionne pas.
+"Color class >> initialize"
+Bingo x2. lol
+x3. MDR
+
+76. Chap. 6 - p.88 FR 127 EN - Class initialization
+"La présence de variables de classe pose la question: comment les initialiser?"
+"The presence of class variables raises the question: how do we initialize them?"
+Il existe deux solutions et en plus il faut se rappeler d'appeler la méthode initialize .....
+C'est la folie ce truc.(Le concept du programme Pharo)
+Pourquoi se "triturer" autant le cerveau ? 
+Il faut être pragmatique au lieu de faire tout ce Micmac.
+Si une simple syntaxe peut tenir sur une carte postale.
+Alors, il y a du travail à faire pour toutes ces classes, méthodes, variables, et autres 
+afin qu'ils tiennent sur la face d'un timbre.
+
+77. Chap. 6 - p.88 FR 128 EN Collections-Text
+Le package "Collections-Text" n'existe pas.
+Celui qui s'en rapproche est "Text-Core-Base", mais lors de mes recherches c'est "Text-Core" 
+qui apparaît dans la liste de package.
+Lorsque j'effectue une recherche "Filter", aucun package ne porte le nom de "Text-Core-Base".
+Ce qui est troublant, c'est de lire le nom du package "Text-Core-Base" depuis la classe "TextConstants" alors 
+que depuis "All Packages", il s'agit de "Text-Core".
+Ensuite, il ne s'agit pas de "pool dictionary TextConstants", mais de "SharedPool".
+La constante "LF" n'existe pas dans la liste.
+Où est écrit l'exemple de la méthode ? (suivante = Qui vient après, qui suit.)
+
+Note : 
+Il faut se concentrer sur le concept "Pharo" et la syntaxe du code est à l'état de poussière à ce stade de lecture. 
+:-(
+
+78. Chap.7 - p.91 FR 133 EN - Themes and icon sets
+Le paragraphe "Thems and icon sets" que fait-il dans le chapitre 7 ?
+Est-ce que c'est un objet qui n'a pas reçu le bon message ?
+
+Non seulement un enfant de CP pourrait changer l'apparence du programme, mais en plus les rubriques 
+"A quick tour of Pharo, 2.5 The world menu - settings, 2.7, 2.9", sont sans doute plus appropriées. 
+Le sommaire du chapitre 7 indique "de présenter les principaux outils de l'environnement de programmation Pharo",
+une "session de débogage" et "modifier des objets vivants".
+Dans la mesure où le lecteur a lu les chapitres précédents sur la présentation des outils, 
+le débogage et de l'inspecteur.
+Ainsi que la création du jeu "LightsOut", ce qui a permis d'utiliser plusieurs outils.
+
+De plus, en lisant ce paragraphe, il induit plus en erreur qu'il ne permet de trouver rapidement 
+la "section apparence".
+Puisqu'il faut 'trouver' "Settings Browser" dans le "menu World" (World> System> Settings). 
+Je ne savais pas qu'il fallait prévoir une boussole et une carte, mais effectivement c'est presque le cas.
+Le mot "Settings" est introuvable dans "System" contrairement à "Browser" : System Browser, Process Browser.
+Les touches de raccourci clavier ont été omises dans ce paragraphe. (CTRL + O + S)
+Simple : Pharo> Settings ou Meno World> Pharo> Settings
+Ce cas est typique de la représentation du livret ainsi que du programme Pharo c'est-à-dire un navire en perdition
+dont le phare éclaire des zones tortueuses.
+Il s'agit ici de tourner en rond comme le ferait le chat qui se mord la queue.
+"Pragmatique : Qui se fonde sur l’action, les résultats concrets et l’efficacité."
+
+79. Chap.7 - p.92 FR 133 EN - The main code browser
+Cette histoire c'est quoi ? Le retour dans le futur !
+C'est reparti pour un tour quant à la présentation des différentes rubriques de Pharo.
+J'hallucine.[Par extension] Qui a l’air égaré, bizarre.
+Vous vous êtes dit "qu'il faut mettre du contenu" 
+et "répéter celui-ci" pour avoir un document d'au moins 376 pages ?
+D'ailleurs, c'est le cas, concernant les répétitivités.
+Quelle perte de temps !
+Le bateau coule et le Phare flanche.
+
+80. Chap.7 - p.94 FR 136 EN - The main code browser - class-> Globally shared variables
+p.94 FR 136 EN
+"La création d'une classe crée également une variable globale qui fait référence à la classe"
+
+C'est ce qui s'appel une contradiction.
+"Prouver une proposition par l’absurde consiste à montrer que sa négation conduit à une contradiction."
+
+p.87 FR 125 EN
+"La pratique recommandée est de limiter strictement l'utilisation de variables globales."
+Tu sais qu'à chaque fois qu'une classe est créée, s'associe une variable globale, 
+mais tu dois limiter "strictement" son utilisation.
+Ce qui veut dire que si tu n'en utilises jamais (variable globale), alors tu vas perdre du temps 
+à faire quelque chose pour cette variable.
+
+p.86 FR 125 EN
+"si Pharo était implémenté à partir de zéro aujourd'hui, la plupart des variables globales 
+qui ne sont pas des classes seraient remplacées par des singletons."
+La plupart des variables partagées globales ne sont pas des classes certes, 
+mais lors de la création d'une classe celle-ci (VPG) y fait référence.
+
+81. Chap.7 - p.94 FR 137 EN - System Browser Morph>>drawOn:
+Il n'y a pas de cohérence entre la fenêtre "System Browser" et "Senders of drawOn:".
+En effet, dans plusieurs rubriques du livre est indiqué depuis "System Browser" 
+1 package, 2 class, 3 protocol, 4 method
+
+Donc, pourquoi dans la fenêtre "Senders" cette classification n'est pas respectée ? 
+1 class, 2 method, 3 package
+
+82. Chap.7 - p.94 FR 137 EN - Monticello Browser Morph>>drawOn:
+Lorsque le raccourcie clavier "Monticello Browser" est exécuté sur la fenêtre "Playground"> Morph,
+celui-ci n'affiche pas le package, class, protocol ou method contrairement à "System Browser".
+
+83. Chap.7 - p.95 FR 138 EN - Figure 7-7 Monticello Browser 
+Par hasard, j'ai trouvé le "--all--" indiqué lors de l'exercice "LightsOut".
+(Rappel -> 45. Chap. 3 - Une première application - 3.8 Terminer le jeu - Figure 3-20)
+Il s'agissait de passer par le "Monticello Browser"> cliquer sur "Browse".
+Du coup, si le document "Pharo By example" avait été plus clair je n'aurais pas perdu mon temps à chercher.
+
+84. Chap.7 - p. 96 FR 140 EN - classe Dictionary
+Le lecteur ne sait plus sur quel pied danser.
+Donc sur le livret, il s'agit de Pharo version 5.0, certaines "Figures" affichent "Monticello Browser"
+tandis que les autres c'est "System Browser" et enfin "--all--" a été trouvé. 
+All de la série Télé ? Non, celui qui est rattaché à "Monticello Browser" et que j'ai cherché dans "System Browser".
+
+p. 95 FR 139 EN - Figure 7-8 Browser ?
+Le nom de la fenêtre ne s'appelle pas "Senders" mais "Recent versions of".
+Sur la "Figure", la fenêtre "Senders" affiche une liste de package alors que sur "Recent" une ligne apparaît.
+Le bouton "Version" a été remplacé par "Revert".
+Qui suis-je ? Montecillo Browser
+
+Basculer dans "Browser", OK, lequel ?
+Dans ces conditions, il faut manipuler l'un et l'autre des "Browsers".
+Sous "Monticello Browser", je n'ai pas trouvé l'option "Find class..."; 
+de plus, il faut indiquer le nom d'un package pour connaître la liste des classes contrairement à "System Browser".
+Conclusion, il faut utiliser "System Browser" comme indiqué au début du livret, 
+mais certaines fois c'est l'incompréhension et le doute.
+
+Autres points. 
+Sous "System Browser", dans le volet "classe", il n'est pas possible de "Rechercher une classe" 
+et la "Figure 7-9" est avant le paragraphe "Basculer vers la classe Dictionary" 
+que je croyais rattaché à "Canvas>>draw:".
+Sous Pharo les objets sont manipulés aidés par les "Figures" qui sont plus parlantes que le texte et son déroulement (texte)
+qui apparaît plus tard.
+Ipso facto, le contenu de ce livret est désordonné.
+
+85. Chap.7 - p. 96 FR 140 EN - classe Dictionary
+Lorsque la classe "Dictionary" s'affiche, celle-ci est associée au package "Collections-Unordered-Dictionaries".
+Dans le volet "Package" apparaît en surbrillance "Dictionaries" qui est rattaché au package "Collections-Unordered".
+Étonnement ! 
+Quand "Collections-Unordered-Dictionaries" est inscrit dans la fenêtre "Filter..." du volet "Package", 
+celui-ci est introuvable.
+Donc, il y a un package principale qui possède des sous-packages qui ne peuvent pas être trouvés ?
+	Collections-Unordered
+		|-> Collections-Unordered-Bags
+		|-> Collections-Unordered-Dictionaries
+		|-> Collections-Unordered-Exceptions
+		|-> Collections-Unordered-Manifest	-> (C) ManifestCollectionsUnordered
+		|-> Collections-Unordered-Sets		-> [] Set, []  IdentitySet, []  PluggableSet
+		|-> Collections-Unordered-Utilities
+
+Pour le reste, "xxx-Manifest" possède une classe "(C) ManifestCollectionsUnordered" symbolisée par "(C)", mais
+"xxx-Sets" possède également des classes "Set, IdentitySet, PluggableSet", mais avec des symboles différents 
+d'une classe et "IdentitySet, PluggableSet" est différent de "Set" par l'espacement.
+
+D'un autre côté, en mettant en surbrillance "Collections-Unordered", le volet classe affiche 
+l'ensemble des contenues des sous-packages.
+Dans le volet classe, l'on pourrait croire que les éléments collés aux symboles seraient le début 
+et ceux espacés la fin d'une liste correspondant à un package.
+Or, ce n'est pas le cas, car le package "Collections-Unordered-Dictionaries" contient la classe 
+"SmallIdentityDictinary" qui se situe en avant-dernière position dans le volet classe.
+
+86. Chap.7 - p. 97 FR 141 EN - Montecillo - Inheritance
+"Monticello Browser" n'affiche pas "ImageMorph>>drawOn:", pourquoi ? 
+Parce qu'il faut cliquer sur le bouton "instance" situé avant "?" et "class".
+
+"System Browser" et le raccourci clavier "Inheritance"(CTRL + H) sur la méthode "drawOn:" ne fonctionne pas.
+
+Pourquoi lorsque je lance "Inheritance", le nom de la fenêtre est-il "Implementors" au lieu de "Inheritance" ?
+Sous "Monticello" c'est bien une fenêtre "System Browser" "Inheritance of drawOn:[5]" qui s'affiche.
+
+Encore une fois, on embrouille le lecteur dans le paragraphe "Hierarchy view" entre la "Figure 7-10" et l'utilisation 
+de "System Browser" et "Monticello Browser".
+Dans "System Browser" il n'y a aucun mot "Hierarchy" et il s'agit d'un rond à cocher situé sous le volet classe
+et à côté du mot "Hier.", mais en aucun cas d'un bouton.
+(J'ai compris la subtilité "Hierarchy" et "Hier." lorsque j'ai lu, les raccourcies claviers de Monticello,
+enfin ce n'était pas flagrant, car je cherchais dans les volets au lieu d'en dessous du volet classe).
+
+Vue> "Monticello"> ImageMorph> 	Browse full (b)		-> Ouvre System Browser -> ImageMorph>>drawOn:
+				Browse hierarchy (h)	-> Ouvre System Browser -> ImageMorph>>drawOn:
+				Show hierarchy		-> Ouvre System Browser -> Inheritance of drawOn:[5]
+				Load class ImageMorph
+
+Le volet packages n'est pas grisé lorsque le rond est coché de « Hier. » sans doute dû à la version 8 de Pharo.
+:-)
+
+87. Chap.7 - p. 98 FR 143 EN - Class # Superclass
+"la vue hiérarchique révèle que la superclasse directe de "ImageMorph" est "Morph"."
+Visuellement, ce n'est pas flagrant que "Morph" est la superclasse directe de "ImageMorph" depuis le volet classe.
+A contrario, "Morph" et "ImageMorph" sont des classes sans symbole "C".
+Également catégorisé dans "subclass" et "superclass".
+Donc, la majorité des classes située dans le volet classe ont un symbole "non class" (contradictoire), mais 
+sont "espacés" pour indiquer plus ou moins une hiérarchie. :-)
+J'ai dû zapper quelques choses, car je me pose une question.
+À savoir quel est l'intérêt, d'avoir un volet classe contenant des objets qui sont "subclass" et "superclass" ?
+D'autre part et de mon point de vue, "Morph" n'est pas un "Object" simplement une classe affichée dans un volet classe.
+
+Pharo 8 affiche deux classes distinctes "ProtoObject" et "Object", qui n'apparaissent pas dans la "Figure 7-11". 
+(Rappel : p.85 FR 123 EN - ("jusqu'à Object (ou plutôt ProtoObject)) ("the way up to Object (or rather ProtoObject)).
+Comme quoi les choses évoluent.
+
+88. Chap.7 - p. 98 FR 142 EN - Finding variables references
+Dans ce chapitre, entre l'explication, la figure 7-12 et le résultat rien ne correspond. 
+1. "Analyse" inexistant depuis le volet classe, mais "Class refs." disponible.
+2. "Class refs." aucune visibilité, quant à savoir s'il s'agit de l'utilisation d'une variable d'instance ou classe.
+3. Aucun bouton "Variable" au-dessus de la liste des packages.
+4. Aucune variable "bounds".
+5. La figure 7-12 située après les paragraphes "Bytecode source" et "Refactoring" aurait dû être encore plus loin. 
+Le chat qui se mord la queue ! 
+
+89. Chap.7 - p. 98 FR 142 EN - Finding vs Bytecode
+Les raccourcis sont oubliés dans certains paragraphes ou mis deux fois dans d'autres alors que cela pourrait éviter 
+au lecteur de chercher quelque chose qui n'existe plus. (Bytecode - CMD-b CMD-b)
+
+Par exemple : 
+Analyze, Inst var references, Inst var assignments n'existe pas.
+
+Ces paramètres doivent surement être ceux figurant sur le bandeau situé sous les volets.
+(package, class, protocol, method)
+"Class refs." existe par l'intermédiaire du raccourcie (CTRL + N) et d'un lien "Class refs." situé sur le bandeau.
+
+Dans le paragraphe "Bytecode source", aucun raccourci n'affiche ce qui est présenté à la figure 7-13.
+Donc, au fur et à mesure je comprends qu'il s'agit d'un mix entre "System Browser" et "Monticello Browser" comme
+représenté sur la Figure 2-15 de la page 36. Cela ne m'a pas choqué au commencement du livret.
+
+"System Browser" 	-> ImageMorph>>drawOn:			-> Flat Hier. Traits | Inst. side Class side|
+"Monticello Browser" 	-> Snapshot Browser: Morphic-Base	-> instance ? class
+
+Encore un cadeau-surprise dont je me passerais bien. (Perte de temps)
+
+90. Chap.7 - p. 98 FR 143 EN - Refactoring
+"Refactoring - Figure 7-14", j'imagine que du haut du "Phare" c'est plus facile à voir.
+Début page 143.....page 144......page 145...ouf enfin.
+La souris s'amuse à faire tourner la roue et moi, c'est la roulette de la souris. :-(
+
+"Le refactoring n'était auparavant disponible que dans un navigateur spécial appelé navigateur de refactoring, 
+mais il est désormais accessible depuis n'importe quel navigateur."
+Faux, indisponible dans "Monticello Browser". 
+
+
+Trop de navigateurs font perdre la boule, n'est-ce pas ?
+Trop de navigateurs tuent le navigateur. ;-(
+"System Browser" se nomme en coulisse "ClyFullBrowser".
+Et Monticello ?
+Monticello en arrière-fond c'est "MCWorkingCopyBrowser".  Ébahissé-je ! HOooooooo.
+Puis Snapshot Browser ?
+"MCSnapshotBrowser", Mister Mac leod ! 
+Aie, caramba ! Trop de noms ! non ? 
+Non, pas du tout. C'est fun. Mdr ! 
+Mettez un lapin dans un terrier, il s'y retrouve puis mettez-le dans le phare Pharo, c'est peine perdue.
+Le chat a des identités masqué : MOlusquelelapin, BILeperroquet, ALLextraterreste.
+
+91. Chap.7 - p. 98 FR 142-144 EN - Finding variable references vs Figure 7-12.
+Avant le paragraphe "Finding variable references", le lecteur travaille avec la classe "ImageMorph".
+Puis un intermède dans le paragraphe "Finding vxxx", pour exécuter les options "class refs.", "Inst. side", "Vars".
+Sauf le bouton "Variables" qui est rattaché à une ancienne version de Pharo. (+ un mix)
+
+Ensuite, le liseur est invité à cliquer sur une "variable" par exemple "bounds" (Figure 7-12).
+Avant de faire une bêtise, vérifions la figure 7-12 !
+
+Alors la "Figure 7-12" pourrait-elle m'en apprendre un peu plus sur la manière de trouver cette variable ?
+Sauf que je ne m'attarde pas à lire l'intitulé, mais à regarder le numéro de la figure.
+
+La figure montre deux fenêtres, la première indique sur le bandeau "ImageMorph" et en surbrillance le package "Basic",
+puis la classe "ImageMorph". Jusque-là c'est cohérent.
+La seconde, le bandeau indique "Accesses to bounds [48], dessous une liste de lignes, en dessous des boutons 
+et enfin un code avec "bounds" sélectionné.
+Impossible d'afficher cette fenêtre sauf s'il s'agit de la classe "Morph" au lieu de "ImageMorph". 
+Alors s'amorce un long processus de décryptage mis en place pour le lecteur biaisé par le paragraphe "Findingxx" 
+et la figure 7-12.
+Dans le paragraphe "Finding", à aucun moment il n’est fait mention de "Morph".
+
+Exemple capture : variable bounds
+
+C'est seulement en fin de phrase situé sous une capture qu'il y a un indice.
+De plus, en travaillant avec la méthode "drawOn:" et le code "bounds" on peut afficher le navigateur de messages 
+sans passer par la classe "Morph".
+La fenêtre "References to bounds [155]" affiche exactement le même nombre et liste d'items.
+Au final, pourquoi faire compliqué ?
+
+D'autre part, en se référant à la "Figure 7-12" le "Browser" est plus représenté par celle de "Monticello Browser".
+Donc, la question est de savoir comment la fenêtre "Accesses to bounds" est apparue.
+Puisque :
+1. Aucune classe "Morph" n'est disponible dans la liste du volet classe de Monticello,
+2. Aucun mot "bounds" n'est identifiable après avoir sélectionné "Basic" et "ImageMorph".
+3. C'est totalement incohérent.
+
+92. Chap.7 - p. 98 FR 143 EN - Refactoring
+"Cliquez simplement avec le bouton droit dans l'un des quatre volets pour voir 
+les opérations de refactorisation actuellement disponibles."
+J'essaye avec "System Browser" puis "Monticello".
+
+Je complète l'intervention avec la Figure 7-14 qui se trouve à perpète les alouettes.
+
+Après quoi "System Browser", l'option est disponible avec le clic droit depuis les volets "Class" et "Method".
+Alors que "Monticello Browser - MCWorkingCopyBrowser" et "Snapshot Browser - MCSnapshotBrowser",
+n'affichent aucune vue sur "Refactoring". 
+Donc, il s'agit de deux volets dans "System Browser" au lieu de quatre dans "Monticello" heu ! MCWorkingCopyBrowser :-) (((((
+
+93. Chap.7 - p. 98 FR 143 EN - File out
+"Refactoring" ne fait-il pas partie du "Browser menus" comme "File out" ? (Extra-> File out)
+L'option "File out" est disponible sur la Figure 7-14.
+
+Dans les volets du "Monticello Browser and co-> Snapshot Browser and co" l'option "Extra-> File out" ou 
+"File out" est absente.
+Depuis "System Browser and co -> ClyFullBrowser, et le volet "package" de "Extra-> File out" exporte "Basic.st", 
+et affiche seulement le contenu du package "Basic" avec les classes, les protocoles (méthodes) 
+et les méthodes (protocoles).
+Ensuite, le volet "class" de "Extra-> File out" exporte le fichier "ImageMorph.st" sans souligner les autres classes,
+mais mentionne les protocoles et les méthodes.
+Alors, le volet "protocol" de "Extra-> File out" n'exporte rien, mais attire l'attention sur une fenêtre intitulée 
+"Instance of WriteStream did not understand #trailer".
+Après, le volet "method" de "Extra-> File out" exporte le fichier "ImageMorph-drawOn.st"et attire l'attention 
+sur le code de la méthode "drawOn:" cela équivaut à ce qui est affiché dans l'onglet de la méthode "drawOn:".
+
+Maintenant, la question est de savoir quel est l'intérêt de ces exportations.
+Qu'est-ce qui se passe si j'ajoute ou j'enlève des lignes dans ces différents fichiers ou lorsque j'importe
+un fichier dans une version différente de Pharo ?
+
+94. Chap.7 - p. 99 FR 144 EN - Browser menus -> Find class
+"L'élément de menu le plus utile est probablement Find class...(f, c) dans les volets du package ou de la classe." 
+Sous "Monticello Browser" and co "Snapshot Browser" l'option est inexistante et les raccourcies claviers
+CTRL + F, CTRL + C ou ALT + F, ALT + C ne fonctionne pas.
+
+Depuis "System Browser and co -> ClyFullBrowser, et le volet "package" alors "Find class" n'est disponible
+que lors de la sélection du package principale par exemple "Morph-Base", 
+mais pas les secondaires comme par exemple "package: 'Morphic-Base-Basic' pourtant rattaché à un package. (?) 
+
+De plus, "Find class" apparaît seulement dans le "package principal", mais pas dans celui de la classe.
+
+Le raccourcie "CTRL + F" pour rechercher une classe fonctionne depuis les volets package, classe et protocole.
+Tandis que le volet "method", "CTRL + F" affiche une fenêtre de recherche de "method". 
+
+Note : Depuis quelques chapitre le copier/coller de Pharo ne fonctionne plus. (?)
+"#Clipboard is missing, and does not understand #clipboardText:"
+p.91 FR 
+"Le  Test Runner vous permet d'exécuter et de déboguer", c'est quand tu en as besoin qu'il est introuvable ce truc.
+En comptant celui-ci, c'est le troisième bogue. (bogue, erreur informatique, bug) 
+Simplement en suivant le livret "Pharo by example".
+
+
+Je fais quoi ? 
+
+J'appelle les pompiers (non, ne marche pas); on coule, on coule (ça, non plus), Pizza (Oui, extra fun). ;-)
+
+95. Chap.7 - p.99 FR 145 EN - Navigation history
+"Le menu déroulant History Navigator, situé au-dessus des volets de protocole et de méthode, 
+peut également vous aider à revenir rapidement à une classe ou une méthode que vous avez parcourue récemment, 
+même si vous avez oublié son nom."
+Le menu déroulant "history navigator" situé au-dessus des volets protocole et méthode 
+sous "Monticello-> Snapshot", n'existe pas.
+Tandis que sous "ClyFullBrowser-> System Browser", "history navigator" n'est pas un menu déroulant, 
+mais plutôt des flèches vertes situées en dessous du volet "method".
+
+96. Chap.7 - p.99 FR 145 EN - Test Runner 
+[Rappel 94.
+Note : Depuis quelques chapitre le copier/coller de Pharo ne fonctionne plus. (?)
+"#Clipboard is missing, and does not understand #clipboardText:"
+p.91 FR 
+"Le  Test Runner vous permet d'exécuter et de déboguer", c'est quand tu en as besoin qu'il est introuvable ce truc.
+En comptant celui-ci, c'est le troisième bogue. (bogue, erreur informatique, bug) 
+Simplement en suivant le livret "Pharo by example".]
+"Test Runner" est disponible depuis le bouton "Tools" ou "CTRL + O + U), dommage qu'il ne soit pas disponible depuis
+le code ou la fenêtre en cours de bogue.
+Quoi qu'il en soit, j'ai lancé "Test Runner" au pifomètre qui a gelé quelques secondes le programme Pharo.
+Une fenêtre "Not Covered Code (28% Code Coverage) [1530] s'est affichée ainsi que plein d'autres fenêtres furtives.
+Est-ce que le problème de copier/coller a été résolu ? Hum, ensuite ?
+"Glamorous Browser" ?? Il sort d'où celui-là ?
+Bon à suivre.
+
+97. Chap.7 - p.100 FR 146 EN - Find method (CMD-f-> Mac, CTRL + F-> Win)
+"Une autre méthode utile dans le volet de classe est la "méthode Find" ( CMD-f CMD-m )"
+Depuis le volet classe "Find method", n'existe pas dans "Snapshot Browser" et "System Browser".
+Mais, elle est disponible dans le volet "method" de "System Browser" (CTRL + F).
+Par contre, les fenêtres qui s'ouvrent s'intitulent "Choose xxx" au lieu de "Find xxx", 
+et ne sont pas identiques à l'intitulé disponible dans les menus. ("Find class", "Find method")
+
+98. Chap.7 - p.100 FR 146 EN - searching for a particular method
+"il est souvent plus rapide de parcourir le protocole --all-- , de placer la souris dans le volet des méthodes
+et de saisir la première lettre du nom de la méthode que vous êtes en train de chercher."
+1. Le nom de la méthode recherché s'affiche en surbrillance "gris",
+2. Si la méthode est en seconde position, la touche clavier "flèche bas", fait retourner en haut de la liste,
+3. La méthode trouvée est en seconde position, alors là validée par un clic de souris ou la touche "Entrée", 
+4. La méthode se trouve en 20 positions utiliser la roulette de la souris plus tôt que la touche clavier "flèche bas",
+5. Concerne le browser "Monticello-> Snapshot Browser".
+6. C'est mieux "System Browser".
+
+99. Chap.7 - p.100 FR 146 EN - Playground auto-complete 
+"quicker to browse the --all-- protocol,"
+"To do Try both ways of navigating to OrderedCollection>>removeAt:"
+
+Je commence avec "Snapshot Browser", la suite de "Monticello" qui utilise "--all-- protocol".
+1. Que ce soit avec "Tools> Monticello" ou par "Playground> code> Monticello", ils n'affichent aucun résultat.
+
+2. Tandis qu'avec "Tools> System Browser" et rechercher "removeAt:", c'est simple et rapide.
+3. Ensuite avec "Playground", il y a plusieurs possibilités et certaines sont incohérentes.
+	3.1 Playground> OrderedCollection>>removeAt:> CTRL + M affiche "Implementors" au lieu de "System Browser",
+	3.2 Playground> OrderedCollection>>removeAt:> CTRL + B affiche "Variable or expression expected->",
+	3.3 Playground> OrderedCollection> CTRL + M affiche "System Browser" au lieu de "Implementors",
+	3.4 Playground> OrderedCollection> CTRL + B affiche correctement "System Browser",
+	3.5 Playground> Ord...> propose l'autocomplétion,
+	3.6 Playground> rem...> ne suggère pas l'autocomplétion même après les deux points,
+	3.7 Playground> drawOn:> conseille l'autocomplétion seulement après les ":",
+	3.8 Playground> removeAt: ou drawOn: > CTRL + B affiche "Variable or expression expected->",
+	3.9 Playground> removeAt: ou drawOn:> CTRL + M affiche "Implementors".
+
+100. Chap.7 - p.100 FR 146 EN - Navigation par programmation
+Je ne comprends pas l'intérêt de la navigation par programmation !
+Le premier code fonctionne "SystemNavigation default browseAllSendersOf: #drawOn:".
+À ce moment-là, j'évalue le code et parcours les expéditeurs. Et après ? (évaluer !)
+
+Le second code, ci-dessous, pour restreindre la recherche d'expéditeurs ne fonctionne pas. 
+"SystemNavigation default browseAllSendersOf: #drawOn: localTo:ImageMorph" ou
+"SystemNavigation default browseAllSendersOf: #drawOn: localTo: ImageMorph".
+
+Je suis "hébété" par la suite.
+"Les outils de développement étant des objets", 
+"accessible depuis les programmes",
+"vous pouvez développer vos propres outils ou adapter les outils existants à vos besoins.",
+OK ! Tout est "objets", l'écran, le fil électrique, la Terre c'est bon.
+
+De quel programme parle-t-on ?
+Je peux développer mes outils, comment les développer ? Ce paragraphe c’est quoi ? 
+On te balance trois lignes de code dont l'une ne fonctionne pas. 
+Alors, "j'évalue" et je fais du saut de parcours, super !
+
+L'équivalent programmatique de "Implementors" est peut-être plus intéressant.
+SystemNavigation default browseAllImplementorsOf: #drawOn:
+
+J'adore la fin du paragraphe.
+"À faire Pour en savoir plus sur ce qui est disponible, explorez la classe System-Navigation avec le navigateur."
+À savoir, dès le début du paragraphe j'ai consulté la classe "System-Navigation", donc je n'ai pas attendu la fin 
+de cette partie puisque précédemment c'était l'exploration de " OrderedCollection >> removeAt:".
+À ce stade, je ne vois plus l'intérêt de savoir ce qui est disponible parce que je ne sais pas quoi en faire 
+de ces choses.
+Même en lisant les commentaires des quatre classes, "super fun" des descriptions, 
+mais concrètement qu'est-ce que c'est la suite ? 
+C'est la même chose lorsque je suis enfoncé au fond du canapé à lire un bouquin. 
+Il a été lu, il est fini, c'est l'heure de la balade.
+
+101. Chap.7 - p.101 FR 147 EN -  world of live vs world of static code
+"L'une des choses qui rend Pharo si différent de beaucoup d'autres environnements de programmation 
+est qu'il vous offre une fenêtre sur un monde d'objets vivants, pas un monde de code statique."
+
+Il me semblait que c'était "Playground" qui proposait un environnement "d'objets vivants".
+À la page 147 de "pharo by example" les objets ont été et sont toujours statiques.
+Quand est-ce que l'on rentre dans le vif du sujet et dans "un monde d'objets vivants" ?
+
+Le paragraphe "7.3 L'inpecteur", n'est qu'illusion d'objets.
+À part un changement de date, le code reste statique. Alors, le monde d'objets vivants est où ?	
+
+L'inspecteur a déjà été vu précédemment "LightsOut".
+Alors les objets vivants ???????????
+Ce n'est qu'une fenêtre statique avec du code tout aussi statique.
+Mouais ! vivants = world of static code
+
+102. Chap.7 - p.102 FR 149 EN - 7.4 Le debogeur
+Le débogeur a déjà été vu précédemment, peut-être allons-nous avancer.
+Si c'est comme l'inspecteur alors c'est peine perdue.
+
+"À l'aide du navigateur, ajoutez la méthode suivante à la classe String"
+
+
+1. Je vais chercher la classe "String" en utilisant "Find class" comme indiqué dans le paragraphe précédent 
+"Browser menus - items is Find class in the package or class panes". (p. 99 FR 144 EN)
+
+Tools> System Browser (CTRL + O + B)> Volet Package> Find class (CTRL + F)> String -----|/ 
+=================== Ne trouve rien, l'objet est vivant. MDR ! ===================<----<-|/
+
+2. Playground (CTRL + K)> String> System Browser (CTRL + M ou CTRL + B) "+M, seulement pour une classe."
+
+3. Pharo demande "Author identification" -> FirstnameLastname. 
+(C'est une nouvelle version de Pharo puisque je ne pouvais plus copier/coller)
+Pour FirstnameLastname mettre LObjetVivantcoule
+
+4. Pourquoi "Listing 7-16 A buggy method" indique une méthode "buggy" alors qu'il s'agit de "suffix" ?
+
+5. Représentation suffix.
+	Package		Class 		Protocol		method
+Collections-Strings	String		accessing-properties	suffix
+	\|-> Base
+
+6. Fenêtre de débogage "NotFound".
+Le résultat est inattendu puisque les boutons "Proceed, Abandon, Debug et Report" ne sont pas disponibles.
+L'objet "PreDebugWindow pops up" s’est fait la malle ? (malle = partir sans prévenir.)
+Playground> 'readme.txt' suffix et Print it (CTRL + P)
+"NotFound: [:i |(self at:i)=dot] not found in Interval
+
+7. Fenêtre de débogage "NotFound", impossible de cliquer sur "Debug".
+", we need the debugger itself, so click on Debug." (p. 103 FR 150 EN)
+Ce n'est pas grave étape 8. (Ancienne version)
+
+8. "selected the detect:ifFound:IfNone:"
+À suivre...
+
+103. Chap.7 - p.102 FR 149 EN - 7.4 Le debogeur - dot
+J'ai évalué le code et l'extension "dot" enfin il me semble que c'est rattaché à une extension.
+Donc, en prenant en compte que "dot" est une extension et qu'il est souvent énuméré dans le code,
+avec Playground j'ai essayé les mots suivants : 'readme.dot' suffixe, '.dot', '*.dot', '.txt', '*.txt'
+, mais c'est toujours la même erreur.
+Alors, le code de l'exercice est "dot := '.'.", que j'ai modifié en "dot := '.dot'.", 
+mais j'ai remis le code par défaut et après l'enregistrement le message "Error" est apparu.
+C'est bizarre, parce que j'ai remis par défaut sans avoir lancé quoi que ce soit.
+:?)
+
+104. Chap.7 - p.104 FR 151 EN - Le débogueur - '.' in the string 'readme.txt'
+"As we can see one method lower in the stack trace, the exceptionBlock is [self errorNotFound: ...],"
+"nous pouvons voir une méthode plus bas dans la trace de la pile, l'exceptionBlock est [self errorNotFound: ...],"
+
+*******	PILE ************************************************** PILE ******************* 
+----------------------------------------------------------------------------------------
+Stack											|
+----------------------------------------------------------------------------------------  
+Interval(Collection)	detect:ifFound:IfNone:		 			<method	| cadre de pile
+											|
+											|
+----------------------------------------------------------------------------------------|
+Source											|
+----------------------------------------------------------------------------------------|
+detect: aBlock ifFound: foundBlock ifNone: exceptionBlock				|
+	"Evaluate aBlock with each of the receiver's elements as the argument.  	|
+	If some element evaluates aBlock to true, then cull this element into 		|
+	self										| cadre de pile
+		do: [ :each | 								|
+			(aBlock value: each)						|
+				ifTrue: [ ^ foundBlock cull: each ] ].			|
+	^ exceptionBlock value								|
+----------------------------------------------------------------------------------------|
+Variables										|
+----------------------------------------------------------------------------------------|
+Type		Variable	Value							|
+----------------------------------------------------------------------------------------|
+parameter	exceptionBlock	[self errorNotFound: aBloclk]			<method	| cadre de pile
+											|
+implicit  	thisContext	Interval(Collection)>>detect:ifFound:ifNone:		|
+											|
+											|
+-----------------------------------------------------------------------------------------
+
+"En regardant en arrière à la fenêtre de la méthode, nous voyons que nous nous attendions 
+à ce que l'avant-dernière ligne de la méthode
+trouve '.' dans la chaîne 'readme.txt', et cette exécution n'aurait jamais dû atteindre la ligne finale."
+"Looking back at the method window, we see that we expected the penultimate line of the method to 
+find '.' in the string 'readme.txt', and that execution should never have reached the final line."
+
+À la lecture de ce paragraphe, je suis perdu pour trouver '.' dans la chaîne 'readme.txt'.
+"En regardant en arrière à la fenêtre de la méthode" ? C'est où ?
+En cliquant sur chaque triangle, c'est interminable.
+Chercher une aiguille dans une botte de foin.
+Ça traîne en longueur cette histoire.
+
+105. Chap.7 - p. 104 FR 152 EN - Le débogueur - dot vs . vs readme.txt
+1 Restart 2 Over 3 Restart - Figure 7-19
+Ça ne change pas grand-chose et c'est d'une efficacité redoutable.(Ironique)
+Ce n'est pas fini. MDR ! 
+4 Into x2 (Stack-> Interval - do:, Source-> index :=0, Variables-> implicit - thisContext - Interval>>do:)
+5 Through x2 (Stack-> Interval(Collection - detect:iFound:ifNone: - [:each xxxxxxx], Source-> value: each,
+Variables-> implicit - thisContext - [:each xxxxxxx])
+6 Into (Stack-> ByteString(String) - suffix - [:ixxxxx), Source-> at:i, Variables-> implicit - self - 'readme.txt')
+Non, je ne vois pas pourquoi ils ne sont pas égaux, ce n'est pas flagrant.
+Character -> dot et Character $. ce n'est pas flagrant pour ainsi dire incompréhensible.
+String "readme.txt" et String "." c'est pareil. pas flagrant
+Rien ne me prouve "pourquoi ils ne sont pas égaux:" 
+:-)
+
+106. Chap.7 - p. 104 FR 152 EN - Le débogueur -  dot :=$.
+"Change the code right in the debugger so that the assignment reads dot :=$. and accept the change."
+"Modifiez le code directement dans le débogueur afin que l'affectation lise dot: = $. et acceptez le changement."
+1. La moitié du code passe à la ligne suivante, c'est malin. 
+Alors c'est quoi le code ?
+	Document 1 EN (Copier/Coller)->  EN =  dot :=$.  
+	Document 2 FR (Copier/Coller)->  FR =  dot: = $.
+
+		 dot: = $.
+		 dot :=
+$.	
+
+2. Modifier le code directement dans le débogueur, mais c'est où ? String, Items, Evaluator ???
+(Ça m'agace de décrypter ce document, c'est une perte de temps.
+Ce qui vous semble facile, évident, indéniable ne l'est pas pour les autres.)
+Galère !
+
+107. Chap.7 - p. 104 FR 152 EN - Le débogueur -  dot := $..
+"Change the code right in the debugger so that the assignment reads dot :=$. and accept the change."
+"Modifiez le code directement dans le débogueur afin que l'affectation lise dot: = $. et acceptez le changement."
+Ça y est, j'ai décrypté le document et j'ai trouvé l'endroit où a lieu la modification.
+
+Étant donné que "at: i" est mis en surbrillance, c'est la raison pour laquelle cela me semblait judicieux 
+de modifier "dot" depuis la rubrique "Variables" -> temp-> dot->.
+
+Mais, c'est lorsque j'ai comparé les Figures 7-21 et 7-22 que j'ai compris la manière de modifier "dot". 
+(Relu surtout)
+
+Donc, les codes qui ont été "Copier/Coller", aucun ne correspond à la "marque" indiquée sur la Figure 7-22.
+
+	Document 1 EN (Copier/Coller)->  EN =  dot :=$.  
+	Document 2 FR (Copier/Coller)->  FR =  dot: = $.
+	
+	 dot :=$.
+	 dot: = $. 
+	 dot := $..
+nil !  mais c'est où ? String, Items, Evaluator ??? Aucun lol
+tout ça pour ça ! :-(
+
+108. Chap.7 - p. 104 FR 152 EN - Le débogueur - .txt vs txt
+1. "L'évaluation du "suffix" « readme.txt » se terminera et affichera la réponse « .txt ».
+La réponse est-elle correcte ? 
+Malheureusement, nous ne pouvons pas le dire avec certitude. 
+Le suffixe doit-il être ".txt" ou "txt" ? 
+Le commentaire de méthode en "suffix" n'est pas très précis. 
+La manière d'éviter ce genre de problème est d'écrire un test "SUnit" qui définit la réponse."
+
+2. "Pharo a un excellent débogueur, mais comme la plupart des outils puissants, 
+il peut être déroutant lors de la première utilisation." (p.90 FR 131 EN)
+
+3. Listing 7-23 A simple test for the suffix method
+testSuffixFound
+self assert: 'readme.txt' suffix = 'txt'
+
+Listing 7-25 A better test for the suffix method
+testSuffixFound
+self assert: 'readme.txt' suffix = 'txt'.
+self assert: 'read.me.txt' suffix = 'txt'
+
+1. Concernant le premier point, le suffixe ".txt", est correcte d'après la liste de "PATHEXT" de Windows.
+De plus, je ne comprends pourquoi il faut se fier à un commentaire "pas très précis" plus tôt qu'un code.
+Est-ce que cela soulève la question, à savoir qu'il s'agit d'un code imprécis et non fiable ?
+Où alors interroge-t-il un modèle incomplet, rudimentaire ou erroné ?
+
+Variables-> ? je ne sais plus le chemin
+10   9   8   7   6   5  4  3   2   1 
+58 110 114 101 116 116 97 80 111 110 decimal 
+$:  $n  $r  $e  $t  $t $a $P  $o  $n
+
+2. Le second point met en avant l'excellence d'un "débogueur" et le premier point son incertitude.
+Ou alors pourrait-on bifurquer sur l'hypothèse que le codeur n'a pas su mettre correctement en code sa demande ?
+Quelle est la définition du mot "suffixe" ? On peut l'interpréter de deux manières :
+"Suffixe = Affixe ajouté à la suite d’un mot." et "Affixe = Élément qui s’ajoute à la forme d’un mot pour en 
+modifier le sens ou la valeur grammaticale. Les préfixes, les suffixes, les infixes sont des affixes."
+Considérant cela, on peut constater que "readme" est le premier élément suivi des deux autres : "." et "txt".
+Alors qu'en informatique, le suffixe ou l'extension font appel à deux éléments indissociables ".txt".
+Par voie de conséquence, le codeur ne sait pas ce qu'il cherche précisément étant donné que le mot "suffixe",
+fait appel à un conflit intérieur inconscient, une vérité instable, imprécise sur ce qui doit être "cherchez " 
+ou "recherché ".
+Dans ce cas, on pourrait imaginer le plateau d'un jeu de "Go" ou "d'échecs" et chaque case contiendrait 
+des mots de code et au-dessus en miroir, mais identique par sa forme contiendrait la racine des mots. 
+
+3. "Le suffixe doit-il être ".txt" ou "txt" ?", 
+les listings "7-23" et "7-25" montrent des tests sur le suffixe "txt" alors qu'il s'agit de ".txt".
+Pourquoi, aucun test pour le suffixe ".txt" ? 
+
+4. Pourquoi est-ce que le "Listing 7-24" n'existe pas ? Peut-on considérer que c'est ici aussi un modèle inexistant ?
+(Listing vs Figure)
+
+Au final, ce sont des choses simples ou les accidents qu’ils font écroulés l'excellence d'un code, d'un objet, 
+d'un modèle et d'un débogueur.
+:-)
+
+109. Chap.7 - p. 106 FR 155 EN - testSuffix - StringTest 1
+"Un test simple pour la méthode des suffixes"
+J'ai mis le code "testSuffixFound" dans "Playground", histoire d'aller plus vite mais ça ne fonctionne pas.
+
+testSuffixFound
+self assert: 'readme.txt' suffix = 'txt'
+
+self assert: 'readme.txt' suffix = 'txt'.
+self assert: 'read.me.txt' suffix = 'txt'
+
+Sauf, peut-être, un peu de patientes et des modifications.
+
+" si vous ajoutez testSuffix à la classe StringTest..."
+Et lorsque "System Browser" a ouvert la classe "StringTest", 
+je me suis interrogé sur le contenu (corps, method selector, body) de cette classe et le bug précédent.
+C'est un objet qui contient beaucoup de test qui va interroger plusieurs autres object qui va interroger du code.
+Mais quand est-il de ce code ? De son contenu, sa fiabilité, l'analyse, l'approche, le déroulement, 
+son fonctionnement et son résultat ?
+
+De même, je suis surpris de constater la longue liste affichée par l'assistant qualité.
+Alors que je n'ai pas modifié ce code, dans ce cas, c'est un objet vivant. (A life, a life)
+:-)
+
+110. Chap.7 - p. 107 FR 155 EN - test for the suffix 2
+Le listing 7-23 passe le test contrairement au second listing 7-25 qui reste en erreur.
+
+
+Je n'ai plus la main sur le programme Pharo.
+
+Sauf si....
+
+111. Chap.7 - p. 107 FR 155 EN - test for the suffix 3
+"Ainsi, par exemple, nous pourrions modifier la méthode "suffix" pour qu'elle se lise comme suit:"
+1. Encore une fois, le code n'est pas à la suite du paragraphe.
+2. Je lance le troisième Code (Figure 7-26) en direct afin d'enregistrer les surprises éventuelles.
+Je fais quoi ?
+Rien n'est indiqué sur le livret ! :-(
+class String - method suffix 
+????????
+:-(
+
+112. Chap.7 - p. 107 FR 156 EN - Listing 7-26
+Le lecteur est abonné à son sort.
+Undeclared : basta
+Le mirage d'une boucle infinie, le débogage d'un calcul (?), 
+des touches de raccourcis "CMD-. ou CMD-Shift-." qui ne serve à rien (?), 
+la modification simple d'un code pour insérer "Halt now.." (?),
+changer la méthode suffixe pour qu'elle se lise comme suit (suite ?) 
+et enfin l'apparition du pré-débogueur : procéder ou entrer ?
+selecting the erroneous test ???
+replace the detect: message by detect:ifNone: ???
+Où est-il l'objet vivant, concret, pragmatique et l'excellence du débogueur ?
+Au lieu de répéter des paragraphes pour rien dire, c'est par exemple ici qu'il fallait démontrer 
+l'excellence du débogueur.
+C'est bâclé.
+:-(
+Voilà fini, je ne cherche pas midi quatorze heures.
+
+113. Chap.7 - p. 107 FR 157 EN - L'excellence du débogueur
+Très franchement, une note de 1,5 sur 10 s’est même trop bien notée.
+Ça n'a rien à voir avec l'excellence.
+J'ai réalisé des tests de débogage sur le site code.org et les blocs graphiques d'un côté 
+et la mise en scène vivante de l'autre ont de réelles incidences visuelles 
+et le débogage ainsi que l'exécution du code fonctionne.
+Ce qui n'est pas du tout le cas dans ce débogueur qui n'est pas précis et le meilleur test ne fonctionne pas.
+(and from there look at variables, step through the computation, and edit the code).
+Qu'est-ce que ça va m'amener à "regarder, parcourir et éditer" ?
+"Le bug initial aurait dû vous faire réaliser que s'il n'y a pas de point dans la chaîne cible" 
+Je ne sais pas de quoi il s'agit.
+"remplacer le  detect:  message en  détecter: ifNone:"
+Non seulement je ne sais pas où ça se trouve, mais en plus je ne sais pas ce que c'est.
+Puis rapidement, le lecteur passe au paragraphe "7.5 - The process browser".
+Intégrez un objet vivant dans votre livret PDF, car ici c'est bâclé, non vivant, on ne sait pas ou l'on va.
+Il faut décrypter et chercher et enfin des mots apparaissent sans savoir ce qu'il en retourne. 1/10.
+
+114. Chap.7 - p.107 FR 156 EN - Listing 7-26
+Je refais "le meilleur test".
+
+1. Je remplace l'ancien code "suffix" par celui de la figure 7-26,
+
+2. J'enregistre et je sélectionne la 1re ligne du menu "Leave variable undeclared",
+
+3. "Lorsque nous exécutons cette méthode, l'exécution de Halt fera maintenant apparaître le pré-débogueur,"
+	3.1 Dans le code suffix, met le curseur à la droite du point "Halt now.", puis "Do It" (CTRL + D), 
+		(Ouvre le débogueur, mais le nom de la fenêtre est "Halt")
+	3.2 Dans le code suffix, sélectionne "Halt now.", puis "Debug It" (CTRL + Shift + D), 
+		(Ouvre le débogueur et le nom de la fenêtre est "debug it")
+4. (et à partir de là, regardez les variables, parcourez le calcul et éditez le code).
+   (and from there look at variables, step through the computation, and edit the code).
+	4.1 Parcourir le calcul ?
+	4.2 Editez le code ?
+
+5. "Le bug initial aurait dû vous faire réaliser que s'il n'y a pas de point dans la chaîne cible,"
+   "The initial bug should have made you realize that if there is no dot in the target string,"
+
+6. "ajoutez "testNoSuffix" à la suite de tests dans la classe "StringTest" et regardez le test générer une erreur."
+   "add testNoSuffix to the test suite in class StringTest, and watch the test raise an error."
+
+7. "Entrez le débogueur en sélectionnant le test erroné dans SUnit et modifiez le code pour que le test réussisse."
+   "remplacer le  detect: message en detect:ifNone:"
+   "Enter the debugger by selecting the erroneous test in SUnit, and edit the code so that the test passes."
+   "replace the detect: message by detect:ifNone:"
+ "remplacer le  detect: message en detect:ifNone:" ?????
+Je ne sais pas ce que je dois faire ou chercher!!!!
+
+115. Chap.7 - p.109 FR 158 EN - 7.7 Résumé du chapitre
+
+Notes :
+------
+"mais à l'heure actuelle, la concurrence est mise en œuvre par découpage temporel."
+concurrence ? découpage temporel ?
+
+"Nous en avons discuté assez longuement dans le chapitre : Un tour rapide de Pharo."
+Alors c'est marrant, là il le met. (lien Un tour rapide de Pharo).
+
+"Afin de se développer efficacement avec Pharo,"
+Afin de se développer efficacement ? Jusqu'à maintenant, la ligne de conduite est tortueuse.
+
+"il est important d'investir un peu d'efforts dans l'apprentissage des outils disponibles dans l'environnement."
+C'est plus qu'un peu d'efforts c'est une prise de tête.
+À ce stage, le codage est survolé et oublié tandis que les outils c'est 95 % de prise de tête.
+
+"Le navigateur standard est votre interface principale"
+Le lecteur se demande, quelles sont les interfaces principales ? 
+Parce qu'il faut décrypter les "Figures" présentent dans le livret et les navigateurs 
+"monticello et system browser" ou l'un possède "--all--" tandis que l'autre il faut sauter un volet sur deux.
+
+"votre interface principale pour parcourir les packages, classes, protocoles de méthodes et méthodes existants"
+C'est surprenant de lire "protocoles de méthodes" alors qu'il m'a fallu faire un document pour comprendre qu'il 
+s'agissait de méthode. 
+Plus j'avance dans ce livret et je découvre des choses qu'il aurait fallu indiquées au début.
+
+"Vous pouvez également parcourir le système Pharo par programmation en envoyant des messages à 
+SystemNavigation par défaut."
+J'ai oublié ce qu'il en était.
+
+"L'Inspecteur est un outil utile pour explorer et interagir avec les objets vivants de votre image."
+Je n'ai pas rêvé, mais interagir avec une "date" je n'appelle pas ça un objet vivant. 
+Donc, j'ai exploré, lu du code, exploré, lu du code, ensuite tu recommences du début, etc..
+
+"Vous pouvez même inspecter les outils en méta-cliquant pour afficher leur halo morphique et en sélectionnant la
+poignée de débogage."
+Recherche dans le livret "halo morphique", cela donne "Figure 3-10".
+Le halo morphique, je ne l'ai vu à aucun moment. 
+C'était un peu plus clair et flagrant lorsqu'il fallait inspecter "Locell" à la "Figure 3-10" page 57.
+
+"Le débogueur, d'interagir avec tous les objets de votre application, y compris le code source"
+Encore une fois cette notion "d'objet" est incohérent puisqu'il s'agit de code.
+Package> code, Classe> code, Protocol - methode> code, méthode> code
+
+"Le débogueur est particulièrement efficace"
+"Cependant, il s'avère que cela n'aide pas non plus;"
+"Le commentaire de méthode en "suffix" n'est pas très précis. La manière d'éviter ce genre de problème est d'écrire un test SUnit"
+"Maintenant que nous voyons le bogue, le correctif est évident: nous devons convertir dot en caractère avant de commencer à le rechercher."
+Il est tellement efficace qu'on est obligé d'écrire un test SUnit, de lire plusieurs lignes de code en surbrillance 
+sans savoir ce qu'il faut faire, de voir de multiples bogues et un correctif qui n'est pas évident.
+Et enfin, être tenu de remplacer "detect: message en detect:ifNone:", sans pour autant que cela fonctionne.
+C'est d'une efficacité redoutable de bogue.
+
+116. Chap.8 - p.110 FR 161 EN - Partage du code
+
+Notes : 
+------
+"La conséquence de la programmation dans un monde d'objets vivants plutôt qu'avec des fichiers"
+Désolé, mais lorsque j'ai exporté "ImageMorph.st", "ImageMorph-drawOn.st", "Morph-drawOn.st", 
+"Object-shouldBeImplemented.st", "PBE-LightsOut.st" ce sont clairement des fichiers contenant du code.
+En aucun cas un "monde d'objets vivants".
+"Quelque chose d'explicite" (smallFontsIcon, smallWarningIcon, nodesWithUnknownParent, Blue Morph) ou 
+"un ensemble de modifications" (!LOCell commentStamp: 'UserPharo 9/28/2020 13:07' prior: 0!), 
+c'est la même chose en l'occurrence du code.
+
+117. Chap.8 - p.111 FR 162 EN - Accéder aux packages
+"Les expressions suivantes sont des exemples des requêtes que vous pouvez effectuer."
+Je ne sais pas ce qu'il ouvre à ce jour le Playground, mais contrairement à hier c'était des "not understand". 
+C'est incompréhensible, ça n'a rien à voir avec le package "AST-Core" et encore moins les classes. 
+Bon et bien voilà, Super ! 
+
+118. Chap.8 - p.112 FR 164 EN - Création d'un package
+"Créez également une méthode dans une classe existante, telle qu'Object, et placez-la 
+dans le même package que vos classes - voir Figure 8-4."
+Malheureusement, cette partie est compliquée puisqu'il ne veut pas n'importe quel "object" et un message indique
+une instabilité éventuelle. 
+(Object is an existing class in this system. Redefining it might cause serious problems.
+Is this really what you want to do?)
+La question c'est, comment faire pour créer une méthode dans une classe existante ?
+Encore une fois, il faut décrypter le livret pour peut-être enfin arriver à finaliser un exercice.
+Du coup, j'ai cliqué sur "Proced" et le programme Pharo a bloqué.
+Création du package PBE x2.
+(Cliquer sur "Hier." pour faire apparaître l'objet)<- NON pas bon.
+:-(
+
+119. Chap.8 - p.117 FR 172 EN - 8.3 The file list browser
+J'ai mis "*" dans la fenêtre de recherche "Hit return to accept" et depuis "File Browser" n'est pas en bonne forme
+lorsque je clique sur les dossiers le message indique "RegexSyntaxError: nullable closure".
+Exemples de recherche : *dout, *.dll, ssleay*
+On s'attend à ce qu'il affiche de suite la recherche alors qu'il faut appuyer sur la touche clavier "Entrée".
+Il faut composer, entrent la touche clavier "Entrée", le symbole "*", vider la fenêtre "Hit return to accept".
+:-(
+
+120. Chap.8 - p.118 FR 173 EN - How to get your code back
+"Restart Pharo from the most recent snapshot, and select World > Tools...> Recover lost changes."
+"Redémarrez Pharo à partir de l'instantané le plus récent et sélectionnez Monde> Outils ...
+> Récupérez les modifications perdues."
+
+1. Comment redémarrer Pharo ?
+Depuis la barre d'outils : Pharo> Save and quit ou Pharo> Quit 
+Ou alors  
+En cliquant sur la "X" (Pharo Virtual Machine - Quit Pharo Virtual Machine without saving? "Oui - Non")
+Parce qu'il y a une différence entre "Quit" et "Reboot" - "Restart".
+
+2. L'option "Recover lost changes" n'existe pas. L'objet est-il vivant ? Alors, il s'est envolé.
+:-( Recover Kapout.
+
+Peut-être, mettre en place la possibilité de lancer cette option depuis Playground.
+Indiquer le raccourci clavier sur le livret ne serait pas un mal non plus.
+
+121. Chap.9 - p.121 FR 178 EN - Listing 9-1
+Je me pose la question à savoir pourquoi le "Listing 9-1", est-il au milieu de nulle part ?
+De plus, sans lien avec le paragraphe et encore une fois, il faut décrypter le contenu.
+Jeu de piste.
+
+122. Chap.9 - p.121 FR 178 EN - 9.4 SUnit par l'exemple
+En décryptant le livret, je pense que le listing 9-1 est le package à créer.
+Le système d'étape n'est pas au point.
+
+
+Exemple, SUnit : 9.4 - suite le 26/11/2020
+----------------
+Exemple étape par étape pour tester la classe "Set".
+
+Etape 0: créer le package (Listing 9-1)
+TestCase subclass: #MyExampleSetTest
+instanceVariableNames: 'full empty'
+classVariableNames: ''
+package: 'MySetTest'
+
+Création :
+----------
+
+Object subclass: #NameOfSubclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	package: 'MySetTest'
+
+Etape 1: créer la classe de test.
+
+123. Chap.9 - p.121 FR 178 EN - 9.4 Etape 1 : créer la classe de test
+A. Plusieurs volets sont définis dans Pharo et le premier concerne le package.
+Lorsqu'un projet démarre celui-ci, commence par la création d'un package.
+Alors pourquoi l'étape 1 de SUnit démarre-t-elle par la création d'une classe ?
+(3.1 The Lights Out game - 3.2 Creating a new Package - 3.3 Defining the class LOCell - p. 50 EN)
+
+Étape 0 : créer le package (Listing 9-1)
+--------
+
+Package défaut : 
+---------------
+
+Object subclass: #NameOfSubclass
+	instanceVariableNames: ''
+	classVariableNames: ''
+	package: 'MySetTest'
+
+Package modifié :
+----------------
+
+TestCase subclass: #MyExampleSetTest
+instanceVariableNames: 'full empty'
+classVariableNames: ''
+package: 'MySetTest'
+
+B. "Add two instance variables so that your new class looks like this:", 
+"Ajoutez deux variables d'instance pour que votre nouvelle classe ressemble à ceci :"
+Définition de ceci : "Ce que l’on montre et qui est (le plus) près du locuteur."
+Pourquoi le "Listing 9-1" n'est-il pas à la suite de "ceci" idem à suivant ?
+
+C. De toute évidence, le lecteur va copier et coller le code disponible depuis le volet package.
+Donc, pourquoi "Ajouter deux variables d'instance" ?
+
+Étape 1 : créer la classe de test
+--------
+
+Package		Class			Variables d'instance	
+MySetTest	(C)TestCase		full		
+		(C)MyExampleSetTest	empty
+
+
+Étape 2 : initialiser le contexte de test
+--------
+
+Package		Class			Protocol			Method	
+MySetTest	(C)TestCase		running (créé automatiquement)	setUp (Effacé par setUp code livret) Il manque une info.< Pas bon !
+		(C)MyExampleSetTest	setup				(setUp	"Hooks that subclasses may override to define the fixture of test.")
+					tests
+
+D. Un décalage entre le code et le paragraphe.
+Entre le code "Listing 9-2" et la "Figure 9-6", l'élément "setup" et "setUp" sont contradictoire.
+Les étapes ne sont pas claires.
+
+E. Aucune information dans les étapes 1, 2, 3 concernant les protocoles "setup" et "tests". 
+Après toutes ces étapes, le lecteur a "espéré " une figure et c'est lorsque la "Figure 9-6" apparaît 
+que le lecteur constate la création de deux protocoles.
+Non seulement les étapes ne sont pas claires, mais également les explications.
+(exemple : each test method defined in the test class. = aucune classe "Test" seulement "MyExampleSetTest")
+
+methode setUp-> listing 9-2 ? protocol setup-> figure 9-6 ?
+
+Une figure vaut mille mots.
+
+Erreurs ? Test OK ? C'est contradictoire.
+Il reste à lire les explications des "étapes". :-(
+
+124. Chap.9 - p.122 FR 179-180 EN - 9.4 Étape 2, 3
+
+Étape 2 : initialiser le contexte de test
+--------
+
+----------------------------------------------------------------------------------------
+Package		Class			Protocol			Method	
+		(C)Set
+----------------------------------------------------------------------------------------
+MySetTest	(C)TestCase		
+		(C)MyExampleSetTest	setup	--------------------->	setUp
+					tests	--------------------->	testIncludes
+									testOccurences
+									testRemove
+----------------------------------------------------------------------------------------
+
+p.122 FR 179 EN									
+"Le message TestCase >> setUp définit le contexte dans lequel les tests vont s'exécuter"
+"setUp est invoqué avant l'exécution de chaque méthode de test définie dans la classe de test."
+"le contexte est appelé le  dispositif  de test."
+
+Étape 3 : écrivez quelques méthodes de test
+---------
+
+"Les noms des méthodes doivent commencer par la chaîne «test» afin que SUnit les rassemble dans des suites de tests."
+"Les méthodes de test n'acceptent aucun argument."
+
+Note : 
+-----
+Je comprends maintenant pourquoi les programmeurs ne font pas de test puisque c'est une contrainte, 
+une perte de temps, nébuleux et compliqué.
+
+----------------------------------------------------------------------------------------------------------------------
+Méthodes	|	Descriptions
+----------------------------------------------------------------------------------------------------------------------
+testIncludes	|	teste la méthode "includes: de Set
+		|	le test dit que l'envoi du message "includes: 5 to a set containing 5 should return true"
+		|					   "comprend: 5 à un ensemble contenant 5 doit retourner vrai"
+		|	"Clairement, ce test repose sur le fait que la méthode "setUp" a déjà été exécutée."
+		|	:-?
+----------------------------------------------------------------------------------------------------------------------
+testOccurrences	|	verifies that the number of occurrences of 5 in full set is equal to one, 
+		|	even if we add another element 5 to the set.
+		|	vérifie que le nombre d'occurrences de 5 dans l'ensemble complet est égal à un,
+		|	même si nous ajoutons un autre élément 5 à l'ensemble. 
+		|	"Enfin, nous testons que l'ensemble ne contient plus l'élément 5 après l'avoir supprimé."
+		|	:-?
+----------------------------------------------------------------------------------------------------------------------
+testRemove	|	Aucune description ?
+		|
+		|	:-?
+----------------------------------------------------------------------------------------------------------------------
+
+
+Notes : 
+------
+testIncludes : Très clairement, le "testIncludes" est incompréhensible.
+-------------
+Pourquoi cette méthode spécifique "includes:" au lieu de "collect:" ou de "do:" ?
+Pourquoi le message serait "includes: 5" ? au lieu de 9 ou 0 ?
+Le "Clairement = rabâche", ce qui a été signalé plus haut autrement dit : 
+"setUp est invoqué avant l'exécution de chaque méthode de test définie dans la classe de test."
+Au final, ce test qu'est-ce que c'est ?
+
+testOccurrences :  TestOccurences, occupe plus qu'un symbole à s'y perdre.
+----------------
+Dans la classe "(C)Set", "Occurrences" n'existe pas contrairement à "occurrencesOf:".
+Finder affiche "testOccurencesOfForIdentityCollections".
+Pourquoi une occurrence de 5 ?
+Pourquoi l'ensemble complet est-il égal à 1 ?
+Si tu ajoutes un autre élément "9" à l'ensemble, que se passerait-il ?
+
+TestCase >> deny: : Qu'est-ce que ça fait là ? Je ne comprends pas.
+-------------------
+"Notez l'utilisation de la méthode TestCase >> deny: pour affirmer quelque chose qui ne devrait pas être vrai. 
+aTest deny: anExpression est équivalent à aTest assert: anExpression non, mais est beaucoup plus lisible."
+
+
+testRemove : Formidables, les deux premières méthodes s'accompagnent d'explications nébuleuses 
+-----------  tandis que la troisième est omise.
+
+
+En conclusion, tout ça est compliqué, confus, tarabiscoté, opaque entre coupés de non-sens.
+J'aurais aimé voir les "objets vivants", annoncés (bande-annonce), mais qui sont invisibles.
+
+125. Chap.9 - p.122 FR 179 EN - TestCase 
+
+TestCase >> deny: : Qu'est-ce que ça fait là ? Je ne comprends pas.
+-------------------
+"Notez l'utilisation de la méthode TestCase >> deny: pour affirmer quelque chose qui ne devrait pas être vrai. 
+aTest deny: anExpression est équivalent à aTest assert: anExpression non, mais est beaucoup plus lisible."
+
+"Inspector on a TestCase class (TestCase)" -> deny: n'existe pas.
+
+126. Chap.9 - p.123 FR 180 EN - Étape 4: exécuter les tests
+1. "Abstract classes are italicized,"
+"Les classes abstraites sont en italique,"
+Définition : Abstrait 
+"Qui ne fait pas référence à des objets du monde, mais à des relations, à des qualités.  
+Qui est difficile à comprendre parce que ne fait pas référence à des objets du monde."
+D'un côté, l'on rabâche que tout est objet et de l'autre l'annonce de classes abstraites.
+C’est à y perdre son latin !
+
+2. Le "Test Runner" affiche un résultat "blanc" sur fond "vert clair " difficile à déchiffrer.
+À force, je me demande si cela n'est pas fait exprès, car le résultat de la figure 9-7 est lisible.
+
+127. Chap.9 - p.123 FR 181 EN - Étape 4 : MyExampleSetTest run
+1. Exécution d'un seul test.
+1.1 Avec ou sans point ? Les deux.
+1.2 Depuis Playground ? Oui.
+Playground> "Print It" (CTRL + P)>  MyExampleSetTest run: #testRemove.
+
+2. C'est agaçant ce décalage "Listing" ou "Figure" et le "Contenu".
+"comme indiqué ci-dessous."
+"as shown below."
+Définition : Dessous
+"Partie inférieure ou plus basse de qqch. Dessous du pied."
+Le contenu du livret doit être "linéaire" comme une mélodie tandis que là, le lecteur monte, descend, remonte,
+redescend, puis déchiffre et décrypte les paragraphes.
+Définition : Linéaire
+"Qui présente ou constitue une succession, une suite. Récit, mélodie linéaire. Classification linéaire."
+
+3. "Certaines personnes incluent un commentaire exécutable dans leurs méthodes de test"
+"Some people include an executable comment in their test methods that allows running a test method"
+Le lecteur cherche le commentaire, il peut supposer que cela correspond au "Listing 9-8" 
+puisque le prochain paragraphe indique le changement du chiffre 6 en 7.
+Donc, où est le commentaire dans ce code (Listing 9-8) ?
+
+
+Playground> "Print It" (CTRL + P)> (MyExampleSetTest selector: #testRemove) debug
+Playground> "Print It" (CTRL + P)> MyExampleSetTest debug: #testRemove
+
+L'étape par étape est bancale par conséquent contradictoire au contenu désordonné.
+
+cool :-)
+"1 ran, 1 passed, 0 skipped, 0 expected failures, 0 failures, 0 errors, 0 passed unexpected"
+
+128. Chap.9 - p.125 FR 184 EN - Figure 9-11
+9.6 Le cadre SUnit
+--------------------------------------------------------------------------------------
+				SUnit
+--------------------------------------------------------------------------------------
+Packages		Classes		Protocols	Methodes
+--------------------------------------------------------------------------------------
+(P)Kernel		(C)Object	(P)asserting	(M)assert:
+(P)Kernel-Objects
+
+(P)SUnit-Core		(C)TestAsserter	(P)asserting	(M)deny:
+(P)SUnit-Core-Kernel			(P)asserting	(M)should:raise:
+					(P)asserting	(M)shouldnt:raise:
+							
+			(C)TestCase	(P)accessing	(M)\bleu/ resources (avec s)
+					(P)overridden
+					(P)running	(M)run (sans :)
+					(P)accessing	(M)selector
+					(P)running	(M)\bleu/ setUp
+					(P)overridden
+					(P)running	(M)\bleu/ tearDown
+					(P)overridden												
+
+		(sans s)(C)TestResource (P)testing	(M)\bleu/ isAvailable
+					(P)overridden
+					(P)testing	(M)isUnavailable
+					(P)running	(M)\bleu/ setUp
+					(P)overridden
+					(P)running	(M)\bleu/ tearDown
+					(P)overridden
+
+			(C)TestResult	(P)accessing	(M)errorCount
+					(P)accessing	(M)failureCount
+					(P)accessing	(M)passedCount
+					(P)accessing	(M)runCount
+					(P)accessing	(M)tests
+									
+			(C)TestSuite	(P)accessing	(M)addTest: (sans s)
+					(P)accessing	(M)resources (avec s)
+					(P)running	(M)run (sans :)			
+-------------------------------------------------------------------------------------
+Figure 9-11 Les quatre classes représentant le cœur de SUnit.
+
+129. Chap.9 - p.127 FR 186 EN - Exercice
+p.126/259 FR 185/376 EN
+"Une variable globale fonctionnerait, mais utiliser trop de variables globales pollue l'espace de nom, 
+et la liaison entre le global et les tests qui en dépendent ne sera pas explicite."
+
+Explicite : 
+Qui est énoncé de façon claire et ne permet aucun doute, aucune contestation, aucune interprétation. 
+
+Exercice, la trace suivante (écrite dans la transcription) est contradictoire.
+Indirectement ou par voie détournée, le lecteur est incité à utiliser une variable globale 
+alors que dans la pratique c'est de limiter strictement son utilisation.
+Dans ce cas, limiter strictement son utilisation ne veut rien dire.
+Qui se limite à un carré de chocolat alors qu'on sait pertinemment qu'à un moment donné la limitation sera franchie.
+En fin de compte, cela va à l'encontre du principe de précaution, car lorsqu'on observe ce problème alors on se l'interdit.
+Donc, dans ce cas présent c'est un interdit limité. MDR ! 
+Par conséquent contradictoire.
+Comment limiter une erreur humaine alors que tu n'es pas conscient de faire cette erreur 
+ou alors tu le sais, mais tu l'as fait quand même.
+
+Par voie de conséquence, il y a des énoncés qui ne sont pas clairs et d'autres contradictoires.
+
+Détourner:
+"S’agit-il de détourner un homme d’une action dangereuse et imprudente ?
+Claude Adrien Helvétius, De l’homme, de ses facultés intellectuelles et de son éducation, Gallica"
+
+
+Rappels : 
+---------
+
+p.86 FR 125 EN
+"si Pharo était implémenté à partir de zéro aujourd'hui, la plupart des variables globales qui ne sont pas 
+des classes seraient remplacées par des singletons."
+
+p.87 FR 125 EN
+"La pratique recommandée est de limiter strictement l'utilisation de variables globales."
+Tu sais qu'à chaque fois qu'une classe est créée, s'associe une variable globale, 
+mais tu dois limiter "strictement" son utilisation.
+Ce qui veut dire que si tu n'en utilises jamais (variable globale), alors tu vas perdre du temps 
+à faire quelque chose pour cette variable.
+
+130. Chap.9 - p.127 FR 186 EN - Exercice My*
+"Let’s see if you can obtain this trace yourself."
+"Voyons si vous pouvez obtenir cette trace vous-même."
+
+Est-ce que c'est fait exprès de mettre le lecteur en difficulté ou alors est-ce dû au fait que le déroulement
+de l'exercice devrait se lire de bas en haut ?
+
+Le contenu (déroulement) n'est pas cohérent que ce soit l'étape par étape ou cet exercice.
+(122. Chap.9 - p.121 FR 178 EN - 9.4 SUnit par l'exemple
+En décryptant le livret, je pense que le listing 9-1 est le package à créer.
+Le système d'étape n'est pas au point.)
+
+Exercice : 
+----------
+
+Transcript (Alt + T)>
+(MyExampleSetTest class>>DoIt (empty is Undeclared))
+
+Transcript (Alt + T)>MyTestResource >> setUp has run.
+UndefinedObject>>DoIt (MyTestResource is Undeclared)
+
+Transcript (Alt + T)>MyTestCase >> setUp has run.
+UndefinedObject>>DoIt (MyTestCase is Undeclared)
+
+131. Chap.9 - p.127 FR 186 EN - Exercice création
+Alors, j'ai réussi à décrypter le contenu de ce livret et donc après l'exemple et l'exercice faussé avec "transcript".
+Il faut créer de nouvelles classes.
+Peut-être aurait-il fallu commencer par là, c'est comme remuer la pâte au chocolat avec ces doigts 
+alors qu'il faut préparer les ustensiles et ensuite les utiliser. (gâteau fondant au chocolat)
+TestOne on peut mettre une tonne de chose. Reste à savoir quoi mettre. :-(
+Je fais quoi ?
+Houla, 
+WARNING ! 
+"UndefinedObject" should not be redefined as its structure is known to the VM. 
+Only proceed if you know what you are doing!
+
+Select Proceed to continue, or close this window to cancel the operation.
+
+D'accord, super ! :-(
+Asm tram gram ! 
+Peut-être une réponse à la suite de l'exercice. :?(
+
+D10:11 10/12/2020 - F00: - Chapitre 9 - p.126/259 FR 186/376 EN
+20/07/20 -> transcript
+Comment voulez-vous que je me rappel ce qui a été fait en juillet ?
+La solution je ne sais pas.
+
+??????????????????????????
+Au ptit bonheur ! 
+Ca craint.
+Je suis le déroulement du livret qui est incohérent.
+Pfiiiiii ! 
+
+132. Notes : Suite "Exercice création"
+-----
+Pharo debug D12:05 - F?-12:32
+Gestionnaire des tâches - Pharo.exe "Pas de réponse" - Pharo Cog Spur Virtual Machine.
+
+Je me pose la question à savoir : 
+Est-ce que les exercices ont été exécutés puis validés ?
+Ou alors.
+Sont-ils simplement posés au petit bonheur la chance afin que le lecteur s’en dépêtre ?
+
+Encore un exercice qui n'aura pas été fini.
+
+133. Chap.9 - p.127 FR 186 EN - Exercice solution
+Dans Transcript, pourquoi mettre ce code "MyTestCase >> setUp" ou "' ; cr" ?
+
+MyTestCase >> setUp
+Transcript show: 'MyTestCase>>setUp has run.'; cr
+
+Alors que celui du dessous répond la même chose autrement dit "MyTestCase>>setUp has run.".
+Transcript show: 'MyTestCase>>setUp has run.' TranscriptMyTestCase>>setUp has run.
+
+Une erreur ? '.'
+
+Transcript Do It(CTRL + D) ou Print It (CTRL + P).
+
+1 Transcript show: 'MyTestCase>>setUp has run.' TranscriptMyTestCase>>setUp has run. 
+2 Transcript show: 'MyTestCase>>setUp has run. ' TranscriptMyTestCase>>setUp has run.
+3 Transcript show: 'MyTestCase>>setUp has run. ';cr TranscriptMyTestCase>>setUp has run.
+4 Transcript show: 'MyTestCase>>setUp has run. '; crMyTestCase>>setUp has run. 
+
+1 Transcript show: 'MyTestCase>>setUp has run.' Transcript MyTestCase>>setUp has run.
+
+1 Transcript show: 'MyTestCase>>setUp has run'. TranscriptMyTestCase>>setUp has run
+
+1 Transcript show: 'MyTestCase>>setUp'. Transcript MyTestCase>>setUp
+
+1 Transcript 'show: MyTestCase>>setUp' has run. Transcript  End of statement list encountered ->'show: MyTestCase>>setUp' has run.
+
+1 Transcript show: 'MyTestCase>>setUp has run.; Unmatched ' in string literal. ->
+2 Transcript show: 'MyTestCase>>setUp has run. ; Unmatched ' in string literal. ->
+3 Transcript show: 'MyTestCase>>setUp has run.cr  Unmatched ' in string literal. ->
+4 Transcript show: 'MyTestCase>>setUp has run. cr  Unmatched ' in string literal. ->
+    
+1 Transcript show: 'MyTestCase>>setUp has run.'; Message expected ->
+2 Transcript show: 'MyTestCase>>setUp has run. '; Message expected ->
+
+1 Transcript show: 'MyTestCase>>setUp has run.'cr fenêtre> "Instance of ByteString did not understand #cr"
+2 Transcript show: 'MyTestCase>>setUp has run.' cr fenêtre> "Instance of ByteString did not understand #cr"
+
+1 Transcript show: 'MyTestCase>>setUp has run.;cr Unmatched ' in string literal. ->
+2 Transcript show: 'MyTestCase>>setUp has run.; cr Unmatched ' in string literal. ->
+
+1 Transcript show: MyTestCase>>setUp has run. UndefinedObject>>DoIt (setUp is Undeclared)
+
+1 show: MyTestCase>>setUp. Variable or expression expected ->show: MyTestCase>>setUp.
+
+134. Chap.9 - p.127 FR 188 EN - Prise en charge de la journalisation - Logging support
+"dans un flux"
+"Vous pouvez choisir de vous connecter en remplaçant isLogging dans votre classe de test"
+"vous devez également choisir où vous connecter en  remplaçant failureLog  pour répondre à un flux approprié"
+Ou est-il l'exemple concret ? L’objet vivant ? le flux ? 
+Remplacer isLogging -> ^true et ^false, mis à part ça ? (d'emmerde de toi)
+Tiens, deux, trois clés et débrouille-toi.
+?
+
+135. Chap.10 - p. 132 FR 195 EN - Basic classes
+"Pharo est un langage vraiment simple mais puissant."
+"Pharo is a really simple language but powerful language."
+Jusqu'à maintenant, je n'ai rien vu du langage simple et puissant.
+Le langage est tellement simple et puissant que je n'ai pas réussi à faire fonctionner le jeu "The Lights Out game".
+Tandis que les tests c'est tout simplement impossible d'en réaliser malgré un langage simple et puissant.
+Est-ce que j'ai pu jouer à "The Lights Out game" ? Non
+Est-ce que je sais réaliser un petit programme simple et puissant ? Non
+Est-ce que je sais faire des tests simples et puissants ? Non
+
+"Une partie de sa puissance ne réside pas dans le langage mais dans ses bibliothèques de classes."
+"Part of its power is not in the language but in its class libraries."
+Les bibliothèques de classes sont réalisées avec du crabe farci ? 
+Il ne s'agit plus de syntaxe et d'objet, mais de langage ainsi que des bibliothèques de classes.
+
+136. Chap.10 - p. 132 FR 195 EN - 10.1 Object - Objet
+Remarque : vous pouvez compter le nombre de méthodes dans une classe comme ceci :
+---------
+Note: You can count the number of methods in a class like so:
+----
+Playground (CTRL+O+W)> 	Object selectors size> (CTRL+P)= 443
+			Object class selectors size> (CTRL+P)= 30
+
+Comment ça fonctionne exactement ?
+Lorsque je clique sur une autre classe ou une méthode, le résultat est le même.
+:-(
+
+137. Chap.10 - p. 134 FR 197 EN - Impression - Printing
+"N'oubliez pas que les tableaux littéraux ne peuvent contenir que des littéraux."
+"Remember that literal arrays can only contain literals."
+Il y a beaucoup de choses à ne pas oublier, du coup j'effectue une recherche pour un rappel.
+
+Recherche : littéraux
+-----------
+p.60 FR 4.8 Résumé du chapitre 
+"Il existe cinq types d'objets littéraux: les nombres (5, 2.5, 1.9e15, 2r111), 
+les caractères ( $ a ), les chaînes ( 'hello'), les symboles ( #hello ) 
+et les tableaux ( # ('hello' #hi )  ou  {1. 2. 1 + 2}  )"
+
+p.54 FR 4.1 Éléments syntaxiques
+Tout ce qui est entre parenthèses doit être une constante de compilation. 
+Par exemple, # (27 (true false) abc) est un tableau littéral de trois éléments.
+:-(
+
+138. Chap.10 - p. 135 FR 199 EN - Identity and equality
+Listing 10-5 - Listing 10-6.
+La classe "Complex" n'apparaît pas dans le volet "package" de "system browser", mais plutôt "ComplexBorder".
+Le package " SciSmalltalk/PolyMath", n'existe pas.
+Comment veux-tu tester "l'objet" alors que le package n'existe pas ?
+Un livret avec trop de bla-bla, figé et bloquant. L'objet vivant à manipuler on en est loin.
+
+La classe et les méthodes auraient pu être autre part.
+Création de la classe "Complex" et des méthodes "= anObject" et "hash", rien ne fonctionne.
+C'est aussi simple qu'une syntaxe qui peut tenir sur une carte postale. :-(
+
+139. Chap.10 - p. 135 FR 199 EN - Identity and equality 2
+Note - A retenir : :-If) 
+------------------
+"Si vous remplacez =, vous devez envisager de remplacer le  hachage. 
+Si des instances de votre classe sont déjà utilisées comme clés dans un dictionnaire, 
+vous devez vous assurer que les instances considérées comme égales ont la même valeur de hachage:"
+
+"If you override =, you should consider overriding hash. 
+If instances of your class are ever used as keys in a Dictionary, 
+then you should make sure that instances that are considered to be equal have the same hash value:"
+
+Avec des "Si" on peut mettre Paris en bouteille.
+
+MDR ! 
+Elle est bien bonne celle là.
+
+"Notez que Pharo a un comportement d'égalité étrange par rapport aux autres Smalltalks. 
+Par exemple, un symbole et une chaîne peuvent être égaux. 
+(Nous considérons cela comme un bogue, pas une fonctionnalité.)"
+
+"Note that Pharo has some strange equality behaviour compared to other Smalltalks. 
+For example a symbol and a string can be equal. 
+(We consider this to be a bug, not a feature.)"
+
+Ce "bogue" est à l'image de tout ce qu'a pu rencontrer le lecteur lors de la lecture de ce livret.
+Des méli-mélo à y perdre son latin et la cerise sur le gâteau "la considération d'un bogue".
+
+140. Chap.10 - p. 136 FR 200 EN - isMemberOf:
+
+Interroger un objet rattaché à une instance d'une classe : 
+----------------------------------------------------------
+
+Playground (CTRL+O+W)> 1 isMemberOf: SmallInteger (CTRL+P)> true		
+
+Finder ne trouve pas "isMemberOf:" dans "SmallInteger" ?
+Rien n'est cohérent, "Playground" affiche "true" alors que "Finder" n'affiche rien.
+Tandis que "System Browser" affiche "SmallInteger" sans "isMemberOf:" et vice-versa.
+C'est à y perdre son latin.
+
+Solution : 
+----------
+Il faut cocher "Object" dans "instance side" situé dans le volet "protocole" afin d'y faire apparaître "isMemberOf:".
+
+Ci-dessous schémas "Object" et "SmallInteger" : 
+-----------------------------------------------
+														(?)
+package 		     classe	    protocole	      		  méthode      		sous-classe  immediateSubclass  Variable d'instance  Variable de class
+Kernel-Objects	ProtoObject  (C)Object	    class membership  		  isMemberOf:  		#Object	    	/	        '' vide		     'DependentsFields'
+Kernel-Numbers	Integer	     £ SmallInteger instance side (cocher object) isMemberOf: (Object)	   /	     #SmallInteger      '' vide		     '' vide
+					    class membership
+
+Classe		 Protocole		 Méthode			
+(C)Object ------ class membership -----> isMemberOf:
+    /|\
+  Instance 
+  de la
+   classe
+    /|\
+£ SmallInteger > 1 instance side 	   		//SmallInteger est l'instance de la classe Object = true
+		 |-> 2 (cocher object)  	
+		 3 class membership ---> isMemberOf: (Object)
+
+Questions : 
+---------
+Je ne comprends pas pourquoi "SmallInteger" est l'instance de la classe "Object" alors que les autres classes
+(Magnitude, Number, Integer) ne le sont pas et malgré que "isMemberOf: (Object) soit affiché dans le volet méthode.
+
+Parce que "SmallInteger" fait partie de la fin de la liste alors cela fait de lui une instance ?
+Il y a quelque chose qui m'échappe dans cette histoire.
+
+C'est étonnant.
+Pourquoi la classe "Object" est-elle en haut de la liste alors que dans le volet protocole c'est inversé ?
+
+141. Chap.10 - p. 136 FR 200 EN - isKindOf:
+"Pourquoi "SmallInteger" est-il "true" alors que les autres classes sont "false" ? "
+
+Réponse : 
+---------
+Lorsque "isMemberOf:" est lu dans "Playground" avec le code "^self class == aClass" alors celui-ci indique "false" 
+pour (Magnitude, Number, Integer) contrairement au code "isKindOf:". (Ci-dessous)
+
+Test : 
+------
+J'ai copié le code de "isKindOf:" et collé dans celui de "isMemberOf:" et toutes les classes ont été "true".
+Ensuite, lorsque j'ai modifié le contenue de "isKindOf:", Pharo s'est figé. (Dans le gestionnaire "en cours d'exécution (?))
+Fonctionne d'un côté, mais pas de l'autre.
+
+isMemberOf:
+-----------
+isMemberOf: aClass 
+	"Answer whether the receiver is an instance of the class, aClass."
+
+	^self class == aClass
+
+isKindOf:
+---------
+isKindOf: aClass
+	"Answer whether the class, aClass, is a superclass or class of the receiver.
+	The current implemementation allows for a Trait to be used as argument"
+
+	^ self class == aClass or: [ self class inheritsFrom: aClass ] 
+
+142. Chap.10 - p. 136 FR 200 EN - String
+
+Note : 
+------
+Pourquoi lors de la recherche de "Sting", celle-ci n'existe pas dans "Object" ?
+
+"1 isKindOf: String
+>>> false"
+
+Réponse : (déjà expliqué dans un précédent chapitre : certes, mais ce n'est pas simple)
+--------
+C'est subtil et il faut être attentif.
+Dans le volet classe, tu peux avoir affiché "Object" ou "Object class", heu !!!
+Pour différencier les "Objets", il faut regarder ce qui est inscrit dans la barre de titre.
+(À mon avis, cette subtilité doit être source d'erreur).
+Enfin bon.
+Par défaut, sont cochés "Hier., Inst. side, Methods", alors affiche "Object".
+Lorsque "Class side" est coché alors s'affiche dans la barre de titre "Object class".
+
+Sauf que si tu n'es pas attentif et ne lis pas ce qui est affiché dans les deux bandeaux 
+alors tu ne comprends pas et tu cherches. (le String :-))
+
+Mais c'est vicieux, car lorsque "Object class" et affiché dans la barre de titre alors "String" devrait s'afficher.
+Sauf que, lorsque tu cliques sur "SmallInteger - non class" pour ensuite mettre "Class side" 
+alors s'affiche seulement les classes "ProtoObject, Object, Magnitude, Number, Integer, SmallInteger".
+Donc "String" est à l’oubliette.
+Ensuite, pour le faire revenir c'est toute une histoire.
+Ce n’est pas simple cette histoire.
+Il change de package (String) : Galère.
+
+143. Chap.10 - p. 136 FR 200 EN - String2
+
+Enfin, j'ai trouvé l'astuce. (Côté intuitif, il faudra repasser. "le string")
+
+1 Object>>isKindOf: - SmallInteger - Hier. - Inst. side 
+Pour passer à String, cliquer sur Object puis Flat, Hier. et enfin Filter.. String)
+
+2 Object - String - Hier. Inst. side
+Pour passer à SmallInteger, dans Filter.. enlever String et mettre SmallInteger puis Flat, Hier.)
+
+   Packages			Classes		Méthodes
+00 Kernel-Numbers		Object		isKindOf:
+01 Kernel-Numbers		Object		isMemberOf:
+01 Kernel-Numbers		SmallInteger
+02 Collections-Strings-Base	String
+
+Donc, jouer avec Flat, Hier. et Hier., Flat. :-)
+
+144. Chap.10 - p. 137 FR 202 EN - copy
+1. "Object >> shallowCopy" est une méthode primitive qui crée une copie superficielle d'un objet."
+
+2. "Object >> deepCopy" fait une copie arbitrairement profonde d'un objet."
+"Le problème avec deepCopy est qu'il ne se terminera pas lorsqu'il est appliqué à une structure mutuellement récursive :"
+
+3. "Object >> copy" Répondez à une autre instance comme le récepteur. Les sous-classes remplacent généralement postCopy;
+ils ne remplacent généralement pas shallowCopy."
+"Une autre solution consiste à utiliser la copie de message. Il est implémenté sur Object comme suit:"(p 137 FR 202 EN - Listing 10-7)
+
+copy = shallowCopy
+
+	copy
+	  \|--<---|-----<----|\
+  /|-->	^self shalloCopy postCopy
+  /|			     |\
+  /|	postCopy >-----------|\
+  /|--< ^ self
+
+Notes : 
+------
+copy : Les autres (shalloCopy, deepCopy, postCopy) sont également implémentés sur Object.
+L'explication de l'objet "copy" est très succincte, de plus, "copy" emploie d'autres "Objets".
+Enfin, "copy" utilise l'objet "postCopy" qui fait usage de "^self", qui lui même renvoie "^self".
+Pourquoi "copy" n'est-il pas plus indépendant ? C’est nébuleux cette histoire.
+
+4. "Object >> postCopy"
+
+postCopy  
+^ self 
+    |> "chaque sous-classe peut décider de personnaliser la méthode postCopy qui agit comme un hook."
+    |> "vous devez remplacer postCopy pour copier toutes les variables d'instance qui ne doivent pas être partagées."
+    |> "il y a de fortes chances que postCopy fasse toujours un super postCopy pour s'assurer que l'état 
+        de la superclasse est également copié."
+
+À retenir : 
+-----------
+"vous devez remplacer postCopy pour copier toutes les variables d'instance qui ne doivent pas être partagées."
+
+Questions : 
+-----------
+Qu'est-ce qu'un hook ?
+Quelles sont les sous-classes qui peuvent décider de personnaliser la méthode postCopy ?
+
+Remplacer "postCopy" pour copier toutes les variables d'instance, encore une tâche à ajouter à la longue liste de l'oubli.
+
+Il y a de fortes chances, mais de toute évidence ce n'est pas sur que "postCopy" fasse toujours un "super postCopy".
+Comment en être sur ou pas ?
+
+Il y a beaucoup de choses qui peuvent être faites ou pas, au petit bonheur la chance.
+Enfin de compte, il y a des objets et du code qui font un peu ce qu'ils veulent sans savoir vraiment ce qu'ils font.
+La nébuleuse s'épaissit.
+
+D'un côté, le lecteur essaie de comprendre comment programmer "Smalltalk-Pharo" rapidement et efficacement. 
+Mais comprendre rapidement c'est impossible puisque ces objets, ces codes, les interrelations et ces modes de fonctionnement 
+s'apparentent à des situations confuses, nébuleuses et une prise de tête indéniable. 
+
+[faut pas se prendre la tête]
+https://www.fun-mooc.fr/courses/course-v1:inria+41010+self_paced/about
+
+145. Chap.10 - p. 138 FR 202 EN - assert: or assert:
+"Ne confondez pas  Object >> assert: avec TestCase >> assert:, qui se produit dans le cadre de test SUnit (voir le chapitre  : SUnit).
+Alors que le premier attend un bloc comme argument (en fait, il prendra tout argument qui comprend la valeur, y compris un booléen ), 
+le second attend un booléen. Bien que les deux soient utiles pour le débogage, ils ont chacun un objectif très différent."
+
+
+Note :
+------
+Le problème c'est que tu as vite fait de confondre "assert:" et "assert:" puisque "Playground" affiche "Object >> assert:",
+tandis que l'autre n'est pas affiché.
+Après une recherche, "TestCase >> assert:" n'existe pas, mais apparaît dans "TestAsserter". 
+
+
+Recherche : 
+-----------
+TestCase >> assert:, "Playground" ou "Finder" n'affiche rien.
+
+
+146. Chap.10 - p. 138 FR 202 EN - Listing 10-8 - 10-9
+Les codes des Listings "10-8" et "10-9" sont différents du programme Pharo 8.0.0.
+Non seulement les codes sont différents d'un programme à un autre, en supplément, ceux-ci doivent être contrôlés 
+pour en connaitre l'usage.
+Ensuite, tu t'interroges sur le fait qu'il y a marqué "subclassResponsibility", 
+est-ce une erreur de mettre "subclass" ou alors est-ce le nom correct ? 
+Du coup, tu vérifies.
+
+Listing 10-8
+"Stack >> pop
+	"Return the first element and remove it from the stack."
+	self assert: [ self isNotEmpty ].
+	^ self linkedList removeFirst element"
+
+Pharo 8.0.0
+"Stack >> pop
+	"Returns the first element and remove it from the stack."
+	^self removeFirst"
+
+Listing 10-9
+Object >> subclassResponsibility
+	"This message sets up a framework for the behavior of the class'subclasses.
+	Announce that the subclass should have implemented this message."
+	self error: 'My subclass should have overridden ', thisContext
+	sender selector printString
+
+Object >> subclassResponsibility
+	"This message sets up a framework for the behavior of the class' subclasses.
+	Announce that the subclass should have implemented this message."
+	SubclassResponsibility signalFor: thisContext sender selector
+
+
+147. Chap.11 - p. 179 FR 261 EN - Keyboard events
+Il est possible de lancer la recherche "implementors - CTRL+M" avec "handleKeystroke:", 
+mais pas avec "handlesMouseOver:".
+Il faut ajouter "#" à "handlesMouseOver:" pour que la fenêtre "Implementors - CTRL+M" s'ouvre. (?)
+
+Lorsque la fenêtre "Implementors" a été ouverte avec "#handlesMouseOver:",
+alors c'est après cette étape qu'il est possible d'ouvrir "handlesMouseOver:" sans "#".
+* Parfois, le programme Pharo a des comportements bizarres.
+
+
+148. Chap.11 - p. 186 FR 271 EN - Listing 12-62
+"Maintenant, le dé roule! - Now the die is rolling!"
+Pharobyexample5_Chap. 11_Figure 12-62.avi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Points positifs : 
+-----------------
+
+
+1. Pharo vs Playground vs Workspace - Exercice 12 - 27. Défi 0
+ 
+2. Le programme peut-être déplacé dans un autre répertoire.
+
+3. 2.14 Résumé du chapitre
+Permets de comparer ce que j'ai pu acquérir et un retour sur ce qui a été présenté.
+
+4. À partir de Playground, une ligne de code peut avoir plusieurs espaces entre les mots, ça ne provoque aucune erreur.
+(p.72/259 FR 104/376 EN)
+Exemple : 
+Entre le mot "new" et "class", il y a trois espaces.
+Playground> Object new   class -> "CTRL + P" -> affiche "Objet".
+
+
+5. Profile it
+
+
+6. Process Browser p.158
+
+7. 8.4 In pharo, you can't lose code
+
+
+
+
+

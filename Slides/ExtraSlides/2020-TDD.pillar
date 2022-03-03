@@ -1,0 +1,147 @@
+{
+	"title":"Test Driven Development",
+	"slidesid":"Tests",
+	"author":"S. Ducasse"
+}
+
+
+${slide:title=Outline}$
+
+- Automated Tests  
+- Example of TDD
+- Rethinking it
+
++ >file://figures/LogoPharo.png|width=30+
+
+${slide:title=Automated Tests are your Life Insurance}$
+
+- Our brain is to small to remember everything
+- Our brain focuses on the last action
+- You write it once and you run it million times
+- Programming is modeling the world and the world is changing
+
+
+${slide:title=Automated Tests}$
+
+- Tests do not avoid breaking your system
+- But they show what you broke
+
+${slide:title=Automated Tests Let Software Evolve}$
+
+- Tests make you ""bold"" in regards of changes
+- Tests lower the fear of breaking
+-- You can try and run the tests to get an idea
+-- You can explore... 
+
+${slide:title=An Automated Test}$
+
+In an automated test, we 
+- Create a context: Create an empty set
+- Send a stimulus: Add twice the same element
+- Check the results: Check that the set contains only one element
+
+
+${slide:title=Set TestCase in Pharo}$
+
+[[[
+TestCase subclass: #SetTestCase
+    ...
+]]]
+
+[[[
+SetTestCase >> testAdd 
+  | empty |
+  empty := Set new.   "Context"
+  empty add: 5.   "Stimulus"
+  empty add: 5.
+  self assert: empty size equals: 1   "Check"
+
+SetTestCase run: #testAdd
+]]]
+
+${slide:title=Set TestCase in Java}$
+
+[[[
+class  SetTestCase {
+    ...
+	}
+]]]
+
+[[[
+public void testAdd(){ 
+  Set empty = new Set(); //Context
+	
+  empty.add(5);  //Stimulus
+  empty.add(5);
+  
+  assertEquals(empty.size(), 1);   "Check"
+  }
+]]]
+
+${slide:title=TDD is about the flow}$
+
+Write test first! Yes
+
+"Whenever you are tempted to type something into a print statement or a debugger expression, write it as a test instead" - Martin Fowler
+
+${slide:title=About the flow: Write your test}$
+
+[[[
+CounterTest >> testIncrement 
+	
+	| c |
+	c := Counter new. 
+	c count: 10.
+	c increment; increment. 
+	self assert: c count equals: 12
+]]]
+
+[[[
+@Test
+public void testIncrement(){
+	Counter c = new Count();
+	c.setCount(10);
+	c.increment();
+	c.increment();
+	assertEquals(c.getCount(), 12);
+} 
+]]]
+
+
+${slide:title=About the flow: Run your test}$
+
+- It is red! 
+- Else you increase your test number
+- When you are lucky, use XTDD and enjoy coding in the debugger
+
+
+${slide:title=About the flow: Make your test pass}$
+
+- Work until your test get green! 
+
+${slide:title=About the flow: Rerun all the tests}$
+
+- Now you are super smart but run all your tests!
+- Fix the broken tests
+-- Either a test is now wrong
+-- Or you broke something for real
+- Commit and take a break
+
+
+${slide:title=Why writing test first}$
+
+- You specify what you want to get
+- You get a clear context
+- You can debug on the spot
+
+
+${slide:title=If we have to keep one practice: Tests}$
+
+- You specify what you want to get
+- You get a clear context
+- You can debug on the spot
+
+
+
+
+
