@@ -1,0 +1,220 @@
+﻿1
+00:00:05,480 --> 00:00:06,280
+-Buenos días a todos.
+
+2
+00:00:06,600 --> 00:00:08,120
+Nos vamos a centrar en Metacello,
+
+3
+00:00:08,440 --> 00:00:10,280
+que permite
+cargar paquetes externos
+
+4
+00:00:10,600 --> 00:00:12,440
+a tu entorno Pharo en Pharo
+
+5
+00:00:12,760 --> 00:00:16,440
+dándoles una "Baseline"
+y un enlace a un repositorio de GitHub.
+
+6
+00:00:16,760 --> 00:00:19,720
+Es lo que haremos aquí.
+para cargar "Containers-Stack",
+
+7
+00:00:20,040 --> 00:00:22,040
+que es un paquete de Pharo
+
+8
+00:00:22,360 --> 00:00:25,080
+que implementa una stack,
+es decir, una pila,
+
+9
+00:00:25,400 --> 00:00:28,680
+con operaciones basicas
+de push, size, top, pop,
+
+10
+00:00:29,000 --> 00:00:29,880
+por ejemplo.
+
+11
+00:00:30,200 --> 00:00:31,600
+Vemos en el apartado "Loading"
+
+12
+00:00:31,920 --> 00:00:33,760
+un script de Pharo
+que utiliza Metacello,
+
+13
+00:00:34,080 --> 00:00:35,560
+la herramienta de carga de paquetes,
+
+14
+00:00:35,880 --> 00:00:38,440
+con argumentos de "Baseline"
+que explicaré más adelante,
+
+15
+00:00:38,760 --> 00:00:44,320
+y "repositorio", que es la URL
+de este repositorio de GitHub.
+
+16
+00:00:44,640 --> 00:00:45,920
+Vamos a copiar este script
+
+17
+00:00:46,240 --> 00:00:48,320
+Vamos a nuestro entorno de Pharo.
+
+18
+00:00:48,640 --> 00:00:52,400
+Puede ver en el System Browser
+que si buscamos "Containers",
+
+19
+00:00:52,720 --> 00:00:56,040
+no tenemos ningún paquete
+llamado "Containers-Stack".
+
+20
+00:00:56,360 --> 00:00:59,800
+Abrimos un Playground:
+Tools, Playground
+
+21
+00:01:00,120 --> 00:01:02,520
+Copiamos el código
+que te he mostrado anteriormente,
+
+22
+00:01:02,840 --> 00:01:05,440
+se ejecuta haciendo "Do it", Cmd+D.
+
+23
+00:01:06,200 --> 00:01:08,880
+Puedes ver que él es
+para cargar la Baseline
+
+24
+00:01:09,200 --> 00:01:10,400
+y el paquete
+
+25
+00:01:10,720 --> 00:01:12,960
+Podemos ver que nuestros tres
+nuevos paquetes aparecieron.
+
+26
+00:01:13,280 --> 00:01:16,080
+Disponemos de nuestro "Containers-Stack"
+que contiene la clase
+
+27
+00:01:16,400 --> 00:01:20,080
+con los métodos básicos
+de funcionamiento de pila,
+
+28
+00:01:20,400 --> 00:01:24,400
+los tests de la misma,
+y tendremos la Baseline.
+
+29
+00:01:24,720 --> 00:01:26,480
+Si miramos qué hay
+en la Baseline,
+
+30
+00:01:26,800 --> 00:01:28,600
+qué es uno de los argumentos
+que pasamos
+
+31
+00:01:28,920 --> 00:01:30,840
+A Metacello, aquí, "Containers-Stack",
+
+32
+00:01:31,160 --> 00:01:33,240
+nos damos cuenta de que la Baseline
+solo tiene un metodo
+
+33
+00:01:33,560 --> 00:01:35,560
+que es un pragma
+que se llama "baseline",
+
+34
+00:01:35,880 --> 00:01:38,440
+y que nos va a dar
+especificaciones de dependencia.
+
+35
+00:01:38,760 --> 00:01:42,240
+Veremos, por ejemplo,
+que el paquete "Containers-Stack"
+
+36
+00:01:42,560 --> 00:01:45,160
+se cargará con el paquete
+"Containers-Stack-Tests",
+
+37
+00:01:45,480 --> 00:01:47,280
+y que el paquete
+"Containers-Stack-Tests"
+
+38
+00:01:47,600 --> 00:01:49,960
+solicita el paquete
+"Containers-Stack".
+
+39
+00:01:50,280 --> 00:01:53,120
+La "Baseline" son las cosas que
+puedes definir en tus paquetes
+
+40
+00:01:53,440 --> 00:01:57,200
+estipular dependencias que
+existen entre diferentes paquetes,
+
+41
+00:01:57,520 --> 00:01:59,520
+tu package
+y otros paquetes exteriores,
+
+42
+00:01:59,840 --> 00:02:03,280
+para que sean cargados
+al cargar con Metacello.
+
+43
+00:02:03,600 --> 00:02:05,280
+Has visto cómo usar Metacello
+
+44
+00:02:05,600 --> 00:02:07,640
+para cargar un repositorio de GitHub
+
+45
+00:02:07,960 --> 00:02:09,920
+que tiene una Baseline
+que tiene una dependencia.
+
+46
+00:02:10,240 --> 00:02:12,480
+aquí estarán
+los tests de los que dependerá
+
+47
+00:02:12,800 --> 00:02:15,480
+del paquete básico "Containers-Stack".
+

@@ -1,0 +1,630 @@
+﻿1
+00:00:06,200 --> 00:00:06,960
+-Buenos días a todos.
+
+2
+00:00:07,280 --> 00:00:08,760
+En este vídeo nos centraremos
+
+3
+00:00:09,080 --> 00:00:11,400
+cómo manejar
+y versionar código
+
+4
+00:00:11,720 --> 00:00:14,040
+usando Pharo,
+y más específicamente la herramienta Iceberg,
+
+5
+00:00:14,360 --> 00:00:15,840
+vinculado a GitHub.
+
+6
+00:00:16,160 --> 00:00:18,680
+Entonces, en primer lugar,
+para encontrar la herramienta Iceberg,
+
+7
+00:00:19,000 --> 00:00:20,920
+puedes ir
+en tu entorno: "Pharo"
+
+8
+00:00:21,240 --> 00:00:24,520
+luego Tools e Iceberg,
+o el atajo Cmd+O.
+
+9
+00:00:24,840 --> 00:00:27,600
+Allí estarán todos los repositorios.
+cargados en el sistema.
+
+10
+00:00:27,920 --> 00:00:30,720
+Solo hay uno salvado
+El código fuente de Pharo.
+
+11
+00:00:31,040 --> 00:00:34,560
+Puedes si quieres
+participar en su modificación
+
+12
+00:00:34,880 --> 00:00:37,280
+e implementación
+nuevas características,
+
+13
+00:00:38,240 --> 00:00:41,480
+seguir la información sobre cómo
+instalarlo y como participar.
+
+14
+00:00:41,800 --> 00:00:45,560
+Ahora veamos
+cómo crear un nuevo repositorio
+
+15
+00:00:45,880 --> 00:00:49,040
+e integrarlo
+a nuestro entorno Pharo.
+
+16
+00:00:49,360 --> 00:00:51,960
+Para eso, iremos a GitHub.
+
+17
+00:00:52,280 --> 00:00:55,080
+Si no tienes una cuenta,
+Te animo a crear una.
+
+18
+00:00:55,400 --> 00:00:57,040
+Te ayudará
+a versionar tu código
+
+19
+00:00:57,360 --> 00:00:58,680
+y guardarlo en algún lugar.
+
+20
+00:00:59,000 --> 00:01:01,360
+Ve a la pestaña Repositorios,
+
+21
+00:01:01,680 --> 00:01:04,160
+luego haces clic en "Nuevo",
+
+22
+00:01:04,480 --> 00:01:05,880
+el botón verde
+
+23
+00:01:06,200 --> 00:01:10,600
+elegiremos,
+como nombre, "MyPharoRepository".
+
+24
+00:01:10,920 --> 00:01:17,480
+lo llamaremos
+"A small Pharo repository".
+
+25
+00:01:18,760 --> 00:01:21,400
+Podemos hacer clic directamente
+en "Crear repositorio".
+
+26
+00:01:21,720 --> 00:01:23,400
+Veremos que obtendremos
+
+27
+00:01:23,720 --> 00:01:25,400
+un repositorio de GitHub completamente vacío.
+
+28
+00:01:25,720 --> 00:01:27,960
+tenemos instrucciones
+que no necesariamente seguiremos,
+
+29
+00:01:28,280 --> 00:01:30,040
+porque iceberg
+se encargará de ello por nosotros.
+
+30
+00:01:30,360 --> 00:01:32,040
+Volvamos a Pharo
+inmediatamente.
+
+31
+00:01:32,360 --> 00:01:34,680
+En Iceberg, querremos
+agregar un nuevo repositorio,
+
+32
+00:01:35,000 --> 00:01:36,080
+el que acabamos de crear.
+
+33
+00:01:36,400 --> 00:01:37,400
+Daremos clic en “Agregar”,
+
+34
+00:01:37,720 --> 00:01:40,120
+vamos a
+"Clonar desde GitHub",
+
+35
+00:01:40,440 --> 00:01:42,440
+introduzca su nombre de usuario
+
+36
+00:01:42,760 --> 00:01:44,760
+o la de la persona
+que hizo el proyecto.
+
+37
+00:01:45,080 --> 00:01:48,080
+En este caso, soy yo, pero
+Podría ser alguien más.
+
+38
+00:01:49,120 --> 00:01:53,200
+El proyecto es "MyPharoRepository".
+
+39
+00:01:53,520 --> 00:01:56,520
+Y, por el protocolo,
+elegiremos HTTPS.
+
+40
+00:01:56,840 --> 00:01:59,960
+Puedes usar SSH,
+pero ya debes haber creado tus claves
+
+41
+00:02:00,280 --> 00:02:02,040
+y haberle dicho a Pharo dónde encontrarlas.
+
+42
+00:02:02,360 --> 00:02:04,000
+Por el momento,
+nos quedaremos con HTTPS.
+
+43
+00:02:04,320 --> 00:02:07,840
+El repositorio está en progreso.
+para ser clonado, se puede ver aquí.
+
+44
+00:02:08,160 --> 00:02:09,000
+Apareció.
+
+45
+00:02:09,320 --> 00:02:11,400
+vemos una estrella
+y el nombre está escrito en verde.
+
+46
+00:02:11,720 --> 00:02:15,080
+Los cambios no han
+sido guardados o actualizados.
+
+47
+00:02:15,400 --> 00:02:17,200
+Puedes ver el estado:
+"No Project Found",
+
+48
+00:02:17,520 --> 00:02:21,440
+porque nuestro repositorio está vacío,
+por lo que no encuentra nada en absoluto.
+
+49
+00:02:21,760 --> 00:02:23,200
+En general, Iceberg es inteligente,
+
+50
+00:02:23,520 --> 00:02:26,120
+si tienes un estado rojo,
+te ayudará a solucionarlo.
+
+51
+00:02:26,440 --> 00:02:29,280
+Haremos doble clic sobre él.
+Puedes ver el estado aquí.
+
+52
+00:02:29,600 --> 00:02:31,200
+Y tenemos el botón "Reparar" que está aquí.
+
+53
+00:02:31,520 --> 00:02:34,520
+Al hacer clic en "Reparar",
+tienes diferentes posibilidades.
+
+54
+00:02:34,840 --> 00:02:37,160
+Aquí, sólo tenemos dos,
+pero puedes tener más.
+
+55
+00:02:37,480 --> 00:02:40,240
+son clasificados
+de más probable a menos probable.
+
+56
+00:02:40,560 --> 00:02:43,120
+Aquí, muy probablemente,
+es que solo necesitemos
+
+57
+00:02:43,440 --> 00:02:45,280
+crear los metadatos de nuestro proyecto.
+
+58
+00:02:45,600 --> 00:02:48,080
+metadatos,
+es decir, archivos
+
+59
+00:02:48,400 --> 00:02:51,720
+que le dirán a Pharo
+cómo cargar su proyecto.
+
+60
+00:02:52,040 --> 00:02:53,360
+Así, tenemos que crearlos.
+
+61
+00:02:53,680 --> 00:02:54,640
+Haremos clic en "Aceptar".
+
+62
+00:02:54,960 --> 00:02:58,480
+es una buena practica
+agregar un archivo fuente
+
+63
+00:02:58,800 --> 00:02:59,920
+haciendo clic en el "+" aquí.
+
+64
+00:03:00,240 --> 00:03:01,720
+Agregaremos el directorio "src".
+
+65
+00:03:02,040 --> 00:03:04,640
+Hacemos clic en "src"
+para que este sea el lugar
+
+66
+00:03:04,960 --> 00:03:06,400
+donde se guardará el código.
+
+67
+00:03:06,720 --> 00:03:09,880
+Pulsamos "OK" y podremos
+confirmar este primer cambio.
+
+68
+00:03:10,200 --> 00:03:11,360
+Hacemos clic en "Commit".
+
+69
+00:03:11,680 --> 00:03:17,200
+Escribiremos:
+"Initial commit for meta-data".
+
+70
+00:03:17,520 --> 00:03:19,560
+Podemos ver
+que nuestro ".project" ha sido creado,
+
+71
+00:03:19,880 --> 00:03:22,000
+que nos dice
+donde esta el directorio fuente,
+
+72
+00:03:22,320 --> 00:03:25,920
+tenemos nuestro archivo fuente
+y un ".properties".
+
+73
+00:03:26,240 --> 00:03:29,720
+Vamos a hacer commit de esto,
+entonces creamos una clase
+
+74
+00:03:30,040 --> 00:03:33,400
+que podremos añadir a nuestro paquete,
+luego nuestro repositorio.
+
+75
+00:03:33,720 --> 00:03:35,880
+Vamos al System Browser.
+
+76
+00:03:36,200 --> 00:03:40,600
+Crearemos una nueva clase.
+que llamaremos "MyPharoClass"
+
+77
+00:03:40,920 --> 00:03:45,000
+en el paquete "MyPharoPackage".
+
+78
+00:03:45,320 --> 00:03:48,720
+vamos a guardarlo
+presionando Cmd+S.
+
+79
+00:03:49,040 --> 00:03:51,120
+Podemos ver que nuestra clase apareció.
+
+80
+00:03:51,440 --> 00:03:52,920
+Vamos a eliminar todo lo demás.
+
+81
+00:03:53,240 --> 00:03:54,960
+Tenemos paquete, clase,
+está muy bien.
+
+82
+00:03:55,280 --> 00:03:57,000
+tenemos que agregarlo
+a nuestro repositorio,
+
+83
+00:03:57,320 --> 00:03:59,080
+así que vamos a esta ventana.
+
+84
+00:03:59,400 --> 00:04:01,640
+Si lo has perdido,
+simplemente haz doble clic aquí.
+
+85
+00:04:01,960 --> 00:04:03,240
+Agregamos un paquete.
+
+86
+00:04:03,560 --> 00:04:06,840
+El paquete que vamos a agregar,
+será "MyPharoPackage".
+
+87
+00:04:07,160 --> 00:04:09,000
+Marcamos, hacemos clic en "Agregar".
+
+88
+00:04:09,320 --> 00:04:10,200
+Nuestro paquete está aquí.
+
+89
+00:04:10,520 --> 00:04:12,880
+y podemos ver que no se han hecho "commit"
+de los cambios
+
+90
+00:04:13,200 --> 00:04:15,240
+como tampoco agregado este paquete
+en nuestro repositorio.
+
+91
+00:04:15,560 --> 00:04:16,680
+Hacemos clic en "Commit".
+
+92
+00:04:17,000 --> 00:04:20,120
+Agregamos nuestra clase Pharo
+
+93
+00:04:20,440 --> 00:04:22,920
+y el lado de las clases en nuestro paquete.
+
+94
+00:04:23,240 --> 00:04:24,040
+"Commit".
+
+95
+00:04:24,960 --> 00:04:27,440
+"First Pharo class".
+
+96
+00:04:27,760 --> 00:04:28,920
+"Commit".
+
+97
+00:04:29,240 --> 00:04:32,720
+Entonces, nombre, primer nombre. está bien.
+
+98
+00:04:33,040 --> 00:04:36,000
+ahora vamos a ver
+que el paquete está al día,
+
+99
+00:04:36,320 --> 00:04:38,720
+pero siempre tenemos
+el icono rojo junto a "Push".
+
+100
+00:04:39,040 --> 00:04:40,760
+Significa
+que si volvemos a GitHub
+
+101
+00:04:41,080 --> 00:04:43,880
+y vuelvo a cargar esta página,
+absolutamente nada ha cambiado,
+
+102
+00:04:44,200 --> 00:04:47,280
+porque los cambios
+se hicieron en mi copia de trabajo,
+
+103
+00:04:47,600 --> 00:04:48,840
+es decir, localmente.
+
+104
+00:04:49,160 --> 00:04:50,240
+Al hacer clic en "Push",
+
+105
+00:04:50,560 --> 00:04:52,880
+esto me presentara
+los cambios que voy a hacer,
+
+106
+00:04:53,200 --> 00:04:55,760
+entonces los dos commits, el commits
+"Initial commit for meta-data"
+
+107
+00:04:56,080 --> 00:04:57,440
+que puedo inspeccionar.
+
+108
+00:04:57,760 --> 00:05:00,440
+Este va a ser el primer commit,
+así que nada especial,
+
+109
+00:05:00,760 --> 00:05:03,720
+y este, que añadirá
+"Clase MyPharoPackage",
+
+110
+00:05:04,040 --> 00:05:05,200
+que agregará las clases.
+
+111
+00:05:05,520 --> 00:05:06,760
+Así que hare "push".
+
+112
+00:05:07,080 --> 00:05:09,400
+Ya que estoy intentando
+para usar el protocolo HTTPS,
+
+113
+00:05:09,720 --> 00:05:11,040
+Tengo que iniciar sesión.
+
+114
+00:05:11,360 --> 00:05:15,960
+Debes poner tu nombre de usuario
+y tu contraseña en GitHub.
+
+115
+00:05:16,280 --> 00:05:19,400
+Puedes guardarlos
+para usos futuros.
+
+116
+00:05:19,720 --> 00:05:21,480
+Si usaste el protocolo SSH
+
+117
+00:05:21,800 --> 00:05:24,400
+y has creado tus llaves
+y e indicado a Pharo dónde están,
+
+118
+00:05:24,720 --> 00:05:26,480
+esta ventana
+probablemente no abra.
+
+119
+00:05:26,800 --> 00:05:27,880
+Damos clic en “Aceptar”. Listo .
+
+120
+00:05:28,200 --> 00:05:31,400
+está haciendo push
+de nuestro repositorio en GitHub.
+
+121
+00:05:31,720 --> 00:05:35,520
+Podemos ver que el pequeño punto rojo
+junto a "Empujar" ha desaparecido.
+
+122
+00:05:35,840 --> 00:05:38,440
+Si vamos a GitHub
+y recargamos,
+
+123
+00:05:38,760 --> 00:05:41,120
+tendremos nuestro repositorio Pharo
+que ha aparecido.
+
+124
+00:05:41,440 --> 00:05:44,480
+Podemos ver que hay
+el directorio "src" que está aquí,
+
+125
+00:05:44,800 --> 00:05:47,440
+"MyPharoPackage",
+y podemos ir a inspeccionar,
+
+126
+00:05:47,760 --> 00:05:50,720
+si queremos movernos,
+por ejemplo, la clase Pharo.
+
+127
+00:05:51,040 --> 00:05:53,400
+Lo que puede ser interesante
+para agregar a continuación,
+
+128
+00:05:53,720 --> 00:05:56,760
+es un README
+para ayudar a la gente a entender
+
+129
+00:05:57,080 --> 00:05:58,480
+Para qué es tu paquete
+
+130
+00:05:58,800 --> 00:06:00,560
+Y también,
+eso lo verás despues,
+
+131
+00:06:00,880 --> 00:06:04,200
+una "Baseline y un pequeño script
+para ayudar a la gente
+
+132
+00:06:04,520 --> 00:06:07,440
+a cargar directamente su paquete
+sin necesidad de usar GitHub.
+
+133
+00:06:07,760 --> 00:06:10,440
+asi fue la presentacion
+
+134
+00:06:10,760 --> 00:06:14,400
+como usar Iceberg
+junto con GitHub
+
+135
+00:06:14,720 --> 00:06:17,960
+para guardar un historial
+de cambios de tu código
+
+136
+00:06:18,280 --> 00:06:21,760
+y versionarlo, y sobre todo
+solo guárdalo.
+

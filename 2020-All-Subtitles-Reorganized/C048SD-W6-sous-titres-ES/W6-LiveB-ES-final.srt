@@ -1,0 +1,196 @@
+﻿1
+00:00:00,560 --> 00:00:00,600
+"Personalización
+desde el inicio de tus imágenes"
+
+2
+00:00:03,320 --> 00:00:03,360
+Quintin Ducasse.
+
+3
+00:00:03,400 --> 00:00:04,200
+-Buenos días a todos.
+
+4
+00:00:04,520 --> 00:00:06,360
+Te mostraré
+como personalizar
+
+5
+00:00:06,680 --> 00:00:08,080
+el lanzamiento de tu imagen Pharo,
+
+6
+00:00:08,400 --> 00:00:10,520
+para ejecutar un código
+al lanzar su imagen.
+
+7
+00:00:10,840 --> 00:00:14,640
+Primero nos centraremos
+a la clase "StartupAction",
+
+8
+00:00:14,960 --> 00:00:17,920
+la clase que define las acciones
+que se lanzarán en el inicio.
+
+9
+00:00:18,240 --> 00:00:19,000
+Esta será utilizada
+
+10
+00:00:19,320 --> 00:00:21,680
+por otra clase:
+"StartupPreferencesLoader".
+
+11
+00:00:22,000 --> 00:00:24,200
+En el comentario,
+tendrás explicaciones
+
+12
+00:00:24,520 --> 00:00:25,680
+sobre cómo funciona la clase.
+
+13
+00:00:26,000 --> 00:00:28,720
+pero te mostraré
+que podemos personalizar
+
+14
+00:00:29,040 --> 00:00:33,520
+estas acciones de inicio yendo
+en System, luego Startup,
+
+15
+00:00:33,840 --> 00:00:36,400
+luego la carpeta Version Preferences.
+
+16
+00:00:36,720 --> 00:00:39,080
+De aquí,
+haremos clic en Nuevo archivo.
+
+17
+00:00:39,400 --> 00:00:42,560
+Lo llamaremos "startup.st". está bien.
+
+18
+00:00:42,880 --> 00:00:45,160
+Y la acción que haré,
+es ésta
+
+19
+00:00:45,480 --> 00:00:47,120
+Tenemos un "StartupPreferencesLoader"
+
+20
+00:00:47,440 --> 00:00:49,560
+quien va a ejecutar
+los siguientes objetos diferentes.
+
+21
+00:00:49,880 --> 00:00:52,880
+Solo tengo uno, un "StartupAction"
+que se llama "Logo".
+
+22
+00:00:53,200 --> 00:00:57,200
+Y el código eliminará el ícono de Pharo
+que tenemos aquí, arriba, a la izquierda.
+
+23
+00:00:57,520 --> 00:00:59,720
+Guardo esto.
+Hago clic en el disquete.
+
+24
+00:01:00,040 --> 00:01:01,800
+Dejaré mi imagen.
+
+25
+00:01:02,120 --> 00:01:03,120
+Guardar y Salir.
+
+26
+00:01:03,440 --> 00:01:06,320
+Vuelvo al Pharo Launcher,
+Voy a relanzar mi imagen.
+
+27
+00:01:06,640 --> 00:01:10,120
+mi imagen es iniciada,
+y el logo de Pharo ha desaparecido.
+
+28
+00:01:10,440 --> 00:01:13,760
+Para hacer que este logotipo vuelva a aparecer,
+puedes volver a Inicio.
+
+29
+00:01:14,080 --> 00:01:16,280
+Podemos hacer clic de nuevo
+en el "startup.st".
+
+30
+00:01:16,600 --> 00:01:19,000
+Esta vez,
+lo pondremos en "true".
+
+31
+00:01:19,320 --> 00:01:21,280
+Guardamos. Podemos dejar esto.
+
+32
+00:01:21,600 --> 00:01:23,160
+no tenemos que
+reiniciar la imagen.
+
+33
+00:01:23,480 --> 00:01:26,520
+Podemos ir a System,
+Startup, Run startup scripts.
+
+34
+00:01:26,840 --> 00:01:28,440
+Voila, el logotipo de Pharo está de vuelta.
+
+35
+00:01:28,760 --> 00:01:30,920
+Este no es un ejemplo muy útil,
+pero permite
+
+36
+00:01:31,240 --> 00:01:33,640
+saber si tus preferencias
+de las startups están bien cargadas.
+
+37
+00:01:33,960 --> 00:01:35,920
+Puedes usarlo
+por otras cosas,
+
+38
+00:01:36,240 --> 00:01:38,120
+como cambiar tu entorno,
+el color,
+
+39
+00:01:38,440 --> 00:01:40,600
+Importar cosas que le gustaría
+tener todo el tiempo
+
+40
+00:01:40,920 --> 00:01:41,920
+a partir de tu imagen,
+
+41
+00:01:42,240 --> 00:01:45,520
+y también puedes
+pon tus credenciales de GitHub
+
+42
+00:01:45,840 --> 00:01:47,760
+o la ubicación de sus claves SSH.
+

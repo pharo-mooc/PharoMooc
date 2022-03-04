@@ -1,0 +1,154 @@
+﻿1
+00:00:06,200 --> 00:00:06,960
+-Buenos días a todos.
+
+2
+00:00:07,280 --> 00:00:08,480
+En este video, veremos
+
+3
+00:00:08,800 --> 00:00:10,920
+las mismas funcionalidades
+vistas sobre los métodos,
+
+4
+00:00:11,240 --> 00:00:13,400
+Implementor y Sender,
+pero esta vez, veremos
+
+5
+00:00:13,720 --> 00:00:16,880
+cómo podemos aplicarlos
+a una clase y su variable de instancia.
+
+6
+00:00:17,560 --> 00:00:19,320
+Para esto
+abriremos un System Browser.
+
+7
+00:00:19,640 --> 00:00:21,000
+Tools, System Browser.
+
+8
+00:00:21,320 --> 00:00:24,680
+Nos dirigimos a AST-Core,
+RBComment,
+
+9
+00:00:25,640 --> 00:00:28,040
+y podemos ver,
+si hacemos click sobre RBComment,
+
+10
+00:00:28,360 --> 00:00:31,800
+que tendremos las referencias de clase
+que tienen el mismo atajo que los Senders.
+
+11
+00:00:32,120 --> 00:00:33,560
+Si cliqueamos sobre Class refs,
+
+12
+00:00:33,880 --> 00:00:36,520
+esas serán todas las referencias
+a la clase RBComment
+
+13
+00:00:36,840 --> 00:00:39,040
+en los cuerpos
+de los métodos en el sistema.
+
+14
+00:00:39,360 --> 00:00:41,560
+Por ejemplo, tenemos RBParser
+
+15
+00:00:41,880 --> 00:00:44,920
+que llama RBComment,
+en su método extractCommentsFrom:
+
+16
+00:00:45,240 --> 00:00:47,200
+Es muy útil y lo es tanto
+
+17
+00:00:47,520 --> 00:00:51,240
+que un botón fue creado para esto
+en la interface del System Browser.
+
+18
+00:00:51,560 --> 00:00:52,520
+Otra cosa interesante,
+
+19
+00:00:52,840 --> 00:00:55,680
+es que si realzas
+una variable de instancia de una clase...
+
+20
+00:00:56,000 --> 00:00:58,200
+Haces click derecho, Code search.
+
+21
+00:00:58,520 --> 00:01:02,800
+"Senders of it" e "Implementors of it"
+te enviará nuevamente a los métodos contents,
+
+22
+00:01:03,120 --> 00:01:07,400
+pero "References to it", serán las
+referencias a esta variable precisamente.
+
+23
+00:01:07,720 --> 00:01:09,920
+Haciendo click en el,
+tendremos las referencias,
+
+24
+00:01:10,240 --> 00:01:14,400
+seguramente en la clase RBComment,
+que llama a "contents".
+
+25
+00:01:14,720 --> 00:01:16,160
+Son dos métodos...
+
+26
+00:01:16,480 --> 00:01:19,560
+Una vez más, el atajo
+para las Class references,
+
+27
+00:01:19,880 --> 00:01:21,560
+es Cmd+N, como los Senders.
+
+28
+00:01:21,880 --> 00:01:24,480
+Y los atajos
+para las variables de instancia,
+
+29
+00:01:24,800 --> 00:01:26,760
+son Cmd+N, Cmd+M,
+
+30
+00:01:27,080 --> 00:01:31,240
+pero también para las referencias,
+Shift+Cmd+N que es muy útil.
+
+31
+00:01:32,000 --> 00:01:35,440
+Con estas funcionalidades,
+junto con esos métodos,
+
+32
+00:01:35,760 --> 00:01:39,120
+puedes inspeccionar
+dentro de un paquete, clases,
+
+33
+00:01:39,440 --> 00:01:42,720
+entender los enlaces entre ellos y
+ver ejemplos de su uso.
+

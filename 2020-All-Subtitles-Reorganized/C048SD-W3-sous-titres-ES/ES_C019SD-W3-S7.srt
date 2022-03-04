@@ -1,0 +1,956 @@
+﻿1
+00:00:00,960 --> 00:00:05,160
+In this course,
+we'll study the essential elements
+
+2
+00:00:05,320 --> 00:00:07,600
+of the collections hierarchy in Pharo.
+
+3
+00:00:07,760 --> 00:00:11,760
+We'll see that Pharo
+has many types of collections.
+
+4
+00:00:11,920 --> 00:00:14,960
+They make a programmer's life easier
+
+5
+00:00:15,120 --> 00:00:17,360
+as they all share the same API.
+
+6
+00:00:17,520 --> 00:00:22,720
+We'll also see the difference
+between literal and dynamic collections.
+
+7
+00:00:23,960 --> 00:00:28,720
+The collections' API is very diverse:
+there are many types of collections.
+
+8
+00:00:28,880 --> 00:00:32,360
+They all share a common API
+which is well organized
+
+9
+00:00:32,520 --> 00:00:34,880
+and make a programmer's life easier.
+
+10
+00:00:35,440 --> 00:00:37,880
+What's specific about Pharo
+
+11
+00:00:38,040 --> 00:00:41,000
+is that the first element is at index 1
+
+12
+00:00:41,160 --> 00:00:43,560
+instead of 0 in other languages.
+
+13
+00:00:44,280 --> 00:00:47,880
+Collections can contain
+any types of objects in Pharo.
+
+14
+00:00:48,040 --> 00:00:50,840
+It's not always the case
+with other languages.
+
+15
+00:00:51,440 --> 00:00:55,240
+Let's see some of the most remarkable
+and widely used collections:
+
+16
+00:00:55,400 --> 00:00:57,960
+OrderedCollection
+is a dynamic collection
+
+17
+00:00:58,120 --> 00:01:02,160
+which grows
+whenever you add elements in it.
+
+18
+00:01:02,320 --> 00:01:05,560
+Array is a collection of fixed size.
+
+19
+00:01:05,720 --> 00:01:09,200
+You can access the elements
+according to an index, Set,
+
+20
+00:01:09,360 --> 00:01:13,280
+which contains elements
+without duplicates.
+
+21
+00:01:13,440 --> 00:01:16,200
+You can't insert the same element twice.
+
+22
+00:01:16,360 --> 00:01:21,160
+Dictionaries are hash tables:
+to one key is associated one value.
+
+23
+00:01:22,040 --> 00:01:24,840
+This is an excerpt
+of the collection hierarchy.
+
+24
+00:01:25,000 --> 00:01:28,160
+It's only an excerpt:
+in Pharo, it's bigger.
+
+25
+00:01:28,320 --> 00:01:31,240
+There are many classes.
+They all have collections
+
+26
+00:01:31,400 --> 00:01:34,120
+with a shared API
+for all the collections.
+
+27
+00:01:34,880 --> 00:01:39,160
+In this course, I'll tell you
+about those in bold type.
+
+28
+00:01:40,480 --> 00:01:44,240
+There's a shared API
+with seven elements:
+
+29
+00:01:44,400 --> 00:01:49,240
+specific methods for the creation
+of collections sent to the classes;
+
+30
+00:01:49,400 --> 00:01:52,120
+specific methods
+to access their properties
+
+31
+00:01:52,280 --> 00:01:54,840
+(the size of the collections
+
+32
+00:01:55,000 --> 00:01:57,840
+or even the elements they contain);
+
+33
+00:01:58,000 --> 00:02:00,920
+testing methods
+(is the collection empty?);
+
+34
+00:02:01,080 --> 00:02:05,320
+elements adding and removing methods;
+collection elements enumeration
+
+35
+00:02:05,480 --> 00:02:11,400
+(I want to browse the elements
+or know whether an element is there);
+
+36
+00:02:11,560 --> 00:02:15,920
+and conversion methods
+from one type to another.
+
+37
+00:02:16,760 --> 00:02:20,640
+Let's start with an example:
+I want to create a collection in Pharo.
+
+38
+00:02:20,800 --> 00:02:24,120
+I'll just select
+the class I'm interested in
+
+39
+00:02:24,280 --> 00:02:28,040
+and send the message new
+to instantiate this class.
+
+40
+00:02:28,200 --> 00:02:30,360
+First option: I use new.
+
+41
+00:02:30,520 --> 00:02:33,720
+Second option: I can't use new directly.
+
+42
+00:02:33,880 --> 00:02:36,360
+I want to specify the size
+of the collection.
+
+43
+00:02:36,520 --> 00:02:41,440
+I could send new: 4.
+I create a size-4 or size-2 array.
+
+44
+00:02:41,600 --> 00:02:45,720
+It also work with OrderedCollection.
+I could create one of size 1000.
+
+45
+00:02:47,400 --> 00:02:51,920
+There are other existing methods
+to create pre-initialized collections:
+
+46
+00:02:52,080 --> 00:02:53,520
+withAll: for instance.
+
+47
+00:02:53,680 --> 00:02:58,360
+I'll pass a literal collection.
+A literal collection starts with #(.
+
+48
+00:02:59,120 --> 00:03:02,480
+I'll create a new instance
+of OrderedCollection
+
+49
+00:03:02,640 --> 00:03:06,760
+which will contain all the elements
+passed when it was created.
+
+50
+00:03:07,600 --> 00:03:09,360
+I could do the same with Set.
+
+51
+00:03:09,520 --> 00:03:12,760
+In a set, you can't have any duplicates.
+
+52
+00:03:12,920 --> 00:03:16,640
+The number 7, which you have twice
+in the literal collection,
+
+53
+00:03:16,800 --> 00:03:19,000
+can't end up twice in Set.
+
+54
+00:03:21,200 --> 00:03:25,680
+There are other types of messages
+you can send
+
+55
+00:03:25,840 --> 00:03:27,920
+to the classes to initialize them.
+
+56
+00:03:28,080 --> 00:03:31,600
+This is another example: new: withAll:.
+
+57
+00:03:31,760 --> 00:03:33,880
+I want a size-5 collection.
+
+58
+00:03:34,040 --> 00:03:37,360
+Every element must be initialized
+with a specific object:
+
+59
+00:03:37,520 --> 00:03:40,000
+in this case, a string containing a.
+
+60
+00:03:42,240 --> 00:03:46,400
+Remember that in Pharo,
+every collection starts at index 1.
+
+61
+00:03:46,560 --> 00:03:49,480
+If I ask this 3-element collection
+
+62
+00:03:49,640 --> 00:03:53,440
+to return the element at index 2,
+it'll be this one.
+
+63
+00:03:53,600 --> 00:03:56,000
+This is 1; this is 2; this is 3.
+
+64
+00:03:56,760 --> 00:03:58,960
+It's the same with OrderedCollection:
+
+65
+00:03:59,120 --> 00:04:02,480
+If I convert this collection
+and ask it to return its index 2,
+
+66
+00:04:02,640 --> 00:04:04,560
+I'll get the same result: hates.
+
+67
+00:04:05,840 --> 00:04:09,960
+Collections can contain
+any types of objects.
+
+68
+00:04:10,120 --> 00:04:12,280
+I'll show you one example:
+
+69
+00:04:12,440 --> 00:04:16,920
+this literal collection
+contains the string calvin
+
+70
+00:04:17,080 --> 00:04:22,000
+and a collection
+containing the numbers 1 2 3.
+
+71
+00:04:22,160 --> 00:04:23,960
+I can create an array.
+
+72
+00:04:24,120 --> 00:04:28,360
+This array is composed
+of the elements 1 2
+
+73
+00:04:29,360 --> 00:04:32,600
+and of Set at the end.
+
+74
+00:04:33,360 --> 00:04:37,160
+I added the element 1 here,
+then the element 2, then Set.
+
+75
+00:04:37,920 --> 00:04:41,160
+You can browse
+the elements of a collection
+
+76
+00:04:41,320 --> 00:04:43,800
+by using the message do: for instance.
+
+77
+00:04:44,600 --> 00:04:46,400
+This is a collection
+
+78
+00:04:47,400 --> 00:04:51,080
+to which I'll send the message do:
+before passing it a block.
+
+79
+00:04:51,720 --> 00:04:56,920
+The block starts with "["
+and ends with "]".
+
+80
+00:04:57,080 --> 00:05:00,720
+The block's parameter is called :each.
+
+81
+00:05:00,880 --> 00:05:03,240
+It is separated
+from the block's body by |.
+
+82
+00:05:03,400 --> 00:05:07,200
+With each loop, the value of :each
+is the collection's 1st element,
+
+83
+00:05:07,360 --> 00:05:08,800
+then the second, etc.
+
+84
+00:05:08,960 --> 00:05:12,440
+And on the transcript you have:
+Calvin hates Suzie.
+
+85
+00:05:14,480 --> 00:05:18,120
+Arrays are fixed-size collections.
+
+86
+00:05:18,280 --> 00:05:22,280
+You can query an array for its size:
+I send the message size.
+
+87
+00:05:22,440 --> 00:05:26,440
+You can directly access an array's
+element by sending at:.
+
+88
+00:05:26,600 --> 00:05:28,120
+I want the second element.
+
+89
+00:05:28,280 --> 00:05:31,640
+You can modify the element
+at index 2 in the collection
+
+90
+00:05:31,800 --> 00:05:35,160
+by sending at: 1 put: 'Calvin':
+
+91
+00:05:35,680 --> 00:05:38,400
+I insert the string Calvin
+in cell 1.
+
+92
+00:05:39,160 --> 00:05:41,040
+I can also ask the size.
+
+93
+00:05:41,200 --> 00:05:44,600
+What's interesting about this example
+
+94
+00:05:44,760 --> 00:05:47,800
+is that the same array
+has been built in two ways:
+
+95
+00:05:47,960 --> 00:05:51,720
+first a literal version,
+then a dynamic version.
+
+96
+00:05:51,880 --> 00:05:56,360
+Here, I instantiated
+the class Array by myself
+
+97
+00:05:56,520 --> 00:05:58,120
+and filled in every cell.
+
+98
+00:05:59,440 --> 00:06:03,200
+You can send size to a collection
+to learn about its size.
+
+99
+00:06:03,360 --> 00:06:07,600
+You can access a collection's element
+by using the method at:.
+
+100
+00:06:07,760 --> 00:06:09,200
+I already mentioned it.
+
+101
+00:06:10,480 --> 00:06:12,480
+Be careful:
+
+102
+00:06:12,640 --> 00:06:16,000
+when you access an element
+by providing an index,
+
+103
+00:06:16,160 --> 00:06:18,400
+you must ensure that the index
+
+104
+00:06:18,560 --> 00:06:23,400
+is within the collection's bounds:
+it should be smaller than its size.
+
+105
+00:06:23,560 --> 00:06:27,720
+If I ask this collection to return
+the element at index 55, it won't exist.
+
+106
+00:06:27,880 --> 00:06:30,400
+It'll return an error.
+
+107
+00:06:33,360 --> 00:06:35,480
+To modify the elements:
+
+108
+00:06:35,640 --> 00:06:40,120
+at index 2, I want to insert
+a new element in the collection.
+
+109
+00:06:40,280 --> 00:06:43,960
+The string loves
+will replace the string hates.
+
+110
+00:06:44,120 --> 00:06:46,200
+You can see it in the result.
+
+111
+00:06:48,800 --> 00:06:52,080
+Literal arrays:
+
+112
+00:06:52,240 --> 00:06:55,400
+this is an example of a literal array.
+
+113
+00:06:55,560 --> 00:06:57,840
+It starts with #(, as I told you.
+
+114
+00:06:58,000 --> 00:07:01,520
+You can put anything inside:
+a number, a string, etc.
+
+115
+00:07:02,360 --> 00:07:05,160
+Every literal array in Pharo
+
+116
+00:07:05,320 --> 00:07:07,840
+are instance of the class Array
+by default.
+
+117
+00:07:08,000 --> 00:07:10,960
+I can send the message class
+to a literal array.
+
+118
+00:07:11,120 --> 00:07:14,920
+It returns Array, which means
+it's instance of the class Array.
+
+119
+00:07:18,800 --> 00:07:22,400
+Dynamic and literal versions
+are equivalent in Pharo.
+
+120
+00:07:22,560 --> 00:07:26,440
+Literal arrays are simply shorter:
+you can write them faster.
+
+121
+00:07:26,600 --> 00:07:29,760
+Here you have a collection's
+literal version.
+
+122
+00:07:29,920 --> 00:07:33,760
+And that's the dynamic version
+where I instantiate the class Array.
+
+123
+00:07:33,920 --> 00:07:37,240
+They're equivalent
+as they return the same results.
+
+124
+00:07:40,000 --> 00:07:43,560
+The class OrderedCollection
+defines a specific collection
+
+125
+00:07:43,720 --> 00:07:45,600
+which can be extended.
+
+126
+00:07:45,760 --> 00:07:48,640
+Whenever you add elements, it grows.
+
+127
+00:07:49,280 --> 00:07:53,320
+I instantiate OrderedCollection
+by sending the message new.
+
+128
+00:07:53,480 --> 00:07:57,040
+I use the method add: to add
+new elements in this collection.
+
+129
+00:07:57,200 --> 00:08:01,280
+I could use addFirst: to add an element
+at the beginning of the collection.
+
+130
+00:08:01,440 --> 00:08:03,080
+By default, it's at the end.
+
+131
+00:08:04,400 --> 00:08:07,600
+You can see what the collection returns.
+
+132
+00:08:07,760 --> 00:08:11,440
+It is composed of three elements:
+Pharo, Reef, Pharo.
+
+133
+00:08:11,600 --> 00:08:15,400
+With add: 'Seaside',
+'Seaside' is added at the end.
+
+134
+00:08:17,760 --> 00:08:21,520
+I have conversion methods
+between a collection type and another.
+
+135
+00:08:21,680 --> 00:08:26,160
+Here I'm using a literal collection,
+which is an array.
+
+136
+00:08:26,320 --> 00:08:30,440
+The message asOrderedCollection
+will turn this array
+
+137
+00:08:30,600 --> 00:08:32,600
+into an ordered collection.
+
+138
+00:08:33,520 --> 00:08:37,200
+Sets are a type of collection
+without duplicates.
+
+139
+00:08:37,360 --> 00:08:41,600
+They can be extended:
+they grow with every added element.
+
+140
+00:08:41,760 --> 00:08:45,560
+I can use a literal collection
+I turn into a Set.
+
+141
+00:08:45,720 --> 00:08:49,080
+I end up with a Set
+without any duplicates.
+
+142
+00:08:49,880 --> 00:08:53,400
+I could also choose the dynamic version
+over the literal one:
+
+143
+00:08:53,560 --> 00:08:57,720
+Set with: with: creates a Set
+and fills it with two elements,
+
+144
+00:08:57,880 --> 00:08:59,440
+that's two Sets each time.
+
+145
+00:09:02,000 --> 00:09:06,640
+Conversion methods are convenient to
+turn a collection into something else.
+
+146
+00:09:06,800 --> 00:09:11,280
+It's always the same: as + the name
+of the collection you want to get.
+
+147
+00:09:13,840 --> 00:09:17,000
+Dictionaries are a group
+of collections key/values:
+
+148
+00:09:17,160 --> 00:09:19,280
+I associate a value to a key.
+
+149
+00:09:19,440 --> 00:09:22,760
+They can be extended:
+they grow with every added element.
+
+150
+00:09:22,920 --> 00:09:25,560
+There's also an unusual API
+
+151
+00:09:25,720 --> 00:09:28,360
+when it comes to this collection:
+
+152
+00:09:28,520 --> 00:09:32,120
+typical at: message; at:ifabsent:
+
+153
+00:09:32,280 --> 00:09:37,200
+(what do I return if I want to access
+a specific key that doesn't exist?);
+
+154
+00:09:37,360 --> 00:09:42,160
+at:put: insert a new value
+into a specific key.
+
+155
+00:09:42,320 --> 00:09:47,520
+I can iterate using typical messages
+such as do:,
+
+156
+00:09:47,680 --> 00:09:49,080
+but also new messages
+
+157
+00:09:49,240 --> 00:09:52,640
+such as keysDo: which browses
+all the dictionary's keys
+
+158
+00:09:52,800 --> 00:09:54,280
+or keys and values.
+
+159
+00:09:54,440 --> 00:09:58,240
+For instance, I create an instance
+of the class Dictionary.
+
+160
+00:09:59,040 --> 00:10:03,360
+Picture the Dictionary as an array:
+
+161
+00:10:03,520 --> 00:10:08,040
+to the key January, I associate 31;
+to the key February, 28;
+
+162
+00:10:08,200 --> 00:10:10,160
+to the key March, 31.
+
+163
+00:10:12,840 --> 00:10:16,280
+It's equivalent to a dynamic collection.
+
+164
+00:10:16,440 --> 00:10:21,480
+You create a dynamic collection using {:
+
+165
+00:10:21,640 --> 00:10:23,720
+{ and }.
+
+166
+00:10:23,880 --> 00:10:26,640
+You use arrows to create associations.
+
+167
+00:10:26,800 --> 00:10:29,000
+This is a symbol.
+
+168
+00:10:29,160 --> 00:10:33,080
+To the symbol January
+I associate the number 31.
+
+169
+00:10:33,240 --> 00:10:35,720
+I have a collection of associations
+
+170
+00:10:35,880 --> 00:10:38,440
+I turn into a dictionary
+with asDictionary.
+
+171
+00:10:38,600 --> 00:10:42,840
+These two ways of creating a dictionary
+are equivalent.
+
+172
+00:10:45,480 --> 00:10:48,280
+If I query association for its key,
+
+173
+00:10:48,440 --> 00:10:50,760
+it will return the key,
+so the beginning.
+
+174
+00:10:50,920 --> 00:10:52,400
+It's the same.
+
+175
+00:10:52,560 --> 00:10:56,400
+If I query an association for its value,
+it'll only return the value.
+
+176
+00:10:56,560 --> 00:10:58,760
+This is a pair or an association.
+
+177
+00:11:00,560 --> 00:11:01,760
+Dictionaries:
+
+178
+00:11:01,920 --> 00:11:06,080
+if I want to access a specific value
+in a Dictionary,
+
+179
+00:11:06,240 --> 00:11:11,600
+I just need to use at: and to specify
+the key whose value I want.
+
+180
+00:11:11,760 --> 00:11:13,800
+If the key doesn't exist,
+
+181
+00:11:14,360 --> 00:11:17,720
+I will get an error in return.
+
+182
+00:11:18,560 --> 00:11:23,000
+To avoid that,
+I can use at: ifAbsent:.
+
+183
+00:11:23,160 --> 00:11:26,600
+I write at: plus a key
+that doesn't exist in the Dictionary.
+
+184
+00:11:26,760 --> 00:11:30,720
+If it is absent,
+it will return this value, 0.
+
+185
+00:11:31,480 --> 00:11:35,040
+The key doesn't exist in the Dictionary,
+so I get the value 0.
+
+186
+00:11:35,200 --> 00:11:40,480
+I can iterate over a Dictionary:
+if use do: over its elements,
+
+187
+00:11:40,640 --> 00:11:45,280
+I get the Dictionary's values only.
+You can't see the keys.
+
+188
+00:11:45,440 --> 00:11:48,800
+One might wonder why
+as it's quite strange.
+
+189
+00:11:48,960 --> 00:11:50,720
+It's very logical, actually.
+
+190
+00:11:50,880 --> 00:11:55,560
+If you look at the way do:, taking
+a block, is implemented in Dictionary,
+
+191
+00:11:55,720 --> 00:11:58,760
+what happens is ^self valuesDo:.
+
+192
+00:11:58,920 --> 00:12:01,480
+By default, if you apply do:
+to a Dictionary,
+
+193
+00:12:01,640 --> 00:12:04,080
+you only browse its values,
+not the keys.
+
+194
+00:12:05,440 --> 00:12:07,040
+If I want to browse both,
+
+195
+00:12:07,200 --> 00:12:10,680
+I must use a specific method
+called keysAndValuesDo:
+
+196
+00:12:10,840 --> 00:12:15,120
+which takes a block with two arguments
+(:k and :v) as parameter.
+
+197
+00:12:15,280 --> 00:12:18,680
+:k is a key
+and v: is the value.
+
+198
+00:12:19,360 --> 00:12:22,160
+The Dictionary is full.
+
+199
+00:12:23,880 --> 00:12:26,720
+In this course, we learned that
+
+200
+00:12:26,880 --> 00:12:30,520
+Pharo has plenty of different types
+of collections available.
+
+201
+00:12:31,160 --> 00:12:33,800
+The collections have a common vocabulary
+
+202
+00:12:33,960 --> 00:12:35,720
+when it comes to creating them,
+
+203
+00:12:35,880 --> 00:12:38,760
+accessing their elements,
+their size, etc.
+
+204
+00:12:38,920 --> 00:12:41,080
+It makes a programmer's life easier.
+
+205
+00:12:41,240 --> 00:12:44,560
+It's easy to convert a collection
+into another type.
+
+206
+00:12:44,720 --> 00:12:46,600
+We even learned something more:
+
+207
+00:12:46,760 --> 00:12:50,800
+when you have questions, it's easy
+to look into the system, into Pharo,
+
+208
+00:12:50,960 --> 00:12:54,960
+by reading the code of the classes
+to learn new classes of collections.

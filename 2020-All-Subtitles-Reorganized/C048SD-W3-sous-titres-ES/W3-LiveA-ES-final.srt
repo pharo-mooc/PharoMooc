@@ -1,0 +1,214 @@
+﻿1
+00:00:03,840 --> 00:00:04,600
+-Buenos días a todos.
+
+2
+00:00:04,920 --> 00:00:07,520
+En este video,
+veremos dos opciones:
+
+3
+00:00:07,840 --> 00:00:11,480
+Los Implementadores y los Emisores,
+que podemos aplicar a los métodos.
+
+4
+00:00:11,800 --> 00:00:15,040
+Veremos que podemos obtener estas opciones
+a través del System Browser,
+
+5
+00:00:15,360 --> 00:00:19,720
+así que yendo al ambiente Pharo
+,luego Tools y System Browser.
+
+6
+00:00:20,040 --> 00:00:22,480
+Y vemos que,
+cuando vamos dentro de AST-Core,
+
+7
+00:00:22,800 --> 00:00:25,120
+en el RBComment que utilizamos
+en los videos previos
+
+8
+00:00:25,440 --> 00:00:28,400
+y hacemos click derecho sobre size,
+se abrirán todas estas opciones,
+
+9
+00:00:28,720 --> 00:00:31,680
+pero sobretodo Implementors y Senders.
+
+10
+00:00:32,000 --> 00:00:33,920
+¿Qué son los Implementors?
+
+11
+00:00:34,240 --> 00:00:37,160
+Si cliqueamos debajo, tendremos todas las clases del sistema
+
+12
+00:00:37,480 --> 00:00:39,840
+que implementan un método
+llamado size.
+
+13
+00:00:40,160 --> 00:00:41,800
+Veremos las clases del sistema a la izquierda,
+
+14
+00:00:42,120 --> 00:00:43,840
+el paquete en el cual
+están definidos a la derecha
+
+15
+00:00:44,160 --> 00:00:47,320
+y el nombre del método,
+aunque es size en todos los casos.
+
+16
+00:00:47,640 --> 00:00:49,560
+Y podemos ver cliqueando encima...
+
+17
+00:00:49,880 --> 00:00:52,840
+Podemos navegar por los
+diferentes métodos size
+
+18
+00:00:53,160 --> 00:00:56,520
+y podemos también navegar
+cliqueando aquí, la clase asociada.
+
+19
+00:00:56,840 --> 00:01:00,720
+Ahí, estamos dentro de FFIExternalArray
+que define size así. 
+
+20
+00:01:01,040 --> 00:01:03,680
+Vemos que estamos
+dentro del paquete UnifiedFFI,
+
+21
+00:01:04,000 --> 00:01:06,120
+que estamos en la clase
+FFIExternalArray.
+
+22
+00:01:06,440 --> 00:01:09,320
+Esto te permite tener un ejemplo
+de otros métodos que tienen el mismo nombre.
+
+23
+00:01:09,640 --> 00:01:12,880
+Una opción también interesante,
+es Senders que se puede encontrar aquí.
+
+24
+00:01:13,240 --> 00:01:15,920
+Senders, nos presentará
+todos los métodos
+
+25
+00:01:16,240 --> 00:01:18,160
+que envían size
+en el cuerpo del método.
+
+26
+00:01:18,480 --> 00:01:21,640
+Por ejemplo, aquí, subbcricksCounts,
+tendremos "self subbricks size."
+
+27
+00:01:21,960 --> 00:01:23,840
+Podemos ver que hay 4378
+
+28
+00:01:24,160 --> 00:01:26,440
+Así que, tomamos un método
+que es muy llamado,
+
+29
+00:01:26,760 --> 00:01:29,000
+pero vemos que cada vez que
+hacemos click sobre un método,
+
+30
+00:01:29,320 --> 00:01:30,880
+el "size" estará subrayado
+
+31
+00:01:31,200 --> 00:01:35,840
+y podremos, como los otros,
+cliquear encima e ir a navegar el código.
+
+32
+00:01:36,160 --> 00:01:38,920
+Los Senders son muy útiles,
+porque nos dará ejemplos
+
+33
+00:01:39,240 --> 00:01:40,680
+de cómo se utiliza "size".
+
+34
+00:01:41,000 --> 00:01:43,000
+Estas dos opciones son muy interesantes.
+
+35
+00:01:43,320 --> 00:01:46,040
+Está implementado en muchos
+lenguajes orientados a objetos.
+
+36
+00:01:46,360 --> 00:01:48,160
+Una última cosa
+que les mostraré,
+
+37
+00:01:48,480 --> 00:01:52,600
+son los diferentes atajos,
+para acceder a ellos.
+
+38
+00:01:52,920 --> 00:01:55,680
+Un medio memotécnico,
+es para los implementors,
+
+39
+00:01:56,000 --> 00:01:59,040
+la M de Implementors
+que nos servirá de atajo,
+
+40
+00:01:59,360 --> 00:02:02,360
+mientras que para los Senders,
+es la N. Sender, entonces la N, aquí.
+
+41
+00:02:02,880 --> 00:02:05,960
+Si quiero abrir los Implementors,
+Cmd+M. Listo.
+
+42
+00:02:06,280 --> 00:02:09,840
+Si quiero abrir los Senders, Cmd+N.
+Eso abre los Senders de "size".
+
+43
+00:02:10,160 --> 00:02:13,480
+Estas son dos funcionalidades que
+les insto aprender a utilizar,
+
+44
+00:02:13,800 --> 00:02:16,520
+porque nos permitirá,
+aprender muy rápidamente
+
+45
+00:02:16,840 --> 00:02:19,280
+sobre un método y sus usos.
+

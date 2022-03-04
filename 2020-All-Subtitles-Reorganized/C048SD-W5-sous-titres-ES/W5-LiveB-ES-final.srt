@@ -1,0 +1,570 @@
+﻿1
+00:00:04,480 --> 00:00:05,280
+-Buenos días a todos.
+
+2
+00:00:05,600 --> 00:00:08,160
+En este vídeo nos centraremos
+más cerca del depurador
+
+3
+00:00:08,480 --> 00:00:11,760
+Y cómo usarlo
+para controlar la ejecución de un test
+
+4
+00:00:12,080 --> 00:00:13,920
+o depurar un test,
+simplemente.
+
+5
+00:00:14,240 --> 00:00:17,440
+Para eso,
+Cargué el paquete "MyCounter",
+
+6
+00:00:17,760 --> 00:00:20,040
+que desarrollamos en el redo
+semanas 1 y 2.
+
+7
+00:00:20,360 --> 00:00:23,200
+Veremos el test del método de "decrement".
+
+8
+00:00:23,520 --> 00:00:25,480
+Para abrir el depurador
+en uno de tus tests,
+
+9
+00:00:25,800 --> 00:00:29,160
+simplemente haga clic derecho
+y ve a Debug Tests
+
+10
+00:00:29,480 --> 00:00:31,720
+o hacer Cmd+D, el atajo.
+
+11
+00:00:32,040 --> 00:00:32,960
+Hacemos clic.
+
+12
+00:00:33,280 --> 00:00:35,320
+Vemos que ahí está marcado "Break",
+aquí,
+
+13
+00:00:35,640 --> 00:00:38,240
+es porque el sistema
+pone un breakpoint
+
+14
+00:00:38,560 --> 00:00:40,480
+directamente en el método de test.
+
+15
+00:00:40,800 --> 00:00:42,480
+Si echamos un vistazo más de cerca
+al depurador,
+
+16
+00:00:42,800 --> 00:00:43,840
+hay tres áreas.
+
+17
+00:00:44,160 --> 00:00:46,800
+la zona superior
+corresponde a la pila de ejecución.
+
+18
+00:00:47,120 --> 00:00:49,120
+Podéis ver
+que hay muchos metodos
+
+19
+00:00:49,440 --> 00:00:51,440
+que llevaron
+a la ejecución de nuestro test.
+
+20
+00:00:51,760 --> 00:00:55,440
+Estos son métodos gráficos.
+o gestión de procesos,
+
+21
+00:00:55,760 --> 00:00:57,120
+Eso no nos interesa aquí.
+
+22
+00:00:57,440 --> 00:00:58,680
+Preferiremos ver
+
+23
+00:00:59,000 --> 00:01:00,880
+nuestro método "testCounterDecrement",
+
+24
+00:01:01,200 --> 00:01:03,480
+en la parte superior de la pila,
+que se destaca aquí,
+
+25
+00:01:03,800 --> 00:01:07,720
+porque ahí tendremos la fuente,
+el cuerpo de todos los métodos
+
+26
+00:01:08,040 --> 00:01:09,680
+que se ejecutará
+por el Debugger.
+
+27
+00:01:10,000 --> 00:01:12,960
+Finalmente, a continuación
+tendremos las variables
+
+28
+00:01:13,280 --> 00:01:15,120
+que actualmente se gestionan
+por el sistema
+
+29
+00:01:15,440 --> 00:01:18,400
+y su valor en el momento en que estamos
+en la pila de ejecución.
+
+30
+00:01:18,720 --> 00:01:20,040
+Es decir, ahora
+
+31
+00:01:20,360 --> 00:01:22,840
+Podré usar
+las características que tenemos en la parte superior.
+
+32
+00:01:23,160 --> 00:01:25,040
+"Proceed" permite
+para continuar las ejecuciones
+
+33
+00:01:25,360 --> 00:01:27,120
+hasta que haya
+un nuevo error
+
+34
+00:01:27,440 --> 00:01:28,800
+o que el método sea completado.
+
+35
+00:01:29,120 --> 00:01:30,480
+"Restart" reinicia la ejecución,
+
+36
+00:01:30,800 --> 00:01:33,720
+y estaremos interesados
+un poco más a "Into" y "Over".
+
+37
+00:01:34,040 --> 00:01:35,360
+Te mostraré para qué sirve.
+
+38
+00:01:35,680 --> 00:01:39,080
+Empezaremos pulsando "Over"
+y ya veremos que, ahora,
+
+39
+00:01:39,400 --> 00:01:43,160
+nos encontramos en la ejecución
+del método "startingAt".
+
+40
+00:01:43,480 --> 00:01:45,680
+Lo que es interesante
+con "Over" y "Into",
+
+41
+00:01:46,000 --> 00:01:47,440
+es que "Into" nos permitirá
+
+42
+00:01:47,760 --> 00:01:51,080
+ir adentro
+el cuerpo del método de "startingAt",
+
+43
+00:01:51,400 --> 00:01:54,000
+mientras "Over"
+continuará la ejecución de un paso.
+
+44
+00:01:54,320 --> 00:01:56,040
+Por ejemplo,
+vamos a hacer clic en "Into", aquí.
+
+45
+00:01:56,360 --> 00:01:59,640
+Nos encontraremos un nivel más tarde.
+en la pila de ejecución,
+
+46
+00:01:59,960 --> 00:02:02,800
+pero, esta vez, en un método
+enviado a la clase "Counter",
+
+47
+00:02:03,120 --> 00:02:04,680
+el método "startingAt", que está aquí.
+
+48
+00:02:05,000 --> 00:02:08,080
+Podemos iterar de nuevo
+sobre los métodos que se envían aquí.
+
+49
+00:02:08,400 --> 00:02:13,560
+No hay mucho que iterar,
+así que solo vamos a presionar "Over".
+
+50
+00:02:13,880 --> 00:02:15,880
+Y "count", por ejemplo,
+vamos para adentro
+
+51
+00:02:16,200 --> 00:02:17,800
+para ver el cuerpo del método.
+"Into".
+
+52
+00:02:18,120 --> 00:02:20,760
+Nos encontramos en el método
+"count", en la clase "Counter".
+
+53
+00:02:21,080 --> 00:02:23,280
+es un setter,
+asi que nada fuera de lo normal
+
+54
+00:02:23,600 --> 00:02:25,000
+pero podemos acceder a este código
+
+55
+00:02:25,320 --> 00:02:27,640
+y hasta podemos ver
+el valor del entero, aquí.
+
+56
+00:02:27,960 --> 00:02:30,480
+Es decir, "anInteger",
+en nuestro caso, es 5.
+
+57
+00:02:30,800 --> 00:02:32,920
+Nos puede interesar "count", Cmd+P.
+
+58
+00:02:33,240 --> 00:02:34,440
+Por el momento, es "nil".
+
+59
+00:02:34,760 --> 00:02:36,160
+También puedes verlo a continuación.
+
+60
+00:02:36,480 --> 00:02:38,560
+Se define como atributo,
+Instancia variable,
+
+61
+00:02:38,880 --> 00:02:40,400
+así que por el momento, es "nil".
+
+62
+00:02:40,720 --> 00:02:43,840
+On presionará "Over".
+El método será ejecutado.
+
+63
+00:02:44,160 --> 00:02:46,400
+"Over". Nos encontramos aquí.
+
+64
+00:02:46,720 --> 00:02:48,840
+Podemos ver
+que el parámetro "anInteger" es 5
+
+65
+00:02:49,160 --> 00:02:52,680
+y esa "c" es un contador,
+con la variable "count", que es 5.
+
+66
+00:02:53,000 --> 00:02:54,480
+Podremos pulsar "Over".
+
+67
+00:02:55,440 --> 00:02:56,760
+Se devolverá el contador.
+
+68
+00:02:57,080 --> 00:02:57,960
+nos encontramos aquí
+
+69
+00:02:58,280 --> 00:03:00,960
+y vemos que nuestro contador "c"
+es siempre "nil".
+
+70
+00:03:01,280 --> 00:03:03,360
+Ahora,
+justo después de este mensaje resaltado,
+
+71
+00:03:03,680 --> 00:03:05,000
+es una tarea,
+
+72
+00:03:05,320 --> 00:03:07,440
+nuestro contador
+debería ser un nuevo contador
+
+73
+00:03:07,760 --> 00:03:08,960
+con una variable igual a 5.
+
+74
+00:03:09,280 --> 00:03:12,800
+Pulsamos "Over" y tenemos
+ahora un contador en "c".
+
+75
+00:03:13,120 --> 00:03:15,720
+En "Raw",
+el atributo "count" es de hecho 5.
+
+76
+00:03:16,040 --> 00:03:17,200
+Podemos pulsar "Over".
+
+77
+00:03:17,520 --> 00:03:19,040
+Vamos a tener una llamada de "decrement".
+
+78
+00:03:19,360 --> 00:03:20,440
+miramos en el mostrador
+
+79
+00:03:20,760 --> 00:03:22,440
+si la primera llamada fue exitosa.
+
+80
+00:03:22,760 --> 00:03:23,960
+Vemos que vale 4.
+
+81
+00:03:24,280 --> 00:03:26,640
+Podemos volver atrás y ver
+el código fuente de "decrement"
+
+82
+00:03:26,960 --> 00:03:28,800
+presionando "Into".
+
+83
+00:03:29,120 --> 00:03:32,160
+Incluso podemos evaluar "count"
+aquí mismo, que es 4.
+
+84
+00:03:32,480 --> 00:03:33,760
+Este count también vale 4,
+
+85
+00:03:34,080 --> 00:03:36,200
+y, si todo va bien,
+el resultado debe ser 3.
+
+86
+00:03:36,520 --> 00:03:39,120
+Puede presionar "Over".
+Una vez dos veces.
+
+87
+00:03:39,440 --> 00:03:40,640
+Y presionando "Over",
+
+88
+00:03:40,960 --> 00:03:43,000
+nos encontramos directamente
+en el método "count"
+
+89
+00:03:43,320 --> 00:03:45,400
+y normalmente
+deberíamos tener nuestro contador
+
+90
+00:03:45,720 --> 00:03:47,680
+que fue afectado por
+los dos métodos de "decrement".
+
+91
+00:03:48,000 --> 00:03:50,800
+Su variable de instancia
+debería ser 3, y lo es.
+
+92
+00:03:51,120 --> 00:03:52,120
+Puedes comprobarlo aquí.
+
+93
+00:03:52,440 --> 00:03:54,560
+es un ambiente
+donde puedes trabajar,
+
+94
+00:03:54,880 --> 00:03:57,680
+simplemente presione "Print" o Cmd + P
+para ver que es 3.
+
+95
+00:03:58,000 --> 00:04:00,360
+No hay problema
+en la ejecución de este método
+
+96
+00:04:00,680 --> 00:04:01,440
+así que "Proceed".
+
+97
+00:04:01,760 --> 00:04:03,360
+Esta fue una vista previa del depurador.
+
+98
+00:04:03,680 --> 00:04:04,880
+Otra cosa interesante,
+
+99
+00:04:05,200 --> 00:04:07,960
+es que no se limita
+necesariamente a tests o métodos.
+
+100
+00:04:08,280 --> 00:04:10,680
+También podemos, por ejemplo,
+abrir el Playground,
+
+101
+00:04:11,000 --> 00:04:12,480
+copiar este código,
+
+102
+00:04:12,800 --> 00:04:15,480
+y depurarlo de inmediato
+haciendo clic derecho
+
+103
+00:04:15,800 --> 00:04:18,680
+y "Debug it", Cmd+shift+D.
+
+104
+00:04:19,000 --> 00:04:21,920
+Esto abre un depurador
+que es un poco más específico,
+
+105
+00:04:22,240 --> 00:04:24,320
+pero en el cual
+podemos hacer las mismas acciones.
+
+106
+00:04:24,640 --> 00:04:28,320
+Es decir, siempre podemos
+hacer "Into", "Over",
+
+107
+00:04:28,640 --> 00:04:30,280
+terminaremos en lo mismo.
+
+108
+00:04:30,600 --> 00:04:32,800
+"Over", podemos ir
+en el método de "decrement".
+
+109
+00:04:33,120 --> 00:04:36,160
+Así que el mismo tipo de navegación,
+siempre en un ambiente
+
+110
+00:04:36,480 --> 00:04:38,160
+en el cual
+podemos inspeccionar las cosas.
+
+111
+00:04:38,480 --> 00:04:40,880
+Aquí, vale 4,
+veremos que esto vale 5.
+
+112
+00:04:41,200 --> 00:04:42,960
+El depurador es una herramienta muy poderosa
+
+113
+00:04:43,280 --> 00:04:45,600
+que le permite modificar directamente
+el método de aquí.
+
+114
+00:04:45,920 --> 00:04:47,600
+Si el método de "decrement"
+no me gusta,
+
+115
+00:04:47,920 --> 00:04:49,320
+Puedo decir que eliminará 2.
+
+116
+00:04:49,640 --> 00:04:52,600
+El punto naranja dice que no.
+sido guardado, guardo.
+
+117
+00:04:52,920 --> 00:04:54,720
+Cuando salgo
+podemos ejecutar nuestro test de nuevo.
+
+118
+00:04:55,040 --> 00:04:58,160
+Nuestro test de "decrement" no debería
+funcionar, ya que "decrement" es -2.
+
+119
+00:04:58,480 --> 00:04:59,960
+Vemos que el test no funcionó.
+
+120
+00:05:00,280 --> 00:05:02,320
+el depurador
+es una herramienta extremadamente poderosa
+
+121
+00:05:02,640 --> 00:05:04,000
+que te animo a usar,
+
+122
+00:05:04,320 --> 00:05:07,040
+porque facilitará la comprensión
+de los métodos que tienes
+
+123
+00:05:07,360 --> 00:05:10,480
+y también la forma en que vas
+interactuar con su código.
+

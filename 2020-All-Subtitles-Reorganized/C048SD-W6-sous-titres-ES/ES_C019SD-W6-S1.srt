@@ -1,0 +1,591 @@
+﻿1
+00:00:07,280 --> 00:00:11,520
+Hello, everybody.
+In today's class, we are going to see
+
+2
+00:00:11,680 --> 00:00:14,520
+if you have understood
+our previous classes,
+
+3
+00:00:14,680 --> 00:00:16,440
+namely as regards super.
+
+4
+00:00:16,680 --> 00:00:19,440
+The idea is to make you think hard.
+
+5
+00:00:19,600 --> 00:00:22,480
+I have a test to see
+if you've understood.
+
+6
+00:00:23,360 --> 00:00:25,080
+What will you learn?
+
+7
+00:00:25,240 --> 00:00:27,520
+You'll think about what super is,
+
+8
+00:00:27,680 --> 00:00:29,960
+revisit message lookup,
+
+9
+00:00:30,120 --> 00:00:32,240
+and think about class methods.
+
+10
+00:00:32,400 --> 00:00:35,520
+It's a lot of material for one class,
+but it's fun.
+
+11
+00:00:36,360 --> 00:00:42,040
+Imagine that I defined a method
+in the dice class,
+
+12
+00:00:42,200 --> 00:00:44,560
+and redefined
+the "new" method as follows:
+
+13
+00:00:44,720 --> 00:00:47,800
+Here is "new" and here is the code.
+
+14
+00:00:47,960 --> 00:00:50,960
+inst := super new.
+
+15
+00:00:51,120 --> 00:00:52,840
+inst initialize. Return inst.
+
+16
+00:00:53,000 --> 00:00:56,920
+Now I execute
+the expression dice new.
+
+17
+00:00:57,960 --> 00:01:01,560
+Now my question for you is:
+
+18
+00:01:01,720 --> 00:01:05,320
+In this expression, what is inst?
+
+19
+00:01:05,480 --> 00:01:07,120
+What is super?
+
+20
+00:01:07,280 --> 00:01:09,280
+And what is super new?
+
+21
+00:01:09,720 --> 00:01:14,120
+I'll give you a few seconds
+to think it over.
+
+22
+00:01:16,600 --> 00:01:19,000
+I'll give you a few clues.
+
+23
+00:01:20,040 --> 00:01:23,560
+They're based on my teaching experience.
+
+24
+00:01:24,400 --> 00:01:28,200
+No, super is not the superclass.
+
+25
+00:01:28,360 --> 00:01:30,360
+Get that out of your heads.
+
+26
+00:01:30,520 --> 00:01:33,560
+No, inst is not
+an instance of the superclass.
+
+27
+00:01:33,720 --> 00:01:38,200
+If it was, we could never
+write instances for the classes below.
+
+28
+00:01:38,760 --> 00:01:40,440
+So what is it?
+
+29
+00:01:41,120 --> 00:01:42,120
+Let's take a look.
+
+30
+00:01:42,280 --> 00:01:44,200
+We said in the video on super
+
+31
+00:01:44,360 --> 00:01:47,000
+that super was the receiver
+of the message.
+
+32
+00:01:47,440 --> 00:01:50,800
+Like self, super points out
+the receiver of the message.
+
+33
+00:01:50,960 --> 00:01:52,840
+This is not specific to Pharo.
+
+34
+00:01:53,000 --> 00:01:56,920
+It's true in all object-oriented
+languages such as Java, C#,
+
+35
+00:01:57,760 --> 00:01:59,040
+and Smalltalk.
+
+36
+00:01:59,840 --> 00:02:03,400
+Here the message is dice new.
+
+37
+00:02:03,560 --> 00:02:07,040
+So what's the receiver?
+Syntactically speaking, it's dice.
+
+38
+00:02:07,200 --> 00:02:09,880
+The class is dice.
+
+39
+00:02:10,040 --> 00:02:14,720
+With these clues,
+you should understand better.
+
+40
+00:02:16,160 --> 00:02:17,280
+Let's see.
+
+41
+00:02:18,160 --> 00:02:21,560
+You remember how message lookup works?
+
+42
+00:02:21,720 --> 00:02:24,000
+I send a message to an instance,
+
+43
+00:02:24,160 --> 00:02:26,000
+for example,
+ColoredRectangle.
+
+44
+00:02:26,160 --> 00:02:29,480
+I look inside
+the ColoredRectangle class
+
+45
+00:02:29,640 --> 00:02:32,880
+to see if the method in question
+is defined. It's not.
+
+46
+00:02:33,040 --> 00:02:35,680
+"Area" is not defined.
+I find it up here.
+
+47
+00:02:35,840 --> 00:02:40,120
+I apply the definition I found.
+
+48
+00:02:40,280 --> 00:02:42,600
+On what? On the receiver.
+
+49
+00:02:43,280 --> 00:02:46,320
+Now you should understand
+what this method does.
+
+50
+00:02:46,480 --> 00:02:51,560
+I look up "new" in the dice class.
+
+51
+00:02:51,720 --> 00:02:56,760
+I look it up and apply it on dice.
+
+52
+00:02:56,920 --> 00:02:59,480
+Let's take a closer look.
+
+53
+00:02:59,640 --> 00:03:01,440
+As I explained previously,
+
+54
+00:03:01,600 --> 00:03:05,600
+in Pharo, only one message is sent
+with one method lookup.
+
+55
+00:03:05,760 --> 00:03:09,560
+So when I send a message
+to any object whatsoever,
+
+56
+00:03:09,720 --> 00:03:12,600
+I always look in the class.
+I follow this link.
+
+57
+00:03:12,760 --> 00:03:14,160
+Then this one here.
+
+58
+00:03:14,320 --> 00:03:16,320
+It's always these two steps.
+
+59
+00:03:16,480 --> 00:03:18,720
+What does this say about our system?
+
+60
+00:03:18,880 --> 00:03:21,640
+I told you, super is the receiver.
+
+61
+00:03:22,920 --> 00:03:25,320
+The receiver was dice.
+
+62
+00:03:26,000 --> 00:03:31,000
+So I look for new
+in the superclass of the dice class.
+
+63
+00:03:31,160 --> 00:03:34,680
+The key here is that it's dice class
+and not dice.
+
+64
+00:03:34,840 --> 00:03:36,960
+We'll see it graphically afterwards.
+
+65
+00:03:37,120 --> 00:03:39,520
+Once I've found the new "new,"
+
+66
+00:03:39,680 --> 00:03:42,640
+I apply it to the receiver,
+which is dice.
+
+67
+00:03:42,800 --> 00:03:44,680
+What does this do?
+
+68
+00:03:44,840 --> 00:03:47,200
+I apply new to dice,
+
+69
+00:03:47,360 --> 00:03:51,800
+which will create and initialize
+a new instance of dice.
+
+70
+00:03:51,960 --> 00:03:54,240
+Inst will be my new instance.
+
+71
+00:03:54,400 --> 00:03:55,920
+One dice.
+
+72
+00:03:56,360 --> 00:03:58,760
+And I will initialize and return it.
+
+73
+00:03:58,920 --> 00:04:01,640
+Let's take a look at a diagram.
+
+74
+00:04:01,800 --> 00:04:04,240
+When I send new to dice,
+
+75
+00:04:04,400 --> 00:04:07,960
+where do I look?
+Which class do I look in?
+
+76
+00:04:08,120 --> 00:04:09,760
+I look in dice class.
+
+77
+00:04:10,440 --> 00:04:12,720
+This is where I use my famous method.
+
+78
+00:04:12,880 --> 00:04:16,920
+What do I do now?
+What did we say about super?
+
+79
+00:04:18,720 --> 00:04:21,800
+Super is the dice class.
+It is the receiver.
+
+80
+00:04:21,960 --> 00:04:23,840
+I sent the message to this object.
+
+81
+00:04:25,400 --> 00:04:27,680
+Super tells me to look inside
+
+82
+00:04:27,840 --> 00:04:31,440
+the superclass
+of the class containing the expression.
+
+83
+00:04:31,600 --> 00:04:36,720
+So I look in the superclass
+of the dice class.
+
+84
+00:04:36,880 --> 00:04:39,760
+I look up here.
+And somewhere up here,
+
+85
+00:04:39,920 --> 00:04:41,200
+we'll see later on,
+
+86
+00:04:41,360 --> 00:04:42,920
+new is defined.
+
+87
+00:04:43,080 --> 00:04:44,360
+What about lookup?
+
+88
+00:04:44,520 --> 00:04:46,920
+We said that the method
+is defined here,
+
+89
+00:04:47,080 --> 00:04:51,960
+and we apply it on the receiver.
+I apply it on dice.
+
+90
+00:04:52,120 --> 00:04:55,480
+And this gives me a new instance.
+I'll draw it in.
+
+91
+00:04:55,640 --> 00:04:58,120
+It returns an instance: A dice.
+
+92
+00:04:58,280 --> 00:05:02,000
+And inst is pointed at
+this new instance.
+
+93
+00:05:03,000 --> 00:05:05,400
+So inst is a new dice.
+
+94
+00:05:06,040 --> 00:05:10,680
+I send the initialize message to inst,
+and then I return it.
+
+95
+00:05:10,840 --> 00:05:15,760
+You often struggle with this example
+because it's very rhetorical.
+
+96
+00:05:15,920 --> 00:05:19,840
+I do it on purpose
+to see if you've understood.
+
+97
+00:05:20,000 --> 00:05:21,920
+It mixes two things.
+
+98
+00:05:22,080 --> 00:05:23,880
+One, super.
+
+99
+00:05:24,040 --> 00:05:29,040
+I look in the superclass of the class
+that contains the expression super,
+
+100
+00:05:29,200 --> 00:05:31,440
+knowing that super is the receiver.
+
+101
+00:05:31,600 --> 00:05:35,240
+And two, new.
+It's a method that creates objects.
+
+102
+00:05:35,400 --> 00:05:37,120
+This is where the two meet,
+
+103
+00:05:37,280 --> 00:05:40,080
+and you have
+a hard time understanding this.
+
+104
+00:05:40,240 --> 00:05:43,520
+I suggest that you really review
+this lesson,
+
+105
+00:05:43,680 --> 00:05:45,640
+because it's very important.
+
+106
+00:05:45,800 --> 00:05:46,920
+I'll repeat it.
+
+107
+00:05:47,080 --> 00:05:50,240
+Super is the receiver of the message,
+
+108
+00:05:50,400 --> 00:05:53,160
+which in this case is dice.
+
+109
+00:05:53,320 --> 00:05:57,560
+I look in the superclass
+of the dice class for the new method
+
+110
+00:05:57,720 --> 00:06:02,320
+that I will apply to dice, the receiver,
+to find my terminal instance.
+
+111
+00:06:03,120 --> 00:06:04,280
+Okay?
+
+112
+00:06:05,760 --> 00:06:11,080
+In sum: Sending a message is looking up
+a method in the receiver class.
+
+113
+00:06:11,240 --> 00:06:13,080
+That's what we do each time.
+
+114
+00:06:13,240 --> 00:06:15,960
+That's all you can do in Pharo,
+so it's easy.
+
+115
+00:06:16,160 --> 00:06:20,400
+By now you know that super means looking
+in the superclass of the class
+
+116
+00:06:20,560 --> 00:06:22,680
+containing the expression super.
+
+117
+00:06:22,880 --> 00:06:26,440
+And that super is the receiver,
+but it can be a class too.
+
+118
+00:06:26,880 --> 00:06:30,160
+We're not done yet.
+I have another problem for you.
+
+119
+00:06:30,320 --> 00:06:33,520
+If you're studying Pharo,
+you must like challenges.
+
+120
+00:06:33,680 --> 00:06:37,520
+Here we go. Imagine that I have
+the following problem:
+
+121
+00:06:37,680 --> 00:06:41,120
+The method says:
+"Make super-space-class
+
+122
+00:06:41,280 --> 00:06:42,880
+"equal equal self class."
+
+123
+00:06:43,040 --> 00:06:46,520
+What does "equal equal" mean?
+It's the pointer's identity.
+
+124
+00:06:46,680 --> 00:06:49,800
+In fact, I'm asking:
+Is the object obtained
+
+125
+00:06:49,960 --> 00:06:53,200
+with super-space-class the same
+
+126
+00:06:53,360 --> 00:06:56,160
+as the object obtained
+with self-equal-class?
+
+127
+00:06:56,360 --> 00:06:59,760
+I defined this method,
+which will return true or false.
+
+128
+00:06:59,920 --> 00:07:01,280
+My question for you is:
+
+129
+00:07:01,440 --> 00:07:05,200
+What is the result of A new foo?
+
+130
+00:07:05,360 --> 00:07:07,600
+I create a new instance of A
+
+131
+00:07:07,760 --> 00:07:11,360
+and I send the message foo,
+which will edit this message.
+
+132
+00:07:11,520 --> 00:07:13,600
+What is the result and why?
+
+133
+00:07:13,760 --> 00:07:17,120
+You'll have to think
+because I won't give you this answer.

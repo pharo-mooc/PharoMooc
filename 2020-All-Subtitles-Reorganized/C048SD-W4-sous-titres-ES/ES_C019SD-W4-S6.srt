@@ -1,0 +1,462 @@
+﻿1
+00:00:00,400 --> 00:00:01,600
+Hello to all.
+
+2
+00:00:01,760 --> 00:00:05,840
+This sequence
+will focus on class methods.
+
+3
+00:00:06,320 --> 00:00:08,320
+As we saw earlier,
+
+4
+00:00:08,520 --> 00:00:12,840
+class methods are normal methods,
+like other methods.
+
+5
+00:00:13,520 --> 00:00:17,440
+Generally, they are used
+to create new instances,
+
+6
+00:00:17,760 --> 00:00:19,760
+but can be used for other things.
+
+7
+00:00:20,200 --> 00:00:24,080
+We'll be seeing two examples
+of uses for class methods.
+
+8
+00:00:24,720 --> 00:00:28,280
+Imagine we want to parse
+these lines
+
+9
+00:00:28,440 --> 00:00:30,840
+in a computer program.
+
+10
+00:00:32,120 --> 00:00:34,800
+The lines create a structure.
+
+11
+00:00:36,000 --> 00:00:39,720
+If a line starts
+with an exclamation point,
+
+12
+00:00:40,120 --> 00:00:42,040
+it is read as a title.
+
+13
+00:00:42,480 --> 00:00:47,720
+Lines that start with dashes
+are list items.
+
+14
+00:00:49,240 --> 00:00:51,920
+Lines that start
+with more than one dash
+
+15
+00:00:52,120 --> 00:00:54,760
+are subitems on a list.
+
+16
+00:00:55,680 --> 00:00:58,000
+In any other case, it is a paragraph.
+
+17
+00:00:58,800 --> 00:01:01,560
+Take a program with this input:
+
+18
+00:01:03,080 --> 00:01:05,640
+It creates instances
+for the classes here,
+
+19
+00:01:05,800 --> 00:01:07,960
+subclasses of DocumentItem.
+
+20
+00:01:10,080 --> 00:01:13,080
+We also want to design
+this program
+
+21
+00:01:13,280 --> 00:01:16,600
+so that each subclass
+of DocumentItem is responsible
+
+22
+00:01:16,760 --> 00:01:17,880
+for parsing lines,
+
+23
+00:01:18,040 --> 00:01:21,640
+and for deciding "canParse" (or cannot)
+for a given line.
+
+24
+00:01:21,800 --> 00:01:26,680
+In the "canParse" method here,
+we submit a line of text.
+
+25
+00:01:27,000 --> 00:01:30,440
+If the line starts
+with an exclamation point,
+
+26
+00:01:30,600 --> 00:01:32,920
+the canParse method must return True.
+
+27
+00:01:33,080 --> 00:01:35,840
+The line belongs
+to the Section Title class.
+
+28
+00:01:36,440 --> 00:01:37,920
+In the ListItem class,
+
+29
+00:01:38,640 --> 00:01:43,920
+the canParse method returns True
+if the line starts with a dash.
+
+30
+00:01:44,760 --> 00:01:48,400
+And the canParse line we see here
+must always return True.
+
+31
+00:01:49,240 --> 00:01:54,320
+The idea is to write an algorithm
+that looks at classes one by one.
+
+32
+00:01:54,920 --> 00:01:58,120
+As soon as one returns
+canParse for a given line,
+
+33
+00:01:58,840 --> 00:02:03,480
+we use that class to create
+a new instance for that line.
+
+34
+00:02:04,600 --> 00:02:06,840
+That's the goal of canParse method.
+
+35
+00:02:07,000 --> 00:02:11,840
+The newFromLine method also
+takes a line of text as a parameter.
+
+36
+00:02:12,960 --> 00:02:17,560
+But it returns an instance in the class
+in which the line is implemented.
+
+37
+00:02:17,920 --> 00:02:22,920
+If I send a newFromLine message
+to the SectionTitle class,
+
+38
+00:02:23,200 --> 00:02:27,120
+with a chain of characters
+starting with an exclamation point,
+
+39
+00:02:27,520 --> 00:02:31,880
+the newFromLine method will return
+an instance of the SectionTitle class.
+
+40
+00:02:32,360 --> 00:02:33,760
+This is what happens:
+
+41
+00:02:34,080 --> 00:02:36,880
+The ClassParser does this work.
+
+42
+00:02:37,040 --> 00:02:39,680
+It searches
+DocumentItem subclasses
+
+43
+00:02:40,000 --> 00:02:42,160
+for the one
+in charge of a given line.
+
+44
+00:02:42,520 --> 00:02:46,360
+The Parser has a method
+called documentClasses.
+
+45
+00:02:47,320 --> 00:02:51,720
+Its goal is to return
+the list of Subclasses
+
+46
+00:02:52,160 --> 00:02:53,520
+in DocumentItem.
+
+47
+00:02:53,840 --> 00:02:58,040
+It returns a collection
+containing these three classes.
+
+48
+00:02:58,640 --> 00:03:02,320
+We do this by sending the message
+"allSubclasses" to DocumentItem.
+
+49
+00:03:02,480 --> 00:03:05,800
+The allSubclasses method
+already exists in the Pharo system.
+
+50
+00:03:05,960 --> 00:03:09,160
+It returns the list of subclasses
+in a given class.
+
+51
+00:03:09,640 --> 00:03:13,000
+That message yields a collection
+
+52
+00:03:13,160 --> 00:03:16,440
+containing SectionTitle,
+ListItem, and Text.
+
+53
+00:03:17,960 --> 00:03:20,520
+I want the collection
+sorted by priority.
+
+54
+00:03:20,680 --> 00:03:24,400
+The idea is for the text class
+to come at the end
+
+55
+00:03:24,680 --> 00:03:27,960
+because its canParse method
+always returns True.
+
+56
+00:03:28,120 --> 00:03:31,640
+The text class
+can parse any line at random.
+
+57
+00:03:32,960 --> 00:03:36,080
+We will test that method
+after testing the others.
+
+58
+00:03:36,240 --> 00:03:39,520
+We have the concept
+of priority here.
+
+59
+00:03:41,160 --> 00:03:44,960
+As you see, many methods
+are underlined.
+
+60
+00:03:45,240 --> 00:03:48,760
+If I underline the methods here,
+
+61
+00:03:49,160 --> 00:03:51,720
+this indicates they are class methods.
+
+62
+00:03:52,040 --> 00:03:56,240
+To execute these methods,
+the message must be sent to the Class.
+
+63
+00:03:56,480 --> 00:04:01,400
+I must send the canParse method
+to the SectionTitle class
+
+64
+00:04:01,760 --> 00:04:05,840
+to find out if the SectionTitle class
+can parse a given line.
+
+65
+00:04:08,240 --> 00:04:12,560
+The Parse method of the Parser class
+takes a line as a parameter.
+
+66
+00:04:12,960 --> 00:04:18,760
+It searches all DocumentItem subclasses
+for a class that can parse the line.
+
+67
+00:04:19,040 --> 00:04:22,600
+If it detects one, it creates an instance
+of this class.
+
+68
+00:04:24,200 --> 00:04:28,600
+Sending the command "detect:"
+to a collection
+
+69
+00:04:29,160 --> 00:04:33,520
+yields one among n elements
+in a collection, following a predicate.
+
+70
+00:04:34,400 --> 00:04:38,920
+Now we'll look at another example
+of using class methods.
+
+71
+00:04:39,320 --> 00:04:43,800
+We'll look at how command-line
+parameters are handled.
+
+72
+00:04:44,480 --> 00:04:48,160
+Here we see a program
+receiving parameters,
+
+73
+00:04:49,040 --> 00:04:52,960
+detecting the parameters
+that will make it do things differently.
+
+74
+00:04:53,360 --> 00:04:57,160
+The first parameter indicates
+the action to be carried out.
+
+75
+00:04:57,680 --> 00:05:02,080
+We will design the program so that
+we have one class per action type.
+
+76
+00:05:02,400 --> 00:05:06,000
+The "eval" action is represented
+by one class:
+
+77
+00:05:06,360 --> 00:05:08,160
+eval CommandLineHandler.
+
+78
+00:05:09,920 --> 00:05:13,800
+What action is carried out
+when the "eval" parameter appears?
+
+79
+00:05:14,440 --> 00:05:17,000
+It executes...
+
+80
+00:05:17,280 --> 00:05:21,120
+This chain of characters
+is interpreted as Pharo code,
+
+81
+00:05:21,560 --> 00:05:24,040
+and return the result
+of the expression.
+
+82
+00:05:24,680 --> 00:05:27,440
+3628800 is the result
+of 10 factorial.
+
+83
+00:05:27,920 --> 00:05:29,440
+This is implemented
+
+84
+00:05:30,360 --> 00:05:32,920
+using the Command-Line Handler
+class.
+
+85
+00:05:33,960 --> 00:05:36,440
+EvaluateCommandLineHandler
+is a subclass
+
+86
+00:05:36,920 --> 00:05:41,480
+assigned to processing
+the "eval" parameter.
+
+87
+00:05:41,800 --> 00:05:45,560
+If "eval" is sent as the first parameter
+in a command line,
+
+88
+00:05:45,720 --> 00:05:47,560
+this class has to work.
+
+89
+00:05:48,680 --> 00:05:52,560
+The isReponsibleFor method
+must return True
+
+90
+00:05:53,200 --> 00:05:54,960
+if there is one subclass
+
+91
+00:05:55,120 --> 00:05:59,920
+capable of taking the command line
+into account.
+
+92
+00:06:01,400 --> 00:06:02,760
+Underneath, we see
+
+93
+00:06:03,240 --> 00:06:07,640
+a mechanism identical to the one
+we saw in the preceding example.
+
+94
+00:06:08,080 --> 00:06:13,160
+Once again, we are using class methods
+and sending messages to classes
+
+95
+00:06:14,400 --> 00:06:16,800
+for tasks other than creating instances.
+
+96
+00:06:17,600 --> 00:06:21,480
+This sequence showed us
+two possible uses for class methods.
+
+97
+00:06:22,200 --> 00:06:26,360
+Class methods
+are mostly used to create new instances.
+
+98
+00:06:26,680 --> 00:06:29,320
+But they can also be used
+in other cases.

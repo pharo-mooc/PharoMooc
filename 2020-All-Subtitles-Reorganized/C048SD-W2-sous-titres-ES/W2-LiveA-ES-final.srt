@@ -1,0 +1,472 @@
+﻿1
+00:00:00,040 --> 00:00:00,080
+"Encontrar métodos con el Finder"
+
+2
+00:00:00,120 --> 00:00:00,160
+Quentin Ducasse.
+
+3
+00:00:03,800 --> 00:00:04,560
+-Buenos días a todos.
+
+4
+00:00:04,880 --> 00:00:07,240
+En este video, veremos
+una herramienta llamada Finder.
+
+5
+00:00:07,560 --> 00:00:09,360
+Se puede encontrar
+yendo al menú Pharo,
+
+6
+00:00:09,680 --> 00:00:12,080
+luego Tools y Finder.
+
+7
+00:00:12,400 --> 00:00:15,760
+Esta herramienta permite buscar
+en Pharo
+
+8
+00:00:16,560 --> 00:00:18,720
+métodos, ejemplos, etc.
+
+9
+00:00:19,040 --> 00:00:21,200
+Por ejemplo, imaginemos
+que buscamos la palabra "match".
+
+10
+00:00:21,520 --> 00:00:24,680
+en los nombres de los métodos,
+entonces Selectors.
+
+11
+00:00:25,000 --> 00:00:27,000
+Si buscamos esto, se verá
+
+12
+00:00:27,600 --> 00:00:31,760
+todos los métodos del sistema
+que tienen "match" incluso en su nombre.
+
+13
+00:00:32,080 --> 00:00:34,680
+Así, se puede ver los métodos
+haciendo click en él.
+
+14
+00:00:35,000 --> 00:00:37,960
+Veremos el cuerpo del método
+que está arriba.
+
+15
+00:00:38,280 --> 00:00:40,880
+Podemos ver la clase
+que los implementa entre paréntesis.
+
+16
+00:00:41,200 --> 00:00:42,840
+Si alguna vez tenemos el triángula de la izquierda,
+
+17
+00:00:43,160 --> 00:00:46,920
+este será las clases que implementan
+el método con el mismo nombre.
+
+18
+00:00:47,240 --> 00:00:49,680
+Por ejemplo, si tenemos dos clases
+que implementan este método aquí.
+
+19
+00:00:50,000 --> 00:00:52,320
+Clickeando aquí, podemor ir a ver
+la diferencia entre los dos
+
+20
+00:00:52,640 --> 00:00:54,440
+y podemos también,
+clickear sobre Browse.
+
+21
+00:00:54,760 --> 00:00:57,560
+y llegar directamente al método
+en el Browser del sistema.
+
+22
+00:00:57,880 --> 00:01:03,240
+Incluso si es muy útil, hay casos
+donde es todo el comportamiento
+
+23
+00:01:03,560 --> 00:01:06,440
+que nuestra función quisiera tener
+sin saber su nombre,
+
+24
+00:01:06,760 --> 00:01:09,320
+y es un caso
+donde podemos usar ejemplos.
+
+25
+00:01:09,640 --> 00:01:11,520
+Así, cliqueamos en Examples
+
+26
+00:01:12,400 --> 00:01:17,920
+e imaginemos que buscamos un método
+que tiene una cadena de caracteres "ab*"
+
+27
+00:01:18,720 --> 00:01:23,720
+y otra cadena de caracteres "abcd"
+aplicará este método
+
+28
+00:01:24,040 --> 00:01:25,560
+y nos dará "true".
+
+29
+00:01:25,880 --> 00:01:29,200
+Podemos escribirlo así,
+separando los parámetros por puntos
+
+30
+00:01:29,520 --> 00:01:31,240
+y poner el resultado al final.
+
+31
+00:01:31,760 --> 00:01:36,760
+Si cliqueamos en Search, veremos
+todos los métodos que responden "true"
+
+32
+00:01:37,080 --> 00:01:40,200
+tomando como argumento
+los dos argumentos que le pasamos.
+
+33
+00:01:40,520 --> 00:01:44,880
+Un método que nos podría interesar,
+es el "match" que buscábamos antes.
+
+34
+00:01:45,200 --> 00:01:47,320
+Si nos desplazamos
+haciendo click sobre el triángulo,
+
+35
+00:01:47,640 --> 00:01:51,000
+veremos todas las clases del sistema
+
+36
+00:01:51,320 --> 00:01:53,480
+que implementan
+un método llamado "match".
+
+37
+00:01:53,800 --> 00:01:58,280
+Si bajamos, llegamos a "*String",
+el de la estrella a la izquierda.
+
+38
+00:01:58,600 --> 00:02:01,880
+Quiere decir
+que es el método "match" que
+
+39
+00:02:02,200 --> 00:02:05,040
+dados los argumentos
+ que se le dieron, regresó "true".
+
+40
+00:02:05,760 --> 00:02:07,800
+Seguramente es éste
+el que nos va a interesar.
+
+41
+00:02:08,120 --> 00:02:10,240
+Podemos usar
+otros ejemplos como...
+
+42
+00:02:10,560 --> 00:02:16,640
+Si ponemos: "11.2.5",
+una especie de división,
+
+43
+00:02:16,960 --> 00:02:20,840
+si buscamos, vemos
+que llegamos a la división entera
+
+44
+00:02:21,160 --> 00:02:24,960
+y es particularmente implementada
+en los "Enteros"
+
+45
+00:02:25,280 --> 00:02:27,120
+ó "Number" ó "SmallInteger".
+
+46
+00:02:27,440 --> 00:02:29,560
+Podemos, por ejemplo,
+pedir 5,5 en lugar de 5.
+
+47
+00:02:30,000 --> 00:02:32,240
+Obtenemos la división más clásica.
+
+48
+00:02:32,560 --> 00:02:37,240
+Si vemos esta división, la encontraremos en "Fraction" ó "Number".
+
+49
+00:02:37,560 --> 00:02:41,000
+Es una herramienta extremadamente poderosa
+para buscar ejemplos.
+
+50
+00:02:41,320 --> 00:02:43,840
+Otra cosa
+que me gustaría mostrar, es...
+
+51
+00:02:44,160 --> 00:02:48,200
+por ejemplo,
+imaginemos que buscamos un método
+
+52
+00:02:48,520 --> 00:02:51,480
+que toma como argumento
+una tabla con tres enteros,
+
+53
+00:02:51,800 --> 00:02:54,400
+que toma otro entero,
+por ejemplo 4,
+
+54
+00:02:54,720 --> 00:02:56,680
+y que nos va a devolver
+el primer elemento.
+
+55
+00:02:57,000 --> 00:03:00,080
+Nos gustaría que busque en
+el primero, el segundo, el tercero
+
+56
+00:03:00,400 --> 00:03:02,880
+y que el bucle
+nos regrese el primer elemento.
+
+57
+00:03:03,200 --> 00:03:05,880
+Entonces, si buscamos así,
+tenemos "atWrap"
+
+58
+00:03:06,200 --> 00:03:08,080
+que nos devolverá
+lo que le pedimos.
+
+59
+00:03:08,400 --> 00:03:10,880
+Vemos que es definido en
+"Array" y "SequenceableCollection".
+
+60
+00:03:11,200 --> 00:03:13,720
+Si vemos los métodos
+definidos en estas dos clases,
+
+61
+00:03:14,040 --> 00:03:17,760
+podemos ver que los dos
+tienen comentarios entre comillas
+
+62
+00:03:18,080 --> 00:03:20,280
+que no son del mismo color
+que los otros
+
+63
+00:03:20,600 --> 00:03:22,440
+Estos tienen el color de un código normal.
+
+64
+00:03:22,760 --> 00:03:27,000
+Es porque son ejemplos
+que podemos ejecutar nosotros mismos.
+
+65
+00:03:27,320 --> 00:03:29,800
+Si queremos tener una idea
+de cómo funciona la función,
+
+66
+00:03:30,120 --> 00:03:34,280
+solo tenemos que resaltarlo
+luego imprimir, y Cmd+P.
+
+67
+00:03:34,600 --> 00:03:36,200
+Y listo, Podemos ver el resultado.
+
+68
+00:03:36,520 --> 00:03:39,080
+Estos ejemplos son muy interesantes
+
+69
+00:03:39,400 --> 00:03:42,040
+y puedes encontrarlos
+en muchos métodos
+
+70
+00:03:42,360 --> 00:03:44,480
+para explicarte
+como funcionan.
+
+71
+00:03:44,800 --> 00:03:47,160
+Otra cosa
+que permite el Finder,
+
+72
+00:03:47,480 --> 00:03:48,760
+es buscar pragmas.
+
+73
+00:03:49,080 --> 00:03:53,280
+Si, por ejemplo, buscamos "menu"
+y seleccionamos la opción Pragmas...
+
+74
+00:03:53,600 --> 00:03:57,640
+Si buscamos, veremos
+que l os pragmas son definidos...
+
+75
+00:03:57,960 --> 00:04:01,120
+Así, podemos tener el pragma
+"contextMenu". Fue encontrado.
+
+76
+00:04:01,440 --> 00:04:04,720
+Podemos buscar en,
+por ejemplo, esta clase.
+
+77
+00:04:05,040 --> 00:04:06,280
+Vemos el pragma que está ahí.
+
+78
+00:04:06,600 --> 00:04:08,000
+Los pragmas son anotaciones
+
+79
+00:04:08,320 --> 00:04:10,280
+que pueden ser usadas
+más tarde por el sistema
+
+80
+00:04:10,600 --> 00:04:13,320
+para funcionar de manera diferente
+y hacer requerimientos.
+
+81
+00:04:13,680 --> 00:04:18,160
+Por ejemplo, aquí, será utilizado
+en una interface gráfica de Pharo.
+
+82
+00:04:19,280 --> 00:04:22,840
+Y si queremos buscar la palabra "menu"
+pero en todo el código fuente del sistema,
+
+83
+00:04:23,160 --> 00:04:24,400
+podemos cliquear sobre Source.
+
+84
+00:04:24,720 --> 00:04:26,920
+Ahí, nos analizará
+todas las fuentes del sistema
+
+85
+00:04:27,240 --> 00:04:29,280
+de todos los métodos
+para buscar la palabra "menu"
+
+86
+00:04:29,600 --> 00:04:32,320
+que esté
+en el nombre del método...
+
+87
+00:04:32,640 --> 00:04:34,600
+Aquí, no está,
+pero aquí, hay un "menu".
+
+88
+00:04:34,920 --> 00:04:37,560
+Donde puede ser...
+tendremos aquí, "FTTableMorph".
+
+89
+00:04:37,880 --> 00:04:39,760
+Tampoco está
+en el nombre de la clase,
+
+90
+00:04:40,080 --> 00:04:43,440
+pero podemos ver que la palabra "Menu"
+es utilizada por este método aquí.
+
+91
+00:04:44,000 --> 00:04:47,640
+Source toma más tiempo, porque
+Nmirará todos los métodos de Pharo
+
+92
+00:04:47,960 --> 00:04:50,160
+pero da un resultado
+que está en el nombre del método,
+
+93
+00:04:50,480 --> 00:04:53,280
+en el nombre de la clase,
+o en el cuerpo del método mismo.
+
+94
+00:04:53,600 --> 00:04:55,200
+Este fue un video sobre el Finder.
+
+95
+00:04:55,520 --> 00:04:58,080
+Es una herramienta muy poderosa
+que les animo a utilizar
+
+96
+00:04:58,400 --> 00:05:01,280
+sobre todo cuando se combina
+con los ejemplos
+
+97
+00:05:01,600 --> 00:05:03,560
+para encontrar un comportamiento.
+
+98
+00:05:03,880 --> 00:05:06,120
+Puede ayudarte
+a recordar los ejemplos
+
+99
+00:05:06,440 --> 00:05:09,200
+que se dan
+en los comentarios de los métodos.
+

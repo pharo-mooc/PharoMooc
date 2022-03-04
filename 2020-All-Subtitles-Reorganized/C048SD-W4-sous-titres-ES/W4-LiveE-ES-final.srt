@@ -1,0 +1,350 @@
+﻿1
+00:00:04,000 --> 00:00:04,800
+-Buenos días a todos.
+
+2
+00:00:05,120 --> 00:00:07,280
+Vamos a ver
+la revisión automática de código
+
+3
+00:00:07,600 --> 00:00:08,720
+que está integrado en Pharo.
+
+4
+00:00:09,040 --> 00:00:11,840
+Vamos a reutilizar para eso
+el paquete "MyCounter"
+
+5
+00:00:12,160 --> 00:00:14,440
+que desarrollamos
+en el redo número dos.
+
+6
+00:00:14,760 --> 00:00:17,760
+Puedes ver que siempre tenemos
+nuestros tests, nuestros métodos.
+
+7
+00:00:18,080 --> 00:00:20,720
+La revisión automática de código,
+es lo que tenemos, por ejemplo,
+
+8
+00:00:21,040 --> 00:00:22,960
+aquí: modifiqué
+el método de "increment".
+
+9
+00:00:23,280 --> 00:00:25,720
+Tenemos un método
+que no está defininido, que es llamado.
+
+10
+00:00:26,040 --> 00:00:28,400
+Puedes ver una señal
+"precaución" en el lado izquierdo
+
+11
+00:00:28,720 --> 00:00:30,680
+que te dice
+eso no funcionó
+
+12
+00:00:31,000 --> 00:00:34,000
+y tambien tienes
+explicaciones a continuación:
+
+13
+00:00:34,320 --> 00:00:36,440
+"Super and self Messages
+sent but not implemented"
+
+14
+00:00:36,760 --> 00:00:38,560
+y "Messages sent but not implemented."
+
+15
+00:00:38,880 --> 00:00:41,600
+eso quiere decir que no entiende
+el método indefinido.
+
+16
+00:00:41,920 --> 00:00:43,400
+Es normal, no lo hemos definido.
+
+17
+00:00:43,720 --> 00:00:46,040
+Puedes tener más información
+en estas advertencias.
+
+18
+00:00:46,360 --> 00:00:47,920
+Por ejemplo,
+este te dirá
+
+19
+00:00:48,240 --> 00:00:50,640
+que si el mensaje
+enviado a uno mismo o super
+
+20
+00:00:50,960 --> 00:00:52,040
+existe en la jerarquía,
+
+21
+00:00:52,360 --> 00:00:54,120
+no existe,
+porque no lo hemos definido.
+
+22
+00:00:54,440 --> 00:00:56,680
+Lo mismo aquí, el mensaje se envía,
+pero no está implementado.
+
+23
+00:00:57,000 --> 00:00:58,720
+y lo que puedes hacer
+de interesante,
+
+24
+00:00:59,040 --> 00:01:01,920
+es, por ejemplo,
+no con este método...
+
+25
+00:01:02,240 --> 00:01:04,280
+Pero si llamamos, por ejemplo,
+"self halt",
+
+26
+00:01:04,600 --> 00:01:07,400
+que es una llamada al depurador,
+y guardamos,
+
+27
+00:01:07,720 --> 00:01:10,480
+recibiremos un mensaje de advertencia
+que también aparecerá:
+
+28
+00:01:10,800 --> 00:01:12,760
+"Debugging code left in methods",
+
+29
+00:01:13,080 --> 00:01:15,200
+por lo que nos queda algo de código de depuración.
+
+30
+00:01:15,520 --> 00:01:19,720
+Vemos la explicación, quedan
+breakpoints, declaraciones de logging.
+
+31
+00:01:20,040 --> 00:01:22,400
+Tenemos, esta vez,
+la opción de repararlo directamente.
+
+32
+00:01:22,720 --> 00:01:24,720
+Podemos ver lo que sucederá.
+
+33
+00:01:25,040 --> 00:01:27,280
+Si lo arreglamos automáticamente,
+estamos buscando palabras
+
+34
+00:01:27,600 --> 00:01:28,720
+en el método de "increments"
+
+35
+00:01:29,040 --> 00:01:32,280
+y borrará la línea
+que llama a este segmento.
+
+36
+00:01:32,600 --> 00:01:35,600
+Muy bien, ahora volvemos a poner
+nuestro método que no está definido
+
+37
+00:01:35,920 --> 00:01:39,720
+y usaremos la revisión de código
+directamente en nuestro paquete.
+
+38
+00:01:40,040 --> 00:01:42,200
+Para hacer esto,
+haces clic derecho sobre él
+
+39
+00:01:42,520 --> 00:01:44,960
+y vas a Browse critiques.
+
+40
+00:01:45,280 --> 00:01:47,880
+Browse critiques
+abrirá un Critic Browser
+
+41
+00:01:48,200 --> 00:01:50,000
+que contiene una lista de reglas
+
+42
+00:01:50,320 --> 00:01:52,360
+que se aplicarán
+en nuestro paquete
+
+43
+00:01:52,680 --> 00:01:54,080
+para ver si se respetan.
+
+44
+00:01:54,400 --> 00:01:55,760
+Hay bastantes reglas.
+
+45
+00:01:56,080 --> 00:02:00,920
+Aquí no son utilizadas,
+ya que no las usamos.
+
+46
+00:02:01,240 --> 00:02:04,280
+Pero podemos ver, por ejemplo,
+que hay problemas, bugs.
+
+47
+00:02:04,600 --> 00:02:08,040
+Esas son las dos advertencias.
+que pudimos ver antes.
+
+48
+00:02:08,360 --> 00:02:11,560
+Y tienes la posibilidad,
+utilizando este Critic Browser,
+
+49
+00:02:11,880 --> 00:02:14,560
+de definir falsos positivos,
+para marcar como falso.
+
+50
+00:02:14,880 --> 00:02:17,040
+Diremos que esta regla,
+sabemos que está mal,
+
+51
+00:02:17,360 --> 00:02:18,720
+por lo que lo marcamos como falso.
+
+52
+00:02:19,040 --> 00:02:22,560
+Tienes que hacer clic aquí
+para marcarlo como falso.
+
+53
+00:02:22,880 --> 00:02:24,200
+También tienes la posibilidad
+
+54
+00:02:24,520 --> 00:02:26,320
+de guardar estas críticas para más tarde,
+
+55
+00:02:26,640 --> 00:02:29,600
+mantener falsos positivos
+que ha anotado para más tarde.
+
+56
+00:02:29,920 --> 00:02:31,800
+Puedes hacerlo haciendo clic aquí.
+
+57
+00:02:32,120 --> 00:02:34,280
+Eso lo pone en Manifests,
+muy bien.
+
+58
+00:02:34,600 --> 00:02:37,480
+Puedes ver, si volvemos
+al System Browser,
+
+59
+00:02:37,800 --> 00:02:39,960
+que una nueva clase
+ha aparecido
+
+60
+00:02:40,280 --> 00:02:43,360
+que, si nos fijamos en el lado de la clase,
+va a tener las reglas,
+
+61
+00:02:43,680 --> 00:02:46,440
+y que nos permite
+guardar las reglas
+
+62
+00:02:46,760 --> 00:02:48,360
+que pudimos establecer en nuestro paquete.
+
+63
+00:02:48,680 --> 00:02:50,440
+Eso te permitirá
+versionarlos,
+
+64
+00:02:50,760 --> 00:02:53,040
+y también integrarlo
+
+65
+00:02:53,360 --> 00:02:54,720
+a un sitio de desarrollo continuo
+
+66
+00:02:55,040 --> 00:02:57,480
+para poder lanzar
+la verificación de este Manifiesto
+
+67
+00:02:57,800 --> 00:02:59,640
+Cada vez
+que cambies tu código
+
+68
+00:02:59,960 --> 00:03:01,960
+y comprobar
+que se han seguido las reglas.
+
+69
+00:03:02,280 --> 00:03:06,200
+Aquí una explicación
+sobre las herramientas que puedes tener
+
+70
+00:03:06,520 --> 00:03:08,600
+de tu código,
+para analizalo directamente,
+
+71
+00:03:08,920 --> 00:03:10,880
+y una herramienta más grande
+quien analiza tu paquete
+
+72
+00:03:11,200 --> 00:03:12,840
+para ver las reglas
+que se respetan.
+
+73
+00:03:13,160 --> 00:03:15,280
+Puedes guardar esta herramienta
+en un manifiesto
+
+74
+00:03:15,600 --> 00:03:18,680
+y versionarlo, integrarlo en
+un sitio de continuo desarrollo.
+

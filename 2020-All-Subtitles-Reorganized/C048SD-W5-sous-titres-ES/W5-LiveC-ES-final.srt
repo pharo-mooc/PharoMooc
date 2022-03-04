@@ -1,0 +1,359 @@
+﻿1
+00:00:03,240 --> 00:00:04,040
+-Buenos días a todos.
+
+2
+00:00:04,360 --> 00:00:08,080
+En este vídeo nos centraremos
+En cómo identificar un error
+
+3
+00:00:08,400 --> 00:00:09,280
+utilizando el depurador.
+
+4
+00:00:09,600 --> 00:00:10,600
+En el vídeo anterior,
+
+5
+00:00:10,920 --> 00:00:13,680
+partimos de un comportamiento
+que ya era correcto
+
+6
+00:00:14,000 --> 00:00:15,640
+y vimos como usar el Depurador
+
+7
+00:00:15,960 --> 00:00:19,160
+para caminar dentro
+de nuestro conjunto de métodos
+
+8
+00:00:19,480 --> 00:00:20,800
+y entender cómo funciona.
+
+9
+00:00:21,120 --> 00:00:22,800
+Aquí, escribiremos inmediatamente un error.
+
+10
+00:00:23,120 --> 00:00:25,120
+Es decir
+que nuestro método de "decrement"
+
+11
+00:00:25,440 --> 00:00:28,080
+agregará 1
+en lugar de restar 1 del contador.
+
+12
+00:00:28,400 --> 00:00:30,520
+Lo guardamos
+y si lanzamos nuestros tests,
+
+13
+00:00:30,840 --> 00:00:33,520
+podemos ver que nuestro test
+"CounterDecrement"
+
+14
+00:00:33,840 --> 00:00:34,640
+no funcionó
+
+15
+00:00:34,960 --> 00:00:38,320
+Entonces, si lo ejecuto solo otra vez,
+el depurador se abrirá
+
+16
+00:00:38,640 --> 00:00:41,560
+y vamos a poder ver
+que obtuvimos 7 en lugar de 3.
+
+17
+00:00:41,880 --> 00:00:45,240
+Y si mostramos el valor
+de "count" de nuestro contador,
+
+18
+00:00:45,560 --> 00:00:46,520
+son 7, no 3.
+
+19
+00:00:46,840 --> 00:00:48,920
+Sin embargo,
+como pudimos hacer antes,
+
+20
+00:00:49,240 --> 00:00:51,960
+empezamos desde el principio,
+habíamos podido crear nuestro contador,
+
+21
+00:00:52,280 --> 00:00:54,400
+Luego inspeccionar los diferentes
+métodos "decrement".
+
+22
+00:00:54,720 --> 00:00:56,480
+Esta vez,
+llegamos directamente
+
+23
+00:00:56,800 --> 00:00:58,640
+en la ubicación del bug,
+es decir, al assert.
+
+24
+00:00:58,960 --> 00:01:01,400
+nos hubiera gustado parar
+después de crear el contador.
+
+25
+00:01:01,720 --> 00:01:03,800
+Para eso, lo que tendremos que hacer,
+
+26
+00:01:04,120 --> 00:01:08,200
+es escribir un fragmento de código
+para el depurador: "self halt".
+
+27
+00:01:08,520 --> 00:01:11,120
+Esto abrirá el depurador.
+En este punto.
+
+28
+00:01:11,440 --> 00:01:13,600
+Lo lanzaremos de inmediato.
+Lanzamos el test
+
+29
+00:01:13,920 --> 00:01:16,160
+Nuestro depurador
+se abre con el mensaje "halt",
+
+30
+00:01:16,480 --> 00:01:17,720
+así en ese método.
+
+31
+00:01:18,040 --> 00:01:20,120
+Ahora el mensaje resaltado,
+Es este.
+
+32
+00:01:20,440 --> 00:01:23,240
+Entonces podemos ir
+a los métodos posteriores.
+
+33
+00:01:23,560 --> 00:01:25,960
+ya podemos
+mirar el valor del contador
+
+34
+00:01:26,280 --> 00:01:30,160
+y ver que ya está instanciado
+y ese "count" debe ser 5.
+
+35
+00:01:30,480 --> 00:01:32,120
+"count" es 5, eso es correcto.
+
+36
+00:01:32,440 --> 00:01:34,680
+Lo que podemos hacer,
+está presionando "Over".
+
+37
+00:01:35,000 --> 00:01:36,800
+somos esta vez
+por encima del "decrement",
+
+38
+00:01:37,120 --> 00:01:38,400
+cual debe ser el problema,
+
+39
+00:01:38,720 --> 00:01:40,880
+ya que entre la creación del contador
+y el assert,
+
+40
+00:01:41,200 --> 00:01:43,200
+solo el método de "decrement"
+se llama.
+
+41
+00:01:43,520 --> 00:01:44,400
+Podemos hacer "Into",
+
+42
+00:01:44,720 --> 00:01:47,520
+y volvemos a caer en el bug
+que nos creamos a nosotros mismos.
+
+43
+00:01:47,840 --> 00:01:50,080
+podemos inspeccionar
+el valor de "count" que es 5.
+
+44
+00:01:50,400 --> 00:01:51,960
+Excepto que queremos eliminar 1,
+
+45
+00:01:52,280 --> 00:01:55,200
+entonces solo podemos
+quitar el "+", poner un "-",
+
+46
+00:01:55,520 --> 00:01:57,040
+guardar, Cmd+S.
+
+47
+00:01:57,360 --> 00:02:00,200
+El depurador es un entorno
+de trabajo también.
+
+48
+00:02:00,520 --> 00:02:01,520
+Si presiona Cmd+S,
+
+49
+00:02:01,840 --> 00:02:05,120
+esto modificará el método de "decrement"
+también en el código del contador.
+
+50
+00:02:05,440 --> 00:02:08,840
+Guardé
+Puedo presionar "Over".
+
+51
+00:02:10,440 --> 00:02:12,800
+Esta vez,
+nos centraremos en el contador,
+
+52
+00:02:13,120 --> 00:02:15,560
+y podemos ver
+que la instancia de "count" es de hecho 4,
+
+53
+00:02:15,880 --> 00:02:17,080
+de hecho ha disminuido en 1.
+
+54
+00:02:17,400 --> 00:02:19,640
+es el comportamiento
+esperado de nuestro método.
+
+55
+00:02:19,960 --> 00:02:21,120
+Presionamos "Over".
+
+56
+00:02:21,440 --> 00:02:23,160
+Podemos dirigirnos aquí de nuevo.
+
+57
+00:02:23,480 --> 00:02:25,880
+Veremos que "c count",
+esta vez, vale 3.
+
+58
+00:02:26,200 --> 00:02:28,360
+Eso debería estar bien,
+puede presionar "Proceed".
+
+59
+00:02:28,680 --> 00:02:32,360
+fue una explicacion
+cómo usar el depurador
+
+60
+00:02:32,680 --> 00:02:33,800
+poniendo un breakpoint.
+
+61
+00:02:34,120 --> 00:02:35,920
+Tenemos una advertencia que nos dice
+
+62
+00:02:36,240 --> 00:02:38,880
+que código de depuración
+quedó en el método.
+
+63
+00:02:39,200 --> 00:02:42,040
+Recurriremos al "halt"
+que no nos interesa,
+
+64
+00:02:42,360 --> 00:02:44,360
+lo eliminaremos directamente
+del Depurador.
+
+65
+00:02:44,680 --> 00:02:47,360
+Sal, puedes ver
+eso ha cambiado aquí también.
+
+66
+00:02:47,680 --> 00:02:49,080
+Podemos ejecutar, es verde.
+
+67
+00:02:49,400 --> 00:02:50,600
+Para el método de "self halt",
+
+68
+00:02:50,920 --> 00:02:53,040
+puedes también hacer
+clic derecho, Source code
+
+69
+00:02:53,360 --> 00:02:55,720
+y agregar un breakpoint.
+
+70
+00:02:56,040 --> 00:02:58,000
+Será un poco
+lo mismo que...
+
+71
+00:02:58,320 --> 00:03:01,280
+El breakpoint, también puede
+haga clic aquí para colocar uno.
+
+72
+00:03:01,600 --> 00:03:02,720
+Eso es lo que se había puesto
+
+73
+00:03:03,040 --> 00:03:05,000
+cuando hicimos clic derecho,
+Debug tests
+
+74
+00:03:05,320 --> 00:03:08,360
+Nos dio un breakpoint
+directamente al principio del método.
+
+75
+00:03:08,680 --> 00:03:12,080
+es otra forma de poner
+una "self halt", por ejemplo.
+
+76
+00:03:12,400 --> 00:03:13,480
+Este fue un video
+
+77
+00:03:13,800 --> 00:03:16,680
+sobre cómo encontrar un error
+utilizando el depurador de Pharo.
+

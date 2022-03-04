@@ -1,0 +1,304 @@
+﻿1
+00:00:00,040 --> 00:00:00,080
+"Atajos de teclado"
+
+2
+00:00:00,120 --> 00:00:00,160
+Quentin Ducasse.
+
+3
+00:00:02,920 --> 00:00:03,720
+-Hola a todos.
+
+4
+00:00:04,040 --> 00:00:07,640
+Este video erá una presentación
+de diferentes atajos de teclado
+
+5
+00:00:07,960 --> 00:00:10,080
+que existen para las distintas
+funcionalidades de Pharo,
+
+6
+00:00:10,400 --> 00:00:12,640
+especialmente para la ejecución de expresiones.
+
+7
+00:00:13,320 --> 00:00:14,480
+Ante todo, lo que vamos a hacer,
+
+8
+00:00:14,800 --> 00:00:18,480
+es verificar que tienes
+una pequeña ayuda activada
+
+9
+00:00:18,800 --> 00:00:20,600
+Para hacer esto, iremos a Pharo,
+
+10
+00:00:23,360 --> 00:00:24,400
+Settings.
+
+11
+00:00:25,400 --> 00:00:29,280
+Dentro de Settings, buscas aquí "shortcut reminder",
+
+12
+00:00:30,640 --> 00:00:36,120
+presionas Enter
+y verifica que está activado,
+
+13
+00:00:36,440 --> 00:00:39,040
+así que en este caso está bien marcada.
+
+14
+00:00:39,480 --> 00:00:42,120
+¿Para qué se usa esto?
+Lo mostraré de inmediato.
+
+15
+00:00:42,440 --> 00:00:44,080
+Entonces, si ahora
+reabrimos un Playground,
+
+16
+00:00:44,400 --> 00:00:45,920
+vamos a Tools, Playground
+
+17
+00:00:46,680 --> 00:00:49,200
+y escribimos, por ejemplo, 1 + 2...
+
+18
+00:00:51,000 --> 00:00:52,760
+Será nuestra primera expresión.
+
+19
+00:00:53,840 --> 00:00:57,600
+Si alguna vez queremos "Print it", estará aquí
+
+20
+00:00:57,920 --> 00:01:00,200
+Podemos ver que el atajo está especificado aquí
+
+21
+00:01:00,520 --> 00:01:01,520
+Pero si hacemos click en él,
+
+22
+00:01:01,840 --> 00:01:04,880
+tendremos el atajo
+que estará en la parte inferior izquierda
+
+23
+00:01:05,200 --> 00:01:08,520
+Esto puede ser útil si tienes
+acciones que repetirás,
+
+24
+00:01:08,840 --> 00:01:12,080
+tendrás retroalimentación directa
+y una explicación del atajo.
+
+25
+00:01:12,400 --> 00:01:16,640
+Esto significa que en lugar de seleccionar
+y hacer click derecho y Print it,
+
+26
+00:01:16,960 --> 00:01:19,400
+ahora podemos simplemente
+doble-click
+
+27
+00:01:19,720 --> 00:01:23,480
+y hacer Cmd+P
+para mostrar el resultado.
+
+28
+00:01:23,800 --> 00:01:25,560
+Entonces, Print it muestra el resultado.
+
+29
+00:01:25,880 --> 00:01:27,520
+Si hago Do it...
+
+30
+00:01:28,880 --> 00:01:30,440
+Do it, no tengo ningún resultado
+
+31
+00:01:31,320 --> 00:01:35,360
+Es porque se ejecutará tu expresión
+sin imprimir el resultado.
+
+32
+00:01:35,680 --> 00:01:39,280
+Así que aquí, con la expresión,
+ todo lo que nos interesa era mostrar el resultado
+
+33
+00:01:39,600 --> 00:01:43,320
+Ahora, si se utiliza otra expresión
+como "Workspace open",
+
+34
+00:01:43,640 --> 00:01:47,360
+que se utiliza "celle-là"
+y que ahora, se hace Do it,
+
+35
+00:01:47,680 --> 00:01:51,400
+entonces hacer click derecho, Do it,
+donde ahora puede hacer Cmd+D
+
+36
+00:01:52,240 --> 00:01:53,680
+y se abre el workspace.
+
+37
+00:01:54,000 --> 00:01:57,200
+Entonces, el Do it
+no va a imprimirte el resultado.
+
+38
+00:01:57,520 --> 00:01:59,800
+No nos va a mostrar
+que es un workspace.
+
+39
+00:02:00,120 --> 00:02:02,520
+Por ejemplo,
+si hago Cmd+P, Print it,
+
+40
+00:02:02,840 --> 00:02:05,160
+nos va a mostrar
+que es "a Workspace"
+
+41
+00:02:06,240 --> 00:02:07,480
+y lo ejecutó.
+
+42
+00:02:08,280 --> 00:02:13,040
+Ahora, los dos otros métodos
+de ejecución que son importantes
+
+43
+00:02:13,360 --> 00:02:15,080
+son entonces "Inspect it".
+
+44
+00:02:15,400 --> 00:02:18,000
+Que va a abrir
+un inspector sobre el resultado.
+
+45
+00:02:18,600 --> 00:02:23,520
+El inspector es una herramienta
+que permite navegar dentro de una instancia
+
+46
+00:02:23,840 --> 00:02:30,880
+Por ejemplo, aquí, tendremos un inspector
+sobre un SmallInteger que es 3.
+
+47
+00:02:31,200 --> 00:02:34,160
+Podemos caminar adentro
+y ver self 3,
+
+48
+00:02:35,280 --> 00:02:37,840
+diferentes explicaciones dentro de las cuales
+puedes caminar
+
+49
+00:02:38,160 --> 00:02:42,240
+y aprender más
+sobre esta instancia, y sobre el resultado.
+
+50
+00:02:43,320 --> 00:02:45,240
+Una otra cosa
+que puedes hacer, es...
+
+51
+00:02:45,560 --> 00:02:49,280
+para este Inspect it,
+el atajo es Cmd+I
+
+52
+00:02:49,600 --> 00:02:52,640
+así que simplemente puedes seleccionar
+y hacer Cmd+I.
+
+53
+00:02:52,960 --> 00:02:55,160
+Se abrira el inspector
+sobre este resultado.
+
+54
+00:02:55,480 --> 00:02:58,160
+Una de las últimas cosas que
+puedes hacer, es Do it and go.
+
+55
+00:02:58,480 --> 00:03:01,120
+Do it and go, hará un Do it,
+
+56
+00:03:01,440 --> 00:03:05,200
+pero también abrirá un inspector
+dentro de la ventana en la cual estás
+
+57
+00:03:06,400 --> 00:03:08,680
+para poder ir a inspeccionar el resultado.
+
+58
+00:03:09,000 --> 00:03:11,160
+Así que si hacemos eso
+sobre el "Workspace open",
+
+59
+00:03:11,480 --> 00:03:13,440
+se hace Do it and go, o Cmd+G
+
+60
+00:03:14,920 --> 00:03:18,160
+se nos va a abrir el workspace
+para la parte Do it
+
+61
+00:03:18,480 --> 00:03:21,680
+y el go,
+nos presentará el inspector
+
+62
+00:03:23,240 --> 00:03:25,200
+sobre este workspace,
+dentro de la ventana al costado.
+
+63
+00:03:26,480 --> 00:03:29,120
+Estos son algunas atajos
+importantes de saber.
+
+64
+00:03:29,440 --> 00:03:31,600
+Les aconsejo activar\el Shortcut reminder.
+
+65
+00:03:31,920 --> 00:03:34,960
+Te mostrará
+abajo a la izquierda de la pantalla
+
+66
+00:03:36,280 --> 00:03:38,920
+los atajos diferentes de las acciones\que utilizarás con el ratón.
+

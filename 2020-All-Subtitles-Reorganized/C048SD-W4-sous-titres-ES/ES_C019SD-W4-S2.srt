@@ -1,0 +1,552 @@
+﻿1
+00:00:00,600 --> 00:00:04,800
+Hello, everyone.
+This second sequence on inheritance
+
+2
+00:00:04,960 --> 00:00:08,480
+will teach you more
+about behavior inheritance
+
+3
+00:00:08,640 --> 00:00:11,800
+and what happens when you
+send a message to an object.
+
+4
+00:00:12,440 --> 00:00:15,320
+The goal of this sequence
+
+5
+00:00:15,480 --> 00:00:18,720
+is to understand
+the message-sending algorithm
+
+6
+00:00:19,720 --> 00:00:24,400
+that makes it possible
+to convert a message
+
+7
+00:00:24,560 --> 00:00:28,560
+sent by a receiver to a method.
+
+8
+00:00:28,720 --> 00:00:32,720
+That is, what method will be run,
+in relation to the message sent,
+
+9
+00:00:34,320 --> 00:00:37,640
+and 'self" semantics,
+or what self really means.
+
+10
+00:00:38,800 --> 00:00:40,920
+As we saw in sequence 1,
+
+11
+00:00:41,400 --> 00:00:45,320
+inheritance is static, for state.
+
+12
+00:00:45,480 --> 00:00:48,640
+That is, when the subclass is defined,
+
+13
+00:00:49,160 --> 00:00:51,240
+its state is known.
+
+14
+00:00:51,400 --> 00:00:53,840
+But inheritance of behavior is dynamic.
+
+15
+00:00:54,000 --> 00:00:56,040
+When the program is running,
+
+16
+00:00:56,400 --> 00:00:58,720
+when you send a message to an object
+
+17
+00:00:58,880 --> 00:01:02,000
+you look for methods
+for class and superclass.
+
+18
+00:01:02,400 --> 00:01:06,200
+Message-sending is a two-step process.
+
+19
+00:01:06,920 --> 00:01:11,400
+First, you look up the method
+that matches the message.
+
+20
+00:01:11,760 --> 00:01:15,120
+Step two, you execute the method
+on the receiver.
+
+21
+00:01:16,760 --> 00:01:19,680
+So here, we have the Rectangle class,
+
+22
+00:01:20,280 --> 00:01:22,880
+the ColoredRectangle class,
+
+23
+00:01:23,920 --> 00:01:27,760
+and an instance of ColoredRectangle
+called aColoredRectangle,
+
+24
+00:01:28,280 --> 00:01:31,760
+We send the message "area"
+to this object.
+
+25
+00:01:34,440 --> 00:01:40,200
+Our lookup algorithm looks for a method
+matching the "area" message.
+
+26
+00:01:41,400 --> 00:01:43,680
+It finds the method
+
+27
+00:01:44,160 --> 00:01:46,880
+and carries it out
+
+28
+00:01:47,880 --> 00:01:51,400
+in relation to the object
+aColoredRectangle.
+
+29
+00:01:52,600 --> 00:01:54,200
+The lookup algorithm
+
+30
+00:01:54,640 --> 00:01:57,640
+identifies the method to be executed
+
+31
+00:01:57,880 --> 00:02:00,000
+when a message is sent to an object.
+
+32
+00:02:00,320 --> 00:02:04,560
+There are clearly two steps:
+message sending, and method execution.
+
+33
+00:02:04,720 --> 00:02:07,920
+They are fundamentally different,
+in object programming.
+
+34
+00:02:08,640 --> 00:02:10,760
+Even if you use another language,
+
+35
+00:02:10,880 --> 00:02:15,000
+it is important to understand
+the difference between the two.
+
+36
+00:02:15,320 --> 00:02:20,200
+If you send the "area" message
+to the aColoredRectangle object,
+
+37
+00:02:20,400 --> 00:02:23,160
+the first thing the lookup algorithm
+will do
+
+38
+00:02:23,320 --> 00:02:26,800
+is search for the class of the receiver.
+
+39
+00:02:27,440 --> 00:02:29,840
+The receiver of the message "area"
+
+40
+00:02:30,000 --> 00:02:31,360
+is aColoredRectangle.
+
+41
+00:02:31,520 --> 00:02:34,640
+The lookup algorithm
+starts searching for a method
+
+42
+00:02:34,800 --> 00:02:38,720
+in the object's class:
+ColoredRectangle.
+
+43
+00:02:39,080 --> 00:02:41,840
+It looks for an "area" method
+in that class.
+
+44
+00:02:42,160 --> 00:02:44,160
+The lookup algorithm
+
+45
+00:02:44,320 --> 00:02:48,000
+will not find the method "area"
+in that subclass.
+
+46
+00:02:48,480 --> 00:02:51,200
+So it will look elsewhere.
+
+47
+00:02:51,640 --> 00:02:54,960
+It looks in the superclass Rectangle.
+
+48
+00:02:55,640 --> 00:02:57,760
+It finds the method "area" there,
+
+49
+00:02:58,720 --> 00:02:59,920
+and returns it.
+
+50
+00:03:00,080 --> 00:03:03,320
+The lookup algorithm is done
+when it finds a method.
+
+51
+00:03:04,320 --> 00:03:09,320
+Let's study two cases, and review
+the algorithm I just listed on them.
+
+52
+00:03:10,640 --> 00:03:13,200
+We send the message "color"
+
+53
+00:03:13,360 --> 00:03:14,680
+to aColoredRectangle.
+
+54
+00:03:14,840 --> 00:03:18,360
+The algorithm searches
+the receiver class
+
+55
+00:03:18,680 --> 00:03:20,920
+for a method called color.
+
+56
+00:03:21,440 --> 00:03:23,840
+It finds it, and returns it.
+
+57
+00:03:25,160 --> 00:03:29,600
+If we now send the message "area"
+to aColoredRectangle,
+
+58
+00:03:30,320 --> 00:03:33,560
+the algorithm searches
+the receiver's class
+
+59
+00:03:33,720 --> 00:03:35,160
+for the method "area."
+
+60
+00:03:35,320 --> 00:03:37,920
+Not finding it, it searches the superclass.
+
+61
+00:03:38,160 --> 00:03:40,920
+It finds it, and returns the method.
+
+62
+00:03:42,280 --> 00:03:45,520
+"Self" always represents the receiver.
+
+63
+00:03:45,960 --> 00:03:49,720
+The following examples
+will make it clear to you
+
+64
+00:03:50,320 --> 00:03:54,560
+that the lookup algorithm always
+applies to the receiver self.
+
+65
+00:03:54,960 --> 00:03:57,800
+Here we have an instance of class A.
+
+66
+00:04:01,240 --> 00:04:02,920
+We send the message "foo."
+
+67
+00:04:03,760 --> 00:04:06,120
+The lookup algorithm searches for foo,
+
+68
+00:04:06,360 --> 00:04:08,120
+finds it, and executes it.
+
+69
+00:04:10,000 --> 00:04:12,680
+For B new, we start with aB,
+
+70
+00:04:13,000 --> 00:04:14,880
+the same thing as B new.
+
+71
+00:04:15,040 --> 00:04:16,960
+We search for a method, "foo."
+
+72
+00:04:17,440 --> 00:04:19,360
+The lookup algorithm finds it,
+
+73
+00:04:20,200 --> 00:04:22,000
+executes it, and returns 50.
+
+74
+00:04:22,160 --> 00:04:23,440
+So, here we have 10,
+
+75
+00:04:24,520 --> 00:04:25,320
+and 50.
+
+76
+00:04:25,640 --> 00:04:30,200
+It's important for you to take the time
+to think about what "self" means.
+
+77
+00:04:30,560 --> 00:04:33,040
+It is important to describe two points.
+
+78
+00:04:33,400 --> 00:04:35,120
+What does "self" represent?
+
+79
+00:04:36,280 --> 00:04:40,000
+How does message sending behave
+
+80
+00:04:40,280 --> 00:04:42,640
+when a message is sent to "self"?
+
+81
+00:04:43,160 --> 00:04:47,160
+"self" and "this" -
+"this" being the term in Java -
+
+82
+00:04:47,680 --> 00:04:48,880
+are the same thing.
+
+83
+00:04:49,640 --> 00:04:52,560
+They always represent the receiver
+of the message.
+
+84
+00:04:52,880 --> 00:04:54,240
+So, we saw this example
+
+85
+00:04:54,560 --> 00:04:58,440
+with A new foo and B new foo.
+
+86
+00:04:59,040 --> 00:05:01,520
+Now we'll send the message "bar."
+
+87
+00:05:02,480 --> 00:05:05,000
+Bar is sent to an instance.
+
+88
+00:05:05,560 --> 00:05:08,520
+Bar is found here, and executed.
+
+89
+00:05:09,360 --> 00:05:12,960
+and we send the message foo
+to object self.
+
+90
+00:05:13,240 --> 00:05:15,600
+"Self" is this object,
+
+91
+00:05:16,800 --> 00:05:17,760
+A new.
+
+92
+00:05:18,800 --> 00:05:21,960
+So we search this object
+for a method "foo."
+
+93
+00:05:22,560 --> 00:05:24,920
+We search the class for the method.
+
+94
+00:05:25,480 --> 00:05:28,160
+We find it, execute it, and return 10.
+
+95
+00:05:30,400 --> 00:05:33,560
+The other case is exactly identical.
+
+96
+00:05:33,760 --> 00:05:37,480
+But pay attention, because many
+beginning object programmers
+
+97
+00:05:37,640 --> 00:05:38,760
+get it wrong.
+
+98
+00:05:39,280 --> 00:05:41,520
+But the algorithm is identical.
+
+99
+00:05:42,560 --> 00:05:45,920
+We send "bar" to this object.
+
+100
+00:05:46,200 --> 00:05:47,600
+bar is not found here.
+
+101
+00:05:47,760 --> 00:05:51,120
+It is found here.
+So this is the bar that is executed.
+
+102
+00:05:51,840 --> 00:05:55,520
+At that point, the message "foo"
+is sent to self, which is...
+
+103
+00:05:56,840 --> 00:05:58,520
+aB, thus B new.
+
+104
+00:06:00,360 --> 00:06:01,880
+We send the message foo,
+
+105
+00:06:02,040 --> 00:06:05,640
+so the algorithm looks for the method
+in the object class.
+
+106
+00:06:06,280 --> 00:06:07,480
+It finds it.
+
+107
+00:06:07,920 --> 00:06:09,160
+50 is returned.
+
+108
+00:06:09,720 --> 00:06:12,200
+This is how the algorithm unfolds.
+
+109
+00:06:12,480 --> 00:06:16,400
+Look at each step in the process.
+It is what I just told you.
+
+110
+00:06:18,040 --> 00:06:20,680
+This example is also identical
+
+111
+00:06:21,080 --> 00:06:22,280
+to the preceding one.
+
+112
+00:06:23,480 --> 00:06:26,200
+Class B, here, is now empty.
+
+113
+00:06:27,360 --> 00:06:31,120
+A new class, C, is defined
+with the method foo return of 50.
+
+114
+00:06:31,440 --> 00:06:34,760
+You go through the algorithm process
+I just presented.
+
+115
+00:06:34,920 --> 00:06:38,360
+Here, you will get 10.
+
+116
+00:06:38,760 --> 00:06:41,760
+This is the foo that is executed,
+in the end.
+
+117
+00:06:42,120 --> 00:06:43,520
+Here, you get 50.
+
+118
+00:06:45,160 --> 00:06:45,960
+To conclude:
+
+119
+00:06:46,520 --> 00:06:50,880
+"Self," like "this" in Java,
+always represents the receiver.
+
+120
+00:06:51,560 --> 00:06:54,200
+Message sending always involves
+two steps.
+
+121
+00:06:54,680 --> 00:06:58,360
+First, the lookup algorithm looks
+for a match between the method
+
+122
+00:06:59,800 --> 00:07:01,480
+and the message sent.
+
+123
+00:07:01,680 --> 00:07:05,160
+Second step: the method found
+is executed on the receiver.
+
+124
+00:07:05,800 --> 00:07:09,800
+The lookup algorithm travels up
+from the receiver's class.
+
+125
+00:07:10,200 --> 00:07:12,840
+The goal of the algorithm lookup
+
+126
+00:07:13,080 --> 00:07:17,520
+is to find a method that matches
+the message sent to a receiver.

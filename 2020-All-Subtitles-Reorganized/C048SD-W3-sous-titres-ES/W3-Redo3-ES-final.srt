@@ -1,0 +1,664 @@
+﻿1
+00:00:00,480 --> 00:00:00,520
+"Finalización del DSL"
+
+2
+00:00:02,840 --> 00:00:02,880
+Quentin Ducasse.
+
+3
+00:00:02,920 --> 00:00:03,760
+-Buenos días a todos.
+
+4
+00:00:04,080 --> 00:00:05,640
+Nos reencontramos
+para esta parte 3
+
+5
+00:00:05,960 --> 00:00:07,200
+del Redo de la semana 3.
+
+6
+00:00:07,520 --> 00:00:08,720
+Comienzo con una aclaración
+
+7
+00:00:09,040 --> 00:00:10,840
+sobre lo que hice
+en el último video.
+
+8
+00:00:11,160 --> 00:00:13,240
+Advertí en el primer video
+
+9
+00:00:13,560 --> 00:00:15,600
+que para verificar
+un fenómeno aleatorio,
+
+10
+00:00:15,920 --> 00:00:17,360
+era necesario pasar por la repetición,
+
+11
+00:00:17,680 --> 00:00:21,080
+que olvidé en el test "roll"
+del video anterior.
+
+12
+00:00:21,400 --> 00:00:24,920
+Entonces, les aconsejo evidentemente
+agregar una repetición
+
+13
+00:00:25,240 --> 00:00:27,880
+sobre la aserción de fin,
+que podemos encontrar aquí.
+
+14
+00:00:28,200 --> 00:00:30,160
+Es un error
+que cometí.
+
+15
+00:00:30,480 --> 00:00:32,080
+Ahora, nos interesaremos
+
+16
+00:00:32,400 --> 00:00:35,200
+en hacer funcionar
+el lenguaje que desearíamos tener,
+
+17
+00:00:35,520 --> 00:00:38,760
+"1 D4 + 2 D6", nos gustaría que
+esto nos re-envíe una tirada de dados
+
+18
+00:00:39,080 --> 00:00:41,080
+que contiene un dado 4 y dos dados 6
+
+19
+00:00:41,400 --> 00:00:45,760
+Podemos remarcar que deberemos
+definir un método sobre los enteros,
+
+20
+00:00:46,080 --> 00:00:49,200
+porque el método "D6"
+se aplicará sobre "2"
+
+21
+00:00:49,520 --> 00:00:51,720
+y el método "D4"
+se aplicará sobre "1".
+
+22
+00:00:52,040 --> 00:00:54,520
+Vamos a la clase de "enteros".
+
+23
+00:00:54,840 --> 00:00:58,200
+Ingreso "Integer",
+lo remarco y presiono Cmd (Ctrl) + B.
+
+24
+00:00:58,520 --> 00:01:00,680
+Un System Browser
+se abre con los enteros
+
+25
+00:01:01,000 --> 00:01:03,400
+y podremos definir
+nuestro método aquí.
+
+26
+00:01:03,720 --> 00:01:07,000
+Por lo tanto, comenzamos por "D20".
+
+27
+00:01:07,320 --> 00:01:10,720
+Haremos como antes,
+creamos una tiraa de dados.
+
+28
+00:01:11,040 --> 00:01:15,360
+"handle := DieHandle new." Listo
+
+29
+00:01:15,680 --> 00:01:18,760
+Ahora, deberemos
+agregar a esta tirada
+
+30
+00:01:19,080 --> 00:01:23,440
+tantos dados 20 como el número entero
+que se pueda escribir antes.
+
+31
+00:01:23,760 --> 00:01:26,360
+Por ejemplo,
+si tengo la expresión "2 D20",
+
+32
+00:01:26,680 --> 00:01:29,240
+Quiero agregar dos dados 20
+a mi tirada de dados.
+
+33
+00:01:29,560 --> 00:01:31,000
+¿Cómo lo hacemos?
+Decimos:
+
+34
+00:01:31,320 --> 00:01:42,200
+"self timesRepeat: [ handle addDie:
+(Die withFaces: 20) ]."
+
+35
+00:01:42,520 --> 00:01:43,880
+¿Qué es lo que hará?
+
+36
+00:01:44,200 --> 00:01:47,680
+Se repetirá tantas veces
+como el conjunto al que se aplique
+
+37
+00:01:48,000 --> 00:01:50,080
+agregando dados de 20 lados.
+
+38
+00:01:50,400 --> 00:01:52,800
+Y vamos a devolver el puñado de dados.
+
+39
+00:01:53,120 --> 00:01:55,480
+Guardamos esto. Ok.
+
+40
+00:01:55,800 --> 00:01:59,760
+Tenemos un botón que no está presente,
+que está aquí.
+
+41
+00:02:00,080 --> 00:02:01,160
+"extension".
+
+42
+00:02:01,480 --> 00:02:05,640
+Esto significa que,
+en lugar de contaminar el paquete "Numbers"
+
+43
+00:02:05,960 --> 00:02:08,360
+que es parte de "Kernel",
+un paquete importante del sistema,
+
+44
+00:02:08,680 --> 00:02:11,200
+con nuestro método "D20",
+lo vamos a ubicar dentro de nuestro paquete.  
+
+45
+00:02:11,520 --> 00:02:13,960
+Podemos hacer esto de muchas maneras:
+hacemos click derecho
+
+46
+00:02:14,280 --> 00:02:16,840
+vamos a Refactorings
+y hacemos "Move to package",
+
+47
+00:02:17,160 --> 00:02:19,640
+o podemos chequear
+el checkbox "extension", aquí,
+
+48
+00:02:19,960 --> 00:02:23,760
+buscar nuestro paquete "Dice",
+hacer click debajo, Ok.
+
+49
+00:02:24,080 --> 00:02:26,600
+Podemos ver que el método
+ahora está escrito en gris.
+
+50
+00:02:26,920 --> 00:02:29,200
+Si vamos a otro System Browser,
+
+51
+00:02:29,520 --> 00:02:31,920
+podemos ver la clase "Integer"
+que aparece,
+
+52
+00:02:32,240 --> 00:02:34,480
+con el método "D20".
+
+53
+00:02:34,800 --> 00:02:36,280
+Que es exactamente lo que queríamos.
+
+54
+00:02:36,600 --> 00:02:38,000
+Escribiremos un test ahí
+
+55
+00:02:38,320 --> 00:02:43,760
+y lo llamaremos
+"testSimpleCreation".
+
+56
+00:02:44,080 --> 00:02:54,800
+Verificaremos que self assert:
+2 D20 diceNumber equals: 2".
+
+57
+00:02:55,720 --> 00:03:00,520
+Esto verificará que el método "D20"
+aplicado a "2"
+
+58
+00:03:00,840 --> 00:03:03,480
+creará bien una tirada de dados
+que contiene dos dados.
+
+59
+00:03:03,800 --> 00:03:05,200
+Guardamos.
+
+60
+00:03:05,520 --> 00:03:08,160
+Lanzamos el test, es verde.
+Está muy bien.
+
+61
+00:03:08,480 --> 00:03:10,840
+Ahora, podremos crear
+los otros métodos,
+
+62
+00:03:11,160 --> 00:03:13,840
+"D10", "D4", "D6".
+
+63
+00:03:14,160 --> 00:03:15,960
+No vamos a reescribir
+todo esto cada vez.
+
+64
+00:03:16,280 --> 00:03:17,840
+Escribiremos un método
+más general
+
+65
+00:03:18,160 --> 00:03:21,200
+que llamaremos "D: aNumber".
+
+66
+00:03:21,520 --> 00:03:23,600
+Lo que hará,
+es exactamente eso,
+
+67
+00:03:23,920 --> 00:03:27,000
+excepto que aquí, tendremos
+el famoso número que se le pasa,
+
+68
+00:03:27,320 --> 00:03:28,600
+"aNumber".
+
+69
+00:03:28,920 --> 00:03:32,000
+Con esto, podremos hacer
+el dado 6, por ejemplo.
+
+70
+00:03:32,320 --> 00:03:34,040
+En lugar de deber re-escribir todo esto,
+
+71
+00:03:34,360 --> 00:03:40,840
+simplemente devolveremos:
+"^ self D: 6".
+
+72
+00:03:41,160 --> 00:03:42,600
+Podemos guardar.
+
+73
+00:03:42,920 --> 00:03:46,320
+Ahora, el dado 4
+vamos a necesitar, "D4".
+
+74
+00:03:46,640 --> 00:03:51,520
+Agregamos el dado 10 y el dado 12.
+
+75
+00:03:51,840 --> 00:03:54,280
+Tendremos los dados más interesantes.
+
+76
+00:03:54,600 --> 00:03:56,400
+Incluso podemos reemplazar
+nuestro dado 20
+
+77
+00:03:56,720 --> 00:03:58,680
+por nuestro método
+mucho más simple.
+
+78
+00:03:59,000 --> 00:04:01,640
+"^ self D: 20".
+
+79
+00:04:01,960 --> 00:04:04,480
+Podemos guardar.
+Bien, tenemos todo lo que necesitamos.
+
+80
+00:04:04,800 --> 00:04:06,960
+Pero todavía no podemos
+ejecutar esta expresión.
+
+81
+00:04:07,280 --> 00:04:10,640
+Podemos ejecutar esta parte
+que nos devolverá una tirada de dados,
+
+82
+00:04:10,960 --> 00:04:13,400
+esta parte que nos devolverá
+otra tirada de dados,
+
+83
+00:04:13,720 --> 00:04:16,800
+pero no podemos
+ejecutar todo el proceso,
+
+84
+00:04:17,120 --> 00:04:19,440
+porque no definimos
+el método "+"
+
+85
+00:04:19,760 --> 00:04:21,080
+entre las dos tiradas de dados.
+
+86
+00:04:21,400 --> 00:04:24,080
+Para hacer esto, vamos
+a la clase "DieHandle"
+
+87
+00:04:24,400 --> 00:04:29,600
+y definimos el "+":
+"aDieHandle".
+
+88
+00:04:29,920 --> 00:04:31,760
+¿Qué sucederá con el método "+"?
+
+89
+00:04:32,080 --> 00:04:34,760
+Lo que queremos
+es tener una tirada de dados final
+
+90
+00:04:35,080 --> 00:04:37,080
+entonces la colección "dice"
+
+91
+00:04:37,400 --> 00:04:40,200
+corresponderá a la combinación
+de las dos colecciones.
+
+92
+00:04:40,520 --> 00:04:42,120
+Tendremos nuestro "handle",
+
+93
+00:04:42,440 --> 00:04:44,080
+que podremos definir enseguida
+
+94
+00:04:44,400 --> 00:04:46,760
+como una nueva tirada de dados.
+
+95
+00:04:47,080 --> 00:04:50,960
+Ahora, iteraremos a la vez
+sobre la colección de dados de "self"
+
+96
+00:04:51,280 --> 00:04:52,840
+y sobre el argumento.
+
+97
+00:04:53,160 --> 00:04:57,240
+Comenzamos por "self":
+"self dice do:"...
+
+98
+00:04:57,560 --> 00:05:05,240
+Iteraremos sobre cada elemento.
+"[ each | handle addDie: each ]."
+
+99
+00:05:05,560 --> 00:05:07,160
+¿Que hará este método?
+
+100
+00:05:07,480 --> 00:05:11,960
+Iterará sobre la colección de dados
+de la tirada que recibe este mensaje
+
+101
+00:05:12,280 --> 00:05:14,200
+y agregará
+cada dado de la colección
+
+102
+00:05:14,520 --> 00:05:16,920
+a la tirada resultado "handle".
+
+103
+00:05:17,240 --> 00:05:20,600
+Luego, haremos lo mismo
+sobre el argumento que se pasa
+
+104
+00:05:20,920 --> 00:05:28,200
+"aDieHandle dice do:
+[ :each | handle addDie: each ]."
+
+105
+00:05:29,440 --> 00:05:32,840
+Y finalmente,
+re-enviamos nuestra tirada de dados.
+
+106
+00:05:33,160 --> 00:05:34,440
+Podemos guardar esto.
+
+107
+00:05:35,480 --> 00:05:38,480
+Listo,
+Escribiremos un test aquí.
+
+108
+00:05:38,800 --> 00:05:47,240
+Así que, verificaremos que
+"(1D4 + 2D20) diceNumber equals: 3"
+
+109
+00:05:47,560 --> 00:05:51,840
+y lo llamaremos "testSumming".
+
+110
+00:05:52,160 --> 00:05:54,440
+Cmd (Ctrl) + S. Lo ejecuto.
+
+111
+00:05:54,760 --> 00:05:56,560
+Podemos ver que el test
+no funcionó.
+
+112
+00:05:56,880 --> 00:06:00,440
+Al contrario, no es normal,
+debemos mirar porqué.
+
+113
+00:06:00,760 --> 00:06:03,200
+Este "DieHandle class",
+es un error,
+
+114
+00:06:03,520 --> 00:06:05,880
+porque olvidamos "new", aquí,
+
+115
+00:06:06,200 --> 00:06:08,840
+así que atacamos a la clase
+"DieHandle" directamente.
+
+116
+00:06:09,160 --> 00:06:11,400
+Era un error. Guardamos.
+
+117
+00:06:11,720 --> 00:06:15,720
+"Yes". "Proceed".
+Nuestro test es verde.
+
+118
+00:06:16,040 --> 00:06:19,200
+Podemos re-ejecutar todos los tests.
+vemos que todos pasan.
+
+119
+00:06:19,520 --> 00:06:21,240
+Vemos que si inspeccionamos esto,
+
+120
+00:06:21,560 --> 00:06:25,480
+gracias al método que definimos
+que nos devuelve una salida más bonita,
+
+121
+00:06:25,800 --> 00:06:28,400
+podemos ver que tenemos
+nuestra tirada de dados
+
+122
+00:06:28,720 --> 00:06:32,120
+con un dado 4, dos dados 6.
+
+123
+00:06:32,440 --> 00:06:36,920
+Ahora,
+si queremos lanzar todos estos dados,
+
+124
+00:06:37,240 --> 00:06:40,160
+podemos aplicar el método "roll"
+simplemente sobre esta tirada de dados.
+
+125
+00:06:40,480 --> 00:06:43,240
+"Roll". Imprimo. 13, 5, 9.
+
+126
+00:06:43,560 --> 00:06:45,840
+Tendremos un resultado
+entre 3 y...
+
+127
+00:06:46,160 --> 00:06:47,560
+Simplemente, podemos guardar.
+
+128
+00:06:47,880 --> 00:06:51,760
+Il suffit de lancer
+la méthode "maxValue".
+
+129
+00:06:52,080 --> 00:06:53,360
+Entre 3 et 16.
+
+130
+00:06:54,440 --> 00:06:58,360
+Donc, on peut "roll" encore
+et vérifier qu'on ne dépasse pas 16.
+
+131
+00:06:58,680 --> 00:07:01,800
+On peut voir que notre méthode
+d'addition a l'air de fonctionner.
+
+132
+00:07:02,120 --> 00:07:03,480
+Notre méthode de roll aussi.
+
+133
+00:07:03,800 --> 00:07:07,280
+Y desarrollamos un pequeño lenguaje
+que nos permite lanzar dados
+
+134
+00:07:07,600 --> 00:07:09,960
+et de réussir notre partie
+de "Donjons et Dragons".
+
+135
+00:07:10,280 --> 00:07:12,200
+Este es el final de este Redo de la semana 3.
+
+136
+00:07:12,520 --> 00:07:14,680
+Y para finalizar apropiadamente,
+
+137
+00:07:15,000 --> 00:07:17,680
+vamos a guardar
+nuestro paquete "Dice".
+
+138
+00:07:18,000 --> 00:07:19,560
+Nos dirigimos a Iceberg.
+
+139
+00:07:19,880 --> 00:07:22,560
+Todavía tenemos los "Uncommited changes"
+que nos aparecen.
+
+140
+00:07:22,880 --> 00:07:24,880
+Hacemos click sobre Commit.
+
+141
+00:07:25,200 --> 00:07:26,280
+Y vamos a ingresar:
+
+142
+00:07:26,600 --> 00:07:35,360
+"Added die creation from integers
+and operations on DieHandle".
+
+143
+00:07:37,280 --> 00:07:38,120
+Commit.
+
+144
+00:07:38,440 --> 00:07:42,040
+Y listo, es el fin
+de este Redo de la semana 3.
+

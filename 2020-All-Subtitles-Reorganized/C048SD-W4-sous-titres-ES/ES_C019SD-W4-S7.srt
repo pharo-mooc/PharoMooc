@@ -1,0 +1,300 @@
+﻿1
+00:00:00,080 --> 00:00:03,320
+Hello. This sequence
+is about the Pharo Web Stack.
+
+2
+00:00:03,480 --> 00:00:07,200
+I'll give you an overview
+of existing frameworks
+
+3
+00:00:07,520 --> 00:00:10,280
+and the ones we'll be using
+in this course.
+
+4
+00:00:11,280 --> 00:00:16,720
+This is a diagram of what happens
+to an incoming HTTP request.
+
+5
+00:00:17,320 --> 00:00:22,560
+"Zinc" is the basic HTTP/HTTPS
+server built into Pharo.
+
+6
+00:00:23,160 --> 00:00:26,720
+Teapot is above Zinc,
+and there is a course available
+
+7
+00:00:27,040 --> 00:00:28,840
+on Teapot syntax.
+
+8
+00:00:29,280 --> 00:00:33,880
+Then, there's a series of format
+frameworks, like JSON and Stone.
+
+9
+00:00:34,760 --> 00:00:36,440
+There's also Seaside REST.
+
+10
+00:00:36,600 --> 00:00:39,600
+Briefly, it's how to program REST
+over Seaside.
+
+11
+00:00:39,760 --> 00:00:43,760
+Seaside is the web framework
+we will be using
+
+12
+00:00:44,200 --> 00:00:45,560
+in Tinyblog.
+
+13
+00:00:45,760 --> 00:00:48,840
+That's why we introduced
+Seaside to you, as well.
+
+14
+00:00:49,000 --> 00:00:51,480
+It is in widespread use in businesses.
+
+15
+00:00:51,960 --> 00:00:54,960
+We will also use Voyage,
+
+16
+00:00:56,040 --> 00:00:59,800
+which is a persistence framework
+for documents.
+
+17
+00:01:00,160 --> 00:01:04,560
+We take our objects and store them
+in document form, in Mongo bases.
+
+18
+00:01:04,840 --> 00:01:06,640
+There are others, of course.
+
+19
+00:01:07,080 --> 00:01:12,160
+Garage is a sort of driver
+for all relational databases.
+
+20
+00:01:12,680 --> 00:01:14,480
+I'll also show you Magritte.
+
+21
+00:01:14,760 --> 00:01:17,360
+Magritte is a way
+of describing data
+
+22
+00:01:17,520 --> 00:01:20,920
+and generating webforms
+automatically, as a result,
+
+23
+00:01:21,080 --> 00:01:22,320
+instead of manually.
+
+24
+00:01:22,760 --> 00:01:25,360
+Reef is an application
+that enables you
+
+25
+00:01:26,080 --> 00:01:29,200
+to do embarked JavaScript
+in web components.
+
+26
+00:01:29,680 --> 00:01:33,040
+But we won't go into it further
+in this course.
+
+27
+00:01:33,200 --> 00:01:38,080
+Mustache is a template system
+that generates HTML on the fly.
+
+28
+00:01:38,240 --> 00:01:40,920
+Bootstrap is
+the Twitter Bootstrap library,
+
+29
+00:01:41,080 --> 00:01:42,800
+fully integrated into Seaside.
+
+30
+00:01:43,080 --> 00:01:45,640
+These are the most
+commonly used applications,
+
+31
+00:01:45,920 --> 00:01:50,600
+but you have plenty of other packages
+on top of Pharo.
+
+32
+00:01:50,760 --> 00:01:56,000
+The ones used to connect to Amazon
+or to do elastic searches, for example.
+
+33
+00:01:57,000 --> 00:01:59,080
+We will be using Seaside.
+
+34
+00:01:59,240 --> 00:02:03,400
+It's a web framework
+for building dynamic applications
+
+35
+00:02:03,880 --> 00:02:06,920
+based on reusable components.
+
+36
+00:02:08,080 --> 00:02:11,640
+We don't really have to
+manage requests.
+
+37
+00:02:11,800 --> 00:02:13,320
+Seaside does it for us.
+
+38
+00:02:13,480 --> 00:02:16,240
+Documentation is available
+at Seaside.st.
+
+39
+00:02:16,400 --> 00:02:18,280
+The site is being rebuilt.
+
+40
+00:02:18,640 --> 00:02:23,120
+They have also compiled
+a 250-page reference book
+
+41
+00:02:23,560 --> 00:02:25,480
+at book.seaside.st.
+
+42
+00:02:25,640 --> 00:02:29,320
+You can take a look, but we'll cover
+the main points here
+
+43
+00:02:29,880 --> 00:02:30,880
+in this course.
+
+44
+00:02:32,360 --> 00:02:33,800
+Regarding persistence,
+
+45
+00:02:33,960 --> 00:02:37,640
+as I said earlier,
+there are two major frameworks
+
+46
+00:02:37,920 --> 00:02:41,280
+that enable you to store documents
+in NoSQL.
+
+47
+00:02:41,480 --> 00:02:46,440
+They are based on components
+like Mongo, CouchDB, and Riak.
+
+48
+00:02:46,960 --> 00:02:51,240
+We use Voyage as an abstraction
+on top of MongoDB.
+
+49
+00:02:52,280 --> 00:02:54,680
+And Garage is a framework
+
+50
+00:02:54,840 --> 00:02:57,840
+offering a unified API
+for relational databases.
+
+51
+00:02:58,000 --> 00:03:01,120
+We won't use it in this course,
+but it has drivers
+
+52
+00:03:01,320 --> 00:03:03,880
+for Postgres, MySQL, SQLite,
+and OpenDBX.
+
+53
+00:03:04,080 --> 00:03:06,280
+And it is always being improved.
+
+54
+00:03:07,160 --> 00:03:10,320
+We are going to show you
+another interesting feature.
+
+55
+00:03:10,800 --> 00:03:15,840
+We have a framework called Magritte,
+for the surrealist painter.
+
+56
+00:03:16,320 --> 00:03:19,240
+It writes descriptions for your data
+
+57
+00:03:19,400 --> 00:03:22,760
+and use them to generate
+Seaside components.
+
+58
+00:03:22,920 --> 00:03:28,040
+It really helps boost productivity
+in creating web applications.
+
+59
+00:03:28,720 --> 00:03:30,240
+To conclude, I would say
+
+60
+00:03:30,440 --> 00:03:32,760
+Pharo offers a rich ecosystem.
+
+61
+00:03:32,920 --> 00:03:36,880
+Most of the companies using Pharo
+are web developers.
+
+62
+00:03:37,200 --> 00:03:38,720
+It is business-ready.
+
+63
+00:03:39,720 --> 00:03:41,600
+Seaside is really innovative,
+
+64
+00:03:41,760 --> 00:03:45,840
+because it goes against certain
+entrenched ways of programming.
+
+65
+00:03:46,240 --> 00:03:48,240
+It helps you think differently.

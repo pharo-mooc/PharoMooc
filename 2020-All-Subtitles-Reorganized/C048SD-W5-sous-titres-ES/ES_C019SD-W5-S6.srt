@@ -1,0 +1,848 @@
+﻿1
+00:00:00,520 --> 00:00:04,840
+Hello, in this sequence we'll look
+at the SUnit test framework in Pharo,
+
+2
+00:00:05,000 --> 00:00:08,720
+which allow us to write unit tests,
+as you're going to see.
+
+3
+00:00:08,880 --> 00:00:13,200
+A test framework is used
+to support Agile development.
+
+4
+00:00:13,360 --> 00:00:16,560
+The idea is to do incremental
+development and to test
+
+5
+00:00:16,720 --> 00:00:18,720
+your code regularly to check
+
+6
+00:00:18,880 --> 00:00:23,240
+that in modifying it we haven't broken
+a property or invariant in the code.
+
+7
+00:00:23,400 --> 00:00:25,240
+We want to be prepared for changes.
+
+8
+00:00:25,400 --> 00:00:28,160
+We write tests then we modify our codes
+
+9
+00:00:28,320 --> 00:00:30,520
+then we can re-execute the tests
+
+10
+00:00:30,680 --> 00:00:33,680
+to check we haven't broken or modified
+anything we shouldn't have.
+
+11
+00:00:33,880 --> 00:00:38,520
+Automated tests are very important
+in supporting this kind of programming.
+
+12
+00:00:38,680 --> 00:00:42,680
+The SUnit framework is
+a special framework for writing tests.
+
+13
+00:00:42,840 --> 00:00:46,400
+It makes them easier to write.
+It's in 4 classes, it's very simple.
+
+14
+00:00:46,560 --> 00:00:48,960
+It was originally
+developed by Kent Beck,
+
+15
+00:00:49,120 --> 00:00:52,960
+and has inspired numerous tests
+in other languages,
+
+16
+00:00:53,120 --> 00:00:55,040
+like JUnit, for example.
+
+17
+00:00:55,840 --> 00:00:57,440
+So, what is a test?
+
+18
+00:00:57,600 --> 00:01:00,080
+There are 3 steps to writing a test:
+
+19
+00:01:00,240 --> 00:01:04,960
+Step one, we create a context,
+for example, an empty set.
+
+20
+00:01:05,120 --> 00:01:07,480
+Step two, I create a stimulus,
+
+21
+00:01:07,640 --> 00:01:11,960
+here, so I try to insert
+an element twice
+
+22
+00:01:12,120 --> 00:01:14,840
+in the set I've just created,
+
+23
+00:01:15,000 --> 00:01:18,760
+and step three,
+I test the result that I get,
+
+24
+00:01:18,920 --> 00:01:23,160
+which means that I wait until
+the set only contains one element.
+
+25
+00:01:23,320 --> 00:01:26,960
+A set object can only contain
+an element once.
+
+26
+00:01:27,120 --> 00:01:28,680
+It can't contain it twice.
+
+27
+00:01:28,840 --> 00:01:32,520
+Then I test the result,
+hoping the variant isn't broken.
+
+28
+00:01:33,120 --> 00:01:35,320
+Here's an example.
+To write a test...
+
+29
+00:01:35,480 --> 00:01:40,760
+I have to write a TestCase subclass.
+I'll call this one "SetTestCase".
+
+30
+00:01:40,920 --> 00:01:44,480
+It's to test the sets.
+I define the method, "testAdd".
+
+31
+00:01:44,640 --> 00:01:47,240
+All the methods begin with "test".
+
+32
+00:01:47,400 --> 00:01:48,960
+Then I set up the context,
+
+33
+00:01:49,120 --> 00:01:52,200
+I create an instance
+of the Set class, which is empty,
+
+34
+00:01:52,360 --> 00:01:55,840
+I add 2 elements,
+the same element twice...
+
+35
+00:01:56,000 --> 00:01:59,240
+I try and add the same element twice
+
+36
+00:01:59,400 --> 00:02:03,360
+to the bundle,
+so 5 twice, here and here.
+
+37
+00:02:03,520 --> 00:02:06,000
+Then I test it, I've "check" here,
+
+38
+00:02:06,160 --> 00:02:08,600
+I use "assert" to do this,
+
+39
+00:02:09,920 --> 00:02:12,840
+where I check that the size of my set
+
+40
+00:02:13,000 --> 00:02:16,480
+is 1, that I've succeeded
+in only adding the element once.
+
+41
+00:02:16,640 --> 00:02:19,320
+I can start the test thanks to this...
+
+42
+00:02:20,720 --> 00:02:24,280
+Thanks to this expression,
+so my test will reveal
+
+43
+00:02:24,440 --> 00:02:28,760
+if the variance, if "assert",
+the expression passed here, is true.
+
+44
+00:02:29,560 --> 00:02:30,880
+All the methods that begin
+
+45
+00:02:31,080 --> 00:02:34,960
+with the string "test" represent a test,
+
+46
+00:02:35,120 --> 00:02:39,640
+and will be automatically executed
+by the test runner tool.
+
+47
+00:02:40,440 --> 00:02:44,480
+We'll see that all the results,
+all the executions of the test method
+
+48
+00:02:44,640 --> 00:02:48,040
+produce a result.
+All these results are collected,
+
+49
+00:02:48,200 --> 00:02:52,560
+and they're collected within
+a class instance object, TestResult.
+
+50
+00:02:54,120 --> 00:02:55,760
+I'll give you another example.
+
+51
+00:02:55,920 --> 00:02:59,920
+In this example, we've the test method,
+its name begins with "test"
+
+52
+00:03:00,080 --> 00:03:03,560
+in lowercase, and this
+is the name of this method,
+
+53
+00:03:03,720 --> 00:03:07,240
+"AdjacentRunsWithEquals
+AttributesAreMerged"
+
+54
+00:03:07,400 --> 00:03:12,960
+So we've the context here,
+we've created an object.
+
+55
+00:03:13,120 --> 00:03:14,720
+Here we've a stimulus.
+
+56
+00:03:14,880 --> 00:03:18,640
+We've tried to send the message
+"addLast times"
+
+57
+00:03:18,800 --> 00:03:22,760
+to this object 3 times,
+the 1st time with
+
+58
+00:03:22,920 --> 00:03:26,880
+the settings here,
+and a 2nd time, the same settings
+
+59
+00:03:27,040 --> 00:03:28,640
+the 2nd and 3rd time.
+
+60
+00:03:28,800 --> 00:03:31,560
+We test here, it's the check,
+
+61
+00:03:31,720 --> 00:03:35,760
+that this element is size 2.
+All right?
+
+62
+00:03:35,960 --> 00:03:40,960
+We weren't able to add the same
+element several times adjacently.
+
+63
+00:03:41,720 --> 00:03:46,320
+In the execution of a test,
+several scenarios can occur.
+
+64
+00:03:46,640 --> 00:03:50,720
+One scenario is what we call
+a "failure", meaning that
+
+65
+00:03:50,880 --> 00:03:53,720
+one of the assertions,
+a variant we thought was true,
+
+66
+00:03:53,880 --> 00:03:56,560
+which should be true is false,
+in which case
+
+67
+00:03:56,720 --> 00:04:01,560
+the test which contains "failure"
+
+68
+00:04:01,720 --> 00:04:03,600
+is an anticipated problem.
+
+69
+00:04:03,760 --> 00:04:09,240
+We expected that, potentially,
+this error would be present.
+
+70
+00:04:09,600 --> 00:04:13,160
+After that, an error is a condition
+we didn't check for.
+
+71
+00:04:13,320 --> 00:04:17,240
+It's something that happens,
+an exception that's raised,
+
+72
+00:04:17,400 --> 00:04:20,480
+which we didn't expect
+when writing the test.
+
+73
+00:04:20,640 --> 00:04:22,480
+They're 2 very different cases.
+
+74
+00:04:23,120 --> 00:04:27,640
+What do we do in a test
+when we want to check
+
+75
+00:04:28,480 --> 00:04:32,000
+that a bit of code
+raises an exception?
+
+76
+00:04:32,160 --> 00:04:36,680
+For example, I want to check
+that "set new remove: 1"
+
+77
+00:04:36,840 --> 00:04:40,120
+this bit of code,
+will raise the exception "NotFound".
+
+78
+00:04:40,280 --> 00:04:42,520
+If I do "Set new", it's an empty set.
+
+79
+00:04:42,680 --> 00:04:44,640
+I'm trying to take an element
+from an empty set.
+
+80
+00:04:44,800 --> 00:04:47,600
+It doesn't make sense.
+It will raise the exception "NotFound"
+
+81
+00:04:47,760 --> 00:04:50,800
+and in my test I use "should raise".
+
+82
+00:04:50,960 --> 00:04:53,600
+I pass a block
+and in my evaluation of the block,
+
+83
+00:04:53,760 --> 00:04:55,240
+if an exception is raised,
+
+84
+00:04:55,400 --> 00:04:59,440
+and the exception is NotFound,
+the test will be green, will be OK.
+
+85
+00:05:00,920 --> 00:05:02,280
+I can also test the reverse,
+
+86
+00:05:02,440 --> 00:05:04,680
+that a bit of code doesn't
+raise an exception.
+
+87
+00:05:04,840 --> 00:05:08,440
+Here I use the method
+"self shouldn't raise".
+
+88
+00:05:08,600 --> 00:05:12,880
+So this bit of code shouldn't
+raise the exception "NotFound".
+
+89
+00:05:14,000 --> 00:05:16,960
+We might, when writing lots of tests,
+
+90
+00:05:17,120 --> 00:05:19,480
+realise that there are duplicates
+
+91
+00:05:19,640 --> 00:05:21,600
+when writing the context of the test.
+
+92
+00:05:21,920 --> 00:05:23,880
+For example,
+here I've written another test
+
+93
+00:05:24,040 --> 00:05:26,120
+for the sets, a "testOccurrences".
+
+94
+00:05:26,280 --> 00:05:31,800
+We see that here, in the context,
+I'm going to recreate a new empty set.
+
+95
+00:05:31,960 --> 00:05:35,120
+Each time I write a test, I open a set,
+
+96
+00:05:35,280 --> 00:05:37,880
+and each time I'll do
+"Set new" in the context.
+
+97
+00:05:38,040 --> 00:05:41,920
+We'd like not to repeat this line
+every time in all of our tests.
+
+98
+00:05:42,080 --> 00:05:45,120
+To not have to repeat them,
+to be able to factor it out
+
+99
+00:05:45,280 --> 00:05:48,080
+somewhere else, we have a solution.
+
+100
+00:05:48,240 --> 00:05:52,280
+The SUnit solution
+is to use the method "setUp"
+
+101
+00:05:52,440 --> 00:05:57,160
+to factor out all the initializations
+before execution of a test.
+
+102
+00:05:57,320 --> 00:05:59,680
+So what actually happens is,
+
+103
+00:05:59,840 --> 00:06:02,280
+at the moment a test is executed,
+just before a test,
+
+104
+00:06:02,440 --> 00:06:05,560
+therefore a method starting
+with the test string, is executed,
+
+105
+00:06:05,720 --> 00:06:08,760
+we'll trigger execution
+of the method "setUp",
+
+106
+00:06:08,960 --> 00:06:11,200
+and specify the context.
+
+107
+00:06:11,360 --> 00:06:15,320
+During the test we'll use the stimuli
+
+108
+00:06:15,480 --> 00:06:17,280
+and the check, the assertions,
+
+109
+00:06:17,440 --> 00:06:20,200
+and at the end
+of the execution of the test
+
+110
+00:06:20,360 --> 00:06:22,360
+whether it fails or not,
+
+111
+00:06:22,520 --> 00:06:24,880
+we'll execute the method "tearDown",
+
+112
+00:06:25,040 --> 00:06:26,960
+which will allow us to clean up
+
+113
+00:06:27,120 --> 00:06:29,520
+all the resources that
+should be released.
+
+114
+00:06:29,680 --> 00:06:33,360
+If we look at the execution
+of several test methods, it's easy,
+
+115
+00:06:33,520 --> 00:06:35,400
+we'll have the execution of "setUp"
+
+116
+00:06:35,560 --> 00:06:37,720
+the first test method executed here,
+
+117
+00:06:37,880 --> 00:06:41,360
+the execution of "tearDown" to clean,
+a new execution of "setUp"
+
+118
+00:06:41,520 --> 00:06:44,720
+the execution of a new test,
+"tearDown", "setUp",
+
+119
+00:06:44,880 --> 00:06:47,760
+the execution of a test
+and "tearDown'.
+
+120
+00:06:47,920 --> 00:06:50,960
+This allows us to factorize
+implementation of the context,
+
+121
+00:06:51,120 --> 00:06:55,040
+and clean up resources in two methods,
+"setUp" and "tearDown".
+
+122
+00:06:56,240 --> 00:06:58,560
+What does it look like?
+
+123
+00:06:58,720 --> 00:07:01,440
+In our example,
+if I take "SetTestCase"
+
+124
+00:07:01,600 --> 00:07:04,640
+I can put in place
+"define setUp method",
+
+125
+00:07:04,800 --> 00:07:07,320
+in which I write,
+"empty :=Set new",
+
+126
+00:07:07,480 --> 00:07:11,840
+so "empty" becomes an instance
+variable of "SetTestCase",
+
+127
+00:07:12,520 --> 00:07:14,560
+and then in my test,
+in my test method,
+
+128
+00:07:14,720 --> 00:07:18,080
+I can directly use
+the instance variable "empty",
+
+129
+00:07:18,240 --> 00:07:21,880
+which was correctly initialized,
+because before execution
+
+130
+00:07:22,040 --> 00:07:26,800
+of "testOccurence"
+the method "setUp" was executed.
+
+131
+00:07:29,680 --> 00:07:33,040
+If we look at the organisation
+of the classes
+
+132
+00:07:33,200 --> 00:07:37,600
+within the core of SUnit,
+as I said, there are only 4 classes:
+
+133
+00:07:37,760 --> 00:07:41,440
+so one test case,
+which is nothing more nor less
+
+134
+00:07:41,600 --> 00:07:43,560
+than a test that verifies
+that certain conditions,
+
+135
+00:07:43,720 --> 00:07:47,000
+are true in a given context,
+so one test case has
+
+136
+00:07:47,960 --> 00:07:50,280
+one "setUp" method
+one "tearDown" method
+
+137
+00:07:50,440 --> 00:07:52,840
+and then a group of test methods.
+
+138
+00:07:53,000 --> 00:07:57,480
+We write a "new" all the time,
+the subclasses of the test case.
+
+139
+00:07:57,640 --> 00:08:00,520
+These test cases are combined
+
+140
+00:08:00,680 --> 00:08:05,080
+in a "TestSuite",
+
+141
+00:08:05,240 --> 00:08:08,560
+and we can launch the execution
+of a complete suite.
+
+142
+00:08:08,720 --> 00:08:11,640
+When we launch the execution
+of a suite we get a result,
+
+143
+00:08:11,800 --> 00:08:16,040
+and this result is an instance
+of "testResult" here,
+
+144
+00:08:16,200 --> 00:08:19,120
+which tells us
+how many tests have passed,
+
+145
+00:08:19,280 --> 00:08:22,800
+how many tests have been executed,
+how many have potentially
+
+146
+00:08:23,480 --> 00:08:26,240
+met with failures and errors.
+
+147
+00:08:27,160 --> 00:08:29,560
+We also have the notion
+of "TestResource"
+
+148
+00:08:29,720 --> 00:08:33,960
+which allows us to define
+the TestResources for a whole suite.
+
+149
+00:08:36,040 --> 00:08:39,760
+A TestCase, as I said,
+represents one test.
+
+150
+00:08:39,920 --> 00:08:44,040
+It's one method starting with "test"
+defined in a subclass, TestCase.
+
+151
+00:08:45,360 --> 00:08:47,360
+A TestSuite is a group of tests.
+
+152
+00:08:47,520 --> 00:08:52,320
+It's all the TestCase methods
+defined in one or several classes.
+
+153
+00:08:52,480 --> 00:08:56,880
+And a TestResult will be a result
+of several test executions.
+
+154
+00:08:58,160 --> 00:09:02,040
+A TestResource
+is an object that will enable
+
+155
+00:09:02,600 --> 00:09:05,120
+the initialization
+of a group of resources,
+
+156
+00:09:05,280 --> 00:09:07,520
+which are costly
+to initialize in normal time,
+
+157
+00:09:07,680 --> 00:09:10,280
+and which we only want to
+initialize once for a group of tests.
+
+158
+00:09:10,440 --> 00:09:14,400
+We set up a TestResource, initialize
+it once and execute lots of tests,
+
+159
+00:09:14,560 --> 00:09:17,440
+and then we can release it at the end.
+
+160
+00:09:17,640 --> 00:09:20,320
+What you should know
+
+161
+00:09:20,800 --> 00:09:24,520
+is how to write tests.
+Writing tests is extremely simple,
+
+162
+00:09:24,680 --> 00:09:27,480
+you just have to write a subclass
+of the TestCase class,
+
+163
+00:09:27,640 --> 00:09:31,240
+define the methods in it
+which begin with "test",
+
+164
+00:09:31,400 --> 00:09:33,440
+and then set up a context inside it,
+
+165
+00:09:33,600 --> 00:09:36,960
+send the stimuli and test
+the assertions, which should be true.
+
+166
+00:09:37,800 --> 00:09:39,720
+We'll reuse the contexts,
+
+167
+00:09:39,880 --> 00:09:42,240
+so you can reuse the contexts
+through several test methods,
+
+168
+00:09:42,400 --> 00:09:45,640
+by factorizing them
+in a SetUp method for example.
+
+169
+00:09:47,000 --> 00:09:52,080
+To summarize, in this sequence
+we've seen the SUnit test framework,
+
+170
+00:09:52,240 --> 00:09:54,360
+which is extremely simple to use,
+
+171
+00:09:54,520 --> 00:09:57,560
+and extremely efficient
+for setting up Agile developments.
+
+172
+00:09:57,720 --> 00:10:01,520
+I strongly urge you to use them,
+defining tests is very easy.
+
+173
+00:10:01,680 --> 00:10:04,840
+The big advantage is that when
+you've created one test
+
+174
+00:10:05,000 --> 00:10:10,400
+you can run it a million times
+and it's really handy for making sure
+
+175
+00:10:10,560 --> 00:10:13,360
+that your code still works,
+even if you've changed things,
+
+176
+00:10:13,520 --> 00:10:16,640
+and edge effects have occured,
+you can detect them
+
+177
+00:10:16,800 --> 00:10:20,720
+if you've been up-to-date
+enough in the tests you've written.
+
+178
+00:10:20,880 --> 00:10:25,320
+You can go further in creating tests
+by using dot frameworks,
+
+179
+00:10:25,480 --> 00:10:28,640
+typically Mock frameworks
+like BabyMock, etc...
+
+180
+00:10:28,840 --> 00:10:33,440
+to have different
+styles of test and test writing.
+
+181
+00:10:34,480 --> 00:10:38,720
+I encourage you to use and create
+a lot of tests in your program.

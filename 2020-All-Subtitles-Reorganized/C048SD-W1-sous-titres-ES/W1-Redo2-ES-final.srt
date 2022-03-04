@@ -1,0 +1,405 @@
+﻿1
+00:00:00,040 --> 00:00:00,080
+"Redo: agregar tests unitarios".
+
+2
+00:00:00,120 --> 00:00:00,160
+Quentin Ducasse.
+
+3
+00:00:03,320 --> 00:00:04,080
+-Hola a todos.
+
+4
+00:00:04,400 --> 00:00:07,960
+En esta 2º parte del Redo, veremos
+como crear una clase de test
+
+5
+00:00:08,280 --> 00:00:10,320
+y cómo crear varios tests
+
+6
+00:00:10,640 --> 00:00:15,080
+para testear los métodos que podemos\definir en nuestra clase principal.
+
+7
+00:00:15,920 --> 00:00:19,920
+Bien, para crear una clase de test,
+vamos aquí.
+
+8
+00:00:20,240 --> 00:00:25,560
+Creamos una clase que se llamará
+Counter, pero CounterTest.
+
+9
+00:00:25,880 --> 00:00:29,120
+Y querremos que sea
+no una subclase de Object,
+
+10
+00:00:29,440 --> 00:00:32,160
+sino una subclase de "TestCase".
+
+11
+00:00:32,480 --> 00:00:34,720
+Entonces, podemos compilar, Cmd+S.
+
+12
+00:00:35,640 --> 00:00:37,000
+La clase de test apareció.
+
+13
+00:00:37,320 --> 00:00:39,760
+Es una clase de test
+por lo que hay un botón gris, al costado.
+
+14
+00:00:40,080 --> 00:00:43,280
+El botón gris permite lanzar
+todos los test en el interior.
+
+15
+00:00:43,600 --> 00:00:46,560
+Se cliqueamos encima, no hará efecto,
+porque no hay ningún test.
+
+16
+00:00:46,880 --> 00:00:51,480
+Si creamos un método de test,
+podemos ir a esta pestaña.
+
+17
+00:00:52,200 --> 00:00:57,440
+Si queremos reproducir el comportamiento
+que hicimos en el Playground,
+
+18
+00:00:57,760 --> 00:01:03,360
+podemos llamarlo
+"testCounterIsSetAndRead",
+
+19
+00:01:03,680 --> 00:01:09,600
+ya que vamos a crear nuestro contador 7,
+su variable de instancia, y después la leeremos
+
+20
+00:01:10,040 --> 00:01:12,480
+Entonces copiamos
+y pegamos este comportamiento
+
+21
+00:01:12,800 --> 00:01:17,680
+Excepto que queremos, al final,
+que el test verifique la útlima expresión
+
+22
+00:01:18,000 --> 00:01:19,920
+No queremos simplemente
+que nos lo enseñe
+
+23
+00:01:20,240 --> 00:01:23,080
+Para esto, hacemos "self assert"
+
+24
+00:01:24,160 --> 00:01:27,840
+que verifica
+que su variable de instancia sea igual...
+
+25
+00:01:28,160 --> 00:01:31,000
+"equals: 7"
+
+26
+00:01:31,600 --> 00:01:33,240
+Es el comportamiento que quiséramos.
+
+27
+00:01:33,560 --> 00:01:36,760
+Ahora, el triángulo naranja,
+compilamos. Cmd+S.
+
+28
+00:01:39,360 --> 00:01:43,560
+Vemos que el método es creado.
+También hay un botón gris al costado.
+
+29
+00:01:43,880 --> 00:01:47,120
+Podemos cliquear encima
+para lanzar el test. El test es verde.
+
+30
+00:01:47,440 --> 00:01:49,920
+Es un buen momento
+para guardar tu imagen.
+
+31
+00:01:50,240 --> 00:01:53,200
+Así que haz click aquí, Pharo, Save.
+
+32
+00:01:54,520 --> 00:01:57,120
+Probablemente queremos escribir
+otros tests
+
+33
+00:01:57,440 --> 00:02:00,600
+y nos serviremos de un modelo
+que se llama Test Driven Development
+
+34
+00:02:00,920 --> 00:02:03,880
+que nos solicita escribir el test
+antes de escribir el método.
+
+35
+00:02:04,200 --> 00:02:08,480
+Entonces, por ejemplo, lo que podemos hacer,
+es crear nuestro contador.
+
+36
+00:02:08,800 --> 00:02:13,360
+Guardaremos este método,
+pero queremos hacer algo que incremente.
+
+37
+00:02:13,680 --> 00:02:17,560
+Entonces, hacemos "testIncrement".
+
+38
+00:02:18,200 --> 00:02:21,760
+Muy bien. Vamos a poner
+nuestro contador en, por ejemplo, 2.
+
+39
+00:02:22,520 --> 00:02:25,200
+LLamaremos dos veces
+el método increment.
+
+40
+00:02:25,520 --> 00:02:30,760
+Entonces, con el punto y coma
+que llamará el método en c.
+
+41
+00:02:31,720 --> 00:02:37,960
+Y comprobaremos que el resultado
+efectivamente es igual a...2+2, 4
+
+42
+00:02:39,920 --> 00:02:44,400
+"c count equals: 4".
+Estamos de acuerdo.
+
+43
+00:02:44,720 --> 00:02:47,040
+Ahora, podemos compilar
+este método de test.
+
+44
+00:02:47,360 --> 00:02:52,200
+Vemos que aparece,
+pero si lo ejecutamos, debería detenerse.
+
+45
+00:02:52,520 --> 00:02:55,320
+Obtenemos un error,
+ya que no entendió increment.
+
+46
+00:02:57,240 --> 00:02:59,880
+El test está rojo.
+Tendremos que corregir esto.
+
+47
+00:03:00,200 --> 00:03:04,680
+Para corregirlo,
+vamos a la clase Counter
+
+48
+00:03:05,000 --> 00:03:07,280
+y definimos
+nuestro método increment.
+
+49
+00:03:08,000 --> 00:03:08,880
+"Increment"...
+
+50
+00:03:09,200 --> 00:03:13,720
+Queremos que "c count" sea...
+
+51
+00:03:14,040 --> 00:03:19,160
+Que "count", perdón,
+sea igual a "count + 1".
+
+52
+00:03:20,440 --> 00:03:22,720
+Guardamos.
+nuestro método es creado.
+
+53
+00:03:23,040 --> 00:03:24,720
+Vemos que el botón está rojo, al costado,
+
+54
+00:03:25,040 --> 00:03:27,800
+porque reconoció el test
+que se llama testIncrement
+
+55
+00:03:28,120 --> 00:03:29,360
+que va a verificar el método increment.
+
+56
+00:03:29,680 --> 00:03:31,560
+Podemos lanzar directamente
+nuestro test desde aquí.
+
+57
+00:03:31,880 --> 00:03:33,160
+Vemos que se pone verde.
+
+58
+00:03:33,480 --> 00:03:34,640
+Podemos re-clickear aquí.
+
+59
+00:03:34,960 --> 00:03:38,360
+Vemos que dos tests fueron lanzados
+y los dos pasaron.
+
+60
+00:03:38,680 --> 00:03:41,080
+Una vez más, es un buen momento
+para guardar la imagen.
+
+61
+00:03:41,400 --> 00:03:43,000
+Así que guardaremos nuestra imagen.
+
+62
+00:03:43,880 --> 00:03:45,520
+Vamos a escribir nuestro último test.
+
+63
+00:03:45,840 --> 00:03:50,800
+Entonces "testDecrement"
+D, E.
+
+64
+00:03:51,320 --> 00:03:52,640
+Hacemos lo mismo.
+
+65
+00:03:52,960 --> 00:03:56,400
+Reemplazamos "increment"
+por "decrement"
+
+66
+00:03:56,720 --> 00:04:00,720
+y queremos, esta vez,
+que sea igual a cero.
+
+67
+00:04:01,320 --> 00:04:03,640
+Guardamos este método.
+Aparece aquí.
+
+68
+00:04:03,960 --> 00:04:06,280
+Una vez más, si lo ejecutamos
+no debe pasar.
+
+69
+00:04:06,600 --> 00:04:08,360
+No pasó
+porque no entendió "decrement".
+
+70
+00:04:08,680 --> 00:04:10,360
+Es normal,
+aún no lo definimos.
+
+71
+00:04:10,680 --> 00:04:12,200
+Por lo tanto, vamos a la clase.
+
+72
+00:04:13,920 --> 00:04:19,360
+Definimos "decrement", salvo que esta vez
+queremos que el count reste 1.
+
+73
+00:04:20,320 --> 00:04:21,320
+Guardamos.
+
+74
+00:04:21,640 --> 00:04:24,120
+Reconoció que un test
+está vinculado a este método.
+
+75
+00:04:24,440 --> 00:04:26,200
+El botón está en rojo, al costado.
+
+76
+00:04:26,520 --> 00:04:28,160
+Cliqueamos. Nuestro método esta verde.
+
+77
+00:04:28,480 --> 00:04:30,560
+Así que, si cliqueamos nuestra clase de test,
+
+78
+00:04:31,320 --> 00:04:34,000
+los tres tests son lanzados,
+y los tres pasaron.
+
+79
+00:04:34,800 --> 00:04:36,960
+Este es el momento
+de guardar la imagen.
+
+80
+00:04:37,560 --> 00:04:41,280
+En este video, vimos
+como crear una clase de test,
+
+81
+00:04:41,600 --> 00:04:42,920
+como crear tests.
+
+82
+00:04:43,240 --> 00:04:46,320
+Una mentalidad interesante
+dentro de un entorno como Pharo,
+
+83
+00:04:46,640 --> 00:04:48,440
+es una mentalidad
+de Test Driven Development
+
+84
+00:04:48,760 --> 00:04:52,240
+que permite pensar en el comportamiento
+que su objeto tendrá,
+
+85
+00:04:52,560 --> 00:04:53,480
+escribir el test,
+
+86
+00:04:53,800 --> 00:04:57,840
+y luego escribir los métodos
+que corresponden al test
+
+87
+00:04:58,160 --> 00:04:59,520
+hasta que se vuelva verde.
+

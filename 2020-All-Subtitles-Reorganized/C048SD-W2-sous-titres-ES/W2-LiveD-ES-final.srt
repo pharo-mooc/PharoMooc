@@ -1,0 +1,216 @@
+﻿1
+00:00:00,040 --> 00:00:00,080
+"Trabajar con operaciones
+de alcance limitado"
+
+2
+00:00:00,120 --> 00:00:00,160
+Quentin Ducasse.
+
+3
+00:00:05,400 --> 00:00:06,160
+-Buenos días a todos.
+
+4
+00:00:06,480 --> 00:00:08,200
+En este video,
+veremos de más cerca
+
+5
+00:00:08,520 --> 00:00:10,600
+a los paquetes
+presentados por el System Browser.
+
+6
+00:00:10,920 --> 00:00:14,400
+Como recordatorio, el System Browser se abre
+haciendo click en el ambiente Pharo,
+
+7
+00:00:14,720 --> 00:00:16,000
+luego Tools, y luego System Browser.
+
+8
+00:00:16,320 --> 00:00:17,720
+Una vez que estás aquí,
+
+9
+00:00:18,040 --> 00:00:20,680
+vemos que algunos paquetes
+presentados a la izquierda
+
+10
+00:00:21,000 --> 00:00:23,440
+van a tener flechas a su izquierda.
+
+11
+00:00:23,760 --> 00:00:27,480
+De hecho, estas flechas presentarán
+todas las etiquetas en el interior del paquete.
+
+12
+00:00:27,800 --> 00:00:32,200
+Esto significa que nuestro paquete AST-Core, que estaba compuesto por todas estas clases,
+
+13
+00:00:32,520 --> 00:00:34,200
+en realidad tiene varias etiquetas
+en estas clases.
+
+14
+00:00:34,520 --> 00:00:38,120
+Si estamos interesados en Tokens,
+en Visitors, en Patterns,
+
+15
+00:00:38,440 --> 00:00:41,920
+tendremos las clases, aquí, a la derecha que se filtrarán. 
+
+16
+00:00:42,240 --> 00:00:44,720
+Esto te permite
+estructurar tu paquete.
+
+17
+00:00:45,040 --> 00:00:46,360
+¿Cómo los creamos?
+
+18
+00:00:46,680 --> 00:00:48,640
+Cuando creas tu clase,
+basta con
+
+19
+00:00:48,960 --> 00:00:52,720
+agregar un guión y el nombre de tu etiqueta
+después del nombre de tu paquete.
+
+20
+00:00:53,040 --> 00:00:56,280
+Por ejemplo, todas las clases
+que son parte de "AST-Core-Nodes"
+
+21
+00:00:56,600 --> 00:01:00,440
+tendrán la etiqueta "Nodes"
+agregadas al final del nombre del paquete.
+
+22
+00:01:00,760 --> 00:01:02,560
+Es útil porque permite estructurar
+
+23
+00:01:02,880 --> 00:01:06,040
+y buscar más eficazmente
+tus clases en el paquete.
+
+24
+00:01:06,360 --> 00:01:08,880
+Otra cosa interesante,
+es la posibilidad de filtrar.
+
+25
+00:01:09,200 --> 00:01:13,080
+Imaginemos que no necesitamos ver todas las clases en el sistema
+
+26
+00:01:13,400 --> 00:01:15,640
+y solo ver
+las clases de Collections.
+
+27
+00:01:15,960 --> 00:01:19,120
+Podemos encontrar todas las clases
+de Collections filtrando aquí.
+
+28
+00:01:19,440 --> 00:01:21,920
+Otra cosa importante...
+elimino este filtro.
+
+29
+00:01:22,520 --> 00:01:26,720
+Podemos crear un scope.
+Verás el botón Scoped View, aquí.
+
+30
+00:01:27,040 --> 00:01:29,880
+Si estoy sobre el paquete AST-Core
+y cliqueo sobre Scoped View,
+
+31
+00:01:30,200 --> 00:01:31,920
+todos los otros paquetes desaparecen
+
+32
+00:01:32,240 --> 00:01:36,200
+y esto limitará las acciones que realizo
+dentro de este paquete a este paquete.
+
+33
+00:01:36,520 --> 00:01:39,040
+Puedo también crear un scope
+con varios paquetes.
+
+34
+00:01:39,360 --> 00:01:41,880
+Hago click derecho
+sobre uno de los paquetes, aquí.
+
+35
+00:01:42,200 --> 00:01:43,600
+Hago Set up scope
+
+36
+00:01:43,920 --> 00:01:47,760
+y puedo cliquear y seleccionar
+los paquetes que necesito.
+
+37
+00:01:48,080 --> 00:01:50,040
+Por ejemplo,
+voy a tomar los tres AST-Core.
+
+38
+00:01:50,360 --> 00:01:51,360
+Presiono OK.
+
+39
+00:01:51,680 --> 00:01:55,360
+Tendré un System Browser
+solamente con estos tres paquetes
+
+40
+00:01:55,680 --> 00:01:58,880
+y las acciones se van a limitar
+a estos tres paquetes mismos.
+
+41
+00:01:59,200 --> 00:02:03,200
+Las acciones de refactorización
+o cualquier acción en el paquete
+
+42
+00:02:03,520 --> 00:02:04,640
+se limitarán a estos tres.
+
+43
+00:02:04,960 --> 00:02:06,840
+Esto es muy útil,
+porque te permite eliminar
+
+44
+00:02:07,160 --> 00:02:08,840
+todos los paquetes
+que no necesitas
+
+45
+00:02:09,160 --> 00:02:10,680
+que son cargados
+dentro del ambiente Pharo
+
+46
+00:02:11,040 --> 00:02:14,920
+y esto permite controlar
+las acciones sobre el entorno.
+
