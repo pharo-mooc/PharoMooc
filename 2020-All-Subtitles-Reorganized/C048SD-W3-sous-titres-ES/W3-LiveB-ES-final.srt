@@ -1,161 +1,154 @@
-1
-00:00:05,320 --> 00:00:08,680
--Hi. In this video, we are going to look
-at the class counterpart
+﻿1
+00:00:06,200 --> 00:00:06,960
+-Buenos días a todos.
 
 2
-00:00:09,000 --> 00:00:12,520
-of the implementors
-and senders functionalities.
+00:00:07,280 --> 00:00:08,480
+En este video, veremos
 
 3
-00:00:12,840 --> 00:00:14,800
-So, let's open
-the System Browser once more.
+00:00:08,800 --> 00:00:10,920
+las mismas funcionalidades
+vistas sobre los métodos,
 
 4
-00:00:15,120 --> 00:00:18,200
-So, Tools, System Browser,
-go to AST-Core,
+00:00:11,240 --> 00:00:13,400
+Implementor y Sender,
+pero esta vez, veremos
 
 5
-00:00:18,520 --> 00:00:20,720
-RBComment, for example,
-or any other class.
+00:00:13,720 --> 00:00:16,880
+cómo podemos aplicarlos
+a una clase y su variable de instancia.
 
 6
-00:00:21,040 --> 00:00:24,160
-You can right click on the class
-and go to the Class references.
+00:00:17,560 --> 00:00:19,320
+Para esto
+abriremos un System Browser.
 
 7
-00:00:24,480 --> 00:00:28,560
-You can see that it even has
-the same shortcut as the senders.
+00:00:19,640 --> 00:00:21,000
+Tools, System Browser.
 
 8
-00:00:28,880 --> 00:00:30,200
-So, click on that.
+00:00:21,320 --> 00:00:24,680
+Nos dirigimos a AST-Core,
+RBComment,
 
 9
-00:00:30,520 --> 00:00:33,840
-You will have all the references
-to the RBComment
+00:00:25,640 --> 00:00:28,040
+y podemos ver,
+si hacemos click sobre RBComment,
 
 10
-00:00:34,160 --> 00:00:37,560
-that are made in bodies of methods
-in the system.
+00:00:28,360 --> 00:00:31,800
+que tendremos las referencias de clase
+que tienen el mismo atajo que los Senders.
 
 11
-00:00:37,880 --> 00:00:39,400
-Right there, we have four of them.
+00:00:32,120 --> 00:00:33,560
+Si cliqueamos sobre Class refs,
 
 12
-00:00:39,720 --> 00:00:42,320
-You can investigate them,
-as with implementors and senders,
+00:00:33,880 --> 00:00:36,520
+esas serán todas las referencias
+a la clase RBComment
 
 13
-00:00:42,640 --> 00:00:45,320
-and another thing
-is that this functionality is so useful
+00:00:36,840 --> 00:00:39,040
+en los cuerpos
+de los métodos en el sistema.
 
 14
-00:00:45,640 --> 00:00:48,840
-that it has
-its own button in the interface.
+00:00:39,360 --> 00:00:41,560
+Por ejemplo, tenemos RBParser
 
 15
-00:00:49,160 --> 00:00:52,000
-So, right here, you can click on it
-to open the same references.
+00:00:41,880 --> 00:00:44,920
+que llama RBComment,
+en su método extractCommentsFrom:
 
 16
-00:00:52,320 --> 00:00:55,520
-Another important thing is,
-when looking at instance variables,
+00:00:45,240 --> 00:00:47,200
+Es muy útil y lo es tanto
 
 17
-00:00:55,840 --> 00:00:56,840
-you can highlight them.
+00:00:47,520 --> 00:00:51,240
+que un botón fue creado para esto
+en la interface del System Browser.
 
 18
-00:00:57,160 --> 00:00:59,480
-Right click, go to Code search.
+00:00:51,560 --> 00:00:52,520
+Otra cosa interesante,
 
 19
-00:00:59,800 --> 00:01:03,600
-This will help you have access
-to senders and implementors as well,
+00:00:52,840 --> 00:00:55,680
+es que si realzas
+una variable de instancia de una clase...
 
 20
-00:01:03,920 --> 00:01:06,520
-but most importantly,
-to References to it.
+00:00:56,000 --> 00:00:58,200
+Haces click derecho, Code search.
 
 21
-00:01:06,840 --> 00:01:08,440
-If we look at it, there are basically
+00:00:58,520 --> 00:01:02,800
+"Senders of it" e "Implementors of it"
+te enviará nuevamente a los métodos contents,
 
 22
-00:01:08,760 --> 00:01:12,480
-all the references
-to the instance variable contents.
+00:01:03,120 --> 00:01:07,400
+pero "References to it", serán las
+referencias a esta variable precisamente.
 
 23
-00:01:12,800 --> 00:01:14,400
-This will really help you understand
+00:01:07,720 --> 00:01:09,920
+Haciendo click en el,
+tendremos las referencias,
 
 24
-00:01:14,720 --> 00:01:18,120
-how the instance variable
-is used within the class.
+00:01:10,240 --> 00:01:14,400
+seguramente en la clase RBComment,
+que llama a "contents".
 
 25
-00:01:18,440 --> 00:01:21,720
-So, those functionalities
-coupled with the ones of the methods
+00:01:14,720 --> 00:01:16,160
+Son dos métodos...
 
 26
-00:01:22,040 --> 00:01:24,320
-will really help you understand classes,
+00:01:16,480 --> 00:01:19,560
+Una vez más, el atajo
+para las Class references,
 
 27
-00:01:24,640 --> 00:01:26,960
-their architectures
-and how they work together,
+00:01:19,880 --> 00:01:21,560
+es Cmd+N, como los Senders.
 
 28
-00:01:27,280 --> 00:01:29,560
-with the instance variables,
-how they are sent,
+00:01:21,880 --> 00:01:24,480
+Y los atajos
+para las variables de instancia,
 
 29
-00:01:29,880 --> 00:01:32,480
-and you can look for examples,
-which is really important.
+00:01:24,800 --> 00:01:26,760
+son Cmd+N, Cmd+M,
 
 30
-00:01:32,800 --> 00:01:35,480
-You can look for examples
-using the senders functionality.
+00:01:27,080 --> 00:01:31,240
+pero también para las referencias,
+Shift+Cmd+N que es muy útil.
 
 31
-00:01:35,800 --> 00:01:40,120
-So, they have the same shortcut,
-Cmd+N, to look at the references.
+00:01:32,000 --> 00:01:35,440
+Con estas funcionalidades,
+junto con esos métodos,
 
 32
-00:01:40,440 --> 00:01:42,520
-Or you can click on Class refs.
+00:01:35,760 --> 00:01:39,120
+puedes inspeccionar
+dentro de un paquete, clases,
 
 33
-00:01:42,840 --> 00:01:46,280
-And if you want to look
-for the references to instance variable,
+00:01:39,440 --> 00:01:42,720
+entender los enlaces entre ellos y
+ver ejemplos de su uso.
 
-34
-00:01:46,600 --> 00:01:51,120
-Shift+Cmd+N
-will open References to left.

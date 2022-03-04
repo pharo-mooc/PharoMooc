@@ -1,271 +1,306 @@
-1
-00:00:04,440 --> 00:00:07,760
--Hi. In this video, we are going to have
-another look at the Inspector,
+﻿1
+00:00:03,720 --> 00:00:04,480
+-Buenos días a todos.
 
 2
-00:00:08,080 --> 00:00:11,920
-and especially
-how it can create the specific tabs
+00:00:04,800 --> 00:00:05,800
+Les presentaré
 
 3
-00:00:12,240 --> 00:00:15,560
-that we have seen in the last
-presentation of the Inspector.
+00:00:06,120 --> 00:00:09,320
+las pestañas específicas
+que podríamos tener
 
 4
-00:00:15,880 --> 00:00:19,800
-I will reuse the example that we defined
-with the other dictionary,
+00:00:09,640 --> 00:00:12,720
+al inspeccionar un objeto
+en el Inspector con Cmd+I.
 
 5
-00:00:20,120 --> 00:00:22,680
-Time, Date, Morph.
-And if we look back at the date,
+00:00:13,040 --> 00:00:17,320
+Aquí, las pestañas que teníamos para "Date",
 
 6
-00:00:23,000 --> 00:00:27,440
-we can see that the time calendar
-holding the calendar morph
+00:00:17,640 --> 00:00:19,880
+por ejemplo el calendario,
+son implementados.
 
 7
-00:00:27,760 --> 00:00:32,480
-is actually defined
-if we use a tool called Finder.
+00:00:20,200 --> 00:00:22,960
+Para verlo, sabemos que
+el Inspector se llama GT Inspector,
 
 8
-00:00:32,800 --> 00:00:35,800
-Since the Inspector
-is called the gtInspector,
+00:00:23,280 --> 00:00:26,440
+vamos a utilizar
+una herramienta llamada Finder
 
 9
-00:00:36,120 --> 00:00:40,000
-we will look for gtInspector
-in the Pragmas.
+00:00:26,760 --> 00:00:31,240
+y conseguiremos algunos pragmas
+que contienen "gtInspector".
 
 10
-00:00:40,320 --> 00:00:43,160
-You can see this pragma called
-"gtInspectorPresentationOrder".
+00:00:31,560 --> 00:00:32,840
+Entonces, seleccionamos "Pragmas".
 
 11
-00:00:44,000 --> 00:00:45,600
-If I double click on this one,
+00:00:33,160 --> 00:00:34,760
+Tendremos tres pragmas.
 
 12
-00:00:45,920 --> 00:00:48,160
-it will open the different senders
-of his pragma,
+00:00:35,080 --> 00:00:37,280
+"gtInspectorPresentationOrder",
+Eso es interesante.
 
 13
-00:00:48,480 --> 00:00:53,040
-and if I look for a date,
-we can see that it is called,
+00:00:37,600 --> 00:00:39,920
+Hacemos doble clic sobre él,
+Nos muestra todos los senders.
 
 14
-00:00:53,360 --> 00:00:56,520
-within gtInspector, PreviewIn.
-If I click on this,
+00:00:40,240 --> 00:00:43,600
+Lo que nos gustaría encontrar,
+es el sender para la date.
 
 15
-00:00:56,840 --> 00:00:59,440
-you can see that there is the creation
-of a composite morph
+00:00:43,920 --> 00:00:44,840
+Buscaremos "Date".
 
 16
-00:00:59,760 --> 00:01:03,560
-with a title "Calendar",
-and using the morph "CalendarMorph".
+00:00:45,160 --> 00:00:48,080
+Puedes ver aquí
+que "gtInspectorPreviewIn",
 
 17
-00:01:03,880 --> 00:01:06,160
-This is how this tab is defined there.
+00:00:48,400 --> 00:00:52,240
+esto definirá un morph compuesto
+con el título "Calendar",
 
 18
-00:01:06,600 --> 00:01:10,600
-We have got the Calendar title
-and the CalendarMorph under it.
+00:00:52,560 --> 00:00:54,920
+y se implementará
+en el morph "Calendar".
 
 19
-00:01:10,920 --> 00:01:18,720
-Now, if we look at other objects such as
-"Morph new Inspect" and press Cmd+D.
+00:00:55,240 --> 00:00:57,760
+Si volvemos a inspeccionar este morph,
+puedes ver en el calendario
 
 20
-00:01:19,040 --> 00:01:23,720
-This time, we have got a tab Morph
-that depicts the actual morph,
+00:00:58,080 --> 00:01:02,320
+que vamos a tener nuestra pestaña "Calendar"
+con el CalendarMorph a continuación.
 
 21
-00:01:24,040 --> 00:01:26,160
-and you can see on the right
-some actions.
+00:01:02,640 --> 00:01:05,280
+Ahora,
+teníamos nuestro "HSVAColorMorph",
 
 22
-00:01:26,480 --> 00:01:28,640
-"Export as PNG" or "Delete".
+00:01:05,600 --> 00:01:06,480
+así que borro eso.
 
 23
-00:01:28,960 --> 00:01:32,040
-We will try to find those there
-by searching for Morph.
+00:01:06,800 --> 00:01:12,480
+Haremos, en cambio,
+ "Morph new inspect".
 
 24
-00:01:32,360 --> 00:01:36,560
-You can see that we have got
-gtInspectorMorphIn,
+00:01:12,800 --> 00:01:14,640
+Ejecuto esto, Cmd+D.
 
 25
-00:01:36,880 --> 00:01:39,440
-and if we look into his code,
+00:01:14,960 --> 00:01:18,560
+Vamos a ver a nuestro Inspector,
+esta vez, el morph va a estar aquí.
 
 26
-00:01:40,000 --> 00:01:44,840
-we can see that we have got
-the same composite morph with a title,
+00:01:18,880 --> 00:01:22,280
+Y, si buscamos "Morph",
 
 27
-00:01:45,440 --> 00:01:47,600
-and the display of his image,
+00:01:22,600 --> 00:01:25,400
+vamos a tener nuestro morph
+"gtInspectorMorphin",
 
 28
-00:01:47,920 --> 00:01:50,920
-and error handling
-if it cannot draw the actual morph.
+00:01:25,720 --> 00:01:26,520
+es interesante,
 
 29
-00:01:51,240 --> 00:01:54,040
-Then, the two buttons
-that can be found there,
+00:01:26,840 --> 00:01:29,080
+y si miramos,
+en realidad tenemos lo que queremos.
 
 30
-00:01:54,360 --> 00:01:57,240
-"Export as PNG" and "Delete",
-that are defined underneath.
+00:01:29,400 --> 00:01:33,160
+Entonces, tenemos el título de nuestra pestaña.
+que está aquí, "Morph".
 
 31
-00:01:57,560 --> 00:02:01,320
-The last one we are going to look at
-is a compiled method.
+00:01:33,480 --> 00:01:37,200
+tendremos la pantalla
+quien nos presentara a un morph
 
 32
-00:02:01,640 --> 00:02:07,840
-We will look at "Point>>#degrees"
-and press Cmd+I to inspect it.
+00:01:37,520 --> 00:01:41,520
+y algunos manejos de errores a continuación,
+si alguna vez el morph se muestra incorrectamente.
 
 33
-00:02:08,160 --> 00:02:10,880
-You can see that this one
-has several tabs.
+00:01:41,840 --> 00:01:44,680
+Y también tenemos dos acciones:
+"exportAsPNG" y "delete",
 
 34
-00:02:11,200 --> 00:02:15,760
-It has Bytecode, basically
-all the instructions sent to the machine.
+00:01:45,000 --> 00:01:46,760
+que se puede encontrar aquí,
+en el Inspector.
 
 35
-00:02:16,080 --> 00:02:21,080
-So, send the instruction ">=",
-"jumpFalse", "pushConstant".
+00:01:47,080 --> 00:01:48,800
+Entonces,
+"Export as PNG" y "Delete".
 
 36
-00:02:21,400 --> 00:02:23,800
-The Source. This is the actual
-source code of the method.
+00:01:49,120 --> 00:01:50,120
+Eso es interesante.
 
 37
-00:02:24,120 --> 00:02:29,520
-The intermediate representation,
-and an abstract syntax tree.
+00:01:50,440 --> 00:01:52,640
+Una última cosa que veremos,
+es, por ejemplo,
 
 38
-00:02:30,480 --> 00:02:35,000
-Those are extremely interesting.
-What we can do, if I extend this a bit,
+00:01:52,960 --> 00:01:55,640
+cómo maneja los métodos
+que ya están compilados.
 
 39
-00:02:35,600 --> 00:02:38,800
-we can go to Raw,
-open another view of a same object,
+00:01:55,960 --> 00:01:58,480
+Por ejemplo,
+si miro el método compilado
 
 40
-00:02:39,120 --> 00:02:43,000
-go to Bytecode on this one,
-go to Source on this one.
+00:01:58,800 --> 00:02:01,760
+desde "Point>>#degrees",
+Cmd+I, inspecciono,
 
 41
-00:02:43,320 --> 00:02:46,680
-And a nice thing, if I click on,
-for example, this instruction,
+00:02:02,080 --> 00:02:04,240
+tenemos varias pestañas
+Extremadamente interesante:
 
 42
-00:02:47,000 --> 00:02:51,920
-"pushConstant: 0", it will highlight
-the corresponding piece of source code.
+00:02:04,560 --> 00:02:06,400
+"Bytecode", "Source",
 
 43
-00:02:52,240 --> 00:02:55,800
-So, this is extremely nice
-for developers of a compiler
+00:02:06,720 --> 00:02:08,480
+la representación intermedia,
+"IR",
 
 44
-00:02:56,120 --> 00:02:59,080
-or if you are simply interested
-in how the bytecode
+00:02:08,800 --> 00:02:10,360
+"AST" es un árbol de sintaxis,
 
 45
-00:02:59,400 --> 00:03:01,960
-is translated into the source code
-and vice versa.
+00:02:10,680 --> 00:02:12,960
+"Header", "Meta"
+y otras dos pestañas.
 
 46
-00:03:02,360 --> 00:03:05,040
-This is interesting and we will look
-at how it is implemented.
+00:02:13,280 --> 00:02:15,840
+lo que nos interesa,
+es más bien "Bytecode", "Source".
 
 47
-00:03:05,360 --> 00:03:10,840
-It is implemented under CompiledCode.
-It is right there.
+00:02:16,160 --> 00:02:19,640
+Si, por ejemplo,
+Abro este dos veces
 
 48
-00:03:11,400 --> 00:03:14,920
-You can see that we have got
-the gtInspectorAST
+00:02:19,960 --> 00:02:23,760
+y pongo ese en "Source"
+y este en "Bytecode",
 
 49
-00:03:15,240 --> 00:03:17,440
-that is implementing the AST tab.
+00:02:24,080 --> 00:02:26,000
+puedo navegar
+en ambos al mismo tiempo.
 
 50
-00:03:18,000 --> 00:03:20,120
-The Bytecode tab is implemented there.
+00:02:26,320 --> 00:02:29,600
+cuando hago clic
+en la instrucción "pushConstant:0",
 
 51
-00:03:20,440 --> 00:03:24,160
-The Bytes, Header,
-Ir, Pragmas and so on.
+00:02:29,920 --> 00:02:32,280
+podemos ver que va a ser
+esta instrucción aquí.
 
 52
-00:03:24,480 --> 00:03:28,400
-Everything is implemented there
-using the gtInspector presentation order.
+00:02:32,600 --> 00:02:36,480
+Si hago clic en "sent>=",
+"jumpFalse:100",
 
 53
-00:03:28,720 --> 00:03:32,360
-This video was there
-to show you that you can find
+00:02:36,800 --> 00:02:41,920
+tendremos una respuesta directa
+entre el código fuente
 
 54
-00:03:32,680 --> 00:03:34,800
-how the tabs are implemented
+00:02:42,240 --> 00:02:44,280
+y el bytecode
+de nuestro método compilado.
 
 55
-00:03:35,120 --> 00:03:37,560
-and that the Inspector
-is really interesting
+00:02:44,600 --> 00:02:47,000
+Así que ahora si miro esto,
 
 56
-00:03:37,880 --> 00:03:40,840
-to display a particular view
-of the objects that you find.
+00:02:47,320 --> 00:02:52,800
+Iré a "CompiledCode",
+
+57
+00:02:53,120 --> 00:02:57,800
+tendremos "gtInspectorSource",
+Esta va a ser nuestra pestaña "Source",
+
+58
+00:02:58,120 --> 00:03:00,720
+entonces tendré "gtInspector"
+
+59
+00:03:01,040 --> 00:03:03,600
+para representación intermedia
+"IR".
+
+60
+00:03:03,920 --> 00:03:08,480
+Luego,
+"gtInspectorAST", que estará aquí.
+
+61
+00:03:08,800 --> 00:03:10,240
+y "gtInspectorBytecode".
+
+62
+00:03:10,560 --> 00:03:12,160
+Tendremos todas nuestras diferentes pestañas
+
+63
+00:03:12,480 --> 00:03:15,000
+que se definen con el pragma
+"gtInspectorPresentationOrder".
+
+64
+00:03:15,320 --> 00:03:16,520
+Esto fue una presentacion
+
+65
+00:03:16,840 --> 00:03:20,360
+de dónde se esconden estas pestañas
+en los objetos que los definen.
+

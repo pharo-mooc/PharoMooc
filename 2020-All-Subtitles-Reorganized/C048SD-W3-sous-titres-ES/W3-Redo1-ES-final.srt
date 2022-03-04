@@ -1,680 +1,754 @@
-1
-00:00:04,160 --> 00:00:04,920
--Hi.
+﻿1
+00:00:05,680 --> 00:00:08,000
+-Buenos días a todos.
+En este redo de la semana 3,
 
 2
-00:00:05,240 --> 00:00:08,040
-In the redo of the third week,
-so right now,
+00:00:08,320 --> 00:00:11,680
+veremos cómo escribir
+un simulador de dados
 
 3
-00:00:08,360 --> 00:00:12,280
-we will look at how we can handle
-an expression to represent dice.
+00:00:12,320 --> 00:00:14,680
+y en un lenguage
+que será capaz de comprender
 
 4
-00:00:12,760 --> 00:00:13,640
-For example,
+00:00:15,000 --> 00:00:18,640
+una expresión
+como "2 D20 + 1 D4".
 
 5
-00:00:14,160 --> 00:00:17,360
-imagine that we would like
-to know the result of an expression
+00:00:18,960 --> 00:00:21,240
+Podemos ver este tipo de dados
+en los juegos de roles
 
 6
-00:00:17,680 --> 00:00:21,120
-being "2 D20 + 1 D4".
+00:00:21,560 --> 00:00:22,640
+como "El juego de la Oca",
 
 7
-00:00:22,160 --> 00:00:25,920
-This expression is what you might
-encounter in a role-playing game
+00:00:22,960 --> 00:00:25,520
+y nos gustaría
+que a partir de estas expresiones
 
 8
-00:00:26,240 --> 00:00:28,400
-such as "Dungeons and Dragons"
-for example,
+00:00:25,840 --> 00:00:29,080
+ordenar el resultado
+de una tirada de dos a 20 (caras),
 
 9
-00:00:28,720 --> 00:00:30,360
-where this would mean
+00:00:29,400 --> 00:00:32,560
+más el resultado
+de una tirada de un dado a cuatro (caras).
 
 10
-00:00:30,680 --> 00:00:36,480
-"give me the result of a roll
-of two dice with 20 faces
+00:00:32,880 --> 00:00:36,520
+Para esto, necesitaremos
+crear una clase de dado
 
 11
-00:00:36,800 --> 00:00:40,040
-plus the result
-of one dice with four faces."
+00:00:36,840 --> 00:00:38,920
+y una clase que representará,
+un puñado de dados
 
 12
-00:00:40,760 --> 00:00:42,600
-In order to make everything work,
+00:00:39,240 --> 00:00:41,440
+para poder hacer operaciones
+entre ellos.
 
 13
-00:00:42,920 --> 00:00:46,400
-we will need a class to represent a die,
-a class to represent dice handle,
+00:00:41,760 --> 00:00:44,720
+Entonces, abrimos
+el System Browser: Tools,
 
 14
-00:00:46,800 --> 00:00:49,000
-and we will look
-at how we might implement it.
+00:00:45,040 --> 00:00:45,960
+System Browser.
 
 15
-00:00:49,320 --> 00:00:52,560
-Let's go over to our System Browser.
+00:00:46,280 --> 00:00:49,800
+Creamos nuestra clase "#Die",
+sub-clase de Object,
 
 16
-00:00:52,880 --> 00:00:57,160
-We will create a die class
-that is a subclass of Object.
+00:00:50,120 --> 00:00:51,920
+que tendrá una variable de instancia
 
 17
-00:00:57,960 --> 00:01:02,440
-We will give it an instance variable
-to be the number of faces,
+00:00:52,240 --> 00:00:55,200
+que se llamará "faces",
+que corresponderá al número de caras,
 
 18
-00:01:03,040 --> 00:01:05,400
-and we will put everything
-in the "Dice" package.
+00:00:55,520 --> 00:00:57,600
+y pondremos todo esto
+en el paquete "Dice".
 
 19
-00:01:05,720 --> 00:01:07,400
-Let's save this, Cmd+S.
+00:00:57,920 --> 00:00:59,480
+Podemos guardar con Cmd+S.
 
 20
-00:01:07,960 --> 00:01:10,000
-We will filter out
-all the other packages
+00:00:59,800 --> 00:01:01,120
+Nuestro dado está creado.
 
 21
-00:01:10,320 --> 00:01:13,200
-and we will write an initialize method.
+00:01:01,440 --> 00:01:04,440
+Vamos de inmediato a agregar
+un método de inicialización
 
 22
-00:01:13,520 --> 00:01:14,920
-When you write an initialize method,
+00:01:04,760 --> 00:01:06,160
+que se llamará "initialize".
 
 23
-00:01:15,240 --> 00:01:16,200
-it is good practice
+00:01:06,480 --> 00:01:09,800
+No olvidemos de llamar
+a los métodos de inicialización
 
 24
-00:01:16,520 --> 00:01:20,120
-to always check for the initialization
-of the superclasses.
+00:01:10,120 --> 00:01:12,280
+de las superclases
+con "super initialize",
 
 25
-00:01:20,440 --> 00:01:21,800
-We will write "super initialize".
+00:01:12,600 --> 00:01:15,400
+y diremos que el número
+de caras por omisión para nuestro dado,
 
 26
-00:01:22,120 --> 00:01:25,200
-Then, we will set
-for the number of faces to be six
+00:01:15,720 --> 00:01:16,520
+será seis.
 
 27
-00:01:25,800 --> 00:01:29,920
-so we will have by default
-a dice with six faces.
+00:01:16,840 --> 00:01:17,840
+Guardamos esto.
 
 28
-00:01:30,240 --> 00:01:31,120
-Let's save this.
+00:01:18,160 --> 00:01:22,000
+Vamos ahora
+a verificar este comportamiento,
 
 29
-00:01:32,000 --> 00:01:36,800
-And what we will do
-is instantly test this behavior.
+00:01:22,320 --> 00:01:24,760
+así que creamos nuestra clase de test.
 
 30
-00:01:37,120 --> 00:01:39,520
-Go over to your Class,
+00:01:25,080 --> 00:01:27,920
+Ya,
+te quito los otros paquetes.
 
 31
-00:01:41,040 --> 00:01:42,840
-we are going to write "DieTest",
+00:01:28,240 --> 00:01:31,520
+Creamos nuestra clase de test
+que se llamará "DieTest",
 
 32
-00:01:43,520 --> 00:01:45,600
-to be a subclass of "TestCase",
+00:01:31,880 --> 00:01:33,960
+que es una subclase
+de "TestCase", esta vez,
 
 33
-00:01:46,160 --> 00:01:49,360
-we do not need this anymore,
-and save everything.
+00:01:34,280 --> 00:01:37,720
+pero no tendremos necesidad
+de la instancia "faces".
 
 34
-00:01:49,960 --> 00:01:52,400
-OK, we have our "DieTest", we will write
+00:01:38,040 --> 00:01:39,560
+Podemos guardar, Cmd+S.
 
 35
-00:01:54,280 --> 00:01:57,760
-our "testInitializationIsOk".
+00:01:39,880 --> 00:01:42,440
+Nuestra clase de test está ahí,
+podemos escribir nuestro test :
 
 36
-00:01:58,600 --> 00:02:00,280
-So, what do we need to test?
+00:01:42,760 --> 00:01:47,080
+"testInitializationsIsOk".
 
 37
-00:02:00,600 --> 00:02:05,200
-We need to create dice,
-so "d = Die new"
+00:01:47,400 --> 00:01:49,640
+Muy bien.
+En este test, ¿qué haremos?
 
 38
-00:02:05,520 --> 00:02:06,760
-and we would like to check
+00:01:49,960 --> 00:01:52,040
+Pondremos
+una variable de instancia temporal, "d",
 
 39
-00:02:07,080 --> 00:02:13,720
-that the number of faces of d
-is actually equal to 6.
+00:01:52,360 --> 00:01:55,120
+va a ser nuestro dado,
+que vamos a inicializar.
 
 40
-00:02:15,200 --> 00:02:17,240
-"Faces" is in red
-because we have not defined it
+00:01:56,040 --> 00:02:01,560
+Y verificaremos
+que el número de caras de nuestro dado
 
 41
-00:02:17,560 --> 00:02:18,640
-but as we saw last week,
+00:02:01,880 --> 00:02:02,960
+vale seis.
 
 42
-00:02:18,960 --> 00:02:22,080
-this is fine, the debugger will handle it
-so let's just save it
+00:02:03,480 --> 00:02:05,840
+Vemos que el método "faces"
+está escrito en rojo,
 
 43
-00:02:22,400 --> 00:02:24,200
-and then, run the test.
+00:02:06,160 --> 00:02:08,200
+porque es un accesorio
+que no fue definido,
 
 44
-00:02:25,000 --> 00:02:28,040
-"Faces" has not been understood,
-that is fine
+00:02:08,520 --> 00:02:11,200
+pero, como vimos en
+el redo de la semana pasada,
 
 45
-00:02:28,400 --> 00:02:30,080
-because we will just create it right now.
+00:02:11,520 --> 00:02:13,280
+el depurador
+se puede ocupar de esto por nosotros.
 
 46
-00:02:30,400 --> 00:02:32,800
-Create in the Class Die
+00:02:13,600 --> 00:02:16,280
+Guardamos. Hay un mensaje
+de error, pero no importa.
 
 47
-00:02:33,440 --> 00:02:37,880
-under the "accessing" protocol. OK.
+00:02:16,600 --> 00:02:19,320
+Lanzamos nuestro test
+cliqueando sobre el botón.
 
 48
-00:02:38,680 --> 00:02:43,000
-This is exactly what we want,
-the default behavior of the getter.
+00:02:19,640 --> 00:02:20,840
+On clique sur Create.
 
 49
-00:02:43,320 --> 00:02:45,040
-Let's press "Proceed".
+00:02:21,160 --> 00:02:23,440
+On va le définir dans la classe "#Die"
 
 50
-00:02:46,280 --> 00:02:49,520
-Our test passed,
-so we can just click there
+00:02:23,760 --> 00:02:27,440
+sous le protocole "accessing".
 
 51
-00:02:50,360 --> 00:02:51,280
-and now it is refreshed.
+00:02:27,760 --> 00:02:28,720
+OK.
 
 52
-00:02:51,600 --> 00:02:52,720
-Our test passed.
+00:02:29,040 --> 00:02:31,280
+Il nous propose déjà un corps
+de méthode qui est correct.
 
 53
-00:02:53,280 --> 00:02:57,240
-So, right now, what we can write
-and what we will need
+00:02:31,600 --> 00:02:32,840
+C'est un simple guetteur.
 
 54
-00:02:57,560 --> 00:02:59,680
-is a way to roll our dice.
+00:02:33,160 --> 00:02:35,480
+On clique sur Proceed,
+notre test est vert.
 
 55
-00:03:00,080 --> 00:03:02,880
-Let's go over there
-and write a "roll" method.
+00:02:37,840 --> 00:02:39,200
+Je vais juste rafraîchir. Voilà.
 
 56
-00:03:03,200 --> 00:03:04,360
-What we will use
+00:02:39,520 --> 00:02:41,800
+On voit que la méthode
+est maintenant reconnue.
 
 57
-00:03:05,280 --> 00:03:06,920
-is "faces atRandom".
+00:02:42,120 --> 00:02:43,320
+Notre test est vert.
 
 58
-00:03:07,240 --> 00:03:12,160
-Basically, we would like to get a result
-from 1 to the number of faces.
+00:02:43,840 --> 00:02:46,360
+On va pouvoir définir un lancer de dé.
 
 59
-00:03:12,480 --> 00:03:14,840
-Let's look into the Playground.
+00:02:46,680 --> 00:02:48,000
+Pour définir un lancer de dé,
 
 60
-00:03:15,520 --> 00:03:17,840
-If I write 6 atRandom,
+00:02:48,320 --> 00:02:50,800
+on fait ça via une méthode
+qui s'appelle "roll".
 
 61
-00:03:18,920 --> 00:03:20,640
-double-click, Cmd+P,
+00:02:51,120 --> 00:02:53,880
+Le comportement de cette méthode,
+c'est simplement
 
 62
-00:03:21,520 --> 00:03:25,040
-you can see that it output
-a result from 1 to 6.
+00:02:54,200 --> 00:02:56,520
+de renvoyer le nombre de faces
+"atRandom".
 
 63
-00:03:25,360 --> 00:03:29,400
-This is exactly the behavior
-we would like to use for our dice.
+00:02:56,840 --> 00:02:59,480
+La méthode "atRandom",
+qu'est-ce qu'elle fait ?
 
 64
-00:03:29,800 --> 00:03:33,800
-This is our roll function
-that we will save by pressing Cmd+S.
+00:02:59,800 --> 00:03:01,560
+Je vous montre ça dans un Playground.
 
 65
-00:03:34,520 --> 00:03:36,000
-We will test it right away,
+00:03:01,880 --> 00:03:05,000
+Donc, si je fais "6 atRandom"
 
 66
-00:03:36,320 --> 00:03:39,160
-so "testRolling".
+00:03:05,320 --> 00:03:07,720
+et que j'imprime le résultat,
+Cmd+P,
 
 67
-00:03:39,920 --> 00:03:43,760
-And what is good practice
-for random behavior
+00:03:08,040 --> 00:03:10,760
+on a trois, cinq, six, six, un.
 
 68
-00:03:44,080 --> 00:03:48,360
-is to repeat the test
-on the random result,
+00:03:11,080 --> 00:03:15,320
+On peut voir
+que ça va nous rendre, en résultat,
 
 69
-00:03:48,680 --> 00:03:50,680
-so "timesRepeat:" is the way to go.
+00:03:15,640 --> 00:03:16,920
+un entier entre un
 
 70
-00:03:51,000 --> 00:03:53,640
-This method is applied to a number
+00:03:17,240 --> 00:03:21,040
+et le chiffre sur lequel on va
+envoyer la méthode "atRandom".
 
 71
-00:03:53,960 --> 00:03:57,960
-and this means it will repeat 10 times
-the thing we will get.
+00:03:21,360 --> 00:03:24,360
+C'est exactement le comportement
+qu'on souhaite pour notre dé.
 
 72
-00:03:58,680 --> 00:04:01,560
-What we will give to this method
-is a code block,
+00:03:24,680 --> 00:03:26,400
+On peut sauvegarder ça, Cmd+S.
 
 73
-00:04:01,880 --> 00:04:04,560
-so basically,
-it will be between brackets.
+00:03:26,720 --> 00:03:29,080
+La méthode "roll" est là,
+on va maintenant la tester.
 
 74
-00:04:05,000 --> 00:04:07,040
-We will write "self assert"
+00:03:29,400 --> 00:03:33,400
+Pour la tester,
+on va écrire "testRolling",
 
 75
-00:04:07,360 --> 00:04:10,320
-and what we would like to assert
-is basically
+00:03:33,720 --> 00:03:35,480
+et pour tester
+un comportement aléatoire,
 
 76
-00:04:11,240 --> 00:04:16,840
-that the roll of a dice
-is between 1 and 6.
+00:03:35,800 --> 00:03:40,040
+ce qui est bien,
+c'est d'utiliser la répétition.
 
 77
-00:04:17,960 --> 00:04:21,600
-This means it will check
-for the result of a dice
+00:03:40,720 --> 00:03:43,800
+Ce qu'on va faire,
+c'est "10 timesRepeat",
 
 78
-00:04:21,920 --> 00:04:24,320
-to be between 1 and 6 with the "assert"
+00:03:44,120 --> 00:03:47,160
+c'est-à-dire qu'il va répéter 10 fois.
 
 79
-00:04:24,640 --> 00:04:27,040
-and it will repeat this check 10 times
+00:03:47,480 --> 00:03:51,120
+Cette méthode "timesRepeat"
+attend un bloc de code à exécuter.
 
 80
-00:04:27,360 --> 00:04:29,200
-so let's save it, run it,
+00:03:51,440 --> 00:03:53,600
+Donc, on va exécuter 10 fois,
 
 81
-00:04:29,800 --> 00:04:31,160
-and if you are not confident
+00:03:53,920 --> 00:03:58,000
+on va vérifier
+que le résultat de "d roll"
 
 82
-00:04:31,480 --> 00:04:34,880
-in the number of times
-you tested your random behavior,
+00:03:58,320 --> 00:04:02,600
+va être compris entre un et six.
 
 83
-00:04:35,280 --> 00:04:38,880
-you might increment it up to 100
-for example, save it, run it.
+00:04:02,920 --> 00:04:05,080
+Donc, si je recommence,
 
 84
-00:04:39,200 --> 00:04:42,040
-Everything is running,
-we have a good start,
+00:04:05,400 --> 00:04:07,680
+on va créer
+notre variable temporaire "d",
 
 85
-00:04:42,360 --> 00:04:45,680
-it is a good time to save our repository.
+00:04:08,000 --> 00:04:09,000
+qui va être notre dé,
 
 86
-00:04:46,000 --> 00:04:47,880
-Let's go over to Iceberg.
+00:04:09,320 --> 00:04:12,600
+puis on va répéter
+avec "timesRepeat" 10 fois
 
 87
-00:04:48,920 --> 00:04:52,200
-Let's go to Add,
-we will save the project under "Dice".
+00:04:12,920 --> 00:04:13,840
+ce bloc de code.
 
 88
-00:04:52,520 --> 00:04:53,320
-OK.
+00:04:14,160 --> 00:04:16,520
+Ce bloc de code va vérifier
 
 89
-00:04:54,960 --> 00:04:56,440
-Double-click on the project,
+00:04:16,840 --> 00:04:21,240
+que le résultat de "d roll"
+est bien compris entre un et six.
 
 90
-00:04:57,200 --> 00:04:58,520
-our project "Dice".
+00:04:21,560 --> 00:04:22,800
+Ça va le répéter 10 fois.
 
 91
-00:04:58,840 --> 00:05:02,920
-We will add our Dice package.
+00:04:23,120 --> 00:04:24,040
+On sauvegarde.
 
 92
-00:05:04,040 --> 00:05:04,800
-Add.
+00:04:24,360 --> 00:04:26,200
+On lance notre test.
+Notre test passe.
 
 93
-00:05:05,120 --> 00:05:06,960
-It says that we have uncommitted changes
+00:04:26,520 --> 00:04:27,600
+Si vous n'avez pas confiance
 
 94
-00:05:07,280 --> 00:05:08,520
-so let's commit right away.
+00:04:27,920 --> 00:04:29,480
+dans le nombre de fois
+que vous répétez,
 
 95
-00:05:09,600 --> 00:05:11,960
-"Initial commit", what did we do?
+00:04:29,800 --> 00:04:32,200
+vous pensez que c'est aléatoire
+et que ça peut ne pas marcher,
 
 96
-00:05:12,280 --> 00:05:15,720
-We created "Dice initialization
+00:04:32,520 --> 00:04:34,920
+vous pouvez le faire répéter
+plus de fois, 100 fois.
 
 97
-00:05:17,080 --> 00:05:19,960
-and rolling with tests".
+00:04:35,240 --> 00:04:36,280
+On relance, ça fonctionne.
 
 98
-00:05:20,440 --> 00:05:21,840
-Perfect, press "Commit".
+00:04:36,600 --> 00:04:39,000
+C'est un bon moment
+pour faire notre premier commit.
 
 99
-00:05:23,160 --> 00:05:26,280
-This is our GitHub properties,
-so "QDucasse"
+00:04:39,320 --> 00:04:40,640
+Pour le faire, on se dirige
 
 100
-00:05:28,480 --> 00:05:29,880
-and your email address.
+00:04:40,960 --> 00:04:42,120
+dans Iceberg.
 
 101
-00:05:31,240 --> 00:05:32,040
-Cool.
+00:04:42,880 --> 00:04:44,040
+On clique sur Add.
 
 102
-00:05:33,840 --> 00:05:35,120
-Everything is saved now.
+00:04:44,360 --> 00:04:46,320
+On va l'appeler "Dice".
 
 103
-00:05:36,280 --> 00:05:37,680
-We can just keep it here.
+00:04:46,640 --> 00:04:48,760
+New repository, OK.
 
 104
-00:05:38,000 --> 00:05:39,160
-Keep this one as well,
+00:04:50,000 --> 00:04:52,280
+Notre repository est là,
+on double-clique dessus.
 
 105
-00:05:39,520 --> 00:05:44,120
-and we will write another test
-and the associated method.
+00:04:52,600 --> 00:04:55,680
+On va ajouter le package "Dice".
 
 106
-00:05:44,440 --> 00:05:45,200
-For example,
+00:04:56,760 --> 00:04:58,080
+Add. Très bien.
 
 107
-00:05:45,600 --> 00:05:49,320
-one thing we will need if we need
-a die with 20 faces or with 4 faces
+00:04:58,400 --> 00:05:00,840
+On voit que les changements
+n'ont pas été rajoutés.
 
 108
-00:05:49,640 --> 00:05:51,680
-is a way to specify the number of faces,
+00:05:01,160 --> 00:05:03,400
+Donc, on les rajoute, Commit.
 
 109
-00:05:52,000 --> 00:05:54,760
-for example we will write
-something called:
+00:05:03,720 --> 00:05:05,880
+C'est le moment de faire
+une description qui a du sens.
 
 110
-00:05:55,080 --> 00:05:56,800
-"CreationIsOk".
+00:05:06,200 --> 00:05:07,280
+"Initial commit :
 
 111
-00:05:57,120 --> 00:05:58,280
-And remove this.
+00:05:07,600 --> 00:05:13,280
+Die initialization
+and rolling with test."
 
 112
-00:05:59,040 --> 00:06:04,040
-I would like to have a method that
-I can call like this: "withFaces: 20"
+00:05:13,600 --> 00:05:15,280
+On a toutes les informations.
 
 113
-00:06:04,360 --> 00:06:05,480
-and I would like to assert
+00:05:15,600 --> 00:05:16,440
+Commit.
 
 114
-00:06:06,000 --> 00:06:11,080
-that my number of faces is equal to 20.
+00:05:16,760 --> 00:05:22,480
+Votre nom et adresse mail de GitHub.
 
 115
-00:06:11,920 --> 00:06:13,440
-How do I handle this?
+00:05:26,760 --> 00:05:29,760
+Voilà, le premier commit
+de notre package est fait.
 
 116
-00:06:13,760 --> 00:06:16,240
-You can see it is written in red
-but as we saw last week,
+00:05:30,080 --> 00:05:34,480
+C'est très bien, on va pouvoir
+garder Iceberg sous la main, ici.
 
 117
-00:06:16,560 --> 00:06:19,800
-we will let the debugger handle it
-so press Cmd+S.
+00:05:34,800 --> 00:05:37,040
+Et on va ajouter un nouveau test
 
 118
-00:06:20,640 --> 00:06:21,400
-Run it.
+00:05:37,360 --> 00:05:41,360
+qu'on va appeler "testCreationIsOk".
 
 119
-00:06:21,720 --> 00:06:25,040
-The method "withFaces"
-has not been understood
+00:05:41,680 --> 00:05:42,600
+Que va faire ce test ?
 
 120
-00:06:25,360 --> 00:06:27,440
-so let's press "Create".
+00:05:42,920 --> 00:05:43,960
+On aimerait créer un dé
 
 121
-00:06:27,760 --> 00:06:29,880
-We will define "withFaces"
-in the die Class.
+00:05:44,280 --> 00:05:46,880
+avec une méthode
+qui s'appellerait "withFaces: 20".
 
 122
-00:06:30,200 --> 00:06:35,520
-"Die Class",
-under the instance creation protocol.
+00:05:47,240 --> 00:05:49,440
+Et on aimerait que...
 
 123
-00:06:36,320 --> 00:06:37,120
-OK.
+00:05:50,720 --> 00:05:57,240
+"self assert: d Faces equals: 20".
 
 124
-00:06:37,920 --> 00:06:40,160
-This time,
-it does know how to handle it
+00:05:57,560 --> 00:06:00,240
+On aimerait définir cette méthode
+de classe "withFaces"
 
 125
-00:06:40,480 --> 00:06:42,480
-so we will write for it:
+00:06:00,560 --> 00:06:02,200
+qui serait capable de prendre un entier
 
 126
-00:06:43,680 --> 00:06:44,560
-"d"...
+00:06:02,520 --> 00:06:05,760
+et de nous sortir un dé
+qui a ce nombre de faces en sortie.
 
 127
-00:06:45,240 --> 00:06:49,560
-"d" will be our new dice
-and I would like it
+00:06:06,080 --> 00:06:08,440
+On pourrait aller ici
+et la faire du côté classe,
 
 128
-00:06:49,880 --> 00:06:55,160
-to have the number we provided
-as faces,
+00:06:08,760 --> 00:06:10,520
+mais on va le faire
+dans le débogueur.
 
 129
-00:06:55,800 --> 00:06:56,640
-"d faces",
+00:06:10,840 --> 00:06:13,320
+Cmd+S, on lance la création,
+on lance le test
 
 130
-00:06:56,960 --> 00:06:59,440
-and just give us d.
+00:06:13,640 --> 00:06:15,040
+et on va cliquer sur Create.
 
 131
-00:07:00,560 --> 00:07:01,720
-Cmd+S.
+00:06:15,360 --> 00:06:18,040
+On va créer notre méthode "withFaces"
 
 132
-00:07:02,520 --> 00:07:03,840
-We will proceed.
+00:06:18,360 --> 00:06:21,560
+du côté classe de dé,
+et on va la classer
 
 133
-00:07:04,440 --> 00:07:06,440
-"Faces:" has not been understood.
+00:06:21,880 --> 00:06:25,120
+dans le protocole Instance creation.
 
 134
-00:07:06,760 --> 00:07:09,320
-This is because we have not defined
-the setter.
-
-135
-00:07:09,640 --> 00:07:12,400
-So, let's create it in Die
-
-136
-00:07:13,160 --> 00:07:16,280
-under the accessing protocol.
-
-137
-00:07:16,600 --> 00:07:17,360
+00:06:25,440 --> 00:06:26,200
 OK.
 
+135
+00:06:26,520 --> 00:06:28,120
+Donc, on a notre corps de méthode.
+
+136
+00:06:28,440 --> 00:06:31,360
+Cette fois-ci, il ne sait pas
+comment l'interpréter.
+
+137
+00:06:31,680 --> 00:06:34,680
+Donc, on va créer
+une variable temporaire
+
 138
-00:07:17,680 --> 00:07:18,920
-This time, it recognize it
+00:06:35,000 --> 00:06:36,960
+dans laquelle on va mettre un dé,
 
 139
-00:07:19,240 --> 00:07:22,520
-so "faces : = anInteger",
-that is perfect.
+00:06:37,280 --> 00:06:42,160
+et ensuite, on va utiliser
+notre accesseur setter "faces",
 
 140
-00:07:22,840 --> 00:07:23,600
-Let's proceed.
+00:06:42,480 --> 00:06:45,440
+qu'on n'a pas encore défini, mais
+qui va se définir automatiquement.
 
 141
-00:07:24,040 --> 00:07:24,840
-It is red,
+00:06:45,760 --> 00:06:49,920
+On va lui passer "anInteger"
+et on va rendre "d".
 
 142
-00:07:25,160 --> 00:07:28,960
-but if we click on it again,
-it is green, so that is perfect.
+00:06:50,240 --> 00:06:51,840
+Très bien, on peut sauvegarder ça.
 
 143
-00:07:29,560 --> 00:07:31,800
-You can see that now we have three tests,
+00:06:52,160 --> 00:06:54,000
+Même si le message "faces:"
+n'est pas compris,
 
 144
-00:07:32,120 --> 00:07:35,920
-we have the basic functionalities
-of our Dice running, up and ready,
+00:06:54,320 --> 00:06:56,640
+le débogueur va nous aider
+à le prendre en compte.
 
 145
-00:07:36,240 --> 00:07:40,200
-so it is a good time to save everything
-on our repository,
+00:06:56,960 --> 00:06:58,720
+On peut cliquer sur Proceed.
 
 146
-00:07:40,520 --> 00:07:43,120
-so it is there or we can see it there.
+00:06:59,040 --> 00:07:01,600
+Cette fois-ci, c'est "faces:"
+qui n'a pas été compris
 
 147
-00:07:43,600 --> 00:07:44,560
-Let's just commit
+00:07:01,920 --> 00:07:03,360
+car on ne l'a pas défini.
 
 148
-00:07:44,880 --> 00:07:45,840
-and we will write:
+00:07:03,680 --> 00:07:06,080
+On clique sur Create,
+on va aller dans "Die".
 
 149
-00:07:46,160 --> 00:07:53,320
-"Class method to specify
-the number of faces with test."
+00:07:06,400 --> 00:07:10,800
+On va faire "accessing". OK.
 
 150
-00:07:53,920 --> 00:07:54,680
-Cool.
+00:07:11,480 --> 00:07:13,480
+"faces := amInteger".
 
 151
-00:07:55,080 --> 00:07:55,840
-"Commit".
+00:07:13,800 --> 00:07:15,720
+C'est parfait,
+c'est le setter qu'il nous faut.
 
 152
-00:07:56,160 --> 00:07:59,400
-Right now, we have
-all the basic functionalities of our die
+00:07:16,040 --> 00:07:16,880
+On peut proceed.
 
 153
-00:07:59,720 --> 00:08:03,360
-and we will see in the next part
-how we can handle a dice handle
+00:07:17,200 --> 00:07:19,920
+La méthode est rouge,
+mais si on la reset, elle est verte.
 
 154
-00:08:03,680 --> 00:08:06,920
-and how we can handle
-multiple dice together.
+00:07:20,240 --> 00:07:24,520
+On a maintenant nos trois tests
+qui sont écrits, qui fonctionnent.
+
+155
+00:07:24,840 --> 00:07:27,320
+On peut les réexécuter.
+C'est le moment de sauvegarder.
+
+156
+00:07:27,640 --> 00:07:29,920
+On retourne dans Iceberg,
+que j'ai gardé ici.
+
+157
+00:07:30,240 --> 00:07:34,680
+On va dans Uncommitted changes,
+on double-clique, Commit.
+
+158
+00:07:37,680 --> 00:07:42,600
+"Class method for instance creation."
+
+159
+00:07:43,640 --> 00:07:45,200
+Très bien, on peut commit.
+
+160
+00:07:45,520 --> 00:07:47,800
+On a notre dé
+qui est plutôt fonctionnel.
+
+161
+00:07:48,120 --> 00:07:50,320
+On peut lui passer
+le nombre de faces qu'on veut,
+
+162
+00:07:50,640 --> 00:07:54,360
+on peut lui demander de rouler
+et on a les tests associés.
+
+163
+00:07:54,680 --> 00:07:56,440
+Voilà la fin de cette première partie.
+
+164
+00:07:56,760 --> 00:07:59,160
+Dans la deuxième, on va
+s'intéresser à la poignée de dés
+
+165
+00:07:59,480 --> 00:08:01,280
+et au comportement
+qu'on veut qu'elle ait.
+

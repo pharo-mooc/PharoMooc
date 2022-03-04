@@ -1,830 +1,785 @@
-1
-00:00:06,160 --> 00:00:09,480
--Hi. In this second video
-of the redo of week 3,
+﻿1
+00:00:00,360 --> 00:00:00,400
+"Implementación de una tirada de dado"
 
 2
-00:00:09,800 --> 00:00:13,480
-we are going to look at how to implement
-the DieHandle we were talking about.
+00:00:04,560 --> 00:00:04,600
+Quentin Ducasse.
 
 3
-00:00:13,960 --> 00:00:19,200
-Basically, we would like the handle API
-to be "DieHandle new".
+00:00:04,640 --> 00:00:07,840
+-Buenos días a todos. En esta parte
+dos del "Redo" de la tercera semana,
 
 4
-00:00:20,160 --> 00:00:21,360
-"DieHandle new".
+00:00:08,160 --> 00:00:09,880
+miraremos el juego de dados
 
 5
-00:00:21,840 --> 00:00:24,400
-We would like to add some die to it,
-so "addDie:",
+00:00:10,200 --> 00:00:13,560
+presentado en el último video
+y cómo implementarlo.
 
 6
-00:00:24,720 --> 00:00:27,680
-for example, one with six faces.
+00:00:13,880 --> 00:00:17,760
+Así, la API que deseamos tener
+se parece a esto.
 
 7
-00:00:29,160 --> 00:00:31,360
-And another one with...
+00:00:18,080 --> 00:00:20,960
+Vamos a tener "DieHandle new",
+para crearlo.
 
 8
-00:00:32,560 --> 00:00:34,320
-ten faces, for example.
+00:00:21,280 --> 00:00:24,920
+Agregamos un dado
+a nuestra tirada de dado con "addDie".
 
 9
-00:00:34,920 --> 00:00:37,280
-"10" and "yourself".
+00:00:25,240 --> 00:00:31,640
+Necesitamos el dado que queremos agregar: 
+"Die withFaces: 6".
 
 10
-00:00:38,480 --> 00:00:39,240
-Cool.
+00:00:31,960 --> 00:00:36,520
+Queremos agregar varios dados
+con el mismo método,
 
 11
-00:00:39,560 --> 00:00:42,920
-Basically, what this piece of code does
+00:00:36,840 --> 00:00:39,800
+pero puede ser un número de caras
+diferente, 10,
 
 12
-00:00:43,520 --> 00:00:46,480
-is create an instance
-of DieHandle class.
+00:00:40,120 --> 00:00:41,840
+y devolvemos esta instancia.
 
 13
-00:00:47,120 --> 00:00:49,800
-This instance will receive
-the message "addDie",
+00:00:42,160 --> 00:00:43,280
+Esta que se pasa aquí,
 
 14
-00:00:50,120 --> 00:00:52,040
-so I would like to add a Die
-to a handle
+00:00:43,600 --> 00:00:45,840
+es que la primera línea
+nos va a crear una instancia,
 
 15
-00:00:53,000 --> 00:00:54,480
-with six faces, for example.
+00:00:46,160 --> 00:00:49,080
+una tirada de dados, a la cual
+vamos a agregar un dado de seis caras.
 
 16
-00:00:55,240 --> 00:00:57,400
-This symbol right there will say
+00:00:49,400 --> 00:00:52,440
+El ";" significa que el mensaje
+siguiente será enviado
 
 17
-00:00:57,800 --> 00:01:01,520
-that the next message will be sent
-to the same receiver as the previous one.
+00:00:52,760 --> 00:00:54,400
+al mismo receptor
+que el mensaje anterior.
 
 18
-00:01:01,840 --> 00:01:05,600
-Basically, this message there
-will be sent to the same receiver
+00:00:54,720 --> 00:00:56,880
+Queremos decir que "addDie" con 10 caras
 
 19
-00:01:05,920 --> 00:01:07,280
-as this message there,
+00:00:57,200 --> 00:00:59,720
+será enviado al mismo receptor
+que "addDie" con seis caras,
 
 20
-00:01:07,600 --> 00:01:09,880
-that is the instance of DieHandle.
+00:01:00,040 --> 00:01:02,160
+es decir la instancia tirada de dados.
 
 21
-00:01:10,520 --> 00:01:15,480
-We will send "addDie" twice
-to the instance of a handle,
+00:01:02,480 --> 00:01:04,840
+Un nuevo ";",
+esta vez aquí, devolvemos la instancia.
 
 22
-00:01:16,160 --> 00:01:18,000
-once with a Die with six faces
+00:01:05,160 --> 00:01:07,760
+Entonces, vamos a implementar todo esto.
 
 23
-00:01:18,320 --> 00:01:20,560
-and another time
-with a Die with ten faces.
+00:01:08,080 --> 00:01:10,720
+Comenzamos implementando
+la clase del test,
 
 24
-00:01:20,880 --> 00:01:22,960
-"Yourself" will output the instance.
+00:01:11,040 --> 00:01:12,440
+"#DieHandleTest".
 
 25
-00:01:23,320 --> 00:01:24,960
-Let's write this.
+00:01:12,760 --> 00:01:14,040
+Guardamos.
 
 26
-00:01:25,720 --> 00:01:28,800
-We will go to DieTest and...
+00:01:14,360 --> 00:01:21,160
+Vamos aquí: 
+"testCreationAndAddingIsOk".
 
 27
-00:01:30,240 --> 00:01:32,600
-create "DieHandleTest".
+00:01:21,480 --> 00:01:24,920
+Queremos lo mismo
+que pudimos hacer aquí.
 
 28
-00:01:33,240 --> 00:01:34,160
-Save it.
+00:01:25,240 --> 00:01:26,080
+Copiaré esto,
 
 29
-00:01:34,560 --> 00:01:36,640
-The first test method
-we would like to make
+00:01:26,400 --> 00:01:29,120
+excepto que necesitamos tener
+una variable temporal
 
 30
-00:01:36,960 --> 00:01:39,480
-is "testCreationAndAdding".
+00:01:29,440 --> 00:01:31,880
+que llamaremos "handle".
 
 31
-00:01:40,200 --> 00:01:41,640
-Basically, we will use that,
+00:01:32,200 --> 00:01:34,240
+Listo, arreglé la tabulación.
 
 32
-00:01:42,120 --> 00:01:44,760
-but we will need a temporary variable,
+00:01:35,840 --> 00:01:36,600
+Un punto.
 
 33
-00:01:45,080 --> 00:01:46,600
-so "handle".
+00:01:36,920 --> 00:01:39,680
+Que verificaremos,
+es el número de dados
 
 34
-00:01:47,680 --> 00:01:50,480
-And right there, "handle ="...
+00:01:40,000 --> 00:01:45,640
+en nuestra tirada de dados: 
+"handle diceNumber equals: 2".
 
 35
-00:01:50,960 --> 00:01:53,320
-I will tab everything. Dot.
+00:01:45,960 --> 00:01:47,720
+Aún no hemos definido nada.
 
 36
-00:01:53,640 --> 00:01:57,040
-And then, we will test
-the number of dices in the handle.
+00:01:48,040 --> 00:01:49,960
+Muchas cosas no se entienden,
 
 37
-00:01:57,360 --> 00:02:00,080
-So, "handle diceNumber", for example,
+00:01:50,280 --> 00:01:53,240
+como "dieHandle",
+los métodos "addDie", "diceNumber".
 
 38
-00:02:01,280 --> 00:02:03,000
-"DiceNumber equals: 2".
+00:01:53,560 --> 00:01:55,760
+Los definiremos más tarde.
+Guardamos.
 
 39
-00:02:03,320 --> 00:02:04,520
-We have not defined anything
+00:01:56,080 --> 00:01:58,800
+La clase no es entendida,
+debemos definirla
 
 40
-00:02:04,840 --> 00:02:07,800
-but do not worry,
-we will do it right away. Cmd+S.
+00:01:59,120 --> 00:02:02,800
+con una variable de instancia,
+que será la colección de dados
 
 41
-00:02:08,120 --> 00:02:09,040
-OK.
+00:02:03,120 --> 00:02:06,840
+que son entendidos
+en esta tirada de dados.
 
 42
-00:02:09,360 --> 00:02:13,080
-And then, Define new class,
-because we have not defined the handle.
+00:02:07,160 --> 00:02:10,200
+OK. Los mensajes no se entienden,
+pero está bien.
 
 43
-00:02:13,720 --> 00:02:17,680
-And we would like to add
-the dice instance variable.
+00:02:10,520 --> 00:02:17,600
+Creamos otro test:
+"testCreationWithTheSameDie".
 
 44
-00:02:18,000 --> 00:02:22,000
-This is a collection that will hold
-all the dice we have added to the handle.
+00:02:17,920 --> 00:02:19,120
+¿Qué haremos?
 
 45
-00:02:22,480 --> 00:02:23,240
-OK.
+00:02:19,440 --> 00:02:25,040
+Creamos nuestra tirada de dados
+de la misma forma, listo.
 
 46
-00:02:23,680 --> 00:02:26,560
-We have some red messages,
-but that is fine.
+00:02:25,360 --> 00:02:28,680
+Excepto que esta vez, 
+simplemente verificaremos
 
 47
-00:02:26,880 --> 00:02:31,760
-We will write another test,
-"CreationWithTheSameDice".
+00:02:29,000 --> 00:02:30,160
+que si agregamos una
 
 48
-00:02:33,000 --> 00:02:35,480
-So, what we will do there is...
+00:02:30,480 --> 00:02:35,000
+nos devuelve un dado
+dentro de la colección,
 
 49
-00:02:35,920 --> 00:02:38,880
-I will write this on the same line,
-remove that.
+00:02:35,320 --> 00:02:36,840
+pero si agregamos un segundo,
 
 50
-00:02:39,360 --> 00:02:42,480
-We will add twice the same dice.
+00:02:37,160 --> 00:02:39,200
+no necesitaremos reinstanciarlo.
 
 51
-00:02:42,800 --> 00:02:43,600
-So, dot.
+00:02:39,520 --> 00:02:41,520
+Agregamos un segundo dado del mismo tipo.
 
 52
-00:02:44,040 --> 00:02:46,840
-We will check
-that the first time, it equals 1
+00:02:41,840 --> 00:02:43,440
+Queremos que sea igual a dos.
 
 53
-00:02:47,160 --> 00:02:49,200
-and the second time, it equals 2.
+00:02:43,760 --> 00:02:44,520
+Guardamos.
 
 54
-00:02:50,160 --> 00:02:52,680
-We do not need to reinstantiate it.
+00:02:44,840 --> 00:02:47,760
+Tenemos nuestro test. Si hago click aquí,
+se abrirá el depurador.
 
 55
-00:02:53,000 --> 00:02:54,360
-So, "handle addDie",
+00:02:48,080 --> 00:02:50,960
+Esta vez, lo vamos a crear
+a mano, en la clase.
 
 56
-00:02:54,680 --> 00:02:56,760
-we will add another die with six faces.
+00:02:51,280 --> 00:02:52,480
+Iremos aquí.
 
 57
-00:02:57,080 --> 00:02:59,640
-This time, we would like
-to have "diceNumber equals: 2".
+00:02:52,800 --> 00:02:55,080
+Creamos un método
+"initialize"
 
 58
-00:03:00,040 --> 00:03:00,960
-OK, cool.
+00:02:55,400 --> 00:02:58,400
+que enviará "super initialize",
 
 59
-00:03:01,280 --> 00:03:03,480
-If we execute the test right away,
+00:02:58,720 --> 00:03:00,720
+las inicializaciones de la super clase.
 
 60
-00:03:03,800 --> 00:03:05,400
-we can see that the Debugger opens
+00:03:01,040 --> 00:03:05,560
+Luego inicializamos
+nuestra variable de instancia "dice"
 
 61
-00:03:05,720 --> 00:03:07,880
-and nothing is implemented,
-so that is normal.
+00:03:05,880 --> 00:03:10,040
+a una colección "new".
 
 62
-00:03:08,200 --> 00:03:12,000
-We will go over to the Class
-and go to Inst. side method.
+00:03:10,360 --> 00:03:11,360
+Guardamos.
 
 63
-00:03:12,320 --> 00:03:15,160
-First, we will write
-an "initialize" method.
+00:03:11,680 --> 00:03:13,600
+Debemos agregar
+el método para agregar un dado :
 
 64
-00:03:15,480 --> 00:03:16,400
-So, "initialize",
+00:03:13,920 --> 00:03:15,880
+"addDie: aDie".
 
 65
-00:03:17,360 --> 00:03:19,640
-call "super initialize".
+00:03:16,200 --> 00:03:19,720
+Lo que haremos es
+llamar el método "add"
 
 66
-00:03:19,960 --> 00:03:23,280
-And then,
-give to the dice instance variable
+00:03:20,040 --> 00:03:22,440
+sobre nuestra variable de instancia "dice".
 
 67
-00:03:23,600 --> 00:03:25,600
-the value of a new "OrderedCollection".
+00:03:22,760 --> 00:03:23,640
+Guardamos.
 
 68
-00:03:25,960 --> 00:03:30,760
-Now, we need to add a die.
-So, "addDie: aDie".
+00:03:23,960 --> 00:03:27,280
+Lo que nos falta,
+es el getter "dice",
 
 69
-00:03:31,080 --> 00:03:34,800
-What we will do is simply call "add"
-on the dice collection,
+00:03:27,600 --> 00:03:30,480
+que devolverá simplemente "dice",
 
 70
-00:03:35,120 --> 00:03:36,360
-so "add: aDie".
+00:03:30,800 --> 00:03:33,520
+y "diceNumber",
+que usamos en nuestro test,
 
 71
-00:03:37,280 --> 00:03:38,200
-Save this.
+00:03:33,840 --> 00:03:37,400
+que devolverá la cantidad de "dice",
+entonces "dice size".
 
 72
-00:03:38,720 --> 00:03:41,880
-We will need a getter of our dice
-and instance variables,
+00:03:37,720 --> 00:03:38,480
+Guardamos.
 
 73
-00:03:42,200 --> 00:03:44,120
-so "dice".
+00:03:38,800 --> 00:03:41,360
+Tenemos nuestros cuatro métodos,
+y si re-lanzamos los tests,
 
 74
-00:03:44,440 --> 00:03:45,800
-Save this.
+00:03:41,680 --> 00:03:42,480
+serán verdes.
 
 75
-00:03:46,280 --> 00:03:48,200
-And finally, "diceNumber".
+00:03:42,800 --> 00:03:45,200
+Es un buen momento
+para guardar nuestro repositorio.
 
 76
-00:03:48,720 --> 00:03:52,720
-"DiceNumber" that will return
-for size of the dice collection.
+00:03:45,520 --> 00:03:47,240
+Vamos a Iceberg.
 
 77
-00:03:53,360 --> 00:03:54,120
-Save.
+00:03:48,440 --> 00:03:52,840
+Puedes ver que nuestro repositorio
+no está guardado.
 
 78
-00:03:54,440 --> 00:03:55,760
-We have got our four methods.
+00:03:53,160 --> 00:03:55,080
+Los cambios
+no fueron enviados,
 
 79
-00:03:56,080 --> 00:03:58,120
-If we run our tests again,
-they are now green.
+00:03:55,400 --> 00:03:58,360
+entonces hacmeos doble-click aquí,
+click en Commit,
 
 80
-00:03:58,440 --> 00:04:00,320
-It is a great time to save,
-so go to Tools,
+00:03:58,680 --> 00:04:04,360
+y dirá:
+"DieHandle first methods with tests".
 
 81
-00:04:00,640 --> 00:04:01,600
-Iceberg,
+00:04:04,680 --> 00:04:06,520
+Podemos ver aquí
+todo lo que agregamos,
 
 82
-00:04:02,600 --> 00:04:04,200
-then we can go over to there.
+00:04:06,840 --> 00:04:09,720
+nuestros cuatro métodos, nuestros dos tests,
+hacemos commit.
 
 83
-00:04:04,840 --> 00:04:06,360
-"Uncommitted changes".
+00:04:10,040 --> 00:04:13,120
+Cerramos Iceberg por ahora
+y nos interesaremos
 
 84
-00:04:06,840 --> 00:04:08,680
-I will just repair this.
+00:04:13,440 --> 00:04:15,720
+en los retornos que podemos tener
+como programadores
 
 85
-00:04:09,600 --> 00:04:11,040
-"Checkout branch
+00:04:16,040 --> 00:04:16,840
+sobre los dados aquí.
 
 86
-00:04:11,920 --> 00:04:13,480
-discarding image changes".
+00:04:17,160 --> 00:04:21,800
+Entonces, si hago Cmd+P (Ctrl+P), Print,
+tendremos "aDie".
 
 87
-00:04:13,880 --> 00:04:14,640
-OK.
+00:04:22,120 --> 00:04:25,320
+Aunque es interesante,
+podemos hacerlo mejor.
 
 88
-00:04:16,320 --> 00:04:19,120
-So, we will add everything.
-OK, Checkout.
+00:04:25,640 --> 00:04:27,680
+Podríamos indiquera el número de caras.
 
 89
-00:04:19,440 --> 00:04:20,520
-OK, Commit.
+00:04:28,000 --> 00:04:30,040
+Para cambiar la salida
+que tenemos al hacer "Print",
 
 90
-00:04:20,840 --> 00:04:24,440
-So, normally you should just have
-to commit everything.
+00:04:30,360 --> 00:04:32,080
+es necesario llamar
+al método "printOn:".
 
 91
-00:04:24,760 --> 00:04:28,160
-This is because I am messing around
-with my branches, but it should be fine.
+00:04:32,400 --> 00:04:34,680
+Este método toma un "aStream".
 
 92
-00:04:28,480 --> 00:04:29,640
-Now, it is up-to-date.
+00:04:35,000 --> 00:04:37,560
+Nos gustaría tener algo que,
+al final,
 
 93
-00:04:30,760 --> 00:04:33,480
-And we can go over to there
+00:04:37,880 --> 00:04:44,640
+Nos dé, por ejemplo,
+"a Die (faces number)".
 
 94
-00:04:33,800 --> 00:04:36,880
-and look at the output
-"Die withFaces" gives us.
+00:04:45,880 --> 00:04:46,720
+¿Cómo hacemos eso?
 
 95
-00:04:37,480 --> 00:04:41,600
-If I press Cmd+P or print,
-I can right-click and go to Print it.
+00:04:47,040 --> 00:04:50,000
+Necesitamos que "aDie",
+sea lo que ya tenemos.
 
 96
-00:04:41,920 --> 00:04:43,080
-We can go to "aDie"
+00:04:50,320 --> 00:04:56,720
+Haremos "super printOn: aStream",
 
 97
-00:04:43,400 --> 00:04:46,440
-and if we go to this one,
-it will output "aDie" as well.
+00:04:57,040 --> 00:05:01,400
+y luego,
+haremos "aStream nextPutAll:".
 
 98
-00:04:46,760 --> 00:04:49,120
-While it is kind of useful,
+00:05:01,720 --> 00:05:04,000
+Agregaremos, seguido de eso,
 
 99
-00:04:49,440 --> 00:04:52,920
-we can make it better by, for example,
-displaying the number of faces.
+00:05:04,320 --> 00:05:07,280
+un paréntesis con el número de caras.
 
 100
-00:04:53,320 --> 00:04:54,320
-In order to do so,
+00:05:07,600 --> 00:05:09,320
+Para concatenar
+las cadenas de caracteres,
 
 101
-00:04:54,640 --> 00:04:56,800
-we will go to the die Class
+00:05:09,640 --> 00:05:10,440
+es la coma.
 
 102
-00:04:57,120 --> 00:05:00,520
-and we will write a method
-called "printOn".
+00:05:10,760 --> 00:05:13,520
+"faces print"...
 
 103
-00:05:01,080 --> 00:05:02,680
-"PrintOn: aStream".
+00:05:13,840 --> 00:05:16,400
+Oups, espera,
+hacemos eso sobre la clase equivocada
 
 104
-00:05:03,000 --> 00:05:06,040
-This is a method that is already defined
-but we will extend it,
+00:05:16,720 --> 00:05:18,920
+Lo estamos haciendo
+en "dieHandle".
 
 105
-00:05:06,360 --> 00:05:09,320
-so "super printOn: aStream"
+00:05:19,240 --> 00:05:20,560
+Salimos de esto.
 
 106
-00:05:09,640 --> 00:05:15,040
-because we would like to keep
-the "aDie" thing for now, so "aDie".
+00:05:22,760 --> 00:05:26,480
+Vamos a "Die",
+es aquí que debemos hacer el "printOn:".
 
 107
-00:05:15,360 --> 00:05:17,120
-We would like to add
-the number of faces,
+00:05:26,800 --> 00:05:29,560
+Entonces, el número de faces, "printString".
 
 108
-00:05:17,560 --> 00:05:20,880
-so "aStream nextPutAll:".
+00:05:29,880 --> 00:05:34,280
+Coma, luego vamos a tener
+otra concatenación,
 
 109
-00:05:21,640 --> 00:05:24,520
-We will add an open parenthesis.
+00:05:34,600 --> 00:05:35,520
+paréntesis de cierre.
 
 110
-00:05:24,840 --> 00:05:27,680
-Then, in order to concatenate strings
-in Pharo,
+00:05:35,840 --> 00:05:39,720
+Si guardo esto y observo
+a quién corresponde aquí,
 
 111
-00:05:28,000 --> 00:05:33,480
-you have to use the comma,
-so comma, "faces printString".
+00:05:40,040 --> 00:05:44,760
+tendremos "a Die (6)",
+y aquí, "a Die (10)".
 
 112
-00:05:34,000 --> 00:05:39,320
-this will convert the number of faces
-to a string, comma, closing parenthesis.
+00:05:45,080 --> 00:05:46,640
+Es el comportamiento que buscamos.
 
 113
-00:05:39,640 --> 00:05:44,720
-Now, if I save this, go over to there
-and press Cmd+P,
+00:05:46,960 --> 00:05:48,400
+Es correcto.
 
 114
-00:05:45,040 --> 00:05:48,400
-we can see that we now have a number
-of faces between parentheses,
+00:05:48,720 --> 00:05:50,960
+Ahora, debemos definir
 
 115
-00:05:48,720 --> 00:05:51,840
-so "Die withFaces: 6", 
-"Die withFaces: 10". That is great.
+00:05:51,280 --> 00:05:53,760
+un método
+para lanzar una tirada de dados.
 
 116
-00:05:52,480 --> 00:05:54,600
-What we need to do now
+00:05:54,080 --> 00:05:57,520
+Para hacer esto, hacemos "roll".
 
 117
-00:05:54,920 --> 00:05:57,720
-is to make a "roll" method
-for the DieHandle.
+00:05:57,840 --> 00:05:59,760
+Necesitamos tener el resultado,
 
 118
-00:05:58,040 --> 00:05:59,520
-Basically, how will we do this?
+00:06:00,080 --> 00:06:02,360
+definiremos,
+como una variable temporal.
 
 119
-00:05:59,840 --> 00:06:00,760
-We will do "roll",
+00:06:02,680 --> 00:06:03,920
+La inicializaremos a cero,
 
 120
-00:06:01,080 --> 00:06:03,920
-we need to keep the result
-as a temporary variable,
+00:06:04,240 --> 00:06:06,040
+luego iteraremos
+sobre la colección de dados.
 
 121
-00:06:04,440 --> 00:06:05,880
-initialize it to 0,
+00:06:06,360 --> 00:06:10,440
+Para hacer esto, hacemos "dice",
+nuestra colección de dados, "do:",
 
 122
-00:06:06,480 --> 00:06:09,960
-and then, we need to iterate
-all the dice collection we have
+00:06:10,760 --> 00:06:14,000
+y necesitamos pasar
+un bloque de código entre corchetes.
 
 123
-00:06:10,280 --> 00:06:11,320
-as an instance variable,
+00:06:14,320 --> 00:06:18,160
+Para iterar sobre cada elemento,
+utilizamos ": each",
 
 124
-00:06:11,640 --> 00:06:12,480
-so "dice"
+00:06:18,480 --> 00:06:25,360
+y decimos lo que vamos a hacer: 
+"res := res + each roll".
 
 125
-00:06:13,400 --> 00:06:16,040
-and what we will do
-is call the method "do"
+00:06:27,320 --> 00:06:29,440
+Y debemos devolver el resultado.
 
 126
-00:06:17,200 --> 00:06:20,480
-and then, brackets
-with double dash "each".
+00:06:29,760 --> 00:06:32,680
+Esto va a ser
+nuestro método de lanzar dados
 
 127
-00:06:20,800 --> 00:06:25,600
-This will iterate each member
-of the dice collection
+00:06:33,000 --> 00:06:34,640
+para una tirada.
 
 128
-00:06:26,040 --> 00:06:28,640
-and we will add the result of a roll
+00:06:34,960 --> 00:06:36,800
+Dentro del test,
+Necesitaremos obtener
 
 129
-00:06:28,960 --> 00:06:31,320
-so "res + each roll".
+00:06:37,120 --> 00:06:40,840
+el valor máximo que podemos tener,
+que llamaremos "maxValue".
 
 130
-00:06:32,160 --> 00:06:34,680
-"Do" will iterate
-all the dice collection
+00:06:41,160 --> 00:06:44,760
+Lo que vamos a hacer,
+es que veremos el resultado,
 
 131
-00:06:35,000 --> 00:06:38,640
-and for each of the dice
-within the dice collection,
+00:06:45,080 --> 00:06:48,640
+Iteraremos, pero sin lanzar el dado,
+agregaremos el número de caras.
 
 132
-00:06:38,960 --> 00:06:42,640
-we will roll it and add its results
-to the global result "res".
+00:06:48,960 --> 00:06:52,760
+Listo, tenemos nuestro método "maxValue",
+nuestro método "roll".
 
 133
-00:06:43,240 --> 00:06:45,760
-So, let's write "res". Save this.
+00:06:53,080 --> 00:06:54,520
+Definiremos los tests asociados.
 
 134
-00:06:46,440 --> 00:06:49,080
-For testing purposes,
-we will need a "maxValue".
+00:06:54,840 --> 00:06:56,200
+Aquí vamos.
 
 135
-00:06:50,480 --> 00:06:51,560
-What is the "maxValue"?
+00:06:57,240 --> 00:06:59,120
+"testMaxValue".
 
 136
-00:06:51,880 --> 00:06:56,280
-For example, for our handle there,
-it would be 6 plus 10, so 16.
+00:06:59,440 --> 00:07:05,760
+Verificaremos con nuestro "handle"
+ese, por ejemplo.
 
 137
-00:06:56,600 --> 00:06:59,600
-This is exactly
-what we will do right there.
+00:07:06,080 --> 00:07:07,840
+Pondremos "10".
 
 138
-00:06:59,920 --> 00:07:03,280
-Instead of adding the roll,
-we will add in the number of faces.
+00:07:08,160 --> 00:07:12,640
+Verificamos que "maxValue equals"...
 
 139
-00:07:03,880 --> 00:07:07,480
-Basically, this means this one rolls
-the highest value possible, so 6,
+00:07:12,960 --> 00:07:17,600
+Vamos a verificar que esto da 16
+así que 6 más 10.
 
 140
-00:07:07,800 --> 00:07:09,280
-and this one as well, so 10.
+00:07:17,920 --> 00:07:19,760
+Guardamos, podemos lanzarlo.
 
 141
-00:07:10,360 --> 00:07:11,880
-And this will return the "res".
+00:07:20,080 --> 00:07:24,240
+El test es verde, es correcto.
+Ahora, verificaremos "roll".
 
 142
-00:07:12,200 --> 00:07:14,320
-Save this.
-Now, we will go over to the test.
+00:07:24,560 --> 00:07:26,920
+Utilizaremos la misma tirada de dados
 
 143
-00:07:14,640 --> 00:07:15,880
-First, we will test
+00:07:27,240 --> 00:07:32,960
+y haremos "handle roll between:",
 
 144
-00:07:16,200 --> 00:07:21,040
-the "testMaxValue".
+00:07:33,280 --> 00:07:36,120
+lo haremos entre paréntesis.
 
 145
-00:07:21,400 --> 00:07:24,480
-So, I will just borrow some of this.
+00:07:37,640 --> 00:07:38,400
+Así.
 
 146
-00:07:25,040 --> 00:07:27,040
-I will borrow everything. Let's go.
+00:07:38,720 --> 00:07:44,360
+Esto será entre el número de dados :
+"handle diceNumber",
 
 147
-00:07:29,160 --> 00:07:30,360
-So, I am there.
+00:07:44,680 --> 00:07:47,680
+este es el caso
+donde todos los dados tiran 1,
 
 148
-00:07:31,000 --> 00:07:34,120
-"TestMaxValue", "handle",
-we will create our handle,
+00:07:48,000 --> 00:07:52,560
+y "and: handle maxValue".
 
 149
-00:07:34,440 --> 00:07:38,640
-"self assert maxValue equals: 16".
+00:07:53,920 --> 00:07:55,720
+Ok. ¿Que hará esto?
 
 150
-00:07:38,960 --> 00:07:41,280
-Save this test, run it.
+00:07:56,040 --> 00:07:58,320
+Verificamos que
+cuando lanzamos nuestra tirada de dados,
 
 151
-00:07:42,080 --> 00:07:43,520
-Everything is green, that is great.
+00:07:58,640 --> 00:08:00,680
+estará entre el número de dados
 
 152
-00:07:43,840 --> 00:07:46,720
-Now, the last one is "testRoll".
+00:08:01,000 --> 00:08:02,920
+en el caso
+que todos los dados tiren 1
 
 153
-00:07:47,760 --> 00:07:50,040
-And we will keep the same handle,
+00:08:03,240 --> 00:08:06,720
+y el caso donde todos los dados tiren
+respectivamente su cifra máxima.
 
 154
-00:07:50,360 --> 00:07:52,360
-but this time, we will do the same thing
+00:08:07,040 --> 00:08:09,640
+Por ejemplo, éste hace un 10,
+este hace un 6.
 
 155
-00:07:52,680 --> 00:07:56,080
-that we did for the "roll" method
-for the die.
+00:08:09,960 --> 00:08:10,880
+Guardamos.
 
 156
-00:07:56,400 --> 00:07:58,680
-We will do "10 timesRepeat"
+00:08:11,200 --> 00:08:12,160
+Lanzamos el test.
 
 157
-00:07:59,520 --> 00:08:02,000
-and then block with the assertion.
+00:08:12,480 --> 00:08:15,040
+Todo es verde, esto concluirá
+la segunda parte del "Redo".
 
 158
-00:08:02,640 --> 00:08:04,880
-Block, "self assert",
+00:08:15,360 --> 00:08:18,400
+Antes de terminar, guardaremos
+lo que hicimos en Iceberg.
 
 159
-00:08:05,200 --> 00:08:06,600
-but this will not be...
+00:08:18,720 --> 00:08:20,920
+Una vez más,
+podemos ver "uncommitted changes",
 
 160
-00:08:06,920 --> 00:08:08,200
-We would like to verify
+00:08:21,240 --> 00:08:23,280
+entonces hacemos doble-click,
+cliqueamos sobre Commit
 
 161
-00:08:08,520 --> 00:08:12,520
-that "handle roll is between"...
+00:08:23,600 --> 00:08:24,920
+y escribiremos :
 
 162
-00:08:13,400 --> 00:08:17,800
-I will put the parentheses first,
-parenthesis there, parenthesis there,
+00:08:25,240 --> 00:08:32,680
+"Roll method
+implemented for DieHandle,",
 
 163
-00:08:18,560 --> 00:08:19,360
-remove this.
+00:08:33,000 --> 00:08:35,920
+y diremos
+que agregamos un "printOn":
 
 164
-00:08:19,680 --> 00:08:20,440
-"Between"...
+00:08:36,240 --> 00:08:40,120
+"better print for Die".
 
 165
-00:08:20,840 --> 00:08:25,000
-If each die rolls 1,
-basically, this would mean 1, 2,
+00:08:41,240 --> 00:08:42,240
+Commit.
 
 166
-00:08:25,320 --> 00:08:26,760
-so the number of dice,
+00:08:42,560 --> 00:08:44,360
+Listo, tenemos todo actualizado.
 
 167
-00:08:27,080 --> 00:08:32,800
-"between handle diceNumber
-and handle maxValue".
+00:08:44,680 --> 00:08:47,320
+Nos encontraremos
+en la tercera parte
 
 168
-00:08:33,120 --> 00:08:35,440
-That is why we needed
-the "maxValue" function.
+00:08:47,640 --> 00:08:52,040
+para los últimos ajustes respecto 
+a lo que queríamos hacer al principio.
 
 169
-00:08:35,960 --> 00:08:36,920
-That is great.
+00:08:52,360 --> 00:08:57,120
+Queríamos tener algo
+que hiciera "1 D4 + 2 D6",
 
 170
-00:08:37,280 --> 00:08:40,520
-Let's save it, run it,
-you can see it is green,
+00:08:57,440 --> 00:09:00,880
+y por ahora, tenemos
+este comportamiento que lo simula,
 
 171
-00:08:40,840 --> 00:08:42,160
-so everything is looking fine.
+00:09:01,200 --> 00:09:02,760
+pero no lo podemos escribir así.
 
 172
-00:08:42,480 --> 00:08:45,000
-We can save our repository once again,
+00:09:03,080 --> 00:09:05,880
+Veremos cómo podemos hacerlo
+en nuestro próximo video.
 
-173
-00:08:45,320 --> 00:08:47,920
-so Iceberg, "Uncommitted changes".
-
-174
-00:08:48,240 --> 00:08:51,320
-This is what you are supposed to see
-on the first time we save,
-
-175
-00:08:51,640 --> 00:08:53,000
-so double-click on it.
-
-176
-00:08:54,120 --> 00:08:54,880
-Now, Commit.
-
-177
-00:08:55,360 --> 00:08:56,920
-And you can write, for example...
-
-178
-00:08:57,520 --> 00:08:58,720
-What did we add?
-
-179
-00:08:59,040 --> 00:09:00,880
-We added "maxValue", "roll",
-
-180
-00:09:01,360 --> 00:09:06,320
-so "Roll method for DieHandle
-
-181
-00:09:07,600 --> 00:09:12,360
-and better print for Die" and commit.
-
-182
-00:09:13,440 --> 00:09:14,360
-Cool.
-
-183
-00:09:14,680 --> 00:09:16,240
-This is the end of part 2.
-
-184
-00:09:16,560 --> 00:09:18,360
-In part 3, we are going to look
-
-185
-00:09:19,160 --> 00:09:25,760
-at how we can use the behavior we wanted
-with, for example, "1 D4 + 2 D6",
-
-186
-00:09:26,080 --> 00:09:30,440
-because right now, we have the back-end
-simulation of what I have written there,
-
-187
-00:09:30,840 --> 00:09:32,200
-but we have not...
-
-188
-00:09:32,520 --> 00:09:36,040
-This message will not be understood
-by the system for now.
-
-189
-00:09:36,360 --> 00:09:38,240
-We will see that in the next part.
