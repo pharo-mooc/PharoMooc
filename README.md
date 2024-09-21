@@ -1,7 +1,9 @@
-# Welcome to the repository of the Pharo Mooc
+# (OLD Archive) Check https://github.com/pharo-mooc/2024-PharoMooc 
+
+Welcome to the repository of the Pharo Mooc
 
 Official MOOC page: [Pharo MOOC](http://mooc.pharo.org)
-
+Official GH repo page: [https://github.com/pharo-mooc/2024-PharoMooc](https://github.com/pharo-mooc/2024-PharoMooc)
 ## Git Branches
 
 - pharo5: Pharo MOOC based on Pharo 5
